@@ -16,6 +16,8 @@ namespace Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            TesteesListPresenter p = new TesteesListPresenter(new TesteesListForm());
+            Application.Run((Form)p.Form);
         }
     }
 }
