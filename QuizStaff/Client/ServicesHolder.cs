@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace Client
 {
-    static class ServicesHolder
+    class ServicesHolder
     {
         public static Client.ServiceReference.ApplicationServerClient serviceClient
             = new Client.ServiceReference.ApplicationServerClient();
+        private static ServicesHolder singleton;
+        private ServicesHolder() { }
+        public static ServicesHolder getInstance()
+        {
+            if (singleton != null)
+                singleton = new ServicesHolder();
+            return singleton;
+        }
     }
 }
