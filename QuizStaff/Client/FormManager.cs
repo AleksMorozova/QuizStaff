@@ -10,7 +10,7 @@ namespace Client
     {
         public static FormManager Instance { get { return new FormManager();}}
 
-        public void OpenChildForm(Form formToOpen, string text)
+        public void OpenChildForm(System.Windows.Forms.Form formToOpen, string text)
         {
             formToOpen.MdiParent = Program.ApplicationMainForm;
             formToOpen.Text = text;
