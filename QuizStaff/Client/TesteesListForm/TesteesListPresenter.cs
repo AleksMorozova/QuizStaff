@@ -53,11 +53,6 @@ namespace Client
             // TODO notify user that data saved succesfully
             MessageBox.Show("Saved");
         }
-
-        public void Show()
-        {
-            this.Form.Show();
-        }
         public void Close()
         {
             if (WantToProceed())
