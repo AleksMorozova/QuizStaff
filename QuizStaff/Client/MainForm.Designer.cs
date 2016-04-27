@@ -88,6 +88,7 @@
             this.testeesBarButton.Caption = "Testees";
             this.testeesBarButton.Id = 0;
             this.testeesBarButton.Name = "testeesBarButton";
+            this.testeesBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.testeesBarButton_ItemClick);
             // 
             // trainingsBarButton
             // 

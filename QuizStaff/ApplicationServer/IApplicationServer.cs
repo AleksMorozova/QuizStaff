@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using DomainModel;
 
 namespace Server
 {
@@ -14,6 +15,9 @@ namespace Server
         [OperationContract]
         string GetData(int value);
 
+        [OperationContract]
+        List<Testee> GetAllTestees();
+        void SaveAllTestees(List<Testee> testees);
         // TODO: Add your service operations here
     }
    
