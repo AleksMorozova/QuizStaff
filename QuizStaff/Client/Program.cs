@@ -20,6 +20,9 @@ namespace Client
         [STAThread]
         static void Main()
         {
+            var service = ServicesHolder.ServiceHolderObject;
+
+            service.ServiceClient.GetData(7);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             applicationMainForm = new MainForm();

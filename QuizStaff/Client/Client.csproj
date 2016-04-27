@@ -102,13 +102,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Service References\ServiceReference\ApplicationServer.wsdl" />
-    <None Include="Service References\ServiceReference\Client.ServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServiceReference\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference\item2.xsd">

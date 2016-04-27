@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ApplicationServer.DAL;
+using DomainModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,6 +14,14 @@ namespace Server
     {
         public string GetData(int value)
         {
+            using (var ctx = new QuizContext())
+            {
+                Testee stud = new Testee() { FirstName = "New Testee" };
+
+                ctx.Testees.Add(stud);
+                ctx.SaveChanges();
+            }
+
             return string.Format("You entered: {0}", value);
         }
     }

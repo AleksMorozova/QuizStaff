@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    public class Training
+    public class Training : Entity
     {
-        public String TrainingTitle { get; set; }
-        public List<Question> Questions {get;set;}
-
-        public Training(string trainingtitle)
+        public Training()
         {
-            this.TrainingTitle = trainingtitle;
-            this.Questions = new List<Question>();
         }
+
+        public String TrainingTitle { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
     }
 }
