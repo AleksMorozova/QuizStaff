@@ -131,6 +131,16 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationServer\Server.csproj">
+      <Project>{e15db54f-3233-4f07-be16-5be474cfaa59}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

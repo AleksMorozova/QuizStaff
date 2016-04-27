@@ -11,6 +11,8 @@ namespace Client
     {
         TesteesListPresenter Presenter { get; set; }
         void Show();
+        void Close();
         void SetBindings(List<Testee> testees);
+        bool NotifyUnsavedData();
     }
 }
