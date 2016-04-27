@@ -19,12 +19,10 @@ namespace Client
             InitializeComponent();
         }
 
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        private void testBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = new Form();
-            f.Text = "Child Form ";
-            f.MdiParent = this;
-            f.Show();
+            Form f = new Form(); 
+            FormManager.Instance.OpenChildForm(f, "Test");
         }
     }
 }

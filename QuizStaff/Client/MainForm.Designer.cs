@@ -29,69 +29,96 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.tabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.mainMenuManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.mainMenu = new DevExpress.XtraBars.Bar();
+            this.testeesBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.trainingsBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.settingsBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.testBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.statusBar = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainMenuManager)).BeginInit();
             this.SuspendLayout();
             // 
-            // xtraTabbedMdiManager1
+            // tabbedMdiManager
             // 
-            this.xtraTabbedMdiManager1.MdiParent = this;
+            this.tabbedMdiManager.MdiParent = this;
             // 
-            // barManager1
+            // mainMenuManager
             // 
-            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar2,
-            this.bar3});
-            this.barManager1.DockControls.Add(this.barDockControlTop);
-            this.barManager1.DockControls.Add(this.barDockControlBottom);
-            this.barManager1.DockControls.Add(this.barDockControlLeft);
-            this.barManager1.DockControls.Add(this.barDockControlRight);
-            this.barManager1.Form = this;
-            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barButtonItem1});
-            this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 1;
-            this.barManager1.StatusBar = this.bar3;
+            this.mainMenuManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.mainMenu,
+            this.statusBar});
+            this.mainMenuManager.DockControls.Add(this.barDockControlTop);
+            this.mainMenuManager.DockControls.Add(this.barDockControlBottom);
+            this.mainMenuManager.DockControls.Add(this.barDockControlLeft);
+            this.mainMenuManager.DockControls.Add(this.barDockControlRight);
+            this.mainMenuManager.Form = this;
+            this.mainMenuManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.testeesBarButton,
+            this.trainingsBarButton,
+            this.settingsBarButton,
+            this.testBarButton});
+            this.mainMenuManager.MainMenu = this.mainMenu;
+            this.mainMenuManager.MaxItemId = 4;
+            this.mainMenuManager.StatusBar = this.statusBar;
             // 
-            // bar2
+            // mainMenu
             // 
-            this.bar2.BarName = "Main menu";
-            this.bar2.DockCol = 0;
-            this.bar2.DockRow = 0;
-            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
-            this.bar2.OptionsBar.MultiLine = true;
-            this.bar2.OptionsBar.UseWholeRow = true;
-            this.bar2.Text = "Main menu";
+            this.mainMenu.BarName = "Main menu";
+            this.mainMenu.DockCol = 0;
+            this.mainMenu.DockRow = 0;
+            this.mainMenu.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.mainMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.testeesBarButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.trainingsBarButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.settingsBarButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.testBarButton)});
+            this.mainMenu.OptionsBar.MultiLine = true;
+            this.mainMenu.OptionsBar.UseWholeRow = true;
+            this.mainMenu.Text = "Main menu";
             // 
-            // barButtonItem1
+            // testeesBarButton
             // 
-            this.barButtonItem1.Caption = "Testee";
-            this.barButtonItem1.Id = 0;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.testeesBarButton.Caption = "Testees";
+            this.testeesBarButton.Id = 0;
+            this.testeesBarButton.Name = "testeesBarButton";
             // 
-            // bar3
+            // trainingsBarButton
             // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
+            this.trainingsBarButton.Caption = "Trainings";
+            this.trainingsBarButton.Id = 1;
+            this.trainingsBarButton.Name = "trainingsBarButton";
+            // 
+            // settingsBarButton
+            // 
+            this.settingsBarButton.Caption = "Settings";
+            this.settingsBarButton.Id = 2;
+            this.settingsBarButton.Name = "settingsBarButton";
+            // 
+            // testBarButton
+            // 
+            this.testBarButton.Caption = "Test";
+            this.testBarButton.Id = 3;
+            this.testBarButton.Name = "testBarButton";
+            this.testBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.testBarButton_ItemClick);
+            // 
+            // statusBar
+            // 
+            this.statusBar.BarName = "Status bar";
+            this.statusBar.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
+            this.statusBar.DockCol = 0;
+            this.statusBar.DockRow = 0;
+            this.statusBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.statusBar.OptionsBar.AllowQuickCustomization = false;
+            this.statusBar.OptionsBar.DrawDragBorder = false;
+            this.statusBar.OptionsBar.UseWholeRow = true;
+            this.statusBar.Text = "Status bar";
             // 
             // barDockControlTop
             // 
@@ -133,8 +160,8 @@
             this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.Text = "MainForm";
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainMenuManager)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,15 +169,18 @@
 
         #endregion
 
-        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
-        private DevExpress.XtraBars.BarManager barManager1;
-        private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.Bar bar3;
+        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager tabbedMdiManager;
+        private DevExpress.XtraBars.BarManager mainMenuManager;
+        private DevExpress.XtraBars.Bar mainMenu;
+        private DevExpress.XtraBars.BarButtonItem testeesBarButton;
+        private DevExpress.XtraBars.Bar statusBar;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem trainingsBarButton;
+        private DevExpress.XtraBars.BarButtonItem settingsBarButton;
+        private DevExpress.XtraBars.BarButtonItem testBarButton;
 
 
     }
