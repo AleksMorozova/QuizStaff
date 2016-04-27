@@ -8,11 +8,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DomainModel;
 
 namespace Client
 {
     public partial class TesteesListForm : DevExpress.XtraEditors.XtraForm, ITesteesListForm
     {
+        public TesteesListPresenter Presenter { get; set; }
         public TesteesListForm()
         {
             InitializeComponent();
@@ -20,6 +22,11 @@ namespace Client
         public void SetBindings(List<Testee> testees)
         {
             gridTestees.DataSource = testees;
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine();
         }
     }
 

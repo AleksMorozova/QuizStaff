@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainModel;
 
 namespace Client
 {
-    interface ITesteesListForm
+    public interface ITesteesListForm
     {
+        TesteesListPresenter Presenter { get; set; }
         void Show();
         void SetBindings(List<Testee> testees);
     }
