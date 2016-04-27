@@ -9,7 +9,7 @@ namespace Client
     class ServicesHolder
     {
         public static Client.ServiceReference.ApplicationServerClient serviceClient;
-        private static ServicesHolder singleton;
+        private static ServicesHolder serviceHolderObject;
         public Client.ServiceReference.ApplicationServerClient ServiceClient
         {
             get
@@ -23,11 +23,14 @@ namespace Client
         {
             serviceClient = new Client.ServiceReference.ApplicationServerClient();
         }
-        public static ServicesHolder getInstance()
+        public static ServicesHolder ServiceHolderObject
         {
-            if (singleton == null)
-                singleton = new ServicesHolder();
-            return singleton;
+            get
+            {
+                if (serviceHolderObject == null)
+                    serviceHolderObject = new ServicesHolder();
+                return serviceHolderObject;
+            }
         }
     }
 }
