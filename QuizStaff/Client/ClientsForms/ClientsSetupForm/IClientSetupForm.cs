@@ -7,7 +7,7 @@ namespace Client.ClientsForms
     {
         Int32 QuestionsAmount { get; }
         DateTime FrequencyOfAsking { get; }
-        void SetSettings(UsersSettings sets);
+        void SetSettings(Settings sets);
         event EventHandler ButSaveClick;
         event EventHandler ButCancelClick;
     }

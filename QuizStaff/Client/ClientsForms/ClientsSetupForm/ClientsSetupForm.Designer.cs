@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.MainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.timeEditFrequency = new DevExpress.XtraEditors.TimeEdit();
             this.spinEditAmount = new DevExpress.XtraEditors.SpinEdit();
             this.butSave = new DevExpress.XtraEditors.SimpleButton();
             this.butCancel = new DevExpress.XtraEditors.SimpleButton();
@@ -40,10 +41,10 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.timeEditFrequency = new DevExpress.XtraEditors.TimeEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainLayoutControl)).BeginInit();
             this.MainLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEditFrequency.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
@@ -53,7 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEditFrequency.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +71,17 @@
             this.MainLayoutControl.Size = new System.Drawing.Size(267, 169);
             this.MainLayoutControl.TabIndex = 0;
             this.MainLayoutControl.Text = "MainLayoutControl";
+            // 
+            // timeEditFrequency
+            // 
+            this.timeEditFrequency.EditValue = new System.DateTime(2016, 4, 28, 0, 0, 0, 0);
+            this.timeEditFrequency.Location = new System.Drawing.Point(12, 78);
+            this.timeEditFrequency.Name = "timeEditFrequency";
+            this.timeEditFrequency.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEditFrequency.Size = new System.Drawing.Size(243, 20);
+            this.timeEditFrequency.StyleController = this.MainLayoutControl;
+            this.timeEditFrequency.TabIndex = 10;
             // 
             // spinEditAmount
             // 
@@ -95,6 +106,7 @@
             this.butSave.StyleController = this.MainLayoutControl;
             this.butSave.TabIndex = 5;
             this.butSave.Text = "Save";
+            this.butSave.Click += new System.EventHandler(this.butSave_Click);
             // 
             // butCancel
             // 
@@ -104,6 +116,7 @@
             this.butCancel.StyleController = this.MainLayoutControl;
             this.butCancel.TabIndex = 4;
             this.butCancel.Text = "Cancel";
+            this.butCancel.Click += new System.EventHandler(this.butCancel_Click);
             // 
             // layoutControlGroup1
             // 
@@ -187,17 +200,6 @@
             this.emptySpaceItem4.Size = new System.Drawing.Size(247, 10);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // timeEditFrequency
-            // 
-            this.timeEditFrequency.EditValue = new System.DateTime(2016, 4, 28, 0, 0, 0, 0);
-            this.timeEditFrequency.Location = new System.Drawing.Point(12, 78);
-            this.timeEditFrequency.Name = "timeEditFrequency";
-            this.timeEditFrequency.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEditFrequency.Size = new System.Drawing.Size(243, 20);
-            this.timeEditFrequency.StyleController = this.MainLayoutControl;
-            this.timeEditFrequency.TabIndex = 10;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.timeEditFrequency;
@@ -220,6 +222,7 @@
             this.Text = "Set up";
             ((System.ComponentModel.ISupportInitialize)(this.MainLayoutControl)).EndInit();
             this.MainLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.timeEditFrequency.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
@@ -229,7 +232,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEditFrequency.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 

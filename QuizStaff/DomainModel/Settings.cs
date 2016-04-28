@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    public class UsersSettings
+    public class Settings
     {
         public int AmountOfQuestionsPerDay { get; set; }
         public DateTime FrequencyOfAsking { get; set; }
-        public UsersSettings(int amountofq , DateTime freq)
+        public Settings(int amountofq , DateTime freq)
         {
             AmountOfQuestionsPerDay = amountofq;
             FrequencyOfAsking = freq;

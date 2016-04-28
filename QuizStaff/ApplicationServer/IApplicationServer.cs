@@ -20,9 +20,9 @@ namespace Server
         void SaveAllTestees(List<Testee> testees);
 
         [OperationContract]
-        void SetUsersSettings(UsersSettings sets);
+        Boolean SetUsersSettings(Settings sets);
         [OperationContract]
-        UsersSettings GetUsersSettings();
+        Settings GetUsersSettings();
         // TODO: Add your service operations here
     }
    

@@ -36,15 +36,22 @@ namespace Server
             // TODO save to database
         }
 
-        public void SetUsersSettings(UsersSettings sets)
+        public Boolean SetUsersSettings(Settings sets)
         {
-            //Save to database
+            try
+            {
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public UsersSettings GetUsersSettings()
+        public Settings GetUsersSettings()
         {
             //Setup getting settings
-            return new UsersSettings(2, DateTime.UtcNow);
+            return new Settings(2, DateTime.UtcNow);
         }
     }
 }

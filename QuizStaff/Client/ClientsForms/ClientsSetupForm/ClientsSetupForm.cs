@@ -34,7 +34,7 @@ namespace Client.ClientsForms
                 spinEditAmount.Value = value;
             }
         }
-        public void SetSettings(UsersSettings sets)
+        public void SetSettings(Settings sets)
         {
             FrequencyOfAsking = sets.FrequencyOfAsking;
             QuestionsAmount = sets.AmountOfQuestionsPerDay;
@@ -42,5 +42,16 @@ namespace Client.ClientsForms
 
         public event EventHandler ButSaveClick;
         public event EventHandler ButCancelClick;
+
+        private void butCancel_Click(object sender, EventArgs e)
+        {
+            if (ButCancelClick != null) ButCancelClick(this, EventArgs.Empty);
+            Close();
+        }
+
+        private void butSave_Click(object sender, EventArgs e)
+        {
+            if (ButSaveClick != null) ButSaveClick(this, EventArgs.Empty);
+        }
     }
 }

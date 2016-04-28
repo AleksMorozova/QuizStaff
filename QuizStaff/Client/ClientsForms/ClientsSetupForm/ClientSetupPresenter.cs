@@ -1,5 +1,7 @@
 ﻿using Client.ServiceReference;
+using DomainModel;
 using System;
+using System.Windows.Forms;
 
 namespace Client.ClientsForms
 {
@@ -12,18 +14,27 @@ namespace Client.ClientsForms
         {
             this._view = _view;
             _server = ServicesHolder.ServiceClient;
-            _view.SetSettings(_server.GetUsersSettings);
+            _view.SetSettings(_server.GetUsersSettings());
             _view.ButSaveClick += Save;
             _view.ButCancelClick += Cancel;
         }
 
         private void Save(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if(_server.SetUsersSettings(new Settings(_view.QuestionsAmount,
+                _view.FrequencyOfAsking)))
+            {
+                MessageBox.Show("Saved successfully", "Massage", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show("Data can not be saved.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void Cancel(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _view.ButSaveClick -= Save;
+            _view.ButCancelClick -= Cancel;
         }
     }
 }
