@@ -35,5 +35,16 @@ namespace Server
         {
             // TODO save to database
         }
+
+        public void SetUsersSettings(UsersSettings sets)
+        {
+            //Save to database
+        }
+
+        public UsersSettings GetUsersSettings()
+        {
+            //Setup getting settings
+            return new UsersSettings(2, DateTime.UtcNow);
+        }
     }
 }

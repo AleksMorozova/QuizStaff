@@ -42,7 +42,7 @@
     <Compile Include="Answer.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Question.cs" />
-    <Compile Include="Settings.cs" />
+    <Compile Include="UsersSettings.cs" />
     <Compile Include="Testee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Training.cs" />
