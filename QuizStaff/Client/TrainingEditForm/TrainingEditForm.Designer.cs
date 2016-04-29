@@ -42,12 +42,12 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.buttonAddControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.buttonEditControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.buttonLoadControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.questionsControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.buttonCancelControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.buttonSaveControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridQuestions)).BeginInit();
@@ -57,12 +57,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonAddControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEditControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonLoadControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionsControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonCancelControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonSaveControlItem)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -77,6 +77,7 @@
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(618, 132, 674, 544);
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(776, 416);
             this.layoutControl1.TabIndex = 0;
@@ -189,12 +190,12 @@
             this.emptySpaceItem2,
             this.layoutControlItem1,
             this.emptySpaceItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem3,
-            this.layoutControlItem2,
-            this.layoutControlItem5,
-            this.layoutControlItem6,
-            this.layoutControlItem7});
+            this.buttonAddControlItem,
+            this.buttonEditControlItem,
+            this.buttonLoadControlItem,
+            this.questionsControlItem,
+            this.buttonCancelControlItem,
+            this.buttonSaveControlItem});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(776, 416);
@@ -226,74 +227,74 @@
             this.emptySpaceItem3.Size = new System.Drawing.Size(422, 27);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem4
+            // buttonAddControlItem
             // 
-            this.layoutControlItem4.Control = this.buttonAddQuestion;
-            this.layoutControlItem4.Location = new System.Drawing.Point(422, 40);
-            this.layoutControlItem4.MaxSize = new System.Drawing.Size(109, 27);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(109, 27);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(109, 27);
-            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
+            this.buttonAddControlItem.Control = this.buttonAddQuestion;
+            this.buttonAddControlItem.Location = new System.Drawing.Point(422, 40);
+            this.buttonAddControlItem.MaxSize = new System.Drawing.Size(109, 27);
+            this.buttonAddControlItem.MinSize = new System.Drawing.Size(109, 27);
+            this.buttonAddControlItem.Name = "buttonAddControlItem";
+            this.buttonAddControlItem.Size = new System.Drawing.Size(109, 27);
+            this.buttonAddControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.buttonAddControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.buttonAddControlItem.TextVisible = false;
             // 
-            // layoutControlItem3
+            // buttonEditControlItem
             // 
-            this.layoutControlItem3.Control = this.buttonEditQuestion;
-            this.layoutControlItem3.Location = new System.Drawing.Point(531, 40);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(110, 27);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(110, 27);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(110, 27);
-            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
+            this.buttonEditControlItem.Control = this.buttonEditQuestion;
+            this.buttonEditControlItem.Location = new System.Drawing.Point(531, 40);
+            this.buttonEditControlItem.MaxSize = new System.Drawing.Size(110, 27);
+            this.buttonEditControlItem.MinSize = new System.Drawing.Size(110, 27);
+            this.buttonEditControlItem.Name = "buttonEditControlItem";
+            this.buttonEditControlItem.Size = new System.Drawing.Size(110, 27);
+            this.buttonEditControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.buttonEditControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.buttonEditControlItem.TextVisible = false;
             // 
-            // layoutControlItem2
+            // buttonLoadControlItem
             // 
-            this.layoutControlItem2.Control = this.buttonLoadQuestion;
-            this.layoutControlItem2.Location = new System.Drawing.Point(641, 40);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(115, 27);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(115, 27);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(115, 27);
-            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
+            this.buttonLoadControlItem.Control = this.buttonLoadQuestion;
+            this.buttonLoadControlItem.Location = new System.Drawing.Point(641, 40);
+            this.buttonLoadControlItem.MaxSize = new System.Drawing.Size(115, 27);
+            this.buttonLoadControlItem.MinSize = new System.Drawing.Size(115, 27);
+            this.buttonLoadControlItem.Name = "buttonLoadControlItem";
+            this.buttonLoadControlItem.Size = new System.Drawing.Size(115, 27);
+            this.buttonLoadControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.buttonLoadControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.buttonLoadControlItem.TextVisible = false;
             // 
-            // layoutControlItem5
+            // questionsControlItem
             // 
-            this.layoutControlItem5.Control = this.gridQuestions;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 67);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(756, 302);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
+            this.questionsControlItem.Control = this.gridQuestions;
+            this.questionsControlItem.Location = new System.Drawing.Point(0, 67);
+            this.questionsControlItem.Name = "questionsControlItem";
+            this.questionsControlItem.Size = new System.Drawing.Size(756, 302);
+            this.questionsControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.questionsControlItem.TextVisible = false;
             // 
-            // layoutControlItem6
+            // buttonCancelControlItem
             // 
-            this.layoutControlItem6.Control = this.buttonCancel;
-            this.layoutControlItem6.Location = new System.Drawing.Point(641, 369);
-            this.layoutControlItem6.MaxSize = new System.Drawing.Size(115, 27);
-            this.layoutControlItem6.MinSize = new System.Drawing.Size(115, 27);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(115, 27);
-            this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
+            this.buttonCancelControlItem.Control = this.buttonCancel;
+            this.buttonCancelControlItem.Location = new System.Drawing.Point(641, 369);
+            this.buttonCancelControlItem.MaxSize = new System.Drawing.Size(115, 27);
+            this.buttonCancelControlItem.MinSize = new System.Drawing.Size(115, 27);
+            this.buttonCancelControlItem.Name = "buttonCancelControlItem";
+            this.buttonCancelControlItem.Size = new System.Drawing.Size(115, 27);
+            this.buttonCancelControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.buttonCancelControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.buttonCancelControlItem.TextVisible = false;
             // 
-            // layoutControlItem7
+            // buttonSaveControlItem
             // 
-            this.layoutControlItem7.Control = this.buttonSave;
-            this.layoutControlItem7.Location = new System.Drawing.Point(531, 369);
-            this.layoutControlItem7.MaxSize = new System.Drawing.Size(110, 27);
-            this.layoutControlItem7.MinSize = new System.Drawing.Size(110, 27);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(110, 27);
-            this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
+            this.buttonSaveControlItem.Control = this.buttonSave;
+            this.buttonSaveControlItem.Location = new System.Drawing.Point(531, 369);
+            this.buttonSaveControlItem.MaxSize = new System.Drawing.Size(110, 27);
+            this.buttonSaveControlItem.MinSize = new System.Drawing.Size(110, 27);
+            this.buttonSaveControlItem.Name = "buttonSaveControlItem";
+            this.buttonSaveControlItem.Size = new System.Drawing.Size(110, 27);
+            this.buttonSaveControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.buttonSaveControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.buttonSaveControlItem.TextVisible = false;
             // 
             // TrainingEditForm
             // 
@@ -313,12 +314,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonAddControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEditControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonLoadControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionsControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonCancelControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonSaveControlItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,16 +335,16 @@
         private System.Windows.Forms.Button buttonLoadQuestion;
         private System.Windows.Forms.Button buttonEditQuestion;
         private System.Windows.Forms.Button buttonAddQuestion;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem buttonAddControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem buttonEditControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem buttonLoadControlItem;
         private DevExpress.XtraGrid.GridControl gridQuestions;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn QuestionText;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem questionsControlItem;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSave;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.LayoutControlItem buttonCancelControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem buttonSaveControlItem;
     }
 }
