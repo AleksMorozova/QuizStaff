@@ -77,6 +77,7 @@
     </Compile>
     <Compile Include="ServicesHolder.cs" />
     <Compile Include="TesteesListForm\ITesteesListForm.cs" />
+    <Compile Include="TrainingsListForm\ITrainingsListForm.cs" />
     <Compile Include="TesteesListForm\TesteesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +85,13 @@
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TesteesListForm\TesteesListPresenter.cs" />
+    <Compile Include="TrainingsListForm\TrainingListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrainingsListForm\TrainingListForm.Designer.cs">
+      <DependentUpon>TrainingListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingsListForm\TrainingListPresenter.cs" />
     <EmbeddedResource Include="Form.resx">
       <DependentUpon>Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +111,9 @@
     </Compile>
     <EmbeddedResource Include="TesteesListForm\TesteesListForm.resx">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingsListForm\TrainingListForm.resx">
+      <DependentUpon>TrainingListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -161,6 +172,7 @@
       <Name>DomainModel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
