@@ -41,6 +41,7 @@ namespace Server
             var questions = new List<Question>();
             var first = new Question("первый вопрос", training);
             var second = new Question("второй вопрос", training);
+
             first.Answers.Add(new Answer("правильный", true));
             first.Answers.Add(new Answer("неправильный", false));
             first.Answers.Add(new Answer("тоже правильный", true));
