@@ -38,15 +38,16 @@ namespace Client
             MessageBox.Show("Form closed");
         }
 
-        public TrainingEditForm()
+        public TrainingEditForm(Training aim)
         {
             InitializeComponent();
-            Presenter = new TrainingEditPresenter(this, new Training("тест"));
+            Presenter = new TrainingEditPresenter(this, aim);
+            this.Text = "Training : " + aim.TrainingTitle;
         }
 
         private void TrainingEditForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void buttonAddQuestion_Click(object sender, EventArgs e)
@@ -77,6 +78,11 @@ namespace Client
         private void gridQuestions_DoubleClick(object sender, EventArgs e)
         {
             Presenter.EditQuestion((Question)((GridView)gridQuestions.MainView).GetFocusedRow());
+        }
+
+        private void buttonAddQuestion_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
