@@ -83,6 +83,12 @@
       <Name>DomainModel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VSToolsPath Condition="'$(VSToolsPath)' == '' and '$(VisualStudioVersion)' != '' and '$(VisualStudioVersion)' != '11.0'">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

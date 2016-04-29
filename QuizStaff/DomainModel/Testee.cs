@@ -10,20 +10,20 @@ namespace DomainModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        private string email;
-        private string login;
+        public string Email { get; set; }
+        public string Login { get; set; }
         private string password;
 
-        List<History> Histories { get; set; }
-        List<Training> Trainings { get; set; }
+        public List<History> Histories { get; set; }
+        public List<Training> Trainings { get; set; }
 
         public Testee(string firstname, string lastname, string email)
         {
             this.FirstName = firstname;
             this.LastName = lastname;
-            this.email = email;
+            this.Email = email;
 
-            login = string.Empty;
+            this.Login = string.Empty;
             password = string.Empty;
 
             Histories = new List<History>();

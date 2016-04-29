@@ -8,6 +8,12 @@ namespace Client
 {
     static class Program
     {
+        //Global data
+        private static MainForm applicationMainForm;
+        /// <summary>
+        /// Global access to main form need to update statusbar texts
+        /// </summary>
+        public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,6 +22,8 @@ namespace Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            applicationMainForm = new MainForm();
+            Application.Run(ApplicationMainForm);
         }
     }
 }
