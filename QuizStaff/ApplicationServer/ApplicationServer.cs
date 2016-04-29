@@ -31,9 +31,27 @@ namespace Server
             return testees;
         
         }
+
+        public List<Training> GetAllTrainings()
+        {
+            List<Training> trainingList = new List<Training>();
+            trainingList.Add(new Training("Training_1"));
+            trainingList.Add(new Training("Training_2"));
+            trainingList.Add(new Training("Training_3"));
+            trainingList.Add(new Training("Training_4"));
+
+            return trainingList;
+        }
+
         public void SaveAllTestees(List<Testee> testee)
         {
             // TODO save to database
         }
+
+        public void SaveAllTrainings(List<Training> trainingList)
+        {
+            // TODO save to database
+        }
+
     }
 }

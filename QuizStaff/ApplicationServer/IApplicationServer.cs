@@ -17,7 +17,10 @@ namespace Server
 
         [OperationContract]
         List<Testee> GetAllTestees();
+        [OperationContract]
+        List<Training> GetAllTrainings();
         void SaveAllTestees(List<Testee> testees);
+        void SaveAllTrainings(List<Training> trainings);
         // TODO: Add your service operations here
     }
    

@@ -31,5 +31,14 @@ namespace Client
             TesteesListPresenter p = new TesteesListPresenter(f);
             FormManager.Instance.OpenChildForm(f, "Testees");
         }
+
+        private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            TrainingsListForm.TrainingListForm form = new TrainingsListForm.TrainingListForm();
+            TrainingListPresenter presenter = new TrainingListPresenter(form);
+            FormManager.Instance.OpenChildForm(form, "Trainings");
+        }
+
+        
     }
 }
