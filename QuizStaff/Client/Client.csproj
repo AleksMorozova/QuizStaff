@@ -104,6 +104,7 @@
     <EmbeddedResource Include="TesteesListForm\TesteesListForm.resx">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\DomainModel.Testee.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -115,6 +116,9 @@
     </Compile>
     <None Include="Service References\ServiceReference\ApplicationServer.wsdl" />
     <None Include="Service References\ServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference\item2.xsd">

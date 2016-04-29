@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApplicationServer.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,10 +20,7 @@ namespace Client
         /// </summary>
         [STAThread]
         static void Main()
-        {
-            var service = ServicesHolder.ServiceHolderObject;
-
-            service.ServiceClient.GetData(7);
+        {        
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             applicationMainForm = new MainForm();

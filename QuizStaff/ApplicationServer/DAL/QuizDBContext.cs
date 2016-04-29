@@ -8,9 +8,9 @@ using DomainModel;
 
 namespace ApplicationServer.DAL
 {
-    public class QuizContext : DbContext
+    public class QuizDBContext : DbContext
     {
-        public QuizContext()
+        public QuizDBContext()
             : base()
         {
             
@@ -22,6 +22,7 @@ namespace ApplicationServer.DAL
         public DbSet<Answer> Answers { get; set; }
         public DbSet<History> Histories { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<TesteeTraining> TesteeTrainings { get; set; }
 
         public DbSet<TesteeAnswer> TesteeAnswers { get; set; }
     }

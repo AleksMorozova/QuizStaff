@@ -13,14 +13,15 @@ namespace Client
     public class TesteesListPresenter
     {
         public ITesteesListForm Form { get; private set; }
-        private IApplicationServer server;
+        private ServicesHolder service;
         private List<Testee> testees = new List<Testee>();
         // Becomes true when "Save" button on "Edit testee" form is pressed
         public bool DataChanged { get; set; }
 
         public TesteesListPresenter(ITesteesListForm form)
         {
-            this.server = new ApplicationServer();
+            service = ServicesHolder.ServiceHolderObject;
+
             this.Form = form;
             this.Form.Presenter = this;
 
@@ -31,7 +32,10 @@ namespace Client
         {
             if (WantToProceed())
             {
-                this.testees = server.GetAllTestees();
+                var r = service.ServiceClient.GetData(7);
+
+                var t = service.ServiceClient.GetTestee();
+                this.testees = service.ServiceClient.GetAllTestees().ToList();
                 this.Form.SetBindings(this.testees);
                 this.DataChanged = false;
             }
@@ -48,7 +52,7 @@ namespace Client
 
         public void SaveTestees()
         {
-            this.server.SaveAllTestees(this.testees);
+            service.ServiceClient.SaveAllTestees(this.testees.ToArray());
             this.DataChanged = false;
             // TODO notify user that data saved succesfully
             MessageBox.Show("Saved");

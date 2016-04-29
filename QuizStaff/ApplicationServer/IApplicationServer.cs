@@ -16,8 +16,13 @@ namespace Server
         string GetData(int value);
 
         [OperationContract]
-        List<Testee> GetAllTestees();
+        List<Testee> GetAllTestees(); 
+        
+        [OperationContract]
         void SaveAllTestees(List<Testee> testees);
+
+        [OperationContract]
+        Testee GetTestee();
         // TODO: Add your service operations here
     }
    
