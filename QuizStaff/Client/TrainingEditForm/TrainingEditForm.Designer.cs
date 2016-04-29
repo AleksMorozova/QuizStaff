@@ -78,6 +78,9 @@
             this.QuestionText.Caption = "Question";
             this.QuestionText.FieldName = "QuestionText";
             this.QuestionText.Name = "QuestionText";
+            this.QuestionText.OptionsColumn.AllowEdit = false;
+            this.QuestionText.OptionsColumn.AllowFocus = false;
+            this.QuestionText.OptionsColumn.ReadOnly = true;
             this.QuestionText.Visible = true;
             this.QuestionText.VisibleIndex = 0;
             // 

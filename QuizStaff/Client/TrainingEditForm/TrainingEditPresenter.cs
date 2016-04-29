@@ -55,7 +55,7 @@ namespace Client
         public void EditQuestion(Question question)
         {
             // TODO invoke new "Edit testee" form with testee's data in fields
-            MessageBox.Show("Edit question " + question);
+            MessageBox.Show("Edit question " + question.QuestionText);
         }
         public void AddQuestion()
         {
