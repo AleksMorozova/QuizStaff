@@ -20,6 +20,8 @@ namespace Client
         public TesteesListForm()
         {
             InitializeComponent();
+            this.Presenter = new TesteesListPresenter(this);
+            gridTestees.Select();
         }
         public void SetBindings(List<Testee> testees)
         {
@@ -33,10 +35,9 @@ namespace Client
                 MessageBoxIcon.Warning);
             return (result == DialogResult.OK) ? true : false;
         }
-        public void Close()
+        public void CloseForm()
         {
-            // TODO close form
-            MessageBox.Show("Form closed");
+            this.Close();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -60,18 +61,6 @@ namespace Client
         }
 
         private void buttonEditTestee_Click(object sender, EventArgs e)
-        {
-            Presenter.EditTestee((Testee)((GridView)gridTestees.MainView).GetFocusedRow());
-        }
-
-        // TODO remove this after tests
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Presenter.DataChanged = !Presenter.DataChanged;
-            MessageBox.Show("DataChanged =" + Presenter.DataChanged);
-        }
-
-        private void gridTestees_DoubleClick(object sender, EventArgs e)
         {
             Presenter.EditTestee((Testee)((GridView)gridTestees.MainView).GetFocusedRow());
         }
