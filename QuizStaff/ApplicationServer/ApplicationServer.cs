@@ -40,7 +40,7 @@ namespace Server
         {
             try
             {
-                return false;
+                return true;
             }
             catch
             {

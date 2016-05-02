@@ -79,6 +79,8 @@
             this.timeEditFrequency.Name = "timeEditFrequency";
             this.timeEditFrequency.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEditFrequency.Properties.Mask.BeepOnError = true;
+            this.timeEditFrequency.Properties.Mask.EditMask = "t";
             this.timeEditFrequency.Size = new System.Drawing.Size(243, 20);
             this.timeEditFrequency.StyleController = this.MainLayoutControl;
             this.timeEditFrequency.TabIndex = 10;
@@ -86,7 +88,7 @@
             // spinEditAmount
             // 
             this.spinEditAmount.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -94,6 +96,18 @@
             this.spinEditAmount.Name = "spinEditAmount";
             this.spinEditAmount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEditAmount.Properties.IsFloatValue = false;
+            this.spinEditAmount.Properties.Mask.EditMask = "N00";
+            this.spinEditAmount.Properties.MaxValue = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.spinEditAmount.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.spinEditAmount.Size = new System.Drawing.Size(139, 20);
             this.spinEditAmount.StyleController = this.MainLayoutControl;
             this.spinEditAmount.TabIndex = 9;

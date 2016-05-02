@@ -14,14 +14,14 @@ namespace Client.ClientsForms
         {
             this._view = _view;
             _server = ServicesHolder.ServiceClient;
-            _view.SetSettings(_server.GetUsersSettings());
+            _view.SetSettings(GetUsersSettings());
             _view.ButSaveClick += Save;
             _view.ButCancelClick += Cancel;
         }
 
         private void Save(object sender, EventArgs e)
         {
-            if(_server.SetUsersSettings(new Settings(_view.QuestionsAmount,
+            if(SetUsersSettings(new Settings(_view.QuestionsAmount,
                 _view.FrequencyOfAsking)))
             {
                 MessageBox.Show("Saved successfully", "Massage", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -36,5 +36,26 @@ namespace Client.ClientsForms
             _view.ButSaveClick -= Save;
             _view.ButCancelClick -= Cancel;
         }
+
+        #region Mock objects.  
+        //Yeap, mock in main project
+        public Boolean SetUsersSettings(Settings sets)
+        {
+            try
+            {
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public Settings GetUsersSettings()
+        {
+            //Setup getting settings
+            return new Settings(2, new System.DateTime(2016, 5, 8, 10, 10, 10, 10));
+        }
+        #endregion
     }
 }

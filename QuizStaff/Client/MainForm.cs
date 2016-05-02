@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars;
+using Client.ClientsForms;
 
 namespace Client
 {
@@ -21,7 +22,8 @@ namespace Client
 
         private void testBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = new Form(); 
+            //Form f = new Form(); 
+            var f = new ClientsSetupForm();
             FormManager.Instance.OpenChildForm(f, "Test");
         }
 

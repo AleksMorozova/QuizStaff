@@ -7,19 +7,20 @@ namespace Client.ClientsForms
     {
         public ClientsSetupForm()
         {
-            var presenter = new ClientSetupPresenter(this);
             InitializeComponent();
+            var presenter = new ClientSetupPresenter(this);
+
         }
 
         public DateTime FrequencyOfAsking
         {
             get
             {
-                return timeEditFrequency.Time;
+                return (DateTime)timeEditFrequency.EditValue;
             }
             private set
             {
-                timeEditFrequency.Time = value;
+                timeEditFrequency.EditValue = value;
             }
         }
 
