@@ -35,5 +35,23 @@ namespace Server
         {
             // TODO save to database
         }
+
+        public Boolean SetUsersSettings(Settings sets)
+        {
+            try
+            {
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public Settings GetUsersSettings()
+        {
+            //Setup getting settings
+            return new Settings(2, DateTime.UtcNow);
+        }
     }
 }

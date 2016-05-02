@@ -18,6 +18,11 @@ namespace Server
         [OperationContract]
         List<Testee> GetAllTestees();
         void SaveAllTestees(List<Testee> testees);
+
+        [OperationContract]
+        Boolean SetUsersSettings(Settings sets);
+        [OperationContract]
+        Settings GetUsersSettings();
         // TODO: Add your service operations here
     }
    
