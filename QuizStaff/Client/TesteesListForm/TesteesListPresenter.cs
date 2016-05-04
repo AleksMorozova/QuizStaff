@@ -12,7 +12,7 @@ namespace Client
 {
     public class TesteesListPresenter
     {
-        public ITesteesListForm form;
+        public ITesteesListForm Form { get; private set; }
         private IApplicationServer server;
         private List<Testee> testees = new List<Testee>();
         // Becomes true when "Save" button on "Edit testee" form is pressed
@@ -20,10 +20,10 @@ namespace Client
 
         public TesteesListPresenter(ITesteesListForm form)
         {
-            // TODO make an instance of real server
             this.server = new ApplicationServer();
+            this.Form = form;
+            this.Form.Presenter = this;
 
-            this.form = form;
             this.LoadTestees();
         }
 
@@ -32,7 +32,7 @@ namespace Client
             if (WantToProceed())
             {
                 this.testees = server.GetAllTestees();
-                this.form.SetBindings(this.testees);
+                this.Form.SetBindings(this.testees);
                 this.DataChanged = false;
             }
         }
@@ -41,7 +41,7 @@ namespace Client
         {
             if (this.DataChanged)
             {
-                return this.form.NotifyUnsavedData();
+                return this.Form.NotifyUnsavedData();
             }
             return true;
         }
@@ -57,7 +57,7 @@ namespace Client
         {
             if (WantToProceed())
             {
-                this.form.CloseForm();
+                this.Form.Close();
             }
         }
         public void EditTestee(Testee testee)
