@@ -76,7 +76,6 @@
       <DependentUpon>Form.cs</DependentUpon>
     </Compile>
     <Compile Include="FormManager.cs" />
-    <Compile Include="TrainingEditForm\ITrainingEditForm.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,13 +101,6 @@
     <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="TrainingEditForm\TrainingEditForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TrainingEditForm\TrainingEditForm.Designer.cs">
-      <DependentUpon>TrainingEditForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TrainingEditForm\TrainingEditPresenter.cs" />
     <EmbeddedResource Include="Form.resx">
       <DependentUpon>Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,9 +120,6 @@
     </Compile>
     <EmbeddedResource Include="TesteesListForm\TesteesListForm.resx">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TrainingEditForm\TrainingEditForm.resx">
-      <DependentUpon>TrainingEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -189,7 +178,6 @@
       <Name>DomainModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
