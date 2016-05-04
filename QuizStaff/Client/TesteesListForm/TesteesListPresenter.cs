@@ -7,6 +7,7 @@ using DomainModel;
 using Server;
 using System.Collections.ObjectModel;
 using System.Windows.Forms;
+using DataTransferObject;
 
 namespace Client
 {
@@ -14,7 +15,7 @@ namespace Client
     {
         public ITesteesListForm Form { get; private set; }
         private ServicesHolder service;
-        private List<Testee> testees = new List<Testee>();
+        private List<TesteeDTO> testees = new List<TesteeDTO>();
         // Becomes true when "Save" button on "Edit testee" form is pressed
         public bool DataChanged { get; set; }
 
@@ -36,7 +37,7 @@ namespace Client
 
                 var t = service.ServiceClient.GetTestee();
                 this.testees = service.ServiceClient.GetAllTestees().ToList();
-                this.Form.SetBindings(this.testees);
+                this.Form.SetBindings(this.testees.ToList());
                 this.DataChanged = false;
             }
         }
@@ -52,7 +53,7 @@ namespace Client
 
         public void SaveTestees()
         {
-            service.ServiceClient.SaveAllTestees(this.testees.ToArray());
+           // service.ServiceClient.SaveAllTestees(this.testees.ToArray());
             this.DataChanged = false;
             // TODO notify user that data saved succesfully
             MessageBox.Show("Saved");

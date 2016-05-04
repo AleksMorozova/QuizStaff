@@ -66,6 +66,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
+      <Project>{5a1cd4a2-87f7-48cc-8117-5ebbb44f5c97}</Project>
+      <Name>DataTransferObject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">
       <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>
       <Name>DomainModel</Name>

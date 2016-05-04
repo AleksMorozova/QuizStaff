@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using DomainModel;
+using DataTransferObject;
 
 namespace Server
 {
@@ -19,16 +20,19 @@ namespace Server
             return string.Format("You entered: {0}", value);
         }
 
-        public List<Testee> GetAllTestees()
+        public List<TesteeDTO> GetAllTestees()
         {
             QuizDBContext context = new QuizDBContext();
             context.Database.Initialize(true);
+
             EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
             var testees = new List<Testee>();
             testees.Add(repo.ReadAll().First());
-            return testees;
-        
+
+            return testees.Select(testee => (TesteeDTO)testee).ToList();
         }
+
+       
 
         public Testee GetTestee()
         {

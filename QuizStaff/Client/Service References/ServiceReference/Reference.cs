@@ -22,10 +22,10 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTestees", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesResponse")]
-        DomainModel.Testee[] GetAllTestees();
+        DataTransferObject.TesteeDTO[] GetAllTestees();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTestees", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesResponse")]
-        System.Threading.Tasks.Task<DomainModel.Testee[]> GetAllTesteesAsync();
+        System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAllTestees", ReplyAction="http://tempuri.org/IApplicationServer/SaveAllTesteesResponse")]
         void SaveAllTestees(DomainModel.Testee[] testees);
@@ -75,11 +75,11 @@ namespace Client.ServiceReference {
             return base.Channel.GetDataAsync(value);
         }
         
-        public DomainModel.Testee[] GetAllTestees() {
+        public DataTransferObject.TesteeDTO[] GetAllTestees() {
             return base.Channel.GetAllTestees();
         }
         
-        public System.Threading.Tasks.Task<DomainModel.Testee[]> GetAllTesteesAsync() {
+        public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesAsync() {
             return base.Channel.GetAllTesteesAsync();
         }
         

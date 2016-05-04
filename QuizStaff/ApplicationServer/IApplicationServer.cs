@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using DomainModel;
+using DataTransferObject;
 
 namespace Server
 {
@@ -16,7 +17,7 @@ namespace Server
         string GetData(int value);
 
         [OperationContract]
-        List<Testee> GetAllTestees(); 
+        List<TesteeDTO> GetAllTestees(); 
         
         [OperationContract]
         void SaveAllTestees(List<Testee> testees);

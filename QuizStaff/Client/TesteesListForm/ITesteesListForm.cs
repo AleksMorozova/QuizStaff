@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DomainModel;
+using DataTransferObject;
 
 namespace Client
 {
@@ -11,7 +12,7 @@ namespace Client
     {
         TesteesListPresenter Presenter { get; set; }
         void Close();
-        void SetBindings(List<Testee> testees);
+        void SetBindings(List<TesteeDTO> testees);
         bool NotifyUnsavedData();
     }
 }
