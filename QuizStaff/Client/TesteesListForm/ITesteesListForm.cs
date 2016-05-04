@@ -10,7 +10,7 @@ namespace Client
     public interface ITesteesListForm
     {
         TesteesListPresenter Presenter { get; set; }
-        void Close();
+        void CloseForm();
         void SetBindings(List<Testee> testees);
         bool NotifyUnsavedData();
     }
