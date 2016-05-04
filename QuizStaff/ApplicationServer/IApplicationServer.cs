@@ -24,6 +24,10 @@ namespace Server
         [OperationContract]
         Settings GetUsersSettings();
         // TODO: Add your service operations here
+
+        List<Question> GetTrainingQuestions(Training training);
+        void SaveAllQuestions(Training training, List<Question> questions);
+
     }
    
 }
