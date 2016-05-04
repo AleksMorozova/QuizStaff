@@ -75,6 +75,11 @@ namespace Client
         {
             Presenter.EditTestee((Testee)((GridView)gridTestees.MainView).GetFocusedRow());
         }
+
+        private void TesteesListForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
     
