@@ -8,7 +8,7 @@ namespace Client
 {
     class ServicesHolder
     {
-        private static Client.ServiceReference.ApplicationServerClient serviceClient;
+        public static Client.ServiceReference.ApplicationServerClient serviceClient;
         private static ServicesHolder serviceHolderObject;
         public static Client.ServiceReference.ApplicationServerClient ServiceClient
         {

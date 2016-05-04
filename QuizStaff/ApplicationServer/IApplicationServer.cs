@@ -22,10 +22,6 @@ namespace Server
         void SaveAllTestees(List<Testee> testees);
         void SaveAllTrainings(List<Training> trainings);
         // TODO: Add your service operations here
-
-        List<Question> GetTrainingQuestions(Training training);
-        void SaveAllQuestions(Training training, List<Question> questions);
-
     }
    
 }

@@ -324,7 +324,6 @@
             this.MinimumSize = new System.Drawing.Size(406, 200);
             this.Name = "TesteesListForm";
             this.Text = "Testees";
-            this.Load += new System.EventHandler(this.TesteesListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridTestees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPopupContainerEdit1)).EndInit();
