@@ -35,8 +35,8 @@
             this.butCancel = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlCancelButton = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlSaveButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -48,8 +48,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinEditAmount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCancelButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlSaveButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
@@ -138,8 +138,8 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem3,
-            this.layoutControlItem1,
-            this.layoutControlItem2,
+            this.layoutControlCancelButton,
+            this.layoutControlSaveButton,
             this.emptySpaceItem1,
             this.emptySpaceItem2,
             this.layoutControlItem4,
@@ -158,25 +158,25 @@
             this.emptySpaceItem3.Size = new System.Drawing.Size(12, 26);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem1
+            // layoutControlCancelButton
             // 
-            this.layoutControlItem1.Control = this.butCancel;
-            this.layoutControlItem1.Location = new System.Drawing.Point(129, 123);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(45, 26);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(118, 26);
-            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.layoutControlCancelButton.Control = this.butCancel;
+            this.layoutControlCancelButton.Location = new System.Drawing.Point(129, 123);
+            this.layoutControlCancelButton.MinSize = new System.Drawing.Size(45, 26);
+            this.layoutControlCancelButton.Name = "layoutControlCancelButton";
+            this.layoutControlCancelButton.Size = new System.Drawing.Size(118, 26);
+            this.layoutControlCancelButton.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlCancelButton.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlCancelButton.TextVisible = false;
             // 
-            // layoutControlItem2
+            // layoutControlSaveButton
             // 
-            this.layoutControlItem2.Control = this.butSave;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 123);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(117, 26);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
+            this.layoutControlSaveButton.Control = this.butSave;
+            this.layoutControlSaveButton.Location = new System.Drawing.Point(0, 123);
+            this.layoutControlSaveButton.Name = "layoutControlSaveButton";
+            this.layoutControlSaveButton.Size = new System.Drawing.Size(117, 26);
+            this.layoutControlSaveButton.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlSaveButton.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
@@ -240,8 +240,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinEditAmount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlCancelButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlSaveButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
@@ -258,8 +258,8 @@
         private DevExpress.XtraEditors.SimpleButton butSave;
         private DevExpress.XtraEditors.SimpleButton butCancel;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlCancelButton;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlSaveButton;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraEditors.SpinEdit spinEditAmount;
