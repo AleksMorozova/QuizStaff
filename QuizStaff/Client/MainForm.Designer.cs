@@ -95,7 +95,6 @@
             this.trainingsBarButton.Caption = "Trainings";
             this.trainingsBarButton.Id = 1;
             this.trainingsBarButton.Name = "trainingsBarButton";
-            this.trainingsBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.trainingsBarButton_ItemClick);
             // 
             // settingsBarButton
             // 
@@ -162,7 +161,6 @@
             this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.Text = "MainForm";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuManager)).EndInit();
             this.ResumeLayout(false);

@@ -36,31 +36,22 @@ namespace Server
             // TODO save to database
         }
 
-        public List<Question> GetTrainingQuestions(Training training)
+        public Boolean SetUsersSettings(Settings sets)
         {
-            var questions = new List<Question>();
-            var first = new Question("первый вопрос", training);
-            var second = new Question("второй вопрос", training);
-
-            first.Answers.Add(new Answer("правильный", true));
-            first.Answers.Add(new Answer("неправильный", false));
-            first.Answers.Add(new Answer("тоже правильный", true));
-
-            second.Answers.Add(new Answer("правильный", true));
-            second.Answers.Add(new Answer("неправильный", false));
-            second.Answers.Add(new Answer("совсем неправильный", false));
-
-            questions.Add(first);
-            questions.Add(second);
-
-            return questions;
+            try
+            {
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public void SaveAllQuestions(Training training, List<Question> questions)
+        public Settings GetUsersSettings()
         {
-            // Todo: save to database
-
-
+            //Setup getting settings
+            return new Settings(2, DateTime.UtcNow);
         }
     }
 }
