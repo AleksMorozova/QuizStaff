@@ -8,7 +8,6 @@ using System.Runtime.Serialization;
 
 namespace DomainModel
 {
-    [DataContract]
     public class Entity
     {
         [Key]

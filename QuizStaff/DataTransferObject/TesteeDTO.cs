@@ -21,17 +21,21 @@ namespace DataTransferObject
 
         public static implicit operator TesteeDTO(Testee testee)
         {
-            return new TesteeDTO
+            TesteeDTO newTeste = new TesteeDTO();
+            foreach (System.Reflection.PropertyInfo info in testee.GetType().GetProperties())
             {
-                Id = testee.ID,
-                Login = testee.Login,
-                FirstName = testee.FirstName,
-                LastName = testee.LastName,
-                Password = testee.Password,
-                UserSetting = testee.UserSetting,
-                Histories = testee.Histories,
-                Trainings = testee.Trainings
-            };
+                try
+                {
+                    if (info.CanWrite)
+                    {
+                        newTeste.GetType().GetProperty(info.Name).SetValue(newTeste, info.GetValue(testee, null), null);
+                    }
+                }
+                catch
+                { }
+            }
+
+            return newTeste;
         }
     }
 }

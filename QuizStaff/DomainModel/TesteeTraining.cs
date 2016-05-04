@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    [DataContract]
     public class TesteeTraining: Entity
     {
         public Guid TesteeID { get; set; }

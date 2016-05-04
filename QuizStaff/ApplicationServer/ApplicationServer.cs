@@ -14,6 +14,14 @@ namespace Server
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class ApplicationServer : IApplicationServer
     {
+        QuizDBContext context;
+
+        public ApplicationServer()
+        {
+            context = new QuizDBContext();
+            context.Database.Initialize(true);
+        }
+
         public string GetData(int value)
         {
 
@@ -22,9 +30,6 @@ namespace Server
 
         public List<TesteeDTO> GetAllTestees()
         {
-            QuizDBContext context = new QuizDBContext();
-            context.Database.Initialize(true);
-
             EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
             var testees = new List<Testee>();
             testees.Add(repo.ReadAll().First());
@@ -32,12 +37,8 @@ namespace Server
             return testees.Select(testee => (TesteeDTO)testee).ToList();
         }
 
-       
-
         public Testee GetTestee()
         {
-            QuizDBContext context = new QuizDBContext();
-            context.Database.Initialize(true);
             EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
             Testee t = new DomainModel.Testee();
             t.FirstName = "Testee";

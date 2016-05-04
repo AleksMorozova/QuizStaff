@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    [DataContract]
     public class TesteeAnswer : Entity
     {
         public TesteeAnswer()
