@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -65,7 +65,4 @@ namespace Client
             Presenter.EditTestee((Testee)((GridView)gridTestees.MainView).GetFocusedRow());
         }
     }
-
-    
-
 }
