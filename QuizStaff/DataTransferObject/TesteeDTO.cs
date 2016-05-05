@@ -22,19 +22,7 @@ namespace DataTransferObject
         public static implicit operator TesteeDTO(Testee testee)
         {
             TesteeDTO newTeste = new TesteeDTO();
-            foreach (System.Reflection.PropertyInfo info in testee.GetType().GetProperties())
-            {
-                try
-                {
-                    if (info.CanWrite)
-                    {
-                        newTeste.GetType().GetProperty(info.Name).SetValue(newTeste, info.GetValue(testee, null), null);
-                    }
-                }
-                catch
-                { }
-            }
-
+            Conversion.CopyProperty(testee, newTeste);
             return newTeste;
         }
     }
