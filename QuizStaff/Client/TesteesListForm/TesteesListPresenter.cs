@@ -7,25 +7,23 @@ using DomainModel;
 using Server;
 using System.Collections.ObjectModel;
 using System.Windows.Forms;
-using DataTransferObject;
 
 namespace Client
 {
     public class TesteesListPresenter
     {
-        public ITesteesListForm Form { get; private set; }
-        private ServicesHolder service;
-        private List<TesteeDTO> testees = new List<TesteeDTO>();
+        public ITesteesListForm form;
+        private IApplicationServer server;
+        private List<Testee> testees = new List<Testee>();
         // Becomes true when "Save" button on "Edit testee" form is pressed
         public bool DataChanged { get; set; }
 
         public TesteesListPresenter(ITesteesListForm form)
         {
-            service = ServicesHolder.ServiceHolderObject;
+            // TODO make an instance of real server
+            this.server = new ApplicationServer();
 
-            this.Form = form;
-            this.Form.Presenter = this;
-
+            this.form = form;
             this.LoadTestees();
         }
 
@@ -33,11 +31,8 @@ namespace Client
         {
             if (WantToProceed())
             {
-                var r = service.ServiceClient.GetData(7);
-
-                var t = service.ServiceClient.GetTestee();
-                this.testees = service.ServiceClient.GetAllTestees().ToList();
-                this.Form.SetBindings(this.testees.ToList());
+                this.testees = server.GetAllTestees();
+                this.form.SetBindings(this.testees);
                 this.DataChanged = false;
             }
         }
@@ -46,14 +41,14 @@ namespace Client
         {
             if (this.DataChanged)
             {
-                return this.Form.NotifyUnsavedData();
+                return this.form.NotifyUnsavedData();
             }
             return true;
         }
 
         public void SaveTestees()
         {
-           // service.ServiceClient.SaveAllTestees(this.testees.ToArray());
+            this.server.SaveAllTestees(this.testees);
             this.DataChanged = false;
             // TODO notify user that data saved succesfully
             MessageBox.Show("Saved");
@@ -62,7 +57,7 @@ namespace Client
         {
             if (WantToProceed())
             {
-                this.Form.Close();
+                this.form.CloseForm();
             }
         }
         public void EditTestee(Testee testee)
