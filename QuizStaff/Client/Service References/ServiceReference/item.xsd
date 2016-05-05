@@ -31,7 +31,7 @@
   <xs:element name="SaveAllTestees">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DomainModel" minOccurs="0" name="testees" nillable="true" type="q2:ArrayOfTestee" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testees" nillable="true" type="q2:ArrayOfTesteeDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

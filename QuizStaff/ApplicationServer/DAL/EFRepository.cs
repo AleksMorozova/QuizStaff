@@ -17,7 +17,7 @@ namespace ApplicationServer.DAL
             dbContext.SaveChanges();
         }
 
-        public virtual T Read(int id)
+        public virtual T Read(Guid id)
         {
             return dbContext.Set<T>().Find(id);
         }
@@ -27,7 +27,7 @@ namespace ApplicationServer.DAL
             return dbContext.Set<T>();
         }
 
-        public void Remove(int id)
+        public void Remove(Guid id)
         {
             var ent = Read(id);
             Remove(ent);

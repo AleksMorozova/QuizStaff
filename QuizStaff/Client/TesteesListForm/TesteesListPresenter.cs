@@ -7,22 +7,21 @@ using DomainModel;
 using Server;
 using System.Collections.ObjectModel;
 using System.Windows.Forms;
+using DataTransferObject;
 
 namespace Client
 {
     public class TesteesListPresenter
     {
-        public ITesteesListForm form;
-        private IApplicationServer server;
-        private List<Testee> testees = new List<Testee>();
+        private ITesteesListForm form;
+        private Client.ServiceReference.ApplicationServerClient server;
+        private ICollection<TesteeDTO> testees = new ObservableCollection<TesteeDTO>();
         // Becomes true when "Save" button on "Edit testee" form is pressed
         public bool DataChanged { get; set; }
 
         public TesteesListPresenter(ITesteesListForm form)
         {
-            // TODO make an instance of real server
-            this.server = new ApplicationServer();
-
+            this.server = ServicesHolder.ServiceHolderObject.ServiceClient;
             this.form = form;
             this.LoadTestees();
         }
@@ -31,7 +30,7 @@ namespace Client
         {
             if (WantToProceed())
             {
-                this.testees = server.GetAllTestees();
+                this.testees = server.GetAllTestees().ToList();
                 this.form.SetBindings(this.testees);
                 this.DataChanged = false;
             }
@@ -48,9 +47,9 @@ namespace Client
 
         public void SaveTestees()
         {
-            this.server.SaveAllTestees(this.testees);
+            this.server.SaveAllTestees(this.testees.ToArray());
             this.DataChanged = false;
-            // TODO notify user that data saved succesfully
+            //// TODO notify user that data saved succesfully
             MessageBox.Show("Saved");
         }
         public void Close()
@@ -60,7 +59,7 @@ namespace Client
                 this.form.CloseForm();
             }
         }
-        public void EditTestee(Testee testee)
+        public void EditTestee(TesteeDTO testee)
         {
             // TODO invoke new "Edit testee" form with testee's data in fields
             MessageBox.Show("Edit testee " + testee.FirstName);

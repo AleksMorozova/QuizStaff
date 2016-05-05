@@ -121,6 +121,8 @@
     <EmbeddedResource Include="TrainingEditForm\TrainingEditForm.resx">
       <DependentUpon>TrainingEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataTransferObject.TesteeDTO.datasource" />
+    <None Include="DomainModel.Testee.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,6 +165,9 @@
     <None Include="Service References\ServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\ServiceReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
