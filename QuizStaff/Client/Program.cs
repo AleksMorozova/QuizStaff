@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApplicationServer.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Client
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        {        
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             applicationMainForm = new MainForm();

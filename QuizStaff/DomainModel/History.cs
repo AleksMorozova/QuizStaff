@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    public class History
+    public class History: Entity
     {
-        public Testee Testee { get; set; }
-        public Question Question { get; set; }
-        public DateTime Date { get; set; }
-        public List<UserAnswers> Answers { get; set; }
-
-        public History(Testee testee, Question question, DateTime date)
+        public History()
         {
-            this.Testee = testee;
-            this.Question = question;
-            this.Date = date;
-            Answers = new List<UserAnswers>();
         }
 
+        public Guid TesteeId { get; set; }
+        public Guid QuestionId { get; set; }
+
+        public virtual Testee Testee { get; set; }
+        public virtual Question Question { get; set; }
+        public virtual DateTime AnsweringDate { get; set; }
+        public virtual ICollection<TesteeAnswer> Answers { get; set; }
     }
 }

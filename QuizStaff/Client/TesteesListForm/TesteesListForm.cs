@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DomainModel;
 using DevExpress.XtraGrid.Views.Grid;
+using DataTransferObject;
 
 namespace Client
 {
@@ -23,7 +24,7 @@ namespace Client
             this.Presenter = new TesteesListPresenter(this);
             gridTestees.Select();
         }
-        public void SetBindings(List<Testee> testees)
+        public void SetBindings(List<TesteeDTO> testees)
         {
             gridTestees.DataSource = testees;
         }

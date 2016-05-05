@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DomainModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DomainModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="History" nillable="true" type="tns:History" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistory" nillable="true" type="tns:ArrayOfHistory" />
+  <xs:complexType name="History">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="History" nillable="true" type="tns:History" />
+  <xs:complexType name="Entity">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="Entity" nillable="true" type="tns:Entity" />
+  <xs:complexType name="ArrayOfTesteeTraining">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeTraining" nillable="true" type="tns:TesteeTraining" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTesteeTraining" nillable="true" type="tns:ArrayOfTesteeTraining" />
+  <xs:complexType name="TesteeTraining">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TesteeTraining" nillable="true" type="tns:TesteeTraining" />
+  <xs:complexType name="Setting">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Setting" nillable="true" type="tns:Setting" />
+  <xs:complexType name="ArrayOfTestee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Testee" nillable="true" type="tns:Testee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTestee" nillable="true" type="tns:ArrayOfTestee" />
+  <xs:complexType name="Testee">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Testee" nillable="true" type="tns:Testee" />
+</xs:schema>

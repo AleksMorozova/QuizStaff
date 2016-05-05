@@ -40,7 +40,7 @@ namespace Client
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             // TODO : Add TrainingsListForm to choose training with it
-            TrainingEditForm f = new TrainingEditForm(new Training("Test training") { TrainingTitle = "Test training" });
+            TrainingEditForm f = new TrainingEditForm(new Training() { TrainingTitle = "Test training" });
             FormManager.Instance.OpenChildForm(f, "Training :");
         }
     }
