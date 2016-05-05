@@ -31,36 +31,27 @@ namespace Server
             return testees;
         
         }
+
+        public List<Training> GetAllTrainings()
+        {
+            List<Training> trainingList = new List<Training>();
+            trainingList.Add(new Training("Training_1"));
+            trainingList.Add(new Training("Training_2"));
+            trainingList.Add(new Training("Training_3"));
+            trainingList.Add(new Training("Training_4"));
+
+            return trainingList;
+        }
+
         public void SaveAllTestees(List<Testee> testee)
         {
             // TODO save to database
         }
 
-        public List<Question> GetTrainingQuestions(Training training)
+        public void SaveAllTrainings(List<Training> trainingList)
         {
-            var questions = new List<Question>();
-            var first = new Question("первый вопрос", training);
-            var second = new Question("второй вопрос", training);
-
-            first.Answers.Add(new Answer("правильный", true));
-            first.Answers.Add(new Answer("неправильный", false));
-            first.Answers.Add(new Answer("тоже правильный", true));
-
-            second.Answers.Add(new Answer("правильный", true));
-            second.Answers.Add(new Answer("неправильный", false));
-            second.Answers.Add(new Answer("совсем неправильный", false));
-
-            questions.Add(first);
-            questions.Add(second);
-
-            return questions;
+            // TODO save to database
         }
 
-        public void SaveAllQuestions(Training training, List<Question> questions)
-        {
-            // Todo: save to database
-
-
-        }
     }
 }

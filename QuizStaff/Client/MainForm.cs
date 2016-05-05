@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars;
-using DomainModel;
 
 namespace Client
 {
@@ -29,19 +28,17 @@ namespace Client
         private void testeesBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             TesteesListForm f = new TesteesListForm();
+            TesteesListPresenter p = new TesteesListPresenter(f);
             FormManager.Instance.OpenChildForm(f, "Testees");
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            // TODO : Add TrainingsListForm to choose training with it
-            TrainingEditForm f = new TrainingEditForm(new Training("Test training") { TrainingTitle = "Test training" });
-            FormManager.Instance.OpenChildForm(f, "Training :");
+            TrainingsListForm.TrainingListForm form = new TrainingsListForm.TrainingListForm();
+            TrainingListPresenter presenter = new TrainingListPresenter(form);
+            FormManager.Instance.OpenChildForm(form, "Trainings");
         }
+
+        
     }
 }
