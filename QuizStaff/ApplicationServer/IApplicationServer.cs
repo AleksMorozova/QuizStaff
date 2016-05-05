@@ -20,7 +20,7 @@ namespace Server
         List<TesteeDTO> GetAllTestees(); 
         
         [OperationContract]
-        void SaveAllTestees(List<Testee> testees);
+        void SaveAllTestees(ICollection<TesteeDTO> testees);
 
         [OperationContract]
         Testee GetTestee();

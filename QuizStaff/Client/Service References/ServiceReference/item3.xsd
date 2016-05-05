@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DomainModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DomainModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DomainModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DomainModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="ArrayOfHistory">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="History" nillable="true" type="tns:History" />
@@ -9,15 +10,88 @@
   <xs:complexType name="History">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Entity">
-        <xs:sequence />
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AnsweringDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Answers" nillable="true" type="tns:ArrayOfTesteeAnswer" />
+          <xs:element minOccurs="0" name="Question" nillable="true" type="tns:Question" />
+          <xs:element minOccurs="0" name="QuestionId" type="ser:guid" />
+          <xs:element minOccurs="0" name="Testee" nillable="true" type="tns:Testee" />
+          <xs:element minOccurs="0" name="TesteeId" type="ser:guid" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="History" nillable="true" type="tns:History" />
   <xs:complexType name="Entity">
-    <xs:sequence />
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+    </xs:sequence>
   </xs:complexType>
   <xs:element name="Entity" nillable="true" type="tns:Entity" />
+  <xs:complexType name="ArrayOfTesteeAnswer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeAnswer" nillable="true" type="tns:TesteeAnswer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTesteeAnswer" nillable="true" type="tns:ArrayOfTesteeAnswer" />
+  <xs:complexType name="TesteeAnswer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Answer" nillable="true" type="tns:ArrayOfAnswer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TesteeAnswer" nillable="true" type="tns:TesteeAnswer" />
+  <xs:complexType name="ArrayOfAnswer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Answer" nillable="true" type="tns:Answer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnswer" nillable="true" type="tns:ArrayOfAnswer" />
+  <xs:complexType name="Answer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AnswerText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsCorrect" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Answer" nillable="true" type="tns:Answer" />
+  <xs:complexType name="Question">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Answers" nillable="true" type="tns:ArrayOfAnswer" />
+          <xs:element minOccurs="0" name="QuestionText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Training" nillable="true" type="tns:Training" />
+          <xs:element minOccurs="0" name="TrainingId" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Question" nillable="true" type="tns:Question" />
+  <xs:complexType name="Training">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Questions" nillable="true" type="tns:ArrayOfQuestion" />
+          <xs:element minOccurs="0" name="TesteeTrainings" nillable="true" type="tns:ArrayOfTesteeTraining" />
+          <xs:element minOccurs="0" name="TrainingTitle" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Training" nillable="true" type="tns:Training" />
+  <xs:complexType name="ArrayOfQuestion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Question" nillable="true" type="tns:Question" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestion" nillable="true" type="tns:ArrayOfQuestion" />
   <xs:complexType name="ArrayOfTesteeTraining">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeTraining" nillable="true" type="tns:TesteeTraining" />
@@ -27,37 +101,43 @@
   <xs:complexType name="TesteeTraining">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Entity">
-        <xs:sequence />
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Testee" nillable="true" type="tns:Testee" />
+          <xs:element minOccurs="0" name="TesteeID" type="ser:guid" />
+          <xs:element minOccurs="0" name="Training" nillable="true" type="tns:Training" />
+          <xs:element minOccurs="0" name="TrainingID" type="ser:guid" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="TesteeTraining" nillable="true" type="tns:TesteeTraining" />
-  <xs:complexType name="Setting">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Entity">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Setting" nillable="true" type="tns:Setting" />
-  <xs:complexType name="ArrayOfTestee">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Testee" nillable="true" type="tns:Testee" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTestee" nillable="true" type="tns:ArrayOfTestee" />
   <xs:complexType name="Testee">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Entity">
         <xs:sequence>
           <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Histories" nillable="true" type="tns:ArrayOfHistory" />
           <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Trainings" nillable="true" type="tns:ArrayOfTesteeTraining" />
+          <xs:element minOccurs="0" name="UserSetting" nillable="true" type="tns:Setting" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Testee" nillable="true" type="tns:Testee" />
+  <xs:complexType name="Setting">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AmountOfQuestionsPerDay" type="xs:int" />
+          <xs:element minOccurs="0" name="FrequencyOfAsking" type="xs:int" />
+          <xs:element minOccurs="0" name="TimeOfStart" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Setting" nillable="true" type="tns:Setting" />
 </xs:schema>

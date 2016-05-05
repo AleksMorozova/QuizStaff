@@ -31,9 +31,7 @@ namespace Server
         public List<TesteeDTO> GetAllTestees()
         {
             EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
-            var testees = new List<Testee>();
-            testees.Add(repo.ReadAll().First());
-
+            var testees = new List<Testee>(repo.ReadAll());
             return testees.Select(testee => (TesteeDTO)testee).ToList();
         }
 
@@ -43,12 +41,11 @@ namespace Server
             Testee t = new DomainModel.Testee();
             t.FirstName = "Testee";
             return t;
-
         }
 
-        public void SaveAllTestees(List<Testee> testee)
+        public void SaveAllTestees(ICollection<TesteeDTO> testee)
         {
-            // TODO save to database
+            // TODO: save to database
         }
 
         public List<Question> GetTrainingQuestions(Training training)

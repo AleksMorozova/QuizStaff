@@ -11,8 +11,8 @@ namespace ApplicationServer.DAL
         void Create(T entity);
         void Update(T entity);
         void Remove(T entity);
-        void Remove(int id);
-        T Read(int id);
+        void Remove(Guid id);
+        T Read(Guid id);
         IEnumerable<T> ReadAll();
     }
 }
