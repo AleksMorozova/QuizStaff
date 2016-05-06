@@ -39,7 +39,7 @@ namespace Client
             MessageBox.Show("Form closed");
         }
 
-        public TrainingEditForm(Training aim)
+        public TrainingEditForm(TrainingDTO aim)
         {
             InitializeComponent();
             Presenter = new TrainingEditPresenter(this, aim);

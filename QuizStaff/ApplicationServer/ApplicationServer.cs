@@ -51,8 +51,9 @@ namespace Server
         public List<QuestionDTO> GetTrainingQuestions(TrainingDTO training)
         {
             EFRepository<Question> repo = new EFRepository<DomainModel.Question>();
-            var testees = new List<Question>(repo.ReadAll());
-            return testees.Select(testee => (QuestionDTO)testee).ToList();
+            var testees = new List<Question>(repo.ReadAll()) ;
+            var t= (from p in testees.Select(testee => (QuestionDTO)testee) where p.TrainingId==training.Id select p ).ToList() ;
+            return t;
         }
     }
 }

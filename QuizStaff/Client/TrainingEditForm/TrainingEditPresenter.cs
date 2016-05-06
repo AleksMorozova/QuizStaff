@@ -18,9 +18,9 @@ namespace Client
         private List<QuestionDTO> questions = new List<QuestionDTO>();
         // Becomes true when "Save" button on "Edit testee" form is pressed
         public bool DataChanged { get; set; }
-        private Training training;
+        private TrainingDTO training;
 
-        public TrainingEditPresenter(ITrainingEditForm form, Training training)
+        public TrainingEditPresenter(ITrainingEditForm form, TrainingDTO training)
         {
             this.server = ServicesHolder.ServiceClient;
             this.Form = form;
@@ -35,7 +35,7 @@ namespace Client
 
         public void LoadQuestions()
         {
-                this.questions = server.GetTrainingQuestions((TrainingDTO)training).ToList();
+                this.questions = server.GetTrainingQuestions(training).ToList();
                 this.Form.SetBindings(this.questions);
                 this.DataChanged = false;
         }
