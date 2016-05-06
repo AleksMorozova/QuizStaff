@@ -6,22 +6,23 @@ using System.Threading.Tasks;
 using Server;
 using DomainModel;
 using System.Windows.Forms;
+using DataTransferObject;
 
 namespace Client
 {
     public class TrainingEditPresenter
     {
         public ITrainingEditForm Form { get; set; }
-        private IApplicationServer server;
+        private Client.ServiceReference.ApplicationServerClient server;
 
-        private List<Question> questions = new List<Question>();
+        private List<QuestionDTO> questions = new List<QuestionDTO>();
         // Becomes true when "Save" button on "Edit testee" form is pressed
         public bool DataChanged { get; set; }
         private Training training;
 
         public TrainingEditPresenter(ITrainingEditForm form, Training training)
         {
-            this.server = new ApplicationServer();
+            this.server = ServicesHolder.ServiceClient;
             this.Form = form;
             this.Form.Presenter = this;
             this.training = training;
@@ -34,8 +35,7 @@ namespace Client
 
         public void LoadQuestions()
         {
-            
-                this.questions = server.GetTrainingQuestions(training);
+                this.questions = server.GetTrainingQuestions((TrainingDTO)training).ToList();
                 this.Form.SetBindings(this.questions);
                 this.DataChanged = false;
         }
@@ -43,7 +43,7 @@ namespace Client
 
         public void SaveQuestions()
         {
-            this.server.SaveAllQuestions(training, this.questions);
+            //this.server.SaveAllQuestions(training, this.questions);
             this.DataChanged = false;
             // TODO notify user that data saved succesfully
             MessageBox.Show("Saved");
