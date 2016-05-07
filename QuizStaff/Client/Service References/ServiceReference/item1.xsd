@@ -22,4 +22,29 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TesteeDTO" nillable="true" type="tns:TesteeDTO" />
+  <xs:complexType name="TrainingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DomainModel" minOccurs="0" name="Questions" nillable="true" type="q4:ArrayOfQuestion" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DomainModel" minOccurs="0" name="TesteeTrainings" nillable="true" type="q5:ArrayOfTesteeTraining" />
+      <xs:element minOccurs="0" name="TrainingTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrainingDTO" nillable="true" type="tns:TrainingDTO" />
+  <xs:complexType name="ArrayOfQuestionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionDTO" nillable="true" type="tns:QuestionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionDTO" nillable="true" type="tns:ArrayOfQuestionDTO" />
+  <xs:complexType name="QuestionDTO">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DomainModel" minOccurs="0" name="Answers" nillable="true" type="q6:ArrayOfAnswer" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="QuestionText" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DomainModel" minOccurs="0" name="Training" nillable="true" type="q7:Training" />
+      <xs:element minOccurs="0" name="TrainingId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionDTO" nillable="true" type="tns:QuestionDTO" />
 </xs:schema>
