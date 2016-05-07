@@ -32,6 +32,18 @@
   <wsdl:message name="IApplicationServer_GetTestee_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTesteeResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_SetUsersSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUsersSettings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SetUsersSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUsersSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetUsersSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersSettings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetUsersSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersSettingsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetData" message="tns:IApplicationServer_GetData_InputMessage" />
@@ -48,6 +60,14 @@
     <wsdl:operation name="GetTestee">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetTestee" message="tns:IApplicationServer_GetTestee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetTesteeResponse" message="tns:IApplicationServer_GetTestee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUsersSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SetUsersSettings" message="tns:IApplicationServer_SetUsersSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SetUsersSettingsResponse" message="tns:IApplicationServer_SetUsersSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetUsersSettings" message="tns:IApplicationServer_GetUsersSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetUsersSettingsResponse" message="tns:IApplicationServer_GetUsersSettings_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -81,6 +101,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetTestee">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetTestee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUsersSettings">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/SetUsersSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersSettings">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetUsersSettings" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -6,7 +6,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using DomainModel;
 using DataTransferObject;
 
 namespace Server
@@ -74,5 +73,27 @@ namespace Server
 
 
         }
+        #region Client's settings  
+        public Boolean SetUsersSettings(SettingDTO sets, Guid id)
+        {
+            // Save to database
+            try
+            {
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public SettingDTO GetUsersSettings(Guid id)
+        {
+            Setting sets = new Setting() { AmountOfQuestionsPerDay = 1,
+                                                FrequencyOfAsking = 1,
+                                                    TimeOfStart = new DateTime(2016, 5, 8, 10, 10, 10, 10) };
+            return sets;
+        }
+        #endregion
     }
 }
