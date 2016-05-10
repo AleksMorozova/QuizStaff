@@ -29,13 +29,14 @@ namespace Server
         Boolean SetUsersSettings(SettingDTO sets, Guid id);
 
         [OperationContract]
-        SettingDTO GetUsersSettings(Guid id);
+        List<QuestionDTO> GetTrainingQuestions(TrainingDTO training);
 
+        [OperationContract]
+        SettingDTO GetUsersSettings(Guid id);
+        
         [OperationContract]
         void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID);
 
-        List<Question> GetTrainingQuestions(Training training);
-        void SaveAllQuestions(Training training, List<Question> questions);
 
     }
    

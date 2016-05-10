@@ -47,31 +47,13 @@ namespace Server
             // TODO: save to database
         }
 
-        public List<Question> GetTrainingQuestions(Training training)
+        public List<QuestionDTO> GetTrainingQuestions(TrainingDTO training)
         {
-            var questions = new List<Question>();
-            //var first = new Question("первый вопрос", training);
-            //var second = new Question("второй вопрос", training);
-
-            //first.Answers.Add(new Answer("правильный", true));
-            //first.Answers.Add(new Answer("неправильный", false));
-            //first.Answers.Add(new Answer("тоже правильный", true));
-
-            //second.Answers.Add(new Answer("правильный", true));
-            //second.Answers.Add(new Answer("неправильный", false));
-            //second.Answers.Add(new Answer("совсем неправильный", false));
-
-            //questions.Add(first);
-            //questions.Add(second);
-
-            return questions;
+            EFRepository<Question> repo = new EFRepository<DomainModel.Question>();
+            var testees = new List<Question>(repo.ReadAll()) ;
+            var t= (from p in testees.Select(testee => (QuestionDTO)testee) where p.TrainingId==training.Id select p ).ToList() ;
+            return t;
         }
-
-        public void SaveAllQuestions(Training training, List<Question> questions)
-        {
-            // Todo: save to database
-        }
-
         public void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID)
         {
             // TODO: save to database
