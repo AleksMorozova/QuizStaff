@@ -117,12 +117,15 @@ namespace Client.ServiceReference {
         
         public bool SetUsersSettings(DataTransferObject.SettingDTO sets, System.Guid id) {
             return base.Channel.SetUsersSettings(sets, id);
+        }
         public DataTransferObject.QuestionDTO[] GetTrainingQuestions(DataTransferObject.TrainingDTO training) {
             return base.Channel.GetTrainingQuestions(training);
         }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO[]> GetTrainingQuestionsAsync(DataTransferObject.TrainingDTO training) {
+
+        public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO[]> GetTrainingQuestionsAsync(DataTransferObject.TrainingDTO training)
+        {
             return base.Channel.GetTrainingQuestionsAsync(training);
+        }
         public System.Threading.Tasks.Task<bool> SetUsersSettingsAsync(DataTransferObject.SettingDTO sets, System.Guid id) {
             return base.Channel.SetUsersSettingsAsync(sets, id);
         }
