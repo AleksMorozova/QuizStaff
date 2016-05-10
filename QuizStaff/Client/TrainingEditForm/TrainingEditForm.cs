@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DomainModel;
 using DevExpress.XtraGrid.Views.Grid;
+using DataTransferObject;
 
 namespace Client
 {
@@ -20,7 +21,7 @@ namespace Client
         public TextEdit TrainingName { get { return textTrainingName; } }
 
 
-        public void SetBindings(List<Question> questions)
+        public void SetBindings(List<QuestionDTO> questions)
         {
             gridQuestions.DataSource = questions;
         }
@@ -38,7 +39,7 @@ namespace Client
             MessageBox.Show("Form closed");
         }
 
-        public TrainingEditForm(Training aim)
+        public TrainingEditForm(TrainingDTO aim)
         {
             InitializeComponent();
             Presenter = new TrainingEditPresenter(this, aim);

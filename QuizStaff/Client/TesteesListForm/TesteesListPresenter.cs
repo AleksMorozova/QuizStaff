@@ -21,7 +21,7 @@ namespace Client
 
         public TesteesListPresenter(ITesteesListForm form)
         {
-            this.server = ServicesHolder.ServiceHolderObject.ServiceClient;
+            this.server = ServicesHolder.ServiceClient;
             this.form = form;
             this.LoadTestees();
         }

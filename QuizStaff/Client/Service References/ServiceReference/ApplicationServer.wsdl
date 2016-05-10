@@ -32,9 +32,13 @@
   <wsdl:message name="IApplicationServer_GetTestee_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTesteeResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetTrainingQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrainingQuestions" />
   <wsdl:message name="IApplicationServer_SetUsersSettings_InputMessage">
     <wsdl:part name="parameters" element="tns:SetUsersSettings" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetTrainingQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrainingQuestionsResponse" />
   <wsdl:message name="IApplicationServer_SetUsersSettings_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetUsersSettingsResponse" />
   </wsdl:message>
@@ -61,6 +65,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetTestee" message="tns:IApplicationServer_GetTestee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetTesteeResponse" message="tns:IApplicationServer_GetTestee_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetTrainingQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetTrainingQuestions" message="tns:IApplicationServer_GetTrainingQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetTrainingQuestionsResponse" message="tns:IApplicationServer_GetTrainingQuestions_OutputMessage" />
     <wsdl:operation name="SetUsersSettings">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SetUsersSettings" message="tns:IApplicationServer_SetUsersSettings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SetUsersSettingsResponse" message="tns:IApplicationServer_SetUsersSettings_OutputMessage" />
@@ -108,6 +115,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetTrainingQuestions">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetTrainingQuestions" style="document" />
     <wsdl:operation name="SetUsersSettings">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/SetUsersSettings" style="document" />
       <wsdl:input>

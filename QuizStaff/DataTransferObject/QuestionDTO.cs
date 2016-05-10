@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataTransferObject
 {
-    class QuestionDTO
+    public class QuestionDTO
     {
         public Guid Id { get; set; }
         public Guid TrainingId { get; set; }

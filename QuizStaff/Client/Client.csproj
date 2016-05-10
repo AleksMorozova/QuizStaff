@@ -132,6 +132,7 @@
     <EmbeddedResource Include="TrainingEditForm\TrainingEditForm.resx">
       <DependentUpon>TrainingEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataTransferObject.QuestionDTO1.datasource" />
     <None Include="DataTransferObject.SettingDTO.datasource" />
     <None Include="DataTransferObject.TesteeDTO.datasource" />
     <None Include="DomainModel.Testee.datasource" />
