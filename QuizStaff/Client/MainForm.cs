@@ -23,8 +23,8 @@ namespace Client
 
         private void testBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = new Form(); 
-            FormManager.Instance.OpenChildForm(f, "Test");
+            var formSets = new ClientsForms.ClientsSetupForm();
+            formSets.ShowDialog();
         }
 
         private void testeesBarButton_ItemClick(object sender, ItemClickEventArgs e)
