@@ -22,4 +22,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TesteeDTO" nillable="true" type="tns:TesteeDTO" />
+  <xs:complexType name="SettingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AmountOfQuestionsPerDay" type="xs:int" />
+      <xs:element minOccurs="0" name="FrequencyOfAsking" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="TimeOfStart" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SettingDTO" nillable="true" type="tns:SettingDTO" />
 </xs:schema>
