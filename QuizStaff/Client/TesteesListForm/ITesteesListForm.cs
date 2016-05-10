@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DomainModel;
+﻿using System.Collections.Generic;
 using DataTransferObject;
-using System.Collections.ObjectModel;
 
 namespace Client
 {

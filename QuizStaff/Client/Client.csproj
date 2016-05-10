@@ -76,6 +76,25 @@
       <DependentUpon>Form.cs</DependentUpon>
     </Compile>
     <Compile Include="FormManager.cs" />
+    <Compile Include="QuestionForm\ICheckControl.cs" />
+    <Compile Include="QuestionForm\IQuestionForm.cs" />
+    <Compile Include="QuestionForm\MockQuestions.cs" />
+    <Compile Include="QuestionForm\QuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuestionForm\QuestionForm.Designer.cs">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionForm\QuestionPresenter.cs" />
+    <Compile Include="QuestionForm\WrappingCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QuestionForm\WrappingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QuestionForm\WrappingRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TrainingEditForm\ITrainingEditForm.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -126,6 +145,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="QuestionForm\QuestionForm.resx">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TesteesListForm\TesteesListForm.resx">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +200,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\item4.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference\Reference.svcmap">

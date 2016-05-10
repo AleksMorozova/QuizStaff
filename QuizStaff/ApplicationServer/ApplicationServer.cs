@@ -70,8 +70,11 @@ namespace Server
         public void SaveAllQuestions(Training training, List<Question> questions)
         {
             // Todo: save to database
+        }
 
-
+        public void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID)
+        {
+            // TODO: save to database
         }
         #region Client's settings  
         public Boolean SetUsersSettings(SettingDTO sets, Guid id)

@@ -1,17 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DomainModel;
 using DevExpress.XtraGrid.Views.Grid;
 using DataTransferObject;
-using System.Collections.ObjectModel;
 
 namespace Client
 {
