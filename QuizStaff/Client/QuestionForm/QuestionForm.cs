@@ -46,8 +46,6 @@ namespace Client
                 flow.Controls.Add((control as Control));
                 flow.SetFlowBreak((control as Control), true);
             }
-            // Last control in flow is truncated for some reason. This blank label will be truncated instead
-            flow.Controls.Add(new Label() { Text = "" });
         }
 
         public void NotifyNoAnswersChecked()
@@ -67,7 +65,7 @@ namespace Client
 
         private void QuestionForm_Load(object sender, EventArgs e)
         {
-            // Solve horizontal scroll bug
+            // Resize form and back it to default size to solve horizontal scroll bug
             Size defaultSize = this.Size;
             this.Size = new Size(3000, defaultSize.Height);
             this.Size = defaultSize;
