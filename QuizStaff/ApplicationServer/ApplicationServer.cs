@@ -80,5 +80,15 @@ namespace Server
             return sets;
         }
         #endregion
+
+        public string LoginTestee(TesteeDTO testee)
+        {
+            string result=string.Empty;
+            EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
+            
+            // Todo: get the user
+            result = "Logged";
+            return result;
+        }
     }
 }

@@ -37,7 +37,8 @@ namespace Server
         [OperationContract]
         void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID);
 
-
+        [OperationContract]
+        string LoginTestee(TesteeDTO testee);
     }
    
 }
