@@ -34,8 +34,9 @@ namespace Server
         [OperationContract]
         SettingDTO GetUsersSettings(Guid id);
         
+        [OperationContract]
+        void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID);
 
-        
 
     }
    

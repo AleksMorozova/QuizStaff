@@ -54,6 +54,10 @@ namespace Server
             var t= (from p in testees.Select(testee => (QuestionDTO)testee) where p.TrainingId==training.Id select p ).ToList() ;
             return t;
         }
+        public void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID)
+        {
+            // TODO: save to database
+        }
         #region Client's settings  
         public Boolean SetUsersSettings(SettingDTO sets, Guid id)
         {
