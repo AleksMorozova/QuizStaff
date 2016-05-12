@@ -77,6 +77,7 @@
             this.simpleButtonCancel.StyleController = this.layoutControl1;
             this.simpleButtonCancel.TabIndex = 6;
             this.simpleButtonCancel.Text = "Cancel";
+            this.simpleButtonCancel.Click += new System.EventHandler(this.simpleButtonCancel_Click);
             // 
             // simpleButtonApply
             // 
@@ -104,6 +105,7 @@
             this.Trainings});
             this.gridViewTesteesTrainings.GridControl = this.gridControlTesteesTrainings;
             this.gridViewTesteesTrainings.Name = "gridViewTesteesTrainings";
+            this.gridViewTesteesTrainings.OptionsView.ShowGroupPanel = false;
             // 
             // IsSelected
             // 
@@ -190,7 +192,7 @@
             this.ClientSize = new System.Drawing.Size(579, 416);
             this.Controls.Add(this.layoutControl1);
             this.Name = "EditTesteesTrainingsForm";
-            this.Text = "EditTesteesTrainingsForm";
+            this.Text = "Edit testees and trainings";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTesteesTrainings)).EndInit();
