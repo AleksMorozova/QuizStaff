@@ -69,6 +69,14 @@
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientsForms\ClientsSetupForm\IClientSetupForm.cs" />
+    <Compile Include="ClientsForms\LoginForm\IUserLoginForm.cs" />
+    <Compile Include="ClientsForms\LoginForm\UserLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsForms\LoginForm\UserLoginForm.Designer.cs">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientsForms\LoginForm\UserLoginPresenter.cs" />
     <Compile Include="Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,7 +86,6 @@
     <Compile Include="FormManager.cs" />
     <Compile Include="QuestionForm\ICheckControl.cs" />
     <Compile Include="QuestionForm\IQuestionForm.cs" />
-    <Compile Include="QuestionForm\MockQuestions.cs" />
     <Compile Include="QuestionForm\QuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,16 +132,11 @@
       <DependentUpon>TrainingEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TrainingEditForm\TrainingEditPresenter.cs" />
-    <Compile Include="TrainingsListForm\ITrainingsListForm.cs" />
-    <Compile Include="TrainingsListForm\TrainingListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TrainingsListForm\TrainingListForm.Designer.cs">
-      <DependentUpon>TrainingListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TrainingsListForm\TrainingListPresenter.cs" />
     <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsForms\LoginForm\UserLoginForm.resx">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form.resx">
       <DependentUpon>Form.cs</DependentUpon>
@@ -162,15 +164,10 @@
     <EmbeddedResource Include="TrainingEditForm\TrainingEditForm.resx">
       <DependentUpon>TrainingEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrainingsListForm\TrainingListForm.resx">
-      <DependentUpon>TrainingListForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="DataTransferObject.QuestionDTO1.datasource" />
     <None Include="DataTransferObject.SettingDTO.datasource" />
     <None Include="DataTransferObject.TesteeDTO.datasource" />
-    <None Include="DataTransferObject.TrainingDTO.datasource" />
     <None Include="DomainModel.Testee.datasource" />
-    <None Include="DomainModel.Training.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

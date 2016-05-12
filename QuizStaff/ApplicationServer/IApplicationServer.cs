@@ -38,6 +38,12 @@ namespace Server
         void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID);
 
         [OperationContract]
+        QuestionDTO GetRandomQuestionForTestee(Guid id);
+
+        [OperationContract]
+        string LoginTestee(TesteeDTO testee);
+
+        [OperationContract]
         List<TrainingDTO> GetAllTrainings();
 
         [OperationContract]

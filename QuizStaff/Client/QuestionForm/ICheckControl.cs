@@ -5,7 +5,7 @@ namespace Client
     public interface ICheckControl
     {
         bool Checked { get; set; }
-        int Index { get; set; }
+        Guid AnswerID { get; set; }
         event EventHandler CheckedChanged;
     }
 }

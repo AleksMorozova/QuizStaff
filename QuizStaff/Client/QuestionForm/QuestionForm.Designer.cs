@@ -39,11 +39,12 @@
             this.flow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.flow.AutoScroll = true;
             this.flow.Controls.Add(this.labelQuestion);
             this.flow.Location = new System.Drawing.Point(0, 0);
             this.flow.Name = "flow";
-            this.flow.Padding = new System.Windows.Forms.Padding(20);
-            this.flow.Size = new System.Drawing.Size(372, 410);
+            this.flow.Padding = new System.Windows.Forms.Padding(20, 20, 20, 2);
+            this.flow.Size = new System.Drawing.Size(383, 410);
             this.flow.TabIndex = 0;
             // 
             // labelQuestion
@@ -78,6 +79,7 @@
             this.Name = "QuestionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Question";
+            this.Load += new System.EventHandler(this.QuestionForm_Load);
             this.flow.ResumeLayout(false);
             this.flow.PerformLayout();
             this.ResumeLayout(false);

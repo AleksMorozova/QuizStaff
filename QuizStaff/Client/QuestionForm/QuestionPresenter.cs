@@ -8,10 +8,10 @@ namespace Client
     public class QuestionPresenter
     {
         private QuestionDTO question;
-        public IQuestionForm Form { get; set; }
+        private IQuestionForm form;
         private Client.ServiceReference.ApplicationServerClient server;
         private TesteeDTO testee;
-        private List<bool> answers;
+        private Dictionary<Guid, bool> answers;
 
         private bool MultiSelect
         {
@@ -21,35 +21,27 @@ namespace Client
             }
         }
 
-        public QuestionPresenter(IQuestionForm form, QuestionDTO question, TesteeDTO testee)
+        public QuestionPresenter(IQuestionForm form, TesteeDTO testee)
         {
-            this.question = question;
             this.testee = testee;
-            this.Form = form;
-            this.Form.Presenter = this;
+            this.form = form;
             this.server = ServicesHolder.ServiceClient;
-            this.answers = new List<bool>(question.Answers.Select(x => false));
-            this.Form.CreateQuestionControls(this.question, this.answers, this.MultiSelect);
+            this.question = this.server.GetRandomQuestionForTestee(testee.Id);
+            this.answers = new Dictionary<Guid, bool>(question.Answers.ToDictionary(x => x.ID, x => false));
+            this.form.CreateQuestionControls(this.question, this.answers, this.MultiSelect);
         }
+
         public void Send()
         {
-            if (this.answers.Where(x => x == true).Count() == 0)
+            if (this.answers.Where(x => x.Value == true).Count() == 0)
             {
-                this.Form.NotifyNoAnswersChecked();
+                this.form.NotifyNoAnswersChecked();
             }
             else
             {
-                List<Guid> list = new List<Guid>();
-                int i = 0;
-                foreach (var answer in this.question.Answers)
-                {
-                    if (this.answers[i++])
-                    {
-                        list.Add(answer.ID);
-                    }
-                }
-                this.server.SaveTesteeAnswer(this.testee.Id, this.question.Id, DateTime.Now, list.ToArray());
-                this.Form.CloseForm();
+                var trueAnswers = this.answers.Where(x => x.Value == true).Select(x => x.Key).ToArray();
+                this.server.SaveTesteeAnswer(this.testee.Id, this.question.Id, DateTime.Now, trueAnswers);
+                this.form.CloseForm();
             }
         }
     }
