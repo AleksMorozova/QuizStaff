@@ -7,7 +7,7 @@ namespace Client
 {
     public class WrappingRadioButton : System.Windows.Forms.RadioButton, ICheckControl
     {
-        public int Index { get; set; }
+        public Guid AnswerID { get; set; }
         System.Drawing.Size cachedSizeOfOneLineOfText = System.Drawing.Size.Empty;
         Dictionary<Size, Size> preferredSizeHash = new Dictionary<Size, Size>(3); // typically we’ve got three different constraints.
 
