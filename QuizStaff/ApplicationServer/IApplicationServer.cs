@@ -37,7 +37,14 @@ namespace Server
         [OperationContract]
         void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID);
 
+        [OperationContract]
+        List<TrainingDTO> GetAllTrainings();
 
+        [OperationContract]
+        void SaveAllTrainings(ICollection<TrainingDTO> trainings);
+
+        [OperationContract]
+        Training GetTraining(Guid id);
     }
    
 }

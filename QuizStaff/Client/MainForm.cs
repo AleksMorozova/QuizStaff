@@ -40,9 +40,11 @@ namespace Client
 
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            // TODO : Add TrainingsListForm to choose training with it
-            TrainingEditForm f = new TrainingEditForm(new TrainingDTO() { TrainingTitle = "Test training", Id=System.Guid.Parse( "0cf1aca7-e3dc-47fa-96b6-55db96495545") });
-            FormManager.Instance.OpenChildForm(f, "Training :");
+            TrainingsListForm.TrainingListForm trainingsform = new TrainingsListForm.TrainingListForm();
+            FormManager.Instance.OpenChildForm(trainingsform, "Trainings");
+            
+            //TrainingEditForm f = new TrainingEditForm(new TrainingDTO() { TrainingTitle = "Test training", Id=System.Guid.Parse( "0cf1aca7-e3dc-47fa-96b6-55db96495545") });
+            //FormManager.Instance.OpenChildForm(f, "Training :");
         }
     }
 }

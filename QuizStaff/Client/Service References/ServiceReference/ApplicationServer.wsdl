@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ApplicationServer" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ApplicationServer" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -33,15 +33,17 @@
   <wsdl:message name="IApplicationServer_GetTestee_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTesteeResponse" />
   </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetTrainingQuestions_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTrainingQuestions" />
   <wsdl:message name="IApplicationServer_SetUsersSettings_InputMessage">
     <wsdl:part name="parameters" element="tns:SetUsersSettings" />
   </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetTrainingQuestions_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTrainingQuestionsResponse" />
   <wsdl:message name="IApplicationServer_SetUsersSettings_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetUsersSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetTrainingQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrainingQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetTrainingQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrainingQuestionsResponse" />
   </wsdl:message>
   <wsdl:message name="IApplicationServer_GetUsersSettings_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUsersSettings" />
@@ -54,6 +56,24 @@
   </wsdl:message>
   <wsdl:message name="IApplicationServer_SaveTesteeAnswer_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveTesteeAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllTrainings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTrainings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllTrainings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTrainingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveAllTrainings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAllTrainings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveAllTrainings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAllTrainingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetTraining_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTraining" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetTraining_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrainingResponse" />
   </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetData">
@@ -72,12 +92,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetTestee" message="tns:IApplicationServer_GetTestee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetTesteeResponse" message="tns:IApplicationServer_GetTestee_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetTrainingQuestions">
-      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetTrainingQuestions" message="tns:IApplicationServer_GetTrainingQuestions_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetTrainingQuestionsResponse" message="tns:IApplicationServer_GetTrainingQuestions_OutputMessage" />
     <wsdl:operation name="SetUsersSettings">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SetUsersSettings" message="tns:IApplicationServer_SetUsersSettings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SetUsersSettingsResponse" message="tns:IApplicationServer_SetUsersSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetTrainingQuestions" message="tns:IApplicationServer_GetTrainingQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetTrainingQuestionsResponse" message="tns:IApplicationServer_GetTrainingQuestions_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetUsersSettings">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetUsersSettings" message="tns:IApplicationServer_GetUsersSettings_InputMessage" />
@@ -86,6 +107,18 @@
     <wsdl:operation name="SaveTesteeAnswer">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer" message="tns:IApplicationServer_SaveTesteeAnswer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswerResponse" message="tns:IApplicationServer_SaveTesteeAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrainings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTrainings" message="tns:IApplicationServer_GetAllTrainings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse" message="tns:IApplicationServer_GetAllTrainings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAllTrainings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveAllTrainings" message="tns:IApplicationServer_SaveAllTrainings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveAllTrainingsResponse" message="tns:IApplicationServer_SaveAllTrainings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTraining">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetTraining" message="tns:IApplicationServer_GetTraining_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetTrainingResponse" message="tns:IApplicationServer_GetTraining_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -126,10 +159,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTrainingQuestions">
-      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetTrainingQuestions" style="document" />
     <wsdl:operation name="SetUsersSettings">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/SetUsersSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingQuestions">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetTrainingQuestions" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -148,6 +188,33 @@
     </wsdl:operation>
     <wsdl:operation name="SaveTesteeAnswer">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/SaveTesteeAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrainings">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetAllTrainings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAllTrainings">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/SaveAllTrainings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTraining">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetTraining" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
