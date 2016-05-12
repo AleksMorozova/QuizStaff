@@ -65,11 +65,13 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse")]
         DataTransferObject.QuestionDTO GetRandomQuestionForTestee(System.Guid id);
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoginTestee", ReplyAction="http://tempuri.org/IApplicationServer/LoginTesteeResponse")]
-        string LoginTestee(DataTransferObject.TesteeDTO testee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse")]
         System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetRandomQuestionForTesteeAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoginTestee", ReplyAction="http://tempuri.org/IApplicationServer/LoginTesteeResponse")]
+        string LoginTestee(DataTransferObject.TesteeDTO testee);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoginTestee", ReplyAction="http://tempuri.org/IApplicationServer/LoginTesteeResponse")]
         System.Threading.Tasks.Task<string> LoginTesteeAsync(DataTransferObject.TesteeDTO testee);
     }
@@ -167,12 +169,16 @@ namespace Client.ServiceReference {
         
         public DataTransferObject.QuestionDTO GetRandomQuestionForTestee(System.Guid id) {
             return base.Channel.GetRandomQuestionForTestee(id);
-        public string LoginTestee(DataTransferObject.TesteeDTO testee) {
-            return base.Channel.LoginTestee(testee);
         }
         
         public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetRandomQuestionForTesteeAsync(System.Guid id) {
             return base.Channel.GetRandomQuestionForTesteeAsync(id);
+        }
+        
+        public string LoginTestee(DataTransferObject.TesteeDTO testee) {
+            return base.Channel.LoginTestee(testee);
+        }
+        
         public System.Threading.Tasks.Task<string> LoginTesteeAsync(DataTransferObject.TesteeDTO testee) {
             return base.Channel.LoginTesteeAsync(testee);
         }

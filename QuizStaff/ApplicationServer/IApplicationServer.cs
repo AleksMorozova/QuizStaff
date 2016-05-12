@@ -39,6 +39,9 @@ namespace Server
 
         [OperationContract]
         QuestionDTO GetRandomQuestionForTestee(Guid id);
+
+        [OperationContract]
+        string LoginTestee(TesteeDTO testee);
     }
    
 }

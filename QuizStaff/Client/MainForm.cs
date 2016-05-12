@@ -50,5 +50,11 @@ namespace Client
             var f = new ClientsForms.LoginForm.UserLoginForm();
             f.ShowDialog();
         }
+
+        private void questionBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var f = new QuestionForm(new TesteeDTO() { Id = Guid.NewGuid() });
+            f.ShowDialog();
+        }
     }
 }
