@@ -59,9 +59,13 @@
   </wsdl:message>
   <wsdl:message name="IApplicationServer_GetRandomQuestionForTestee_InputMessage">
     <wsdl:part name="parameters" element="tns:GetRandomQuestionForTestee" />
+  <wsdl:message name="IApplicationServer_LoginTestee_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginTestee" />
   </wsdl:message>
   <wsdl:message name="IApplicationServer_GetRandomQuestionForTestee_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRandomQuestionForTesteeResponse" />
+  <wsdl:message name="IApplicationServer_LoginTestee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginTesteeResponse" />
   </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetData">
@@ -99,6 +103,9 @@
     <wsdl:operation name="GetRandomQuestionForTestee">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee" message="tns:IApplicationServer_GetRandomQuestionForTestee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse" message="tns:IApplicationServer_GetRandomQuestionForTestee_OutputMessage" />
+    <wsdl:operation name="LoginTestee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/LoginTestee" message="tns:IApplicationServer_LoginTestee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/LoginTesteeResponse" message="tns:IApplicationServer_LoginTestee_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -177,6 +184,8 @@
     </wsdl:operation>
     <wsdl:operation name="GetRandomQuestionForTestee">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee" style="document" />
+    <wsdl:operation name="LoginTestee">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/LoginTestee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
