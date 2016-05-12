@@ -107,13 +107,13 @@ namespace AdminApplication.AdminSettings
             }
 
             var t1 = currentTestees.GroupBy(_ => _.UserSetting.FrequencyOfAsking);
-            if (t.Count() == 1)
+            if (t1.Count() == 1)
             {
                 Setting.FrequencyOfAsking = t.First().First().UserSetting.FrequencyOfAsking;
             }
 
             var t2 = currentTestees.GroupBy(_ => _.UserSetting.TimeOfStart);
-            if (t.Count() == 1)
+            if (t2.Count() == 1)
             {
                 Setting.TimeOfStart = t.First().First().UserSetting.TimeOfStart;
             }
