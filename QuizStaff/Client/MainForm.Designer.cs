@@ -36,12 +36,13 @@
             this.trainingsBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.settingsBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.testBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.loginBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.statusBar = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.loginBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.questionBarButton = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuManager)).BeginInit();
             this.SuspendLayout();
@@ -65,9 +66,10 @@
             this.trainingsBarButton,
             this.settingsBarButton,
             this.testBarButton,
-            this.loginBarButton});
+            this.loginBarButton,
+            this.questionBarButton});
             this.mainMenuManager.MainMenu = this.mainMenu;
-            this.mainMenuManager.MaxItemId = 5;
+            this.mainMenuManager.MaxItemId = 6;
             this.mainMenuManager.StatusBar = this.statusBar;
             // 
             // mainMenu
@@ -81,7 +83,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.trainingsBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.settingsBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.testBarButton),
-            new DevExpress.XtraBars.LinkPersistInfo(this.loginBarButton)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.loginBarButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.questionBarButton)});
             this.mainMenu.OptionsBar.MultiLine = true;
             this.mainMenu.OptionsBar.UseWholeRow = true;
             this.mainMenu.Text = "Main menu";
@@ -112,6 +115,13 @@
             this.testBarButton.Id = 3;
             this.testBarButton.Name = "testBarButton";
             this.testBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.testBarButton_ItemClick);
+            // 
+            // loginBarButton
+            // 
+            this.loginBarButton.Caption = "Test Login";
+            this.loginBarButton.Id = 4;
+            this.loginBarButton.Name = "loginBarButton";
+            this.loginBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.loginBarButton_ItemClick);
             // 
             // statusBar
             // 
@@ -153,12 +163,12 @@
             this.barDockControlRight.Location = new System.Drawing.Point(803, 22);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 489);
             // 
-            // loginBarButton
+            // questionBarButton
             // 
-            this.loginBarButton.Caption = "Test Login";
-            this.loginBarButton.Id = 4;
-            this.loginBarButton.Name = "loginBarButton";
-            this.loginBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.loginBarButton_ItemClick);
+            this.questionBarButton.Caption = "Question";
+            this.questionBarButton.Id = 5;
+            this.questionBarButton.Name = "questionBarButton";
+            this.questionBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.questionBarButton_ItemClick);
             // 
             // MainForm
             // 
@@ -195,6 +205,7 @@
         private DevExpress.XtraBars.BarButtonItem settingsBarButton;
         private DevExpress.XtraBars.BarButtonItem testBarButton;
         private DevExpress.XtraBars.BarButtonItem loginBarButton;
+        private DevExpress.XtraBars.BarButtonItem questionBarButton;
 
 
     }

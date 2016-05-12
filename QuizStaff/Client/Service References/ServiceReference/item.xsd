@@ -112,10 +112,24 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetRandomQuestionForTestee">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q13:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRandomQuestionForTesteeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetRandomQuestionForTesteeResult" nillable="true" type="q14:QuestionDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="LoginTestee">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testee" nillable="true" type="q13:TesteeDTO" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testee" nillable="true" type="q15:TesteeDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

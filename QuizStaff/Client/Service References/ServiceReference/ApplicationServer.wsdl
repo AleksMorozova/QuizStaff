@@ -57,6 +57,12 @@
   <wsdl:message name="IApplicationServer_SaveTesteeAnswer_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveTesteeAnswerResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetRandomQuestionForTestee_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRandomQuestionForTestee" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetRandomQuestionForTestee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRandomQuestionForTesteeResponse" />
+  </wsdl:message>
   <wsdl:message name="IApplicationServer_LoginTestee_InputMessage">
     <wsdl:part name="parameters" element="tns:LoginTestee" />
   </wsdl:message>
@@ -95,6 +101,10 @@
     <wsdl:operation name="SaveTesteeAnswer">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer" message="tns:IApplicationServer_SaveTesteeAnswer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswerResponse" message="tns:IApplicationServer_SaveTesteeAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomQuestionForTestee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee" message="tns:IApplicationServer_GetRandomQuestionForTestee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse" message="tns:IApplicationServer_GetRandomQuestionForTestee_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="LoginTestee">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/LoginTestee" message="tns:IApplicationServer_LoginTestee_InputMessage" />
@@ -168,6 +178,15 @@
     </wsdl:operation>
     <wsdl:operation name="SaveTesteeAnswer">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/SaveTesteeAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomQuestionForTestee">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
