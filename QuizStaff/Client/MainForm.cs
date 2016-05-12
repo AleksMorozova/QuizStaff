@@ -44,5 +44,11 @@ namespace Client
             TrainingEditForm f = new TrainingEditForm(new TrainingDTO() { TrainingTitle = "Test training", Id=System.Guid.Parse( "0cf1aca7-e3dc-47fa-96b6-55db96495545") });
             FormManager.Instance.OpenChildForm(f, "Training :");
         }
+
+        private void loginBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var f = new ClientsForms.LoginForm.UserLoginForm();
+            f.ShowDialog();
+        }
     }
 }
