@@ -148,14 +148,14 @@
   <xs:element name="GetAllTrainingsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetAllTrainingsResult" nillable="true" type="q13:ArrayOfTrainingDTO" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetAllTrainingsResult" nillable="true" type="q16:ArrayOfTrainingDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveAllTrainings">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="trainings" nillable="true" type="q14:ArrayOfTrainingDTO" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="trainings" nillable="true" type="q17:ArrayOfTrainingDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -167,14 +167,14 @@
   <xs:element name="GetTraining">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q15:guid" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q18:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetTrainingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DomainModel" minOccurs="0" name="GetTrainingResult" nillable="true" type="q16:Training" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DomainModel" minOccurs="0" name="GetTrainingResult" nillable="true" type="q19:Training" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

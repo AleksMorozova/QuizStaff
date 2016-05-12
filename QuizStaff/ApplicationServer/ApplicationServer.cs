@@ -102,7 +102,7 @@ namespace Server
                                                     TimeOfStart = new DateTime(2016, 5, 8, 10, 10, 10, 10) };
             return sets;
         }
-
+        #endregion
 
         public List<TrainingDTO> GetAllTrainings()
         {
@@ -122,8 +122,7 @@ namespace Server
         public void SaveAllTrainings(ICollection<TrainingDTO> trainings)
         {
             // TODO: save to database
-        }
-        #endregion
+        }       
 
         public string LoginTestee(TesteeDTO testee)
         {
