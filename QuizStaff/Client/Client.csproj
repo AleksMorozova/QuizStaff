@@ -78,7 +78,6 @@
     <Compile Include="FormManager.cs" />
     <Compile Include="QuestionForm\ICheckControl.cs" />
     <Compile Include="QuestionForm\IQuestionForm.cs" />
-    <Compile Include="QuestionForm\MockQuestions.cs" />
     <Compile Include="QuestionForm\QuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>

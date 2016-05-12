@@ -39,15 +39,17 @@ namespace Client.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetTesteeResponse")]
         System.Threading.Tasks.Task<DomainModel.Testee> GetTesteeAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTrainingQuestions", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingQuestionsResponse")]
-        DataTransferObject.QuestionDTO[] GetTrainingQuestions(DataTransferObject.TrainingDTO training);
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SetUsersSettings", ReplyAction="http://tempuri.org/IApplicationServer/SetUsersSettingsResponse")]
         bool SetUsersSettings(DataTransferObject.SettingDTO sets, System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTrainingQuestions", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingQuestionsResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.QuestionDTO[]> GetTrainingQuestionsAsync(DataTransferObject.TrainingDTO training);
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SetUsersSettings", ReplyAction="http://tempuri.org/IApplicationServer/SetUsersSettingsResponse")]
         System.Threading.Tasks.Task<bool> SetUsersSettingsAsync(DataTransferObject.SettingDTO sets, System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTrainingQuestions", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingQuestionsResponse")]
+        DataTransferObject.QuestionDTO[] GetTrainingQuestions(DataTransferObject.TrainingDTO training);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTrainingQuestions", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingQuestionsResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.QuestionDTO[]> GetTrainingQuestionsAsync(DataTransferObject.TrainingDTO training);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetUsersSettings", ReplyAction="http://tempuri.org/IApplicationServer/GetUsersSettingsResponse")]
         DataTransferObject.SettingDTO GetUsersSettings(System.Guid id);
@@ -60,6 +62,12 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeAnswerResponse")]
         System.Threading.Tasks.Task SaveTesteeAnswerAsync(System.Guid testeeID, System.Guid questionID, System.DateTime date, System.Guid[] answersID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse")]
+        DataTransferObject.QuestionDTO GetRandomQuestionForTestee(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetRandomQuestionForTesteeAsync(System.Guid id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -124,16 +132,17 @@ namespace Client.ServiceReference {
         public bool SetUsersSettings(DataTransferObject.SettingDTO sets, System.Guid id) {
             return base.Channel.SetUsersSettings(sets, id);
         }
+        
+        public System.Threading.Tasks.Task<bool> SetUsersSettingsAsync(DataTransferObject.SettingDTO sets, System.Guid id) {
+            return base.Channel.SetUsersSettingsAsync(sets, id);
+        }
+        
         public DataTransferObject.QuestionDTO[] GetTrainingQuestions(DataTransferObject.TrainingDTO training) {
             return base.Channel.GetTrainingQuestions(training);
         }
-
-        public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO[]> GetTrainingQuestionsAsync(DataTransferObject.TrainingDTO training)
-        {
+        
+        public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO[]> GetTrainingQuestionsAsync(DataTransferObject.TrainingDTO training) {
             return base.Channel.GetTrainingQuestionsAsync(training);
-        }
-        public System.Threading.Tasks.Task<bool> SetUsersSettingsAsync(DataTransferObject.SettingDTO sets, System.Guid id) {
-            return base.Channel.SetUsersSettingsAsync(sets, id);
         }
         
         public DataTransferObject.SettingDTO GetUsersSettings(System.Guid id) {
@@ -150,6 +159,14 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task SaveTesteeAnswerAsync(System.Guid testeeID, System.Guid questionID, System.DateTime date, System.Guid[] answersID) {
             return base.Channel.SaveTesteeAnswerAsync(testeeID, questionID, date, answersID);
+        }
+        
+        public DataTransferObject.QuestionDTO GetRandomQuestionForTestee(System.Guid id) {
+            return base.Channel.GetRandomQuestionForTestee(id);
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetRandomQuestionForTesteeAsync(System.Guid id) {
+            return base.Channel.GetRandomQuestionForTesteeAsync(id);
         }
     }
 }

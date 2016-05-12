@@ -58,6 +58,29 @@ namespace Server
         {
             // TODO: save to database
         }
+
+        public QuestionDTO GetRandomQuestionForTestee(Guid id)
+        {
+            // TODO: load from database
+            #region Mock question
+            List<Answer> l = new List<Answer>();
+            l.Add(new Answer() { AnswerText = "This is correct answer.", IsCorrect = true, ID = Guid.NewGuid() });
+            string longStr = "dsadasdas ";
+            for (int i = 0; i <= 15; i++)
+            {
+                longStr += "dsadasdas ";
+            }
+            for (int i = 0; i <= 5; i++)
+            {
+                l.Add(new Answer() { AnswerText = new string('q', 20), IsCorrect = false, ID = Guid.NewGuid() });
+                l.Add(new Answer() { AnswerText = longStr, IsCorrect = false, ID = Guid.NewGuid() });
+                l.Add(new Answer() { AnswerText = "I am adding some controls to Flow layout panel. In between some controls I need a line break. How can I achieve this please. Thanks", IsCorrect = false, ID = Guid.NewGuid() });
+            }
+            l.Add(new Answer() { AnswerText = new string('q', 20), IsCorrect = false, ID = Guid.NewGuid() });
+            var question = new Question() { QuestionText = "What you gonna do when they come for you?", Answers = l };
+            #endregion
+            return question;
+        }
         #region Client's settings  
         public Boolean SetUsersSettings(SettingDTO sets, Guid id)
         {

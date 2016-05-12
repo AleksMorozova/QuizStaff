@@ -9,10 +9,10 @@ namespace Client
     public partial class QuestionForm : DevExpress.XtraEditors.XtraForm, IQuestionForm
     {
         public QuestionPresenter Presenter { get; set; }
-        public QuestionForm(QuestionDTO question, TesteeDTO testee)
+        public QuestionForm(TesteeDTO testee)
         {
             InitializeComponent();
-            Presenter = new QuestionPresenter(this, question, testee);
+            Presenter = new QuestionPresenter(this, testee);
             // Send form to bottom right corner of display
             var screen = Screen.FromPoint(this.Location);
             this.Location = new Point(screen.WorkingArea.Right - this.Width, screen.WorkingArea.Bottom - this.Height);

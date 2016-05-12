@@ -8,7 +8,7 @@ namespace Client
     public class QuestionPresenter
     {
         private QuestionDTO question;
-        public IQuestionForm form;
+        private IQuestionForm form;
         private Client.ServiceReference.ApplicationServerClient server;
         private TesteeDTO testee;
         private Dictionary<Guid, bool> answers;
@@ -21,12 +21,12 @@ namespace Client
             }
         }
 
-        public QuestionPresenter(IQuestionForm form, QuestionDTO question, TesteeDTO testee)
+        public QuestionPresenter(IQuestionForm form, TesteeDTO testee)
         {
-            this.question = question;
             this.testee = testee;
             this.form = form;
             this.server = ServicesHolder.ServiceClient;
+            this.question = this.server.GetRandomQuestionForTestee(testee.Id);
             this.answers = new Dictionary<Guid, bool>(question.Answers.ToDictionary(x => x.ID, x => false));
             this.form.CreateQuestionControls(this.question, this.answers, this.MultiSelect);
         }

@@ -69,27 +69,41 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetTrainingQuestions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="training" nillable="true" type="q6:TrainingDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrainingQuestionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetTrainingQuestionsResult" nillable="true" type="q7:ArrayOfQuestionDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetUsersSettings">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q6:guid" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q8:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUsersSettingsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetUsersSettingsResult" nillable="true" type="q7:SettingDTO" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetUsersSettingsResult" nillable="true" type="q9:SettingDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveTesteeAnswer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="testeeID" type="q8:guid" />
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="questionID" type="q9:guid" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="testeeID" type="q10:guid" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="questionID" type="q11:guid" />
         <xs:element minOccurs="0" name="date" type="xs:dateTime" />
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="answersID" nillable="true" type="q10:ArrayOfguid" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="answersID" nillable="true" type="q12:ArrayOfguid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -98,17 +112,17 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetTrainingQuestions">
+  <xs:element name="GetRandomQuestionForTestee">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="training" nillable="true" type="q4:TrainingDTO" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q13:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetTrainingQuestionsResponse">
+  <xs:element name="GetRandomQuestionForTesteeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetTrainingQuestionsResult" nillable="true" type="q5:ArrayOfQuestionDTO" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetRandomQuestionForTesteeResult" nillable="true" type="q14:QuestionDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
