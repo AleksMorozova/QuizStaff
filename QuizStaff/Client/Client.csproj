@@ -61,6 +61,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditTesteeForm\AddEditTestee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditTesteeForm\AddEditTestee.Designer.cs">
+      <DependentUpon>AddEditTestee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditTesteeForm\AddEditTesteePresenter.cs" />
+    <Compile Include="AddEditTesteeForm\IAddEditTesteeForm.cs" />
+    <Compile Include="ClientsForms\ClientsSetupForm\ClientSetupPresenter.cs" />
+    <Compile Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.Designer.cs">
+      <DependentUpon>ClientsSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientsForms\ClientsSetupForm\IClientSetupForm.cs" />
+    <Compile Include="ClientsForms\LoginForm\IUserLoginForm.cs" />
+    <Compile Include="ClientsForms\LoginForm\UserLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsForms\LoginForm\UserLoginForm.Designer.cs">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientsForms\LoginForm\UserLoginPresenter.cs" />
     <Compile Include="Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +92,24 @@
       <DependentUpon>Form.cs</DependentUpon>
     </Compile>
     <Compile Include="FormManager.cs" />
+    <Compile Include="QuestionForm\ICheckControl.cs" />
+    <Compile Include="QuestionForm\IQuestionForm.cs" />
+    <Compile Include="QuestionForm\QuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuestionForm\QuestionForm.Designer.cs">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionForm\QuestionPresenter.cs" />
+    <Compile Include="QuestionForm\WrappingCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QuestionForm\WrappingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QuestionForm\WrappingRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TrainingEditForm\ITrainingEditForm.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -98,6 +140,20 @@
       <DependentUpon>TrainingEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TrainingEditForm\TrainingEditPresenter.cs" />
+    <Compile Include="TrainingsListForm\ITrainingsListForm.cs" />
+    <Compile Include="TrainingsListForm\TrainingListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrainingsListForm\TrainingListForm.Designer.cs">
+      <DependentUpon>TrainingListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingsListForm\TrainingListPresenter.cs" />
+    <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
+      <DependentUpon>ClientsSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsForms\LoginForm\UserLoginForm.resx">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form.resx">
       <DependentUpon>Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,12 +171,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="QuestionForm\QuestionForm.resx">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TesteesListForm\TesteesListForm.resx">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrainingEditForm\TrainingEditForm.resx">
       <DependentUpon>TrainingEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TrainingsListForm\TrainingListForm.resx">
+      <DependentUpon>TrainingListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataTransferObject.QuestionDTO1.datasource" />
+    <None Include="DataTransferObject.SettingDTO.datasource" />
+    <None Include="DataTransferObject.TesteeDTO.datasource" />
+    <None Include="DataTransferObject.TrainingDTO1.datasource" />
+    <None Include="DomainModel.Testee.datasource" />
+    <None Include="DomainModel.Training1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,6 +231,12 @@
     <None Include="Service References\ServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\ServiceReference\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -172,6 +246,10 @@
     <ProjectReference Include="..\ApplicationServer\Server.csproj">
       <Project>{e15db54f-3233-4f07-be16-5be474cfaa59}</Project>
       <Name>Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
+      <Project>{5a1cd4a2-87f7-48cc-8117-5ebbb44f5c97}</Project>
+      <Name>DataTransferObject</Name>
     </ProjectReference>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">
       <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>

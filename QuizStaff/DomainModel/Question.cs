@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    public class Question
+    public class Question : Entity
     {
-        public string QuestionText { get; set; }
-        public Training Training{ get; set; }
-        public List<Answer> Answers { get; set; }
-
-        public Question(string questiontext, Training training)
+        public Question()
         {
-            this.QuestionText = questiontext;
-            this.Training = training;
-            Answers = new List<Answer>();
         }
+
+        public Guid TrainingId { get; set; }
+        public string QuestionText { get; set; }
+        public virtual Training Training { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
     }
 }

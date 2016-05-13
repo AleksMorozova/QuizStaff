@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars;
 using DomainModel;
+using DataTransferObject;
 
 namespace Client
 {
@@ -22,8 +23,8 @@ namespace Client
 
         private void testBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = new Form(); 
-            FormManager.Instance.OpenChildForm(f, "Test");
+            var formSets = new ClientsForms.ClientsSetupForm();
+            formSets.ShowDialog();
         }
 
         private void testeesBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -39,9 +40,23 @@ namespace Client
 
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            // TODO : Add TrainingsListForm to choose training with it
-            TrainingEditForm f = new TrainingEditForm(new Training("Test training") { TrainingTitle = "Test training" });
-            FormManager.Instance.OpenChildForm(f, "Training :");
+            TrainingsListForm.TrainingListForm trainingsform = new TrainingsListForm.TrainingListForm();
+            FormManager.Instance.OpenChildForm(trainingsform, "Trainings");
+            
+            //TrainingEditForm f = new TrainingEditForm(new TrainingDTO() { TrainingTitle = "Test training", Id=System.Guid.Parse( "0cf1aca7-e3dc-47fa-96b6-55db96495545") });
+            //FormManager.Instance.OpenChildForm(f, "Training :");
+        }
+
+        private void loginBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var f = new ClientsForms.LoginForm.UserLoginForm();
+            f.ShowDialog();
+        }
+
+        private void questionBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var f = new QuestionForm(new TesteeDTO() { Id = Guid.NewGuid() });
+            f.ShowDialog();
         }
     }
 }

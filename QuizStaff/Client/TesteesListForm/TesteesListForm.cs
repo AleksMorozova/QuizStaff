@@ -1,15 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DomainModel;
 using DevExpress.XtraGrid.Views.Grid;
+using DataTransferObject;
 
 namespace Client
 {
@@ -23,7 +16,7 @@ namespace Client
             this.Presenter = new TesteesListPresenter(this);
             gridTestees.Select();
         }
-        public void SetBindings(List<Testee> testees)
+        public void SetBindings(ICollection<TesteeDTO> testees)
         {
             gridTestees.DataSource = testees;
         }
@@ -62,7 +55,11 @@ namespace Client
 
         private void buttonEditTestee_Click(object sender, EventArgs e)
         {
-            Presenter.EditTestee((Testee)((GridView)gridTestees.MainView).GetFocusedRow());
+            var testee = (TesteeDTO)((GridView)gridTestees.MainView).GetFocusedRow();
+            if (testee != null)
+            {
+                Presenter.EditTestee(testee);
+            }
         }
     }
 }

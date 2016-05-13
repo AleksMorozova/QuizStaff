@@ -10,7 +10,7 @@ namespace Client
     {
         private static Client.ServiceReference.ApplicationServerClient serviceClient;
         private static ServicesHolder serviceHolderObject;
-        public Client.ServiceReference.ApplicationServerClient ServiceClient
+        public static Client.ServiceReference.ApplicationServerClient ServiceClient
         {
             get
             {

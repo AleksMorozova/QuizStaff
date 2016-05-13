@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DomainModel;
 using DevExpress.XtraEditors;
+using DataTransferObject;
 
 namespace Client
 {
@@ -15,7 +16,7 @@ namespace Client
         TextEdit TrainingName{get;}
 
         void CloseEditing();
-        void SetBindings(List<Question> questions);
+        void SetBindings(List<QuestionDTO> questions);
         bool NotifyUnsavedData();
     }
 }

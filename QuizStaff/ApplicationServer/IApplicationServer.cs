@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using DomainModel;
+using DataTransferObject;
 
 namespace Server
 {
@@ -16,13 +17,43 @@ namespace Server
         string GetData(int value);
 
         [OperationContract]
-        List<Testee> GetAllTestees();
-        void SaveAllTestees(List<Testee> testees);
-        // TODO: Add your service operations here
+        List<TesteeDTO> GetAllTestees(); 
+        
+        [OperationContract]
+        void SaveAllTestees(ICollection<TesteeDTO> testees);
 
-        List<Question> GetTrainingQuestions(Training training);
-        void SaveAllQuestions(Training training, List<Question> questions);
+        [OperationContract]
+        Testee GetTestee();
 
+        [OperationContract]
+        TesteeDTO GetTesteeByID(Guid id);
+
+        [OperationContract]
+        Boolean SetUsersSettings(SettingDTO sets, Guid id);
+
+        [OperationContract]
+        List<QuestionDTO> GetTrainingQuestions(TrainingDTO training);
+
+        [OperationContract]
+        SettingDTO GetUsersSettings(Guid id);
+        
+        [OperationContract]
+        void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID);
+
+        [OperationContract]
+        QuestionDTO GetRandomQuestionForTestee(Guid id);
+
+        [OperationContract]
+        string LoginTestee(TesteeDTO testee);
+
+        [OperationContract]
+        List<TrainingDTO> GetAllTrainings();
+
+        [OperationContract]
+        void SaveAllTrainings(ICollection<TrainingDTO> trainings);
+
+        [OperationContract]
+        Training GetTraining(Guid id);
     }
    
 }
