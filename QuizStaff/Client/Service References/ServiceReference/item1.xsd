@@ -56,4 +56,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="QuestionDTO" nillable="true" type="tns:QuestionDTO" />
+  <xs:complexType name="ArrayOfTrainingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrainingDTO" nillable="true" type="tns:TrainingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrainingDTO" nillable="true" type="tns:ArrayOfTrainingDTO" />
 </xs:schema>

@@ -74,6 +74,24 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoginTestee", ReplyAction="http://tempuri.org/IApplicationServer/LoginTesteeResponse")]
         System.Threading.Tasks.Task<string> LoginTesteeAsync(DataTransferObject.TesteeDTO testee);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse")]
+        DataTransferObject.TrainingDTO[] GetAllTrainings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllTrainingsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/SaveAllTrainingsResponse")]
+        void SaveAllTrainings(DataTransferObject.TrainingDTO[] trainings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/SaveAllTrainingsResponse")]
+        System.Threading.Tasks.Task SaveAllTrainingsAsync(DataTransferObject.TrainingDTO[] trainings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTraining", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingResponse")]
+        DomainModel.Training GetTraining(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTraining", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingResponse")]
+        System.Threading.Tasks.Task<DomainModel.Training> GetTrainingAsync(System.Guid id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -181,6 +199,30 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task<string> LoginTesteeAsync(DataTransferObject.TesteeDTO testee) {
             return base.Channel.LoginTesteeAsync(testee);
+        }
+        
+        public DataTransferObject.TrainingDTO[] GetAllTrainings() {
+            return base.Channel.GetAllTrainings();
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllTrainingsAsync() {
+            return base.Channel.GetAllTrainingsAsync();
+        }
+        
+        public void SaveAllTrainings(DataTransferObject.TrainingDTO[] trainings) {
+            base.Channel.SaveAllTrainings(trainings);
+        }
+        
+        public System.Threading.Tasks.Task SaveAllTrainingsAsync(DataTransferObject.TrainingDTO[] trainings) {
+            return base.Channel.SaveAllTrainingsAsync(trainings);
+        }
+        
+        public DomainModel.Training GetTraining(System.Guid id) {
+            return base.Channel.GetTraining(id);
+        }
+        
+        public System.Threading.Tasks.Task<DomainModel.Training> GetTrainingAsync(System.Guid id) {
+            return base.Channel.GetTrainingAsync(id);
         }
     }
 }

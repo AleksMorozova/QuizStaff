@@ -104,6 +104,26 @@ namespace Server
         }
         #endregion
 
+        public List<TrainingDTO> GetAllTrainings()
+        {
+            EFRepository<Training> repo = new EFRepository<Training>();
+            var trainings = new List<Training>(repo.ReadAll());
+            return trainings.Select(training => (TrainingDTO)training).ToList();
+        }
+
+        public Training GetTraining(Guid id)
+        {
+            EFRepository<Training> repo = new EFRepository<Training>();
+            Training training = new Training();
+            training = repo.Read(id);
+            return training;
+        }
+
+        public void SaveAllTrainings(ICollection<TrainingDTO> trainings)
+        {
+            // TODO: save to database
+        }       
+
         public string LoginTestee(TesteeDTO testee)
         {
             string result=string.Empty;

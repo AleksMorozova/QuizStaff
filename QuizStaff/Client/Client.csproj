@@ -132,6 +132,14 @@
       <DependentUpon>TrainingEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TrainingEditForm\TrainingEditPresenter.cs" />
+    <Compile Include="TrainingsListForm\ITrainingsListForm.cs" />
+    <Compile Include="TrainingsListForm\TrainingListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrainingsListForm\TrainingListForm.Designer.cs">
+      <DependentUpon>TrainingListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingsListForm\TrainingListPresenter.cs" />
     <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,10 +172,15 @@
     <EmbeddedResource Include="TrainingEditForm\TrainingEditForm.resx">
       <DependentUpon>TrainingEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TrainingsListForm\TrainingListForm.resx">
+      <DependentUpon>TrainingListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DataTransferObject.QuestionDTO1.datasource" />
     <None Include="DataTransferObject.SettingDTO.datasource" />
     <None Include="DataTransferObject.TesteeDTO.datasource" />
+    <None Include="DataTransferObject.TrainingDTO1.datasource" />
     <None Include="DomainModel.Testee.datasource" />
+    <None Include="DomainModel.Training1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
