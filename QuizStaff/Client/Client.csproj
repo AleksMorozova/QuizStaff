@@ -61,6 +61,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditTesteeForm\AddEditTestee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditTesteeForm\AddEditTestee.Designer.cs">
+      <DependentUpon>AddEditTestee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditTesteeForm\AddEditTesteePresenter.cs" />
+    <Compile Include="AddEditTesteeForm\IAddEditTesteeForm.cs" />
     <Compile Include="ClientsForms\ClientsSetupForm\ClientSetupPresenter.cs" />
     <Compile Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.cs">
       <SubType>Form</SubType>

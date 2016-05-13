@@ -26,6 +26,9 @@ namespace Server
         Testee GetTestee();
 
         [OperationContract]
+        TesteeDTO GetTesteeByID(Guid id);
+
+        [OperationContract]
         Boolean SetUsersSettings(SettingDTO sets, Guid id);
 
         [OperationContract]
