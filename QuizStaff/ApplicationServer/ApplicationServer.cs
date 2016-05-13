@@ -42,6 +42,13 @@ namespace Server
             return t;
         }
 
+        public TesteeDTO GetTesteeByID(Guid id)
+        {
+            EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
+            Testee currentTestee = repo.Read(id);
+            return currentTestee;
+        }
+
         public void SaveAllTestees(ICollection<TesteeDTO> testee)
         {
             // TODO: save to database
