@@ -55,6 +55,7 @@ namespace AdminApplication.AdminSettings
             Trainigs = new BindingList<TesteeTraining>();
 
             List<List<TesteeTraining>> everyTesteeTraningsList = new List<List<TesteeTraining>>();
+            allTrainingsOfSelectedTestees = new BindingList<TesteeTraining>();
 
             if (testees.Count > 0)
             {
@@ -92,7 +93,7 @@ namespace AdminApplication.AdminSettings
 
         public void SaveSelectChanges()
         {
-            BindingList<TesteeTraining> resultList = new BindingList<TesteeTraining>();
+            List<TesteeTrainingDTO> resultList = new List<TesteeTrainingDTO>();
             foreach(var training in Trainigs)
             {
                 foreach(var trainingFromAllTrainings in allTrainingsOfSelectedTestees)
@@ -100,11 +101,11 @@ namespace AdminApplication.AdminSettings
                     if(trainingFromAllTrainings.Training.TrainingTitle == training.Training.TrainingTitle)
                     {
                         trainingFromAllTrainings.IsSelect = training.IsSelect;
-                        resultList.Add(trainingFromAllTrainings);
+                        resultList.Add(Conversion.ConvertTesteeTrainingToDTO(trainingFromAllTrainings));
                     }
                 }
             }
-
+            ServicesHolder.ServiceClient.UpdateTesteeTraining(resultList.ToArray());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

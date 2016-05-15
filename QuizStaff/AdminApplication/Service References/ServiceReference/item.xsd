@@ -273,6 +273,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdateTesteeTraining">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testeeTraining" nillable="true" type="q30:ArrayOfTesteeTrainingDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTesteeTrainingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="FindByTitle">
     <xs:complexType>
       <xs:sequence>
@@ -283,7 +295,7 @@
   <xs:element name="FindByTitleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="FindByTitleResult" nillable="true" type="q30:TrainingDTO" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="FindByTitleResult" nillable="true" type="q31:TrainingDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

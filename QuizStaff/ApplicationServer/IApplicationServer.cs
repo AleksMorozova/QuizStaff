@@ -80,6 +80,9 @@ namespace Server
         void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining);
 
         [OperationContract]
+        void UpdateTesteeTraining(TesteeTrainingDTO[] testeeTraining);
+
+        [OperationContract]
         TrainingDTO FindByTitle(string title);
     }
 }

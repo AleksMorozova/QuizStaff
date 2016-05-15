@@ -274,6 +274,16 @@ namespace Server
             repo.Update(Conversion.ConvertTesteeTrainingFromDTO(testeeTraining));
         }
 
+        public void UpdateTesteeTraining(TesteeTrainingDTO[] testeeTrainings)
+        {
+            EFTesteeTrainingRepository repo = new EFTesteeTrainingRepository();
+            foreach(var testeeTraining in testeeTrainings)
+            {
+                TesteeTraining updateTesteeTraining = Conversion.ConvertTesteeTrainingFromDTO(testeeTraining);
+                repo.Update(updateTesteeTraining);
+            }
+        }
+
         public TrainingDTO FindByTitle(string title)
         {
             EFRepository<Training> repo = new EFRepository<DomainModel.Training>();
