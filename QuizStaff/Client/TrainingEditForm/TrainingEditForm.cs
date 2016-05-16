@@ -39,10 +39,15 @@ namespace Client
             MessageBox.Show("Form closed");
         }
 
-        public TrainingEditForm(TrainingDTO aim)
+        public TrainingEditForm()
         {
             InitializeComponent();
-            Presenter = new TrainingEditPresenter(this, aim);
+            Presenter = new TrainingEditPresenter(this);
+        }
+        public TrainingEditForm(TrainingDTO aim)
+            :this()
+        {
+            Presenter.LoadTraining(aim);
             this.Text = "Training : " + aim.TrainingTitle;
         }
 
