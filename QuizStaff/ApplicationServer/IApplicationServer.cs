@@ -54,6 +54,9 @@ namespace Server
 
         [OperationContract]
         Training GetTraining(Guid id);
+         
+        [OperationContract]
+        TesteeDTO FindByLogin(string login);
     }
    
 }
