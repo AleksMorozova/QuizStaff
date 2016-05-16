@@ -28,8 +28,8 @@ namespace Client
 
         public void AddTraining()
         {
-            // mock object
-            MessageBox.Show("Added new training");
+            TrainingEditForm f = new TrainingEditForm();
+            FormManager.Instance.OpenChildForm(f, "Add training");
         }
 
         public void LoadTraining()
@@ -41,8 +41,8 @@ namespace Client
 
         public void EditTraining(TrainingDTO editedTraining)
         {
-            // mock object            
-            MessageBox.Show("Edited training: " + editedTraining.TrainingTitle);
+            TrainingEditForm f = new TrainingEditForm(editedTraining);
+            FormManager.Instance.OpenChildForm(f, "Edit training: "+ editedTraining.TrainingTitle);
         }
 
         public void Save()

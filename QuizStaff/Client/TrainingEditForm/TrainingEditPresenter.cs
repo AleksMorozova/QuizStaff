@@ -20,18 +20,22 @@ namespace Client
         public bool DataChanged { get; set; }
         private TrainingDTO training;
 
-        public TrainingEditPresenter(ITrainingEditForm form, TrainingDTO training)
+        public TrainingEditPresenter(ITrainingEditForm form)
         {
             this.server = ServicesHolder.ServiceClient;
             this.Form = form;
             this.Form.Presenter = this;
-            this.training = training;
+        }
 
+
+        public void LoadTraining(TrainingDTO training)
+        {
+            this.training = training;
             //TODO: MB binding?
             this.Form.TrainingName.Text = training.TrainingTitle;
-            
             this.LoadQuestions();
         }
+        
 
         public void LoadQuestions()
         {
