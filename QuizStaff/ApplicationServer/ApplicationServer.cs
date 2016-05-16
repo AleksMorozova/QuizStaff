@@ -140,5 +140,11 @@ namespace Server
             result = "Logged";
             return result;
         }
+
+        public TesteeDTO FindByLogin(string login)
+        {
+            //TODO implement testee repor with method Find byid
+            return new TesteeDTO();
+        }
     }
 }
