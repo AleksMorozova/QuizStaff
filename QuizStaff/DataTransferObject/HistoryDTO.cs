@@ -10,10 +10,10 @@ namespace DataTransferObject
     public class HistoryDTO
     {
         public Guid Id { get; set; }
-        public virtual Testee Testee { get; set; }
-        public virtual Question Question { get; set; }
+        public virtual TesteeDTO Testee { get; set; }
+        public virtual QuestionDTO Question { get; set; }
         public virtual DateTime AnsweringDate { get; set; }
-        public virtual ICollection<TesteeAnswer> Answers { get; set; }
+        public virtual ICollection<TesteeAnswerDTO> Answers { get; set; }
 
         public static implicit operator HistoryDTO(History history)
         {

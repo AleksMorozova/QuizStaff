@@ -16,8 +16,8 @@ namespace DataTransferObject
         public string Login { get; set; }
         public string Password { get; set; }
         public virtual Setting UserSetting { get; set; }
-        public virtual ICollection<History> Histories { get; set; }
-        public virtual ICollection<TesteeTraining> Trainings { get; set; }
+        public virtual ICollection<HistoryDTO> Histories { get; set; }
+        public virtual ICollection<TesteeTrainingDTO> Trainings { get; set; }
 
         public static implicit operator TesteeDTO(Testee testee)
         {
