@@ -10,6 +10,8 @@ namespace DataTransferObject
     public class HistoryDTO
     {
         public Guid Id { get; set; }
+        public Guid TesteeId { get; set; }
+        public Guid QuestionId { get; set; }
         public virtual TesteeDTO Testee { get; set; }
         public virtual QuestionDTO Question { get; set; }
         public virtual DateTime AnsweringDate { get; set; }

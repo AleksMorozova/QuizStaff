@@ -13,6 +13,9 @@ namespace DomainModel
         { 
         }
 
-        public virtual ICollection<Answer> Answer { get; set; }
+        public Guid HistoryID { get; set; }    
+        public Guid AnswerID { get; set; }
+        public virtual History History { get; set; }
+        public virtual Answer Answer { get; set; }
     }
 }
