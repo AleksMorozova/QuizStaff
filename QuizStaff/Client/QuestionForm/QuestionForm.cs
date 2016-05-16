@@ -36,7 +36,7 @@ namespace Client
                     control = new WrappingRadioButton();
                 }
                 (control as Control).DataBindings.Add("Text", answer, "AnswerText");
-                control.AnswerID = answer.ID;
+                control.AnswerID = answer.Id;
                 control.CheckedChanged += (sender, e) => testeeAnswers[control.AnswerID] = control.Checked;
                 if (selectFirstRadio && !multiSelect)
                 {

@@ -11,6 +11,6 @@ namespace DomainModel
     public class Entity
     {
         [Key]
-        public virtual Guid ID { get; set; }
+        public virtual Guid Id { get; set; }
     }
 }

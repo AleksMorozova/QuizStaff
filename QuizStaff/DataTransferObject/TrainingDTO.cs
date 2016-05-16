@@ -11,8 +11,8 @@ namespace DataTransferObject
     {
         public Guid Id { get; set; }
         public String TrainingTitle { get; set; }
-        public virtual ICollection<Question> Questions { get; set; }
-        public virtual ICollection<TesteeTraining> TesteeTrainings { get; set; }
+        public virtual ICollection<QuestionDTO> Questions { get; set; }
+        public virtual ICollection<TesteeTrainingDTO> TesteeTrainings { get; set; }
 
         public static implicit operator TrainingDTO(Training training)
         {

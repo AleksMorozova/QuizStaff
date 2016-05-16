@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace DataTransferObject
 {
-    class TesteeAnswerDTO
+    public class TesteeAnswerDTO
     {
         public Guid Id { get; set; }
-        public virtual ICollection<Answer> Answer { get; set; }
+        public Guid HistoryID { get; set; }
+        public Guid AnswerID { get; set; }
+        public virtual HistoryDTO History { get; set; }
+        public virtual AnswerDTO Answer { get; set; }
 
         public static implicit operator TesteeAnswerDTO(TesteeAnswer testeeAnswer)
         {

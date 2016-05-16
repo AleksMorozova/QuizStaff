@@ -27,7 +27,7 @@ namespace Client
             this.form = form;
             this.server = ServicesHolder.ServiceClient;
             this.question = this.server.GetRandomQuestionForTestee(testee.Id);
-            this.answers = new Dictionary<Guid, bool>(question.Answers.ToDictionary(x => x.ID, x => false));
+            this.answers = new Dictionary<Guid, bool>(question.Answers.ToDictionary(x => x.Id, x => false));
             this.form.CreateQuestionControls(this.question, this.answers, this.MultiSelect);
         }
 
