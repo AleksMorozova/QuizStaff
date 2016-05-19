@@ -223,24 +223,36 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdateSomeTestees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testeeArray" nillable="true" type="q25:ArrayOfTesteeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSomeTesteesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SaveTestee">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testee" nillable="true" type="q25:TesteeDTO" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testee" nillable="true" type="q26:TesteeDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveTesteeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="SaveTesteeResult" nillable="true" type="q26:TesteeDTO" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="SaveTesteeResult" nillable="true" type="q27:TesteeDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateSettings">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="setting" nillable="true" type="q27:ArrayOfSettingDTO" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="setting" nillable="true" type="q28:ArrayOfSettingDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -252,7 +264,7 @@
   <xs:element name="DeleteAnswer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="answer" nillable="true" type="q28:AnswerDTO" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="answer" nillable="true" type="q29:AnswerDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -264,7 +276,7 @@
   <xs:element name="DeleteTesteeTraining">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testeeTraining" nillable="true" type="q29:TesteeTrainingDTO" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testeeTraining" nillable="true" type="q30:TesteeTrainingDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -276,7 +288,7 @@
   <xs:element name="UpdateTesteeTraining">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testeeTraining" nillable="true" type="q30:ArrayOfTesteeTrainingDTO" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testeeTraining" nillable="true" type="q31:ArrayOfTesteeTrainingDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -295,7 +307,7 @@
   <xs:element name="FindByTitleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="FindByTitleResult" nillable="true" type="q31:TrainingDTO" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="FindByTitleResult" nillable="true" type="q32:TrainingDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

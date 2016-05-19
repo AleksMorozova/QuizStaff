@@ -117,6 +117,12 @@ namespace AdminApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTestee", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> UpdateTesteeAsync(DataTransferObject.TesteeDTO testee);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSomeTestees", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSomeTesteesResponse")]
+        void UpdateSomeTestees(DataTransferObject.TesteeDTO[] testeeArray);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSomeTestees", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSomeTesteesResponse")]
+        System.Threading.Tasks.Task UpdateSomeTesteesAsync(DataTransferObject.TesteeDTO[] testeeArray);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTestee", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeResponse")]
         DataTransferObject.TesteeDTO SaveTestee(DataTransferObject.TesteeDTO testee);
         
@@ -315,6 +321,14 @@ namespace AdminApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> UpdateTesteeAsync(DataTransferObject.TesteeDTO testee) {
             return base.Channel.UpdateTesteeAsync(testee);
+        }
+        
+        public void UpdateSomeTestees(DataTransferObject.TesteeDTO[] testeeArray) {
+            base.Channel.UpdateSomeTestees(testeeArray);
+        }
+        
+        public System.Threading.Tasks.Task UpdateSomeTesteesAsync(DataTransferObject.TesteeDTO[] testeeArray) {
+            return base.Channel.UpdateSomeTesteesAsync(testeeArray);
         }
         
         public DataTransferObject.TesteeDTO SaveTestee(DataTransferObject.TesteeDTO testee) {

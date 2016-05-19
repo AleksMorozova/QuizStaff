@@ -94,11 +94,11 @@ namespace AdminApplication.AdminSettings
         public void SaveSelectChanges()
         {
             List<TesteeTrainingDTO> resultList = new List<TesteeTrainingDTO>();
-            foreach(var training in Trainigs)
+            foreach (var training in Trainigs)
             {
-                foreach(var trainingFromAllTrainings in allTrainingsOfSelectedTestees)
+                foreach (var trainingFromAllTrainings in allTrainingsOfSelectedTestees)
                 {
-                    if(trainingFromAllTrainings.Training.TrainingTitle == training.Training.TrainingTitle)
+                    if (trainingFromAllTrainings.Training.TrainingTitle == training.Training.TrainingTitle)
                     {
                         trainingFromAllTrainings.IsSelect = training.IsSelect;
                         resultList.Add(Conversion.ConvertTesteeTrainingToDTO(trainingFromAllTrainings));
@@ -106,6 +106,28 @@ namespace AdminApplication.AdminSettings
                 }
             }
             ServicesHolder.ServiceClient.UpdateTesteeTraining(resultList.ToArray());
+
+            //List<TesteeDTO> resultList = new List<TesteeDTO>();
+            //foreach (var training in Trainigs)
+            //{
+            //    foreach (var testee in Testees)
+            //    {
+            //        BindingList<TesteeTraining> currentTesteeTrainings = testee.Trainings;
+            //        BindingList<TesteeTraining> resultTraningList = new BindingList<TesteeTraining>();
+            //        foreach (var currentTesteeTraining in currentTesteeTrainings)
+            //        {
+            //            TesteeTraining tmpTesteeTraining = currentTesteeTraining;
+            //            if (currentTesteeTraining.Training.TrainingTitle == training.Training.TrainingTitle)
+            //            {
+            //                tmpTesteeTraining.IsSelect = training.IsSelect;
+            //            }
+            //            resultTraningList.Add(tmpTesteeTraining);
+            //        }
+            //        testee.Trainings = resultTraningList;
+            //        resultList.Add(Conversion.ConvertTesteeToDTO(testee));
+            //    }
+            //}
+            //ServicesHolder.ServiceClient.UpdateSomeTestees(resultList.ToArray());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

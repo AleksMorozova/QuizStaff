@@ -228,6 +228,15 @@ namespace Server
             repo.Update(updatedTestee);
             return (TesteeDTO)updatedTestee;
         }
+        public void UpdateSomeTestees(TesteeDTO[] testeeArray)
+        {
+            EFTesteeRepository repo = new EFTesteeRepository();
+            foreach (var testee in testeeArray)
+            {
+                Testee updatedTestee = Conversion.ConvertTesteeFromDTO(testee);
+                repo.Update(updatedTestee);
+            }
+        }
 
         public TesteeDTO SaveTestee(TesteeDTO testee)
         {
