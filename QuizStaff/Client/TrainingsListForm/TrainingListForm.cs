@@ -28,7 +28,13 @@ namespace Client.TrainingsListForm
 
         private void buttonEditTraining_Click(object sender, EventArgs e)
         {
-            TrainingDTO editedTraining = (TrainingDTO)((GridView)gridTrainingList.MainView).GetFocusedRow();
+            //TrainingDTO editedTraining = (TrainingDTO)((GridView)gridTrainingList.MainView).GetFocusedRow();
+
+            int rowHandler = gridView1.FocusedRowHandle;
+
+            var editedTraining = (TrainingDTO)gridView1.GetRow(rowHandler);
+
+
             presenter.EditTraining(editedTraining);
         }
 

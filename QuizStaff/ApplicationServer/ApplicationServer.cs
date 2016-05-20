@@ -118,12 +118,12 @@ namespace Server
             return trainings.Select(training => (TrainingDTO)training).ToList();
         }
 
-        public Training GetTraining(Guid id)
+        public TrainingDTO GetTraining(Guid id)
         {
             EFRepository<Training> repo = new EFRepository<Training>();
-            Training training = new Training();
-            training = repo.Read(id);
-            return training;
+            //TrainingDTO training = new TrainingDTO();
+            //training = (TrainingDTO)repo.Read(id);
+            return (TrainingDTO)repo.Read(id);
         }
 
         public void SaveAllTrainings(ICollection<TrainingDTO> trainings)
@@ -145,6 +145,17 @@ namespace Server
         {
             //TODO implement testee repor with method Find byid
             return new TesteeDTO();
+        }
+
+        public QuestionDTO GetQuestion(Guid id) 
+        {
+            return new QuestionDTO();
+        }
+
+        public void SaveAnswer(QuestionDTO question) 
+        {
+            EFRepository<Question> repo = new EFRepository<Question>();
+            //repo.Create((Question)question);
         }
     }
 }

@@ -99,6 +99,18 @@
   <wsdl:message name="IApplicationServer_FindByLogin_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindByLoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAnswerResponse" />
+  </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetData" message="tns:IApplicationServer_GetData_InputMessage" />
@@ -159,6 +171,14 @@
     <wsdl:operation name="FindByLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/FindByLogin" message="tns:IApplicationServer_FindByLogin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/FindByLoginResponse" message="tns:IApplicationServer_FindByLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetQuestion" message="tns:IApplicationServer_GetQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetQuestionResponse" message="tns:IApplicationServer_GetQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveAnswer" message="tns:IApplicationServer_SaveAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveAnswerResponse" message="tns:IApplicationServer_SaveAnswer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -291,6 +311,24 @@
     </wsdl:operation>
     <wsdl:operation name="FindByLogin">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/FindByLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestion">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAnswer">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/SaveAnswer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

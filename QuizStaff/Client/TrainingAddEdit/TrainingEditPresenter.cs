@@ -18,6 +18,7 @@ namespace Client
         private List<QuestionDTO> questions = new List<QuestionDTO>();
         // Becomes true when "Save" button on "Edit testee" form is pressed
         public bool DataChanged { get; set; }
+        
         private TrainingDTO training;
 
         public TrainingEditPresenter(ITrainingEditForm form)
@@ -27,16 +28,15 @@ namespace Client
             this.Form.Presenter = this;
         }
 
-
         public void LoadTraining(TrainingDTO training)
         {
             this.training = training;
+            this.training.Questions.Add(new QuestionDTO() { QuestionText = "asfraesw"});
             //TODO: MB binding?
             this.Form.TrainingName.Text = training.TrainingTitle;
             this.LoadQuestions();
         }
         
-
         public void LoadQuestions()
         {
                 this.questions = server.GetTrainingQuestions(training).ToList();
@@ -44,7 +44,6 @@ namespace Client
                 this.DataChanged = false;
         }
         
-
         public void SaveQuestions()
         {
             //this.server.SaveAllQuestions(training, this.questions);
@@ -52,19 +51,23 @@ namespace Client
             // TODO notify user that data saved succesfully
             MessageBox.Show("Saved");
         }
+        
         public void Close()
         {
                 this.Form.CloseEditing();
         }
+       
         public void EditQuestion(Question question)
         {
-            // TODO invoke new "Edit testee" form with testee's data in fields
-            MessageBox.Show("Edit question " + question.QuestionText);
+            AddEditQuestionForm.AddEditQuestionForm questionForm = new AddEditQuestionForm.AddEditQuestionForm(new Guid());
+            questionForm.ShowDialog();
         }
+
         public void AddQuestion()
         {
-            // TODO invoke new "Edit testee" form with blank fields
-            MessageBox.Show("Add question");
+            AddEditQuestionForm.AddEditQuestionForm questionForm = new AddEditQuestionForm.AddEditQuestionForm();
+            questionForm.ShowDialog();
+            this.training.Questions.Add(questionForm.Question);
         }
     }
 }

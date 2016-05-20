@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.Data.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -42,10 +43,12 @@
     <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
@@ -59,8 +62,19 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditQuestionForm\AddEditQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditQuestionForm\AddEditQuestionForm.Designer.cs">
+      <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditQuestionForm\AddEditQuestionPresenter.cs" />
+    <Compile Include="AddEditQuestionForm\IAddEditQuestionModel.cs" />
+    <Compile Include="AddEditQuestionForm\IAddEditQuestionView.cs" />
+    <Compile Include="AddEditQuestionForm\QuestionViewModel.cs" />
     <Compile Include="AddEditTesteeForm\AddEditTestee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,7 +124,7 @@
     <Compile Include="QuestionForm\WrappingRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TrainingEditForm\ITrainingEditForm.cs" />
+    <Compile Include="TrainingAddEdit\ITrainingEditForm.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,13 +147,14 @@
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TesteesListForm\TesteesListPresenter.cs" />
-    <Compile Include="TrainingEditForm\TrainingEditForm.cs">
+    <Compile Include="TrainingAddEdit\TrainingAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TrainingEditForm\TrainingEditForm.Designer.cs">
-      <DependentUpon>TrainingEditForm.cs</DependentUpon>
+    <Compile Include="TrainingAddEdit\TrainingAddEditForm.Designer.cs">
+      <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrainingEditForm\TrainingEditPresenter.cs" />
+    <Compile Include="TrainingAddEdit\TrainingEditPresenter.cs" />
+    <Compile Include="TrainingAddEdit\TrainingViewModel.cs" />
     <Compile Include="TrainingsListForm\ITrainingsListForm.cs" />
     <Compile Include="TrainingsListForm\TrainingListForm.cs">
       <SubType>Form</SubType>
@@ -148,6 +163,10 @@
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TrainingsListForm\TrainingListPresenter.cs" />
+    <Compile Include="TrainingsListForm\TrainingListViewModel.cs" />
+    <EmbeddedResource Include="AddEditQuestionForm\AddEditQuestionForm.resx">
+      <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,8 +196,8 @@
     <EmbeddedResource Include="TesteesListForm\TesteesListForm.resx">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrainingEditForm\TrainingEditForm.resx">
-      <DependentUpon>TrainingEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="TrainingAddEdit\TrainingAddEditForm.resx">
+      <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrainingsListForm\TrainingListForm.resx">
       <DependentUpon>TrainingListForm.cs</DependentUpon>

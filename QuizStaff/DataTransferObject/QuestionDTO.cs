@@ -21,5 +21,12 @@ namespace DataTransferObject
             Conversion.CopyProperty(question, newQuestion);
             return newQuestion;
         }
+
+        //public static implicit operator Question(QuestionDTO question)
+        //{
+        //    Question newQuestion = new Question();
+        //    Conversion.CopyProperty(question, newQuestion);
+        //    return newQuestion;
+        //}
     }
 }

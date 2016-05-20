@@ -53,10 +53,16 @@ namespace Server
         void SaveAllTrainings(ICollection<TrainingDTO> trainings);
 
         [OperationContract]
-        Training GetTraining(Guid id);
+        TrainingDTO GetTraining(Guid id);
          
         [OperationContract]
         TesteeDTO FindByLogin(string login);
+
+        [OperationContract]
+        QuestionDTO GetQuestion(Guid id);
+
+        [OperationContract]
+        void SaveAnswer(QuestionDTO question);
     }
    
 }

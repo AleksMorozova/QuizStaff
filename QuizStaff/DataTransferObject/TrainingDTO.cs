@@ -1,6 +1,8 @@
 ﻿using DomainModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +11,15 @@ namespace DataTransferObject
 {
     public class TrainingDTO
     {
+        private BindingList<QuestionDTO> questions;
+        public TrainingDTO() 
+        {
+            questions = new BindingList<QuestionDTO>();
+        }
         public Guid Id { get; set; }
         public String TrainingTitle { get; set; }
-        public virtual ICollection<QuestionDTO> Questions { get; set; }
-        public virtual ICollection<TesteeTrainingDTO> TesteeTrainings { get; set; }
+        public BindingList<QuestionDTO> Questions { get { return questions; } set { questions = value; } }
+        public ICollection<TesteeTrainingDTO> TesteeTrainings { get; set; }
 
         public static implicit operator TrainingDTO(Training training)
         {

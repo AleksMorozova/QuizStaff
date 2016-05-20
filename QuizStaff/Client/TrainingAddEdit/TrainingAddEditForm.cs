@@ -11,15 +11,16 @@ using DevExpress.XtraEditors;
 using DomainModel;
 using DevExpress.XtraGrid.Views.Grid;
 using DataTransferObject;
+using Client.TrainingEditForm;
 
 namespace Client
 {
-    public partial class TrainingEditForm : DevExpress.XtraEditors.XtraForm, ITrainingEditForm
+    public partial class TrainingAddEdit : DevExpress.XtraEditors.XtraForm, ITrainingEditForm
     {
 
         public TrainingEditPresenter Presenter { get; set; }
         public TextEdit TrainingName { get { return textTrainingName; } }
-
+        private TrainingViewModel model;
 
         public void SetBindings(List<QuestionDTO> questions)
         {
@@ -39,31 +40,54 @@ namespace Client
             MessageBox.Show("Form closed");
         }
 
-        public TrainingEditForm()
+        public TrainingAddEdit()
+            : this(Guid.Empty) { }
+
+        public TrainingAddEdit(Guid id)
         {
             InitializeComponent();
-            Presenter = new TrainingEditPresenter(this);
-        }
-        public TrainingEditForm(TrainingDTO aim)
-            :this()
-        {
-            Presenter.LoadTraining(aim);
-            this.Text = "Training : " + aim.TrainingTitle;
+
+            mvvmTrainingContext.ViewModelType = typeof(TrainingViewModel);
+
+            //presenter = new AddEditQuestionPresenter(this);
+            //presenter.LoadQuestion(id);
+            model = new TrainingViewModel();
+            model.LoadTraining(id);
+            mvvmTrainingContext.SetViewModel(typeof(TrainingViewModel), model);
+            model.LoadTraining(id);
+            BindToViewModel();            
         }
 
-        private void TrainingEditForm_Load(object sender, EventArgs e)
+        private void BindToViewModel()
         {
-            
+            //binding property
+            mvvmTrainingContext.SetBinding(textTrainingName, questionText => questionText.EditValue, "Training.TrainingTitle");
+            mvvmTrainingContext.SetBinding(gridQuestions, answers => answers.DataSource, "Training.Questions");
+
+            //Binding command  
+            mvvmTrainingContext.BindCommand<TrainingViewModel>(cancelButton, viewModel => viewModel.Cancel());
+            var currentQuestion = GetCurrentQuestion();
+            mvvmTrainingContext.BindCommand<TrainingViewModel, Guid>(editQuestionButton, (viewModel, questionID)
+                => viewModel.EditQuestion(questionID), x => currentQuestion.Id);
+            mvvmTrainingContext.BindCommand<TrainingViewModel>(addQuestionButton, viewModel => viewModel.AddQuestion());
         }
 
         private void buttonAddQuestion_Click(object sender, EventArgs e)
         {
             Presenter.AddQuestion();
+            gridView1.RefreshData();
         }
 
         private void buttonEditQuestion_Click(object sender, EventArgs e)
         {
             Presenter.EditQuestion((Question)((GridView)gridQuestions.MainView).GetFocusedRow());
+            gridView1.RefreshData();
+        }
+
+        private Question GetCurrentQuestion()
+        {
+            int rowHandler = gridView1.FocusedRowHandle;
+            return (Question)gridView1.GetRow(rowHandler);
         }
 
         private void buttonLoadQuestion_Click(object sender, EventArgs e)
@@ -84,11 +108,6 @@ namespace Client
         private void gridQuestions_DoubleClick(object sender, EventArgs e)
         {
             Presenter.EditQuestion((Question)((GridView)gridQuestions.MainView).GetFocusedRow());
-        }
-
-        private void buttonAddQuestion_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

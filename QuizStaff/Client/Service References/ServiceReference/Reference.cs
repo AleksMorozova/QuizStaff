@@ -94,16 +94,28 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task SaveAllTrainingsAsync(DataTransferObject.TrainingDTO[] trainings);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTraining", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingResponse")]
-        DomainModel.Training GetTraining(System.Guid id);
+        DataTransferObject.TrainingDTO GetTraining(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTraining", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingResponse")]
-        System.Threading.Tasks.Task<DomainModel.Training> GetTrainingAsync(System.Guid id);
+        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> GetTrainingAsync(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByLogin", ReplyAction="http://tempuri.org/IApplicationServer/FindByLoginResponse")]
         DataTransferObject.TesteeDTO FindByLogin(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByLogin", ReplyAction="http://tempuri.org/IApplicationServer/FindByLoginResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> FindByLoginAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetQuestion", ReplyAction="http://tempuri.org/IApplicationServer/GetQuestionResponse")]
+        DataTransferObject.QuestionDTO GetQuestion(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetQuestion", ReplyAction="http://tempuri.org/IApplicationServer/GetQuestionResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetQuestionAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveAnswerResponse")]
+        void SaveAnswer(DataTransferObject.QuestionDTO question);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveAnswerResponse")]
+        System.Threading.Tasks.Task SaveAnswerAsync(DataTransferObject.QuestionDTO question);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -237,11 +249,11 @@ namespace Client.ServiceReference {
             return base.Channel.SaveAllTrainingsAsync(trainings);
         }
         
-        public DomainModel.Training GetTraining(System.Guid id) {
+        public DataTransferObject.TrainingDTO GetTraining(System.Guid id) {
             return base.Channel.GetTraining(id);
         }
         
-        public System.Threading.Tasks.Task<DomainModel.Training> GetTrainingAsync(System.Guid id) {
+        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> GetTrainingAsync(System.Guid id) {
             return base.Channel.GetTrainingAsync(id);
         }
         
@@ -251,6 +263,22 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> FindByLoginAsync(string login) {
             return base.Channel.FindByLoginAsync(login);
+        }
+        
+        public DataTransferObject.QuestionDTO GetQuestion(System.Guid id) {
+            return base.Channel.GetQuestion(id);
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetQuestionAsync(System.Guid id) {
+            return base.Channel.GetQuestionAsync(id);
+        }
+        
+        public void SaveAnswer(DataTransferObject.QuestionDTO question) {
+            base.Channel.SaveAnswer(question);
+        }
+        
+        public System.Threading.Tasks.Task SaveAnswerAsync(DataTransferObject.QuestionDTO question) {
+            return base.Channel.SaveAnswerAsync(question);
         }
     }
 }
