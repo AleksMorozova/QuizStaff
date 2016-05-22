@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControlTrainingListForm = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGrigList = new DevExpress.XtraLayout.LayoutControlItem();
             this.gridTrainingList = new DevExpress.XtraGrid.GridControl();
@@ -46,6 +47,7 @@
             this.layoutControlButSave = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.mvvmTrainingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlTrainingListForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGrigList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTrainingList)).BeginInit();
@@ -59,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTrainingsContext)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControlTrainingListForm
@@ -251,6 +254,10 @@
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             this.emptySpaceItem2.TextVisible = true;
             // 
+            // mvvmTrainingsContext
+            // 
+            this.mvvmTrainingsContext.ContainerControl = this;
+            // 
             // TrainingListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,6 +279,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTrainingsContext)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,6 +304,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraGrid.Columns.GridColumn columnTitle;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.Utils.MVVM.MVVMContext mvvmTrainingsContext;
 
 
 

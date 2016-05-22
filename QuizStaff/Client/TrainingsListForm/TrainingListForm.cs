@@ -9,11 +9,28 @@ namespace Client.TrainingsListForm
     public partial class TrainingListForm : DevExpress.XtraEditors.XtraForm, ITrainingsListForm
     {
         public TrainingListPresenter presenter { get; set; }
-
+        private TrainingListViewModel model;
         public TrainingListForm()
         {            
             InitializeComponent();
-            this.presenter = new TrainingListPresenter(this);           
+            this.presenter = new TrainingListPresenter(this);
+
+            mvvmTrainingsContext.ViewModelType = typeof(TrainingListViewModel);
+            model = new TrainingListViewModel();
+            mvvmTrainingsContext.SetViewModel(typeof(TrainingListViewModel), model);
+            model.LoadAllTrainings();
+            BindToViewModel();   
+
+        }
+
+        private void BindToViewModel()
+        {
+            //binding property
+            mvvmTrainingsContext.SetBinding(gridTrainingList, answers => answers.DataSource, "Trainings");
+
+            //Binding command
+           // mvvmTrainingsContext.BindCommand<QuestionViewModel, QuestionDTO>(saveButton, (viewModel, question) => viewModel.SaveQuestion(question), x => Question);
+            //mvvmTrainingsContext.BindCommand<QuestionViewModel>(cancelButton, viewModel => viewModel.Cancel());
         }
 
         public void SetBindings(ICollection<TrainingDTO> trainingList)
@@ -52,9 +69,5 @@ namespace Client.TrainingsListForm
         {
             presenter.Cancel();
         }
-
-        
-
-        
     }
 }
