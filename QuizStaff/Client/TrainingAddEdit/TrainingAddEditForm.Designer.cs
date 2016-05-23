@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.loadQuestionButton = new DevExpress.XtraEditors.SimpleButton();
+            this.editQuestionButton = new DevExpress.XtraEditors.SimpleButton();
+            this.addQuestionButton = new DevExpress.XtraEditors.SimpleButton();
             this.gridQuestions = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.QuestionText = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -39,17 +44,12 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.questionsControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTrainingContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
-            this.addQuestionButton = new DevExpress.XtraEditors.SimpleButton();
             this.addQuestionButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.editQuestionButton = new DevExpress.XtraEditors.SimpleButton();
             this.editQuestionButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.loadQuestionButton = new DevExpress.XtraEditors.SimpleButton();
             this.loadQuestionButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mvvmTrainingContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridQuestions)).BeginInit();
@@ -60,12 +60,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionsControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mvvmTrainingContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addQuestionButtonLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editQuestionButtonLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadQuestionButtonLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTrainingContext)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -85,6 +85,51 @@
             this.layoutControl1.Size = new System.Drawing.Size(776, 416);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(672, 377);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(92, 22);
+            this.cancelButton.StyleController = this.layoutControl1;
+            this.cancelButton.TabIndex = 16;
+            this.cancelButton.Text = "Cancel";
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(572, 377);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(86, 22);
+            this.saveButton.StyleController = this.layoutControl1;
+            this.saveButton.TabIndex = 15;
+            this.saveButton.Text = "Save";
+            // 
+            // loadQuestionButton
+            // 
+            this.loadQuestionButton.Location = new System.Drawing.Point(673, 57);
+            this.loadQuestionButton.Name = "loadQuestionButton";
+            this.loadQuestionButton.Size = new System.Drawing.Size(91, 22);
+            this.loadQuestionButton.StyleController = this.layoutControl1;
+            this.loadQuestionButton.TabIndex = 14;
+            this.loadQuestionButton.Text = "Load question";
+            // 
+            // editQuestionButton
+            // 
+            this.editQuestionButton.Location = new System.Drawing.Point(573, 57);
+            this.editQuestionButton.Name = "editQuestionButton";
+            this.editQuestionButton.Size = new System.Drawing.Size(86, 22);
+            this.editQuestionButton.StyleController = this.layoutControl1;
+            this.editQuestionButton.TabIndex = 13;
+            this.editQuestionButton.Text = "Edit question";
+            // 
+            // addQuestionButton
+            // 
+            this.addQuestionButton.Location = new System.Drawing.Point(473, 57);
+            this.addQuestionButton.Name = "addQuestionButton";
+            this.addQuestionButton.Size = new System.Drawing.Size(86, 22);
+            this.addQuestionButton.StyleController = this.layoutControl1;
+            this.addQuestionButton.TabIndex = 12;
+            this.addQuestionButton.Text = "Add question";
             // 
             // gridQuestions
             // 
@@ -184,19 +229,6 @@
             this.questionsControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.questionsControlItem.TextVisible = false;
             // 
-            // mvvmTrainingContext
-            // 
-            this.mvvmTrainingContext.ContainerControl = this;
-            // 
-            // addQuestionButton
-            // 
-            this.addQuestionButton.Location = new System.Drawing.Point(473, 57);
-            this.addQuestionButton.Name = "addQuestionButton";
-            this.addQuestionButton.Size = new System.Drawing.Size(86, 22);
-            this.addQuestionButton.StyleController = this.layoutControl1;
-            this.addQuestionButton.TabIndex = 12;
-            this.addQuestionButton.Text = "Add question";
-            // 
             // addQuestionButtonLayoutControl
             // 
             this.addQuestionButtonLayoutControl.Control = this.addQuestionButton;
@@ -206,15 +238,6 @@
             this.addQuestionButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.addQuestionButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.addQuestionButtonLayoutControl.TextVisible = false;
-            // 
-            // editQuestionButton
-            // 
-            this.editQuestionButton.Location = new System.Drawing.Point(573, 57);
-            this.editQuestionButton.Name = "editQuestionButton";
-            this.editQuestionButton.Size = new System.Drawing.Size(86, 22);
-            this.editQuestionButton.StyleController = this.layoutControl1;
-            this.editQuestionButton.TabIndex = 13;
-            this.editQuestionButton.Text = "Edit question";
             // 
             // editQuestionButtonLayoutControl
             // 
@@ -226,15 +249,6 @@
             this.editQuestionButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.editQuestionButtonLayoutControl.TextVisible = false;
             // 
-            // loadQuestionButton
-            // 
-            this.loadQuestionButton.Location = new System.Drawing.Point(673, 57);
-            this.loadQuestionButton.Name = "loadQuestionButton";
-            this.loadQuestionButton.Size = new System.Drawing.Size(91, 22);
-            this.loadQuestionButton.StyleController = this.layoutControl1;
-            this.loadQuestionButton.TabIndex = 14;
-            this.loadQuestionButton.Text = "Load question";
-            // 
             // loadQuestionButtonLayoutControl
             // 
             this.loadQuestionButtonLayoutControl.Control = this.loadQuestionButton;
@@ -244,15 +258,6 @@
             this.loadQuestionButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 5, 5);
             this.loadQuestionButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.loadQuestionButtonLayoutControl.TextVisible = false;
-            // 
-            // saveButton
-            // 
-            this.saveButton.Location = new System.Drawing.Point(572, 377);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(86, 22);
-            this.saveButton.StyleController = this.layoutControl1;
-            this.saveButton.TabIndex = 15;
-            this.saveButton.Text = "Save";
             // 
             // saveButtonLayoutControl
             // 
@@ -264,15 +269,6 @@
             this.saveButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.saveButtonLayoutControl.TextVisible = false;
             // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(672, 377);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(92, 22);
-            this.cancelButton.StyleController = this.layoutControl1;
-            this.cancelButton.TabIndex = 16;
-            this.cancelButton.Text = "Cancel";
-            // 
             // cancelButtonLayoutControl
             // 
             this.cancelButtonLayoutControl.Control = this.cancelButton;
@@ -282,6 +278,10 @@
             this.cancelButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 5, 5);
             this.cancelButtonLayoutControl.TextSize = new System.Drawing.Size(0, 0);
             this.cancelButtonLayoutControl.TextVisible = false;
+            // 
+            // mvvmTrainingContext
+            // 
+            this.mvvmTrainingContext.ContainerControl = this;
             // 
             // TrainingAddEdit
             // 
@@ -301,12 +301,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionsControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mvvmTrainingContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addQuestionButtonLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editQuestionButtonLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadQuestionButtonLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTrainingContext)).EndInit();
             this.ResumeLayout(false);
 
         }

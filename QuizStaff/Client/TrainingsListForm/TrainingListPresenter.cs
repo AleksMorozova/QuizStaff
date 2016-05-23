@@ -17,14 +17,14 @@ namespace Client
         {
             this.server = ServicesHolder.ServiceClient;
             this.trainingListForm = trainingListForm;                        
-            LoadAllTrainings();            
+            //LoadAllTrainings();            
         }
 
-        public void LoadAllTrainings()
-        {                 
-            this.trainings = server.GetAllTrainings();
-            trainingListForm.SetBindings(this.trainings);
-        }
+        //public void LoadAllTrainings()
+        //{                 
+        //    this.trainings = server.GetAllTrainings();
+        //    trainingListForm.SetBindings(this.trainings);
+        //}
 
         public void AddTraining()
         {
@@ -35,7 +35,7 @@ namespace Client
         public void LoadTraining()
         {
             // mock object
-            LoadAllTrainings();
+            //LoadAllTrainings();
             MessageBox.Show("Load trainings");
         }
 

@@ -157,5 +157,10 @@ namespace Server
             EFRepository<Question> repo = new EFRepository<Question>();
             //repo.Create((Question)question);
         }
+
+        public void SaveAnswer(TrainingDTO training) 
+        {
+
+        }
     }
 }

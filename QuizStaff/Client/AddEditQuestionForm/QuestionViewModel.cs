@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Client.AddEditQuestionForm
 {
@@ -23,6 +24,7 @@ namespace Client.AddEditQuestionForm
             //  update question
 
             //}
+            MessageBox.Show("Trainings is saved: ");
         }
 
         public void Cancel()

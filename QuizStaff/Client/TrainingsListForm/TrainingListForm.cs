@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using DomainModel;
 using DevExpress.XtraGrid.Views.Grid;
 using DataTransferObject;
+using DevExpress.Mvvm;
+using DevExpress.XtraEditors;
 
 namespace Client.TrainingsListForm
 {
@@ -16,58 +18,35 @@ namespace Client.TrainingsListForm
             this.presenter = new TrainingListPresenter(this);
 
             mvvmTrainingsContext.ViewModelType = typeof(TrainingListViewModel);
+            BindCommands();
             model = new TrainingListViewModel();
             mvvmTrainingsContext.SetViewModel(typeof(TrainingListViewModel), model);
-            model.LoadAllTrainings();
+            model.GetAllTrainings();
             BindToViewModel();   
 
+        }
+
+        private void BindCommands()
+        {
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonSave, viewModel => viewModel.Save());
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonCancel, viewModel => viewModel.Cancel());
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonAddTraining, viewModel => viewModel.AddTraining());
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonLoadTraining, viewModel => viewModel.LoadTrainings());
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel, TrainingDTO>(buttonEditTraining,
+                (x, currentTraining) => x.EditTraining(currentTraining), x => GetCurrentTraining());
         }
 
         private void BindToViewModel()
         {
             //binding property
-            mvvmTrainingsContext.SetBinding(gridTrainingList, answers => answers.DataSource, "Trainings");
-
-            //Binding command
-           // mvvmTrainingsContext.BindCommand<QuestionViewModel, QuestionDTO>(saveButton, (viewModel, question) => viewModel.SaveQuestion(question), x => Question);
-            //mvvmTrainingsContext.BindCommand<QuestionViewModel>(cancelButton, viewModel => viewModel.Cancel());
+            mvvmTrainingsContext.SetBinding(trainingsGridControl, training => training.DataSource, "allTrainings");
         }
 
-        public void SetBindings(ICollection<TrainingDTO> trainingList)
+        private TrainingDTO GetCurrentTraining() 
         {
-            gridTrainingList.DataSource = trainingList;
-        }
-
-        private void buttonAddTraining_Click(object sender, EventArgs e)
-        {
-            presenter.AddTraining();
-        }
-
-        private void buttonEditTraining_Click(object sender, EventArgs e)
-        {
-            //TrainingDTO editedTraining = (TrainingDTO)((GridView)gridTrainingList.MainView).GetFocusedRow();
-
-            int rowHandler = gridView1.FocusedRowHandle;
-
-            var editedTraining = (TrainingDTO)gridView1.GetRow(rowHandler);
-
-
-            presenter.EditTraining(editedTraining);
-        }
-
-        private void buttonLoadTraining_Click(object sender, EventArgs e)
-        {
-            presenter.LoadTraining();
-        }
-
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
-            presenter.Save();
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            presenter.Cancel();
+            int rowHandler = trainingsGridView.FocusedRowHandle;
+            var editedTraining = (TrainingDTO)trainingsGridView.GetRow(rowHandler);
+            return editedTraining;
         }
     }
 }

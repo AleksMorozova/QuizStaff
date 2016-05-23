@@ -1,4 +1,5 @@
 ﻿using DataTransferObject;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,7 +38,7 @@ namespace Client.TrainingEditForm
 
         public void EditQuestion(Guid id)
         {
-            AddEditQuestionForm.AddEditQuestionForm questionForm = new AddEditQuestionForm.AddEditQuestionForm(new Guid());
+            AddEditQuestionForm.AddEditQuestionForm questionForm = new AddEditQuestionForm.AddEditQuestionForm(id);
             questionForm.ShowDialog();
         }
 
@@ -51,6 +52,17 @@ namespace Client.TrainingEditForm
         public void Cancel()
         {
             //TODO: cancel edeting 
+        }
+        
+        public void Save()
+        {
+           // ServicesHolder.ServiceClient.s
+        }
+        
+        public void LoadQuestions()
+        {
+            // TODO: implement loading of questions from external source
+            XtraMessageBox.Show("Load questions");
         }
     }
 }
