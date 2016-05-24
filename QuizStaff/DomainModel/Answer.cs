@@ -9,10 +9,6 @@ namespace DomainModel
 {
     public class Answer: Entity
     {
-        public Answer()
-        {
-        }
-
         public string AnswerText { get; set; }
         public bool IsCorrect { get; set; }
     }

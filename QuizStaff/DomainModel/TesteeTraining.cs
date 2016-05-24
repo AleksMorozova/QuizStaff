@@ -13,9 +13,5 @@ namespace DomainModel
         public Guid TrainingID { get; set; }
         public virtual Testee Testee { get; set; }
         public virtual Training Training { get; set; }
-
-        public TesteeTraining()
-        { 
-        }
     }
 }

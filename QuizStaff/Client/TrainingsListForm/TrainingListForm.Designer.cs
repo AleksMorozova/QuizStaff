@@ -33,6 +33,9 @@
             this.layoutControlButAdd = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonAddTraining = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.trainingsGridControl = new DevExpress.XtraGrid.GridControl();
+            this.trainingsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.titleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.buttonCancel = new DevExpress.XtraEditors.SimpleButton();
             this.buttonSave = new DevExpress.XtraEditors.SimpleButton();
             this.buttonLoadTraining = new DevExpress.XtraEditors.SimpleButton();
@@ -43,23 +46,20 @@
             this.layoutControlButSave = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.trainingsGridControl = new DevExpress.XtraGrid.GridControl();
-            this.trainingsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.trainingsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.titleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.mvvmTrainingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlTrainingListForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trainingsGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trainingsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trainingsGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trainingsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTrainingsContext)).BeginInit();
             this.SuspendLayout();
@@ -117,6 +117,32 @@
             this.layoutControl1.Size = new System.Drawing.Size(830, 439);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // trainingsGridControl
+            // 
+            this.trainingsGridControl.Location = new System.Drawing.Point(12, 61);
+            this.trainingsGridControl.MainView = this.trainingsGridView;
+            this.trainingsGridControl.Name = "trainingsGridControl";
+            this.trainingsGridControl.Size = new System.Drawing.Size(806, 333);
+            this.trainingsGridControl.TabIndex = 11;
+            this.trainingsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.trainingsGridView});
+            // 
+            // trainingsGridView
+            // 
+            this.trainingsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.titleGridColumn});
+            this.trainingsGridView.GridControl = this.trainingsGridControl;
+            this.trainingsGridView.Name = "trainingsGridView";
+            this.trainingsGridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // titleGridColumn
+            // 
+            this.titleGridColumn.Caption = "Title";
+            this.titleGridColumn.FieldName = "TrainingTitle";
+            this.titleGridColumn.Name = "titleGridColumn";
+            this.titleGridColumn.Visible = true;
+            this.titleGridColumn.VisibleIndex = 0;
             // 
             // buttonCancel
             // 
@@ -211,24 +237,6 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(390, 28);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // trainingsGridControl
-            // 
-            this.trainingsGridControl.Location = new System.Drawing.Point(12, 61);
-            this.trainingsGridControl.MainView = this.trainingsGridView;
-            this.trainingsGridControl.Name = "trainingsGridControl";
-            this.trainingsGridControl.Size = new System.Drawing.Size(806, 333);
-            this.trainingsGridControl.TabIndex = 11;
-            this.trainingsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.trainingsGridView});
-            // 
-            // trainingsGridView
-            // 
-            this.trainingsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.titleGridColumn});
-            this.trainingsGridView.GridControl = this.trainingsGridControl;
-            this.trainingsGridView.Name = "trainingsGridView";
-            this.trainingsGridView.OptionsView.ShowGroupPanel = false;
-            // 
             // trainingsLayoutControlItem
             // 
             this.trainingsLayoutControlItem.Control = this.trainingsGridControl;
@@ -239,14 +247,6 @@
             this.trainingsLayoutControlItem.Text = "Trainings";
             this.trainingsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.trainingsLayoutControlItem.TextSize = new System.Drawing.Size(43, 13);
-            // 
-            // titleGridColumn
-            // 
-            this.titleGridColumn.Caption = "Title";
-            this.titleGridColumn.FieldName = "TrainingTitle";
-            this.titleGridColumn.Name = "titleGridColumn";
-            this.titleGridColumn.Visible = true;
-            this.titleGridColumn.VisibleIndex = 0;
             // 
             // mvvmTrainingsContext
             // 
@@ -264,14 +264,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trainingsGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trainingsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trainingsGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trainingsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTrainingsContext)).EndInit();
             this.ResumeLayout(false);

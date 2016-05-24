@@ -9,10 +9,6 @@ namespace DomainModel
 {
     public class Question : Entity
     {
-        public Question()
-        {
-        }
-
         public Guid TrainingId { get; set; }
         public string QuestionText { get; set; }
         public virtual Training Training { get; set; }

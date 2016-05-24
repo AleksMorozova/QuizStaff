@@ -9,10 +9,6 @@ namespace DomainModel
 {
     public class TesteeAnswer : Entity
     {
-        public TesteeAnswer()
-        { 
-        }
-
         public Guid HistoryID { get; set; }    
         public Guid AnswerID { get; set; }
         public virtual History History { get; set; }

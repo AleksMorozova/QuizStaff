@@ -36,7 +36,7 @@
             this.editQuestionButton = new DevExpress.XtraEditors.SimpleButton();
             this.addQuestionButton = new DevExpress.XtraEditors.SimpleButton();
             this.gridQuestions = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.questionsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.QuestionText = new DevExpress.XtraGrid.Columns.GridColumn();
             this.textTrainingName = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -53,7 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridQuestions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textTrainingName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
@@ -137,21 +137,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridQuestions.Location = new System.Drawing.Point(12, 88);
-            this.gridQuestions.MainView = this.gridView1;
+            this.gridQuestions.MainView = this.questionsGridView;
             this.gridQuestions.Name = "gridQuestions";
             this.gridQuestions.Size = new System.Drawing.Size(752, 280);
             this.gridQuestions.TabIndex = 9;
             this.gridQuestions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.questionsGridView});
             this.gridQuestions.DoubleClick += new System.EventHandler(this.gridQuestions_DoubleClick);
             // 
-            // gridView1
+            // questionsGridView
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.questionsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.QuestionText});
-            this.gridView1.GridControl = this.gridQuestions;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.questionsGridView.GridControl = this.gridQuestions;
+            this.questionsGridView.Name = "questionsGridView";
+            this.questionsGridView.OptionsView.ShowGroupPanel = false;
             // 
             // QuestionText
             // 
@@ -294,7 +294,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridQuestions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textTrainingName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
@@ -320,7 +320,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraGrid.GridControl gridQuestions;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView questionsGridView;
         private DevExpress.XtraGrid.Columns.GridColumn QuestionText;
         private DevExpress.XtraLayout.LayoutControlItem questionsControlItem;
         private DevExpress.Utils.MVVM.MVVMContext mvvmTrainingContext;

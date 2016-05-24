@@ -7,6 +7,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using DataTransferObject;
+using System.Collections;
+using System.Collections.ObjectModel;
 
 namespace Server
 {
@@ -19,12 +21,6 @@ namespace Server
         {
             context = new QuizDBContext();
             context.Database.Initialize(true);
-        }
-
-        public string GetData(int value)
-        {
-
-            return string.Format("You entered: {0}", value);
         }
 
         public List<TesteeDTO> GetAllTestees()
@@ -149,7 +145,8 @@ namespace Server
 
         public QuestionDTO GetQuestion(Guid id) 
         {
-            return new QuestionDTO();
+            EFRepository<Question> repo = new EFRepository<Question>();
+            return (QuestionDTO)repo.Read(id);
         }
 
         public void SaveAnswer(QuestionDTO question) 
@@ -158,9 +155,46 @@ namespace Server
             //repo.Create((Question)question);
         }
 
-        public void SaveAnswer(TrainingDTO training) 
+        public void UpdateTraining(TrainingDTO training)
         {
+            EFTrainingRepository repo = new EFTrainingRepository();
+            Training newTraining = new Training();
+            newTraining.Questions = new Collection<Question>();
+            Conversion.CopyProperty(training, newTraining);
+            if (training.Questions.Count() > 0)
+            {
+                foreach (var q in training.Questions) 
+                {
+                    Question question = new Question();
+                    Conversion.CopyProperty(q, question);
+                    newTraining.Questions.Add(question);
+                }
+            }
+            repo.Update(newTraining);
+        }
 
+        public void SaveTraining(TrainingDTO training)
+        {
+            EFTrainingRepository repo = new EFTrainingRepository();
+            Training newTraining = new Training();
+            Conversion.CopyProperty(training, newTraining);
+            repo.Create(newTraining);
+        }
+
+        public void SaveQuestion(QuestionDTO training)
+        {
+            EFRepository<Question> repo = new EFRepository<Question>();
+            Question newTraining = new Question();
+            Conversion.CopyProperty(training, newTraining);
+            repo.Create(newTraining);
+        }
+
+        public void UpdateQuestion(QuestionDTO training)
+        {
+            EFRepository<Question> repo = new EFRepository<Question>();
+            Question newTraining = new Question();
+            Conversion.CopyProperty(training, newTraining);
+            repo.Update(newTraining);
         }
     }
 }

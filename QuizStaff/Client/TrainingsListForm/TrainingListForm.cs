@@ -15,7 +15,6 @@ namespace Client.TrainingsListForm
         public TrainingListForm()
         {            
             InitializeComponent();
-            this.presenter = new TrainingListPresenter(this);
 
             mvvmTrainingsContext.ViewModelType = typeof(TrainingListViewModel);
             BindCommands();

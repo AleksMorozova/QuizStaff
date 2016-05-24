@@ -10,21 +10,17 @@ namespace Client.AddEditQuestionForm
 {
     public class QuestionViewModel
     {
-        //public virtual string Question { get; set; }
-        //public virtual List<AnswerDTO> Answers { get; set; }
-
         public QuestionDTO Question { get; set; }
 
         public void SaveQuestion(QuestionDTO question) 
         {
-            //ServicesHolder.ServiceClient.SaveAnswer(question);
-            //TODO: save question
-            //if (id != Guid.Empty)
-            //{
-            //  update question
-
-            //}
-            MessageBox.Show("Trainings is saved: ");
+            if (question != null)
+            {
+                if (question.Id != Guid.Empty)
+                {
+                    ServicesHolder.ServiceClient.UpdateQuestion(question);
+                }
+            }
         }
 
         public void Cancel()
@@ -34,20 +30,14 @@ namespace Client.AddEditQuestionForm
 
         public void LoadQuestion(Guid id)
         {
-            //if (id == Guid.Empty)
-            //{
-            //    this.Question = new QuestionDTO();
-            //}
-            //else 
-            //{
-            //    this.Question = ServicesHolder.ServiceClient.GetQuestion(id);
-            //}
-
-            this.Question = new QuestionDTO()
+            if (id == Guid.Empty)
             {
-                QuestionText = "Test question 2",
-                Answers = new List<AnswerDTO>() { new AnswerDTO() { AnswerText = "Test answer", IsCorrect = true } }
-            };
+                this.Question = new QuestionDTO();
+            }
+            else
+            {
+                this.Question = ServicesHolder.ServiceClient.GetQuestion(id);
+            }
         }
     }
 }

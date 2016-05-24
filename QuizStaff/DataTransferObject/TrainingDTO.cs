@@ -25,6 +25,11 @@ namespace DataTransferObject
         {
             TrainingDTO newTraining = new TrainingDTO();
             Conversion.CopyProperty(training, newTraining);
+            if (training.Questions.Count()>0)
+            {
+                foreach (var q in training.Questions)
+                newTraining.Questions.Add((QuestionDTO)q);
+            }
             return newTraining;
         }
     }

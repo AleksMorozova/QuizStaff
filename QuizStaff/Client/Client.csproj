@@ -71,9 +71,6 @@
     <Compile Include="AddEditQuestionForm\AddEditQuestionForm.Designer.cs">
       <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddEditQuestionForm\AddEditQuestionPresenter.cs" />
-    <Compile Include="AddEditQuestionForm\IAddEditQuestionModel.cs" />
-    <Compile Include="AddEditQuestionForm\IAddEditQuestionView.cs" />
     <Compile Include="AddEditQuestionForm\QuestionViewModel.cs" />
     <Compile Include="AddEditTesteeForm\AddEditTestee.cs">
       <SubType>Form</SubType>

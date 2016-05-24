@@ -9,10 +9,6 @@ namespace DomainModel
 {
     public class Testee : Entity
     {
-        public Testee()
-        {
-        }
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

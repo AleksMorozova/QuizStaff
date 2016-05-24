@@ -12,7 +12,7 @@ using DataTransferObject;
 
 namespace Client.AddEditQuestionForm
 {
-    public partial class AddEditQuestionForm : DevExpress.XtraEditors.XtraForm, IAddEditQuestionView
+    public partial class AddEditQuestionForm : DevExpress.XtraEditors.XtraForm
     {
         //private readonly AddEditQuestionPresenter presenter;
         private QuestionViewModel model;
@@ -23,15 +23,19 @@ namespace Client.AddEditQuestionForm
         public AddEditQuestionForm(Guid id)
         {
             InitializeComponent();
-
             mvvmQuestionContext.ViewModelType = typeof(QuestionViewModel);
-
-            //presenter = new AddEditQuestionPresenter(this);
-            //presenter.LoadQuestion(id);
             model = new QuestionViewModel();
+            BindCommand();
             mvvmQuestionContext.SetViewModel(typeof(QuestionViewModel), model);
             model.LoadQuestion(id);
             BindToViewModel();            
+        }
+
+        private void BindCommand()
+        {
+            //Binding command
+            mvvmQuestionContext.BindCommand<QuestionViewModel, QuestionDTO>(saveButton, (viewModel, question) => viewModel.SaveQuestion(question), x => Question);
+            mvvmQuestionContext.BindCommand<QuestionViewModel>(cancelButton, viewModel => viewModel.Cancel());
         }
 
         private void BindToViewModel()
@@ -39,11 +43,6 @@ namespace Client.AddEditQuestionForm
             //binding property
             mvvmQuestionContext.SetBinding(questionTextEdit, questionText => questionText.EditValue, "Question.QuestionText");
             mvvmQuestionContext.SetBinding(answersGridControl, answers => answers.DataSource, "Question.Answers");
-
-            //Binding command
-            mvvmQuestionContext.BindCommand<QuestionViewModel, QuestionDTO>(saveButton, (viewModel, question) => viewModel.SaveQuestion(question), x => Question);
-            mvvmQuestionContext.BindCommand<QuestionViewModel>(cancelButton, viewModel => viewModel.Cancel());
-
         }
 
         public QuestionDTO Question 

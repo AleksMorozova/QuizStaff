@@ -28,29 +28,33 @@ namespace Client
         public TrainingAddEdit(Guid id)
         {
             InitializeComponent();
-
             mvvmTrainingContext.ViewModelType = typeof(TrainingViewModel);
             BindCommand();
-            //presenter = new AddEditQuestionPresenter(this);
-            //presenter.LoadQuestion(id);
-            model = new TrainingViewModel();
-            model.LoadTraining(id);
-            mvvmTrainingContext.SetViewModel(typeof(TrainingViewModel), model);
-            model.LoadTraining(id);
-            BindToViewModel();            
+            model = new TrainingViewModel();        
+            model.LoadTraining(id);    
+         
+            mvvmTrainingContext.SetViewModel(typeof(TrainingViewModel), model);   
+            BindToViewModel(); 
+            currentTraining = model.Training;
+                  
         }
+
+        private TrainingDTO currentTraining;
 
         private void BindCommand()
         {
             mvvmTrainingContext.BindCommand<TrainingViewModel>(cancelButton, viewModel => viewModel.Cancel());
 
-            var currentQuestion = GetCurrentQuestion();
-            mvvmTrainingContext.BindCommand<TrainingViewModel, Guid>(editQuestionButton, (viewModel, questionID)
-                => viewModel.EditQuestion(questionID), x => currentQuestion.Id);
+            mvvmTrainingContext.BindCommand<TrainingViewModel, QuestionDTO>(editQuestionButton, (viewModel, questionID)
+                => viewModel.EditQuestion(questionID), x => GetCurrentQuestion());
 
-            mvvmTrainingContext.BindCommand<TrainingViewModel>(addQuestionButton, viewModel => viewModel.AddQuestion());
+            mvvmTrainingContext.BindCommand<TrainingViewModel, TrainingDTO>(addQuestionButton, (viewModel, training)
+                => viewModel.AddQuestion(training), x => currentTraining);
+
             mvvmTrainingContext.BindCommand<TrainingViewModel>(loadQuestionButton, viewModel => viewModel.LoadQuestions());
-            mvvmTrainingContext.BindCommand<TrainingViewModel>(saveButton, viewModel => viewModel.Save());
+
+            mvvmTrainingContext.BindCommand<TrainingViewModel, TrainingDTO>(saveButton, (viewModel, training)
+                => viewModel.Save(training), x => currentTraining);
         }
 
         private void BindToViewModel()
@@ -60,10 +64,13 @@ namespace Client
             mvvmTrainingContext.SetBinding(gridQuestions, answers => answers.DataSource, "Training.Questions");
         }
 
-        private Question GetCurrentQuestion()
+        private QuestionDTO GetCurrentQuestion()
         {
-            int rowHandler = gridView1.FocusedRowHandle;
-            return (Question)gridView1.GetRow(rowHandler);
+            if (currentTraining!=null)
+            model.Training = currentTraining;
+            int rowHandler = questionsGridView.FocusedRowHandle;
+            var editedQuestion = (QuestionDTO)questionsGridView.GetRow(rowHandler);
+            return editedQuestion;
         }
 
         private void gridQuestions_DoubleClick(object sender, EventArgs e)
