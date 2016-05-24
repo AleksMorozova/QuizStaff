@@ -14,9 +14,6 @@ namespace Server
     public interface IApplicationServer
     {
         [OperationContract]
-        string GetData(int value);
-
-        [OperationContract]
         List<TesteeDTO> GetAllTestees(); 
         
         [OperationContract]
@@ -53,10 +50,27 @@ namespace Server
         void SaveAllTrainings(ICollection<TrainingDTO> trainings);
 
         [OperationContract]
-        Training GetTraining(Guid id);
+        TrainingDTO GetTraining(Guid id);
          
         [OperationContract]
         TesteeDTO FindByLogin(string login);
+
+        [OperationContract]
+        QuestionDTO GetQuestion(Guid id);
+
+        [OperationContract]
+        void SaveAnswer(QuestionDTO question);
+
+        [OperationContract]
+        void UpdateTraining(TrainingDTO training);
+        
+        [OperationContract]
+        void SaveTraining(TrainingDTO training);
+
+        [OperationContract]
+        void UpdateQuestion(QuestionDTO training);
+
+        [OperationContract]
+        void SaveQuestion(QuestionDTO training);
     }
-   
 }

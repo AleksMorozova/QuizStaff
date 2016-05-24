@@ -94,16 +94,52 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task SaveAllTrainingsAsync(DataTransferObject.TrainingDTO[] trainings);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTraining", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingResponse")]
-        DomainModel.Training GetTraining(System.Guid id);
+        DataTransferObject.TrainingDTO GetTraining(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTraining", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingResponse")]
-        System.Threading.Tasks.Task<DomainModel.Training> GetTrainingAsync(System.Guid id);
+        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> GetTrainingAsync(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByLogin", ReplyAction="http://tempuri.org/IApplicationServer/FindByLoginResponse")]
         DataTransferObject.TesteeDTO FindByLogin(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByLogin", ReplyAction="http://tempuri.org/IApplicationServer/FindByLoginResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> FindByLoginAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetQuestion", ReplyAction="http://tempuri.org/IApplicationServer/GetQuestionResponse")]
+        DataTransferObject.QuestionDTO GetQuestion(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetQuestion", ReplyAction="http://tempuri.org/IApplicationServer/GetQuestionResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetQuestionAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveAnswerResponse")]
+        void SaveAnswer(DataTransferObject.QuestionDTO question);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveAnswerResponse")]
+        System.Threading.Tasks.Task SaveAnswerAsync(DataTransferObject.QuestionDTO question);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTrainingResponse")]
+        void UpdateTraining(DataTransferObject.TrainingDTO training);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTrainingResponse")]
+        System.Threading.Tasks.Task UpdateTrainingAsync(DataTransferObject.TrainingDTO training);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTraining", ReplyAction="http://tempuri.org/IApplicationServer/SaveTrainingResponse")]
+        void SaveTraining(DataTransferObject.TrainingDTO training);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTraining", ReplyAction="http://tempuri.org/IApplicationServer/SaveTrainingResponse")]
+        System.Threading.Tasks.Task SaveTrainingAsync(DataTransferObject.TrainingDTO training);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateQuestion", ReplyAction="http://tempuri.org/IApplicationServer/UpdateQuestionResponse")]
+        void UpdateQuestion(DataTransferObject.QuestionDTO training);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateQuestion", ReplyAction="http://tempuri.org/IApplicationServer/UpdateQuestionResponse")]
+        System.Threading.Tasks.Task UpdateQuestionAsync(DataTransferObject.QuestionDTO training);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveQuestion", ReplyAction="http://tempuri.org/IApplicationServer/SaveQuestionResponse")]
+        void SaveQuestion(DataTransferObject.QuestionDTO training);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveQuestion", ReplyAction="http://tempuri.org/IApplicationServer/SaveQuestionResponse")]
+        System.Threading.Tasks.Task SaveQuestionAsync(DataTransferObject.QuestionDTO training);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -237,11 +273,11 @@ namespace Client.ServiceReference {
             return base.Channel.SaveAllTrainingsAsync(trainings);
         }
         
-        public DomainModel.Training GetTraining(System.Guid id) {
+        public DataTransferObject.TrainingDTO GetTraining(System.Guid id) {
             return base.Channel.GetTraining(id);
         }
         
-        public System.Threading.Tasks.Task<DomainModel.Training> GetTrainingAsync(System.Guid id) {
+        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> GetTrainingAsync(System.Guid id) {
             return base.Channel.GetTrainingAsync(id);
         }
         
@@ -251,6 +287,54 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> FindByLoginAsync(string login) {
             return base.Channel.FindByLoginAsync(login);
+        }
+        
+        public DataTransferObject.QuestionDTO GetQuestion(System.Guid id) {
+            return base.Channel.GetQuestion(id);
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetQuestionAsync(System.Guid id) {
+            return base.Channel.GetQuestionAsync(id);
+        }
+        
+        public void SaveAnswer(DataTransferObject.QuestionDTO question) {
+            base.Channel.SaveAnswer(question);
+        }
+        
+        public System.Threading.Tasks.Task SaveAnswerAsync(DataTransferObject.QuestionDTO question) {
+            return base.Channel.SaveAnswerAsync(question);
+        }
+        
+        public void UpdateTraining(DataTransferObject.TrainingDTO training) {
+            base.Channel.UpdateTraining(training);
+        }
+        
+        public System.Threading.Tasks.Task UpdateTrainingAsync(DataTransferObject.TrainingDTO training) {
+            return base.Channel.UpdateTrainingAsync(training);
+        }
+        
+        public void SaveTraining(DataTransferObject.TrainingDTO training) {
+            base.Channel.SaveTraining(training);
+        }
+        
+        public System.Threading.Tasks.Task SaveTrainingAsync(DataTransferObject.TrainingDTO training) {
+            return base.Channel.SaveTrainingAsync(training);
+        }
+        
+        public void UpdateQuestion(DataTransferObject.QuestionDTO training) {
+            base.Channel.UpdateQuestion(training);
+        }
+        
+        public System.Threading.Tasks.Task UpdateQuestionAsync(DataTransferObject.QuestionDTO training) {
+            return base.Channel.UpdateQuestionAsync(training);
+        }
+        
+        public void SaveQuestion(DataTransferObject.QuestionDTO training) {
+            base.Channel.SaveQuestion(training);
+        }
+        
+        public System.Threading.Tasks.Task SaveQuestionAsync(DataTransferObject.QuestionDTO training) {
+            return base.Channel.SaveQuestionAsync(training);
         }
     }
 }

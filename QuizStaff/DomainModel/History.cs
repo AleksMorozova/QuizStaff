@@ -9,10 +9,6 @@ namespace DomainModel
 {
     public class History: Entity
     {
-        public History()
-        {
-        }
-
         public Guid TesteeId { get; set; }
         public Guid QuestionId { get; set; }
 

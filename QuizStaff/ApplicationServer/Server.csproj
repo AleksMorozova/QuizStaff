@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\EFRepository.cs" />
+    <Compile Include="DAL\EFTrainingRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\QuizDBContext.cs" />
     <Compile Include="IApplicationServer.cs" />

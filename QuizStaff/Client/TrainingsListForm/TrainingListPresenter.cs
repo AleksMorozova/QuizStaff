@@ -17,31 +17,31 @@ namespace Client
         {
             this.server = ServicesHolder.ServiceClient;
             this.trainingListForm = trainingListForm;                        
-            LoadAllTrainings();            
+            //LoadAllTrainings();            
         }
 
-        public void LoadAllTrainings()
-        {                 
-            this.trainings = server.GetAllTrainings();
-            trainingListForm.SetBindings(this.trainings);
-        }
+        //public void LoadAllTrainings()
+        //{                 
+        //    this.trainings = server.GetAllTrainings();
+        //    trainingListForm.SetBindings(this.trainings);
+        //}
 
         public void AddTraining()
         {
-            TrainingEditForm f = new TrainingEditForm();
+            TrainingAddEdit f = new TrainingAddEdit();
             FormManager.Instance.OpenChildForm(f, "Add training");
         }
 
         public void LoadTraining()
         {
             // mock object
-            LoadAllTrainings();
+            //LoadAllTrainings();
             MessageBox.Show("Load trainings");
         }
 
         public void EditTraining(TrainingDTO editedTraining)
         {
-            TrainingEditForm f = new TrainingEditForm(editedTraining);
+            TrainingAddEdit f = new TrainingAddEdit(editedTraining.Id);
             FormManager.Instance.OpenChildForm(f, "Edit training: "+ editedTraining.TrainingTitle);
         }
 

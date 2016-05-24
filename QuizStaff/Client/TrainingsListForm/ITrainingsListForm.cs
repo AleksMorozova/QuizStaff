@@ -6,7 +6,7 @@ namespace Client
     public interface ITrainingsListForm
     {
         TrainingListPresenter presenter { get; set; }
-        void SetBindings(ICollection<TrainingDTO> trainingList);
+        //void SetBindings(ICollection<TrainingDTO> trainingList);
         
     }
 }
