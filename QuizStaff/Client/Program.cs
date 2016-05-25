@@ -3,7 +3,9 @@ using Client.ClientsForms.LoginForm;
 using DataTransferObject;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,6 +39,9 @@ namespace Client
             //            break;
             //    }
             //}
+
+            //TODO: Get saved language settengs ()en-US
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
