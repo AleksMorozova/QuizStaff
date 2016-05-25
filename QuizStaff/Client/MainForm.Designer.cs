@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.mainMenuManager = new DevExpress.XtraBars.BarManager(this.components);
             this.mainMenu = new DevExpress.XtraBars.Bar();
@@ -37,12 +38,15 @@
             this.settingsBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.testBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.loginBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.questionBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.statusBar = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.questionBarButton = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuManager)).BeginInit();
             this.SuspendLayout();
@@ -67,9 +71,12 @@
             this.settingsBarButton,
             this.testBarButton,
             this.loginBarButton,
-            this.questionBarButton});
+            this.questionBarButton,
+            this.languageBarSubItem,
+            this.barButtonItem1,
+            this.barButtonItem2});
             this.mainMenuManager.MainMenu = this.mainMenu;
-            this.mainMenuManager.MaxItemId = 6;
+            this.mainMenuManager.MaxItemId = 9;
             this.mainMenuManager.StatusBar = this.statusBar;
             // 
             // mainMenu
@@ -84,44 +91,74 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.settingsBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.testBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.loginBarButton),
-            new DevExpress.XtraBars.LinkPersistInfo(this.questionBarButton)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.questionBarButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.languageBarSubItem, true)});
             this.mainMenu.OptionsBar.MultiLine = true;
             this.mainMenu.OptionsBar.UseWholeRow = true;
-            this.mainMenu.Text = "Main menu";
+            resources.ApplyResources(this.mainMenu, "mainMenu");
             // 
             // testeesBarButton
             // 
-            this.testeesBarButton.Caption = "Testees";
+            resources.ApplyResources(this.testeesBarButton, "testeesBarButton");
             this.testeesBarButton.Id = 0;
             this.testeesBarButton.Name = "testeesBarButton";
             this.testeesBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.testeesBarButton_ItemClick);
             // 
             // trainingsBarButton
             // 
-            this.trainingsBarButton.Caption = "Trainings";
+            resources.ApplyResources(this.trainingsBarButton, "trainingsBarButton");
             this.trainingsBarButton.Id = 1;
             this.trainingsBarButton.Name = "trainingsBarButton";
             this.trainingsBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.trainingsBarButton_ItemClick);
             // 
             // settingsBarButton
             // 
-            this.settingsBarButton.Caption = "Settings";
+            resources.ApplyResources(this.settingsBarButton, "settingsBarButton");
             this.settingsBarButton.Id = 2;
             this.settingsBarButton.Name = "settingsBarButton";
             // 
             // testBarButton
             // 
-            this.testBarButton.Caption = "Test";
+            resources.ApplyResources(this.testBarButton, "testBarButton");
             this.testBarButton.Id = 3;
             this.testBarButton.Name = "testBarButton";
             this.testBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.testBarButton_ItemClick);
             // 
             // loginBarButton
             // 
-            this.loginBarButton.Caption = "Test Login";
+            resources.ApplyResources(this.loginBarButton, "loginBarButton");
             this.loginBarButton.Id = 4;
             this.loginBarButton.Name = "loginBarButton";
             this.loginBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.loginBarButton_ItemClick);
+            // 
+            // questionBarButton
+            // 
+            resources.ApplyResources(this.questionBarButton, "questionBarButton");
+            this.questionBarButton.Id = 5;
+            this.questionBarButton.Name = "questionBarButton";
+            this.questionBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.questionBarButton_ItemClick);
+            // 
+            // languageBarSubItem
+            // 
+            resources.ApplyResources(this.languageBarSubItem, "languageBarSubItem");
+            this.languageBarSubItem.Id = 6;
+            this.languageBarSubItem.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
+            this.languageBarSubItem.Name = "languageBarSubItem";
+            // 
+            // barButtonItem1
+            // 
+            resources.ApplyResources(this.barButtonItem1, "barButtonItem1");
+            this.barButtonItem1.Id = 7;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
+            // barButtonItem2
+            // 
+            resources.ApplyResources(this.barButtonItem2, "barButtonItem2");
+            this.barButtonItem2.Id = 8;
+            this.barButtonItem2.Name = "barButtonItem2";
             // 
             // statusBar
             // 
@@ -133,55 +170,38 @@
             this.statusBar.OptionsBar.AllowQuickCustomization = false;
             this.statusBar.OptionsBar.DrawDragBorder = false;
             this.statusBar.OptionsBar.UseWholeRow = true;
-            this.statusBar.Text = "Status bar";
+            resources.ApplyResources(this.statusBar, "statusBar");
             // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(803, 22);
+            resources.ApplyResources(this.barDockControlTop, "barDockControlTop");
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 511);
-            this.barDockControlBottom.Size = new System.Drawing.Size(803, 23);
+            resources.ApplyResources(this.barDockControlBottom, "barDockControlBottom");
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 489);
+            resources.ApplyResources(this.barDockControlLeft, "barDockControlLeft");
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(803, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 489);
-            // 
-            // questionBarButton
-            // 
-            this.questionBarButton.Caption = "Question";
-            this.questionBarButton.Id = 5;
-            this.questionBarButton.Name = "questionBarButton";
-            this.questionBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.questionBarButton_ItemClick);
+            resources.ApplyResources(this.barDockControlRight, "barDockControlRight");
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 534);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
-            this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuManager)).EndInit();
@@ -206,6 +226,9 @@
         private DevExpress.XtraBars.BarButtonItem testBarButton;
         private DevExpress.XtraBars.BarButtonItem loginBarButton;
         private DevExpress.XtraBars.BarButtonItem questionBarButton;
+        private DevExpress.XtraBars.BarSubItem languageBarSubItem;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
 
 
     }
