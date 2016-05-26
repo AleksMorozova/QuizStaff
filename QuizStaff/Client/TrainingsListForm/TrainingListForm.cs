@@ -8,9 +8,8 @@ using DevExpress.XtraEditors;
 
 namespace Client.TrainingsListForm
 {
-    public partial class TrainingListForm : DevExpress.XtraEditors.XtraForm, ITrainingsListForm
+    public partial class TrainingListForm : DevExpress.XtraEditors.XtraForm
     {
-        public TrainingListPresenter presenter { get; set; }
         private TrainingListViewModel model;
         public TrainingListForm()
         {            
@@ -21,8 +20,7 @@ namespace Client.TrainingsListForm
             model = new TrainingListViewModel();
             mvvmTrainingsContext.SetViewModel(typeof(TrainingListViewModel), model);
             model.GetAllTrainings();
-            BindToViewModel();   
-
+            BindToViewModel();
         }
 
         private void BindCommands()
@@ -37,7 +35,6 @@ namespace Client.TrainingsListForm
 
         private void BindToViewModel()
         {
-            //binding property
             mvvmTrainingsContext.SetBinding(trainingsGridControl, training => training.DataSource, "allTrainings");
         }
 

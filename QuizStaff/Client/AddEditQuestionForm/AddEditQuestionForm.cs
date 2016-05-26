@@ -14,33 +14,29 @@ namespace Client.AddEditQuestionForm
 {
     public partial class AddEditQuestionForm : DevExpress.XtraEditors.XtraForm
     {
-        //private readonly AddEditQuestionPresenter presenter;
         private QuestionViewModel model;
 
         public AddEditQuestionForm()
-            : this(Guid.Empty) { }
+            : this(new QuestionDTO()) { }
 
-        public AddEditQuestionForm(Guid id)
+        public AddEditQuestionForm(QuestionDTO question)
         {
             InitializeComponent();
             mvvmQuestionContext.ViewModelType = typeof(QuestionViewModel);
-            model = new QuestionViewModel();
             BindCommand();
+            model = new QuestionViewModel();
             mvvmQuestionContext.SetViewModel(typeof(QuestionViewModel), model);
-            model.LoadQuestion(id);
-            BindToViewModel();            
+            model.Question = question;
+            BindToViewModel();     
         }
 
         private void BindCommand()
         {
-            //Binding command
-            mvvmQuestionContext.BindCommand<QuestionViewModel, QuestionDTO>(saveButton, (viewModel, question) => viewModel.SaveQuestion(question), x => Question);
-            mvvmQuestionContext.BindCommand<QuestionViewModel>(cancelButton, viewModel => viewModel.Cancel());
+            mvvmQuestionContext.BindCommand<QuestionViewModel>(saveButton, viewModel => viewModel.Save());
         }
 
         private void BindToViewModel()
         {
-            //binding property
             mvvmQuestionContext.SetBinding(questionTextEdit, questionText => questionText.EditValue, "Question.QuestionText");
             mvvmQuestionContext.SetBinding(answersGridControl, answers => answers.DataSource, "Question.Answers");
         }
@@ -56,6 +52,5 @@ namespace Client.AddEditQuestionForm
                 model.Question = value;
             }
         }
-    
     }
 }

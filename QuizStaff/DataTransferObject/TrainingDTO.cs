@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataTransferObject
 {
-    public class TrainingDTO
+    public class TrainingDTO : INotifyPropertyChanged
     {
         private BindingList<QuestionDTO> questions;
         public TrainingDTO() 
@@ -17,7 +17,22 @@ namespace DataTransferObject
             questions = new BindingList<QuestionDTO>();
         }
         public Guid Id { get; set; }
-        public String TrainingTitle { get; set; }
+        private string trainingTitle;
+        public string TrainingTitle 
+        {
+            get
+            {
+                return trainingTitle;
+            }
+            set
+            {
+                if (value != trainingTitle)
+                {
+                    trainingTitle = value;
+                    OnPropertyChanged("TrainingTitle");
+                }
+            }
+        }
         public BindingList<QuestionDTO> Questions { get { return questions; } set { questions = value; } }
         public ICollection<TesteeTrainingDTO> TesteeTrainings { get; set; }
 
@@ -31,6 +46,15 @@ namespace DataTransferObject
                 newTraining.Questions.Add((QuestionDTO)q);
             }
             return newTraining;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

@@ -121,7 +121,6 @@
     <Compile Include="QuestionForm\WrappingRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TrainingAddEdit\ITrainingEditForm.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,16 +149,13 @@
     <Compile Include="TrainingAddEdit\TrainingAddEditForm.Designer.cs">
       <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrainingAddEdit\TrainingEditPresenter.cs" />
     <Compile Include="TrainingAddEdit\TrainingViewModel.cs" />
-    <Compile Include="TrainingsListForm\ITrainingsListForm.cs" />
     <Compile Include="TrainingsListForm\TrainingListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TrainingsListForm\TrainingListForm.Designer.cs">
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrainingsListForm\TrainingListPresenter.cs" />
     <Compile Include="TrainingsListForm\TrainingListViewModel.cs" />
     <EmbeddedResource Include="AddEditQuestionForm\AddEditQuestionForm.resx">
       <DependentUpon>AddEditQuestionForm.cs</DependentUpon>

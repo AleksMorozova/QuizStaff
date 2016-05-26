@@ -11,33 +11,16 @@ namespace Client.AddEditQuestionForm
     public class QuestionViewModel
     {
         public QuestionDTO Question { get; set; }
+        public bool execute = false;
 
-        public void SaveQuestion(QuestionDTO question) 
+        public void Save()
         {
-            if (question != null)
-            {
-                if (question.Id != Guid.Empty)
-                {
-                    ServicesHolder.ServiceClient.UpdateQuestion(question);
-                }
-            }
+            //TODO: Validation and set execute to true or false
         }
 
-        public void Cancel()
+        public bool CanDoSomething()
         {
-            //TODO: cancel edeting 
-        }
-
-        public void LoadQuestion(Guid id)
-        {
-            if (id == Guid.Empty)
-            {
-                this.Question = new QuestionDTO();
-            }
-            else
-            {
-                this.Question = ServicesHolder.ServiceClient.GetQuestion(id);
-            }
+            return execute;
         }
     }
 }

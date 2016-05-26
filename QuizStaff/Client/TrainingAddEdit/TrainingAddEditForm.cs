@@ -17,26 +17,23 @@ namespace Client
 {
     public partial class TrainingAddEdit : DevExpress.XtraEditors.XtraForm
     {
-
-        public TrainingEditPresenter Presenter { get; set; }
         public TextEdit TrainingName { get { return textTrainingName; } }
         private TrainingViewModel model;
 
         public TrainingAddEdit()
-            : this(Guid.Empty) { }
+            : this(new TrainingDTO()) { }
 
-        public TrainingAddEdit(Guid id)
+        public TrainingAddEdit(TrainingDTO training)
         {
             InitializeComponent();
+
             mvvmTrainingContext.ViewModelType = typeof(TrainingViewModel);
             BindCommand();
-            model = new TrainingViewModel();        
-            model.LoadTraining(id);    
-         
+            model = new TrainingViewModel();          
+            model.Training = training;
             mvvmTrainingContext.SetViewModel(typeof(TrainingViewModel), model);   
             BindToViewModel(); 
-            currentTraining = model.Training;
-                  
+            currentTraining = model.Training;  
         }
 
         private TrainingDTO currentTraining;
@@ -59,7 +56,6 @@ namespace Client
 
         private void BindToViewModel()
         {
-            //binding property
             mvvmTrainingContext.SetBinding(textTrainingName, questionText => questionText.EditValue, "Training.TrainingTitle");
             mvvmTrainingContext.SetBinding(gridQuestions, answers => answers.DataSource, "Training.Questions");
         }
@@ -75,7 +71,7 @@ namespace Client
 
         private void gridQuestions_DoubleClick(object sender, EventArgs e)
         {
-            Presenter.EditQuestion((Question)((GridView)gridQuestions.MainView).GetFocusedRow());
+            model.EditQuestion(GetCurrentQuestion());
         }
     }
 }

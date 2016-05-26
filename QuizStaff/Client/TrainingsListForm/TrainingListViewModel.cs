@@ -35,7 +35,7 @@ namespace Client.TrainingsListForm
 
         public void EditTraining(TrainingDTO editedTraining)
         {
-            TrainingAddEdit f = new TrainingAddEdit(editedTraining.Id);
+            TrainingAddEdit f = new TrainingAddEdit(editedTraining);
             FormManager.Instance.OpenChildForm(f, "Edit training: " + editedTraining.TrainingTitle);
         }
 

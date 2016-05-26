@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
@@ -44,8 +43,8 @@
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.questionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.questionBindingSource = new System.Windows.Forms.BindingSource();
+            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersGridControl)).BeginInit();
@@ -90,6 +89,7 @@
             // 
             // saveButton
             // 
+            this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.saveButton.Location = new System.Drawing.Point(367, 410);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(127, 22);
