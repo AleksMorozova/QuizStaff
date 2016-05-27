@@ -150,6 +150,7 @@
             this.QuestionText});
             this.questionsGridView.GridControl = this.gridQuestions;
             this.questionsGridView.Name = "questionsGridView";
+            this.questionsGridView.OptionsDetail.EnableMasterViewMode = false;
             this.questionsGridView.OptionsView.ShowGroupPanel = false;
             // 
             // QuestionText

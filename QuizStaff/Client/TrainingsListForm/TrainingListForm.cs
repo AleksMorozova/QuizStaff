@@ -55,5 +55,10 @@ namespace Client.TrainingsListForm
             var editedTraining = (TrainingDTO)trainingsGridView.GetRow(rowHandler);
             return editedTraining;
         }
+
+        private void trainingsGridView_DoubleClick(object sender, EventArgs e)
+        {
+            model.EditTraining(GetCurrentTraining());
+        }
     }
 }
