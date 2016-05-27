@@ -9,12 +9,6 @@
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IApplicationServer_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
-  </wsdl:message>
   <wsdl:message name="IApplicationServer_GetAllTestees_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTestees" />
   </wsdl:message>
@@ -26,12 +20,6 @@
   </wsdl:message>
   <wsdl:message name="IApplicationServer_SaveAllTestees_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveAllTesteesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetTestee_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTestee" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetTestee_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTesteeResponse" />
   </wsdl:message>
   <wsdl:message name="IApplicationServer_GetTesteeByID_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTesteeByID" />
@@ -87,23 +75,11 @@
   <wsdl:message name="IApplicationServer_SaveAllTrainings_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveAllTrainingsResponse" />
   </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetTraining_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTraining" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetTraining_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTrainingResponse" />
-  </wsdl:message>
   <wsdl:message name="IApplicationServer_FindByLogin_InputMessage">
     <wsdl:part name="parameters" element="tns:FindByLogin" />
   </wsdl:message>
   <wsdl:message name="IApplicationServer_FindByLogin_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindByLoginResponse" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetQuestion_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetQuestion" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetQuestion_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetQuestionResponse" />
   </wsdl:message>
   <wsdl:message name="IApplicationServer_SaveAnswer_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveAnswer" />
@@ -136,10 +112,6 @@
     <wsdl:part name="parameters" element="tns:SaveQuestionResponse" />
   </wsdl:message>
   <wsdl:portType name="IApplicationServer">
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetData" message="tns:IApplicationServer_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetDataResponse" message="tns:IApplicationServer_GetData_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetAllTestees">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTestees" message="tns:IApplicationServer_GetAllTestees_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTesteesResponse" message="tns:IApplicationServer_GetAllTestees_OutputMessage" />
@@ -147,10 +119,6 @@
     <wsdl:operation name="SaveAllTestees">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveAllTestees" message="tns:IApplicationServer_SaveAllTestees_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveAllTesteesResponse" message="tns:IApplicationServer_SaveAllTestees_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTestee">
-      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetTestee" message="tns:IApplicationServer_GetTestee_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetTesteeResponse" message="tns:IApplicationServer_GetTestee_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetTesteeByID">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetTesteeByID" message="tns:IApplicationServer_GetTesteeByID_InputMessage" />
@@ -188,17 +156,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveAllTrainings" message="tns:IApplicationServer_SaveAllTrainings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveAllTrainingsResponse" message="tns:IApplicationServer_SaveAllTrainings_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetTraining">
-      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetTraining" message="tns:IApplicationServer_GetTraining_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetTrainingResponse" message="tns:IApplicationServer_GetTraining_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="FindByLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/FindByLogin" message="tns:IApplicationServer_FindByLogin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/FindByLoginResponse" message="tns:IApplicationServer_FindByLogin_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetQuestion">
-      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetQuestion" message="tns:IApplicationServer_GetQuestion_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetQuestionResponse" message="tns:IApplicationServer_GetQuestion_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SaveAnswer">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveAnswer" message="tns:IApplicationServer_SaveAnswer_InputMessage" />
@@ -223,15 +183,6 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetAllTestees">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetAllTestees" style="document" />
       <wsdl:input>
@@ -243,15 +194,6 @@
     </wsdl:operation>
     <wsdl:operation name="SaveAllTestees">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/SaveAllTestees" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTestee">
-      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetTestee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -340,26 +282,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTraining">
-      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetTraining" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="FindByLogin">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/FindByLogin" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetQuestion">
-      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetQuestion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

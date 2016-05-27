@@ -15,12 +15,6 @@ namespace Client.ServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IApplicationServer")]
     public interface IApplicationServer {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetData", ReplyAction="http://tempuri.org/IApplicationServer/GetDataResponse")]
-        string GetData(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetData", ReplyAction="http://tempuri.org/IApplicationServer/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTestees", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesResponse")]
         DataTransferObject.TesteeDTO[] GetAllTestees();
         
@@ -32,12 +26,6 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAllTestees", ReplyAction="http://tempuri.org/IApplicationServer/SaveAllTesteesResponse")]
         System.Threading.Tasks.Task SaveAllTesteesAsync(DataTransferObject.TesteeDTO[] testees);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetTesteeResponse")]
-        DomainModel.Testee GetTestee();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetTesteeResponse")]
-        System.Threading.Tasks.Task<DomainModel.Testee> GetTesteeAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTesteeByID", ReplyAction="http://tempuri.org/IApplicationServer/GetTesteeByIDResponse")]
         DataTransferObject.TesteeDTO GetTesteeByID(System.Guid id);
@@ -93,23 +81,11 @@ namespace Client.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/SaveAllTrainingsResponse")]
         System.Threading.Tasks.Task SaveAllTrainingsAsync(DataTransferObject.TrainingDTO[] trainings);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTraining", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingResponse")]
-        DataTransferObject.TrainingDTO GetTraining(System.Guid id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTraining", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> GetTrainingAsync(System.Guid id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByLogin", ReplyAction="http://tempuri.org/IApplicationServer/FindByLoginResponse")]
         DataTransferObject.TesteeDTO FindByLogin(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByLogin", ReplyAction="http://tempuri.org/IApplicationServer/FindByLoginResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> FindByLoginAsync(string login);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetQuestion", ReplyAction="http://tempuri.org/IApplicationServer/GetQuestionResponse")]
-        DataTransferObject.QuestionDTO GetQuestion(System.Guid id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetQuestion", ReplyAction="http://tempuri.org/IApplicationServer/GetQuestionResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetQuestionAsync(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveAnswerResponse")]
         void SaveAnswer(DataTransferObject.QuestionDTO question);
@@ -169,14 +145,6 @@ namespace Client.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
-        }
-        
         public DataTransferObject.TesteeDTO[] GetAllTestees() {
             return base.Channel.GetAllTestees();
         }
@@ -191,14 +159,6 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task SaveAllTesteesAsync(DataTransferObject.TesteeDTO[] testees) {
             return base.Channel.SaveAllTesteesAsync(testees);
-        }
-        
-        public DomainModel.Testee GetTestee() {
-            return base.Channel.GetTestee();
-        }
-        
-        public System.Threading.Tasks.Task<DomainModel.Testee> GetTesteeAsync() {
-            return base.Channel.GetTesteeAsync();
         }
         
         public DataTransferObject.TesteeDTO GetTesteeByID(System.Guid id) {
@@ -273,28 +233,12 @@ namespace Client.ServiceReference {
             return base.Channel.SaveAllTrainingsAsync(trainings);
         }
         
-        public DataTransferObject.TrainingDTO GetTraining(System.Guid id) {
-            return base.Channel.GetTraining(id);
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> GetTrainingAsync(System.Guid id) {
-            return base.Channel.GetTrainingAsync(id);
-        }
-        
         public DataTransferObject.TesteeDTO FindByLogin(string login) {
             return base.Channel.FindByLogin(login);
         }
         
         public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> FindByLoginAsync(string login) {
             return base.Channel.FindByLoginAsync(login);
-        }
-        
-        public DataTransferObject.QuestionDTO GetQuestion(System.Guid id) {
-            return base.Channel.GetQuestion(id);
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetQuestionAsync(System.Guid id) {
-            return base.Channel.GetQuestionAsync(id);
         }
         
         public void SaveAnswer(DataTransferObject.QuestionDTO question) {

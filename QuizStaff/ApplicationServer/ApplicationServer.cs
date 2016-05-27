@@ -30,14 +30,6 @@ namespace Server
             return testees.Select(testee => (TesteeDTO)testee).ToList();
         }
 
-        public Testee GetTestee()
-        {
-            EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
-            Testee t = new DomainModel.Testee();
-            t.FirstName = "Testee";
-            return t;
-        }
-
         public TesteeDTO GetTesteeByID(Guid id)
         {
             EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
@@ -114,14 +106,6 @@ namespace Server
             return trainings.Select(training => (TrainingDTO)training).ToList();
         }
 
-        public TrainingDTO GetTraining(Guid id)
-        {
-            EFRepository<Training> repo = new EFRepository<Training>();
-            //TrainingDTO training = new TrainingDTO();
-            //training = (TrainingDTO)repo.Read(id);
-            return (TrainingDTO)repo.Read(id);
-        }
-
         public void SaveAllTrainings(ICollection<TrainingDTO> trainings)
         {
             // TODO: save to database
@@ -141,12 +125,6 @@ namespace Server
         {
             //TODO implement testee repor with method Find byid
             return new TesteeDTO();
-        }
-
-        public QuestionDTO GetQuestion(Guid id) 
-        {
-            EFRepository<Question> repo = new EFRepository<Question>();
-            return (QuestionDTO)repo.Read(id);
         }
 
         public void SaveAnswer(QuestionDTO question) 
