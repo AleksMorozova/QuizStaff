@@ -13,24 +13,25 @@ namespace Client.TrainingsListForm
 {
     public class TrainingListViewModel
     {
-        public virtual ICollection<TrainingDTO> allTrainings { get; set; }
+        public BindingList<TrainingDTO> AllTrainings { get; set; }
 
         public List<TrainingDTO> Trainings = new List<TrainingDTO>();
 
         public void GetAllTrainings()
         {
-            allTrainings = new Collection<TrainingDTO>();
+            AllTrainings = new BindingList<TrainingDTO>();
             this.Trainings.AddRange(ServicesHolder.ServiceClient.GetAllTrainings());
             foreach (var t in Trainings)
             {
-                allTrainings.Add(t);
+                AllTrainings.Add(t);
             }
         }
 
-        public void AddTraining()
+        public void AddTraining(BindingList<TrainingDTO> trainings)
         {
             TrainingAddEdit f = new TrainingAddEdit();
             FormManager.Instance.OpenChildForm(f, "Add training");
+            trainings.Add(f.Training);
         }
 
         public void EditTraining(TrainingDTO editedTraining)
@@ -56,5 +57,13 @@ namespace Client.TrainingsListForm
             // TODO: implement loading of trainings from external source
             XtraMessageBox.Show("Load trainings");
         }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }    
     }
 }

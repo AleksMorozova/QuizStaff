@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataTransferObject;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Client.AddEditQuestionForm
 {
@@ -22,6 +23,8 @@ namespace Client.AddEditQuestionForm
         public AddEditQuestionForm(QuestionDTO question)
         {
             InitializeComponent();
+            this.answersGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            //answersGridControl.MainView.p.NewItemRowPosition = NewItemRowPosition.Bottom;
             mvvmQuestionContext.ViewModelType = typeof(QuestionViewModel);
             BindCommand();
             model = new QuestionViewModel();
@@ -51,6 +54,13 @@ namespace Client.AddEditQuestionForm
             {
                 model.Question = value;
             }
+        }
+
+        private void answersGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            AnswerDTO answer = v.GetRow(e.RowHandle) as AnswerDTO;
+            answer.IsCorrect = false;
         }
     }
 }

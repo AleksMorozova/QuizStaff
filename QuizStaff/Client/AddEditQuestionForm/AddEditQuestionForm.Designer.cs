@@ -32,7 +32,7 @@
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.answersGridControl = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.answersGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.answerColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isCorrectColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.isCorrectRepositoryItemCheckEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -48,7 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.answersGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isCorrectRepositoryItemCheckEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -100,23 +100,26 @@
             // answersGridControl
             // 
             this.answersGridControl.Location = new System.Drawing.Point(12, 62);
-            this.answersGridControl.MainView = this.gridView1;
+            this.answersGridControl.MainView = this.answersGridView;
             this.answersGridControl.Name = "answersGridControl";
             this.answersGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.isCorrectRepositoryItemCheckEdit});
             this.answersGridControl.Size = new System.Drawing.Size(628, 339);
             this.answersGridControl.TabIndex = 5;
+            this.answersGridControl.UseEmbeddedNavigator = true;
             this.answersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.answersGridView});
             // 
-            // gridView1
+            // answersGridView
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.answersGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.answerColumn,
             this.isCorrectColumn});
-            this.gridView1.GridControl = this.answersGridControl;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.answersGridView.GridControl = this.answersGridControl;
+            this.answersGridView.Name = "answersGridView";
+            this.answersGridView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
+            this.answersGridView.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
+            this.answersGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.answersGridView_InitNewRow);
             // 
             // answerColumn
             // 
@@ -228,7 +231,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.answersGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.answersGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isCorrectRepositoryItemCheckEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -248,7 +251,7 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraGrid.GridControl answersGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView answersGridView;
         private DevExpress.XtraGrid.Columns.GridColumn answerColumn;
         private DevExpress.XtraGrid.Columns.GridColumn isCorrectColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit isCorrectRepositoryItemCheckEdit;

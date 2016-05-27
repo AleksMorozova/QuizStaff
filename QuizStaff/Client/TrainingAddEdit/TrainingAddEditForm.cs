@@ -73,5 +73,17 @@ namespace Client
         {
             model.EditQuestion(GetCurrentQuestion());
         }
+
+        public TrainingDTO Training
+        {
+            get
+            {
+                return model.Training;
+            }
+            set
+            {
+                model.Training = value;
+            }
+        }
     }
 }

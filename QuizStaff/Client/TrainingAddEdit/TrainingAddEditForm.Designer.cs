@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
@@ -49,7 +48,7 @@
             this.loadQuestionButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTrainingContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.mvvmTrainingContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridQuestions)).BeginInit();

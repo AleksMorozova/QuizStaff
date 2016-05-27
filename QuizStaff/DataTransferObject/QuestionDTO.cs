@@ -10,6 +10,10 @@ namespace DataTransferObject
 {
     public class QuestionDTO : INotifyPropertyChanged
     {
+        public QuestionDTO() 
+        {
+            Answers = new BindingList<AnswerDTO>();
+        }
         public Guid Id { get; set; }
         public Guid TrainingId { get; set; }
 
@@ -30,7 +34,7 @@ namespace DataTransferObject
         }
 
         public virtual TrainingDTO Training { get; set; }
-        public virtual ICollection<AnswerDTO> Answers { get; set; }
+        public virtual BindingList<AnswerDTO> Answers { get; set; }
 
         public static implicit operator QuestionDTO(Question question)
         {
