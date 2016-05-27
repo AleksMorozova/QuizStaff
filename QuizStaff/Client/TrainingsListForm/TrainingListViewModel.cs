@@ -13,31 +13,29 @@ namespace Client.TrainingsListForm
 {
     public class TrainingListViewModel
     {
-        public BindingList<TrainingDTO> AllTrainings { get; set; }
-
-        public List<TrainingDTO> Trainings = new List<TrainingDTO>();
+        public BindingList<TrainingDTO> Trainings { get; set; }
 
         public void GetAllTrainings()
         {
-            AllTrainings = new BindingList<TrainingDTO>();
-            this.Trainings.AddRange(ServicesHolder.ServiceClient.GetAllTrainings());
-            foreach (var t in Trainings)
+            Trainings = new BindingList<TrainingDTO>();
+            var trainingsList = ServicesHolder.ServiceClient.GetAllTrainings();
+            foreach (var training in trainingsList)
             {
-                AllTrainings.Add(t);
+                Trainings.Add(training);
             }
         }
 
         public void AddTraining(BindingList<TrainingDTO> trainings)
         {
-            TrainingAddEdit f = new TrainingAddEdit();
-            FormManager.Instance.OpenChildForm(f, "Add training");
-            trainings.Add(f.Training);
+            TrainingAddEdit trainingForm = new TrainingAddEdit();
+            FormManager.Instance.OpenChildForm(trainingForm, "Add training");
+            trainings.Add(trainingForm.Training);
         }
 
         public void EditTraining(TrainingDTO editedTraining)
         {
-            TrainingAddEdit f = new TrainingAddEdit(editedTraining);
-            FormManager.Instance.OpenChildForm(f, "Edit training: " + editedTraining.TrainingTitle);
+            TrainingAddEdit trainingForm = new TrainingAddEdit(editedTraining);
+            FormManager.Instance.OpenChildForm(trainingForm, "Edit training: " + editedTraining.TrainingTitle);
         }
 
         public void Save()
@@ -57,13 +55,5 @@ namespace Client.TrainingsListForm
             // TODO: implement loading of trainings from external source
             XtraMessageBox.Show("Load trainings");
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }    
     }
 }

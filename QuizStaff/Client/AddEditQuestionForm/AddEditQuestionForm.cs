@@ -26,16 +26,10 @@ namespace Client.AddEditQuestionForm
             this.answersGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             //answersGridControl.MainView.p.NewItemRowPosition = NewItemRowPosition.Bottom;
             mvvmQuestionContext.ViewModelType = typeof(QuestionViewModel);
-            BindCommand();
             model = new QuestionViewModel();
             mvvmQuestionContext.SetViewModel(typeof(QuestionViewModel), model);
             model.Question = question;
             BindToViewModel();     
-        }
-
-        private void BindCommand()
-        {
-            mvvmQuestionContext.BindCommand<QuestionViewModel>(saveButton, viewModel => viewModel.Save());
         }
 
         private void BindToViewModel()

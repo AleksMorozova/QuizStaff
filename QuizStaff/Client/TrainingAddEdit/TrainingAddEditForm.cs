@@ -17,7 +17,6 @@ namespace Client
 {
     public partial class TrainingAddEdit : DevExpress.XtraEditors.XtraForm
     {
-        public TextEdit TrainingName { get { return textTrainingName; } }
         private TrainingViewModel model;
 
         public TrainingAddEdit()

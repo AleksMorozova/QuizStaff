@@ -12,20 +12,12 @@ namespace Client.TrainingEditForm
 {
     public class TrainingViewModel
     {
-        private BindingList<QuestionDTO> questions;
-
         public TrainingDTO Training { get; set; }
-
-        public TrainingViewModel() 
-        {
-            questions = new BindingList<QuestionDTO>();
-        }
 
         public void EditQuestion(QuestionDTO question)
         {
             AddEditQuestionForm.AddEditQuestionForm questionForm = new AddEditQuestionForm.AddEditQuestionForm(question);
             questionForm.ShowDialog();
-            questionForm.DialogResult = DialogResult.OK;
         }
 
         public void AddQuestion(TrainingDTO training)

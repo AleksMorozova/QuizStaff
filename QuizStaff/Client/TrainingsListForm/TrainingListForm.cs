@@ -12,6 +12,7 @@ namespace Client.TrainingsListForm
     public partial class TrainingListForm : DevExpress.XtraEditors.XtraForm
     {
         private TrainingListViewModel model;
+      
         public TrainingListForm()
         {            
             InitializeComponent();
@@ -28,25 +29,22 @@ namespace Client.TrainingsListForm
         {
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonSave, viewModel => viewModel.Save());
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonCancel, viewModel => viewModel.Cancel());
-   
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonLoadTraining, viewModel => viewModel.LoadTrainings());
+           
             mvvmTrainingsContext.BindCommand<TrainingListViewModel, TrainingDTO>(buttonEditTraining,
                 (x, currentTraining) => x.EditTraining(currentTraining), x => GetCurrentTraining());
-
-
             mvvmTrainingsContext.BindCommand<TrainingListViewModel, BindingList<TrainingDTO>>(buttonAddTraining,
-    (x, currentTraining) => x.AddTraining(currentTraining), x => GetCurrentTrainings());
+                (x, currentTraining) => x.AddTraining(currentTraining), x => GetCurrentTrainings());
         }
 
         private void BindToViewModel()
         {
-            mvvmTrainingsContext.SetBinding(trainingsGridControl, training => training.DataSource, "AllTrainings");
+            mvvmTrainingsContext.SetBinding(trainingsGridControl, training => training.DataSource, "Trainings");
         }
 
         private BindingList<TrainingDTO> GetCurrentTrainings()
         {
-            return (model!=null)? model.AllTrainings:
-                new BindingList<TrainingDTO>();
+            return (model!=null)? model.Trainings: new BindingList<TrainingDTO>();
         }
 
         private TrainingDTO GetCurrentTraining() 
