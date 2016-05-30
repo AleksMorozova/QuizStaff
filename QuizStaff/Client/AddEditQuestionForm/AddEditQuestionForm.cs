@@ -23,8 +23,8 @@ namespace Client.AddEditQuestionForm
         public AddEditQuestionForm(QuestionDTO question)
         {
             InitializeComponent();
+
             this.answersGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            //answersGridControl.MainView.p.NewItemRowPosition = NewItemRowPosition.Bottom;
             mvvmQuestionContext.ViewModelType = typeof(QuestionViewModel);
             model = new QuestionViewModel();
             mvvmQuestionContext.SetViewModel(typeof(QuestionViewModel), model);

@@ -40,6 +40,10 @@ namespace DataTransferObject
         {
             QuestionDTO newQuestion = new QuestionDTO();
             Conversion.CopyProperty(question, newQuestion);
+            foreach (var a in question.Answers)
+            {
+                newQuestion.Answers.Add((AnswerDTO)a);
+            }
             return newQuestion;
         }
 

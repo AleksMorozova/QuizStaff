@@ -24,6 +24,7 @@ namespace Client.TrainingEditForm
         {
             AddEditQuestionForm.AddEditQuestionForm questionForm = new AddEditQuestionForm.AddEditQuestionForm();
             questionForm.ShowDialog();
+            questionForm.Question.TrainingId = training.Id;
             training.Questions.Add(questionForm.Question);
         }
 

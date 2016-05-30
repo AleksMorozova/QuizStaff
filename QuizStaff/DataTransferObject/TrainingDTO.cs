@@ -43,7 +43,16 @@ namespace DataTransferObject
             if (training.Questions.Count()>0)
             {
                 foreach (var q in training.Questions)
-                newTraining.Questions.Add((QuestionDTO)q);
+                {
+                    foreach (var a in q.Answers)
+                    {
+                        
+                    }
+
+                    newTraining.Questions.Add((QuestionDTO)q);
+                }
+
+
             }
             return newTraining;
         }

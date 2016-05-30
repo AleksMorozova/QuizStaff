@@ -145,6 +145,13 @@ namespace Server
                 {
                     Question question = new Question();
                     Conversion.CopyProperty(q, question);
+                    question.Answers = new Collection<Answer>();
+                    foreach (var a in q.Answers)
+                    {
+                        Answer newA = new Answer();
+                        Conversion.CopyProperty(a, newA);
+                        question.Answers.Add(newA);
+                    }
                     newTraining.Questions.Add(question);
                 }
             }
@@ -156,6 +163,22 @@ namespace Server
             EFTrainingRepository repo = new EFTrainingRepository();
             Training newTraining = new Training();
             Conversion.CopyProperty(training, newTraining);
+            if (training.Questions.Count() > 0)
+            {
+                foreach (var q in training.Questions)
+                {
+                    Question question = new Question();
+                    Conversion.CopyProperty(q, question);
+                    question.Answers = new Collection<Answer>();
+                    foreach (var a in q.Answers)
+                    {
+                        Answer newA = new Answer();
+                        Conversion.CopyProperty(a, newA);
+                        question.Answers.Add(newA);
+                    }
+                    newTraining.Questions.Add(question);
+                }
+            }
             repo.Create(newTraining);
         }
 
