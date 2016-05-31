@@ -12,6 +12,7 @@ using DevExpress.XtraBars;
 using DomainModel;
 using DataTransferObject;
 using System.Globalization;
+using System.Windows;
 
 namespace Client
 {
@@ -36,6 +37,7 @@ namespace Client
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            ProvideAccessToMenuItems();
 
         }
 
@@ -44,9 +46,6 @@ namespace Client
             TrainingsListForm.TrainingListForm trainingsform = new TrainingsListForm.TrainingListForm();
             FormManager.Instance.OpenChildForm(trainingsform, "Trainings");
             FormManager.childForms.Add(trainingsform);
-
-            //TrainingEditForm f = new TrainingEditForm(new TrainingDTO() { TrainingTitle = "Test training", Id=System.Guid.Parse( "0cf1aca7-e3dc-47fa-96b6-55db96495545") });
-            //FormManager.Instance.OpenChildForm(f, "Training :");
         }
 
         private void loginBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -83,6 +82,12 @@ namespace Client
         {
             FormManager.Instance.LocalizedForms("en-US");
             Localized("en-US");
+        }
+
+        //TODO: implement visibility of menu item depends on users role
+        private void ProvideAccessToMenuItems()
+        {
+            //"menu item name".Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
         }
     }
 }
