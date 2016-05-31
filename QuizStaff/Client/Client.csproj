@@ -11,6 +11,24 @@
     <AssemblyName>Client</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Quiz</ProductName>
+    <PublisherName>AleksMorozova</PublisherName>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +48,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B21FC61E3898F98B152CC6895D5A91014D45ECDA</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Client_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -103,6 +133,7 @@
       <DependentUpon>Form.cs</DependentUpon>
     </Compile>
     <Compile Include="FormManager.cs" />
+    <Compile Include="ILocalized.cs" />
     <Compile Include="QuestionForm\ICheckControl.cs" />
     <Compile Include="QuestionForm\IQuestionForm.cs" />
     <Compile Include="QuestionForm\QuestionForm.cs">
@@ -121,7 +152,6 @@
     <Compile Include="QuestionForm\WrappingRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TrainingAddEdit\ITrainingEditForm.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,18 +180,18 @@
     <Compile Include="TrainingAddEdit\TrainingAddEditForm.Designer.cs">
       <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrainingAddEdit\TrainingEditPresenter.cs" />
     <Compile Include="TrainingAddEdit\TrainingViewModel.cs" />
-    <Compile Include="TrainingsListForm\ITrainingsListForm.cs" />
     <Compile Include="TrainingsListForm\TrainingListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TrainingsListForm\TrainingListForm.Designer.cs">
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrainingsListForm\TrainingListPresenter.cs" />
     <Compile Include="TrainingsListForm\TrainingListViewModel.cs" />
     <EmbeddedResource Include="AddEditQuestionForm\AddEditQuestionForm.resx">
+      <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditQuestionForm\AddEditQuestionForm.ru-RU.resx">
       <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
@@ -172,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form.resx">
       <DependentUpon>Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.de-DE.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -199,9 +232,16 @@
     <EmbeddedResource Include="TrainingAddEdit\TrainingAddEditForm.resx">
       <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TrainingAddEdit\TrainingAddEditForm.ru-RU.resx">
+      <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TrainingsListForm\TrainingListForm.resx">
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TrainingsListForm\TrainingListForm.ru-RU.resx">
+      <DependentUpon>TrainingListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Client_TemporaryKey.pfx" />
     <None Include="DataTransferObject.QuestionDTO1.datasource" />
     <None Include="DataTransferObject.SettingDTO.datasource" />
     <None Include="DataTransferObject.TesteeDTO.datasource" />
@@ -275,7 +315,23 @@
       <Name>DomainModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

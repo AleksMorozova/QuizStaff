@@ -11,13 +11,30 @@ namespace ApplicationServer.DAL
     {
         public override void Update(Training entity)
         {
-            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
-
             foreach (var item in entity.Questions)
             {
-                dbContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                
+                if (item.Id == Guid.Empty)
+                {
+                    foreach (var answer in item.Answers)
+                    {
+                        dbContext.Entry(item).State = System.Data.Entity.EntityState.Added;
+                    }
+
+                    dbContext.Entry(item).State = System.Data.Entity.EntityState.Added;   
+                }
+                else
+                {
+                    foreach (var answer in item.Answers)
+                    {
+                        dbContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                    }
+
+                    dbContext.Entry(item).State = System.Data.Entity.EntityState.Modified;   
+                }
             }
 
+            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             dbContext.SaveChanges();
         }
     }

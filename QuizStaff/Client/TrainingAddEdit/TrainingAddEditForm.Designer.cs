@@ -1,6 +1,6 @@
 ﻿namespace Client
 {
-    partial class TrainingAddEdit
+    partial class TrainingAddEditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrainingAddEditForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
@@ -77,70 +78,46 @@
             this.layoutControl1.Controls.Add(this.addQuestionButton);
             this.layoutControl1.Controls.Add(this.gridQuestions);
             this.layoutControl1.Controls.Add(this.textTrainingName);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(618, 132, 674, 544);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(776, 416);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(672, 377);
+            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(92, 22);
             this.cancelButton.StyleController = this.layoutControl1;
-            this.cancelButton.TabIndex = 16;
-            this.cancelButton.Text = "Cancel";
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(572, 377);
+            resources.ApplyResources(this.saveButton, "saveButton");
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(86, 22);
             this.saveButton.StyleController = this.layoutControl1;
-            this.saveButton.TabIndex = 15;
-            this.saveButton.Text = "Save";
             // 
             // loadQuestionButton
             // 
-            this.loadQuestionButton.Location = new System.Drawing.Point(673, 57);
+            resources.ApplyResources(this.loadQuestionButton, "loadQuestionButton");
             this.loadQuestionButton.Name = "loadQuestionButton";
-            this.loadQuestionButton.Size = new System.Drawing.Size(91, 22);
             this.loadQuestionButton.StyleController = this.layoutControl1;
-            this.loadQuestionButton.TabIndex = 14;
-            this.loadQuestionButton.Text = "Load question";
             // 
             // editQuestionButton
             // 
-            this.editQuestionButton.Location = new System.Drawing.Point(573, 57);
+            resources.ApplyResources(this.editQuestionButton, "editQuestionButton");
             this.editQuestionButton.Name = "editQuestionButton";
-            this.editQuestionButton.Size = new System.Drawing.Size(86, 22);
             this.editQuestionButton.StyleController = this.layoutControl1;
-            this.editQuestionButton.TabIndex = 13;
-            this.editQuestionButton.Text = "Edit question";
             // 
             // addQuestionButton
             // 
-            this.addQuestionButton.Location = new System.Drawing.Point(473, 57);
+            resources.ApplyResources(this.addQuestionButton, "addQuestionButton");
             this.addQuestionButton.Name = "addQuestionButton";
-            this.addQuestionButton.Size = new System.Drawing.Size(86, 22);
             this.addQuestionButton.StyleController = this.layoutControl1;
-            this.addQuestionButton.TabIndex = 12;
-            this.addQuestionButton.Text = "Add question";
             // 
             // gridQuestions
             // 
-            this.gridQuestions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridQuestions.Location = new System.Drawing.Point(12, 88);
+            resources.ApplyResources(this.gridQuestions, "gridQuestions");
             this.gridQuestions.MainView = this.questionsGridView;
             this.gridQuestions.Name = "gridQuestions";
-            this.gridQuestions.Size = new System.Drawing.Size(752, 280);
-            this.gridQuestions.TabIndex = 9;
             this.gridQuestions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.questionsGridView});
             this.gridQuestions.DoubleClick += new System.EventHandler(this.gridQuestions_DoubleClick);
@@ -151,29 +128,23 @@
             this.QuestionText});
             this.questionsGridView.GridControl = this.gridQuestions;
             this.questionsGridView.Name = "questionsGridView";
+            this.questionsGridView.OptionsDetail.EnableMasterViewMode = false;
             this.questionsGridView.OptionsView.ShowGroupPanel = false;
             // 
             // QuestionText
             // 
-            this.QuestionText.Caption = "Question";
+            resources.ApplyResources(this.QuestionText, "QuestionText");
             this.QuestionText.FieldName = "QuestionText";
             this.QuestionText.Name = "QuestionText";
             this.QuestionText.OptionsColumn.AllowEdit = false;
             this.QuestionText.OptionsColumn.AllowFocus = false;
             this.QuestionText.OptionsColumn.ReadOnly = true;
-            this.QuestionText.Visible = true;
-            this.QuestionText.VisibleIndex = 0;
             // 
             // textTrainingName
             // 
-            this.textTrainingName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textTrainingName.EditValue = "";
-            this.textTrainingName.Location = new System.Drawing.Point(12, 28);
+            resources.ApplyResources(this.textTrainingName, "textTrainingName");
             this.textTrainingName.Name = "textTrainingName";
-            this.textTrainingName.Size = new System.Drawing.Size(752, 20);
             this.textTrainingName.StyleController = this.layoutControl1;
-            this.textTrainingName.TabIndex = 4;
             // 
             // layoutControlGroup1
             // 
@@ -208,7 +179,7 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(756, 40);
-            this.layoutControlItem1.Text = "Training Name";
+            resources.ApplyResources(this.layoutControlItem1, "layoutControlItem1");
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(68, 13);
             // 
@@ -285,12 +256,10 @@
             // 
             // TrainingAddEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 416);
             this.Controls.Add(this.layoutControl1);
             this.Name = "TrainingAddEdit";
-            this.Text = "Training: ";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridQuestions)).EndInit();

@@ -20,9 +20,6 @@ namespace Server
         void SaveAllTestees(ICollection<TesteeDTO> testees);
 
         [OperationContract]
-        Testee GetTestee();
-
-        [OperationContract]
         TesteeDTO GetTesteeByID(Guid id);
 
         [OperationContract]
@@ -48,15 +45,9 @@ namespace Server
 
         [OperationContract]
         void SaveAllTrainings(ICollection<TrainingDTO> trainings);
-
-        [OperationContract]
-        TrainingDTO GetTraining(Guid id);
          
         [OperationContract]
         TesteeDTO FindByLogin(string login);
-
-        [OperationContract]
-        QuestionDTO GetQuestion(Guid id);
 
         [OperationContract]
         void SaveAnswer(QuestionDTO question);

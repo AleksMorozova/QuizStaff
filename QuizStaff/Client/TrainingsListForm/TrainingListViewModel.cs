@@ -13,30 +13,29 @@ namespace Client.TrainingsListForm
 {
     public class TrainingListViewModel
     {
-        public virtual ICollection<TrainingDTO> allTrainings { get; set; }
-
-        public List<TrainingDTO> Trainings = new List<TrainingDTO>();
+        public BindingList<TrainingDTO> Trainings { get; set; }
 
         public void GetAllTrainings()
         {
-            allTrainings = new Collection<TrainingDTO>();
-            this.Trainings.AddRange(ServicesHolder.ServiceClient.GetAllTrainings());
-            foreach (var t in Trainings)
+            Trainings = new BindingList<TrainingDTO>();
+            var trainingsList = ServicesHolder.ServiceClient.GetAllTrainings();
+            foreach (var training in trainingsList)
             {
-                allTrainings.Add(t);
+                Trainings.Add(training);
             }
         }
 
-        public void AddTraining()
+        public void AddTraining(BindingList<TrainingDTO> trainings)
         {
-            TrainingAddEdit f = new TrainingAddEdit();
-            FormManager.Instance.OpenChildForm(f, "Add training");
+            TrainingAddEditForm trainingForm = new TrainingAddEditForm();
+            FormManager.Instance.OpenChildForm(trainingForm, "Add training");
+            trainings.Add(trainingForm.Training);
         }
 
         public void EditTraining(TrainingDTO editedTraining)
         {
-            TrainingAddEdit f = new TrainingAddEdit(editedTraining.Id);
-            FormManager.Instance.OpenChildForm(f, "Edit training: " + editedTraining.TrainingTitle);
+            TrainingAddEditForm trainingForm = new TrainingAddEditForm(editedTraining);
+            FormManager.Instance.OpenChildForm(trainingForm, "Edit training: " + editedTraining.TrainingTitle);
         }
 
         public void Save()

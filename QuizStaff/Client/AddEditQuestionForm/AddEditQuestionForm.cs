@@ -9,38 +9,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataTransferObject;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Client.AddEditQuestionForm
 {
     public partial class AddEditQuestionForm : DevExpress.XtraEditors.XtraForm
     {
-        //private readonly AddEditQuestionPresenter presenter;
         private QuestionViewModel model;
 
         public AddEditQuestionForm()
-            : this(Guid.Empty) { }
+            : this(new QuestionDTO()) { }
 
-        public AddEditQuestionForm(Guid id)
+        public AddEditQuestionForm(QuestionDTO question)
         {
             InitializeComponent();
+
+            this.answersGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             mvvmQuestionContext.ViewModelType = typeof(QuestionViewModel);
             model = new QuestionViewModel();
-            BindCommand();
             mvvmQuestionContext.SetViewModel(typeof(QuestionViewModel), model);
-            model.LoadQuestion(id);
-            BindToViewModel();            
-        }
-
-        private void BindCommand()
-        {
-            //Binding command
-            mvvmQuestionContext.BindCommand<QuestionViewModel, QuestionDTO>(saveButton, (viewModel, question) => viewModel.SaveQuestion(question), x => Question);
-            mvvmQuestionContext.BindCommand<QuestionViewModel>(cancelButton, viewModel => viewModel.Cancel());
+            model.Question = question;
+            BindToViewModel();     
         }
 
         private void BindToViewModel()
         {
-            //binding property
             mvvmQuestionContext.SetBinding(questionTextEdit, questionText => questionText.EditValue, "Question.QuestionText");
             mvvmQuestionContext.SetBinding(answersGridControl, answers => answers.DataSource, "Question.Answers");
         }
@@ -56,6 +49,12 @@ namespace Client.AddEditQuestionForm
                 model.Question = value;
             }
         }
-    
+
+        private void answersGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            AnswerDTO answer = v.GetRow(e.RowHandle) as AnswerDTO;
+            answer.IsCorrect = false;
+        }
     }
 }
