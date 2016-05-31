@@ -40,8 +40,8 @@
             this.loginBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.questionBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.russianBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.englishBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.statusBar = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -73,8 +73,8 @@
             this.loginBarButton,
             this.questionBarButton,
             this.languageBarSubItem,
-            this.barButtonItem1,
-            this.barButtonItem2});
+            this.russianBarButtonItem,
+            this.englishBarButtonItem});
             this.mainMenuManager.MainMenu = this.mainMenu;
             this.mainMenuManager.MaxItemId = 9;
             this.mainMenuManager.StatusBar = this.statusBar;
@@ -122,6 +122,7 @@
             resources.ApplyResources(this.testBarButton, "testBarButton");
             this.testBarButton.Id = 3;
             this.testBarButton.Name = "testBarButton";
+            this.testBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.testBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.testBarButton_ItemClick);
             // 
             // loginBarButton
@@ -129,6 +130,7 @@
             resources.ApplyResources(this.loginBarButton, "loginBarButton");
             this.loginBarButton.Id = 4;
             this.loginBarButton.Name = "loginBarButton";
+            this.loginBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.loginBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.loginBarButton_ItemClick);
             // 
             // questionBarButton
@@ -136,6 +138,7 @@
             resources.ApplyResources(this.questionBarButton, "questionBarButton");
             this.questionBarButton.Id = 5;
             this.questionBarButton.Name = "questionBarButton";
+            this.questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.questionBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.questionBarButton_ItemClick);
             // 
             // languageBarSubItem
@@ -143,22 +146,23 @@
             resources.ApplyResources(this.languageBarSubItem, "languageBarSubItem");
             this.languageBarSubItem.Id = 6;
             this.languageBarSubItem.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.russianBarButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.englishBarButtonItem)});
             this.languageBarSubItem.Name = "languageBarSubItem";
             // 
-            // barButtonItem1
+            // russianBarButtonItem
             // 
-            resources.ApplyResources(this.barButtonItem1, "barButtonItem1");
-            this.barButtonItem1.Id = 7;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            resources.ApplyResources(this.russianBarButtonItem, "russianBarButtonItem");
+            this.russianBarButtonItem.Id = 7;
+            this.russianBarButtonItem.Name = "russianBarButtonItem";
+            this.russianBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.russianBarButtonItem_ItemClick);
             // 
-            // barButtonItem2
+            // englishBarButtonItem
             // 
-            resources.ApplyResources(this.barButtonItem2, "barButtonItem2");
-            this.barButtonItem2.Id = 8;
-            this.barButtonItem2.Name = "barButtonItem2";
+            resources.ApplyResources(this.englishBarButtonItem, "englishBarButtonItem");
+            this.englishBarButtonItem.Id = 8;
+            this.englishBarButtonItem.Name = "englishBarButtonItem";
+            this.englishBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.englishBarButtonItem_ItemClick);
             // 
             // statusBar
             // 
@@ -227,8 +231,8 @@
         private DevExpress.XtraBars.BarButtonItem loginBarButton;
         private DevExpress.XtraBars.BarButtonItem questionBarButton;
         private DevExpress.XtraBars.BarSubItem languageBarSubItem;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem russianBarButtonItem;
+        private DevExpress.XtraBars.BarButtonItem englishBarButtonItem;
 
 
     }

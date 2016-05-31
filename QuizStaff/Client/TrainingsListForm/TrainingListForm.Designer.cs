@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrainingListForm));
             this.layoutControlTrainingListForm = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlButAdd = new DevExpress.XtraLayout.LayoutControlItem();
             this.buttonAddTraining = new DevExpress.XtraEditors.SimpleButton();
@@ -46,7 +48,7 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.trainingsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTrainingsContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.mvvmTrainingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlTrainingListForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -93,12 +95,9 @@
             // 
             // buttonAddTraining
             // 
-            this.buttonAddTraining.Location = new System.Drawing.Point(403, 13);
+            resources.ApplyResources(this.buttonAddTraining, "buttonAddTraining");
             this.buttonAddTraining.Name = "buttonAddTraining";
-            this.buttonAddTraining.Size = new System.Drawing.Size(136, 22);
             this.buttonAddTraining.StyleController = this.layoutControl1;
-            this.buttonAddTraining.TabIndex = 5;
-            this.buttonAddTraining.Text = "Add training";
             // 
             // layoutControl1
             // 
@@ -108,22 +107,16 @@
             this.layoutControl1.Controls.Add(this.buttonLoadTraining);
             this.layoutControl1.Controls.Add(this.buttonEditTraining);
             this.layoutControl1.Controls.Add(this.buttonAddTraining);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(270, 111, 634, 530);
             this.layoutControl1.Root = this.layoutControlTrainingListForm;
-            this.layoutControl1.Size = new System.Drawing.Size(830, 439);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
             // 
             // trainingsGridControl
             // 
-            this.trainingsGridControl.Location = new System.Drawing.Point(12, 61);
+            resources.ApplyResources(this.trainingsGridControl, "trainingsGridControl");
             this.trainingsGridControl.MainView = this.trainingsGridView;
             this.trainingsGridControl.Name = "trainingsGridControl";
-            this.trainingsGridControl.Size = new System.Drawing.Size(806, 333);
-            this.trainingsGridControl.TabIndex = 11;
             this.trainingsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.trainingsGridView});
             // 
@@ -139,47 +132,33 @@
             // 
             // titleGridColumn
             // 
-            this.titleGridColumn.Caption = "Title";
+            resources.ApplyResources(this.titleGridColumn, "titleGridColumn");
             this.titleGridColumn.FieldName = "TrainingTitle";
             this.titleGridColumn.Name = "titleGridColumn";
-            this.titleGridColumn.Visible = true;
-            this.titleGridColumn.VisibleIndex = 0;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(659, 404);
+            resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(158, 22);
             this.buttonCancel.StyleController = this.layoutControl1;
-            this.buttonCancel.TabIndex = 10;
-            this.buttonCancel.Text = "Cancel";
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(492, 404);
+            resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(161, 22);
             this.buttonSave.StyleController = this.layoutControl1;
-            this.buttonSave.TabIndex = 9;
-            this.buttonSave.Text = "Save";
             // 
             // buttonLoadTraining
             // 
-            this.buttonLoadTraining.Location = new System.Drawing.Point(683, 13);
+            resources.ApplyResources(this.buttonLoadTraining, "buttonLoadTraining");
             this.buttonLoadTraining.Name = "buttonLoadTraining";
-            this.buttonLoadTraining.Size = new System.Drawing.Size(134, 22);
             this.buttonLoadTraining.StyleController = this.layoutControl1;
-            this.buttonLoadTraining.TabIndex = 7;
-            this.buttonLoadTraining.Text = "Load training";
             // 
             // buttonEditTraining
             // 
-            this.buttonEditTraining.Location = new System.Drawing.Point(545, 13);
+            resources.ApplyResources(this.buttonEditTraining, "buttonEditTraining");
             this.buttonEditTraining.Name = "buttonEditTraining";
-            this.buttonEditTraining.Size = new System.Drawing.Size(132, 22);
             this.buttonEditTraining.StyleController = this.layoutControl1;
-            this.buttonEditTraining.TabIndex = 6;
-            this.buttonEditTraining.Text = "Edit training";
             // 
             // layoutControlButLoad
             // 
@@ -245,7 +224,7 @@
             this.trainingsLayoutControlItem.Name = "trainingsLayoutControlItem";
             this.trainingsLayoutControlItem.Size = new System.Drawing.Size(810, 363);
             this.trainingsLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
-            this.trainingsLayoutControlItem.Text = "Trainings";
+            resources.ApplyResources(this.trainingsLayoutControlItem, "trainingsLayoutControlItem");
             this.trainingsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.trainingsLayoutControlItem.TextSize = new System.Drawing.Size(43, 13);
             // 
@@ -255,12 +234,10 @@
             // 
             // TrainingListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 439);
             this.Controls.Add(this.layoutControl1);
             this.Name = "TrainingListForm";
-            this.Text = "TrainingListForm";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlTrainingListForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

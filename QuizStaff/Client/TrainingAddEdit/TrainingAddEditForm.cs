@@ -15,14 +15,14 @@ using Client.TrainingEditForm;
 
 namespace Client
 {
-    public partial class TrainingAddEdit : DevExpress.XtraEditors.XtraForm
+    public partial class TrainingAddEditForm : DevExpress.XtraEditors.XtraForm
     {
         private TrainingViewModel model;
 
-        public TrainingAddEdit()
+        public TrainingAddEditForm()
             : this(new TrainingDTO()) { }
 
-        public TrainingAddEdit(TrainingDTO training)
+        public TrainingAddEditForm(TrainingDTO training)
         {
             InitializeComponent();
 

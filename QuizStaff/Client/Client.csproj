@@ -133,6 +133,7 @@
       <DependentUpon>Form.cs</DependentUpon>
     </Compile>
     <Compile Include="FormManager.cs" />
+    <Compile Include="ILocalized.cs" />
     <Compile Include="QuestionForm\ICheckControl.cs" />
     <Compile Include="QuestionForm\IQuestionForm.cs" />
     <Compile Include="QuestionForm\QuestionForm.cs">
@@ -190,6 +191,9 @@
     <EmbeddedResource Include="AddEditQuestionForm\AddEditQuestionForm.resx">
       <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddEditQuestionForm\AddEditQuestionForm.ru-RU.resx">
+      <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form.resx">
       <DependentUpon>Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.de-DE.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -225,7 +232,13 @@
     <EmbeddedResource Include="TrainingAddEdit\TrainingAddEditForm.resx">
       <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TrainingAddEdit\TrainingAddEditForm.ru-RU.resx">
+      <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TrainingsListForm\TrainingListForm.resx">
+      <DependentUpon>TrainingListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingsListForm\TrainingListForm.ru-RU.resx">
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Client_TemporaryKey.pfx" />

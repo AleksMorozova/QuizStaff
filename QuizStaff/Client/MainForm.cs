@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraBars;
 using DomainModel;
 using DataTransferObject;
+using System.Globalization;
 
 namespace Client
 {
@@ -42,7 +43,8 @@ namespace Client
         {
             TrainingsListForm.TrainingListForm trainingsform = new TrainingsListForm.TrainingListForm();
             FormManager.Instance.OpenChildForm(trainingsform, "Trainings");
-            
+            FormManager.childForms.Add(trainingsform);
+
             //TrainingEditForm f = new TrainingEditForm(new TrainingDTO() { TrainingTitle = "Test training", Id=System.Guid.Parse( "0cf1aca7-e3dc-47fa-96b6-55db96495545") });
             //FormManager.Instance.OpenChildForm(f, "Training :");
         }
@@ -59,9 +61,28 @@ namespace Client
             f.ShowDialog();
         }
 
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        private void Localized(string language) 
         {
+            var resources = new ComponentResourceManager(typeof(MainForm));
+            CultureInfo newCultureInfo = new CultureInfo(language);
+            resources.ApplyResources(testeesBarButton, "testeesBarButton", newCultureInfo);
+            resources.ApplyResources(trainingsBarButton, "trainingsBarButton", newCultureInfo);
+            resources.ApplyResources(settingsBarButton, "settingsBarButton", newCultureInfo);
+            resources.ApplyResources(languageBarSubItem, "languageBarSubItem", newCultureInfo);
+            resources.ApplyResources(russianBarButtonItem, "russianBarButtonItem", newCultureInfo);
+            resources.ApplyResources(englishBarButtonItem, "englishBarButtonItem", newCultureInfo);
+        }
 
+        private void russianBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormManager.Instance.LocalizedForms("ru-RU");
+            Localized("ru-RU");
+        }
+
+        private void englishBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormManager.Instance.LocalizedForms("en-US");
+            Localized("en-US");
         }
     }
 }

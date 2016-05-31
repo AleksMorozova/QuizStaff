@@ -27,14 +27,14 @@ namespace Client.TrainingsListForm
 
         public void AddTraining(BindingList<TrainingDTO> trainings)
         {
-            TrainingAddEdit trainingForm = new TrainingAddEdit();
+            TrainingAddEditForm trainingForm = new TrainingAddEditForm();
             FormManager.Instance.OpenChildForm(trainingForm, "Add training");
             trainings.Add(trainingForm.Training);
         }
 
         public void EditTraining(TrainingDTO editedTraining)
         {
-            TrainingAddEdit trainingForm = new TrainingAddEdit(editedTraining);
+            TrainingAddEditForm trainingForm = new TrainingAddEditForm(editedTraining);
             FormManager.Instance.OpenChildForm(trainingForm, "Edit training: " + editedTraining.TrainingTitle);
         }
 

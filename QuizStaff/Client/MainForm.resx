@@ -278,16 +278,16 @@
   <data name="&gt;&gt;languageBarSubItem.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarSubItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;barButtonItem1.Name" xml:space="preserve">
-    <value>barButtonItem1</value>
+  <data name="&gt;&gt;russianBarButtonItem.Name" xml:space="preserve">
+    <value>russianBarButtonItem</value>
   </data>
-  <data name="&gt;&gt;barButtonItem1.Type" xml:space="preserve">
+  <data name="&gt;&gt;russianBarButtonItem.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;barButtonItem2.Name" xml:space="preserve">
-    <value>barButtonItem2</value>
+  <data name="&gt;&gt;englishBarButtonItem.Name" xml:space="preserve">
+    <value>englishBarButtonItem</value>
   </data>
-  <data name="&gt;&gt;barButtonItem2.Type" xml:space="preserve">
+  <data name="&gt;&gt;englishBarButtonItem.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;statusBar.Name" xml:space="preserve">
@@ -326,10 +326,10 @@
   <data name="languageBarSubItem.Caption" xml:space="preserve">
     <value>Language</value>
   </data>
-  <data name="barButtonItem1.Caption" xml:space="preserve">
+  <data name="russianBarButtonItem.Caption" xml:space="preserve">
     <value>Russian</value>
   </data>
-  <data name="barButtonItem2.Caption" xml:space="preserve">
+  <data name="englishBarButtonItem.Caption" xml:space="preserve">
     <value>English</value>
   </data>
   <data name="mainMenu.Text" xml:space="preserve">

@@ -6,10 +6,12 @@ using DataTransferObject;
 using DevExpress.Mvvm;
 using DevExpress.XtraEditors;
 using System.ComponentModel;
+using System.Globalization;
+using System.Windows.Forms;
 
 namespace Client.TrainingsListForm
 {
-    public partial class TrainingListForm : DevExpress.XtraEditors.XtraForm
+    public partial class TrainingListForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
         private TrainingListViewModel model;
       
@@ -57,6 +59,19 @@ namespace Client.TrainingsListForm
         private void trainingsGridView_DoubleClick(object sender, EventArgs e)
         {
             model.EditTraining(GetCurrentTraining());
+        }
+
+        public void Localized(string language)
+        {
+            var resources = new ComponentResourceManager(typeof(TrainingListForm));
+            CultureInfo newCultureInfo = new CultureInfo(language);
+            resources.ApplyResources(buttonAddTraining, "buttonAddTraining", newCultureInfo);
+            resources.ApplyResources(trainingsLayoutControlItem, "trainingsLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(buttonEditTraining, "buttonEditTraining", newCultureInfo);
+            resources.ApplyResources(buttonLoadTraining, "buttonLoadTraining", newCultureInfo);
+            resources.ApplyResources(titleGridColumn, "titleGridColumn", newCultureInfo);
+            resources.ApplyResources(buttonCancel, "buttonCancel", newCultureInfo);
+            resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);
         }
     }
 }
