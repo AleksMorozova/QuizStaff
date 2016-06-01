@@ -110,6 +110,12 @@
     </Compile>
     <Compile Include="AddEditTesteeForm\AddEditTesteePresenter.cs" />
     <Compile Include="AddEditTesteeForm\IAddEditTesteeForm.cs" />
+    <Compile Include="AdminSettings\AdminSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSettings\AdminSettingsForm.Designer.cs">
+      <DependentUpon>AdminSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientsForms\ClientsSetupForm\ClientSetupPresenter.cs" />
     <Compile Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.cs">
       <SubType>Form</SubType>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditQuestionForm\AddEditQuestionForm.ru-RU.resx">
       <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\AdminSettingsForm.resx">
+      <DependentUpon>AdminSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>

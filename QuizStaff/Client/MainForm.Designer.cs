@@ -47,6 +47,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.adminSettingsBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuManager)).BeginInit();
             this.SuspendLayout();
@@ -74,9 +75,10 @@
             this.questionBarButton,
             this.languageBarSubItem,
             this.russianBarButtonItem,
-            this.englishBarButtonItem});
+            this.englishBarButtonItem,
+            this.adminSettingsBarButtonItem});
             this.mainMenuManager.MainMenu = this.mainMenu;
-            this.mainMenuManager.MaxItemId = 9;
+            this.mainMenuManager.MaxItemId = 10;
             this.mainMenuManager.StatusBar = this.statusBar;
             // 
             // mainMenu
@@ -92,6 +94,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.testBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.loginBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.questionBarButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.adminSettingsBarButtonItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.languageBarSubItem, true)});
             this.mainMenu.OptionsBar.MultiLine = true;
             this.mainMenu.OptionsBar.UseWholeRow = true;
@@ -196,6 +199,12 @@
             this.barDockControlRight.CausesValidation = false;
             resources.ApplyResources(this.barDockControlRight, "barDockControlRight");
             // 
+            // adminSettingsBarButtonItem
+            // 
+            resources.ApplyResources(this.adminSettingsBarButtonItem, "adminSettingsBarButtonItem");
+            this.adminSettingsBarButtonItem.Id = 9;
+            this.adminSettingsBarButtonItem.Name = "adminSettingsBarButtonItem";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -234,6 +243,7 @@
         private DevExpress.XtraBars.BarSubItem languageBarSubItem;
         private DevExpress.XtraBars.BarButtonItem russianBarButtonItem;
         private DevExpress.XtraBars.BarButtonItem englishBarButtonItem;
+        private DevExpress.XtraBars.BarButtonItem adminSettingsBarButtonItem;
 
 
     }
