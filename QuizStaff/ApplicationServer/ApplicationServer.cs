@@ -162,6 +162,8 @@ namespace Server
         {
             EFTrainingRepository repo = new EFTrainingRepository();
             Training newTraining = new Training();
+            newTraining.Questions = new Collection<Question>();
+
             Conversion.CopyProperty(training, newTraining);
             if (training.Questions.Count() > 0)
             {
