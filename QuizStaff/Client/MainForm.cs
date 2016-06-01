@@ -13,6 +13,7 @@ using DomainModel;
 using DataTransferObject;
 using System.Globalization;
 using System.Windows;
+using System.Configuration;
 
 namespace Client
 {
@@ -76,18 +77,28 @@ namespace Client
         {
             FormManager.Instance.LocalizedForms("ru-RU");
             Localized("ru-RU");
+            Program.currentLang = "ru-RU";
         }
 
         private void englishBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             FormManager.Instance.LocalizedForms("en-US");
             Localized("en-US");
+            Program.currentLang = "en-US";
         }
 
         //TODO: implement visibility of menu item depends on users role
         private void ProvideAccessToMenuItems()
         {
             //"menu item name".Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+            config.AppSettings.Settings.Remove("Lang");
+            config.AppSettings.Settings.Add("Lang", Program.currentLang);
+            config.Save(ConfigurationSaveMode.Modified);
         }
     }
 }
