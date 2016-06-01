@@ -206,6 +206,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuManager)).EndInit();

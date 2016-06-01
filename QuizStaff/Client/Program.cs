@@ -3,6 +3,7 @@ using Client.ClientsForms.LoginForm;
 using DataTransferObject;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -13,6 +14,7 @@ namespace Client
 {
     static class Program
     {
+        public static string currentLang = "ru-RU";
         private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1 }
         //Global data
         private static MainForm applicationMainForm;
@@ -40,8 +42,8 @@ namespace Client
             //    }
             //}
 
-            //TODO: Get saved language settengs ()en-US
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
+            currentLang = ConfigurationManager.AppSettings["Lang"];
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentLang);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
