@@ -1,6 +1,7 @@
 ﻿using ApplicationServer.DAL;
 using Client.ClientsForms.LoginForm;
 using DataTransferObject;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -31,25 +32,23 @@ namespace Client
         [STAThread]
         static void Main()
         {
-            //TODO: Uncomment and test after implementation of FindByLogin
-            ////Login
-            //string failMessage = String.Empty;
-            //LoginResult loginResult = LoginResult.None;
-            //while (loginResult != LoginResult.LoggedIn)
-            //{
-            //    loginResult = Login(ref failMessage);
-            //    switch (loginResult)
-            //    {
-            //        case LoginResult.Failed:
-            //            break;
-            //    }
-            //}
+            string failMessage = String.Empty;
+            LoginResult loginResult = LoginResult.None;
+            while (loginResult != LoginResult.LoggedIn)
+            {
+                loginResult = Login(ref failMessage);
+                switch (loginResult)
+                {
+                    case LoginResult.Failed:
+                        XtraMessageBox.Show("Login is failed");
+                        break;
+                }
+            }
 
             currentLang = ConfigurationManager.AppSettings["Lang"];
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentLang);
 
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
             applicationMainForm = new MainForm();
             Application.Run(ApplicationMainForm);
         }
@@ -64,7 +63,6 @@ namespace Client
             UserLoginForm dlg = new UserLoginForm();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-
                 string login = dlg.Login;
                 string password = dlg.Password;
 

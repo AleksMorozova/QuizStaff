@@ -8,50 +8,58 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DataTransferObject;
+using System.Globalization;
 
 namespace Client.ClientsForms.LoginForm
 {
-    public partial class UserLoginForm : DevExpress.XtraEditors.XtraForm, IUserLoginForm
+    public partial class UserLoginForm : DevExpress.XtraEditors.XtraForm
     {
-        public UserLoginPresenter Presenter { get; set; }
-        public String Login {
-            get
-            { return this.loginTextEdit.Text; }
-            set
-            { this.loginTextEdit.Text = value; }
-        }
-        public String Password {
-            get
-            { return this.passwordTextEdit.Text; }
-            set
-            { this.passwordTextEdit.Text = value; }
-        }
-        public Boolean LoginAsAdmin
+        private TesteeDTO currentUser;
+
+        public String Login 
         {
             get
-            { return this.asAdminBox.Checked; }
+            { 
+                return this.loginTextEdit.Text; 
+            }
             set
-            { this.asAdminBox.Checked = value; }
+            { 
+                this.loginTextEdit.Text = value; 
+            }
         }
-        public event EventHandler btnLoginClick;
-        public event EventHandler btnCancelClick;
 
+        public String Password 
+        {
+            get
+            { 
+                return this.passwordTextEdit.Text;
+            }
+            set
+            { 
+                this.passwordTextEdit.Text = value;
+            }
+        }
 
         public UserLoginForm()
         {
             InitializeComponent();
-            Presenter = new UserLoginPresenter(this);
+            Localized(System.Configuration.ConfigurationManager.AppSettings["Lang"]);
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (btnLoginClick != null) btnLoginClick(this, EventArgs.Empty);
+            this.DialogResult = DialogResult.OK;
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        public void Localized(string language)
         {
-            if (btnCancelClick != null) btnCancelClick(this, EventArgs.Empty);
-            Close();
+            var resources = new ComponentResourceManager(typeof(UserLoginForm));
+            CultureInfo newCultureInfo = new CultureInfo(language);
+            resources.ApplyResources(loginLayoutControlItem, "loginLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(passwordLayoutControlItem, "passwordLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(loginButton, "loginButton", newCultureInfo);
+            resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
         }
     }
 }

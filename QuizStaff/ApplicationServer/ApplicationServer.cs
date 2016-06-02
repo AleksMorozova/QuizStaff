@@ -102,20 +102,12 @@ namespace Server
             // TODO: save to database
         }       
 
-        public string LoginTestee(TesteeDTO testee)
-        {
-            string result=string.Empty;
-            EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
-            
-            // Todo: get the user
-            result = "Logged";
-            return result;
-        }
 
         public TesteeDTO FindByLogin(string login)
         {
-            //TODO implement testee repor with method Find byid
-            return new TesteeDTO();
+            EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
+            var result = repo.ReadAll().Where(_ => _.Login == login).FirstOrDefault();
+            return (result!=null) ? result : new TesteeDTO();
         }
 
         public void SaveAnswer(QuestionDTO question) 
