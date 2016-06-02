@@ -40,34 +40,6 @@ namespace Client
             flow.SetFlowBreak(labelQuestion, true);
         }
 
-        public void CreateQuestionControls(QuestionDTO question, IDictionary<Guid, bool> testeeAnswers, bool multiSelect)
-        {
-            labelQuestion.DataBindings.Add("Text", question, "QuestionText");
-            bool selectFirstRadio = true;
-            foreach (var answer in question.Answers)
-            {
-                ICheckControl control;
-                if (multiSelect)
-                {
-                    control = new WrappingCheckBox();
-                }
-                else
-                {
-                    control = new WrappingRadioButton();
-                }
-                (control as Control).DataBindings.Add("Text", answer, "AnswerText");
-                control.AnswerID = answer.Id;
-                control.CheckedChanged += (sender, e) => this.answers[control.AnswerID] = control.Checked;
-                if (selectFirstRadio && !multiSelect)
-                {
-                    control.Checked = true;
-                    selectFirstRadio = false;
-                }
-                flow.Controls.Add((control as Control));
-                flow.SetFlowBreak((control as Control), true);
-            }
-        }
-
         public void CreateQuestionControls(QuestionDTO question)
         {
             var multiSelect = model.MultiSelect;
