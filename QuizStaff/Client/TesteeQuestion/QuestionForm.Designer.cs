@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.flow = new System.Windows.Forms.FlowLayoutPanel();
             this.labelQuestion = new Client.WrappingLabel();
             this.buttonSend = new DevExpress.XtraEditors.SimpleButton();
+            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.flow.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmQuestionContext)).BeginInit();
             this.SuspendLayout();
             // 
             // flow
@@ -66,7 +69,10 @@
             this.buttonSend.Size = new System.Drawing.Size(96, 33);
             this.buttonSend.TabIndex = 1;
             this.buttonSend.Text = "Send";
-            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            // 
+            // mvvmQuestionContext
+            // 
+            this.mvvmQuestionContext.ContainerControl = this;
             // 
             // QuestionForm
             // 
@@ -82,6 +88,7 @@
             this.Load += new System.EventHandler(this.QuestionForm_Load);
             this.flow.ResumeLayout(false);
             this.flow.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmQuestionContext)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -91,6 +98,7 @@
         private System.Windows.Forms.FlowLayoutPanel flow;
         private DevExpress.XtraEditors.SimpleButton buttonSend;
         private WrappingLabel labelQuestion;
+        private DevExpress.Utils.MVVM.MVVMContext mvvmQuestionContext;
 
 
 

@@ -272,6 +272,12 @@
   <data name="&gt;&gt;questionBarButton.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;adminSettingsBarButtonItem.Name" xml:space="preserve">
+    <value>adminSettingsBarButtonItem</value>
+  </data>
+  <data name="&gt;&gt;adminSettingsBarButtonItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;languageBarSubItem.Name" xml:space="preserve">
     <value>languageBarSubItem</value>
   </data>
@@ -295,12 +301,6 @@
   </data>
   <data name="&gt;&gt;statusBar.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Bar, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;adminSettingsBarButtonItem.Name" xml:space="preserve">
-    <value>adminSettingsBarButtonItem</value>
-  </data>
-  <data name="&gt;&gt;adminSettingsBarButtonItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

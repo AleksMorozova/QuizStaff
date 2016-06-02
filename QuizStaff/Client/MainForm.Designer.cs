@@ -39,6 +39,7 @@
             this.testBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.loginBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.questionBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.adminSettingsBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.russianBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.englishBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
@@ -47,7 +48,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.adminSettingsBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuManager)).BeginInit();
             this.SuspendLayout();
@@ -141,8 +141,13 @@
             resources.ApplyResources(this.questionBarButton, "questionBarButton");
             this.questionBarButton.Id = 5;
             this.questionBarButton.Name = "questionBarButton";
-            this.questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.questionBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.questionBarButton_ItemClick);
+            // 
+            // adminSettingsBarButtonItem
+            // 
+            resources.ApplyResources(this.adminSettingsBarButtonItem, "adminSettingsBarButtonItem");
+            this.adminSettingsBarButtonItem.Id = 9;
+            this.adminSettingsBarButtonItem.Name = "adminSettingsBarButtonItem";
             // 
             // languageBarSubItem
             // 
@@ -198,12 +203,6 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             resources.ApplyResources(this.barDockControlRight, "barDockControlRight");
-            // 
-            // adminSettingsBarButtonItem
-            // 
-            resources.ApplyResources(this.adminSettingsBarButtonItem, "adminSettingsBarButtonItem");
-            this.adminSettingsBarButtonItem.Id = 9;
-            this.adminSettingsBarButtonItem.Name = "adminSettingsBarButtonItem";
             // 
             // MainForm
             // 
