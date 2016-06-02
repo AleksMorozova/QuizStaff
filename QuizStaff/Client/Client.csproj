@@ -124,14 +124,12 @@
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientsForms\ClientsSetupForm\IClientSetupForm.cs" />
-    <Compile Include="ClientsForms\LoginForm\IUserLoginForm.cs" />
     <Compile Include="ClientsForms\LoginForm\UserLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClientsForms\LoginForm\UserLoginForm.Designer.cs">
       <DependentUpon>UserLoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientsForms\LoginForm\UserLoginPresenter.cs" />
     <Compile Include="Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +204,9 @@
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientsForms\LoginForm\UserLoginForm.resx">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsForms\LoginForm\UserLoginForm.ru-RU.resx">
       <DependentUpon>UserLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form.resx">
