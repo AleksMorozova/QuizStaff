@@ -110,6 +110,12 @@
     </Compile>
     <Compile Include="AddEditTesteeForm\AddEditTesteePresenter.cs" />
     <Compile Include="AddEditTesteeForm\IAddEditTesteeForm.cs" />
+    <Compile Include="AdminSettings\AdminSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSettings\AdminSettingsForm.Designer.cs">
+      <DependentUpon>AdminSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientsForms\ClientsSetupForm\ClientSetupPresenter.cs" />
     <Compile Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.cs">
       <SubType>Form</SubType>
@@ -134,22 +140,21 @@
     </Compile>
     <Compile Include="FormManager.cs" />
     <Compile Include="ILocalized.cs" />
-    <Compile Include="QuestionForm\ICheckControl.cs" />
-    <Compile Include="QuestionForm\IQuestionForm.cs" />
-    <Compile Include="QuestionForm\QuestionForm.cs">
+    <Compile Include="TesteeQuestion\ICheckControl.cs" />
+    <Compile Include="TesteeQuestion\QuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuestionForm\QuestionForm.Designer.cs">
+    <Compile Include="TesteeQuestion\QuestionForm.Designer.cs">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuestionForm\QuestionPresenter.cs" />
-    <Compile Include="QuestionForm\WrappingCheckBox.cs">
+    <Compile Include="TesteeQuestion\TesteeQuestionViewModel.cs" />
+    <Compile Include="TesteeQuestion\WrappingCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="QuestionForm\WrappingLabel.cs">
+    <Compile Include="TesteeQuestion\WrappingLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="QuestionForm\WrappingRadioButton.cs">
+    <Compile Include="TesteeQuestion\WrappingRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -194,6 +199,9 @@
     <EmbeddedResource Include="AddEditQuestionForm\AddEditQuestionForm.ru-RU.resx">
       <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\AdminSettingsForm.resx">
+      <DependentUpon>AdminSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,7 +231,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="QuestionForm\QuestionForm.resx">
+    <EmbeddedResource Include="TesteeQuestion\QuestionForm.resx">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TesteesListForm\TesteesListForm.resx">

@@ -3,25 +3,46 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using DataTransferObject;
 using System.Drawing;
+using Client.TesteeQuestion;
 
 namespace Client
 {
-    public partial class QuestionForm : DevExpress.XtraEditors.XtraForm, IQuestionForm
+    public partial class QuestionForm : DevExpress.XtraEditors.XtraForm
     {
-        public QuestionPresenter Presenter { get; set; }
+        private Dictionary<Guid, bool> answers = new Dictionary<Guid,bool>();
+        private TesteeQuestionViewModel model;
+
         public QuestionForm(TesteeDTO testee)
         {
             InitializeComponent();
-            Presenter = new QuestionPresenter(this, testee);
+            mvvmQuestionContext.ViewModelType = typeof(TesteeQuestionViewModel);
+            BindCommands();
+            model = new TesteeQuestionViewModel();
+            mvvmQuestionContext.SetViewModel(typeof(TesteeQuestionViewModel), model);
+            model.LoadQuestionForTestee(Program.currentTestee);
+            CreateQuestionControls(model.question);
+
             // Send form to bottom right corner of display
+            SetWindowsPosition();
+        }
+     
+        private void BindCommands()
+        {
+            mvvmQuestionContext.BindCommand<TesteeQuestionViewModel, Dictionary<Guid, bool>>(buttonSend,
+                (x, currentTraining) => x.SaveTesteeAnswer(currentTraining), x => answers);
+        }
+       
+        private void SetWindowsPosition()
+        {
             var screen = Screen.FromPoint(this.Location);
             this.Location = new Point(screen.WorkingArea.Right - this.Width, screen.WorkingArea.Bottom - this.Height);
 
             flow.SetFlowBreak(labelQuestion, true);
         }
 
-        public void CreateQuestionControls(QuestionDTO question, IDictionary<Guid, bool> testeeAnswers, bool multiSelect)
+        public void CreateQuestionControls(QuestionDTO question)
         {
+            var multiSelect = model.MultiSelect;
             labelQuestion.DataBindings.Add("Text", question, "QuestionText");
             bool selectFirstRadio = true;
             foreach (var answer in question.Answers)
@@ -37,7 +58,7 @@ namespace Client
                 }
                 (control as Control).DataBindings.Add("Text", answer, "AnswerText");
                 control.AnswerID = answer.Id;
-                control.CheckedChanged += (sender, e) => testeeAnswers[control.AnswerID] = control.Checked;
+                control.CheckedChanged += (sender, e) => this.answers[control.AnswerID] = control.Checked;
                 if (selectFirstRadio && !multiSelect)
                 {
                     control.Checked = true;
@@ -46,21 +67,6 @@ namespace Client
                 flow.Controls.Add((control as Control));
                 flow.SetFlowBreak((control as Control), true);
             }
-        }
-
-        public void NotifyNoAnswersChecked()
-        {
-            MessageBox.Show("You must select at least 1 answer.");
-        }
-
-        private void buttonSend_Click(object sender, EventArgs e)
-        {
-            Presenter.Send();
-        }
-
-        public void CloseForm()
-        {
-            this.Close();
         }
 
         private void QuestionForm_Load(object sender, EventArgs e)

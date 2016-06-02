@@ -15,6 +15,9 @@ namespace Client
     static class Program
     {
         public static string currentLang = "ru-RU";
+        public static TesteeDTO currentTestee = new TesteeDTO();
+
+
         private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1 }
         //Global data
         private static MainForm applicationMainForm;

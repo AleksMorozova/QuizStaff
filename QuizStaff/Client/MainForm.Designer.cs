@@ -39,6 +39,7 @@
             this.testBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.loginBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.questionBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.adminSettingsBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.russianBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.englishBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
@@ -74,9 +75,10 @@
             this.questionBarButton,
             this.languageBarSubItem,
             this.russianBarButtonItem,
-            this.englishBarButtonItem});
+            this.englishBarButtonItem,
+            this.adminSettingsBarButtonItem});
             this.mainMenuManager.MainMenu = this.mainMenu;
-            this.mainMenuManager.MaxItemId = 9;
+            this.mainMenuManager.MaxItemId = 10;
             this.mainMenuManager.StatusBar = this.statusBar;
             // 
             // mainMenu
@@ -92,6 +94,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.testBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.loginBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.questionBarButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.adminSettingsBarButtonItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.languageBarSubItem, true)});
             this.mainMenu.OptionsBar.MultiLine = true;
             this.mainMenu.OptionsBar.UseWholeRow = true;
@@ -138,8 +141,13 @@
             resources.ApplyResources(this.questionBarButton, "questionBarButton");
             this.questionBarButton.Id = 5;
             this.questionBarButton.Name = "questionBarButton";
-            this.questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.questionBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.questionBarButton_ItemClick);
+            // 
+            // adminSettingsBarButtonItem
+            // 
+            resources.ApplyResources(this.adminSettingsBarButtonItem, "adminSettingsBarButtonItem");
+            this.adminSettingsBarButtonItem.Id = 9;
+            this.adminSettingsBarButtonItem.Name = "adminSettingsBarButtonItem";
             // 
             // languageBarSubItem
             // 
@@ -234,6 +242,7 @@
         private DevExpress.XtraBars.BarSubItem languageBarSubItem;
         private DevExpress.XtraBars.BarButtonItem russianBarButtonItem;
         private DevExpress.XtraBars.BarButtonItem englishBarButtonItem;
+        private DevExpress.XtraBars.BarButtonItem adminSettingsBarButtonItem;
 
 
     }
