@@ -169,14 +169,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="ServicesHolder.cs" />
-    <Compile Include="TesteesListForm\ITesteesListForm.cs" />
+    <Compile Include="TesteesListForm\TesteesListViewModel.cs" />
     <Compile Include="TesteesListForm\TesteesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TesteesListForm\TesteesListForm.Designer.cs">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TesteesListForm\TesteesListPresenter.cs" />
     <Compile Include="TrainingAddEdit\TrainingAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +235,9 @@
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TesteesListForm\TesteesListForm.resx">
+      <DependentUpon>TesteesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesteesListForm\TesteesListForm.ru-RU.resx">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrainingAddEdit\TrainingAddEditForm.resx">

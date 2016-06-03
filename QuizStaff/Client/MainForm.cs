@@ -34,8 +34,9 @@ namespace Client
 
         private void testeesBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            TesteesListForm f = new TesteesListForm();
-            FormManager.Instance.OpenChildForm(f, "Testees");
+            TesteesListForm testeesform = new TesteesListForm();
+            FormManager.Instance.OpenChildForm(testeesform, "Testees");
+            FormManager.childForms.Add(testeesform);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
