@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserLoginForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.loginButton = new DevExpress.XtraEditors.SimpleButton();
             this.passwordTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.loginTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -38,7 +37,8 @@
             this.loginLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.passwordLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).BeginInit();
@@ -47,12 +47,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.loginLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.cancelButton);
             this.layoutControl1.Controls.Add(this.loginButton);
             this.layoutControl1.Controls.Add(this.passwordTextEdit);
             this.layoutControl1.Controls.Add(this.loginTextEdit);
@@ -61,15 +61,10 @@
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(480, 284, 494, 494);
             this.layoutControl1.Root = this.layoutControlGroup1;
             // 
-            // cancelButton
-            // 
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            resources.ApplyResources(this.cancelButton, "cancelButton");
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.StyleController = this.layoutControl1;
-            // 
             // loginButton
             // 
+            this.loginButton.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("loginButton.Appearance.Font")));
+            this.loginButton.Appearance.Options.UseFont = true;
             resources.ApplyResources(this.loginButton, "loginButton");
             this.loginButton.Name = "loginButton";
             this.loginButton.StyleController = this.layoutControl1;
@@ -97,56 +92,69 @@
             this.loginLayoutControlItem,
             this.passwordLayoutControlItem,
             this.layoutControlItem3,
-            this.layoutControlItem4});
+            this.emptySpaceItem2,
+            this.emptySpaceItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(416, 136);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(275, 138);
+            this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // loginLayoutControlItem
             // 
+            this.loginLayoutControlItem.AppearanceItemCaption.Font = ((System.Drawing.Font)(resources.GetObject("loginLayoutControlItem.AppearanceItemCaption.Font")));
+            this.loginLayoutControlItem.AppearanceItemCaption.Options.UseFont = true;
             this.loginLayoutControlItem.Control = this.loginTextEdit;
             this.loginLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.loginLayoutControlItem.Name = "loginLayoutControlItem";
-            this.loginLayoutControlItem.Size = new System.Drawing.Size(396, 40);
+            this.loginLayoutControlItem.Size = new System.Drawing.Size(245, 43);
             resources.ApplyResources(this.loginLayoutControlItem, "loginLayoutControlItem");
             this.loginLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.loginLayoutControlItem.TextSize = new System.Drawing.Size(46, 13);
+            this.loginLayoutControlItem.TextSize = new System.Drawing.Size(55, 16);
             // 
             // passwordLayoutControlItem
             // 
+            this.passwordLayoutControlItem.AppearanceItemCaption.Font = ((System.Drawing.Font)(resources.GetObject("passwordLayoutControlItem.AppearanceItemCaption.Font")));
+            this.passwordLayoutControlItem.AppearanceItemCaption.Options.UseFont = true;
             this.passwordLayoutControlItem.Control = this.passwordTextEdit;
-            this.passwordLayoutControlItem.Location = new System.Drawing.Point(0, 40);
+            this.passwordLayoutControlItem.Location = new System.Drawing.Point(0, 43);
             this.passwordLayoutControlItem.Name = "passwordLayoutControlItem";
-            this.passwordLayoutControlItem.Size = new System.Drawing.Size(396, 40);
+            this.passwordLayoutControlItem.Size = new System.Drawing.Size(245, 43);
             resources.ApplyResources(this.passwordLayoutControlItem, "passwordLayoutControlItem");
             this.passwordLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.passwordLayoutControlItem.TextSize = new System.Drawing.Size(46, 13);
+            this.passwordLayoutControlItem.TextSize = new System.Drawing.Size(55, 16);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.loginButton;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 80);
+            this.layoutControlItem3.Location = new System.Drawing.Point(81, 86);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(198, 36);
+            this.layoutControlItem3.Size = new System.Drawing.Size(83, 32);
+            this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // layoutControlItem4
+            // emptySpaceItem1
             // 
-            this.layoutControlItem4.Control = this.cancelButton;
-            this.layoutControlItem4.Location = new System.Drawing.Point(198, 80);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(198, 36);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(164, 86);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(81, 32);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 86);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(81, 32);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // UserLoginForm
             // 
             this.AcceptButton = this.loginButton;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancelButton;
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -160,7 +168,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.loginLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -168,7 +177,6 @@
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.SimpleButton cancelButton;
         private DevExpress.XtraEditors.SimpleButton loginButton;
         private DevExpress.XtraEditors.TextEdit passwordTextEdit;
         private DevExpress.XtraEditors.TextEdit loginTextEdit;
@@ -176,6 +184,7 @@
         private DevExpress.XtraLayout.LayoutControlItem loginLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem passwordLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }
