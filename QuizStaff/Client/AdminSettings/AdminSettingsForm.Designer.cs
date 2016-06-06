@@ -28,19 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.timeOfAskingEditTime = new DevExpress.XtraEditors.TimeEdit();
             this.frequencySpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.questionAmountTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.testeeListGridControl = new DevExpress.XtraGrid.GridControl();
             this.testeesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.loginGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.usersListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.frequencyLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.questionAmountLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.timeOfAskingLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
-            this.loginGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
+            this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTime.Properties)).BeginInit();
@@ -53,11 +60,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.frequencyLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionAmountLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmAdminSettingsContext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.cancelButton);
+            this.layoutControl1.Controls.Add(this.saveButton);
             this.layoutControl1.Controls.Add(this.timeOfAskingEditTime);
             this.layoutControl1.Controls.Add(this.frequencySpinEdit);
             this.layoutControl1.Controls.Add(this.questionAmountTextEdit);
@@ -70,6 +81,16 @@
             this.layoutControl1.Size = new System.Drawing.Size(614, 369);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(309, 109);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(139, 22);
+            this.saveButton.StyleController = this.layoutControl1;
+            this.saveButton.TabIndex = 14;
+            this.saveButton.Text = "Save";
+            this.saveButton.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // timeOfAskingEditTime
             // 
@@ -132,9 +153,38 @@
             // testeesGridView
             // 
             this.testeesGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.loginGridColumn});
+            this.loginGridColumn,
+            this.firstNameGridColumn,
+            this.lastNameGridColumn});
             this.testeesGridView.GridControl = this.testeeListGridControl;
             this.testeesGridView.Name = "testeesGridView";
+            this.testeesGridView.OptionsFind.AlwaysVisible = true;
+            this.testeesGridView.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always;
+            this.testeesGridView.OptionsView.ShowAutoFilterRow = true;
+            // 
+            // loginGridColumn
+            // 
+            this.loginGridColumn.Caption = "Login";
+            this.loginGridColumn.FieldName = "Login";
+            this.loginGridColumn.Name = "loginGridColumn";
+            this.loginGridColumn.Visible = true;
+            this.loginGridColumn.VisibleIndex = 0;
+            // 
+            // firstNameGridColumn
+            // 
+            this.firstNameGridColumn.Caption = "First name";
+            this.firstNameGridColumn.FieldName = "FirstName";
+            this.firstNameGridColumn.Name = "firstNameGridColumn";
+            this.firstNameGridColumn.Visible = true;
+            this.firstNameGridColumn.VisibleIndex = 1;
+            // 
+            // lastNameGridColumn
+            // 
+            this.lastNameGridColumn.Caption = "Last name";
+            this.lastNameGridColumn.FieldName = "LastName";
+            this.lastNameGridColumn.Name = "lastNameGridColumn";
+            this.lastNameGridColumn.Visible = true;
+            this.lastNameGridColumn.VisibleIndex = 2;
             // 
             // layoutControlGroup
             // 
@@ -144,7 +194,9 @@
             this.usersListLayoutControlItem,
             this.frequencyLayoutControlItem,
             this.questionAmountLayoutControlItem,
-            this.timeOfAskingLayoutControlItem});
+            this.timeOfAskingLayoutControlItem,
+            this.saveButtonLayoutControlItem,
+            this.cancelButtonLayoutControlItem});
             this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "layoutControlGroup";
             this.layoutControlGroup.Size = new System.Drawing.Size(614, 369);
@@ -186,22 +238,43 @@
             this.timeOfAskingLayoutControlItem.Control = this.timeOfAskingEditTime;
             this.timeOfAskingLayoutControlItem.Location = new System.Drawing.Point(297, 63);
             this.timeOfAskingLayoutControlItem.Name = "timeOfAskingLayoutControlItem";
-            this.timeOfAskingLayoutControlItem.Size = new System.Drawing.Size(297, 286);
+            this.timeOfAskingLayoutControlItem.Size = new System.Drawing.Size(297, 24);
             this.timeOfAskingLayoutControlItem.Text = "Time of asking";
             this.timeOfAskingLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Left;
             this.timeOfAskingLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
+            // 
+            // saveButtonLayoutControlItem
+            // 
+            this.saveButtonLayoutControlItem.Control = this.saveButton;
+            this.saveButtonLayoutControlItem.Location = new System.Drawing.Point(297, 87);
+            this.saveButtonLayoutControlItem.Name = "saveButtonLayoutControlItem";
+            this.saveButtonLayoutControlItem.Size = new System.Drawing.Size(148, 262);
+            this.saveButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 10, 0);
+            this.saveButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.saveButtonLayoutControlItem.TextVisible = false;
             // 
             // mvvmAdminSettingsContext
             // 
             this.mvvmAdminSettingsContext.ContainerControl = this;
             // 
-            // loginGridColumn
+            // cancelButton
             // 
-            this.loginGridColumn.Caption = "Login";
-            this.loginGridColumn.FieldName = "Login";
-            this.loginGridColumn.Name = "loginGridColumn";
-            this.loginGridColumn.Visible = true;
-            this.loginGridColumn.VisibleIndex = 0;
+            this.cancelButton.Location = new System.Drawing.Point(462, 109);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(140, 22);
+            this.cancelButton.StyleController = this.layoutControl1;
+            this.cancelButton.TabIndex = 15;
+            this.cancelButton.Text = "Cancel";
+            // 
+            // cancelButtonLayoutControlItem
+            // 
+            this.cancelButtonLayoutControlItem.Control = this.cancelButton;
+            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(445, 87);
+            this.cancelButtonLayoutControlItem.Name = "cancelButtonLayoutControlItem";
+            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(149, 262);
+            this.cancelButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 10, 0);
+            this.cancelButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.cancelButtonLayoutControlItem.TextVisible = false;
             // 
             // AdminSettingsForm
             // 
@@ -223,7 +296,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.frequencyLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionAmountLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmAdminSettingsContext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -243,5 +318,11 @@
         private DevExpress.XtraLayout.LayoutControlItem timeOfAskingLayoutControlItem;
         private DevExpress.Utils.MVVM.MVVMContext mvvmAdminSettingsContext;
         private DevExpress.XtraGrid.Columns.GridColumn loginGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn firstNameGridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn lastNameGridColumn;
+        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraLayout.LayoutControlItem saveButtonLayoutControlItem;
+        private DevExpress.XtraEditors.SimpleButton cancelButton;
+        private DevExpress.XtraLayout.LayoutControlItem cancelButtonLayoutControlItem;
     }
 }

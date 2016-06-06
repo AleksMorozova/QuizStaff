@@ -39,5 +39,10 @@ namespace Client.AdminSettings
             mvvmAdminSettingsContext.SetBinding(questionAmountTextEdit, amount => amount.EditValue, "AmountOfQuestionsPerDay");
             mvvmAdminSettingsContext.SetBinding(timeOfAskingEditTime, time => time.EditValue, "TimeOfStart");
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            var t = model.Testees;
+        }
     }
 }
