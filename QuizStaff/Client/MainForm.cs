@@ -34,8 +34,10 @@ namespace Client
 
         private void testeesBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            TesteesListForm f = new TesteesListForm();
-            FormManager.Instance.OpenChildForm(f, "Testees");
+            TesteesListForm testeesform = new TesteesListForm();
+            FormManager.Instance.OpenChildForm(testeesform, "Testees");
+            FormManager.childForms.Add(testeesform);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -52,6 +54,7 @@ namespace Client
             TrainingsListForm.TrainingListForm trainingsform = new TrainingsListForm.TrainingListForm();
             FormManager.Instance.OpenChildForm(trainingsform, "Trainings");
             FormManager.childForms.Add(trainingsform);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 
         private void loginBarButton_ItemClick(object sender, ItemClickEventArgs e)
