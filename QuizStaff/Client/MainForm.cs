@@ -37,6 +37,7 @@ namespace Client
             TesteesListForm testeesform = new TesteesListForm();
             FormManager.Instance.OpenChildForm(testeesform, "Testees");
             FormManager.childForms.Add(testeesform);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -53,6 +54,7 @@ namespace Client
             TrainingsListForm.TrainingListForm trainingsform = new TrainingsListForm.TrainingListForm();
             FormManager.Instance.OpenChildForm(trainingsform, "Trainings");
             FormManager.childForms.Add(trainingsform);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 
         private void loginBarButton_ItemClick(object sender, ItemClickEventArgs e)
