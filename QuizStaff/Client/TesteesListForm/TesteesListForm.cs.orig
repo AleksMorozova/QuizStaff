@@ -63,7 +63,11 @@ namespace Client
             resources.ApplyResources(buttonAddTestee, "buttonAddTestee", newCultureInfo);
             resources.ApplyResources(testeesLayoutControlItem, "testeesLayoutControlItem", newCultureInfo);
             resources.ApplyResources(buttonEditTestee, "buttonEditTestee", newCultureInfo);
+<<<<<<< HEAD
+            resources.ApplyResources(buttonLoadTestees, "buttonLoadTestees", newCultureInfo);
+=======
             resources.ApplyResources(buttonLoadTestees , "buttonLoadTestee", newCultureInfo);
+>>>>>>> origin/Development
             resources.ApplyResources(columnEmail, "columnEmail", newCultureInfo);
             resources.ApplyResources(columnFirstName, "columnFirstName", newCultureInfo);
             resources.ApplyResources(columnLastName, "columnLastName", newCultureInfo);

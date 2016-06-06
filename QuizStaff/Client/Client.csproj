@@ -108,8 +108,7 @@
     <Compile Include="AddEditTesteeForm\AddEditTestee.Designer.cs">
       <DependentUpon>AddEditTestee.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddEditTesteeForm\AddEditTesteePresenter.cs" />
-    <Compile Include="AddEditTesteeForm\IAddEditTesteeForm.cs" />
+    <Compile Include="AddEditTesteeForm\TesteeViewModel.cs" />
     <Compile Include="AdminSettings\AdminSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,14 +169,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="ServicesHolder.cs" />
-    <Compile Include="TesteesListForm\ITesteesListForm.cs" />
+    <Compile Include="TesteesListForm\TesteesListViewModel.cs" />
     <Compile Include="TesteesListForm\TesteesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TesteesListForm\TesteesListForm.Designer.cs">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TesteesListForm\TesteesListPresenter.cs" />
     <Compile Include="TrainingAddEdit\TrainingAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +195,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditQuestionForm\AddEditQuestionForm.ru-RU.resx">
       <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditTesteeForm\AddEditTestee.resx">
+      <DependentUpon>AddEditTestee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditTesteeForm\AddEditTestee.ru-RU.resx">
+      <DependentUpon>AddEditTestee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminSettings\AdminSettingsForm.resx">
       <DependentUpon>AdminSettingsForm.cs</DependentUpon>
@@ -237,6 +241,9 @@
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TesteesListForm\TesteesListForm.resx">
+      <DependentUpon>TesteesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesteesListForm\TesteesListForm.ru-RU.resx">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrainingAddEdit\TrainingAddEditForm.resx">
