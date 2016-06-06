@@ -59,7 +59,6 @@ namespace Client.ClientsForms.LoginForm
             resources.ApplyResources(loginLayoutControlItem, "loginLayoutControlItem", newCultureInfo);
             resources.ApplyResources(passwordLayoutControlItem, "passwordLayoutControlItem", newCultureInfo);
             resources.ApplyResources(loginButton, "loginButton", newCultureInfo);
-            resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
         }
     }
 }
