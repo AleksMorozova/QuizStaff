@@ -111,23 +111,44 @@
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.StyleController = this.layoutControl1;
+<<<<<<< HEAD
+=======
+            this.buttonCancel.TabIndex = 13;
+            this.buttonCancel.Text = "Cancel";
+>>>>>>> origin/Development
             // 
             // buttonSave
             // 
             resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.StyleController = this.layoutControl1;
+<<<<<<< HEAD
+=======
+            this.buttonSave.TabIndex = 14;
+            this.buttonSave.Text = "Save";
+>>>>>>> origin/Development
             // 
             // buttonAddTestee
             // 
             resources.ApplyResources(this.buttonAddTestee, "buttonAddTestee");
             this.buttonAddTestee.Name = "buttonAddTestee";
             this.buttonAddTestee.StyleController = this.layoutControl1;
+<<<<<<< HEAD
             // 
             // gridTestees
             // 
             resources.ApplyResources(this.gridTestees, "gridTestees");
-            this.gridTestees.MainView = this.testeeGridView;
+=======
+            this.buttonAddTestee.TabIndex = 7;
+            this.buttonAddTestee.Text = "Add testee";
+            // 
+            // gridTestees
+            // 
+            this.gridTestees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridTestees.Location = new System.Drawing.Point(12, 40);
+>>>>>>> origin/Development
             this.gridTestees.MainView = this.testeeGridView;
             this.gridTestees.Name = "gridTestees";
             this.gridTestees.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -294,12 +315,22 @@
             resources.ApplyResources(this.buttonLoadTestees, "buttonLoadTestees");
             this.buttonLoadTestees.Name = "buttonLoadTestees";
             this.buttonLoadTestees.StyleController = this.layoutControl1;
+<<<<<<< HEAD
+=======
+            this.buttonLoadTestees.TabIndex = 9;
+            this.buttonLoadTestees.Text = "Load testees";
+>>>>>>> origin/Development
             // 
             // buttonEditTestee
             // 
             resources.ApplyResources(this.buttonEditTestee, "buttonEditTestee");
             this.buttonEditTestee.Name = "buttonEditTestee";
             this.buttonEditTestee.StyleController = this.layoutControl1;
+<<<<<<< HEAD
+=======
+            this.buttonEditTestee.TabIndex = 8;
+            this.buttonEditTestee.Text = "Edit testee";
+>>>>>>> origin/Development
             // 
             // layoutControlGridAndButtons
             // 

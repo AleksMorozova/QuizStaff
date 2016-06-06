@@ -26,17 +26,13 @@ namespace Client
         public void AddTestee(BindingList<TesteeDTO> testee)
         {
             AddEditTestee testeeForm = new AddEditTestee();
-            FormManager.Instance.OpenChildForm(testeeForm, "Add testee");
-            FormManager.childForms.Add(testeeForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
-            testee.Add(testeeForm.Testee);
+            FormManager.Instance.OpenChildForm(testeeForm, "Add testee");            
         }
 
         public void EditTestee(TesteeDTO editedTestee)
         {
             AddEditTestee testeeForm = new AddEditTestee();
-            FormManager.Instance.OpenChildForm(testeeForm, "Edit testee: " + editedTestee.Login);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.OpenChildForm(testeeForm, "Edit testee: " + editedTestee.Login);            
         }
 
         public void Save()
@@ -54,7 +50,7 @@ namespace Client
         public void LoadTestees()
         {
             // TODO: implement loading of testees from external source
-            XtraMessageBox.Show("Load testee");
+            XtraMessageBox.Show("Load trainings");
         }
     }
 }
