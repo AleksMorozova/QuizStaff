@@ -82,16 +82,17 @@ namespace Client
                     if (user.Password != password)
                         return LoginResult.Failed;
 
-                    //XtraMessageBox.Show("As admin?","Select" ,MessageBoxButtons.YesNo);
-                    DialogResult m = XtraMessageBox.Show("As admin?", "Select", MessageBoxButtons.YesNo);
-                    if (m == DialogResult.Yes)
-                    {
-                        AsAdmin = true;
-                    }
-                    else if (m == DialogResult.No)
-                    {
-                        AsAdmin = false;
-                    }
+                    //TODO: uncomment after implementation roles for users 
+                    //DialogResult m = XtraMessageBox.Show("As admin?", "Select", MessageBoxButtons.YesNo);
+                    //if (m == DialogResult.Yes)
+                    //{
+                    //    AsAdmin = true;
+                    //}
+                    //else if (m == DialogResult.No)
+                    //{
+                    //    AsAdmin = false;
+                    //}
+
                 return LoginResult.LoggedIn;
             }
             else

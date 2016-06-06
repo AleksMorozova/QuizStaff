@@ -44,7 +44,7 @@ namespace Client
         private void MainForm_Load(object sender, EventArgs e)
         {
             //TODO: uncomment after implementation of users role
-            ProvideAccessToMenuItems();
+            //ProvideAccessToMenuItems();
             //timer.Interval = 100;
             //timer.Tick += new EventHandler(timer_Tick);
             //timer.Start();
