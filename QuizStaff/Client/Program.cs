@@ -17,7 +17,7 @@ namespace Client
     {
         public static string currentLang = "ru-RU";
         public static TesteeDTO currentTestee = new TesteeDTO();
-
+        public static bool AsAdmin = true;
 
         private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1 }
         //Global data
@@ -82,6 +82,16 @@ namespace Client
                     if (user.Password != password)
                         return LoginResult.Failed;
 
+                    //XtraMessageBox.Show("As admin?","Select" ,MessageBoxButtons.YesNo);
+                    DialogResult m = XtraMessageBox.Show("As admin?", "Select", MessageBoxButtons.YesNo);
+                    if (m == DialogResult.Yes)
+                    {
+                        AsAdmin = true;
+                    }
+                    else if (m == DialogResult.No)
+                    {
+                        AsAdmin = false;
+                    }
                 return LoginResult.LoggedIn;
             }
             else

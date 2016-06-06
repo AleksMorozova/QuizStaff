@@ -21,6 +21,6 @@ namespace DomainModel
         public virtual Setting UserSetting { get; set; }
         public virtual ICollection<History> Histories { get; set; }
         public virtual ICollection<TesteeTraining> Trainings { get; set; }
-
+        public virtual ICollection<UserRole> Roles { get; set; }
     }
 }

@@ -116,6 +116,7 @@
     <Compile Include="AdminSettings\AdminSettingsForm.Designer.cs">
       <DependentUpon>AdminSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminSettings\AdminSettingsViewModel.cs" />
     <Compile Include="ClientsForms\ClientsSetupForm\ClientSetupPresenter.cs" />
     <Compile Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.cs">
       <SubType>Form</SubType>

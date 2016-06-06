@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.tabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.mainMenuManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.tabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.mainMenuManager = new DevExpress.XtraBars.BarManager();
             this.mainMenu = new DevExpress.XtraBars.Bar();
             this.testeesBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.trainingsBarButton = new DevExpress.XtraBars.BarButtonItem();
@@ -148,6 +147,7 @@
             resources.ApplyResources(this.adminSettingsBarButtonItem, "adminSettingsBarButtonItem");
             this.adminSettingsBarButtonItem.Id = 9;
             this.adminSettingsBarButtonItem.Name = "adminSettingsBarButtonItem";
+            this.adminSettingsBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.adminSettingsBarButtonItem_ItemClick);
             // 
             // languageBarSubItem
             // 

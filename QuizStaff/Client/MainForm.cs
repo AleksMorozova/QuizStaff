@@ -14,6 +14,7 @@ using DataTransferObject;
 using System.Globalization;
 using System.Windows;
 using System.Configuration;
+using Client.AdminSettings;
 
 namespace Client
 {
@@ -40,11 +41,11 @@ namespace Client
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //TODO: uncomment after implementation of users role
             ProvideAccessToMenuItems();
-            timer.Interval = 100;
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
-
+            //timer.Interval = 100;
+            //timer.Tick += new EventHandler(timer_Tick);
+            //timer.Start();
         }
 
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -76,6 +77,7 @@ namespace Client
             resources.ApplyResources(languageBarSubItem, "languageBarSubItem", newCultureInfo);
             resources.ApplyResources(russianBarButtonItem, "russianBarButtonItem", newCultureInfo);
             resources.ApplyResources(englishBarButtonItem, "englishBarButtonItem", newCultureInfo);
+            resources.ApplyResources(adminSettingsBarButtonItem, "adminSettingsBarButtonItem", newCultureInfo);
         }
 
         private void russianBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
@@ -95,7 +97,17 @@ namespace Client
         //TODO: implement visibility of menu item depends on users role
         private void ProvideAccessToMenuItems()
         {
-            //"menu item name".Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            if (Program.AsAdmin)
+            {
+                settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            }
+            else 
+            {
+                testeesBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                trainingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                adminSettingsBarButtonItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -117,6 +129,13 @@ namespace Client
             //    f.Show();
             //    timer.Stop();
             //}
+        }
+
+        private void adminSettingsBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AdminSettingsForm trainingsform = new AdminSettingsForm();
+            FormManager.Instance.OpenChildForm(trainingsform, "Settings");
+            FormManager.childForms.Add(trainingsform);
         }
     }
 }

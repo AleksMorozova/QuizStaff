@@ -29,28 +29,31 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.usersListGridControl = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.usersListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.questionAmountTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.questionAmountLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.frequencySpinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.frequencyLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.timeOfAskingEditTime = new DevExpress.XtraEditors.TimeEdit();
+            this.frequencySpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.questionAmountTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.testeeListGridControl = new DevExpress.XtraGrid.GridControl();
+            this.testeesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.usersListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.frequencyLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.questionAmountLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.timeOfAskingLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.loginGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersListGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersListLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.questionAmountTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.questionAmountLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frequencyLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionAmountTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testeeListGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testeesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersListLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencyLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionAmountLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmAdminSettingsContext)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -58,7 +61,7 @@
             this.layoutControl1.Controls.Add(this.timeOfAskingEditTime);
             this.layoutControl1.Controls.Add(this.frequencySpinEdit);
             this.layoutControl1.Controls.Add(this.questionAmountTextEdit);
-            this.layoutControl1.Controls.Add(this.usersListGridControl);
+            this.layoutControl1.Controls.Add(this.testeeListGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -68,63 +71,18 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // layoutControlGroup
+            // timeOfAskingEditTime
             // 
-            this.layoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup.GroupBordersVisible = false;
-            this.layoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.usersListLayoutControlItem,
-            this.frequencyLayoutControlItem,
-            this.questionAmountLayoutControlItem,
-            this.timeOfAskingLayoutControlItem});
-            this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup.Name = "layoutControlGroup";
-            this.layoutControlGroup.Size = new System.Drawing.Size(614, 369);
-            this.layoutControlGroup.TextVisible = false;
-            // 
-            // usersListGridControl
-            // 
-            this.usersListGridControl.Location = new System.Drawing.Point(12, 28);
-            this.usersListGridControl.MainView = this.gridView1;
-            this.usersListGridControl.Name = "usersListGridControl";
-            this.usersListGridControl.Size = new System.Drawing.Size(283, 329);
-            this.usersListGridControl.TabIndex = 4;
-            this.usersListGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.usersListGridControl;
-            this.gridView1.Name = "gridView1";
-            // 
-            // usersListLayoutControlItem
-            // 
-            this.usersListLayoutControlItem.Control = this.usersListGridControl;
-            this.usersListLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.usersListLayoutControlItem.Name = "usersListLayoutControlItem";
-            this.usersListLayoutControlItem.Size = new System.Drawing.Size(297, 349);
-            this.usersListLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 10, 0, 0);
-            this.usersListLayoutControlItem.Text = "Users list:";
-            this.usersListLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.usersListLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
-            // 
-            // questionAmountTextEdit
-            // 
-            this.questionAmountTextEdit.Location = new System.Drawing.Point(395, 12);
-            this.questionAmountTextEdit.Name = "questionAmountTextEdit";
-            this.questionAmountTextEdit.Size = new System.Drawing.Size(207, 20);
-            this.questionAmountTextEdit.StyleController = this.layoutControl1;
-            this.questionAmountTextEdit.TabIndex = 5;
-            // 
-            // questionAmountLayoutControlItem
-            // 
-            this.questionAmountLayoutControlItem.Control = this.questionAmountTextEdit;
-            this.questionAmountLayoutControlItem.Location = new System.Drawing.Point(297, 0);
-            this.questionAmountLayoutControlItem.Name = "questionAmountLayoutControlItem";
-            this.questionAmountLayoutControlItem.Size = new System.Drawing.Size(297, 29);
-            this.questionAmountLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 5);
-            this.questionAmountLayoutControlItem.Text = "Question amount";
-            this.questionAmountLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
+            this.timeOfAskingEditTime.EditValue = new System.DateTime(2016, 4, 28, 0, 0, 0, 0);
+            this.timeOfAskingEditTime.Location = new System.Drawing.Point(394, 75);
+            this.timeOfAskingEditTime.Name = "timeOfAskingEditTime";
+            this.timeOfAskingEditTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeOfAskingEditTime.Properties.Mask.BeepOnError = true;
+            this.timeOfAskingEditTime.Properties.Mask.EditMask = "t";
+            this.timeOfAskingEditTime.Size = new System.Drawing.Size(208, 20);
+            this.timeOfAskingEditTime.StyleController = this.layoutControl1;
+            this.timeOfAskingEditTime.TabIndex = 13;
             // 
             // frequencySpinEdit
             // 
@@ -133,7 +91,7 @@
             0,
             0,
             0});
-            this.frequencySpinEdit.Location = new System.Drawing.Point(395, 46);
+            this.frequencySpinEdit.Location = new System.Drawing.Point(394, 46);
             this.frequencySpinEdit.Name = "frequencySpinEdit";
             this.frequencySpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -149,9 +107,59 @@
             0,
             0,
             0});
-            this.frequencySpinEdit.Size = new System.Drawing.Size(207, 20);
+            this.frequencySpinEdit.Size = new System.Drawing.Size(208, 20);
             this.frequencySpinEdit.StyleController = this.layoutControl1;
             this.frequencySpinEdit.TabIndex = 12;
+            // 
+            // questionAmountTextEdit
+            // 
+            this.questionAmountTextEdit.Location = new System.Drawing.Point(394, 12);
+            this.questionAmountTextEdit.Name = "questionAmountTextEdit";
+            this.questionAmountTextEdit.Size = new System.Drawing.Size(208, 20);
+            this.questionAmountTextEdit.StyleController = this.layoutControl1;
+            this.questionAmountTextEdit.TabIndex = 5;
+            // 
+            // testeeListGridControl
+            // 
+            this.testeeListGridControl.Location = new System.Drawing.Point(12, 28);
+            this.testeeListGridControl.MainView = this.testeesGridView;
+            this.testeeListGridControl.Name = "testeeListGridControl";
+            this.testeeListGridControl.Size = new System.Drawing.Size(283, 329);
+            this.testeeListGridControl.TabIndex = 4;
+            this.testeeListGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.testeesGridView});
+            // 
+            // testeesGridView
+            // 
+            this.testeesGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.loginGridColumn});
+            this.testeesGridView.GridControl = this.testeeListGridControl;
+            this.testeesGridView.Name = "testeesGridView";
+            // 
+            // layoutControlGroup
+            // 
+            this.layoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup.GroupBordersVisible = false;
+            this.layoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.usersListLayoutControlItem,
+            this.frequencyLayoutControlItem,
+            this.questionAmountLayoutControlItem,
+            this.timeOfAskingLayoutControlItem});
+            this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup.Name = "layoutControlGroup";
+            this.layoutControlGroup.Size = new System.Drawing.Size(614, 369);
+            this.layoutControlGroup.TextVisible = false;
+            // 
+            // usersListLayoutControlItem
+            // 
+            this.usersListLayoutControlItem.Control = this.testeeListGridControl;
+            this.usersListLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.usersListLayoutControlItem.Name = "usersListLayoutControlItem";
+            this.usersListLayoutControlItem.Size = new System.Drawing.Size(297, 349);
+            this.usersListLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 10, 0, 0);
+            this.usersListLayoutControlItem.Text = "Users list:";
+            this.usersListLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.usersListLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
             // 
             // frequencyLayoutControlItem
             // 
@@ -163,18 +171,15 @@
             this.frequencyLayoutControlItem.Text = "Frequency";
             this.frequencyLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
             // 
-            // timeOfAskingEditTime
+            // questionAmountLayoutControlItem
             // 
-            this.timeOfAskingEditTime.EditValue = new System.DateTime(2016, 4, 28, 0, 0, 0, 0);
-            this.timeOfAskingEditTime.Location = new System.Drawing.Point(395, 75);
-            this.timeOfAskingEditTime.Name = "timeOfAskingEditTime";
-            this.timeOfAskingEditTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeOfAskingEditTime.Properties.Mask.BeepOnError = true;
-            this.timeOfAskingEditTime.Properties.Mask.EditMask = "t";
-            this.timeOfAskingEditTime.Size = new System.Drawing.Size(207, 20);
-            this.timeOfAskingEditTime.StyleController = this.layoutControl1;
-            this.timeOfAskingEditTime.TabIndex = 13;
+            this.questionAmountLayoutControlItem.Control = this.questionAmountTextEdit;
+            this.questionAmountLayoutControlItem.Location = new System.Drawing.Point(297, 0);
+            this.questionAmountLayoutControlItem.Name = "questionAmountLayoutControlItem";
+            this.questionAmountLayoutControlItem.Size = new System.Drawing.Size(297, 29);
+            this.questionAmountLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 5);
+            this.questionAmountLayoutControlItem.Text = "Question amount";
+            this.questionAmountLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
             // 
             // timeOfAskingLayoutControlItem
             // 
@@ -186,6 +191,18 @@
             this.timeOfAskingLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Left;
             this.timeOfAskingLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
             // 
+            // mvvmAdminSettingsContext
+            // 
+            this.mvvmAdminSettingsContext.ContainerControl = this;
+            // 
+            // loginGridColumn
+            // 
+            this.loginGridColumn.Caption = "Login";
+            this.loginGridColumn.FieldName = "Login";
+            this.loginGridColumn.Name = "loginGridColumn";
+            this.loginGridColumn.Visible = true;
+            this.loginGridColumn.VisibleIndex = 0;
+            // 
             // AdminSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,16 +213,17 @@
             this.Text = "AdminSettingsForm";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersListGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersListLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.questionAmountTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.questionAmountLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frequencyLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionAmountTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testeeListGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testeesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersListLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencyLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionAmountLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmAdminSettingsContext)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,8 +232,8 @@
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup;
-        private DevExpress.XtraGrid.GridControl usersListGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.GridControl testeeListGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView testeesGridView;
         private DevExpress.XtraLayout.LayoutControlItem usersListLayoutControlItem;
         private DevExpress.XtraEditors.TextEdit questionAmountTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem questionAmountLayoutControlItem;
@@ -223,5 +241,7 @@
         private DevExpress.XtraLayout.LayoutControlItem frequencyLayoutControlItem;
         private DevExpress.XtraEditors.TimeEdit timeOfAskingEditTime;
         private DevExpress.XtraLayout.LayoutControlItem timeOfAskingLayoutControlItem;
+        private DevExpress.Utils.MVVM.MVVMContext mvvmAdminSettingsContext;
+        private DevExpress.XtraGrid.Columns.GridColumn loginGridColumn;
     }
 }
