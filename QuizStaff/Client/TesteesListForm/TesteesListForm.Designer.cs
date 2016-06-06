@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TesteesListForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.buttonCancel = new DevExpress.XtraEditors.SimpleButton();
             this.buttonSave = new DevExpress.XtraEditors.SimpleButton();
             this.buttonAddTestee = new DevExpress.XtraEditors.SimpleButton();
             this.gridTestees = new DevExpress.XtraGrid.GridControl();
-            this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.testeeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.columnFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.columnLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.columnLogin = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -54,18 +56,19 @@
             this.buttonLoadTestees = new DevExpress.XtraEditors.SimpleButton();
             this.buttonEditTestee = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGridAndButtons = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutGrid = new DevExpress.XtraLayout.LayoutControlItem();
+            this.testeesLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutButtonLoad = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutButtonEdit = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutButtonAdd = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutButtonCancel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutButtonSave = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutButtonSave = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mvvmTesteesContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTestees)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testeeGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPopupContainerEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).BeginInit();
@@ -79,14 +82,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGridAndButtons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testeesLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonCancel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutButtonSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutButtonSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteesContext)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -97,55 +101,33 @@
             this.layoutControl1.Controls.Add(this.gridTestees);
             this.layoutControl1.Controls.Add(this.buttonLoadTestees);
             this.layoutControl1.Controls.Add(this.buttonEditTestee);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(839, 285, 568, 350);
             this.layoutControl1.Root = this.layoutControlGridAndButtons;
-            this.layoutControl1.Size = new System.Drawing.Size(1081, 558);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(949, 525);
+            resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(119, 20);
             this.buttonCancel.StyleController = this.layoutControl1;
-            this.buttonCancel.TabIndex = 13;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
             // 
-            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSave.Location = new System.Drawing.Point(825, 525);
+            resources.ApplyResources(this.buttonSave, "buttonSave");
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(118, 20);
             this.buttonSave.StyleController = this.layoutControl1;
-            this.buttonSave.TabIndex = 14;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonAddTestee
             // 
-            this.buttonAddTestee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddTestee.Location = new System.Drawing.Point(675, 13);
+            resources.ApplyResources(this.buttonAddTestee, "buttonAddTestee");
             this.buttonAddTestee.Name = "buttonAddTestee";
-            this.buttonAddTestee.Size = new System.Drawing.Size(127, 22);
             this.buttonAddTestee.StyleController = this.layoutControl1;
-            this.buttonAddTestee.TabIndex = 7;
-            this.buttonAddTestee.Text = "Add testee";
-            this.buttonAddTestee.Click += new System.EventHandler(this.buttonAddTestee_Click);
             // 
             // gridTestees
             // 
-            this.gridTestees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridTestees.Location = new System.Drawing.Point(12, 40);
-            this.gridTestees.MainView = this.gridView;
+            resources.ApplyResources(this.gridTestees, "gridTestees");
+            this.gridTestees.MainView = this.testeeGridView;
             this.gridTestees.Name = "gridTestees";
             this.gridTestees.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPopupContainerEdit1,
@@ -157,73 +139,63 @@
             this.repositoryItemPopupContainerEdit3,
             this.repositoryItemSearchLookUpEdit1,
             this.repositoryItemMemoEdit1});
-            this.gridTestees.Size = new System.Drawing.Size(1057, 480);
-            this.gridTestees.TabIndex = 10;
             this.gridTestees.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView,
+            this.testeeGridView,
             this.gridView3});
-            this.gridTestees.DoubleClick += new System.EventHandler(this.buttonEditTestee_Click);
             // 
-            // gridView
+            // testeeGridView
             // 
-            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.testeeGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.columnFirstName,
             this.columnLastName,
             this.columnLogin,
             this.columnEmail,
             this.columnTrainings});
-            this.gridView.GridControl = this.gridTestees;
-            this.gridView.Name = "gridView";
-            this.gridView.OptionsView.ShowGroupPanel = false;
-            this.gridView.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Never;
+            this.testeeGridView.GridControl = this.gridTestees;
+            this.testeeGridView.Name = "testeeGridView";
+            this.testeeGridView.OptionsView.ShowGroupPanel = false;
+            this.testeeGridView.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Never;
+            this.testeeGridView.DoubleClick += new System.EventHandler(this.testeeGridView_DoubleClick);
             // 
             // columnFirstName
             // 
-            this.columnFirstName.Caption = "First name";
+            resources.ApplyResources(this.columnFirstName, "columnFirstName");
             this.columnFirstName.FieldName = "FirstName";
             this.columnFirstName.Name = "columnFirstName";
             this.columnFirstName.OptionsColumn.AllowEdit = false;
             this.columnFirstName.OptionsColumn.AllowFocus = false;
             this.columnFirstName.OptionsColumn.ReadOnly = true;
-            this.columnFirstName.Visible = true;
-            this.columnFirstName.VisibleIndex = 0;
             // 
             // columnLastName
             // 
-            this.columnLastName.Caption = "Last name";
+            resources.ApplyResources(this.columnLastName, "columnLastName");
             this.columnLastName.FieldName = "LastName";
             this.columnLastName.Name = "columnLastName";
             this.columnLastName.OptionsColumn.AllowEdit = false;
             this.columnLastName.OptionsColumn.AllowFocus = false;
             this.columnLastName.OptionsColumn.ReadOnly = true;
-            this.columnLastName.Visible = true;
-            this.columnLastName.VisibleIndex = 1;
             // 
             // columnLogin
             // 
-            this.columnLogin.Caption = "Login";
+            resources.ApplyResources(this.columnLogin, "columnLogin");
             this.columnLogin.FieldName = "Login";
             this.columnLogin.Name = "columnLogin";
             this.columnLogin.OptionsColumn.AllowEdit = false;
             this.columnLogin.OptionsColumn.AllowFocus = false;
             this.columnLogin.OptionsColumn.ReadOnly = true;
-            this.columnLogin.Visible = true;
-            this.columnLogin.VisibleIndex = 2;
             // 
             // columnEmail
             // 
-            this.columnEmail.Caption = "Email";
+            resources.ApplyResources(this.columnEmail, "columnEmail");
             this.columnEmail.FieldName = "Email";
             this.columnEmail.Name = "columnEmail";
             this.columnEmail.OptionsColumn.AllowEdit = false;
             this.columnEmail.OptionsColumn.AllowFocus = false;
             this.columnEmail.OptionsColumn.ReadOnly = true;
-            this.columnEmail.Visible = true;
-            this.columnEmail.VisibleIndex = 3;
             // 
             // columnTrainings
             // 
-            this.columnTrainings.Caption = "Trainings";
+            resources.ApplyResources(this.columnTrainings, "columnTrainings");
             this.columnTrainings.FieldName = "TrainingsTitles";
             this.columnTrainings.Name = "columnTrainings";
             this.columnTrainings.OptionsColumn.AllowEdit = false;
@@ -231,28 +203,26 @@
             this.columnTrainings.OptionsColumn.ReadOnly = true;
             this.columnTrainings.UnboundExpression = "[Trainings.Count]";
             this.columnTrainings.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-            this.columnTrainings.Visible = true;
-            this.columnTrainings.VisibleIndex = 4;
             // 
             // repositoryItemPopupContainerEdit1
             // 
-            this.repositoryItemPopupContainerEdit1.AutoHeight = false;
+            resources.ApplyResources(this.repositoryItemPopupContainerEdit1, "repositoryItemPopupContainerEdit1");
             this.repositoryItemPopupContainerEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemPopupContainerEdit1.Buttons"))))});
             this.repositoryItemPopupContainerEdit1.Name = "repositoryItemPopupContainerEdit1";
             // 
             // repositoryItemLookUpEdit1
             // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            resources.ApplyResources(this.repositoryItemLookUpEdit1, "repositoryItemLookUpEdit1");
             this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemLookUpEdit1.Buttons"))))});
             this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
             // 
             // repositoryItemGridLookUpEdit1
             // 
-            this.repositoryItemGridLookUpEdit1.AutoHeight = false;
+            resources.ApplyResources(this.repositoryItemGridLookUpEdit1, "repositoryItemGridLookUpEdit1");
             this.repositoryItemGridLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemGridLookUpEdit1.Buttons"))))});
             this.repositoryItemGridLookUpEdit1.Name = "repositoryItemGridLookUpEdit1";
             this.repositoryItemGridLookUpEdit1.View = this.gridView2;
             // 
@@ -265,40 +235,40 @@
             // 
             // repositoryItemComboBox1
             // 
-            this.repositoryItemComboBox1.AutoHeight = false;
+            resources.ApplyResources(this.repositoryItemComboBox1, "repositoryItemComboBox1");
             this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemComboBox1.Buttons"))))});
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             // 
             // repositoryItemPopupContainerEdit2
             // 
-            this.repositoryItemPopupContainerEdit2.AutoHeight = false;
+            resources.ApplyResources(this.repositoryItemPopupContainerEdit2, "repositoryItemPopupContainerEdit2");
             this.repositoryItemPopupContainerEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemPopupContainerEdit2.Buttons"))))});
             this.repositoryItemPopupContainerEdit2.Name = "repositoryItemPopupContainerEdit2";
             // 
             // repositoryItemComboBox2
             // 
-            this.repositoryItemComboBox2.AutoHeight = false;
+            resources.ApplyResources(this.repositoryItemComboBox2, "repositoryItemComboBox2");
             this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemComboBox2.Buttons"))))});
             this.repositoryItemComboBox2.Items.AddRange(new object[] {
-            "dsa",
-            "ffsdfsd"});
+            resources.GetString("repositoryItemComboBox2.Items"),
+            resources.GetString("repositoryItemComboBox2.Items1")});
             this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
             // 
             // repositoryItemPopupContainerEdit3
             // 
-            this.repositoryItemPopupContainerEdit3.AutoHeight = false;
+            resources.ApplyResources(this.repositoryItemPopupContainerEdit3, "repositoryItemPopupContainerEdit3");
             this.repositoryItemPopupContainerEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemPopupContainerEdit3.Buttons"))))});
             this.repositoryItemPopupContainerEdit3.Name = "repositoryItemPopupContainerEdit3";
             // 
             // repositoryItemSearchLookUpEdit1
             // 
-            this.repositoryItemSearchLookUpEdit1.AutoHeight = false;
+            resources.ApplyResources(this.repositoryItemSearchLookUpEdit1, "repositoryItemSearchLookUpEdit1");
             this.repositoryItemSearchLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemSearchLookUpEdit1.Buttons"))))});
             this.repositoryItemSearchLookUpEdit1.Name = "repositoryItemSearchLookUpEdit1";
             this.repositoryItemSearchLookUpEdit1.View = this.gridView1;
             // 
@@ -320,32 +290,22 @@
             // 
             // buttonLoadTestees
             // 
-            this.buttonLoadTestees.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLoadTestees.Location = new System.Drawing.Point(941, 13);
+            resources.ApplyResources(this.buttonLoadTestees, "buttonLoadTestees");
             this.buttonLoadTestees.Name = "buttonLoadTestees";
-            this.buttonLoadTestees.Size = new System.Drawing.Size(127, 22);
             this.buttonLoadTestees.StyleController = this.layoutControl1;
-            this.buttonLoadTestees.TabIndex = 9;
-            this.buttonLoadTestees.Text = "Load testees";
-            this.buttonLoadTestees.Click += new System.EventHandler(this.buttonLoadTestees_Click);
             // 
             // buttonEditTestee
             // 
-            this.buttonEditTestee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonEditTestee.Location = new System.Drawing.Point(808, 13);
+            resources.ApplyResources(this.buttonEditTestee, "buttonEditTestee");
             this.buttonEditTestee.Name = "buttonEditTestee";
-            this.buttonEditTestee.Size = new System.Drawing.Size(127, 22);
             this.buttonEditTestee.StyleController = this.layoutControl1;
-            this.buttonEditTestee.TabIndex = 8;
-            this.buttonEditTestee.Text = "Edit testee";
-            this.buttonEditTestee.Click += new System.EventHandler(this.buttonEditTestee_Click);
             // 
             // layoutControlGridAndButtons
             // 
             this.layoutControlGridAndButtons.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGridAndButtons.GroupBordersVisible = false;
             this.layoutControlGridAndButtons.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutGrid,
+            this.testeesLayoutControlItem,
             this.layoutButtonLoad,
             this.emptySpaceItem3,
             this.layoutButtonEdit,
@@ -358,14 +318,14 @@
             this.layoutControlGridAndButtons.Size = new System.Drawing.Size(1081, 558);
             this.layoutControlGridAndButtons.TextVisible = false;
             // 
-            // layoutGrid
+            // testeesLayoutControlItem
             // 
-            this.layoutGrid.Control = this.gridTestees;
-            this.layoutGrid.Location = new System.Drawing.Point(0, 28);
-            this.layoutGrid.Name = "layoutGrid";
-            this.layoutGrid.Size = new System.Drawing.Size(1061, 484);
-            this.layoutGrid.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutGrid.TextVisible = false;
+            this.testeesLayoutControlItem.Control = this.gridTestees;
+            this.testeesLayoutControlItem.Location = new System.Drawing.Point(0, 28);
+            this.testeesLayoutControlItem.Name = "testeesLayoutControlItem";
+            this.testeesLayoutControlItem.Size = new System.Drawing.Size(1061, 484);
+            this.testeesLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.testeesLayoutControlItem.TextVisible = false;
             // 
             // layoutButtonLoad
             // 
@@ -418,6 +378,14 @@
             this.layoutButtonCancel.TextSize = new System.Drawing.Size(0, 0);
             this.layoutButtonCancel.TextVisible = false;
             // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 512);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(812, 26);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // layoutButtonSave
             // 
             this.layoutButtonSave.Control = this.buttonSave;
@@ -431,27 +399,20 @@
             this.layoutButtonSave.TextSize = new System.Drawing.Size(0, 0);
             this.layoutButtonSave.TextVisible = false;
             // 
-            // emptySpaceItem1
+            // mvvmTesteesContext
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 512);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(812, 26);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.mvvmTesteesContext.ContainerControl = this;
             // 
             // TesteesListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1081, 558);
             this.Controls.Add(this.layoutControl1);
-            this.MinimumSize = new System.Drawing.Size(406, 200);
             this.Name = "TesteesListForm";
-            this.Text = "Testees";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridTestees)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testeeGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPopupContainerEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).EndInit();
@@ -465,14 +426,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGridAndButtons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testeesLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonCancel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutButtonSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutButtonSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteesContext)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -482,7 +444,7 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraEditors.SimpleButton buttonAddTestee;
         private DevExpress.XtraGrid.GridControl gridTestees;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView;
+        private DevExpress.XtraGrid.Views.Grid.GridView testeeGridView;
         private DevExpress.XtraGrid.Columns.GridColumn columnFirstName;
         private DevExpress.XtraGrid.Columns.GridColumn columnLastName;
         private DevExpress.XtraGrid.Columns.GridColumn columnLogin;
@@ -504,7 +466,7 @@
         private DevExpress.XtraEditors.SimpleButton buttonEditTestee;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGridAndButtons;
         private DevExpress.XtraLayout.LayoutControlItem layoutButtonAdd;
-        private DevExpress.XtraLayout.LayoutControlItem layoutGrid;
+        private DevExpress.XtraLayout.LayoutControlItem testeesLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem layoutButtonLoad;
         private DevExpress.XtraLayout.LayoutControlItem layoutButtonEdit;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
@@ -513,6 +475,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutButtonCancel;
         private DevExpress.XtraLayout.LayoutControlItem layoutButtonSave;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.Utils.MVVM.MVVMContext mvvmTesteesContext;
 
 
 
