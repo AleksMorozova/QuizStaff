@@ -11,30 +11,37 @@ namespace ApplicationServer.DAL
     {
         public override void Update(Training entity)
         {
-            foreach (var item in entity.Questions)
+            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            foreach (var question in entity.Questions)
             {
-                
-                if (item.Id == Guid.Empty)
+                if (question.Id == Guid.Empty)
                 {
-                    foreach (var answer in item.Answers)
+                    dbContext.Entry(question).State = System.Data.Entity.EntityState.Added;
+                    foreach (var answer in question.Answers)
                     {
-                        dbContext.Entry(item).State = System.Data.Entity.EntityState.Added;
+                        dbContext.Entry(answer).State = System.Data.Entity.EntityState.Added;
                     }
-
-                    dbContext.Entry(item).State = System.Data.Entity.EntityState.Added;   
                 }
-                else
+                
+                else 
                 {
-                    foreach (var answer in item.Answers)
-                    {
-                        dbContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    }
+                    dbContext.Entry(question).State = System.Data.Entity.EntityState.Modified;
 
-                    dbContext.Entry(item).State = System.Data.Entity.EntityState.Modified;   
+                    foreach (var answer in question.Answers)
+                    {
+
+                        if (answer.Id == Guid.Empty)
+                        {
+                            dbContext.Entry(answer).State = System.Data.Entity.EntityState.Added;
+                        }
+                        else
+                        {
+                            dbContext.Entry(answer).State = System.Data.Entity.EntityState.Modified;
+                        }
+                    }
                 }
             }
-
-            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            
             dbContext.SaveChanges();
         }
     }
