@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.dateImpactLabelLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.timeOfAskingEditTime = new DevExpress.XtraEditors.TimeEdit();
             this.frequencySpinEdit = new DevExpress.XtraEditors.SpinEdit();
@@ -48,8 +48,13 @@
             this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            this.layoutControl1.SuspendLayout();
+            this.fromDateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.fromDateEditLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.toDateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.toDateEditLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dateImpactLabel = new DevExpress.XtraLayout.SimpleLabelItem();
+            ((System.ComponentModel.ISupportInitialize)(this.dateImpactLabelLayoutControl)).BeginInit();
+            this.dateImpactLabelLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionAmountTextEdit.Properties)).BeginInit();
@@ -63,31 +68,41 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmAdminSettingsContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromDateEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromDateEditLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toDateEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toDateEditLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateImpactLabel)).BeginInit();
             this.SuspendLayout();
             // 
-            // layoutControl1
+            // dateImpactLabelLayoutControl
             // 
-            this.layoutControl1.Controls.Add(this.cancelButton);
-            this.layoutControl1.Controls.Add(this.saveButton);
-            this.layoutControl1.Controls.Add(this.timeOfAskingEditTime);
-            this.layoutControl1.Controls.Add(this.frequencySpinEdit);
-            this.layoutControl1.Controls.Add(this.questionAmountTextEdit);
-            this.layoutControl1.Controls.Add(this.testeeListGridControl);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
-            this.layoutControl1.Root = this.layoutControlGroup;
-            this.layoutControl1.Size = new System.Drawing.Size(614, 369);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
+            this.dateImpactLabelLayoutControl.Controls.Add(this.toDateEdit);
+            this.dateImpactLabelLayoutControl.Controls.Add(this.fromDateEdit);
+            this.dateImpactLabelLayoutControl.Controls.Add(this.cancelButton);
+            this.dateImpactLabelLayoutControl.Controls.Add(this.saveButton);
+            this.dateImpactLabelLayoutControl.Controls.Add(this.timeOfAskingEditTime);
+            this.dateImpactLabelLayoutControl.Controls.Add(this.frequencySpinEdit);
+            this.dateImpactLabelLayoutControl.Controls.Add(this.questionAmountTextEdit);
+            this.dateImpactLabelLayoutControl.Controls.Add(this.testeeListGridControl);
+            this.dateImpactLabelLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateImpactLabelLayoutControl.Location = new System.Drawing.Point(0, 0);
+            this.dateImpactLabelLayoutControl.Name = "dateImpactLabelLayoutControl";
+            this.dateImpactLabelLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(457, 209, 391, 473);
+            this.dateImpactLabelLayoutControl.OptionsView.UseDefaultDragAndDropRendering = false;
+            this.dateImpactLabelLayoutControl.Root = this.layoutControlGroup;
+            this.dateImpactLabelLayoutControl.Size = new System.Drawing.Size(639, 402);
+            this.dateImpactLabelLayoutControl.TabIndex = 0;
+            this.dateImpactLabelLayoutControl.Text = "layoutControl1";
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(309, 109);
+            this.saveButton.Location = new System.Drawing.Point(367, 171);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(139, 22);
-            this.saveButton.StyleController = this.layoutControl1;
+            this.saveButton.Size = new System.Drawing.Size(123, 22);
+            this.saveButton.StyleController = this.dateImpactLabelLayoutControl;
             this.saveButton.TabIndex = 14;
             this.saveButton.Text = "Save";
             this.saveButton.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -95,14 +110,14 @@
             // timeOfAskingEditTime
             // 
             this.timeOfAskingEditTime.EditValue = new System.DateTime(2016, 4, 28, 0, 0, 0, 0);
-            this.timeOfAskingEditTime.Location = new System.Drawing.Point(394, 75);
+            this.timeOfAskingEditTime.Location = new System.Drawing.Point(452, 75);
             this.timeOfAskingEditTime.Name = "timeOfAskingEditTime";
             this.timeOfAskingEditTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.timeOfAskingEditTime.Properties.Mask.BeepOnError = true;
             this.timeOfAskingEditTime.Properties.Mask.EditMask = "t";
-            this.timeOfAskingEditTime.Size = new System.Drawing.Size(208, 20);
-            this.timeOfAskingEditTime.StyleController = this.layoutControl1;
+            this.timeOfAskingEditTime.Size = new System.Drawing.Size(175, 20);
+            this.timeOfAskingEditTime.StyleController = this.dateImpactLabelLayoutControl;
             this.timeOfAskingEditTime.TabIndex = 13;
             // 
             // frequencySpinEdit
@@ -112,7 +127,7 @@
             0,
             0,
             0});
-            this.frequencySpinEdit.Location = new System.Drawing.Point(394, 46);
+            this.frequencySpinEdit.Location = new System.Drawing.Point(452, 46);
             this.frequencySpinEdit.Name = "frequencySpinEdit";
             this.frequencySpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -128,16 +143,16 @@
             0,
             0,
             0});
-            this.frequencySpinEdit.Size = new System.Drawing.Size(208, 20);
-            this.frequencySpinEdit.StyleController = this.layoutControl1;
+            this.frequencySpinEdit.Size = new System.Drawing.Size(175, 20);
+            this.frequencySpinEdit.StyleController = this.dateImpactLabelLayoutControl;
             this.frequencySpinEdit.TabIndex = 12;
             // 
             // questionAmountTextEdit
             // 
-            this.questionAmountTextEdit.Location = new System.Drawing.Point(394, 12);
+            this.questionAmountTextEdit.Location = new System.Drawing.Point(452, 12);
             this.questionAmountTextEdit.Name = "questionAmountTextEdit";
-            this.questionAmountTextEdit.Size = new System.Drawing.Size(208, 20);
-            this.questionAmountTextEdit.StyleController = this.layoutControl1;
+            this.questionAmountTextEdit.Size = new System.Drawing.Size(175, 20);
+            this.questionAmountTextEdit.StyleController = this.dateImpactLabelLayoutControl;
             this.questionAmountTextEdit.TabIndex = 5;
             // 
             // testeeListGridControl
@@ -145,7 +160,7 @@
             this.testeeListGridControl.Location = new System.Drawing.Point(12, 28);
             this.testeeListGridControl.MainView = this.testeesGridView;
             this.testeeListGridControl.Name = "testeeListGridControl";
-            this.testeeListGridControl.Size = new System.Drawing.Size(283, 329);
+            this.testeeListGridControl.Size = new System.Drawing.Size(341, 362);
             this.testeeListGridControl.TabIndex = 4;
             this.testeeListGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.testeesGridView});
@@ -191,15 +206,18 @@
             this.layoutControlGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup.GroupBordersVisible = false;
             this.layoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.usersListLayoutControlItem,
             this.frequencyLayoutControlItem,
             this.questionAmountLayoutControlItem,
-            this.timeOfAskingLayoutControlItem,
             this.saveButtonLayoutControlItem,
-            this.cancelButtonLayoutControlItem});
+            this.cancelButtonLayoutControlItem,
+            this.timeOfAskingLayoutControlItem,
+            this.usersListLayoutControlItem,
+            this.fromDateEditLayoutControlItem,
+            this.toDateEditLayoutControlItem,
+            this.dateImpactLabel});
             this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup.Name = "layoutControlGroup";
-            this.layoutControlGroup.Size = new System.Drawing.Size(614, 369);
+            this.layoutControlGroup.Name = "Root";
+            this.layoutControlGroup.Size = new System.Drawing.Size(639, 402);
             this.layoutControlGroup.TextVisible = false;
             // 
             // usersListLayoutControlItem
@@ -207,7 +225,7 @@
             this.usersListLayoutControlItem.Control = this.testeeListGridControl;
             this.usersListLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.usersListLayoutControlItem.Name = "usersListLayoutControlItem";
-            this.usersListLayoutControlItem.Size = new System.Drawing.Size(297, 349);
+            this.usersListLayoutControlItem.Size = new System.Drawing.Size(355, 382);
             this.usersListLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 10, 0, 0);
             this.usersListLayoutControlItem.Text = "Users list:";
             this.usersListLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -216,9 +234,9 @@
             // frequencyLayoutControlItem
             // 
             this.frequencyLayoutControlItem.Control = this.frequencySpinEdit;
-            this.frequencyLayoutControlItem.Location = new System.Drawing.Point(297, 29);
+            this.frequencyLayoutControlItem.Location = new System.Drawing.Point(355, 29);
             this.frequencyLayoutControlItem.Name = "frequencyLayoutControlItem";
-            this.frequencyLayoutControlItem.Size = new System.Drawing.Size(297, 34);
+            this.frequencyLayoutControlItem.Size = new System.Drawing.Size(264, 34);
             this.frequencyLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
             this.frequencyLayoutControlItem.Text = "Frequency";
             this.frequencyLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
@@ -226,9 +244,9 @@
             // questionAmountLayoutControlItem
             // 
             this.questionAmountLayoutControlItem.Control = this.questionAmountTextEdit;
-            this.questionAmountLayoutControlItem.Location = new System.Drawing.Point(297, 0);
+            this.questionAmountLayoutControlItem.Location = new System.Drawing.Point(355, 0);
             this.questionAmountLayoutControlItem.Name = "questionAmountLayoutControlItem";
-            this.questionAmountLayoutControlItem.Size = new System.Drawing.Size(297, 29);
+            this.questionAmountLayoutControlItem.Size = new System.Drawing.Size(264, 29);
             this.questionAmountLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 5);
             this.questionAmountLayoutControlItem.Text = "Question amount";
             this.questionAmountLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
@@ -236,9 +254,9 @@
             // timeOfAskingLayoutControlItem
             // 
             this.timeOfAskingLayoutControlItem.Control = this.timeOfAskingEditTime;
-            this.timeOfAskingLayoutControlItem.Location = new System.Drawing.Point(297, 63);
+            this.timeOfAskingLayoutControlItem.Location = new System.Drawing.Point(355, 63);
             this.timeOfAskingLayoutControlItem.Name = "timeOfAskingLayoutControlItem";
-            this.timeOfAskingLayoutControlItem.Size = new System.Drawing.Size(297, 24);
+            this.timeOfAskingLayoutControlItem.Size = new System.Drawing.Size(264, 24);
             this.timeOfAskingLayoutControlItem.Text = "Time of asking";
             this.timeOfAskingLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Left;
             this.timeOfAskingLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
@@ -246,9 +264,9 @@
             // saveButtonLayoutControlItem
             // 
             this.saveButtonLayoutControlItem.Control = this.saveButton;
-            this.saveButtonLayoutControlItem.Location = new System.Drawing.Point(297, 87);
+            this.saveButtonLayoutControlItem.Location = new System.Drawing.Point(355, 149);
             this.saveButtonLayoutControlItem.Name = "saveButtonLayoutControlItem";
-            this.saveButtonLayoutControlItem.Size = new System.Drawing.Size(148, 262);
+            this.saveButtonLayoutControlItem.Size = new System.Drawing.Size(132, 233);
             this.saveButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 10, 0);
             this.saveButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.saveButtonLayoutControlItem.TextVisible = false;
@@ -259,33 +277,90 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(462, 109);
+            this.cancelButton.Location = new System.Drawing.Point(504, 171);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(140, 22);
-            this.cancelButton.StyleController = this.layoutControl1;
+            this.cancelButton.Size = new System.Drawing.Size(123, 22);
+            this.cancelButton.StyleController = this.dateImpactLabelLayoutControl;
             this.cancelButton.TabIndex = 15;
             this.cancelButton.Text = "Cancel";
             // 
             // cancelButtonLayoutControlItem
             // 
             this.cancelButtonLayoutControlItem.Control = this.cancelButton;
-            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(445, 87);
+            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(487, 149);
             this.cancelButtonLayoutControlItem.Name = "cancelButtonLayoutControlItem";
-            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(149, 262);
+            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(132, 233);
             this.cancelButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 10, 0);
             this.cancelButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.cancelButtonLayoutControlItem.TextVisible = false;
+            // 
+            // fromDateEdit
+            // 
+            this.fromDateEdit.EditValue = null;
+            this.fromDateEdit.Location = new System.Drawing.Point(367, 137);
+            this.fromDateEdit.Name = "fromDateEdit";
+            this.fromDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.fromDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.fromDateEdit.Size = new System.Drawing.Size(128, 20);
+            this.fromDateEdit.StyleController = this.dateImpactLabelLayoutControl;
+            this.fromDateEdit.TabIndex = 16;
+            // 
+            // fromDateEditLayoutControlItem
+            // 
+            this.fromDateEditLayoutControlItem.Control = this.fromDateEdit;
+            this.fromDateEditLayoutControlItem.Location = new System.Drawing.Point(355, 109);
+            this.fromDateEditLayoutControlItem.Name = "fromDateEditLayoutControlItem";
+            this.fromDateEditLayoutControlItem.Size = new System.Drawing.Size(132, 40);
+            this.fromDateEditLayoutControlItem.StartNewLine = true;
+            this.fromDateEditLayoutControlItem.Text = "from";
+            this.fromDateEditLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.fromDateEditLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
+            // 
+            // toDateEdit
+            // 
+            this.toDateEdit.EditValue = null;
+            this.toDateEdit.Location = new System.Drawing.Point(499, 137);
+            this.toDateEdit.Name = "toDateEdit";
+            this.toDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.toDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.toDateEdit.Size = new System.Drawing.Size(128, 20);
+            this.toDateEdit.StyleController = this.dateImpactLabelLayoutControl;
+            this.toDateEdit.TabIndex = 17;
+            // 
+            // toDateEditLayoutControlItem
+            // 
+            this.toDateEditLayoutControlItem.Control = this.toDateEdit;
+            this.toDateEditLayoutControlItem.Location = new System.Drawing.Point(487, 109);
+            this.toDateEditLayoutControlItem.Name = "toDateEditLayoutControlItem";
+            this.toDateEditLayoutControlItem.Size = new System.Drawing.Size(132, 40);
+            this.toDateEditLayoutControlItem.Text = "to";
+            this.toDateEditLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.toDateEditLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
+            // 
+            // dateImpactLabel
+            // 
+            this.dateImpactLabel.AllowHotTrack = false;
+            this.dateImpactLabel.Location = new System.Drawing.Point(355, 87);
+            this.dateImpactLabel.Name = "dateImpactLabel";
+            this.dateImpactLabel.Size = new System.Drawing.Size(264, 22);
+            this.dateImpactLabel.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
+            this.dateImpactLabel.Text = "Dates of impact:";
+            this.dateImpactLabel.TextSize = new System.Drawing.Size(82, 13);
             // 
             // AdminSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 369);
-            this.Controls.Add(this.layoutControl1);
+            this.ClientSize = new System.Drawing.Size(639, 402);
+            this.Controls.Add(this.dateImpactLabelLayoutControl);
             this.Name = "AdminSettingsForm";
             this.Text = "AdminSettingsForm";
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dateImpactLabelLayoutControl)).EndInit();
+            this.dateImpactLabelLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionAmountTextEdit.Properties)).EndInit();
@@ -299,13 +374,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmAdminSettingsContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromDateEditLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toDateEditLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateImpactLabel)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControl dateImpactLabelLayoutControl;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup;
         private DevExpress.XtraGrid.GridControl testeeListGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView testeesGridView;
@@ -324,5 +406,10 @@
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayoutControlItem;
         private DevExpress.XtraEditors.SimpleButton cancelButton;
         private DevExpress.XtraLayout.LayoutControlItem cancelButtonLayoutControlItem;
+        private DevExpress.XtraEditors.DateEdit toDateEdit;
+        private DevExpress.XtraEditors.DateEdit fromDateEdit;
+        private DevExpress.XtraLayout.LayoutControlItem fromDateEditLayoutControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem toDateEditLayoutControlItem;
+        private DevExpress.XtraLayout.SimpleLabelItem dateImpactLabel;
     }
 }
