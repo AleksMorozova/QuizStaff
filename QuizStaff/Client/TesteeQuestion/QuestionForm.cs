@@ -4,10 +4,12 @@ using System.Windows.Forms;
 using DataTransferObject;
 using System.Drawing;
 using Client.TesteeQuestion;
+using System.Globalization;
+using System.ComponentModel;
 
 namespace Client
 {
-    public partial class QuestionForm : DevExpress.XtraEditors.XtraForm
+    public partial class QuestionForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
         private Dictionary<Guid, bool> answers = new Dictionary<Guid,bool>();
         private TesteeQuestionViewModel model;
@@ -75,6 +77,12 @@ namespace Client
             Size defaultSize = this.Size;
             this.Size = new Size(3000, defaultSize.Height);
             this.Size = defaultSize;
+        }
+        public void Localized(string language)
+        {
+            var resources = new ComponentResourceManager(typeof(QuestionForm));
+            CultureInfo newCultureInfo = new CultureInfo(language);
+            resources.ApplyResources(buttonSend, "buttonSend", newCultureInfo);           
         }
     }
 }

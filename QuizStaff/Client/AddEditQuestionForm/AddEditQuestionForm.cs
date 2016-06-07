@@ -10,10 +10,11 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataTransferObject;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Globalization;
 
 namespace Client.AddEditQuestionForm
 {
-    public partial class AddEditQuestionForm : DevExpress.XtraEditors.XtraForm
+    public partial class AddEditQuestionForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
         private QuestionViewModel model;
 
@@ -55,6 +56,17 @@ namespace Client.AddEditQuestionForm
             GridView v = sender as GridView;
             AnswerDTO answer = v.GetRow(e.RowHandle) as AnswerDTO;
             answer.IsCorrect = false;
+        }
+        public void Localized(string language)
+        {
+            var resources = new ComponentResourceManager(typeof(AddEditQuestionForm));
+            CultureInfo newCultureInfo = new CultureInfo(language);
+            resources.ApplyResources(questionLayoutControlItem, "questionLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(answersLayoutControlItem, "answersLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(answerColumn, "answerColumn", newCultureInfo);
+            resources.ApplyResources(isCorrectColumn, "isCorrectColumn", newCultureInfo);
+            resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
+            resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);           
         }
     }
 }

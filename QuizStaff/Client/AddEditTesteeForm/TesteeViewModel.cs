@@ -15,8 +15,9 @@ namespace Client.AddEditTesteeForm
         public void AddTraining(TesteeDTO testee)
         {
             TrainingAddEditForm trainingForm = new TrainingAddEditForm();
-            FormManager.Instance.OpenChildForm(trainingForm, "Add training");            
-           //TODO: ??
+            FormManager.Instance.OpenChildForm(trainingForm, "Add training");
+            FormManager.childForms.Add(trainingForm);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 
         public void Cancel()
