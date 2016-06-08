@@ -96,6 +96,8 @@ namespace Client
             resources.ApplyResources(QuestionText, "QuestionText", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
+
+            this.Text = resources.GetString("Title", newCultureInfo) + (Training != null && !String.IsNullOrEmpty(Training.TrainingTitle) ? ":" + Training.TrainingTitle : "");
         }
     }
 }
