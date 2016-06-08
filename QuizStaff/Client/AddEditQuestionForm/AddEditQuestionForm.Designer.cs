@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditQuestionForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
@@ -43,8 +45,8 @@
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.questionBindingSource = new System.Windows.Forms.BindingSource();
-            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.questionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersGridControl)).BeginInit();
@@ -67,45 +69,33 @@
             this.layoutControl1.Controls.Add(this.saveButton);
             this.layoutControl1.Controls.Add(this.answersGridControl);
             this.layoutControl1.Controls.Add(this.questionTextEdit);
-            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(457, 272, 250, 350);
             this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(652, 449);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
             // 
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(508, 410);
+            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(132, 22);
             this.cancelButton.StyleController = this.layoutControl1;
-            this.cancelButton.TabIndex = 7;
-            this.cancelButton.Text = "Cancel";
             // 
             // saveButton
             // 
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.saveButton.Location = new System.Drawing.Point(367, 410);
+            resources.ApplyResources(this.saveButton, "saveButton");
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(127, 22);
             this.saveButton.StyleController = this.layoutControl1;
-            this.saveButton.TabIndex = 6;
-            this.saveButton.Text = "Save";
             // 
             // answersGridControl
             // 
-            this.answersGridControl.Location = new System.Drawing.Point(12, 62);
+            resources.ApplyResources(this.answersGridControl, "answersGridControl");
             this.answersGridControl.MainView = this.answersGridView;
             this.answersGridControl.Name = "answersGridControl";
             this.answersGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.isCorrectRepositoryItemCheckEdit});
-            this.answersGridControl.Size = new System.Drawing.Size(628, 339);
-            this.answersGridControl.TabIndex = 5;
             this.answersGridControl.UseEmbeddedNavigator = true;
             this.answersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.answersGridView});
@@ -123,33 +113,27 @@
             // 
             // answerColumn
             // 
-            this.answerColumn.Caption = "Answer";
+            resources.ApplyResources(this.answerColumn, "answerColumn");
             this.answerColumn.FieldName = "AnswerText";
             this.answerColumn.Name = "answerColumn";
-            this.answerColumn.Visible = true;
-            this.answerColumn.VisibleIndex = 0;
             // 
             // isCorrectColumn
             // 
-            this.isCorrectColumn.Caption = "Is correct";
+            resources.ApplyResources(this.isCorrectColumn, "isCorrectColumn");
             this.isCorrectColumn.ColumnEdit = this.isCorrectRepositoryItemCheckEdit;
             this.isCorrectColumn.FieldName = "IsCorrect";
             this.isCorrectColumn.Name = "isCorrectColumn";
-            this.isCorrectColumn.Visible = true;
-            this.isCorrectColumn.VisibleIndex = 1;
             // 
             // isCorrectRepositoryItemCheckEdit
             // 
-            this.isCorrectRepositoryItemCheckEdit.AutoHeight = false;
+            resources.ApplyResources(this.isCorrectRepositoryItemCheckEdit, "isCorrectRepositoryItemCheckEdit");
             this.isCorrectRepositoryItemCheckEdit.Name = "isCorrectRepositoryItemCheckEdit";
             // 
             // questionTextEdit
             // 
-            this.questionTextEdit.Location = new System.Drawing.Point(60, 12);
+            resources.ApplyResources(this.questionTextEdit, "questionTextEdit");
             this.questionTextEdit.Name = "questionTextEdit";
-            this.questionTextEdit.Size = new System.Drawing.Size(580, 20);
             this.questionTextEdit.StyleController = this.layoutControl1;
-            this.questionTextEdit.TabIndex = 4;
             // 
             // layoutControlGroup1
             // 
@@ -172,7 +156,7 @@
             this.questionLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.questionLayoutControlItem.Name = "questionLayoutControlItem";
             this.questionLayoutControlItem.Size = new System.Drawing.Size(632, 24);
-            this.questionLayoutControlItem.Text = "Question";
+            resources.ApplyResources(this.questionLayoutControlItem, "questionLayoutControlItem");
             this.questionLayoutControlItem.TextSize = new System.Drawing.Size(45, 13);
             // 
             // answersLayoutControlItem
@@ -182,7 +166,7 @@
             this.answersLayoutControlItem.Name = "answersLayoutControlItem";
             this.answersLayoutControlItem.Size = new System.Drawing.Size(632, 369);
             this.answersLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 10, 0);
-            this.answersLayoutControlItem.Text = "Answers:";
+            resources.ApplyResources(this.answersLayoutControlItem, "answersLayoutControlItem");
             this.answersLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.answersLayoutControlItem.TextSize = new System.Drawing.Size(45, 13);
             // 
@@ -221,13 +205,11 @@
             // AddEditQuestionForm
             // 
             this.AcceptButton = this.saveButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(652, 449);
             this.Controls.Add(this.layoutControl1);
             this.Name = "AddEditQuestionForm";
-            this.Text = "AddEditQuestionForm";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.answersGridControl)).EndInit();

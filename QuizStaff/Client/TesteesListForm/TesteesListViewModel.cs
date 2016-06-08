@@ -26,13 +26,18 @@ namespace Client
         public void AddTestee(BindingList<TesteeDTO> testee)
         {
             AddEditTestee testeeForm = new AddEditTestee();
-            FormManager.Instance.OpenChildForm(testeeForm, "Add testee");            
+            FormManager.Instance.OpenChildForm(testeeForm, "Add testee");
+            FormManager.childForms.Add(testeeForm);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
+            testee.Add(testeeForm.Testee);
         }
 
         public void EditTestee(TesteeDTO editedTestee)
         {
-            AddEditTestee testeeForm = new AddEditTestee();
-            FormManager.Instance.OpenChildForm(testeeForm, "Edit testee: " + editedTestee.Login);            
+            AddEditTestee testeeForm = new AddEditTestee(editedTestee);
+            FormManager.Instance.OpenChildForm(testeeForm, "Edit testee: " + editedTestee.Login);
+            FormManager.childForms.Add(testeeForm);
+            FormManager.Instance.LocalizedForms(Program.currentLang);           
         }
 
         public void Save()
