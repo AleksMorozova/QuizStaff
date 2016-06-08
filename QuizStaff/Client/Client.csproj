@@ -205,6 +205,9 @@
     <EmbeddedResource Include="AdminSettings\AdminSettingsForm.resx">
       <DependentUpon>AdminSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\AdminSettingsForm.ru-RU.resx">
+      <DependentUpon>AdminSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>
     </EmbeddedResource>
