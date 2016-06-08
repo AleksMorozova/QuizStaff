@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrainingAddEditForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
@@ -50,7 +49,7 @@
             this.loadQuestionButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTrainingContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.mvvmTrainingContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridQuestions)).BeginInit();
@@ -254,12 +253,12 @@
             // 
             this.mvvmTrainingContext.ContainerControl = this;
             // 
-            // TrainingAddEdit
+            // TrainingAddEditForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
-            this.Name = "TrainingAddEdit";
+            this.Name = "TrainingAddEditForm";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridQuestions)).EndInit();

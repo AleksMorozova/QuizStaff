@@ -22,10 +22,8 @@ namespace Client
         private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1 }
         //Global data
         private static MainForm applicationMainForm;
-        /// <summary>
-        /// Global access to main form need to update statusbar texts
-        /// </summary>
         public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
