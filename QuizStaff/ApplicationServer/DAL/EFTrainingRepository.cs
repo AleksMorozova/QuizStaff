@@ -29,15 +29,9 @@ namespace ApplicationServer.DAL
 
                     foreach (var answer in question.Answers)
                     {
-
-                        if (answer.Id == Guid.Empty)
-                        {
-                            dbContext.Entry(answer).State = System.Data.Entity.EntityState.Added;
-                        }
-                        else
-                        {
-                            dbContext.Entry(answer).State = System.Data.Entity.EntityState.Modified;
-                        }
+                         dbContext.Entry(answer).State = answer.Id == Guid.Empty 
+                             ? System.Data.Entity.EntityState.Added
+                             : System.Data.Entity.EntityState.Modified;
                     }
                 }
             }
