@@ -82,6 +82,7 @@ namespace Client
             resources.ApplyResources(russianBarButtonItem, "russianBarButtonItem", newCultureInfo);
             resources.ApplyResources(englishBarButtonItem, "englishBarButtonItem", newCultureInfo);
             resources.ApplyResources(adminSettingsBarButtonItem, "adminSettingsBarButtonItem", newCultureInfo);
+            resources.ApplyResources(questionBarButton, "questionBarButton", newCultureInfo);
         }
 
         private void russianBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
@@ -140,6 +141,7 @@ namespace Client
             AdminSettingsForm trainingsform = new AdminSettingsForm();
             FormManager.Instance.OpenChildForm(trainingsform, "Settings");
             FormManager.childForms.Add(trainingsform);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
         }
     }
 }
