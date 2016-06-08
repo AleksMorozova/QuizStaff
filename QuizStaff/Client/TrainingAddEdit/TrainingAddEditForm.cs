@@ -12,10 +12,11 @@ using DomainModel;
 using DevExpress.XtraGrid.Views.Grid;
 using DataTransferObject;
 using Client.TrainingEditForm;
+using System.Globalization;
 
 namespace Client
 {
-    public partial class TrainingAddEditForm : DevExpress.XtraEditors.XtraForm
+    public partial class TrainingAddEditForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
         private TrainingViewModel model;
 
@@ -83,6 +84,18 @@ namespace Client
             {
                 model.Training = value;
             }
+        }
+        public void Localized(string language)
+        {
+            var resources = new ComponentResourceManager(typeof(TrainingAddEditForm));
+            CultureInfo newCultureInfo = new CultureInfo(language);
+            resources.ApplyResources(layoutControlItem1, "layoutControlItem1", newCultureInfo);
+            resources.ApplyResources(addQuestionButton, "addQuestionButton", newCultureInfo);
+            resources.ApplyResources(editQuestionButton, "editQuestionButton", newCultureInfo);
+            resources.ApplyResources(loadQuestionButton, "loadQuestionButton", newCultureInfo);
+            resources.ApplyResources(QuestionText, "QuestionText", newCultureInfo);
+            resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
+            resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
         }
     }
 }

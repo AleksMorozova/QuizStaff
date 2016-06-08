@@ -17,12 +17,16 @@ namespace Client.TrainingEditForm
         public void EditQuestion(QuestionDTO question)
         {
             AddEditQuestionForm.AddEditQuestionForm questionForm = new AddEditQuestionForm.AddEditQuestionForm(question);
+            FormManager.childForms.Add(questionForm);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
             questionForm.ShowDialog();
         }
 
         public void AddQuestion(TrainingDTO training)
         {
             AddEditQuestionForm.AddEditQuestionForm questionForm = new AddEditQuestionForm.AddEditQuestionForm();
+            FormManager.childForms.Add(questionForm);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
             questionForm.ShowDialog();
             questionForm.Question.TrainingId = training.Id;
             training.Questions.Add(questionForm.Question);

@@ -66,8 +66,9 @@ namespace Client
 
         private void questionBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var f = new QuestionForm(new TesteeDTO() { Id = Guid.NewGuid() });
-            f.ShowDialog();
+            QuestionForm questionform = new QuestionForm(new TesteeDTO() { Id = Guid.NewGuid() });            
+            FormManager.Instance.LocalizedForms(Program.currentLang);
+            questionform.ShowDialog();
         }
 
         private void Localized(string language) 
