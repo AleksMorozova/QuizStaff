@@ -86,6 +86,7 @@ namespace Client.AddEditTesteeForm
             resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
             resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
             resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
+            this.Text = resources.GetString("Title", newCultureInfo) + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");
         }
     }
 }

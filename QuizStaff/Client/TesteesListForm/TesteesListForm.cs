@@ -70,7 +70,8 @@ namespace Client
             resources.ApplyResources(columnLogin, "columnLogin", newCultureInfo);
             resources.ApplyResources(columnTrainings, "columnTrainings", newCultureInfo);
             resources.ApplyResources(buttonCancel, "buttonCancel", newCultureInfo);
-            resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);            
+            resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);
+            this.Text = resources.GetString("Title", newCultureInfo);
         }
     }
 }
