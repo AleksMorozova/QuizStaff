@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditTestee));
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.spinEditFrqOfAsk = new DevExpress.XtraEditors.SpinEdit();
-            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource();
             this.spinEditQuestAmount = new DevExpress.XtraEditors.SpinEdit();
             this.toggleSwitchCanUserEdit = new DevExpress.XtraEditors.ToggleSwitch();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -63,7 +62,7 @@
             this.layoutControlItemFirstName = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemLogin = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemLastName = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditFrqOfAsk.Properties)).BeginInit();
@@ -277,10 +276,12 @@
             this.titleGridColumn});
             this.gridViewTrainings.GridControl = this.gridTrainings;
             this.gridViewTrainings.Name = "gridViewTrainings";
+            this.gridViewTrainings.OptionsDetail.EnableMasterViewMode = false;
             // 
             // titleGridColumn
             // 
             resources.ApplyResources(this.titleGridColumn, "titleGridColumn");
+            this.titleGridColumn.FieldName = "TrainingTitle";
             this.titleGridColumn.Name = "titleGridColumn";
             // 
             // textEmail

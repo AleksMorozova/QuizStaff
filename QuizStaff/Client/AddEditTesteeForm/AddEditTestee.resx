@@ -263,24 +263,6 @@
   <data name="layoutControl2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 386</value>
   </data>
-  <data name="layoutControlItemFreqOfAsk.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem7</value>
-  </data>
-  <data name="layoutControlItemFreqOfAsk.Text" xml:space="preserve">
-    <value>Frequency of asking:</value>
-  </data>
-  <data name="layoutControlItemQuestionAmount.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem8</value>
-  </data>
-  <data name="layoutControlItemQuestionAmount.Text" xml:space="preserve">
-    <value>Question amount:</value>
-  </data>
-  <data name="layoutControlItemCanUserEdit.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem9</value>
-  </data>
-  <data name="layoutControlItemCanUserEdit.Text" xml:space="preserve">
-    <value>User can edit: </value>
-  </data>
   <data name="layoutControlGroup2.Text" xml:space="preserve">
     <value>User settings:</value>
   </data>
@@ -304,6 +286,24 @@
   </data>
   <data name="&gt;&gt;layoutControl2.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="layoutControlItemFreqOfAsk.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem7</value>
+  </data>
+  <data name="layoutControlItemFreqOfAsk.Text" xml:space="preserve">
+    <value>Frequency of asking:</value>
+  </data>
+  <data name="layoutControlItemQuestionAmount.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem8</value>
+  </data>
+  <data name="layoutControlItemQuestionAmount.Text" xml:space="preserve">
+    <value>Question amount:</value>
+  </data>
+  <data name="layoutControlItemCanUserEdit.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem9</value>
+  </data>
+  <data name="layoutControlItemCanUserEdit.Text" xml:space="preserve">
+    <value>User can edit: </value>
   </data>
   <data name="layoutControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>

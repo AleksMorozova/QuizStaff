@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TesteesListForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.buttonCancel = new DevExpress.XtraEditors.SimpleButton();
@@ -64,7 +63,7 @@
             this.layoutButtonCancel = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutButtonSave = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTesteesContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.mvvmTesteesContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTestees)).BeginInit();
@@ -128,7 +127,6 @@
             // 
             resources.ApplyResources(this.gridTestees, "gridTestees");
             this.gridTestees.MainView = this.testeeGridView;
-            this.gridTestees.MainView = this.testeeGridView;
             this.gridTestees.Name = "gridTestees";
             this.gridTestees.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPopupContainerEdit1,
@@ -154,6 +152,7 @@
             this.columnTrainings});
             this.testeeGridView.GridControl = this.gridTestees;
             this.testeeGridView.Name = "testeeGridView";
+            this.testeeGridView.OptionsDetail.EnableMasterViewMode = false;
             this.testeeGridView.OptionsView.ShowGroupPanel = false;
             this.testeeGridView.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Never;
             this.testeeGridView.DoubleClick += new System.EventHandler(this.testeeGridView_DoubleClick);
