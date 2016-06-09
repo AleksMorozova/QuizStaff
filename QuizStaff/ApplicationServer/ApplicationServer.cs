@@ -102,7 +102,6 @@ namespace Server
             // TODO: save to database
         }       
 
-
         public TesteeDTO FindByLogin(string login)
         {
             EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
@@ -181,6 +180,22 @@ namespace Server
             Question newTraining = new Question();
             Conversion.CopyProperty(training, newTraining);
             repo.Update(newTraining);
+        }
+
+        public void UpdateTestee(TesteeDTO testee)
+        {
+            EFTesteeRepository repo = new EFTesteeRepository();
+            Testee newTestee = new Testee();
+            Conversion.CopyProperty(testee, newTestee);
+            repo.Update(newTestee);
+        }
+
+        public void SaveTestee(TesteeDTO testee)
+        {
+            EFTesteeRepository repo = new EFTesteeRepository();
+            Testee newTestee = new Testee();
+            Conversion.CopyProperty(testee, newTestee);
+            repo.Create(newTestee);
         }
     }
 }

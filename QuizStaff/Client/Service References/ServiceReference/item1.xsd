@@ -17,7 +17,7 @@
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Trainings" nillable="true" type="tns:ArrayOfTesteeTrainingDTO" />
+      <xs:element minOccurs="0" name="Trainings" nillable="true" type="tns:ArrayOfTrainingDTO" />
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DomainModel" minOccurs="0" name="UserSetting" nillable="true" type="q1:Setting" />
     </xs:sequence>
   </xs:complexType>
@@ -111,6 +111,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TesteeTrainingDTO" nillable="true" type="tns:TesteeTrainingDTO" />
+  <xs:complexType name="ArrayOfTrainingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrainingDTO" nillable="true" type="tns:TrainingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrainingDTO" nillable="true" type="tns:ArrayOfTrainingDTO" />
   <xs:complexType name="SettingDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="AmountOfQuestionsPerDay" type="xs:int" />
@@ -120,10 +126,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SettingDTO" nillable="true" type="tns:SettingDTO" />
-  <xs:complexType name="ArrayOfTrainingDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrainingDTO" nillable="true" type="tns:TrainingDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTrainingDTO" nillable="true" type="tns:ArrayOfTrainingDTO" />
 </xs:schema>
