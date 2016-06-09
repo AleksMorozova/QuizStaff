@@ -10,10 +10,10 @@ namespace DataTransferObject
 {
     public class TesteeDTO : INotifyPropertyChanged
     {
-        private BindingList<TrainingDTO> trainings;
+        private BindingList<TesteeTrainingDTO> trainings;
         public TesteeDTO() 
         {
-            trainings = new BindingList<TrainingDTO>();
+            trainings = new BindingList<TesteeTrainingDTO>();
         }
 
         public Guid Id { get; set; }
@@ -90,7 +90,7 @@ namespace DataTransferObject
         public virtual Setting UserSetting { get; set; }
         public virtual ICollection<HistoryDTO> Histories { get; set; }
         
-        public virtual BindingList<TrainingDTO> Trainings 
+        public virtual BindingList<TesteeTrainingDTO> Trainings 
         { 
             get 
             { 
@@ -111,7 +111,7 @@ namespace DataTransferObject
             {
                 foreach (var q in testee.Trainings)
                 {
-                    newTeste.Trainings.Add((TrainingDTO)q.Training);
+                    newTeste.Trainings.Add((TesteeTrainingDTO)q);
                 }
             }
 

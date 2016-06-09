@@ -292,7 +292,7 @@
             // 
             resources.ApplyResources(this.titleGridColumn, "titleGridColumn");
             this.titleGridColumn.ColumnEdit = this.trainingsRepositoryItemLookUpEdit;
-            this.titleGridColumn.FieldName = "TrainingTitle";
+            this.titleGridColumn.FieldName = "Training.TrainingTitle";
             this.titleGridColumn.Name = "titleGridColumn";
             // 
             // trainingsRepositoryItemLookUpEdit
