@@ -51,6 +51,7 @@
             this.titleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.trainingsRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.textEmail = new DevExpress.XtraEditors.TextEdit();
             this.textLogin = new DevExpress.XtraEditors.TextEdit();
             this.textLastName = new DevExpress.XtraEditors.TextEdit();
@@ -65,7 +66,6 @@
             this.layoutControlItemLogin = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemLastName = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditFrqOfAsk.Properties)).BeginInit();
@@ -286,6 +286,7 @@
             this.gridViewTrainings.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
             this.gridViewTrainings.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
             this.gridViewTrainings.OptionsDetail.EnableMasterViewMode = false;
+            this.gridViewTrainings.OptionsView.ShowGroupPanel = false;
             // 
             // titleGridColumn
             // 
@@ -312,6 +313,12 @@
             this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
             this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            resources.ApplyResources(this.gridColumn1, "gridColumn1");
+            this.gridColumn1.FieldName = "TrainingTitle";
+            this.gridColumn1.Name = "gridColumn1";
             // 
             // textEmail
             // 
@@ -429,12 +436,6 @@
             // mvvmTesteeContext
             // 
             this.mvvmTesteeContext.ContainerControl = this;
-            // 
-            // gridColumn1
-            // 
-            resources.ApplyResources(this.gridColumn1, "gridColumn1");
-            this.gridColumn1.FieldName = "TrainingTitle";
-            this.gridColumn1.Name = "gridColumn1";
             // 
             // AddEditTestee
             // 
