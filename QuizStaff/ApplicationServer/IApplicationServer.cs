@@ -60,5 +60,11 @@ namespace Server
 
         [OperationContract]
         void SaveQuestion(QuestionDTO training);
+
+        [OperationContract]
+        void UpdateTestee(TesteeDTO testee);
+
+        [OperationContract]
+        void SaveTestee(TesteeDTO testee);
     }
 }

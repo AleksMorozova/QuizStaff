@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataTransferObject
 {
-    public class TesteeDTO
+    public class TesteeDTO : INotifyPropertyChanged
     {
         private BindingList<TrainingDTO> trainings;
         public TesteeDTO() 
@@ -17,14 +17,90 @@ namespace DataTransferObject
         }
 
         public Guid Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Login { get; set; }
+
+        private string firstName;
+        public string FirstName
+        {
+            get
+            {
+                return firstName;
+            }
+            set
+            {
+                if (value != firstName)
+                {
+                    firstName = value;
+                    OnPropertyChanged("FirstName");
+                }
+            }
+        }
+
+        private string lastName;
+        public string LastName
+        {
+            get
+            {
+                return lastName;
+            }
+            set
+            {
+                if (value != lastName)
+                {
+                    lastName = value;
+                    OnPropertyChanged("LastName");
+                }
+            }
+        }
+
+        private string email;
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                if (value != email)
+                {
+                    email = value;
+                    OnPropertyChanged("Email");
+                }
+            }
+        }
+
+        private string login;
+        public string Login
+        {
+            get
+            {
+                return login;
+            }
+            set
+            {
+                if (value != login)
+                {
+                    login = value;
+                    OnPropertyChanged("Login");
+                }
+            }
+        }
+        
         public string Password { get; set; }
         public virtual Setting UserSetting { get; set; }
         public virtual ICollection<HistoryDTO> Histories { get; set; }
-        public virtual BindingList<TrainingDTO> Trainings { get { return trainings; } set { trainings = value; } }
+        
+        public virtual BindingList<TrainingDTO> Trainings 
+        { 
+            get 
+            { 
+                return trainings; 
+            } 
+            set 
+            { 
+                trainings = value; 
+            } 
+        }
 
         public static implicit operator TesteeDTO(Testee testee)
         {
@@ -40,6 +116,16 @@ namespace DataTransferObject
             }
 
             return newTeste;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+       
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

@@ -57,12 +57,6 @@
   <wsdl:message name="IApplicationServer_GetRandomQuestionForTestee_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRandomQuestionForTesteeResponse" />
   </wsdl:message>
-  <wsdl:message name="IApplicationServer_LoginTestee_InputMessage">
-    <wsdl:part name="parameters" element="tns:LoginTestee" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_LoginTestee_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LoginTesteeResponse" />
-  </wsdl:message>
   <wsdl:message name="IApplicationServer_GetAllTrainings_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTrainings" />
   </wsdl:message>
@@ -111,6 +105,18 @@
   <wsdl:message name="IApplicationServer_SaveQuestion_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveQuestionResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateTestee_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTestee" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateTestee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTesteeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveTestee_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTestee" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveTestee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTesteeResponse" />
+  </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetAllTestees">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTestees" message="tns:IApplicationServer_GetAllTestees_InputMessage" />
@@ -144,10 +150,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee" message="tns:IApplicationServer_GetRandomQuestionForTestee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse" message="tns:IApplicationServer_GetRandomQuestionForTestee_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="LoginTestee">
-      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/LoginTestee" message="tns:IApplicationServer_LoginTestee_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/LoginTesteeResponse" message="tns:IApplicationServer_LoginTestee_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetAllTrainings">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTrainings" message="tns:IApplicationServer_GetAllTrainings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse" message="tns:IApplicationServer_GetAllTrainings_OutputMessage" />
@@ -179,6 +181,14 @@
     <wsdl:operation name="SaveQuestion">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveQuestion" message="tns:IApplicationServer_SaveQuestion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveQuestionResponse" message="tns:IApplicationServer_SaveQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTestee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateTestee" message="tns:IApplicationServer_UpdateTestee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateTesteeResponse" message="tns:IApplicationServer_UpdateTestee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTestee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveTestee" message="tns:IApplicationServer_SaveTestee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveTesteeResponse" message="tns:IApplicationServer_SaveTestee_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -255,15 +265,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="LoginTestee">
-      <soap:operation soapAction="http://tempuri.org/IApplicationServer/LoginTestee" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetAllTrainings">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetAllTrainings" style="document" />
       <wsdl:input>
@@ -329,6 +330,24 @@
     </wsdl:operation>
     <wsdl:operation name="SaveQuestion">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/SaveQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTestee">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/UpdateTestee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTestee">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/SaveTestee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

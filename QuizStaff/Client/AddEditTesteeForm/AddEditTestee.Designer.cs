@@ -49,6 +49,8 @@
             this.gridTrainings = new DevExpress.XtraGrid.GridControl();
             this.gridViewTrainings = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.titleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.trainingsRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.textEmail = new DevExpress.XtraEditors.TextEdit();
             this.textLogin = new DevExpress.XtraEditors.TextEdit();
             this.textLastName = new DevExpress.XtraEditors.TextEdit();
@@ -63,6 +65,7 @@
             this.layoutControlItemLogin = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemLastName = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditFrqOfAsk.Properties)).BeginInit();
@@ -82,6 +85,8 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTrainings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTrainings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trainingsRepositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textLastName.Properties)).BeginInit();
@@ -267,6 +272,8 @@
             resources.ApplyResources(this.gridTrainings, "gridTrainings");
             this.gridTrainings.MainView = this.gridViewTrainings;
             this.gridTrainings.Name = "gridTrainings";
+            this.gridTrainings.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.trainingsRepositoryItemLookUpEdit});
             this.gridTrainings.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTrainings});
             // 
@@ -276,13 +283,35 @@
             this.titleGridColumn});
             this.gridViewTrainings.GridControl = this.gridTrainings;
             this.gridViewTrainings.Name = "gridViewTrainings";
+            this.gridViewTrainings.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
+            this.gridViewTrainings.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
             this.gridViewTrainings.OptionsDetail.EnableMasterViewMode = false;
             // 
             // titleGridColumn
             // 
             resources.ApplyResources(this.titleGridColumn, "titleGridColumn");
+            this.titleGridColumn.ColumnEdit = this.trainingsRepositoryItemLookUpEdit;
             this.titleGridColumn.FieldName = "TrainingTitle";
             this.titleGridColumn.Name = "titleGridColumn";
+            // 
+            // trainingsRepositoryItemLookUpEdit
+            // 
+            resources.ApplyResources(this.trainingsRepositoryItemLookUpEdit, "trainingsRepositoryItemLookUpEdit");
+            this.trainingsRepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("trainingsRepositoryItemLookUpEdit.Buttons"))))});
+            this.trainingsRepositoryItemLookUpEdit.DisplayMember = "TrainingTitle";
+            this.trainingsRepositoryItemLookUpEdit.Name = "trainingsRepositoryItemLookUpEdit";
+            this.trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";
+            this.trainingsRepositoryItemLookUpEdit.View = this.repositoryItemGridLookUpEdit1View;
+            // 
+            // repositoryItemGridLookUpEdit1View
+            // 
+            this.repositoryItemGridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1});
+            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
+            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // textEmail
             // 
@@ -401,6 +430,12 @@
             // 
             this.mvvmTesteeContext.ContainerControl = this;
             // 
+            // gridColumn1
+            // 
+            resources.ApplyResources(this.gridColumn1, "gridColumn1");
+            this.gridColumn1.FieldName = "TrainingTitle";
+            this.gridColumn1.Name = "gridColumn1";
+            // 
             // AddEditTestee
             // 
             resources.ApplyResources(this, "$this");
@@ -427,6 +462,8 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridTrainings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTrainings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trainingsRepositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textLastName.Properties)).EndInit();
@@ -480,5 +517,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.Utils.MVVM.MVVMContext mvvmTesteeContext;
         private System.Windows.Forms.BindingSource settingDTOBindingSource;
+        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit trainingsRepositoryItemLookUpEdit;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

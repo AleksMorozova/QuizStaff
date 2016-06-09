@@ -24,11 +24,12 @@ namespace Client.AddEditTesteeForm
         public AddEditTestee(TesteeDTO testee)
         {
             InitializeComponent();
-
+            this.gridViewTrainings.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             mvvmTesteeContext.ViewModelType = typeof(TesteeViewModel);
             BindCommand();
             model = new TesteeViewModel();
-            model.Testee = testee;            
+            model.Testee = testee;
+            model.GetAllTrainings();
             mvvmTesteeContext.SetViewModel(typeof(TesteeViewModel), model);          
             BindToViewModel(); 
             currentTestee = model.Testee;  
@@ -54,6 +55,13 @@ namespace Client.AddEditTesteeForm
             mvvmTesteeContext.SetBinding(spinEditQuestAmount, questionText => questionText.EditValue, "Testee.UserSetting.AmountOfQuestionsPerDay");
             mvvmTesteeContext.SetBinding(spinEditFrqOfAsk, questionText => questionText.EditValue, "Testee.UserSetting.FrequencyOfAsking");
             mvvmTesteeContext.SetBinding(gridTrainings, answers => answers.DataSource, "Testee.Trainings");
+
+            mvvmTesteeContext.SetBinding(trainingsRepositoryItemLookUpEdit, training => training.DataSource, "AllTrainings");
+      trainingsRepositoryItemLookUpEdit.DisplayMember = "TrainingTitle";
+            //trainingsRepositoryItemLookUpEdit.DataSource = 
+            //    new BindingList<TrainingDTO>() { new TrainingDTO() { TrainingTitle = "First" }, new TrainingDTO() { TrainingTitle = "Second" } };
+            trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";
+      
         }               
 
         public TesteeDTO Testee

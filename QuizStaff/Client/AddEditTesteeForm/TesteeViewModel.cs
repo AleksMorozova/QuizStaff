@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,18 @@ namespace Client.AddEditTesteeForm
             FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 
+        public BindingList<TrainingDTO> AllTrainings { get; set; }
+
+        public void GetAllTrainings()
+        {
+            AllTrainings = new BindingList<TrainingDTO>();
+            var trainingsList = ServicesHolder.ServiceClient.GetAllTrainings();
+            foreach (var training in trainingsList)
+            {
+                AllTrainings.Add(training);
+            }
+        }
+
         public void Cancel()
         {
             //TODO: cancel edeting 
@@ -31,13 +44,11 @@ namespace Client.AddEditTesteeForm
             {
                 if (testee.Id == Guid.Empty)
                 {
-                    //TODO:
-                    //ServicesHolder.ServiceClient.SaveTestee(testee);
+                    ServicesHolder.ServiceClient.SaveTestee(testee);
                 }
                 else
                 {
-                    //TODO:
-                    //ServicesHolder.ServiceClient.UpdateTestee(testee);
+                    ServicesHolder.ServiceClient.UpdateTestee(testee);
                 }
             }
         }        
