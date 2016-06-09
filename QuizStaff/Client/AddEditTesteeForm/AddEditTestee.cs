@@ -57,11 +57,8 @@ namespace Client.AddEditTesteeForm
             mvvmTesteeContext.SetBinding(gridTrainings, answers => answers.DataSource, "Testee.Trainings");
 
             mvvmTesteeContext.SetBinding(trainingsRepositoryItemLookUpEdit, training => training.DataSource, "AllTrainings");
-      trainingsRepositoryItemLookUpEdit.DisplayMember = "TrainingTitle";
-            //trainingsRepositoryItemLookUpEdit.DataSource = 
-            //    new BindingList<TrainingDTO>() { new TrainingDTO() { TrainingTitle = "First" }, new TrainingDTO() { TrainingTitle = "Second" } };
+            trainingsRepositoryItemLookUpEdit.DisplayMember = "TrainingTitle";
             trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";
-      
         }               
 
         public TesteeDTO Testee
