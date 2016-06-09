@@ -167,9 +167,9 @@
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <metadata name="settingDTOBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="settingDTOBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>179, 17</value>
-  </metadata>
+  </data>
   <data name="spinEditFrqOfAsk.EditValue" type="System.Decimal, mscorlib">
     <value>0</value>
   </data>
@@ -263,6 +263,24 @@
   <data name="layoutControl2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 386</value>
   </data>
+  <data name="layoutControlItemFreqOfAsk.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem7</value>
+  </data>
+  <data name="layoutControlItemFreqOfAsk.Text" xml:space="preserve">
+    <value>Frequency of asking:</value>
+  </data>
+  <data name="layoutControlItemQuestionAmount.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem8</value>
+  </data>
+  <data name="layoutControlItemQuestionAmount.Text" xml:space="preserve">
+    <value>Question amount:</value>
+  </data>
+  <data name="layoutControlItemCanUserEdit.CustomizationFormText" xml:space="preserve">
+    <value>layoutControlItem9</value>
+  </data>
+  <data name="layoutControlItemCanUserEdit.Text" xml:space="preserve">
+    <value>User can edit: </value>
+  </data>
   <data name="layoutControlGroup2.Text" xml:space="preserve">
     <value>User settings:</value>
   </data>
@@ -287,24 +305,6 @@
   <data name="&gt;&gt;layoutControl2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="layoutControlItemFreqOfAsk.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem7</value>
-  </data>
-  <data name="layoutControlItemFreqOfAsk.Text" xml:space="preserve">
-    <value>Frequency of asking:</value>
-  </data>
-  <data name="layoutControlItemQuestionAmount.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem8</value>
-  </data>
-  <data name="layoutControlItemQuestionAmount.Text" xml:space="preserve">
-    <value>Question amount:</value>
-  </data>
-  <data name="layoutControlItemCanUserEdit.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem9</value>
-  </data>
-  <data name="layoutControlItemCanUserEdit.Text" xml:space="preserve">
-    <value>User can edit: </value>
-  </data>
   <data name="layoutControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -322,6 +322,15 @@
   </data>
   <data name="trainingsRepositoryItemLookUpEdit.NullText" xml:space="preserve">
     <value />
+  </data>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="titleGridColumn.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -494,12 +503,12 @@
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="mvvmTesteeContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="mvvmTesteeContext.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -596,6 +605,12 @@
   <data name="&gt;&gt;repositoryItemGridLookUpEdit1View.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;gridColumn1.Name" xml:space="preserve">
+    <value>gridColumn1</value>
+  </data>
+  <data name="&gt;&gt;gridColumn1.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;layoutControlGroup3.Name" xml:space="preserve">
     <value>layoutControlGroup3</value>
   </data>
@@ -650,25 +665,13 @@
   <data name="&gt;&gt;mvvmTesteeContext.Type" xml:space="preserve">
     <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;gridColumn1.Name" xml:space="preserve">
-    <value>gridColumn1</value>
-  </data>
-  <data name="&gt;&gt;gridColumn1.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AddEditTestee</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="gridColumn1.Caption" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="Title" xml:space="preserve">
+    <value>Testee</value>
   </data>
 </root>
