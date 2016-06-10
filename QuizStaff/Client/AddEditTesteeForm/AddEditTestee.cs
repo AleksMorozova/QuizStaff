@@ -97,21 +97,13 @@ namespace Client.AddEditTesteeForm
 
         private void gridViewTrainings_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
+            //TODO: get current testee training 
             GridView v = sender as GridView;
-            var test = v.EditingValue;
-
-   
+            var currentValue = v.EditingValue;
             TesteeTrainingDTO training = v.GetRow(e.RowHandle) as TesteeTrainingDTO;
-            training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == test.ToString()).First();
-            training.TrainingID = model.AllTrainings.Where(_ => _.TrainingTitle == test.ToString()).First().Id;
+            training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
+            training.TrainingID = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First().Id;
             training.TesteeID = model.Testee.Id;
-            //var id = training.TrainingID;
-        }
-
-        private void trainingsRepositoryItemLookUpEdit_EditValueChanged(object sender, EventArgs e)
-        {
-         GridLookUpEdit edit = sender as GridLookUpEdit;
-            object editValue = edit.EditValue;
         }
     }
 }
