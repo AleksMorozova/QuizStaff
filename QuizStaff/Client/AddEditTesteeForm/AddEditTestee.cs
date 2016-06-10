@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataTransferObject;
 using System.Globalization;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Client.AddEditTesteeForm
 {
@@ -57,11 +58,8 @@ namespace Client.AddEditTesteeForm
             mvvmTesteeContext.SetBinding(gridTrainings, answers => answers.DataSource, "Testee.Trainings");
 
             mvvmTesteeContext.SetBinding(trainingsRepositoryItemLookUpEdit, training => training.DataSource, "AllTrainings");
-      trainingsRepositoryItemLookUpEdit.DisplayMember = "TrainingTitle";
-            //trainingsRepositoryItemLookUpEdit.DataSource = 
-            //    new BindingList<TrainingDTO>() { new TrainingDTO() { TrainingTitle = "First" }, new TrainingDTO() { TrainingTitle = "Second" } };
+            trainingsRepositoryItemLookUpEdit.DisplayMember = "TrainingTitle";
             trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";
-      
         }               
 
         public TesteeDTO Testee
@@ -95,6 +93,17 @@ namespace Client.AddEditTesteeForm
             resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
             resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
             this.Text = resources.GetString("Title", newCultureInfo) + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");
+        }
+
+        private void gridViewTrainings_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            //TODO: get current testee training 
+            GridView v = sender as GridView;
+            var currentValue = v.EditingValue;
+            TesteeTrainingDTO training = v.GetRow(e.RowHandle) as TesteeTrainingDTO;
+            training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
+            training.TrainingID = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First().Id;
+            training.TesteeID = model.Testee.Id;
         }
     }
 }

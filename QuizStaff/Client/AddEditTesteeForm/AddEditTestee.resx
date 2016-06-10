@@ -509,6 +509,9 @@
   <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>

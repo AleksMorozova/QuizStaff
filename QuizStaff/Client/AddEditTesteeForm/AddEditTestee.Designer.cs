@@ -287,12 +287,13 @@
             this.gridViewTrainings.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
             this.gridViewTrainings.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewTrainings.OptionsView.ShowGroupPanel = false;
+            this.gridViewTrainings.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridViewTrainings_InitNewRow);
             // 
             // titleGridColumn
             // 
             resources.ApplyResources(this.titleGridColumn, "titleGridColumn");
             this.titleGridColumn.ColumnEdit = this.trainingsRepositoryItemLookUpEdit;
-            this.titleGridColumn.FieldName = "TrainingTitle";
+            this.titleGridColumn.FieldName = "Training.TrainingTitle";
             this.titleGridColumn.Name = "titleGridColumn";
             // 
             // trainingsRepositoryItemLookUpEdit
