@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataTransferObject;
 using System.Globalization;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Client.AddEditTesteeForm
 {
@@ -92,6 +93,25 @@ namespace Client.AddEditTesteeForm
             resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
             resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
             this.Text = resources.GetString("Title", newCultureInfo) + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");
+        }
+
+        private void gridViewTrainings_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var test = v.EditingValue;
+
+   
+            TesteeTrainingDTO training = v.GetRow(e.RowHandle) as TesteeTrainingDTO;
+            training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == test.ToString()).First();
+            training.TrainingID = model.AllTrainings.Where(_ => _.TrainingTitle == test.ToString()).First().Id;
+            training.TesteeID = model.Testee.Id;
+            //var id = training.TrainingID;
+        }
+
+        private void trainingsRepositoryItemLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+         GridLookUpEdit edit = sender as GridLookUpEdit;
+            object editValue = edit.EditValue;
         }
     }
 }

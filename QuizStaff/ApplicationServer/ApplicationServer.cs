@@ -186,7 +186,18 @@ namespace Server
         {
             EFTesteeRepository repo = new EFTesteeRepository();
             Testee newTestee = new Testee();
+            newTestee.Trainings = new Collection<TesteeTraining>();
             Conversion.CopyProperty(testee, newTestee);
+            if (testee.Trainings.Count() > 0)
+            {
+                foreach (var t in testee.Trainings)
+                {
+                    TesteeTraining training = new TesteeTraining();
+                    Conversion.CopyProperty(t, training);
+                    newTestee.Trainings.Add(training);
+                }
+            }
+
             repo.Update(newTestee);
         }
 
