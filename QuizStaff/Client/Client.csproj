@@ -95,20 +95,20 @@
     <Reference Include="UIAutomationClient" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEditQuestionForm\AddEditQuestionForm.cs">
+    <Compile Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditQuestionForm\AddEditQuestionForm.Designer.cs">
+    <Compile Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.Designer.cs">
       <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddEditQuestionForm\QuestionViewModel.cs" />
-    <Compile Include="AddEditTesteeForm\AddEditTestee.cs">
+    <Compile Include="TrainingsForms\TrainingQuestion\QuestionViewModel.cs" />
+    <Compile Include="TesteesForms\TesteeAddEdit\AddEditTesteeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditTesteeForm\AddEditTestee.Designer.cs">
-      <DependentUpon>AddEditTestee.cs</DependentUpon>
+    <Compile Include="TesteesForms\TesteeAddEdit\AddEditTesteeForm.Designer.cs">
+      <DependentUpon>AddEditTesteeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddEditTesteeForm\TesteeViewModel.cs" />
+    <Compile Include="TesteesForms\TesteeAddEdit\TesteeViewModel.cs" />
     <Compile Include="AdminSettings\AdminSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,18 +122,18 @@
     <Compile Include="AdminSettings\EditSettingsForm.Designer.cs">
       <DependentUpon>EditSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientsForms\ClientsSetupForm\ClientSetupPresenter.cs" />
-    <Compile Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.cs">
+    <Compile Include="TesteeSettings\ClientSetupPresenter.cs" />
+    <Compile Include="TesteeSettings\TesteeSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.Designer.cs">
-      <DependentUpon>ClientsSetupForm.cs</DependentUpon>
+    <Compile Include="TesteeSettings\TesteeSettingsForm.Designer.cs">
+      <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientsForms\ClientsSetupForm\IClientSetupForm.cs" />
-    <Compile Include="ClientsForms\LoginForm\UserLoginForm.cs">
+    <Compile Include="TesteeSettings\IClientSetupForm.cs" />
+    <Compile Include="LoginForm\UserLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientsForms\LoginForm\UserLoginForm.Designer.cs">
+    <Compile Include="LoginForm\UserLoginForm.Designer.cs">
       <DependentUpon>UserLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form.cs">
@@ -175,38 +175,38 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="ServicesHolder.cs" />
-    <Compile Include="TesteesListForm\TesteesListViewModel.cs" />
-    <Compile Include="TesteesListForm\TesteesListForm.cs">
+    <Compile Include="TesteesForms\TesteesList\TesteesListViewModel.cs" />
+    <Compile Include="TesteesForms\TesteesList\TesteesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TesteesListForm\TesteesListForm.Designer.cs">
+    <Compile Include="TesteesForms\TesteesList\TesteesListForm.Designer.cs">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrainingAddEdit\TrainingAddEditForm.cs">
+    <Compile Include="TrainingsForms\TrainingAddEdit\TrainingAddEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TrainingAddEdit\TrainingAddEditForm.Designer.cs">
+    <Compile Include="TrainingsForms\TrainingAddEdit\TrainingAddEditForm.Designer.cs">
       <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrainingAddEdit\TrainingViewModel.cs" />
-    <Compile Include="TrainingsListForm\TrainingListForm.cs">
+    <Compile Include="TrainingsForms\TrainingAddEdit\TrainingViewModel.cs" />
+    <Compile Include="TrainingsForms\TrainingsList\TrainingListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TrainingsListForm\TrainingListForm.Designer.cs">
+    <Compile Include="TrainingsForms\TrainingsList\TrainingListForm.Designer.cs">
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrainingsListForm\TrainingListViewModel.cs" />
-    <EmbeddedResource Include="AddEditQuestionForm\AddEditQuestionForm.resx">
+    <Compile Include="TrainingsForms\TrainingsList\TrainingListViewModel.cs" />
+    <EmbeddedResource Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.resx">
       <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddEditQuestionForm\AddEditQuestionForm.ru-RU.resx">
+    <EmbeddedResource Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.ru-RU.resx">
       <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddEditTesteeForm\AddEditTestee.resx">
-      <DependentUpon>AddEditTestee.cs</DependentUpon>
+    <EmbeddedResource Include="TesteesForms\TesteeAddEdit\AddEditTesteeForm.resx">
+      <DependentUpon>AddEditTesteeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddEditTesteeForm\AddEditTestee.ru-RU.resx">
-      <DependentUpon>AddEditTestee.cs</DependentUpon>
+    <EmbeddedResource Include="TesteesForms\TesteeAddEdit\AddEditTesteeForm.ru-RU.resx">
+      <DependentUpon>AddEditTesteeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminSettings\AdminSettingsForm.resx">
       <DependentUpon>AdminSettingsForm.cs</DependentUpon>
@@ -217,13 +217,13 @@
     <EmbeddedResource Include="AdminSettings\EditSettingsForm.resx">
       <DependentUpon>EditSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
-      <DependentUpon>ClientsSetupForm.cs</DependentUpon>
+    <EmbeddedResource Include="TesteeSettings\TesteeSettingsForm.resx">
+      <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientsForms\LoginForm\UserLoginForm.resx">
+    <EmbeddedResource Include="LoginForm\UserLoginForm.resx">
       <DependentUpon>UserLoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientsForms\LoginForm\UserLoginForm.ru-RU.resx">
+    <EmbeddedResource Include="LoginForm\UserLoginForm.ru-RU.resx">
       <DependentUpon>UserLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form.resx">
@@ -255,22 +255,22 @@
     <EmbeddedResource Include="TesteeQuestion\QuestionForm.ru-RU.resx">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TesteesListForm\TesteesListForm.resx">
+    <EmbeddedResource Include="TesteesForms\TesteesList\TesteesListForm.resx">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TesteesListForm\TesteesListForm.ru-RU.resx">
+    <EmbeddedResource Include="TesteesForms\TesteesList\TesteesListForm.ru-RU.resx">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrainingAddEdit\TrainingAddEditForm.resx">
+    <EmbeddedResource Include="TrainingsForms\TrainingAddEdit\TrainingAddEditForm.resx">
       <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrainingAddEdit\TrainingAddEditForm.ru-RU.resx">
+    <EmbeddedResource Include="TrainingsForms\TrainingAddEdit\TrainingAddEditForm.ru-RU.resx">
       <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrainingsListForm\TrainingListForm.resx">
+    <EmbeddedResource Include="TrainingsForms\TrainingsList\TrainingListForm.resx">
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrainingsListForm\TrainingListForm.ru-RU.resx">
+    <EmbeddedResource Include="TrainingsForms\TrainingsList\TrainingListForm.ru-RU.resx">
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Client_TemporaryKey.pfx" />
@@ -363,6 +363,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="obj\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

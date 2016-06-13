@@ -1,5 +1,5 @@
 ﻿using ApplicationServer.DAL;
-using Client.ClientsForms.LoginForm;
+using Client.LoginForm;
 using DataTransferObject;
 using DevExpress.XtraEditors;
 using System;
