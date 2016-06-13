@@ -15,6 +15,7 @@ using System.Globalization;
 using System.Windows;
 using System.Configuration;
 using Client.AdminSettings;
+using Client.TesteesForms.TesteesList;
 
 namespace Client
 {
@@ -29,7 +30,7 @@ namespace Client
 
         private void testBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var formSets = new ClientsForms.ClientsSetupForm();
+            var formSets = new TesteeSettings.TesteeSettingsForm();
             formSets.ShowDialog();
         }
 
@@ -60,7 +61,7 @@ namespace Client
 
         private void loginBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var f = new ClientsForms.LoginForm.UserLoginForm();
+            var f = new LoginForm.UserLoginForm();
             f.ShowDialog();
         }
 
