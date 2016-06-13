@@ -116,6 +116,12 @@
       <DependentUpon>AdminSettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminSettings\AdminSettingsViewModel.cs" />
+    <Compile Include="AdminSettings\EditSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSettings\EditSettingsForm.Designer.cs">
+      <DependentUpon>EditSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientsForms\ClientsSetupForm\ClientSetupPresenter.cs" />
     <Compile Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.cs">
       <SubType>Form</SubType>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminSettings\AdminSettingsForm.ru-RU.resx">
       <DependentUpon>AdminSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\EditSettingsForm.resx">
+      <DependentUpon>EditSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientsForms\ClientsSetupForm\ClientsSetupForm.resx">
       <DependentUpon>ClientsSetupForm.cs</DependentUpon>

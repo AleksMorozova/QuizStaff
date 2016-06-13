@@ -12,40 +12,53 @@ namespace Client.AdminSettings
     {
         public BindingList<TesteeDTO> Testees { get; set; }
 
+        public BindingList<TesteeDTO> SelectedTestees { get; set; }
+
         public int AmountOfQuestionsPerDay { get; set; }
 
         public int FrequencyOfAsking { get; set; }
 
         public DateTime TimeOfStart { get; set; }
 
-        public void GetAllTestees()
+        public void SetUpSettings(BindingList<TesteeDTO> currentTestees)
         {
-            Testees = new BindingList<TesteeDTO>();
-            var testeeList = ServicesHolder.ServiceClient.GetAllTestees();
-            foreach (var testee in testeeList)
-            {
-                Testees.Add(testee);
-                FrequencyOfAsking = testee.UserSetting.FrequencyOfAsking;
-                TimeOfStart = testee.UserSetting.TimeOfStart;
-            }
-
-            var t = Testees.GroupBy(_=>_.UserSetting.AmountOfQuestionsPerDay);
-            if (t.Count()==1)
+            SelectedTestees = currentTestees;
+            var t = SelectedTestees.GroupBy(_ => _.UserSetting.AmountOfQuestionsPerDay);
+            if (t.Count() == 1)
             {
                 AmountOfQuestionsPerDay = t.First().First().UserSetting.AmountOfQuestionsPerDay;
             }
 
-            var t1 = Testees.GroupBy(_ => _.UserSetting.FrequencyOfAsking);
+            var t1 = SelectedTestees.GroupBy(_ => _.UserSetting.FrequencyOfAsking);
             if (t.Count() == 1)
             {
                 FrequencyOfAsking = t.First().First().UserSetting.FrequencyOfAsking;
             }
 
-            var t2 = Testees.GroupBy(_ => _.UserSetting.TimeOfStart);
+            var t2 = SelectedTestees.GroupBy(_ => _.UserSetting.TimeOfStart);
             if (t.Count() == 1)
             {
                 TimeOfStart = t.First().First().UserSetting.TimeOfStart;
             }
+        }
+
+        public void GetAllTestees()
+        {
+            Testees = new BindingList<TesteeDTO>();
+            var testeeList = ServicesHolder.ServiceClient.GetAllTestees();
+
+            foreach (var testee in testeeList)
+            {
+                Testees.Add(testee);
+            }
+        }
+
+        public void EditSettings(BindingList<TesteeDTO> selectedTestee) 
+        {
+            EditSettingsForm editSettings = new EditSettingsForm(selectedTestee);
+            FormManager.childForms.Add(editSettings);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
+            editSettings.ShowDialog();
         }
     }
 }
