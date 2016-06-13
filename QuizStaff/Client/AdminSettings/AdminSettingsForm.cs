@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Globalization;
+using DataTransferObject;
 
 namespace Client.AdminSettings
 {
@@ -31,34 +32,27 @@ namespace Client.AdminSettings
         private void BindCommands()
         {
 
+            mvvmAdminSettingsContext.BindCommand<AdminSettingsViewModel, BindingList<TesteeDTO>>(saveButton, (viewModel, questionID)
+                => viewModel.EditSettings(questionID), x => GetSelectedTestees());
+        }
+
+        private BindingList<TesteeDTO> GetSelectedTestees() 
+        {
+            //TODO: Get selected testees 
+            return (this.model!=null && this.model.Testees!=null) ? model.Testees: new BindingList<TesteeDTO>();
         }
 
         private void BindToViewModel()
         {      
             mvvmAdminSettingsContext.SetBinding(testeeListGridControl, testee => testee.DataSource, "Testees");
-            mvvmAdminSettingsContext.SetBinding(frequencySpinEdit, frequency => frequency.EditValue, "FrequencyOfAsking");
-            mvvmAdminSettingsContext.SetBinding(questionAmountTextEdit, amount => amount.EditValue, "AmountOfQuestionsPerDay");
-            mvvmAdminSettingsContext.SetBinding(timeOfAskingEditTime, time => time.EditValue, "TimeOfStart");
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            var t = model.Testees;
         }
 
         public void Localized(string language)
         {
             var resources = new ComponentResourceManager(typeof(AdminSettingsForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
-            resources.ApplyResources(questionAmountLayoutControlItem, "questionAmountLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(frequencyLayoutControlItem, "frequencyLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(timeOfAskingLayoutControlItem, "timeOfAskingLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(dateImpactLabel, "dateImpactLabel", newCultureInfo);
-            resources.ApplyResources(fromDateEditLayoutControlItem, "fromDateEditLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(toDateEditLayoutControlItem, "toDateEditLayoutControlItem", newCultureInfo);
             resources.ApplyResources(usersListLayoutControlItem, "usersListLayoutControlItem", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
-            resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
             this.Text = resources.GetString("Title", newCultureInfo);
         }
     }
