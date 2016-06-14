@@ -40,6 +40,12 @@ namespace Client.TesteesForms.TesteesList
             FormManager.Instance.LocalizedForms(Program.currentLang);           
         }
 
+        public void DeleteTestee(TesteeDTO deletedTestee)
+        {
+            deletedTestee.IsActive = false;
+            ServicesHolder.ServiceClient.UpdateTestee(deletedTestee);
+        }
+
         public void Save()
         {
             // TODO: implement save of loaded of testee

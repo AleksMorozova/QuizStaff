@@ -122,7 +122,32 @@
     <value>403, 13</value>
   </data>
   <data name="buttonAddTraining.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
+    <value>99, 22</value>
+  </data>
+  <data name="deleteTrainingButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>612, 12</value>
+  </data>
+  <data name="deleteTrainingButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 22</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="deleteTrainingButton.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="deleteTrainingButton.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="&gt;&gt;deleteTrainingButton.Name" xml:space="preserve">
+    <value>deleteTrainingButton</value>
+  </data>
+  <data name="&gt;&gt;deleteTrainingButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;deleteTrainingButton.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;deleteTrainingButton.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="trainingsGridControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 61</value>
@@ -130,7 +155,6 @@
   <data name="titleGridColumn.Caption" xml:space="preserve">
     <value>Title</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="titleGridColumn.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -153,7 +177,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;trainingsGridControl.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>659, 404</value>
@@ -177,7 +201,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
     <value>492, 404</value>
@@ -201,19 +225,19 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="buttonLoadTraining.Location" type="System.Drawing.Point, System.Drawing">
-    <value>683, 13</value>
+    <value>718, 13</value>
   </data>
   <data name="buttonLoadTraining.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
+    <value>99, 22</value>
   </data>
   <data name="buttonLoadTraining.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="buttonLoadTraining.Text" xml:space="preserve">
-    <value>Load training</value>
+    <value>Load</value>
   </data>
   <data name="&gt;&gt;buttonLoadTraining.Name" xml:space="preserve">
     <value>buttonLoadTraining</value>
@@ -225,19 +249,19 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;buttonLoadTraining.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="buttonEditTraining.Location" type="System.Drawing.Point, System.Drawing">
-    <value>545, 13</value>
+    <value>508, 13</value>
   </data>
   <data name="buttonEditTraining.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>99, 22</value>
   </data>
   <data name="buttonEditTraining.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="buttonEditTraining.Text" xml:space="preserve">
-    <value>Edit training</value>
+    <value>Edit</value>
   </data>
   <data name="&gt;&gt;buttonEditTraining.Name" xml:space="preserve">
     <value>buttonEditTraining</value>
@@ -249,7 +273,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;buttonEditTraining.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -283,7 +307,7 @@
     <value>5</value>
   </data>
   <data name="buttonAddTraining.Text" xml:space="preserve">
-    <value>Add training</value>
+    <value>Add</value>
   </data>
   <data name="&gt;&gt;buttonAddTraining.Name" xml:space="preserve">
     <value>buttonAddTraining</value>
@@ -295,17 +319,17 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;buttonAddTraining.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="trainingsLayoutControlItem.Text" xml:space="preserve">
     <value>Trainings</value>
   </data>
-  <data name="mvvmTrainingsContext.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="mvvmTrainingsContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -381,6 +405,12 @@
   <data name="&gt;&gt;trainingsLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;deleteButtonLayoutControlItem.Name" xml:space="preserve">
+    <value>deleteButtonLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;deleteButtonLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;mvvmTrainingsContext.Name" xml:space="preserve">
     <value>mvvmTrainingsContext</value>
   </data>
@@ -392,8 +422,5 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Trainings</value>
   </data>
 </root>

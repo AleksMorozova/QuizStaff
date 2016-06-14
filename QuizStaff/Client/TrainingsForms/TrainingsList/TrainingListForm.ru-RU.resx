@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="buttonAddTraining.Text" xml:space="preserve">
-    <value>Добавить тренинг</value>
+    <value>Добавить</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Отменить</value>
@@ -140,5 +140,8 @@
   </data>
   <data name="trainingsLayoutControlItem.Text" xml:space="preserve">
     <value>Тренинги</value>
+  </data>
+  <data name="deleteTrainingButton.Text" xml:space="preserve">
+    <value>Удалить</value>
   </data>
 </root>

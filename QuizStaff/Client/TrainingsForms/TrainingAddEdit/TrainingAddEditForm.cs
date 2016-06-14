@@ -20,7 +20,7 @@ namespace Client.TrainingsForms.TrainingAddEdit
         private TrainingViewModel model;
 
         public TrainingAddEditForm()
-            : this(new TrainingDTO()) { }
+            : this(new TrainingDTO() { IsActive = true}) { }
 
         public TrainingAddEditForm(TrainingDTO training)
         {

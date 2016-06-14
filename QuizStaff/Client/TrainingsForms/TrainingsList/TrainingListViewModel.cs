@@ -43,6 +43,13 @@ namespace Client.TrainingsListForm
             FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 
+        public void DeleteTraining(TrainingDTO deletedTraining)
+        {
+            deletedTraining.IsActive = false;
+            Trainings.Remove(deletedTraining);
+            ServicesHolder.ServiceClient.UpdateTraining(deletedTraining);
+        }
+
         public void Save()
         {            
             // TODO: implement save of loaded of trainings

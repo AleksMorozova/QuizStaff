@@ -28,11 +28,13 @@ namespace Client.TesteesForms.TesteesList
         {
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(buttonSave, viewModel => viewModel.Save());
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(buttonCancel, viewModel => viewModel.Cancel());
-            mvvmTesteesContext.BindCommand<TesteesListViewModel>(buttonLoadTestees , viewModel => viewModel.LoadTestees());
-            mvvmTesteesContext.BindCommand<TesteesListViewModel, TesteeDTO>(buttonEditTestee,
+            mvvmTesteesContext.BindCommand<TesteesListViewModel>(loadTesteesButton , viewModel => viewModel.LoadTestees());
+            mvvmTesteesContext.BindCommand<TesteesListViewModel, TesteeDTO>(editTesteeButton,
                 (x, currentTestee) => x.EditTestee (currentTestee), x => GetCurrentTestee());
-            mvvmTesteesContext.BindCommand<TesteesListViewModel, BindingList<TesteeDTO>>(buttonAddTestee,
+            mvvmTesteesContext.BindCommand<TesteesListViewModel, BindingList<TesteeDTO>>(addTesteeButton,
                 (x, currentTestee) => x.AddTestee (currentTestee), x => GetCurrentTestees());
+            mvvmTesteesContext.BindCommand<TesteesListViewModel, TesteeDTO>(deleteTesteeButton,
+                (x, currentTestee) => x.DeleteTestee(currentTestee), x => GetCurrentTestee());
         }
         private void BindToViewModel()
         {
@@ -60,10 +62,10 @@ namespace Client.TesteesForms.TesteesList
         {
             var resources = new ComponentResourceManager(typeof(TesteesListForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
-            resources.ApplyResources(buttonAddTestee, "buttonAddTestee", newCultureInfo);
+            resources.ApplyResources(addTesteeButton, "buttonAddTestee", newCultureInfo);
             resources.ApplyResources(testeesLayoutControlItem, "testeesLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(buttonEditTestee, "buttonEditTestee", newCultureInfo);
-            resources.ApplyResources(buttonLoadTestees , "buttonLoadTestee", newCultureInfo);
+            resources.ApplyResources(editTesteeButton, "buttonEditTestee", newCultureInfo);
+            resources.ApplyResources(loadTesteesButton , "buttonLoadTestee", newCultureInfo);
             resources.ApplyResources(columnEmail, "columnEmail", newCultureInfo);
             resources.ApplyResources(columnFirstName, "columnFirstName", newCultureInfo);
             resources.ApplyResources(columnLastName, "columnLastName", newCultureInfo);

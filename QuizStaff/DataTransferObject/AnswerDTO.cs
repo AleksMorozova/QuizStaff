@@ -11,6 +11,7 @@ namespace DataTransferObject
     public class AnswerDTO : INotifyPropertyChanged
     {
         public Guid Id { get; set; }
+        public bool IsActive { get; set; }
 
         private string answerText;
         public string AnswerText 
