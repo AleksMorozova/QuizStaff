@@ -46,7 +46,6 @@ namespace Client.TrainingsListForm
         public void DeleteTraining(TrainingDTO deletedTraining)
         {
             deletedTraining.IsActive = false;
-            Trainings.Remove(deletedTraining);
             ServicesHolder.ServiceClient.UpdateTraining(deletedTraining);
         }
 
