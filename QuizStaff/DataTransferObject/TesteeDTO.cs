@@ -10,7 +10,7 @@ namespace DataTransferObject
 {
     public class TesteeDTO : INotifyPropertyChanged
     {
-        private BindingList<TesteeTrainingDTO> trainings;
+
         public TesteeDTO() 
         {
             trainings = new BindingList<TesteeTrainingDTO>();
@@ -87,9 +87,11 @@ namespace DataTransferObject
         }
         
         public string Password { get; set; }
+       
         public virtual Setting UserSetting { get; set; }
         public virtual ICollection<HistoryDTO> Histories { get; set; }
-        
+                
+        private BindingList<TesteeTrainingDTO> trainings;
         public virtual BindingList<TesteeTrainingDTO> Trainings 
         { 
             get 
