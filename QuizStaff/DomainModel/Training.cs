@@ -10,6 +10,7 @@ namespace DomainModel
     public class Training : Entity
     {
         public String TrainingTitle { get; set; }
+        public bool IsActive { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
         public virtual ICollection<TesteeTraining> TesteeTrainings { get; set; }
     }

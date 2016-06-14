@@ -17,6 +17,7 @@ namespace DataTransferObject
         }
 
         public Guid Id { get; set; }
+        public bool IsActive { get; set; }
 
         private string firstName;
         public string FirstName

@@ -11,6 +11,7 @@ namespace DomainModel
     {
         public string AnswerText { get; set; }
         public bool IsCorrect { get; set; }
+        public bool IsActive { get; set; }
         public virtual Question Question { get; set; }
     }
 }

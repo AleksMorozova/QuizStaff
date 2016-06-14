@@ -16,6 +16,7 @@ namespace DataTransferObject
         }
         public Guid Id { get; set; }
         public Guid TrainingId { get; set; }
+        public bool IsActive { get; set; }
 
         private string questionText;
         public string QuestionText { 

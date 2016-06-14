@@ -32,7 +32,7 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.buttonCancel = new DevExpress.XtraEditors.SimpleButton();
             this.buttonSave = new DevExpress.XtraEditors.SimpleButton();
-            this.buttonAddTestee = new DevExpress.XtraEditors.SimpleButton();
+            this.addTesteeButton = new DevExpress.XtraEditors.SimpleButton();
             this.gridTestees = new DevExpress.XtraGrid.GridControl();
             this.testeeGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.columnFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,8 +52,8 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.buttonLoadTestees = new DevExpress.XtraEditors.SimpleButton();
-            this.buttonEditTestee = new DevExpress.XtraEditors.SimpleButton();
+            this.loadTesteesButton = new DevExpress.XtraEditors.SimpleButton();
+            this.editTesteeButton = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGridAndButtons = new DevExpress.XtraLayout.LayoutControlGroup();
             this.testeesLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutButtonLoad = new DevExpress.XtraLayout.LayoutControlItem();
@@ -64,6 +64,8 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutButtonSave = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmTesteesContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.deleteTesteeButton = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTestees)).BeginInit();
@@ -90,16 +92,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteesContext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.deleteTesteeButton);
             this.layoutControl1.Controls.Add(this.buttonCancel);
             this.layoutControl1.Controls.Add(this.buttonSave);
-            this.layoutControl1.Controls.Add(this.buttonAddTestee);
+            this.layoutControl1.Controls.Add(this.addTesteeButton);
             this.layoutControl1.Controls.Add(this.gridTestees);
-            this.layoutControl1.Controls.Add(this.buttonLoadTestees);
-            this.layoutControl1.Controls.Add(this.buttonEditTestee);
+            this.layoutControl1.Controls.Add(this.loadTesteesButton);
+            this.layoutControl1.Controls.Add(this.editTesteeButton);
             resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(839, 285, 568, 350);
@@ -117,11 +121,11 @@
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.StyleController = this.layoutControl1;
             // 
-            // buttonAddTestee
+            // addTesteeButton
             // 
-            resources.ApplyResources(this.buttonAddTestee, "buttonAddTestee");
-            this.buttonAddTestee.Name = "buttonAddTestee";
-            this.buttonAddTestee.StyleController = this.layoutControl1;
+            resources.ApplyResources(this.addTesteeButton, "addTesteeButton");
+            this.addTesteeButton.Name = "addTesteeButton";
+            this.addTesteeButton.StyleController = this.layoutControl1;
             // 
             // gridTestees
             // 
@@ -288,17 +292,17 @@
             this.gridView3.GridControl = this.gridTestees;
             this.gridView3.Name = "gridView3";
             // 
-            // buttonLoadTestees
+            // loadTesteesButton
             // 
-            resources.ApplyResources(this.buttonLoadTestees, "buttonLoadTestees");
-            this.buttonLoadTestees.Name = "buttonLoadTestees";
-            this.buttonLoadTestees.StyleController = this.layoutControl1;
+            resources.ApplyResources(this.loadTesteesButton, "loadTesteesButton");
+            this.loadTesteesButton.Name = "loadTesteesButton";
+            this.loadTesteesButton.StyleController = this.layoutControl1;
             // 
-            // buttonEditTestee
+            // editTesteeButton
             // 
-            resources.ApplyResources(this.buttonEditTestee, "buttonEditTestee");
-            this.buttonEditTestee.Name = "buttonEditTestee";
-            this.buttonEditTestee.StyleController = this.layoutControl1;
+            resources.ApplyResources(this.editTesteeButton, "editTesteeButton");
+            this.editTesteeButton.Name = "editTesteeButton";
+            this.editTesteeButton.StyleController = this.layoutControl1;
             // 
             // layoutControlGridAndButtons
             // 
@@ -312,7 +316,8 @@
             this.layoutButtonAdd,
             this.layoutButtonCancel,
             this.emptySpaceItem1,
-            this.layoutButtonSave});
+            this.layoutButtonSave,
+            this.layoutControlItem1});
             this.layoutControlGridAndButtons.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGridAndButtons.Name = "Root";
             this.layoutControlGridAndButtons.Size = new System.Drawing.Size(1081, 558);
@@ -329,11 +334,11 @@
             // 
             // layoutButtonLoad
             // 
-            this.layoutButtonLoad.Control = this.buttonLoadTestees;
-            this.layoutButtonLoad.Location = new System.Drawing.Point(928, 0);
+            this.layoutButtonLoad.Control = this.loadTesteesButton;
+            this.layoutButtonLoad.Location = new System.Drawing.Point(956, 0);
             this.layoutButtonLoad.Name = "layoutButtonLoad";
             this.layoutButtonLoad.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutButtonLoad.Size = new System.Drawing.Size(133, 28);
+            this.layoutButtonLoad.Size = new System.Drawing.Size(105, 28);
             this.layoutButtonLoad.TextSize = new System.Drawing.Size(0, 0);
             this.layoutButtonLoad.TextVisible = false;
             // 
@@ -342,26 +347,26 @@
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(662, 28);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(641, 28);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutButtonEdit
             // 
-            this.layoutButtonEdit.Control = this.buttonEditTestee;
-            this.layoutButtonEdit.Location = new System.Drawing.Point(795, 0);
+            this.layoutButtonEdit.Control = this.editTesteeButton;
+            this.layoutButtonEdit.Location = new System.Drawing.Point(746, 0);
             this.layoutButtonEdit.Name = "layoutButtonEdit";
             this.layoutButtonEdit.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutButtonEdit.Size = new System.Drawing.Size(133, 28);
+            this.layoutButtonEdit.Size = new System.Drawing.Size(105, 28);
             this.layoutButtonEdit.TextSize = new System.Drawing.Size(0, 0);
             this.layoutButtonEdit.TextVisible = false;
             // 
             // layoutButtonAdd
             // 
-            this.layoutButtonAdd.Control = this.buttonAddTestee;
-            this.layoutButtonAdd.Location = new System.Drawing.Point(662, 0);
+            this.layoutButtonAdd.Control = this.addTesteeButton;
+            this.layoutButtonAdd.Location = new System.Drawing.Point(641, 0);
             this.layoutButtonAdd.Name = "layoutButtonAdd";
             this.layoutButtonAdd.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
-            this.layoutButtonAdd.Size = new System.Drawing.Size(133, 28);
+            this.layoutButtonAdd.Size = new System.Drawing.Size(105, 28);
             this.layoutButtonAdd.TextSize = new System.Drawing.Size(0, 0);
             this.layoutButtonAdd.TextVisible = false;
             // 
@@ -403,6 +408,21 @@
             // 
             this.mvvmTesteesContext.ContainerControl = this;
             // 
+            // deleteTesteeButton
+            // 
+            resources.ApplyResources(this.deleteTesteeButton, "deleteTesteeButton");
+            this.deleteTesteeButton.Name = "deleteTesteeButton";
+            this.deleteTesteeButton.StyleController = this.layoutControl1;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.deleteTesteeButton;
+            this.layoutControlItem1.Location = new System.Drawing.Point(851, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(105, 28);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // TesteesListForm
             // 
             resources.ApplyResources(this, "$this");
@@ -435,6 +455,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteesContext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -442,7 +463,7 @@
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.SimpleButton buttonAddTestee;
+        private DevExpress.XtraEditors.SimpleButton addTesteeButton;
         private DevExpress.XtraGrid.GridControl gridTestees;
         private DevExpress.XtraGrid.Views.Grid.GridView testeeGridView;
         private DevExpress.XtraGrid.Columns.GridColumn columnFirstName;
@@ -462,8 +483,8 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private DevExpress.XtraEditors.SimpleButton buttonLoadTestees;
-        private DevExpress.XtraEditors.SimpleButton buttonEditTestee;
+        private DevExpress.XtraEditors.SimpleButton loadTesteesButton;
+        private DevExpress.XtraEditors.SimpleButton editTesteeButton;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGridAndButtons;
         private DevExpress.XtraLayout.LayoutControlItem layoutButtonAdd;
         private DevExpress.XtraLayout.LayoutControlItem testeesLayoutControlItem;
@@ -476,6 +497,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutButtonSave;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.Utils.MVVM.MVVMContext mvvmTesteesContext;
+        private DevExpress.XtraEditors.SimpleButton deleteTesteeButton;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
 
 
 

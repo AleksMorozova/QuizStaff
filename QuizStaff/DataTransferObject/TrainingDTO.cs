@@ -17,6 +17,8 @@ namespace DataTransferObject
             questions = new BindingList<QuestionDTO>();
         }
         public Guid Id { get; set; }
+        public bool IsActive { get; set; }
+
         private string trainingTitle;
         public string TrainingTitle 
         {
