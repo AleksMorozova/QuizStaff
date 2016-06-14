@@ -17,6 +17,8 @@ namespace DomainModel
 
         public string Login { get; set; }
 
+        public bool IsActive { get; set; }
+
         public string Password { get; set; }
         public virtual Setting UserSetting { get; set; }
         public virtual ICollection<History> Histories { get; set; }

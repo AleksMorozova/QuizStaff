@@ -26,7 +26,7 @@ namespace Server
         public List<TesteeDTO> GetAllTestees()
         {
             EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
-            var testees = new List<Testee>(repo.ReadAll());
+            var testees = new List<Testee>(repo.ReadAll().Where(_=>_.IsActive));
             return testees.Select(testee => (TesteeDTO)testee).ToList();
         }
 
@@ -93,7 +93,7 @@ namespace Server
         public List<TrainingDTO> GetAllTrainings()
         {
             EFRepository<Training> repo = new EFRepository<Training>();
-            var trainings = new List<Training>(repo.ReadAll());
+            var trainings = new List<Training>(repo.ReadAll().Where(_=>_.IsActive));
             return trainings.Select(training => (TrainingDTO)training).ToList();
         }
 
@@ -105,8 +105,8 @@ namespace Server
         public TesteeDTO FindByLogin(string login)
         {
             EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
-            var result = repo.ReadAll().Where(_ => _.Login == login).FirstOrDefault();
-            return (result!=null) ? result : new TesteeDTO();
+            var result = repo.ReadAll().Where(_ => _.Login == login && _.IsActive).FirstOrDefault();
+            return (result != null) ? result : new TesteeDTO() { IsActive = true};
         }
 
         public void SaveAnswer(QuestionDTO question) 

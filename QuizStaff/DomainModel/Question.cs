@@ -11,6 +11,7 @@ namespace DomainModel
     {
         public Guid TrainingId { get; set; }
         public string QuestionText { get; set; }
+        public bool IsActive { get; set; }
         public virtual Training Training { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
     }

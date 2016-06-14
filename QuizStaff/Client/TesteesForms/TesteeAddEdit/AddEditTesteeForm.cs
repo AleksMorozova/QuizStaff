@@ -19,8 +19,8 @@ namespace Client.TesteesForm.TesteeAddEdit
        private TesteeViewModel model;
        private TesteeDTO currentTestee;
 
-        public AddEditTesteeForm()
-            : this(new TesteeDTO()) { }
+       public AddEditTesteeForm()
+           : this(new TesteeDTO() { IsActive = true}) { }
 
         public AddEditTesteeForm(TesteeDTO testee)
         {
