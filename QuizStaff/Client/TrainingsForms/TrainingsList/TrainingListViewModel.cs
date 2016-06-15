@@ -1,6 +1,7 @@
 ﻿using Client.TrainingsForms.TrainingAddEdit;
 using DataTransferObject;
 using DevExpress.XtraEditors;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,19 +15,19 @@ namespace Client.TrainingsListForm
 {
     public class TrainingListViewModel
     {
-        public BindingList<TrainingDTO> Trainings { get; set; }
+        public BindingList<Training> Trainings { get; set; }
 
         public void GetAllTrainings()
         {
-            Trainings = new BindingList<TrainingDTO>();
+            Trainings = new BindingList<Training>();
             var trainingsList = ServicesHolder.ServiceClient.GetAllTrainings();
             foreach (var training in trainingsList)
             {
-                Trainings.Add(training);
+                Trainings.Add(Conversion.ConvertTrainingFromDTO(training));
             }
         }
 
-        public void AddTraining(BindingList<TrainingDTO> trainings)
+        public void AddTraining(BindingList<Training> trainings)
         {
             TrainingAddEditForm trainingForm = new TrainingAddEditForm();
             FormManager.Instance.OpenChildForm(trainingForm, "Add training");
@@ -35,7 +36,7 @@ namespace Client.TrainingsListForm
             trainings.Add(trainingForm.Training);
         }
 
-        public void EditTraining(TrainingDTO editedTraining)
+        public void EditTraining(Training editedTraining)
         {
             TrainingAddEditForm trainingForm = new TrainingAddEditForm(editedTraining);
             FormManager.Instance.OpenChildForm(trainingForm, "Edit training: " + editedTraining.TrainingTitle);

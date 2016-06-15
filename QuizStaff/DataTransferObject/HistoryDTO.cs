@@ -1,6 +1,7 @@
 ﻿using DomainModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace DataTransferObject
         public virtual TesteeDTO Testee { get; set; }
         public virtual QuestionDTO Question { get; set; }
         public virtual DateTime AnsweringDate { get; set; }
-        public virtual ICollection<TesteeAnswerDTO> Answers { get; set; }
+        public virtual BindingList<TesteeAnswerDTO> Answers { get; set; }
 
         public static implicit operator HistoryDTO(History history)
         {

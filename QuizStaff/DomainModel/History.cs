@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -15,6 +16,6 @@ namespace DomainModel
         public virtual Testee Testee { get; set; }
         public virtual Question Question { get; set; }
         public virtual DateTime AnsweringDate { get; set; }
-        public virtual ICollection<TesteeAnswer> Answers { get; set; }
+        public virtual BindingList<TesteeAnswer> Answers { get; set; }
     }
 }
