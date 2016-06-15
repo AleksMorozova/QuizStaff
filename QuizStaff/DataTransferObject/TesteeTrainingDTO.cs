@@ -20,7 +20,6 @@ namespace DataTransferObject
             TesteeTrainingDTO newTesteeTrainings = new TesteeTrainingDTO();
             Conversion.CopyProperty(testeeTrainings, newTesteeTrainings);
             newTesteeTrainings.Training = testeeTrainings.Training;
-            //newTesteeTrainings.Testee = testeeTrainings.Testee;
             return newTesteeTrainings;
         }
     }

@@ -8,9 +8,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using DataTransferObject;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Globalization;
+using DomainModel;
 
 namespace Client.TrainingsForms.TrainingQuestion
 {
@@ -19,9 +19,9 @@ namespace Client.TrainingsForms.TrainingQuestion
         private QuestionViewModel model;
 
         public AddEditQuestionForm()
-            : this(new QuestionDTO()) { }
+            : this(new Question()) { }
 
-        public AddEditQuestionForm(QuestionDTO question)
+        public AddEditQuestionForm(Question question)
         {
             InitializeComponent();
 
@@ -39,7 +39,7 @@ namespace Client.TrainingsForms.TrainingQuestion
             mvvmQuestionContext.SetBinding(answersGridControl, answers => answers.DataSource, "Question.Answers");
         }
 
-        public QuestionDTO Question 
+        public Question Question 
         { 
             get
             { 
@@ -54,9 +54,10 @@ namespace Client.TrainingsForms.TrainingQuestion
         private void answersGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView v = sender as GridView;
-            AnswerDTO answer = v.GetRow(e.RowHandle) as AnswerDTO;
+            Answer answer = v.GetRow(e.RowHandle) as Answer;
             answer.IsCorrect = false;
         }
+        
         public void Localized(string language)
         {
             var resources = new ComponentResourceManager(typeof(AddEditQuestionForm));

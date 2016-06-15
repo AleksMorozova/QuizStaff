@@ -1,4 +1,4 @@
-﻿using DataTransferObject;
+﻿using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,6 @@ namespace Client.TrainingsForms.TrainingQuestion
 {
     public class QuestionViewModel
     {
-        public QuestionDTO Question { get; set; }
+        public Question Question { get; set; }
     }
 }

@@ -35,9 +35,9 @@ namespace Client.TrainingsListForm
 
             mvvmTrainingsContext.BindCommand<TrainingListViewModel, TrainingDTO>(deleteTrainingButton,
               (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTraining());
-            mvvmTrainingsContext.BindCommand<TrainingListViewModel, TrainingDTO>(buttonEditTraining,
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel, Training>(buttonEditTraining,
                 (x, currentTraining) => x.EditTraining(currentTraining), x => GetCurrentTraining());
-            mvvmTrainingsContext.BindCommand<TrainingListViewModel, BindingList<TrainingDTO>>(buttonAddTraining,
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel, BindingList<Training>>(buttonAddTraining,
                 (x, currentTraining) => x.AddTraining(currentTraining), x => GetCurrentTrainings());
         }
 
@@ -46,15 +46,15 @@ namespace Client.TrainingsListForm
             mvvmTrainingsContext.SetBinding(trainingsGridControl, training => training.DataSource, "Trainings");
         }
 
-        private BindingList<TrainingDTO> GetCurrentTrainings()
+        private BindingList<Training> GetCurrentTrainings()
         {
-            return (model!=null)? model.Trainings: new BindingList<TrainingDTO>();
+            return (model!=null)? model.Trainings: new BindingList<Training>();
         }
 
-        private TrainingDTO GetCurrentTraining() 
+        private Training GetCurrentTraining() 
         {
             int rowHandler = trainingsGridView.FocusedRowHandle;
-            var editedTraining = (TrainingDTO)trainingsGridView.GetRow(rowHandler);
+            var editedTraining = (Training)trainingsGridView.GetRow(rowHandler);
             return editedTraining;
         }
 

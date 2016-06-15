@@ -20,9 +20,9 @@ namespace Client.TrainingsForms.TrainingAddEdit
         private TrainingViewModel model;
 
         public TrainingAddEditForm()
-            : this(new TrainingDTO() { IsActive = true}) { }
+            : this(new Training() { IsActive = true}) { }
 
-        public TrainingAddEditForm(TrainingDTO training)
+        public TrainingAddEditForm(Training training)
         {
             InitializeComponent();
 
@@ -35,21 +35,21 @@ namespace Client.TrainingsForms.TrainingAddEdit
             currentTraining = model.Training;  
         }
 
-        private TrainingDTO currentTraining;
+        private Training currentTraining;
 
         private void BindCommand()
         {
             mvvmTrainingContext.BindCommand<TrainingViewModel>(cancelButton, viewModel => viewModel.Cancel());
 
-            mvvmTrainingContext.BindCommand<TrainingViewModel, QuestionDTO>(editQuestionButton, (viewModel, questionID)
-                => viewModel.EditQuestion(questionID), x => GetCurrentQuestion());
+            mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(editQuestionButton, (viewModel, question)
+                => viewModel.EditQuestion(question), x => GetCurrentQuestion());
 
-            mvvmTrainingContext.BindCommand<TrainingViewModel, TrainingDTO>(addQuestionButton, (viewModel, training)
+            mvvmTrainingContext.BindCommand<TrainingViewModel, Training>(addQuestionButton, (viewModel, training)
                 => viewModel.AddQuestion(training), x => currentTraining);
 
             mvvmTrainingContext.BindCommand<TrainingViewModel>(loadQuestionButton, viewModel => viewModel.LoadQuestions());
 
-            mvvmTrainingContext.BindCommand<TrainingViewModel, TrainingDTO>(saveButton, (viewModel, training)
+            mvvmTrainingContext.BindCommand<TrainingViewModel, Training>(saveButton, (viewModel, training)
                 => viewModel.Save(training), x => currentTraining);
         }
 
@@ -59,12 +59,12 @@ namespace Client.TrainingsForms.TrainingAddEdit
             mvvmTrainingContext.SetBinding(gridQuestions, answers => answers.DataSource, "Training.Questions");
         }
 
-        private QuestionDTO GetCurrentQuestion()
+        private Question GetCurrentQuestion()
         {
-            if (currentTraining!=null)
-            model.Training = currentTraining;
+        //    if (currentTraining!=null)
+        //    model.Training = currentTraining;
             int rowHandler = questionsGridView.FocusedRowHandle;
-            var editedQuestion = (QuestionDTO)questionsGridView.GetRow(rowHandler);
+            var editedQuestion = (Question)questionsGridView.GetRow(rowHandler);
             return editedQuestion;
         }
 
@@ -73,7 +73,7 @@ namespace Client.TrainingsForms.TrainingAddEdit
             model.EditQuestion(GetCurrentQuestion());
         }
 
-        public TrainingDTO Training
+        public Training Training
         {
             get
             {

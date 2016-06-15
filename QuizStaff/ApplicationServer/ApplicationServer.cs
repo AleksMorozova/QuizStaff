@@ -9,6 +9,7 @@ using System.Text;
 using DataTransferObject;
 using System.Collections;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace Server
 {
@@ -58,7 +59,7 @@ namespace Server
         {
             // TODO: implement logic for finding question 
 
-            List<Answer> l = new List<Answer>();
+            BindingList<Answer> l = new BindingList<Answer>();
             l.Add(new Answer() { AnswerText = "This is answer first", IsCorrect = true, Id = Guid.NewGuid() });
             l.Add(new Answer() { AnswerText = "This is answer second", IsCorrect = true, Id = Guid.NewGuid() });
             l.Add(new Answer() { AnswerText = "This is answer third", IsCorrect = true, Id = Guid.NewGuid() });
@@ -118,52 +119,13 @@ namespace Server
         public void UpdateTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            Training newTraining = new Training();
-            newTraining.Questions = new Collection<Question>();
-            Conversion.CopyProperty(training, newTraining);
-            if (training.Questions.Count() > 0)
-            {
-                foreach (var q in training.Questions) 
-                {
-                    Question question = new Question();
-                    Conversion.CopyProperty(q, question);
-                    question.Answers = new Collection<Answer>();
-                    foreach (var a in q.Answers)
-                    {
-                        Answer newA = new Answer();
-                        Conversion.CopyProperty(a, newA);
-                        question.Answers.Add(newA);
-                    }
-                    newTraining.Questions.Add(question);
-                }
-            }
-            repo.Update(newTraining);
+            repo.Update(Conversion.ConvertTrainingFromDTO(training));
         }
 
         public void SaveTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            Training newTraining = new Training();
-            newTraining.Questions = new Collection<Question>();
-
-            Conversion.CopyProperty(training, newTraining);
-            if (training.Questions.Count() > 0)
-            {
-                foreach (var q in training.Questions)
-                {
-                    Question question = new Question();
-                    Conversion.CopyProperty(q, question);
-                    question.Answers = new Collection<Answer>();
-                    foreach (var a in q.Answers)
-                    {
-                        Answer newA = new Answer();
-                        Conversion.CopyProperty(a, newA);
-                        question.Answers.Add(newA);
-                    }
-                    newTraining.Questions.Add(question);
-                }
-            }
-            repo.Create(newTraining);
+            repo.Create(Conversion.ConvertTrainingFromDTO(training));
         }
 
         public void SaveQuestion(QuestionDTO training)
@@ -186,7 +148,7 @@ namespace Server
         {
             EFTesteeRepository repo = new EFTesteeRepository();
             Testee newTestee = new Testee();
-            newTestee.Trainings = new Collection<TesteeTraining>();
+            newTestee.Trainings = new BindingList<TesteeTraining>();
             Conversion.CopyProperty(testee, newTestee);
             if (testee.Trainings.Count() > 0)
             {
@@ -205,7 +167,7 @@ namespace Server
         {
             EFTesteeRepository repo = new EFTesteeRepository();
             Testee newTestee = new Testee();
-            newTestee.Trainings = new Collection<TesteeTraining>();
+            newTestee.Trainings = new BindingList<TesteeTraining>();
             Conversion.CopyProperty(testee, newTestee);
             if (testee.Trainings.Count() > 0)
             {

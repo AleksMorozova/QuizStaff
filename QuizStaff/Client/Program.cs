@@ -2,6 +2,7 @@
 using Client.LoginForm;
 using DataTransferObject;
 using DevExpress.XtraEditors;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,7 +17,7 @@ namespace Client
     static class Program
     {
         public static string currentLang = "ru-RU";
-        public static TesteeDTO currentTestee = new TesteeDTO();
+        public static Testee currentTestee = new Testee();
         public static bool AsAdmin = true;
 
         private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1 }
@@ -72,12 +73,12 @@ namespace Client
                 }
 #endif
 
-                TesteeDTO user = ServicesHolder.ServiceClient.FindByLogin(login);
+                Conversion.CopyProperty(ServicesHolder.ServiceClient.FindByLogin(login), currentTestee);
 
-                    if (user == null)
+                if (currentTestee == null)
                         return LoginResult.Failed;
 
-                    if (user.Password != password)
+                if (currentTestee.Password != password)
                         return LoginResult.Failed;
 
                     //TODO: uncomment after implementation roles for users 

@@ -1,6 +1,7 @@
 ﻿using Client.TrainingsForms.TrainingQuestion;
 using DataTransferObject;
 using DevExpress.XtraEditors;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,9 @@ namespace Client.TrainingsForms.TrainingAddEdit
 {
     public class TrainingViewModel
     {
-        public TrainingDTO Training { get; set; }
+        public Training Training { get; set; }
 
-        public void EditQuestion(QuestionDTO question)
+        public void EditQuestion(Question question)
         {
             AddEditQuestionForm questionForm = new AddEditQuestionForm(question);
             FormManager.childForms.Add(questionForm);
@@ -23,7 +24,7 @@ namespace Client.TrainingsForms.TrainingAddEdit
             questionForm.ShowDialog();
         }
 
-        public void AddQuestion(TrainingDTO training)
+        public void AddQuestion(Training training)
         {
             AddEditQuestionForm questionForm = new AddEditQuestionForm();
             FormManager.childForms.Add(questionForm);
@@ -38,17 +39,17 @@ namespace Client.TrainingsForms.TrainingAddEdit
             //TODO: cancel edeting 
         }
 
-        public void Save(TrainingDTO training)
+        public void Save(Training training)
         {
             if (training != null)
             {
                 if (training.Id == Guid.Empty)
                 {
-                    ServicesHolder.ServiceClient.SaveTraining(training);
+                    ServicesHolder.ServiceClient.SaveTraining(Conversion.ConvertTrainingToDTO(training));
                 }
                 else
                 {
-                    ServicesHolder.ServiceClient.UpdateTraining(training);
+                    ServicesHolder.ServiceClient.UpdateTraining(Conversion.ConvertTrainingToDTO(training));
                 }
             }
         }

@@ -1,6 +1,7 @@
 ﻿using DomainModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,11 @@ namespace DataTransferObject
 {
     public class TesteeDTO : INotifyPropertyChanged
     {
-        private BindingList<TesteeTrainingDTO> trainings;
+
         public TesteeDTO() 
         {
             trainings = new BindingList<TesteeTrainingDTO>();
+            userSetting = new SettingDTO();
         }
 
         public Guid Id { get; set; }
@@ -88,9 +90,35 @@ namespace DataTransferObject
         }
         
         public string Password { get; set; }
-        public virtual Setting UserSetting { get; set; }
-        public virtual ICollection<HistoryDTO> Histories { get; set; }
-        
+
+        private SettingDTO userSetting;
+        public virtual SettingDTO UserSetting
+        {
+            get
+            {
+                return userSetting;
+            }
+            set
+            {
+                userSetting = value;
+                OnPropertyChanged("UserSetting");
+            }
+        }
+
+        private BindingList<HistoryDTO> histories;
+        public virtual BindingList<HistoryDTO> Histories
+        {
+            get
+            {
+                return histories;
+            }
+            set
+            {
+                histories = value;
+            }
+        }
+
+        private BindingList<TesteeTrainingDTO> trainings;
         public virtual BindingList<TesteeTrainingDTO> Trainings 
         { 
             get 
@@ -106,16 +134,15 @@ namespace DataTransferObject
         public static implicit operator TesteeDTO(Testee testee)
         {
             TesteeDTO newTeste = new TesteeDTO();
+
             Conversion.CopyProperty(testee, newTeste);
+            Conversion.CopyProperty(testee.UserSetting, newTeste.UserSetting);
 
-            if (testee.Trainings.Count() > 0)
+            foreach (var q in testee.Trainings)
             {
-                foreach (var q in testee.Trainings)
-                {
-                    newTeste.Trainings.Add((TesteeTrainingDTO)q);
-                }
+                newTeste.Trainings.Add((TesteeTrainingDTO)q);
             }
-
+           
             return newTeste;
         }
 

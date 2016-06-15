@@ -8,24 +8,14 @@ using System.Threading.Tasks;
 
 namespace DataTransferObject
 {
-    public class AnswerDTO : INotifyPropertyChanged
+    public class AnswerDTO 
     {
         public Guid Id { get; set; }
+       
         public bool IsActive { get; set; }
-
-        private string answerText;
-        public string AnswerText 
-        { 
-            get { return answerText; }
-            set 
-            {
-                if (value != answerText)
-                {
-                    answerText = value;
-                    OnPropertyChanged("AnswerText");
-                }
-            }
-        }
+      
+        public string AnswerText { get; set; }
+       
         public bool IsCorrect { get; set; }
 
         public static implicit operator AnswerDTO(Answer answer)
@@ -33,15 +23,6 @@ namespace DataTransferObject
             AnswerDTO newAnswer = new AnswerDTO();
             Conversion.CopyProperty(answer, newAnswer);
             return newAnswer;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

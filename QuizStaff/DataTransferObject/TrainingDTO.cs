@@ -9,63 +9,34 @@ using System.Threading.Tasks;
 
 namespace DataTransferObject
 {
-    public class TrainingDTO : INotifyPropertyChanged
+    public class TrainingDTO
     {
-        private BindingList<QuestionDTO> questions;
-        public TrainingDTO() 
-        {
-            questions = new BindingList<QuestionDTO>();
-        }
         public Guid Id { get; set; }
+
         public bool IsActive { get; set; }
 
-        private string trainingTitle;
-        public string TrainingTitle 
-        {
-            get
-            {
-                return trainingTitle;
-            }
-            set
-            {
-                if (value != trainingTitle)
-                {
-                    trainingTitle = value;
-                    OnPropertyChanged("TrainingTitle");
-                }
-            }
-        }
-        public BindingList<QuestionDTO> Questions { get { return questions; } set { questions = value; } }
-        public ICollection<TesteeTrainingDTO> TesteeTrainings { get; set; }
+        public string TrainingTitle { get; set; }
+
+        public BindingList<QuestionDTO> Questions { get; set; }
+
+        public BindingList<TesteeTrainingDTO> TesteeTrainings { get; set; }
 
         public static implicit operator TrainingDTO(Training training)
         {
             TrainingDTO newTraining = new TrainingDTO();
-            Conversion.CopyProperty(training, newTraining);
-            if (training.Questions.Count()>0)
+            newTraining.Questions = new BindingList<QuestionDTO>();
+            if (training != null)
             {
+                Conversion.CopyProperty(training, newTraining);
+
                 foreach (var q in training.Questions)
                 {
-                    foreach (var a in q.Answers)
-                    {
-                        
-                    }
-
                     newTraining.Questions.Add((QuestionDTO)q);
                 }
-
 
             }
             return newTraining;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
 }

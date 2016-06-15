@@ -5,6 +5,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DataTransferObject;
 using System.ComponentModel;
 using System.Globalization;
+using DomainModel;
 
 
 namespace Client.TesteesForms.TesteesList
@@ -29,11 +30,11 @@ namespace Client.TesteesForms.TesteesList
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(buttonSave, viewModel => viewModel.Save());
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(buttonCancel, viewModel => viewModel.Cancel());
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(loadTesteesButton , viewModel => viewModel.LoadTestees());
-            mvvmTesteesContext.BindCommand<TesteesListViewModel, TesteeDTO>(editTesteeButton,
+            mvvmTesteesContext.BindCommand<TesteesListViewModel, Testee>(editTesteeButton,
                 (x, currentTestee) => x.EditTestee (currentTestee), x => GetCurrentTestee());
-            mvvmTesteesContext.BindCommand<TesteesListViewModel, BindingList<TesteeDTO>>(addTesteeButton,
+            mvvmTesteesContext.BindCommand<TesteesListViewModel, BindingList<Testee>>(addTesteeButton,
                 (x, currentTestee) => x.AddTestee (currentTestee), x => GetCurrentTestees());
-            mvvmTesteesContext.BindCommand<TesteesListViewModel, TesteeDTO>(deleteTesteeButton,
+            mvvmTesteesContext.BindCommand<TesteesListViewModel, Testee>(deleteTesteeButton,
                 (x, currentTestee) => x.DeleteTestee(currentTestee), x => GetCurrentTestee());
         }
         private void BindToViewModel()
@@ -41,21 +42,21 @@ namespace Client.TesteesForms.TesteesList
             mvvmTesteesContext.SetBinding(gridTestees , testee => testee.DataSource, "Testees");              
         }
 
-        private BindingList<TesteeDTO> GetCurrentTestees()
+        private BindingList<Testee> GetCurrentTestees()
         {
-            return (model != null) ? model.Testees : new BindingList<TesteeDTO>();
+            return (model != null) ? model.Testees : new BindingList<Testee>();
         }
 
-        private TesteeDTO GetCurrentTestee()
+        private Testee GetCurrentTestee()
         {
             int rowHandler = testeeGridView.FocusedRowHandle;
-            var editedTestee = (TesteeDTO)testeeGridView.GetRow(rowHandler);
+            var editedTestee = (Testee)testeeGridView.GetRow(rowHandler);
             return editedTestee;
         }
 
         private void testeeGridView_DoubleClick(object sender, EventArgs e)
         {
-            model.EditTestee(GetCurrentTestee());
+            //model.EditTestee(GetCurrentTestee());
         }
        
         public void Localized(string language)
