@@ -1,64 +1,45 @@
 ﻿using System;
 using DomainModel;
+using System.Globalization;
+using System.ComponentModel;
 
 namespace Client.TesteeSettings
 {
-    public partial class TesteeSettingsForm : DevExpress.XtraEditors.XtraForm, IClientSetupForm
+    public partial class TesteeSettingsForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
+        private TesteeSettingsViewModel model;
+      
         public TesteeSettingsForm()
         {
             InitializeComponent();
-            var presenter = new ClientSetupPresenter(this);
+
+            mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
+            BindCommands();
+            model = new TesteeSettingsViewModel();
+            model.SetUpSetting();
+            mvvmTesteeSettingsContext.SetViewModel(typeof(TesteeSettingsViewModel), model);
+            BindToViewModel();
         }
 
-        public DateTime TimeOfStart
+        private void BindCommands() { }
+        private void BindToViewModel() 
         {
-            get
-            {
-                return (DateTime)timeEditTimeOfStart.EditValue;
-            }
-            set
-            {
-                timeEditTimeOfStart.EditValue = value;
-            }
-        }
-        public int FrequencyOfAsking
-        {
-            get
-            {
-                return Convert.ToInt32(spinEditFrequency.Value);
-            }
-            set
-            {
-                spinEditFrequency.Value = value;
-            }
+            mvvmTesteeSettingsContext.SetBinding(questionAmountSpinEdit, questionText => questionText.EditValue, "UserSetting.AmountOfQuestionsPerDay");
+            mvvmTesteeSettingsContext.SetBinding(frequencySpinEdit, questionText => questionText.EditValue, "UserSetting.FrequencyOfAsking");
+            mvvmTesteeSettingsContext.SetBinding(timeOfAskingEditTime, questionText => questionText.EditValue, "UserSetting.TimeOfStart");
         }
 
-        public Int32 QuestionsAmount
+        public void Localized(string language)
         {
-            get
-            {
-                return Convert.ToInt32(spinEditAmount.Value);
-            }
-            set
-            {
-                spinEditAmount.Value = value;
-            }
-        }
+            var resources = new ComponentResourceManager(typeof(TesteeSettingsForm));
+            CultureInfo newCultureInfo = new CultureInfo(language);
+            resources.ApplyResources(questionAmountSpinEditLayoutControlItem, "questionAmountSpinEditLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(frequencySpinEditLayoutControlItem, "frequencySpinEditLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(timeOfAskingEditTimeLayoutControlItem, "timeOfAskingEditTimeLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
+            resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
 
-
-        public event EventHandler ButSaveClick;
-        public event EventHandler ButCancelClick;
-
-        private void butCancel_Click(object sender, EventArgs e)
-        {
-            if (ButCancelClick != null) ButCancelClick(this, EventArgs.Empty);
-            Close();
-        }
-
-        private void butSave_Click(object sender, EventArgs e)
-        {
-            if (ButSaveClick != null) ButSaveClick(this, EventArgs.Empty);
+            this.Text = resources.GetString("Title", newCultureInfo);
         }
     }
 }

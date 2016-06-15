@@ -29,45 +29,47 @@
         private void InitializeComponent()
         {
             this.MainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
-            this.spinEditFrequency = new DevExpress.XtraEditors.SpinEdit();
-            this.timeEditTimeOfStart = new DevExpress.XtraEditors.TimeEdit();
-            this.spinEditAmount = new DevExpress.XtraEditors.SpinEdit();
-            this.butSave = new DevExpress.XtraEditors.SimpleButton();
-            this.butCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.frequencySpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.timeOfAskingEditTime = new DevExpress.XtraEditors.TimeEdit();
+            this.questionAmountSpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlCancelButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlSaveButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.questionAmountSpinEditLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlTimeOfStart = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlFrequency = new DevExpress.XtraLayout.LayoutControlItem();
+            this.timeOfAskingEditTimeLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.frequencySpinEditLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mvvmTesteeSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.MainLayoutControl)).BeginInit();
             this.MainLayoutControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditFrequency.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEditTimeOfStart.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditAmount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionAmountSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCancelButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSaveButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionAmountSpinEditLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlTimeOfStart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFrequency)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTimeLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEditLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeSettingsContext)).BeginInit();
             this.SuspendLayout();
             // 
             // MainLayoutControl
             // 
-            this.MainLayoutControl.Controls.Add(this.spinEditFrequency);
-            this.MainLayoutControl.Controls.Add(this.timeEditTimeOfStart);
-            this.MainLayoutControl.Controls.Add(this.spinEditAmount);
-            this.MainLayoutControl.Controls.Add(this.butSave);
-            this.MainLayoutControl.Controls.Add(this.butCancel);
+            this.MainLayoutControl.Controls.Add(this.frequencySpinEdit);
+            this.MainLayoutControl.Controls.Add(this.timeOfAskingEditTime);
+            this.MainLayoutControl.Controls.Add(this.questionAmountSpinEdit);
+            this.MainLayoutControl.Controls.Add(this.saveButton);
+            this.MainLayoutControl.Controls.Add(this.cancelButton);
             this.MainLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.MainLayoutControl.Name = "MainLayoutControl";
@@ -77,92 +79,90 @@
             this.MainLayoutControl.TabIndex = 0;
             this.MainLayoutControl.Text = "MainLayoutControl";
             // 
-            // spinEditFrequency
+            // frequencySpinEdit
             // 
-            this.spinEditFrequency.EditValue = new decimal(new int[] {
+            this.frequencySpinEdit.EditValue = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.spinEditFrequency.Location = new System.Drawing.Point(12, 99);
-            this.spinEditFrequency.Name = "spinEditFrequency";
-            this.spinEditFrequency.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.frequencySpinEdit.Location = new System.Drawing.Point(12, 99);
+            this.frequencySpinEdit.Name = "frequencySpinEdit";
+            this.frequencySpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEditFrequency.Properties.IsFloatValue = false;
-            this.spinEditFrequency.Properties.Mask.EditMask = "N00";
-            this.spinEditFrequency.Properties.MaxValue = new decimal(new int[] {
+            this.frequencySpinEdit.Properties.IsFloatValue = false;
+            this.frequencySpinEdit.Properties.Mask.EditMask = "N00";
+            this.frequencySpinEdit.Properties.MaxValue = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.spinEditFrequency.Properties.MinValue = new decimal(new int[] {
+            this.frequencySpinEdit.Properties.MinValue = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.spinEditFrequency.Size = new System.Drawing.Size(387, 20);
-            this.spinEditFrequency.StyleController = this.MainLayoutControl;
-            this.spinEditFrequency.TabIndex = 11;
+            this.frequencySpinEdit.Size = new System.Drawing.Size(387, 20);
+            this.frequencySpinEdit.StyleController = this.MainLayoutControl;
+            this.frequencySpinEdit.TabIndex = 11;
             // 
-            // timeEditTimeOfStart
+            // timeOfAskingEditTime
             // 
-            this.timeEditTimeOfStart.EditValue = new System.DateTime(2016, 4, 28, 0, 0, 0, 0);
-            this.timeEditTimeOfStart.Location = new System.Drawing.Point(12, 167);
-            this.timeEditTimeOfStart.Name = "timeEditTimeOfStart";
-            this.timeEditTimeOfStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.timeOfAskingEditTime.EditValue = new System.DateTime(2016, 4, 28, 0, 0, 0, 0);
+            this.timeOfAskingEditTime.Location = new System.Drawing.Point(12, 167);
+            this.timeOfAskingEditTime.Name = "timeOfAskingEditTime";
+            this.timeOfAskingEditTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEditTimeOfStart.Properties.Mask.BeepOnError = true;
-            this.timeEditTimeOfStart.Properties.Mask.EditMask = "t";
-            this.timeEditTimeOfStart.Size = new System.Drawing.Size(387, 20);
-            this.timeEditTimeOfStart.StyleController = this.MainLayoutControl;
-            this.timeEditTimeOfStart.TabIndex = 10;
+            this.timeOfAskingEditTime.Properties.Mask.BeepOnError = true;
+            this.timeOfAskingEditTime.Properties.Mask.EditMask = "t";
+            this.timeOfAskingEditTime.Size = new System.Drawing.Size(387, 20);
+            this.timeOfAskingEditTime.StyleController = this.MainLayoutControl;
+            this.timeOfAskingEditTime.TabIndex = 10;
             // 
-            // spinEditAmount
+            // questionAmountSpinEdit
             // 
-            this.spinEditAmount.EditValue = new decimal(new int[] {
+            this.questionAmountSpinEdit.EditValue = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.spinEditAmount.Location = new System.Drawing.Point(12, 53);
-            this.spinEditAmount.Name = "spinEditAmount";
-            this.spinEditAmount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.questionAmountSpinEdit.Location = new System.Drawing.Point(12, 53);
+            this.questionAmountSpinEdit.Name = "questionAmountSpinEdit";
+            this.questionAmountSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEditAmount.Properties.IsFloatValue = false;
-            this.spinEditAmount.Properties.Mask.EditMask = "N00";
-            this.spinEditAmount.Properties.MaxValue = new decimal(new int[] {
+            this.questionAmountSpinEdit.Properties.IsFloatValue = false;
+            this.questionAmountSpinEdit.Properties.Mask.EditMask = "N00";
+            this.questionAmountSpinEdit.Properties.MaxValue = new decimal(new int[] {
             100,
             0,
             0,
             0});
-            this.spinEditAmount.Properties.MinValue = new decimal(new int[] {
+            this.questionAmountSpinEdit.Properties.MinValue = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.spinEditAmount.Size = new System.Drawing.Size(387, 20);
-            this.spinEditAmount.StyleController = this.MainLayoutControl;
-            this.spinEditAmount.TabIndex = 9;
+            this.questionAmountSpinEdit.Size = new System.Drawing.Size(387, 20);
+            this.questionAmountSpinEdit.StyleController = this.MainLayoutControl;
+            this.questionAmountSpinEdit.TabIndex = 9;
             // 
-            // butSave
+            // saveButton
             // 
-            this.butSave.Location = new System.Drawing.Point(12, 236);
-            this.butSave.Name = "butSave";
-            this.butSave.Size = new System.Drawing.Size(113, 22);
-            this.butSave.StyleController = this.MainLayoutControl;
-            this.butSave.TabIndex = 5;
-            this.butSave.Text = "Save";
-            this.butSave.Click += new System.EventHandler(this.butSave_Click);
+            this.saveButton.Location = new System.Drawing.Point(12, 236);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(113, 22);
+            this.saveButton.StyleController = this.MainLayoutControl;
+            this.saveButton.TabIndex = 5;
+            this.saveButton.Text = "Save";
             // 
-            // butCancel
+            // cancelButton
             // 
-            this.butCancel.Location = new System.Drawing.Point(285, 236);
-            this.butCancel.Name = "butCancel";
-            this.butCancel.Size = new System.Drawing.Size(114, 22);
-            this.butCancel.StyleController = this.MainLayoutControl;
-            this.butCancel.TabIndex = 4;
-            this.butCancel.Text = "Cancel";
-            this.butCancel.Click += new System.EventHandler(this.butCancel_Click);
+            this.cancelButton.Location = new System.Drawing.Point(285, 236);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(114, 22);
+            this.cancelButton.StyleController = this.MainLayoutControl;
+            this.cancelButton.TabIndex = 4;
+            this.cancelButton.Text = "Cancel";
             // 
             // layoutControlGroup1
             // 
@@ -174,10 +174,10 @@
             this.layoutControlSaveButton,
             this.emptySpaceItem1,
             this.emptySpaceItem2,
-            this.layoutControlItem4,
+            this.questionAmountSpinEditLayoutControlItem,
             this.emptySpaceItem4,
-            this.layoutControlTimeOfStart,
-            this.layoutControlFrequency});
+            this.timeOfAskingEditTimeLayoutControlItem,
+            this.frequencySpinEditLayoutControlItem});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(411, 270);
@@ -193,7 +193,7 @@
             // 
             // layoutControlCancelButton
             // 
-            this.layoutControlCancelButton.Control = this.butCancel;
+            this.layoutControlCancelButton.Control = this.cancelButton;
             this.layoutControlCancelButton.Location = new System.Drawing.Point(273, 224);
             this.layoutControlCancelButton.MaxSize = new System.Drawing.Size(118, 0);
             this.layoutControlCancelButton.MinSize = new System.Drawing.Size(118, 26);
@@ -205,7 +205,7 @@
             // 
             // layoutControlSaveButton
             // 
-            this.layoutControlSaveButton.Control = this.butSave;
+            this.layoutControlSaveButton.Control = this.saveButton;
             this.layoutControlSaveButton.Location = new System.Drawing.Point(0, 224);
             this.layoutControlSaveButton.MaxSize = new System.Drawing.Size(117, 26);
             this.layoutControlSaveButton.MinSize = new System.Drawing.Size(117, 26);
@@ -231,17 +231,17 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(391, 25);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem4
+            // questionAmountSpinEditLayoutControlItem
             // 
-            this.layoutControlItem4.Control = this.spinEditAmount;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 25);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(105, 40);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(391, 46);
-            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.Text = "Question amount:";
-            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(101, 13);
+            this.questionAmountSpinEditLayoutControlItem.Control = this.questionAmountSpinEdit;
+            this.questionAmountSpinEditLayoutControlItem.Location = new System.Drawing.Point(0, 25);
+            this.questionAmountSpinEditLayoutControlItem.MinSize = new System.Drawing.Size(105, 40);
+            this.questionAmountSpinEditLayoutControlItem.Name = "questionAmountSpinEditLayoutControlItem";
+            this.questionAmountSpinEditLayoutControlItem.Size = new System.Drawing.Size(391, 46);
+            this.questionAmountSpinEditLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.questionAmountSpinEditLayoutControlItem.Text = "Question amount:";
+            this.questionAmountSpinEditLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.questionAmountSpinEditLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
             // 
             // emptySpaceItem4
             // 
@@ -251,55 +251,60 @@
             this.emptySpaceItem4.Size = new System.Drawing.Size(391, 18);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlTimeOfStart
+            // timeOfAskingEditTimeLayoutControlItem
             // 
-            this.layoutControlTimeOfStart.Control = this.timeEditTimeOfStart;
-            this.layoutControlTimeOfStart.CustomizationFormText = "TimeOfStart:";
-            this.layoutControlTimeOfStart.Location = new System.Drawing.Point(0, 139);
-            this.layoutControlTimeOfStart.Name = "layoutControlTimeOfStart";
-            this.layoutControlTimeOfStart.Size = new System.Drawing.Size(391, 40);
-            this.layoutControlTimeOfStart.Text = "TimeOfStart:";
-            this.layoutControlTimeOfStart.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlTimeOfStart.TextSize = new System.Drawing.Size(101, 13);
+            this.timeOfAskingEditTimeLayoutControlItem.Control = this.timeOfAskingEditTime;
+            this.timeOfAskingEditTimeLayoutControlItem.CustomizationFormText = "TimeOfStart:";
+            this.timeOfAskingEditTimeLayoutControlItem.Location = new System.Drawing.Point(0, 139);
+            this.timeOfAskingEditTimeLayoutControlItem.Name = "timeOfAskingEditTimeLayoutControlItem";
+            this.timeOfAskingEditTimeLayoutControlItem.Size = new System.Drawing.Size(391, 40);
+            this.timeOfAskingEditTimeLayoutControlItem.Text = "TimeOfStart:";
+            this.timeOfAskingEditTimeLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.timeOfAskingEditTimeLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
             // 
-            // layoutControlFrequency
+            // frequencySpinEditLayoutControlItem
             // 
-            this.layoutControlFrequency.Control = this.spinEditFrequency;
-            this.layoutControlFrequency.CustomizationFormText = "Frequency of asking:";
-            this.layoutControlFrequency.Location = new System.Drawing.Point(0, 71);
-            this.layoutControlFrequency.MinSize = new System.Drawing.Size(105, 40);
-            this.layoutControlFrequency.Name = "layoutControlFrequency";
-            this.layoutControlFrequency.Size = new System.Drawing.Size(391, 50);
-            this.layoutControlFrequency.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlFrequency.Text = "Frequency of asking:";
-            this.layoutControlFrequency.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlFrequency.TextSize = new System.Drawing.Size(101, 13);
+            this.frequencySpinEditLayoutControlItem.Control = this.frequencySpinEdit;
+            this.frequencySpinEditLayoutControlItem.CustomizationFormText = "Frequency of asking:";
+            this.frequencySpinEditLayoutControlItem.Location = new System.Drawing.Point(0, 71);
+            this.frequencySpinEditLayoutControlItem.MinSize = new System.Drawing.Size(105, 40);
+            this.frequencySpinEditLayoutControlItem.Name = "frequencySpinEditLayoutControlItem";
+            this.frequencySpinEditLayoutControlItem.Size = new System.Drawing.Size(391, 50);
+            this.frequencySpinEditLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.frequencySpinEditLayoutControlItem.Text = "Frequency of asking:";
+            this.frequencySpinEditLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.frequencySpinEditLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
             // 
-            // ClientsSetupForm
+            // mvvmTesteeSettingsContext
+            // 
+            this.mvvmTesteeSettingsContext.ContainerControl = this;
+            // 
+            // TesteeSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(411, 270);
             this.Controls.Add(this.MainLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "ClientsSetupForm";
+            this.Name = "TesteeSettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Set up";
             ((System.ComponentModel.ISupportInitialize)(this.MainLayoutControl)).EndInit();
             this.MainLayoutControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditFrequency.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEditTimeOfStart.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditAmount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionAmountSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCancelButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSaveButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionAmountSpinEditLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlTimeOfStart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlFrequency)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTimeLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEditLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeSettingsContext)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -308,19 +313,20 @@
 
         private DevExpress.XtraLayout.LayoutControl MainLayoutControl;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraEditors.SimpleButton butSave;
-        private DevExpress.XtraEditors.SimpleButton butCancel;
+        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraEditors.SimpleButton cancelButton;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlCancelButton;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlSaveButton;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraEditors.SpinEdit spinEditAmount;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraEditors.TimeEdit timeEditTimeOfStart;
+        private DevExpress.XtraEditors.SpinEdit questionAmountSpinEdit;
+        private DevExpress.XtraLayout.LayoutControlItem questionAmountSpinEditLayoutControlItem;
+        private DevExpress.XtraEditors.TimeEdit timeOfAskingEditTime;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlTimeOfStart;
-        private DevExpress.XtraEditors.SpinEdit spinEditFrequency;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlFrequency;
+        private DevExpress.XtraLayout.LayoutControlItem timeOfAskingEditTimeLayoutControlItem;
+        private DevExpress.XtraEditors.SpinEdit frequencySpinEdit;
+        private DevExpress.XtraLayout.LayoutControlItem frequencySpinEditLayoutControlItem;
+        private DevExpress.Utils.MVVM.MVVMContext mvvmTesteeSettingsContext;
     }
 }

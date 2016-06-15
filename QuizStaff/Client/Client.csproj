@@ -95,6 +95,7 @@
     <Reference Include="UIAutomationClient" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TesteeSettings\TesteeSettingsViewModel.cs" />
     <Compile Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,14 +123,12 @@
     <Compile Include="AdminSettings\EditSettingsForm.Designer.cs">
       <DependentUpon>EditSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TesteeSettings\ClientSetupPresenter.cs" />
     <Compile Include="TesteeSettings\TesteeSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TesteeSettings\TesteeSettingsForm.Designer.cs">
       <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TesteeSettings\IClientSetupForm.cs" />
     <Compile Include="LoginForm\UserLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
