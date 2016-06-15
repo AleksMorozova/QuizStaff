@@ -73,6 +73,44 @@ namespace DataTransferObject
 
             return newTraining;
         }
+
+        public static TesteeDTO ConvertTesteeToDTO(Testee testee) 
+        {
+            TesteeDTO newTestee = new TesteeDTO();
+            newTestee.Trainings = new BindingList<TesteeTrainingDTO>();
+            Conversion.CopyProperty(testee, newTestee);
+            if (testee.Trainings.Count() > 0)
+            {
+                foreach (var t in testee.Trainings)
+                {
+                    TesteeTrainingDTO training = new TesteeTrainingDTO();
+                    Conversion.CopyProperty(t, training);
+                    newTestee.Trainings.Add(training);
+                }
+            }
+
+            return newTestee;
+        }
+
+        public static Testee ConvertTesteeFromDTO(TesteeDTO testee)
+        {
+            Testee newTestee = new Testee();
+            newTestee.UserSetting = new Setting();
+            newTestee.Trainings = new BindingList<TesteeTraining>();
+            Conversion.CopyProperty(testee, newTestee);
+            Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
+            if (testee.Trainings.Count() > 0)
+            {
+                foreach (var t in testee.Trainings)
+                {
+                    TesteeTraining training = new TesteeTraining();
+                    Conversion.CopyProperty(t, training);
+                    newTestee.Trainings.Add(training);
+                }
+            }
+
+            return newTestee;
+        }
     }
 }
 

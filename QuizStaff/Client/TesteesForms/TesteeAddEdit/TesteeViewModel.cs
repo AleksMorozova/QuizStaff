@@ -1,6 +1,7 @@
 ﻿using Client.TrainingsForms.TrainingAddEdit;
 using DataTransferObject;
 using DevExpress.XtraEditors;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,9 +13,9 @@ namespace Client.TesteesForm.TesteeAddEdit
 {
     public class TesteeViewModel
     {
-        public TesteeDTO Testee { get; set; }        
+        public Testee Testee { get; set; }        
                
-        public void AddTraining(TesteeDTO testee)
+        public void AddTraining(Testee testee)
         {
             TrainingAddEditForm trainingForm = new TrainingAddEditForm();
             FormManager.Instance.OpenChildForm(trainingForm, "Add training");
@@ -22,15 +23,15 @@ namespace Client.TesteesForm.TesteeAddEdit
             FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 
-        public BindingList<TrainingDTO> AllTrainings { get; set; }
+        public BindingList<Training> AllTrainings { get; set; }
 
         public void GetAllTrainings()
         {
-            AllTrainings = new BindingList<TrainingDTO>();
+            AllTrainings = new BindingList<Training>();
             var trainingsList = ServicesHolder.ServiceClient.GetAllTrainings();
             foreach (var training in trainingsList)
             {
-                AllTrainings.Add(training);
+                //AllTrainings.Add(training);
             }
         }
 
@@ -39,7 +40,7 @@ namespace Client.TesteesForm.TesteeAddEdit
             //TODO: cancel edeting 
         }       
 
-        public void Save(TesteeDTO testee)
+        public void Save(Testee testee)
         {
             if (testee != null)
             {

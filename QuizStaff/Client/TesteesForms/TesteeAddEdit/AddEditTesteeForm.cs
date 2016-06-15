@@ -11,18 +11,19 @@ using DevExpress.XtraEditors;
 using DataTransferObject;
 using System.Globalization;
 using DevExpress.XtraGrid.Views.Grid;
+using DomainModel;
 
 namespace Client.TesteesForm.TesteeAddEdit
 {
     public partial class AddEditTesteeForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
        private TesteeViewModel model;
-       private TesteeDTO currentTestee;
+       private Testee currentTestee;
 
        public AddEditTesteeForm()
-           : this(new TesteeDTO() { IsActive = true}) { }
+           : this(new Testee() { IsActive = true}) { }
 
-        public AddEditTesteeForm(TesteeDTO testee)
+        public AddEditTesteeForm(Testee testee)
         {
             InitializeComponent();
             this.gridViewTrainings.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
@@ -40,10 +41,10 @@ namespace Client.TesteesForm.TesteeAddEdit
         {
             mvvmTesteeContext.BindCommand<TesteeViewModel>(cancelButton, viewModel => viewModel.Cancel());
 
-            mvvmTesteeContext.BindCommand<TesteeViewModel, TesteeDTO>(addTrainingButton, (viewModel, testee)
+            mvvmTesteeContext.BindCommand<TesteeViewModel, Testee>(addTrainingButton, (viewModel, testee)
                 => viewModel.AddTraining(testee), x => currentTestee);
             
-            mvvmTesteeContext.BindCommand<TesteeViewModel, TesteeDTO>(saveButton, (viewModel, testee)
+            mvvmTesteeContext.BindCommand<TesteeViewModel, Testee>(saveButton, (viewModel, testee)
                 => viewModel.Save(testee), x => currentTestee);
         }
 
@@ -62,7 +63,7 @@ namespace Client.TesteesForm.TesteeAddEdit
             trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";
         }               
 
-        public TesteeDTO Testee
+        public Testee Testee
         {
             get
             {
@@ -100,7 +101,7 @@ namespace Client.TesteesForm.TesteeAddEdit
             //TODO: get current testee training 
             GridView v = sender as GridView;
             var currentValue = v.EditingValue;
-            TesteeTrainingDTO training = v.GetRow(e.RowHandle) as TesteeTrainingDTO;
+            TesteeTraining training = v.GetRow(e.RowHandle) as TesteeTraining;
             training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
             training.TrainingID = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First().Id;
             training.TesteeID = model.Testee.Id;
