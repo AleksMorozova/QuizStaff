@@ -46,6 +46,8 @@ namespace DomainModel
 
         public DateTime TimeOfStart { get; set; }
 
+        public bool CanUserEdit { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)

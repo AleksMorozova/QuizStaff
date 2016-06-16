@@ -152,7 +152,7 @@ namespace Server
             newTestee.Trainings = new BindingList<TesteeTraining>();
             Conversion.CopyProperty(testee, newTestee);
             Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
-            if (testee.Trainings.Count() > 0)
+            if (testee.Trainings != null)
             {
                 foreach (var t in testee.Trainings)
                 {

@@ -41,8 +41,8 @@ namespace Client.TesteesForm.TesteeAddEdit
         {
           //  mvvmTesteeContext.BindCommand<TesteeViewModel>(cancelButton, viewModel => viewModel.Cancel());
 
-            mvvmTesteeContext.BindCommand<TesteeViewModel, Testee>(addTrainingButton, (viewModel, testee)
-                => viewModel.AddTraining(testee), x => currentTestee);
+            //mvvmTesteeContext.BindCommand<TesteeViewModel, Testee>(addTrainingButton, (viewModel, testee)
+            //    => viewModel.AddTraining(testee), x => currentTestee);
             
             mvvmTesteeContext.BindCommand<TesteeViewModel, Testee>(saveButton, (viewModel, testee)
                 => viewModel.Save(testee), x => currentTestee);
@@ -62,13 +62,13 @@ namespace Client.TesteesForm.TesteeAddEdit
             trainingsRepositoryItemLookUpEdit.DisplayMember = "TrainingTitle";
             trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";  
                  
-            //mvvmTesteeContext.SetBinding(spinEdit1, questionText => questionText.EditValue, "Testee.UserSetting.AmountOfQuestionsPerDay");
-            //mvvmTesteeContext.SetBinding(frequencySpinEdit, questionText => questionText.EditValue, "Testee.UserSetting.FrequencyOfAsking");
-
+            //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
             var outer = new BindingSource { DataSource = model.Testee };
             var inner = new BindingSource(outer, "UserSetting");
             questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
-            frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");//frequencySpinEdit
+            frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");
+            canEditToggleSwitch.DataBindings.Add("EditValue", inner, "CanUserEdit");
+            timeOfStartTimeEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");//CanUserEdit
         }               
 
         public Testee Testee
@@ -86,21 +86,20 @@ namespace Client.TesteesForm.TesteeAddEdit
         {
             var resources = new ComponentResourceManager(typeof(AddEditTesteeForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
-            resources.ApplyResources(layoutControlItemFirstName, "layoutControlItemFirstName", newCultureInfo);
-            resources.ApplyResources(layoutControlItemLastName, "layoutControlItemLastName", newCultureInfo);
-            resources.ApplyResources(layoutControlItemLogin, "layoutControlItemLogin", newCultureInfo);
-            resources.ApplyResources(layoutControlItemEmail, "layoutControlItemEmail", newCultureInfo);
-            resources.ApplyResources(addTrainingButton, "addTrainingButton", newCultureInfo);
-            resources.ApplyResources(layoutControlItemTranings, "layoutControlItemTranings", newCultureInfo);
+            resources.ApplyResources(firstNameLayoutControlItem, "firstNameLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(lastNameLayoutControlItem, "lastNameLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(loginLayoutControlItem, "loginLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(emailLayoutControlItem, "emailLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(trainingsLayoutControlItem, "trainingsLayoutControlItem", newCultureInfo);
             resources.ApplyResources(gridTrainings, "gridTrainings", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
-          //  resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
+            resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
             resources.ApplyResources(titleGridColumn, "titleGridColumn", newCultureInfo);
-            //resources.ApplyResources(layoutControlItemQuestionAmount, "layoutControlItemQuestionAmount", newCultureInfo);
-            //resources.ApplyResources(layoutControlItemFreqOfAsk, "layoutControlItemFreqOfAsk", newCultureInfo);
+            resources.ApplyResources(questionAmountLayoutControlItem, "questionAmountLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(frequencyLayoutControlItem, "frequencyLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(timeOfStartTimeEditLayoutControlItem, "timeOfStartTimeEditLayoutControlItem", newCultureInfo);
             //resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
-            //resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
-            //resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
+            resources.ApplyResources(timeOfStartTimeEditLayoutControlItem, "timeOfStartTimeEditLayoutControlItem", newCultureInfo);
             this.Text = resources.GetString("Title", newCultureInfo) + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");
         }
 

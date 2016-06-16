@@ -138,6 +138,7 @@ namespace DataTransferObject
             Conversion.CopyProperty(testee, newTeste);
             Conversion.CopyProperty(testee.UserSetting, newTeste.UserSetting);
 
+            if (testee.Trainings!=null)
             foreach (var q in testee.Trainings)
             {
                 newTeste.Trainings.Add((TesteeTrainingDTO)q);

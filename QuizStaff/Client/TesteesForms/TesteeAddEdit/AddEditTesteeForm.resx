@@ -120,20 +120,98 @@
   <metadata name="settingDTOBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>179, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="canEditToggleSwitch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>566, 421</value>
+  </data>
+  <data name="toggleSwitch1.Properties.OffText" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="toggleSwitch1.Properties.OnText" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="canEditToggleSwitch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 24</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="canEditToggleSwitch.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;canEditToggleSwitch.Name" xml:space="preserve">
+    <value>canEditToggleSwitch</value>
+  </data>
+  <data name="&gt;&gt;canEditToggleSwitch.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ToggleSwitch, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;canEditToggleSwitch.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;canEditToggleSwitch.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="timeOfStartTimeEdit.EditValue" type="System.DateTime, mscorlib">
+    <value>2016-06-16</value>
+  </data>
+  <data name="timeOfStartTimeEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>433, 421</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="timeOfStartTimeEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="timeOfStartTimeEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 20</value>
+  </data>
+  <data name="timeOfStartTimeEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;timeOfStartTimeEdit.Name" xml:space="preserve">
+    <value>timeOfStartTimeEdit</value>
+  </data>
+  <data name="&gt;&gt;timeOfStartTimeEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TimeEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;timeOfStartTimeEdit.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;timeOfStartTimeEdit.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>503, 461</value>
+  </data>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="frequencySpinEdit.EditValue" type="System.Decimal, mscorlib">
     <value>0</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="frequencySpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>379, 403</value>
+    <value>109, 421</value>
   </data>
-  <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="spinEdit1.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+  <data name="frequencySpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Combo</value>
   </data>
   <data name="frequencySpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 20</value>
+    <value>70, 20</value>
   </data>
   <data name="frequencySpinEdit.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -148,19 +226,19 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;frequencySpinEdit.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>7</value>
   </data>
   <data name="questionAmountSpinEdit.EditValue" type="System.Decimal, mscorlib">
     <value>0</value>
   </data>
   <data name="questionAmountSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 403</value>
+    <value>268, 421</value>
   </data>
-  <data name="spinEdit1.Properties.Buttons1" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+  <data name="questionAmountSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Combo</value>
   </data>
   <data name="questionAmountSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 20</value>
+    <value>71, 20</value>
   </data>
   <data name="questionAmountSpinEdit.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -175,19 +253,19 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;questionAmountSpinEdit.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 427</value>
+    <value>350, 461</value>
   </data>
   <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>560, 22</value>
+    <value>139, 22</value>
   </data>
   <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
   <data name="saveButton.Text" xml:space="preserve">
-    <value>simpleButton1</value>
+    <value>Save</value>
   </data>
   <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
     <value>saveButton</value>
@@ -199,10 +277,10 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="gridTrainings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 134</value>
+    <value>24, 158</value>
   </data>
   <data name="titleGridColumn.Caption" xml:space="preserve">
     <value>Title</value>
@@ -216,15 +294,6 @@
   <data name="trainingsRepositoryItemLookUpEdit.NullText" xml:space="preserve">
     <value />
   </data>
-  <data name="gridColumn1.Caption" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="titleGridColumn.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -232,7 +301,7 @@
     <value>0</value>
   </data>
   <data name="gridTrainings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>560, 265</value>
+    <value>632, 212</value>
   </data>
   <data name="gridTrainings.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -247,13 +316,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;gridTrainings.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="textEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>294, 68</value>
+    <value>308, 108</value>
   </data>
   <data name="textEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 20</value>
+    <value>343, 20</value>
   </data>
   <data name="textEmail.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -268,13 +337,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textEmail.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>11</value>
   </data>
   <data name="textLogin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 68</value>
+    <value>24, 108</value>
   </data>
   <data name="textLogin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 20</value>
+    <value>280, 20</value>
   </data>
   <data name="textLogin.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -289,13 +358,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textLogin.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="textLastName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>294, 28</value>
+    <value>308, 58</value>
   </data>
   <data name="textLastName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 20</value>
+    <value>348, 20</value>
   </data>
   <data name="textLastName.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -310,13 +379,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textLastName.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>13</value>
   </data>
   <data name="textFirstName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 28</value>
+    <value>24, 58</value>
   </data>
   <data name="textFirstName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 20</value>
+    <value>280, 20</value>
   </data>
   <data name="textFirstName.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -331,31 +400,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textFirstName.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="addTrainingButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>474, 92</value>
-  </data>
-  <data name="addTrainingButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 22</value>
-  </data>
-  <data name="addTrainingButton.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="addTrainingButton.Text" xml:space="preserve">
-    <value>Add training</value>
-  </data>
-  <data name="&gt;&gt;addTrainingButton.Name" xml:space="preserve">
-    <value>addTrainingButton</value>
-  </data>
-  <data name="&gt;&gt;addTrainingButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;addTrainingButton.Parent" xml:space="preserve">
-    <value>layoutControl1</value>
-  </data>
-  <data name="&gt;&gt;addTrainingButton.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -364,29 +409,38 @@
   <data name="layoutControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="layoutControlItemTranings.Text" xml:space="preserve">
-    <value>Tranings</value>
-  </data>
-  <data name="layoutControlItemEmail.Text" xml:space="preserve">
-    <value>E-mail:</value>
-  </data>
-  <data name="layoutControlItemFirstName.Text" xml:space="preserve">
-    <value>First name:</value>
-  </data>
-  <data name="layoutControlItemLogin.Text" xml:space="preserve">
-    <value>Login:</value>
-  </data>
-  <data name="layoutControlItemLastName.Text" xml:space="preserve">
-    <value>Last name:</value>
-  </data>
-  <data name="layoutControlItemQuestionAmount.Text" xml:space="preserve">
-    <value>Question amount</value>
-  </data>
   <data name="frequencyLayoutControlItem.Text" xml:space="preserve">
     <value>Frequency</value>
   </data>
+  <data name="questionAmountLayoutControlItem.Text" xml:space="preserve">
+    <value>Question amount</value>
+  </data>
+  <data name="timeOfStartTimeEditLayoutControlItem.Text" xml:space="preserve">
+    <value>Time of start</value>
+  </data>
+  <data name="settingLayoutControlGroup.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="lastNameLayoutControlItem.Text" xml:space="preserve">
+    <value>Last name:</value>
+  </data>
+  <data name="trainingsLayoutControlItem.Text" xml:space="preserve">
+    <value>Tranings</value>
+  </data>
+  <data name="loginLayoutControlItem.Text" xml:space="preserve">
+    <value>Login:</value>
+  </data>
+  <data name="firstNameLayoutControlItem.Text" xml:space="preserve">
+    <value>First name:</value>
+  </data>
+  <data name="emailLayoutControlItem.Text" xml:space="preserve">
+    <value>E-mail:</value>
+  </data>
+  <data name="generalInfLayoutControlGroup.Text" xml:space="preserve">
+    <value>General information</value>
+  </data>
   <data name="layoutControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 461</value>
+    <value>680, 500</value>
   </data>
   <data name="layoutControl1.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -406,6 +460,15 @@
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <metadata name="mvvmTesteeContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -419,7 +482,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>584, 461</value>
+    <value>680, 500</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>600, 500</value>
@@ -469,58 +532,82 @@
   <data name="&gt;&gt;layoutControlGroup3.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemTranings.Name" xml:space="preserve">
-    <value>layoutControlItemTranings</value>
+  <data name="&gt;&gt;saveButtonLayoutControlItem.Name" xml:space="preserve">
+    <value>saveButtonLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemTranings.Type" xml:space="preserve">
+  <data name="&gt;&gt;saveButtonLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem7.Name" xml:space="preserve">
-    <value>layoutControlItem7</value>
+  <data name="&gt;&gt;cancelButtonLayoutControlItem.Name" xml:space="preserve">
+    <value>cancelButtonLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem7.Type" xml:space="preserve">
+  <data name="&gt;&gt;cancelButtonLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;emptySpaceItem1.Name" xml:space="preserve">
-    <value>emptySpaceItem1</value>
+  <data name="&gt;&gt;emptySpaceItem2.Name" xml:space="preserve">
+    <value>emptySpaceItem2</value>
   </data>
-  <data name="&gt;&gt;emptySpaceItem1.Type" xml:space="preserve">
+  <data name="&gt;&gt;emptySpaceItem2.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemEmail.Name" xml:space="preserve">
-    <value>layoutControlItemEmail</value>
+  <data name="&gt;&gt;settingLayoutControlGroup.Name" xml:space="preserve">
+    <value>settingLayoutControlGroup</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemEmail.Type" xml:space="preserve">
+  <data name="&gt;&gt;settingLayoutControlGroup.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;frequencyLayoutControlItem.Name" xml:space="preserve">
+    <value>frequencyLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;frequencyLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemFirstName.Name" xml:space="preserve">
-    <value>layoutControlItemFirstName</value>
+  <data name="&gt;&gt;questionAmountLayoutControlItem.Name" xml:space="preserve">
+    <value>questionAmountLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemFirstName.Type" xml:space="preserve">
+  <data name="&gt;&gt;questionAmountLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemLogin.Name" xml:space="preserve">
-    <value>layoutControlItemLogin</value>
+  <data name="&gt;&gt;timeOfStartTimeEditLayoutControlItem.Name" xml:space="preserve">
+    <value>timeOfStartTimeEditLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemLogin.Type" xml:space="preserve">
+  <data name="&gt;&gt;timeOfStartTimeEditLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemLastName.Name" xml:space="preserve">
-    <value>layoutControlItemLastName</value>
+  <data name="&gt;&gt;generalInfLayoutControlGroup.Name" xml:space="preserve">
+    <value>generalInfLayoutControlGroup</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemLastName.Type" xml:space="preserve">
+  <data name="&gt;&gt;generalInfLayoutControlGroup.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lastNameLayoutControlItem.Name" xml:space="preserve">
+    <value>lastNameLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;lastNameLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem2.Name" xml:space="preserve">
-    <value>layoutControlItem2</value>
+  <data name="&gt;&gt;emailLayoutControlItem.Name" xml:space="preserve">
+    <value>emailLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem2.Type" xml:space="preserve">
+  <data name="&gt;&gt;emailLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemQuestionAmount.Name" xml:space="preserve">
-    <value>layoutControlItemQuestionAmount</value>
+  <data name="&gt;&gt;firstNameLayoutControlItem.Name" xml:space="preserve">
+    <value>firstNameLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;layoutControlItemQuestionAmount.Type" xml:space="preserve">
+  <data name="&gt;&gt;firstNameLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;trainingsLayoutControlItem.Name" xml:space="preserve">
+    <value>trainingsLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;trainingsLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;loginLayoutControlItem.Name" xml:space="preserve">
+    <value>loginLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;loginLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;mvvmTesteeContext.Name" xml:space="preserve">
@@ -529,10 +616,10 @@
   <data name="&gt;&gt;mvvmTesteeContext.Type" xml:space="preserve">
     <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;frequencyLayoutControlItem.Name" xml:space="preserve">
-    <value>frequencyLayoutControlItem</value>
+  <data name="&gt;&gt;canEditToggleSwitchLayoutControlItem.Name" xml:space="preserve">
+    <value>canEditToggleSwitchLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;frequencyLayoutControlItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;canEditToggleSwitchLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

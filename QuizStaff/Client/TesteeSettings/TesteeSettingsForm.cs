@@ -2,6 +2,7 @@
 using DomainModel;
 using System.Globalization;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Client.TesteeSettings
 {
@@ -29,9 +30,12 @@ namespace Client.TesteeSettings
 
         private void BindToViewModel() 
         {
-            mvvmTesteeSettingsContext.SetBinding(questionAmountSpinEdit, questionText => questionText.EditValue, "UserSetting.AmountOfQuestionsPerDay");
-            mvvmTesteeSettingsContext.SetBinding(frequencySpinEdit, questionText => questionText.EditValue, "UserSetting.FrequencyOfAsking");
-            mvvmTesteeSettingsContext.SetBinding(timeOfAskingEditTime, questionText => questionText.EditValue, "UserSetting.TimeOfStart");
+            //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
+            var outer = new BindingSource { DataSource = Program.currentTestee };
+            var inner = new BindingSource(outer, "UserSetting");
+            questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
+            frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");
+            timeOfAskingEditTime.DataBindings.Add("EditValue", inner, "TimeOfStart");
         }
 
         public void Localized(string language)
