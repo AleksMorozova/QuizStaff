@@ -39,19 +39,12 @@ namespace Client.TesteesForm.TesteeAddEdit
 
         private void BindCommand()
         {
-          //  mvvmTesteeContext.BindCommand<TesteeViewModel>(cancelButton, viewModel => viewModel.Cancel());
-
-            //mvvmTesteeContext.BindCommand<TesteeViewModel, Testee>(addTrainingButton, (viewModel, testee)
-            //    => viewModel.AddTraining(testee), x => currentTestee);
-            
             mvvmTesteeContext.BindCommand<TesteeViewModel, Testee>(saveButton, (viewModel, testee)
                 => viewModel.Save(testee), x => currentTestee);
         }
 
         private void BindToViewModel()
         {
-         
-
             mvvmTesteeContext.SetBinding(textFirstName, questionText => questionText.EditValue, "Testee.FirstName");
             mvvmTesteeContext.SetBinding(textLastName, questionText => questionText.EditValue, "Testee.LastName");
             mvvmTesteeContext.SetBinding(textEmail, questionText => questionText.EditValue, "Testee.Email");
@@ -68,7 +61,7 @@ namespace Client.TesteesForm.TesteeAddEdit
             questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
             frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");
             canEditToggleSwitch.DataBindings.Add("EditValue", inner, "CanUserEdit");
-            timeOfStartTimeEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");//CanUserEdit
+            timeOfStartTimeEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");
         }               
 
         public Testee Testee
@@ -98,7 +91,6 @@ namespace Client.TesteesForm.TesteeAddEdit
             resources.ApplyResources(questionAmountLayoutControlItem, "questionAmountLayoutControlItem", newCultureInfo);
             resources.ApplyResources(frequencyLayoutControlItem, "frequencyLayoutControlItem", newCultureInfo);
             resources.ApplyResources(timeOfStartTimeEditLayoutControlItem, "timeOfStartTimeEditLayoutControlItem", newCultureInfo);
-            //resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
             resources.ApplyResources(timeOfStartTimeEditLayoutControlItem, "timeOfStartTimeEditLayoutControlItem", newCultureInfo);
             this.Text = resources.GetString("Title", newCultureInfo) + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");
         }
