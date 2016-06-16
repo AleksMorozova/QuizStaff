@@ -21,7 +21,12 @@ namespace Client.TesteeSettings
             BindToViewModel();
         }
 
-        private void BindCommands() { }
+        private void BindCommands()
+        {
+            mvvmTesteeSettingsContext.BindCommand<TesteeSettingsViewModel, Testee>(saveButton, (viewModel, testee)
+                => viewModel.Save(testee), x => Program.currentTestee);
+        }
+
         private void BindToViewModel() 
         {
             mvvmTesteeSettingsContext.SetBinding(questionAmountSpinEdit, questionText => questionText.EditValue, "UserSetting.AmountOfQuestionsPerDay");

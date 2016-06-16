@@ -51,7 +51,23 @@ namespace DomainModel
         public bool IsActive { get; set; }
 
         public string Password { get; set; }
-        public virtual Setting UserSetting { get; set; }
+
+        private Setting userSettig;
+        public virtual Setting UserSetting
+        {
+            get
+            {
+                return userSettig;
+            }
+            set
+            {
+                if (value != userSettig)
+                {
+                    userSettig = value;
+                    OnPropertyChanged("UserSetting");
+                }
+            }
+        }
         public virtual BindingList<History> Histories { get; set; }
         public virtual BindingList<TesteeTraining> Trainings { get; set; }
         public virtual BindingList<UserRole> Roles { get; set; }

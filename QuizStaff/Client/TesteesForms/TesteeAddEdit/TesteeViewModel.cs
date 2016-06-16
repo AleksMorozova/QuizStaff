@@ -13,8 +13,22 @@ namespace Client.TesteesForm.TesteeAddEdit
 {
     public class TesteeViewModel
     {
-        public Testee Testee { get; set; }        
-               
+        private Testee testee;
+        public Testee Testee
+        { 
+            get { return testee; } 
+            set
+            { 
+                if(testee!=value) 
+                    testee = value;
+            }
+        }
+
+        public Setting Setting { 
+            get { return Testee.UserSetting; }
+            set { if (Testee.UserSetting!=value) Testee.UserSetting = value; }
+        }        
+
         public void AddTraining(Testee testee)
         {
             TrainingAddEditForm trainingForm = new TrainingAddEditForm();

@@ -144,5 +144,11 @@ namespace Client
             FormManager.childForms.Add(trainingsform);
             FormManager.Instance.LocalizedForms(Program.currentLang);
         }
+
+        private void settingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var formSets = new TesteeSettings.TesteeSettingsForm();
+            formSets.ShowDialog();
+        }
     }
 }

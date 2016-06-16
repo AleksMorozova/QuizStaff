@@ -39,7 +39,7 @@ namespace Client.TesteesForm.TesteeAddEdit
 
         private void BindCommand()
         {
-            mvvmTesteeContext.BindCommand<TesteeViewModel>(cancelButton, viewModel => viewModel.Cancel());
+          //  mvvmTesteeContext.BindCommand<TesteeViewModel>(cancelButton, viewModel => viewModel.Cancel());
 
             mvvmTesteeContext.BindCommand<TesteeViewModel, Testee>(addTrainingButton, (viewModel, testee)
                 => viewModel.AddTraining(testee), x => currentTestee);
@@ -50,17 +50,25 @@ namespace Client.TesteesForm.TesteeAddEdit
 
         private void BindToViewModel()
         {
+         
+
             mvvmTesteeContext.SetBinding(textFirstName, questionText => questionText.EditValue, "Testee.FirstName");
             mvvmTesteeContext.SetBinding(textLastName, questionText => questionText.EditValue, "Testee.LastName");
             mvvmTesteeContext.SetBinding(textEmail, questionText => questionText.EditValue, "Testee.Email");
             mvvmTesteeContext.SetBinding(textLogin, questionText => questionText.EditValue, "Testee.Login");
-            mvvmTesteeContext.SetBinding(spinEditQuestAmount, questionText => questionText.EditValue, "Testee.UserSetting.AmountOfQuestionsPerDay");
-            mvvmTesteeContext.SetBinding(spinEditFrqOfAsk, questionText => questionText.EditValue, "Testee.UserSetting.FrequencyOfAsking");
             mvvmTesteeContext.SetBinding(gridTrainings, answers => answers.DataSource, "Testee.Trainings");
-
             mvvmTesteeContext.SetBinding(trainingsRepositoryItemLookUpEdit, training => training.DataSource, "AllTrainings");
+         
             trainingsRepositoryItemLookUpEdit.DisplayMember = "TrainingTitle";
-            trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";
+            trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";  
+                 
+            //mvvmTesteeContext.SetBinding(spinEdit1, questionText => questionText.EditValue, "Testee.UserSetting.AmountOfQuestionsPerDay");
+            //mvvmTesteeContext.SetBinding(frequencySpinEdit, questionText => questionText.EditValue, "Testee.UserSetting.FrequencyOfAsking");
+
+            var outer = new BindingSource { DataSource = model.Testee };
+            var inner = new BindingSource(outer, "UserSetting");
+            questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
+            frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");//frequencySpinEdit
         }               
 
         public Testee Testee
@@ -86,13 +94,13 @@ namespace Client.TesteesForm.TesteeAddEdit
             resources.ApplyResources(layoutControlItemTranings, "layoutControlItemTranings", newCultureInfo);
             resources.ApplyResources(gridTrainings, "gridTrainings", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
-            resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
+          //  resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
             resources.ApplyResources(titleGridColumn, "titleGridColumn", newCultureInfo);
-            resources.ApplyResources(layoutControlItemQuestionAmount, "layoutControlItemQuestionAmount", newCultureInfo);
-            resources.ApplyResources(layoutControlItemFreqOfAsk, "layoutControlItemFreqOfAsk", newCultureInfo);
-            resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
-            resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
-            resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
+            //resources.ApplyResources(layoutControlItemQuestionAmount, "layoutControlItemQuestionAmount", newCultureInfo);
+            //resources.ApplyResources(layoutControlItemFreqOfAsk, "layoutControlItemFreqOfAsk", newCultureInfo);
+            //resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
+            //resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
+            //resources.ApplyResources(layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit", newCultureInfo);
             this.Text = resources.GetString("Title", newCultureInfo) + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");
         }
 

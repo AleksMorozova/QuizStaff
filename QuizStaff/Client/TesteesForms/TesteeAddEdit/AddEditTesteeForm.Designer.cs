@@ -28,24 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditTesteeForm));
-            this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
-            this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
-            this.spinEditFrqOfAsk = new DevExpress.XtraEditors.SpinEdit();
-            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource();
-            this.spinEditQuestAmount = new DevExpress.XtraEditors.SpinEdit();
-            this.toggleSwitchCanUserEdit = new DevExpress.XtraEditors.ToggleSwitch();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItemFreqOfAsk = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemQuestionAmount = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemCanUserEdit = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.questionAmountSpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.gridTrainings = new DevExpress.XtraGrid.GridControl();
             this.gridViewTrainings = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.titleGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,24 +53,15 @@
             this.layoutControlItemFirstName = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemLogin = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemLastName = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
-            this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditFrqOfAsk.Properties)).BeginInit();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemQuestionAmount = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.frequencySpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.frequencyLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditQuestAmount.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchCanUserEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemFreqOfAsk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemQuestionAmount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCanUserEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.questionAmountSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTrainings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTrainings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsRepositoryItemLookUpEdit)).BeginInit();
@@ -99,173 +78,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemFirstName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLastName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemQuestionAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencyLayoutControlItem)).BeginInit();
             this.SuspendLayout();
-            // 
-            // layoutControl2
-            // 
-            this.layoutControl2.Controls.Add(this.saveButton);
-            this.layoutControl2.Controls.Add(this.cancelButton);
-            this.layoutControl2.Controls.Add(this.spinEditFrqOfAsk);
-            this.layoutControl2.Controls.Add(this.spinEditQuestAmount);
-            this.layoutControl2.Controls.Add(this.toggleSwitchCanUserEdit);
-            resources.ApplyResources(this.layoutControl2, "layoutControl2");
-            this.layoutControl2.Name = "layoutControl2";
-            this.layoutControl2.Root = this.layoutControlGroup2;
-            // 
-            // saveButton
-            // 
-            resources.ApplyResources(this.saveButton, "saveButton");
-            this.saveButton.Name = "saveButton";
-            this.saveButton.StyleController = this.layoutControl2;
-            // 
-            // cancelButton
-            // 
-            resources.ApplyResources(this.cancelButton, "cancelButton");
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.StyleController = this.layoutControl2;
-            // 
-            // spinEditFrqOfAsk
-            // 
-            this.spinEditFrqOfAsk.DataBindings.Add(new System.Windows.Forms.Binding("ReadOnly", this.settingDTOBindingSource, "FrequencyOfAsking", true));
-            resources.ApplyResources(this.spinEditFrqOfAsk, "spinEditFrqOfAsk");
-            this.spinEditFrqOfAsk.Name = "spinEditFrqOfAsk";
-            this.spinEditFrqOfAsk.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("spinEditFrqOfAsk.Properties.Buttons"))))});
-            this.spinEditFrqOfAsk.Properties.MaxValue = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.spinEditFrqOfAsk.StyleController = this.layoutControl2;
-            // 
-            // settingDTOBindingSource
-            // 
-            this.settingDTOBindingSource.DataSource = typeof(DataTransferObject.SettingDTO);
-            // 
-            // spinEditQuestAmount
-            // 
-            resources.ApplyResources(this.spinEditQuestAmount, "spinEditQuestAmount");
-            this.spinEditQuestAmount.Name = "spinEditQuestAmount";
-            this.spinEditQuestAmount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("spinEditQuestAmount.Properties.Buttons"))))});
-            this.spinEditQuestAmount.Properties.MaxValue = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.spinEditQuestAmount.StyleController = this.layoutControl2;
-            // 
-            // toggleSwitchCanUserEdit
-            // 
-            resources.ApplyResources(this.toggleSwitchCanUserEdit, "toggleSwitchCanUserEdit");
-            this.toggleSwitchCanUserEdit.Name = "toggleSwitchCanUserEdit";
-            this.toggleSwitchCanUserEdit.Properties.GlyphAlignment = ((DevExpress.Utils.HorzAlignment)(resources.GetObject("toggleSwitchCanUserEdit.Properties.GlyphAlignment")));
-            this.toggleSwitchCanUserEdit.Properties.OffText = resources.GetString("toggleSwitchCanUserEdit.Properties.OffText");
-            this.toggleSwitchCanUserEdit.Properties.OnText = resources.GetString("toggleSwitchCanUserEdit.Properties.OnText");
-            this.toggleSwitchCanUserEdit.StyleController = this.layoutControl2;
-            // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup2.GroupBordersVisible = false;
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItemFreqOfAsk,
-            this.layoutControlItemQuestionAmount,
-            this.layoutControlItemCanUserEdit,
-            this.layoutControlItem1,
-            this.emptySpaceItem2,
-            this.layoutControlItem2,
-            this.emptySpaceItem3,
-            this.emptySpaceItem4});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(584, 75);
-            resources.ApplyResources(this.layoutControlGroup2, "layoutControlGroup2");
-            // 
-            // layoutControlItemFreqOfAsk
-            // 
-            this.layoutControlItemFreqOfAsk.Control = this.spinEditFrqOfAsk;
-            resources.ApplyResources(this.layoutControlItemFreqOfAsk, "layoutControlItemFreqOfAsk");
-            this.layoutControlItemFreqOfAsk.Location = new System.Drawing.Point(202, 0);
-            this.layoutControlItemFreqOfAsk.Name = "layoutControlItemFreqOfAsk";
-            this.layoutControlItemFreqOfAsk.Size = new System.Drawing.Size(158, 24);
-            this.layoutControlItemFreqOfAsk.TextSize = new System.Drawing.Size(101, 13);
-            // 
-            // layoutControlItemQuestionAmount
-            // 
-            this.layoutControlItemQuestionAmount.Control = this.spinEditQuestAmount;
-            resources.ApplyResources(this.layoutControlItemQuestionAmount, "layoutControlItemQuestionAmount");
-            this.layoutControlItemQuestionAmount.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItemQuestionAmount.Name = "layoutControlItemQuestionAmount";
-            this.layoutControlItemQuestionAmount.Size = new System.Drawing.Size(169, 24);
-            this.layoutControlItemQuestionAmount.TextSize = new System.Drawing.Size(101, 13);
-            // 
-            // layoutControlItemCanUserEdit
-            // 
-            this.layoutControlItemCanUserEdit.Control = this.toggleSwitchCanUserEdit;
-            resources.ApplyResources(this.layoutControlItemCanUserEdit, "layoutControlItemCanUserEdit");
-            this.layoutControlItemCanUserEdit.Location = new System.Drawing.Point(379, 0);
-            this.layoutControlItemCanUserEdit.Name = "layoutControlItemCanUserEdit";
-            this.layoutControlItemCanUserEdit.Size = new System.Drawing.Size(185, 28);
-            this.layoutControlItemCanUserEdit.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-            this.layoutControlItemCanUserEdit.TextSize = new System.Drawing.Size(70, 13);
-            this.layoutControlItemCanUserEdit.TextToControlDistance = 5;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.cancelButton;
-            this.layoutControlItem1.Location = new System.Drawing.Point(477, 28);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(87, 27);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(379, 31);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.saveButton;
-            this.layoutControlItem2.Location = new System.Drawing.Point(379, 28);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(98, 27);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(169, 0);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(33, 24);
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem4
-            // 
-            this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(360, 0);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(19, 24);
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControl1
             // 
-            resources.ApplyResources(this.layoutControl1, "layoutControl1");
+            this.layoutControl1.Controls.Add(this.frequencySpinEdit);
+            this.layoutControl1.Controls.Add(this.questionAmountSpinEdit);
+            this.layoutControl1.Controls.Add(this.saveButton);
             this.layoutControl1.Controls.Add(this.gridTrainings);
             this.layoutControl1.Controls.Add(this.textEmail);
             this.layoutControl1.Controls.Add(this.textLogin);
             this.layoutControl1.Controls.Add(this.textLastName);
             this.layoutControl1.Controls.Add(this.textFirstName);
             this.layoutControl1.Controls.Add(this.addTrainingButton);
+            resources.ApplyResources(this.layoutControl1, "layoutControl1");
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(453, 119, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup3;
+            // 
+            // questionAmountSpinEdit
+            // 
+            resources.ApplyResources(this.questionAmountSpinEdit, "questionAmountSpinEdit");
+            this.questionAmountSpinEdit.Name = "questionAmountSpinEdit";
+            this.questionAmountSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("spinEdit1.Properties.Buttons1"))))});
+            this.questionAmountSpinEdit.StyleController = this.layoutControl1;
+            // 
+            // saveButton
+            // 
+            resources.ApplyResources(this.saveButton, "saveButton");
+            this.saveButton.Name = "saveButton";
+            this.saveButton.StyleController = this.layoutControl1;
             // 
             // gridTrainings
             // 
@@ -362,20 +210,23 @@
             this.layoutControlItemEmail,
             this.layoutControlItemFirstName,
             this.layoutControlItemLogin,
-            this.layoutControlItemLastName});
+            this.layoutControlItemLastName,
+            this.layoutControlItem2,
+            this.layoutControlItemQuestionAmount,
+            this.frequencyLayoutControlItem});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "Root";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(584, 393);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(584, 461);
             // 
             // layoutControlItemTranings
             // 
             this.layoutControlItemTranings.Control = this.gridTrainings;
             this.layoutControlItemTranings.Location = new System.Drawing.Point(0, 106);
             this.layoutControlItemTranings.Name = "layoutControlItemTranings";
-            this.layoutControlItemTranings.Size = new System.Drawing.Size(564, 267);
+            this.layoutControlItemTranings.Size = new System.Drawing.Size(564, 285);
             resources.ApplyResources(this.layoutControlItemTranings, "layoutControlItemTranings");
             this.layoutControlItemTranings.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItemTranings.TextSize = new System.Drawing.Size(54, 13);
+            this.layoutControlItemTranings.TextSize = new System.Drawing.Size(82, 13);
             // 
             // layoutControlItem7
             // 
@@ -402,7 +253,7 @@
             this.layoutControlItemEmail.Size = new System.Drawing.Size(282, 40);
             resources.ApplyResources(this.layoutControlItemEmail, "layoutControlItemEmail");
             this.layoutControlItemEmail.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItemEmail.TextSize = new System.Drawing.Size(54, 13);
+            this.layoutControlItemEmail.TextSize = new System.Drawing.Size(82, 13);
             // 
             // layoutControlItemFirstName
             // 
@@ -412,7 +263,7 @@
             this.layoutControlItemFirstName.Size = new System.Drawing.Size(282, 40);
             resources.ApplyResources(this.layoutControlItemFirstName, "layoutControlItemFirstName");
             this.layoutControlItemFirstName.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItemFirstName.TextSize = new System.Drawing.Size(54, 13);
+            this.layoutControlItemFirstName.TextSize = new System.Drawing.Size(82, 13);
             // 
             // layoutControlItemLogin
             // 
@@ -422,7 +273,7 @@
             this.layoutControlItemLogin.Size = new System.Drawing.Size(282, 40);
             resources.ApplyResources(this.layoutControlItemLogin, "layoutControlItemLogin");
             this.layoutControlItemLogin.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItemLogin.TextSize = new System.Drawing.Size(54, 13);
+            this.layoutControlItemLogin.TextSize = new System.Drawing.Size(82, 13);
             // 
             // layoutControlItemLastName
             // 
@@ -432,36 +283,57 @@
             this.layoutControlItemLastName.Size = new System.Drawing.Size(282, 40);
             resources.ApplyResources(this.layoutControlItemLastName, "layoutControlItemLastName");
             this.layoutControlItemLastName.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItemLastName.TextSize = new System.Drawing.Size(54, 13);
+            this.layoutControlItemLastName.TextSize = new System.Drawing.Size(82, 13);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.saveButton;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 415);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(564, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItemQuestionAmount
+            // 
+            this.layoutControlItemQuestionAmount.Control = this.questionAmountSpinEdit;
+            this.layoutControlItemQuestionAmount.Location = new System.Drawing.Point(0, 391);
+            this.layoutControlItemQuestionAmount.Name = "layoutControlItemQuestionAmount";
+            this.layoutControlItemQuestionAmount.Size = new System.Drawing.Size(282, 24);
+            resources.ApplyResources(this.layoutControlItemQuestionAmount, "layoutControlItemQuestionAmount");
+            this.layoutControlItemQuestionAmount.TextSize = new System.Drawing.Size(82, 13);
             // 
             // mvvmTesteeContext
             // 
             this.mvvmTesteeContext.ContainerControl = this;
             // 
-            // AddEditTestee
+            // frequencySpinEdit
+            // 
+            resources.ApplyResources(this.frequencySpinEdit, "frequencySpinEdit");
+            this.frequencySpinEdit.Name = "frequencySpinEdit";
+            this.frequencySpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("spinEdit1.Properties.Buttons"))))});
+            this.frequencySpinEdit.StyleController = this.layoutControl1;
+            // 
+            // frequencyLayoutControlItem
+            // 
+            this.frequencyLayoutControlItem.Control = this.frequencySpinEdit;
+            this.frequencyLayoutControlItem.Location = new System.Drawing.Point(282, 391);
+            this.frequencyLayoutControlItem.Name = "frequencyLayoutControlItem";
+            this.frequencyLayoutControlItem.Size = new System.Drawing.Size(282, 24);
+            resources.ApplyResources(this.frequencyLayoutControlItem, "frequencyLayoutControlItem");
+            this.frequencyLayoutControlItem.TextSize = new System.Drawing.Size(82, 13);
+            // 
+            // AddEditTesteeForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
-            this.Controls.Add(this.layoutControl2);
-            this.Name = "AddEditTestee";
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
-            this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditFrqOfAsk.Properties)).EndInit();
+            this.Name = "AddEditTesteeForm";
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEditQuestAmount.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchCanUserEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemFreqOfAsk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemQuestionAmount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCanUserEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.questionAmountSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridTrainings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTrainings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsRepositoryItemLookUpEdit)).EndInit();
@@ -478,21 +350,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemFirstName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLastName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemQuestionAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frequencyLayoutControlItem)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraLayout.LayoutControl layoutControl2;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraEditors.SpinEdit spinEditFrqOfAsk;
-        private DevExpress.XtraEditors.SpinEdit spinEditQuestAmount;
-        private DevExpress.XtraEditors.ToggleSwitch toggleSwitchCanUserEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemFreqOfAsk;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemQuestionAmount;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemCanUserEdit;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
         private DevExpress.XtraGrid.GridControl gridTrainings;
@@ -510,17 +378,16 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemLogin;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemLastName;
         private DevExpress.XtraGrid.Columns.GridColumn titleGridColumn;
-        private DevExpress.XtraEditors.SimpleButton saveButton;
-        private DevExpress.XtraEditors.SimpleButton cancelButton;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.Utils.MVVM.MVVMContext mvvmTesteeContext;
         private System.Windows.Forms.BindingSource settingDTOBindingSource;
         private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit trainingsRepositoryItemLookUpEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.SpinEdit questionAmountSpinEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemQuestionAmount;
+        private DevExpress.XtraEditors.SpinEdit frequencySpinEdit;
+        private DevExpress.XtraLayout.LayoutControlItem frequencyLayoutControlItem;
     }
 }

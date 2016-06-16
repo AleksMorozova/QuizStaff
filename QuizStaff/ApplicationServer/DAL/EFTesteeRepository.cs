@@ -12,6 +12,7 @@ namespace ApplicationServer.DAL
         public override void Update(Testee entity)
         {     
             dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            dbContext.Entry(entity.UserSetting).State = System.Data.Entity.EntityState.Modified;
 
             foreach (var training in entity.Trainings)
             {

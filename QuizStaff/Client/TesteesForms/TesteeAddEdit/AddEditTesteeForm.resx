@@ -117,19 +117,77 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="settingDTOBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>179, 17</value>
+  </metadata>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="frequencySpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="frequencySpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>379, 403</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="spinEdit1.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="frequencySpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 20</value>
+  </data>
+  <data name="frequencySpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;frequencySpinEdit.Name" xml:space="preserve">
+    <value>frequencySpinEdit</value>
+  </data>
+  <data name="&gt;&gt;frequencySpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;frequencySpinEdit.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;frequencySpinEdit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="questionAmountSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="questionAmountSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 403</value>
+  </data>
+  <data name="spinEdit1.Properties.Buttons1" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="questionAmountSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 20</value>
+  </data>
+  <data name="questionAmountSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.Name" xml:space="preserve">
+    <value>questionAmountSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>391, 40</value>
+    <value>12, 427</value>
   </data>
   <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 22</value>
+    <value>560, 22</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
+    <value>18</value>
   </data>
   <data name="saveButton.Text" xml:space="preserve">
-    <value>Save</value>
+    <value>simpleButton1</value>
   </data>
   <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
     <value>saveButton</value>
@@ -138,175 +196,10 @@
     <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
-    <value>layoutControl2</value>
+    <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>489, 40</value>
-  </data>
-  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 22</value>
-  </data>
-  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
-  </data>
-  <data name="cancelButton.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
-    <value>cancelButton</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="settingDTOBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>179, 17</value>
-  </data>
-  <data name="spinEditFrqOfAsk.EditValue" type="System.Decimal, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="spinEditFrqOfAsk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>318, 12</value>
-  </data>
-  <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="spinEditFrqOfAsk.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Combo</value>
-  </data>
-  <data name="spinEditFrqOfAsk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
-  </data>
-  <data name="spinEditFrqOfAsk.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;spinEditFrqOfAsk.Name" xml:space="preserve">
-    <value>spinEditFrqOfAsk</value>
-  </data>
-  <data name="&gt;&gt;spinEditFrqOfAsk.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;spinEditFrqOfAsk.Parent" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;spinEditFrqOfAsk.ZOrder" xml:space="preserve">
     <value>6</value>
-  </data>
-  <data name="spinEditQuestAmount.EditValue" type="System.Decimal, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="spinEditQuestAmount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 12</value>
-  </data>
-  <data name="spinEditQuestAmount.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Combo</value>
-  </data>
-  <data name="spinEditQuestAmount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="spinEditQuestAmount.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;spinEditQuestAmount.Name" xml:space="preserve">
-    <value>spinEditQuestAmount</value>
-  </data>
-  <data name="&gt;&gt;spinEditQuestAmount.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;spinEditQuestAmount.Parent" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;spinEditQuestAmount.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="toggleSwitchCanUserEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>466, 12</value>
-  </data>
-  <assembly alias="DevExpress.Data.v15.2" name="DevExpress.Data.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="toggleSwitchCanUserEdit.Properties.GlyphAlignment" type="DevExpress.Utils.HorzAlignment, DevExpress.Data.v15.2">
-    <value>Far</value>
-  </data>
-  <data name="toggleSwitchCanUserEdit.Properties.OffText" xml:space="preserve">
-    <value>Off</value>
-  </data>
-  <data name="toggleSwitchCanUserEdit.Properties.OnText" xml:space="preserve">
-    <value>On</value>
-  </data>
-  <data name="toggleSwitchCanUserEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 24</value>
-  </data>
-  <data name="toggleSwitchCanUserEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;toggleSwitchCanUserEdit.Name" xml:space="preserve">
-    <value>toggleSwitchCanUserEdit</value>
-  </data>
-  <data name="&gt;&gt;toggleSwitchCanUserEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.ToggleSwitch, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;toggleSwitchCanUserEdit.Parent" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;toggleSwitchCanUserEdit.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="layoutControl2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="layoutControl2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 386</value>
-  </data>
-  <data name="layoutControlItemFreqOfAsk.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem7</value>
-  </data>
-  <data name="layoutControlItemFreqOfAsk.Text" xml:space="preserve">
-    <value>Frequency of asking:</value>
-  </data>
-  <data name="layoutControlItemQuestionAmount.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem8</value>
-  </data>
-  <data name="layoutControlItemQuestionAmount.Text" xml:space="preserve">
-    <value>Question amount:</value>
-  </data>
-  <data name="layoutControlItemCanUserEdit.CustomizationFormText" xml:space="preserve">
-    <value>layoutControlItem9</value>
-  </data>
-  <data name="layoutControlItemCanUserEdit.Text" xml:space="preserve">
-    <value>User can edit: </value>
-  </data>
-  <data name="layoutControlGroup2.Text" xml:space="preserve">
-    <value>User settings:</value>
-  </data>
-  <data name="layoutControl2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 75</value>
-  </data>
-  <data name="layoutControl2.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="layoutControl2.Text" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;layoutControl2.Name" xml:space="preserve">
-    <value>layoutControl2</value>
-  </data>
-  <data name="&gt;&gt;layoutControl2.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControl, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;layoutControl2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;layoutControl2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="layoutControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="gridTrainings.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 134</value>
@@ -339,7 +232,7 @@
     <value>0</value>
   </data>
   <data name="gridTrainings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>560, 247</value>
+    <value>560, 265</value>
   </data>
   <data name="gridTrainings.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -354,7 +247,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;gridTrainings.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="textEmail.Location" type="System.Drawing.Point, System.Drawing">
     <value>294, 68</value>
@@ -375,7 +268,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textEmail.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="textLogin.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 68</value>
@@ -396,7 +289,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textLogin.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="textLastName.Location" type="System.Drawing.Point, System.Drawing">
     <value>294, 28</value>
@@ -417,7 +310,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textLastName.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="textFirstName.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 28</value>
@@ -438,7 +331,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textFirstName.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>11</value>
   </data>
   <data name="addTrainingButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>474, 92</value>
@@ -462,10 +355,14 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;addTrainingButton.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="layoutControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 1</value>
+    <value>0, 0</value>
   </data>
   <data name="layoutControlItemTranings.Text" xml:space="preserve">
     <value>Tranings</value>
@@ -482,8 +379,14 @@
   <data name="layoutControlItemLastName.Text" xml:space="preserve">
     <value>Last name:</value>
   </data>
+  <data name="layoutControlItemQuestionAmount.Text" xml:space="preserve">
+    <value>Question amount</value>
+  </data>
+  <data name="frequencyLayoutControlItem.Text" xml:space="preserve">
+    <value>Frequency</value>
+  </data>
   <data name="layoutControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>584, 393</value>
+    <value>584, 461</value>
   </data>
   <data name="layoutControl1.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -503,15 +406,15 @@
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="mvvmTesteeContext.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="mvvmTesteeContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>38</value>
-  </data>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -529,60 +432,6 @@
   </data>
   <data name="&gt;&gt;settingDTOBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;layoutControlGroup2.Name" xml:space="preserve">
-    <value>layoutControlGroup2</value>
-  </data>
-  <data name="&gt;&gt;layoutControlGroup2.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItemFreqOfAsk.Name" xml:space="preserve">
-    <value>layoutControlItemFreqOfAsk</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItemFreqOfAsk.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItemQuestionAmount.Name" xml:space="preserve">
-    <value>layoutControlItemQuestionAmount</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItemQuestionAmount.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItemCanUserEdit.Name" xml:space="preserve">
-    <value>layoutControlItemCanUserEdit</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItemCanUserEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItem1.Name" xml:space="preserve">
-    <value>layoutControlItem1</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItem1.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;emptySpaceItem2.Name" xml:space="preserve">
-    <value>emptySpaceItem2</value>
-  </data>
-  <data name="&gt;&gt;emptySpaceItem2.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItem2.Name" xml:space="preserve">
-    <value>layoutControlItem2</value>
-  </data>
-  <data name="&gt;&gt;layoutControlItem2.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;emptySpaceItem3.Name" xml:space="preserve">
-    <value>emptySpaceItem3</value>
-  </data>
-  <data name="&gt;&gt;emptySpaceItem3.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;emptySpaceItem4.Name" xml:space="preserve">
-    <value>emptySpaceItem4</value>
-  </data>
-  <data name="&gt;&gt;emptySpaceItem4.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;gridViewTrainings.Name" xml:space="preserve">
     <value>gridViewTrainings</value>
@@ -662,19 +511,34 @@
   <data name="&gt;&gt;layoutControlItemLastName.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;layoutControlItem2.Name" xml:space="preserve">
+    <value>layoutControlItem2</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem2.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItemQuestionAmount.Name" xml:space="preserve">
+    <value>layoutControlItemQuestionAmount</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItemQuestionAmount.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;mvvmTesteeContext.Name" xml:space="preserve">
     <value>mvvmTesteeContext</value>
   </data>
   <data name="&gt;&gt;mvvmTesteeContext.Type" xml:space="preserve">
     <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;frequencyLayoutControlItem.Name" xml:space="preserve">
+    <value>frequencyLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;frequencyLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>AddEditTestee</value>
+    <value>AddEditTesteeForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Testee</value>
   </data>
 </root>

@@ -9,11 +9,19 @@ namespace Client.TesteeSettings
 {
     public class TesteeSettingsViewModel
     {
-        public Setting UserSetting;
+        public Setting UserSetting  { get; set; }      
 
         public void SetUpSetting() 
         {
             UserSetting = Program.currentTestee.UserSetting;
         }
+
+        public void Save(Testee testee)
+        {
+            if (testee != null)
+            {
+                ServicesHolder.ServiceClient.UpdateTestee(testee);
+            }
+        }        
     }
 }

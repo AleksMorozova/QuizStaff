@@ -148,8 +148,10 @@ namespace Server
         {
             EFTesteeRepository repo = new EFTesteeRepository();
             Testee newTestee = new Testee();
+            newTestee.UserSetting = new Setting();
             newTestee.Trainings = new BindingList<TesteeTraining>();
             Conversion.CopyProperty(testee, newTestee);
+            Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
             if (testee.Trainings.Count() > 0)
             {
                 foreach (var t in testee.Trainings)
