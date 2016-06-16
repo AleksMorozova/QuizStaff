@@ -1,64 +1,54 @@
 ﻿using System;
 using DomainModel;
+using System.Globalization;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Client.TesteeSettings
 {
-    public partial class TesteeSettingsForm : DevExpress.XtraEditors.XtraForm, IClientSetupForm
+    public partial class TesteeSettingsForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
+        private TesteeSettingsViewModel model;
+      
         public TesteeSettingsForm()
         {
             InitializeComponent();
-            var presenter = new ClientSetupPresenter(this);
+
+            mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
+            BindCommands();
+            model = new TesteeSettingsViewModel();
+            model.SetUpSetting();
+            mvvmTesteeSettingsContext.SetViewModel(typeof(TesteeSettingsViewModel), model);
+            BindToViewModel();
         }
 
-        public DateTime TimeOfStart
+        private void BindCommands()
         {
-            get
-            {
-                return (DateTime)timeEditTimeOfStart.EditValue;
-            }
-            set
-            {
-                timeEditTimeOfStart.EditValue = value;
-            }
-        }
-        public int FrequencyOfAsking
-        {
-            get
-            {
-                return Convert.ToInt32(spinEditFrequency.Value);
-            }
-            set
-            {
-                spinEditFrequency.Value = value;
-            }
+            mvvmTesteeSettingsContext.BindCommand<TesteeSettingsViewModel, Testee>(saveButton, (viewModel, testee)
+                => viewModel.Save(testee), x => Program.currentTestee);
         }
 
-        public Int32 QuestionsAmount
+        private void BindToViewModel() 
         {
-            get
-            {
-                return Convert.ToInt32(spinEditAmount.Value);
-            }
-            set
-            {
-                spinEditAmount.Value = value;
-            }
+            //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
+            var outer = new BindingSource { DataSource = Program.currentTestee };
+            var inner = new BindingSource(outer, "UserSetting");
+            questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
+            frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");
+            timeOfAskingEditTime.DataBindings.Add("EditValue", inner, "TimeOfStart");
         }
 
-
-        public event EventHandler ButSaveClick;
-        public event EventHandler ButCancelClick;
-
-        private void butCancel_Click(object sender, EventArgs e)
+        public void Localized(string language)
         {
-            if (ButCancelClick != null) ButCancelClick(this, EventArgs.Empty);
-            Close();
-        }
+            var resources = new ComponentResourceManager(typeof(TesteeSettingsForm));
+            CultureInfo newCultureInfo = new CultureInfo(language);
+            resources.ApplyResources(questionAmountSpinEditLayoutControlItem, "questionAmountSpinEditLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(frequencySpinEditLayoutControlItem, "frequencySpinEditLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(timeOfAskingEditTimeLayoutControlItem, "timeOfAskingEditTimeLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
+            resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
 
-        private void butSave_Click(object sender, EventArgs e)
-        {
-            if (ButSaveClick != null) ButSaveClick(this, EventArgs.Empty);
+            this.Text = resources.GetString("Title", newCultureInfo);
         }
     }
 }

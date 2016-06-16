@@ -73,7 +73,10 @@ namespace Client
                 }
 #endif
 
-                Conversion.CopyProperty(ServicesHolder.ServiceClient.FindByLogin(login), currentTestee);
+                var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
+                currentTestee.UserSetting = new Setting();
+                Conversion.CopyProperty(loadedUser, currentTestee);
+                Conversion.CopyProperty(loadedUser.UserSetting, currentTestee.UserSetting);
 
                 if (currentTestee == null)
                         return LoginResult.Failed;
