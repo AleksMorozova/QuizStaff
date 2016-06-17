@@ -60,6 +60,25 @@ namespace Client.AdminSettings
             var resources = new ComponentResourceManager(typeof(AdminSettingsForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
             resources.ApplyResources(usersListLayoutControlItem, "usersListLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(lastNameGridColumn, "lastNameGridColumn", newCultureInfo);
+            resources.ApplyResources(firstNameGridColumn, "firstNameGridColumn", newCultureInfo);
+            resources.ApplyResources(amountOfQuestionsPerDayGridColumn, "amountOfQuestionsPerDayGridColumn", newCultureInfo);
+            resources.ApplyResources(attribute10GridColumn, "attribute10GridColumn", newCultureInfo);
+            resources.ApplyResources(attribute1GridColumn, "attribute1GridColumn", newCultureInfo);
+            resources.ApplyResources(attribute2GridColumn, "attribute2GridColumn", newCultureInfo);
+            resources.ApplyResources(attribute3GridColumn, "attribute3GridColumn", newCultureInfo);
+            resources.ApplyResources(attribute4GridColumn, "attribute4GridColumn", newCultureInfo);
+            resources.ApplyResources(attribute5GridColumn, "attribute5GridColumn", newCultureInfo);
+            resources.ApplyResources(attribute6GridColumn, "attribute6GridColumn", newCultureInfo);
+            resources.ApplyResources(attribute7GridColumn, "attribute7GridColumn", newCultureInfo);
+            resources.ApplyResources(attribute8GridColumn, "attribute8GridColumn", newCultureInfo);
+            resources.ApplyResources(attribute9GridColumn, "attribute9GridColumn", newCultureInfo);
+            resources.ApplyResources(attribute10GridColumn, "attribute10GridColumn", newCultureInfo);
+
+            resources.ApplyResources(this.frequencyOfAskingGridColumn, "frequencyOfAskingGridColumn", newCultureInfo);
+            resources.ApplyResources(this.timeOfStartGridColumn, "timeOfStartGridColumn", newCultureInfo);
+            //resources.ApplyResources(usersListLayoutControlItem, "usersListLayoutControlItem", newCultureInfo);
+
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             this.Text = resources.GetString("Title", newCultureInfo);
         }
