@@ -10,34 +10,41 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataTransferObject;
 using System.Globalization;
+using DomainModel;
 
 namespace Client.AdminSettings
 {
     public partial class EditSettingsForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
         private AdminSettingsViewModel model;
+        private BindingList<Testee> selectedTestee;
 
-        public EditSettingsForm(BindingList<TesteeDTO> Testees)
+        public EditSettingsForm(BindingList<Testee> Testees)
         {
             InitializeComponent();
             mvvmSettingsContext.ViewModelType = typeof(AdminSettingsViewModel);
+            //TODO: Set command binding
             BindCommands();
             model = new AdminSettingsViewModel();
             mvvmSettingsContext.SetViewModel(typeof(AdminSettingsViewModel), model);
+            selectedTestee = Testees;
             model.SetUpSettings(Testees);
             BindToViewModel();
         }
 
         private void BindToViewModel()
         {
-            mvvmSettingsContext.SetBinding(frequencySpinEdit, frequency => frequency.EditValue, "FrequencyOfAsking");
-            mvvmSettingsContext.SetBinding(questionAmountTextEdit, amount => amount.EditValue, "AmountOfQuestionsPerDay");
-            mvvmSettingsContext.SetBinding(timeOfAskingEditTime, time => time.EditValue, "TimeOfStart");
+            //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
+            var outer = new BindingSource { DataSource = model.Setting};
+            questionAmountTextEdit.DataBindings.Add("EditValue", outer, "AmountOfQuestionsPerDay");
+            frequencySpinEdit.DataBindings.Add("EditValue", outer, "FrequencyOfAsking");
+            timeOfAskingEditTime.DataBindings.Add("EditValue", outer, "TimeOfStart");
         }
 
         private void BindCommands()
         {
-           
+            mvvmSettingsContext.BindCommand<AdminSettingsViewModel, BindingList<Testee>>(applyButton, (viewModel, testee)
+                => viewModel.Save(testee), x => selectedTestee);
         }
 
         public void Localized(string language)
@@ -50,6 +57,11 @@ namespace Client.AdminSettings
             resources.ApplyResources(applyButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
             this.Text = resources.GetString("Title", newCultureInfo);
+        }
+
+        private void applyButton_Click(object sender, EventArgs e)
+        {
+            model.Save(selectedTestee);
         }
     }
 }

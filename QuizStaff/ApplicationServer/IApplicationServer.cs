@@ -66,5 +66,8 @@ namespace Server
 
         [OperationContract]
         void SaveTestee(TesteeDTO testee);
+
+        [OperationContract]
+        void UpdateSettings(SettingDTO setting);
     }
 }

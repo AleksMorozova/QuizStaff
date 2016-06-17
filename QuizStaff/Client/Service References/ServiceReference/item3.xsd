@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DomainModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DomainModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="Setting">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Entity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="AmountOfQuestionsPerDay" type="xs:int" />
-          <xs:element minOccurs="0" name="FrequencyOfAsking" type="xs:int" />
-          <xs:element minOccurs="0" name="TimeOfStart" type="xs:dateTime" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Setting" nillable="true" type="tns:Setting" />
-  <xs:complexType name="Entity">
+  <xs:complexType name="ArrayOfguid">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="guid" type="ser:guid" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Entity" nillable="true" type="tns:Entity" />
+  <xs:element name="ArrayOfguid" nillable="true" type="tns:ArrayOfguid" />
 </xs:schema>

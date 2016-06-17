@@ -33,28 +33,40 @@
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.testeeListGridControl = new DevExpress.XtraGrid.GridControl();
             this.testeesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.loginGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lastNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.frequencyOfAskingGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.amountOfQuestionsPerDayGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.timeOfStartGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
+            this.attribute1GridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.attribute2GridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.attribute3GridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.attribute4GridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.attribute5GridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.attribute6GridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.attribute7GridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.attribute8GridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.attribute9GridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.attribute10GridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.checkGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.usersListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
-            this.frequencyOfAskingGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.amountOfQuestionsPerDayGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.timeOfStartGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dateImpactLabelLayoutControl)).BeginInit();
             this.dateImpactLabelLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testeeListGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testeesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmAdminSettingsContext)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateImpactLabelLayoutControl
@@ -86,7 +98,8 @@
             this.testeeListGridControl.MainView = this.testeesGridView;
             this.testeeListGridControl.Name = "testeeListGridControl";
             this.testeeListGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemTimeEdit1});
+            this.repositoryItemTimeEdit1,
+            this.repositoryItemCheckEdit1});
             this.testeeListGridControl.Size = new System.Drawing.Size(605, 326);
             this.testeeListGridControl.TabIndex = 4;
             this.testeeListGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -95,25 +108,27 @@
             // testeesGridView
             // 
             this.testeesGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.loginGridColumn,
             this.firstNameGridColumn,
             this.lastNameGridColumn,
             this.frequencyOfAskingGridColumn,
             this.amountOfQuestionsPerDayGridColumn,
-            this.timeOfStartGridColumn});
+            this.timeOfStartGridColumn,
+            this.attribute1GridColumn,
+            this.attribute2GridColumn,
+            this.attribute3GridColumn,
+            this.attribute4GridColumn,
+            this.attribute5GridColumn,
+            this.attribute6GridColumn,
+            this.attribute7GridColumn,
+            this.attribute8GridColumn,
+            this.attribute9GridColumn,
+            this.attribute10GridColumn,
+            this.checkGridColumn});
             this.testeesGridView.GridControl = this.testeeListGridControl;
             this.testeesGridView.Name = "testeesGridView";
             this.testeesGridView.OptionsFind.AlwaysVisible = true;
             this.testeesGridView.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always;
             this.testeesGridView.OptionsView.ShowAutoFilterRow = true;
-            // 
-            // loginGridColumn
-            // 
-            this.loginGridColumn.Caption = "Login";
-            this.loginGridColumn.FieldName = "Login";
-            this.loginGridColumn.Name = "loginGridColumn";
-            this.loginGridColumn.Visible = true;
-            this.loginGridColumn.VisibleIndex = 0;
             // 
             // firstNameGridColumn
             // 
@@ -122,6 +137,7 @@
             this.firstNameGridColumn.Name = "firstNameGridColumn";
             this.firstNameGridColumn.Visible = true;
             this.firstNameGridColumn.VisibleIndex = 1;
+            this.firstNameGridColumn.Width = 140;
             // 
             // lastNameGridColumn
             // 
@@ -130,6 +146,117 @@
             this.lastNameGridColumn.Name = "lastNameGridColumn";
             this.lastNameGridColumn.Visible = true;
             this.lastNameGridColumn.VisibleIndex = 2;
+            this.lastNameGridColumn.Width = 140;
+            // 
+            // frequencyOfAskingGridColumn
+            // 
+            this.frequencyOfAskingGridColumn.Caption = "Frequency of asking";
+            this.frequencyOfAskingGridColumn.FieldName = "UserSetting.FrequencyOfAsking";
+            this.frequencyOfAskingGridColumn.Name = "frequencyOfAskingGridColumn";
+            this.frequencyOfAskingGridColumn.Visible = true;
+            this.frequencyOfAskingGridColumn.VisibleIndex = 3;
+            this.frequencyOfAskingGridColumn.Width = 140;
+            // 
+            // amountOfQuestionsPerDayGridColumn
+            // 
+            this.amountOfQuestionsPerDayGridColumn.Caption = "Amount of questions";
+            this.amountOfQuestionsPerDayGridColumn.FieldName = "UserSetting.AmountOfQuestionsPerDay";
+            this.amountOfQuestionsPerDayGridColumn.Name = "amountOfQuestionsPerDayGridColumn";
+            this.amountOfQuestionsPerDayGridColumn.Visible = true;
+            this.amountOfQuestionsPerDayGridColumn.VisibleIndex = 4;
+            this.amountOfQuestionsPerDayGridColumn.Width = 140;
+            // 
+            // timeOfStartGridColumn
+            // 
+            this.timeOfStartGridColumn.Caption = "Time of start";
+            this.timeOfStartGridColumn.ColumnEdit = this.repositoryItemTimeEdit1;
+            this.timeOfStartGridColumn.FieldName = "UserSetting.TimeOfStart";
+            this.timeOfStartGridColumn.Name = "timeOfStartGridColumn";
+            this.timeOfStartGridColumn.Visible = true;
+            this.timeOfStartGridColumn.VisibleIndex = 5;
+            this.timeOfStartGridColumn.Width = 145;
+            // 
+            // repositoryItemTimeEdit1
+            // 
+            this.repositoryItemTimeEdit1.AutoHeight = false;
+            this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
+            // 
+            // attribute1GridColumn
+            // 
+            this.attribute1GridColumn.Caption = "Attribute1";
+            this.attribute1GridColumn.FieldName = "Attribute1";
+            this.attribute1GridColumn.Name = "attribute1GridColumn";
+            // 
+            // attribute2GridColumn
+            // 
+            this.attribute2GridColumn.Caption = "Attribute2";
+            this.attribute2GridColumn.FieldName = "Attribute2";
+            this.attribute2GridColumn.Name = "attribute2GridColumn";
+            // 
+            // attribute3GridColumn
+            // 
+            this.attribute3GridColumn.Caption = "Attribute3";
+            this.attribute3GridColumn.FieldName = "Attribute3";
+            this.attribute3GridColumn.Name = "attribute3GridColumn";
+            // 
+            // attribute4GridColumn
+            // 
+            this.attribute4GridColumn.Caption = "Attribute4";
+            this.attribute4GridColumn.FieldName = "Attribute4";
+            this.attribute4GridColumn.Name = "attribute4GridColumn";
+            // 
+            // attribute5GridColumn
+            // 
+            this.attribute5GridColumn.Caption = "Attribute5";
+            this.attribute5GridColumn.FieldName = "Attribute5";
+            this.attribute5GridColumn.Name = "attribute5GridColumn";
+            // 
+            // attribute6GridColumn
+            // 
+            this.attribute6GridColumn.Caption = "Attribute6";
+            this.attribute6GridColumn.FieldName = "Attribute6";
+            this.attribute6GridColumn.Name = "attribute6GridColumn";
+            // 
+            // attribute7GridColumn
+            // 
+            this.attribute7GridColumn.Caption = "Attribute7";
+            this.attribute7GridColumn.FieldName = "Attribute7";
+            this.attribute7GridColumn.Name = "attribute7GridColumn";
+            // 
+            // attribute8GridColumn
+            // 
+            this.attribute8GridColumn.Caption = "Attribute8";
+            this.attribute8GridColumn.FieldName = "Attribute8";
+            this.attribute8GridColumn.Name = "attribute8GridColumn";
+            // 
+            // attribute9GridColumn
+            // 
+            this.attribute9GridColumn.Caption = "Attribute9";
+            this.attribute9GridColumn.FieldName = "Attribute9";
+            this.attribute9GridColumn.Name = "attribute9GridColumn";
+            // 
+            // attribute10GridColumn
+            // 
+            this.attribute10GridColumn.Caption = "Attribute10";
+            this.attribute10GridColumn.FieldName = "Attribute10";
+            this.attribute10GridColumn.Name = "attribute10GridColumn";
+            // 
+            // checkGridColumn
+            // 
+            this.checkGridColumn.Caption = "Check";
+            this.checkGridColumn.ColumnEdit = this.repositoryItemCheckEdit1;
+            this.checkGridColumn.FieldName = "IsSelected";
+            this.checkGridColumn.Name = "checkGridColumn";
+            this.checkGridColumn.Visible = true;
+            this.checkGridColumn.VisibleIndex = 0;
+            this.checkGridColumn.Width = 54;
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
             // layoutControlGroup
             // 
@@ -177,38 +304,6 @@
             // 
             this.mvvmAdminSettingsContext.ContainerControl = this;
             // 
-            // frequencyOfAskingGridColumn
-            // 
-            this.frequencyOfAskingGridColumn.Caption = "Frequency of asking";
-            this.frequencyOfAskingGridColumn.FieldName = "UserSetting.FrequencyOfAsking";
-            this.frequencyOfAskingGridColumn.Name = "frequencyOfAskingGridColumn";
-            this.frequencyOfAskingGridColumn.Visible = true;
-            this.frequencyOfAskingGridColumn.VisibleIndex = 3;
-            // 
-            // amountOfQuestionsPerDayGridColumn
-            // 
-            this.amountOfQuestionsPerDayGridColumn.Caption = "Amount of questions";
-            this.amountOfQuestionsPerDayGridColumn.FieldName = "UserSetting.AmountOfQuestionsPerDay";
-            this.amountOfQuestionsPerDayGridColumn.Name = "amountOfQuestionsPerDayGridColumn";
-            this.amountOfQuestionsPerDayGridColumn.Visible = true;
-            this.amountOfQuestionsPerDayGridColumn.VisibleIndex = 4;
-            // 
-            // timeOfStartGridColumn
-            // 
-            this.timeOfStartGridColumn.Caption = "Time of start";
-            this.timeOfStartGridColumn.ColumnEdit = this.repositoryItemTimeEdit1;
-            this.timeOfStartGridColumn.FieldName = "UserSetting.TimeOfStart";
-            this.timeOfStartGridColumn.Name = "timeOfStartGridColumn";
-            this.timeOfStartGridColumn.Visible = true;
-            this.timeOfStartGridColumn.VisibleIndex = 5;
-            // 
-            // repositoryItemTimeEdit1
-            // 
-            this.repositoryItemTimeEdit1.AutoHeight = false;
-            this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
-            // 
             // AdminSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,12 +316,13 @@
             this.dateImpactLabelLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.testeeListGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testeesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmAdminSettingsContext)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,7 +335,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView testeesGridView;
         private DevExpress.XtraLayout.LayoutControlItem usersListLayoutControlItem;
         private DevExpress.Utils.MVVM.MVVMContext mvvmAdminSettingsContext;
-        private DevExpress.XtraGrid.Columns.GridColumn loginGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn firstNameGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn lastNameGridColumn;
         private DevExpress.XtraEditors.SimpleButton saveButton;
@@ -249,5 +344,17 @@
         private DevExpress.XtraGrid.Columns.GridColumn amountOfQuestionsPerDayGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn timeOfStartGridColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn attribute1GridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn attribute2GridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn attribute3GridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn attribute4GridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn attribute5GridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn attribute6GridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn attribute7GridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn attribute8GridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn attribute9GridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn attribute10GridColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn checkGridColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
     }
 }

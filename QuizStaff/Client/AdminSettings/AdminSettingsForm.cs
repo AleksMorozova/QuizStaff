@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Globalization;
 using DataTransferObject;
+using DomainModel;
 
 namespace Client.AdminSettings
 {
@@ -32,14 +33,21 @@ namespace Client.AdminSettings
         private void BindCommands()
         {
 
-            mvvmAdminSettingsContext.BindCommand<AdminSettingsViewModel, BindingList<TesteeDTO>>(saveButton, (viewModel, questionID)
+            mvvmAdminSettingsContext.BindCommand<AdminSettingsViewModel, BindingList<Testee>>(saveButton, (viewModel, questionID)
                 => viewModel.EditSettings(questionID), x => GetSelectedTestees());
         }
 
-        private BindingList<TesteeDTO> GetSelectedTestees() 
+        private BindingList<Testee> GetSelectedTestees() 
         {
             //TODO: Get selected testees 
-            return (this.model!=null && this.model.Testees!=null) ? model.Testees: new BindingList<TesteeDTO>();
+            BindingList<Testee> selectedTestee = new BindingList<Testee>();
+            if (this.model != null && this.model.Testees != null)
+            {
+                var test = model.Testees.Where(_ => _.IsSelected);
+            foreach (var t in test)
+                selectedTestee.Add(t);}
+
+            return (this.model != null && this.model.Testees != null) ? selectedTestee : new BindingList<Testee>();
         }
 
         private void BindToViewModel()
