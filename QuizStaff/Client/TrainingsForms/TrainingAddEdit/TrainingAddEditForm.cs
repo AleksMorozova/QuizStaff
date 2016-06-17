@@ -20,7 +20,7 @@ namespace Client.TrainingsForms.TrainingAddEdit
         private TrainingViewModel model;
 
         public TrainingAddEditForm()
-            : this(new Training() { IsActive = true}) { }
+            : this(new Training() { IsActive = true, Questions = new BindingList<Question>()}) { }
 
         public TrainingAddEditForm(Training training)
         {

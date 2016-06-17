@@ -1,64 +1,78 @@
 ﻿using DataTransferObject;
+using DevExpress.Mvvm;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using DevExpress.Mvvm.DataAnnotations;
 
 namespace Client.AdminSettings
 {
-    public class AdminSettingsViewModel
+    public class AdminSettingsViewModel:  ViewModelBase
     {
-        public BindingList<TesteeDTO> Testees { get; set; }
+        public BindingList<Testee> Testees { get; set; }
 
-        public BindingList<TesteeDTO> SelectedTestees { get; set; }
+        private Setting setting = new Setting();
+        public virtual Setting Setting { get; set; }
 
-        public int AmountOfQuestionsPerDay { get; set; }
-
-        public int FrequencyOfAsking { get; set; }
-
-        public DateTime TimeOfStart { get; set; }
-
-        public void SetUpSettings(BindingList<TesteeDTO> currentTestees)
+        public void SetUpSettings(BindingList<Testee> currentTestees)
         {
-            SelectedTestees = currentTestees;
-            var t = SelectedTestees.GroupBy(_ => _.UserSetting.AmountOfQuestionsPerDay);
+            Setting = new Setting();
+
+            var t = currentTestees.GroupBy(_ => _.UserSetting.AmountOfQuestionsPerDay);
             if (t.Count() == 1)
             {
-                AmountOfQuestionsPerDay = t.First().First().UserSetting.AmountOfQuestionsPerDay;
+                Setting.AmountOfQuestionsPerDay = t.First().First().UserSetting.AmountOfQuestionsPerDay;
             }
 
-            var t1 = SelectedTestees.GroupBy(_ => _.UserSetting.FrequencyOfAsking);
+            var t1 = currentTestees.GroupBy(_ => _.UserSetting.FrequencyOfAsking);
             if (t.Count() == 1)
             {
-                FrequencyOfAsking = t.First().First().UserSetting.FrequencyOfAsking;
+                Setting.FrequencyOfAsking = t.First().First().UserSetting.FrequencyOfAsking;
             }
 
-            var t2 = SelectedTestees.GroupBy(_ => _.UserSetting.TimeOfStart);
+            var t2 = currentTestees.GroupBy(_ => _.UserSetting.TimeOfStart);
             if (t.Count() == 1)
             {
-                TimeOfStart = t.First().First().UserSetting.TimeOfStart;
+                Setting.TimeOfStart = t.First().First().UserSetting.TimeOfStart;
             }
         }
 
         public void GetAllTestees()
         {
-            Testees = new BindingList<TesteeDTO>();
+            Testees = new BindingList<Testee>();
             var testeeList = ServicesHolder.ServiceClient.GetAllTestees();
 
             foreach (var testee in testeeList)
             {
-                Testees.Add(testee);
+                Testees.Add(Conversion.ConvertTesteeFromDTO(testee));
             }
         }
 
-        public void EditSettings(BindingList<TesteeDTO> selectedTestee) 
+        public void EditSettings(BindingList<Testee> selectedTestee) 
         {
             EditSettingsForm editSettings = new EditSettingsForm(selectedTestee);
             FormManager.childForms.Add(editSettings);
             FormManager.Instance.LocalizedForms(Program.currentLang);
             editSettings.ShowDialog();
+        }
+
+        public void Save(BindingList<Testee> selectedTestee)
+        {                
+            // TODO: set to all users new settings
+            if (this.Setting != null)
+            {
+                SettingDTO s = this.Setting;
+                foreach (Testee testee in selectedTestee)
+                {
+                    s.Id = testee.UserSetting.Id;
+                    ServicesHolder.ServiceClient.UpdateSettings(s);
+                }
+            }
         }
     }
 }

@@ -120,31 +120,58 @@
   <data name="cancelButton.Text" xml:space="preserve">
     <value>Отменить</value>
   </data>
-  <data name="dateImpactLabel.Text" xml:space="preserve">
-    <value>Период действия настроек</value>
-  </data>
-  <data name="frequencyLayoutControlItem.Text" xml:space="preserve">
-    <value>Периодичность</value>
-  </data>
-  <data name="fromDateEditLayoutControlItem.Text" xml:space="preserve">
-    <value>с</value>
-  </data>
-  <data name="questionAmountLayoutControlItem.Text" xml:space="preserve">
-    <value>Количество вопросов</value>
-  </data>
   <data name="saveButton.Text" xml:space="preserve">
     <value>Сохранить</value>
-  </data>
-  <data name="timeOfAskingLayoutControlItem.Text" xml:space="preserve">
-    <value>Время начала</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Настройки</value>
   </data>
-  <data name="toDateEditLayoutControlItem.Text" xml:space="preserve">
-    <value>по</value>
-  </data>
   <data name="usersListLayoutControlItem.Text" xml:space="preserve">
     <value>Пользователи</value>
+  </data>
+  <data name="amountOfQuestionsPerDayGridColumn.Caption" xml:space="preserve">
+    <value>Количество вопросов</value>
+  </data>
+  <data name="attribute10GridColumn.Caption" xml:space="preserve">
+    <value>Атрибут 10</value>
+  </data>
+  <data name="attribute1GridColumn.Caption" xml:space="preserve">
+    <value>Атрибут 1</value>
+  </data>
+  <data name="attribute2GridColumn.Caption" xml:space="preserve">
+    <value>Атрибут 2</value>
+  </data>
+  <data name="attribute3GridColumn.Caption" xml:space="preserve">
+    <value>Атрибут 3</value>
+  </data>
+  <data name="attribute4GridColumn.Caption" xml:space="preserve">
+    <value>Атрибут 4</value>
+  </data>
+  <data name="attribute5GridColumn.Caption" xml:space="preserve">
+    <value>Атрибут 5</value>
+  </data>
+  <data name="attribute6GridColumn.Caption" xml:space="preserve">
+    <value>Атрибут 6</value>
+  </data>
+  <data name="attribute7GridColumn.Caption" xml:space="preserve">
+    <value>Атрибут 7</value>
+  </data>
+  <data name="attribute8GridColumn.Caption" xml:space="preserve">
+    <value>Атрибут 8</value>
+  </data>
+  <data name="attribute9GridColumn.Caption" xml:space="preserve">
+    <value>Атрибут 9</value>
+  </data>
+  <data name="firstNameGridColumn.Caption" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="frequencyOfAskingGridColumn.Caption" xml:space="preserve">
+    <value>Частота</value>
+  </data>
+  <data name="lastNameGridColumn.Caption" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="timeOfStartGridColumn.Caption" xml:space="preserve">
+    <value>Время начала</value>
   </data>
 </root>

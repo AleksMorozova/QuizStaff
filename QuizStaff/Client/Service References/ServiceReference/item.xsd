@@ -2,7 +2,7 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataTransferObject" />
   <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="GetAllTestees">
     <xs:complexType>
       <xs:sequence />
@@ -231,6 +231,18 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveTesteeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="setting" nillable="true" type="q26:SettingDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSettingsResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

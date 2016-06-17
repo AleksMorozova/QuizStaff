@@ -45,7 +45,7 @@ namespace Client.TesteesForm.TesteeAddEdit
             var trainingsList = ServicesHolder.ServiceClient.GetAllTrainings();
             foreach (var training in trainingsList)
             {
-                //AllTrainings.Add(training);
+                AllTrainings.Add(Conversion.ConvertTrainingFromDTO(training));
             }
         }
 

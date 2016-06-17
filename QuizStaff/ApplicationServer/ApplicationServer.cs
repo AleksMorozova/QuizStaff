@@ -182,5 +182,13 @@ namespace Server
             }
             repo.Create(newTestee);
         }
+
+        public void UpdateSettings(SettingDTO setting)
+        {
+            EFRepository<Setting> repo = new EFRepository<DomainModel.Setting>();
+            Setting newSetting = new Setting();
+            Conversion.CopyProperty(setting, newSetting);
+            repo.Update(newSetting);
+        }
     }
 }
