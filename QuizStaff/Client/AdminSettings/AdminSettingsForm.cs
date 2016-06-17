@@ -59,6 +59,7 @@ namespace Client.AdminSettings
         {
             var resources = new ComponentResourceManager(typeof(AdminSettingsForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
+
             resources.ApplyResources(usersListLayoutControlItem, "usersListLayoutControlItem", newCultureInfo);
             resources.ApplyResources(lastNameGridColumn, "lastNameGridColumn", newCultureInfo);
             resources.ApplyResources(firstNameGridColumn, "firstNameGridColumn", newCultureInfo);
@@ -74,11 +75,8 @@ namespace Client.AdminSettings
             resources.ApplyResources(attribute8GridColumn, "attribute8GridColumn", newCultureInfo);
             resources.ApplyResources(attribute9GridColumn, "attribute9GridColumn", newCultureInfo);
             resources.ApplyResources(attribute10GridColumn, "attribute10GridColumn", newCultureInfo);
-
             resources.ApplyResources(this.frequencyOfAskingGridColumn, "frequencyOfAskingGridColumn", newCultureInfo);
             resources.ApplyResources(this.timeOfStartGridColumn, "timeOfStartGridColumn", newCultureInfo);
-            //resources.ApplyResources(usersListLayoutControlItem, "usersListLayoutControlItem", newCultureInfo);
-
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             this.Text = resources.GetString("Title", newCultureInfo);
         }
