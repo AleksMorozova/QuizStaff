@@ -50,6 +50,8 @@
             this.saveButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmTrainingContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.deleteQuestionButton = new DevExpress.XtraEditors.SimpleButton();
+            this.ldeleteQuestionButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridQuestions)).BeginInit();
@@ -66,10 +68,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTrainingContext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ldeleteQuestionButtonLayoutControlItem)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.deleteQuestionButton);
             this.layoutControl1.Controls.Add(this.cancelButton);
             this.layoutControl1.Controls.Add(this.saveButton);
             this.layoutControl1.Controls.Add(this.loadQuestionButton);
@@ -158,7 +162,8 @@
             this.editQuestionButtonLayoutControl,
             this.loadQuestionButtonLayoutControl,
             this.saveButtonLayoutControl,
-            this.cancelButtonLayoutControl});
+            this.cancelButtonLayoutControl,
+            this.ldeleteQuestionButtonLayoutControlItem});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(776, 416);
@@ -187,7 +192,7 @@
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(0, 40);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(456, 36);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(356, 36);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // questionsControlItem
@@ -202,7 +207,7 @@
             // addQuestionButtonLayoutControl
             // 
             this.addQuestionButtonLayoutControl.Control = this.addQuestionButton;
-            this.addQuestionButtonLayoutControl.Location = new System.Drawing.Point(456, 40);
+            this.addQuestionButtonLayoutControl.Location = new System.Drawing.Point(356, 40);
             this.addQuestionButtonLayoutControl.Name = "addQuestionButtonLayoutControl";
             this.addQuestionButtonLayoutControl.Size = new System.Drawing.Size(100, 36);
             this.addQuestionButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -212,7 +217,7 @@
             // editQuestionButtonLayoutControl
             // 
             this.editQuestionButtonLayoutControl.Control = this.editQuestionButton;
-            this.editQuestionButtonLayoutControl.Location = new System.Drawing.Point(556, 40);
+            this.editQuestionButtonLayoutControl.Location = new System.Drawing.Point(456, 40);
             this.editQuestionButtonLayoutControl.Name = "editQuestionButtonLayoutControl";
             this.editQuestionButtonLayoutControl.Size = new System.Drawing.Size(100, 36);
             this.editQuestionButtonLayoutControl.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -253,6 +258,22 @@
             // 
             this.mvvmTrainingContext.ContainerControl = this;
             // 
+            // deleteQuestionButton
+            // 
+            resources.ApplyResources(this.deleteQuestionButton, "deleteQuestionButton");
+            this.deleteQuestionButton.Name = "deleteQuestionButton";
+            this.deleteQuestionButton.StyleController = this.layoutControl1;
+            // 
+            // ldeleteQuestionButtonLayoutControlItem
+            // 
+            this.ldeleteQuestionButtonLayoutControlItem.Control = this.deleteQuestionButton;
+            this.ldeleteQuestionButtonLayoutControlItem.Location = new System.Drawing.Point(556, 40);
+            this.ldeleteQuestionButtonLayoutControlItem.Name = "ldeleteQuestionButtonLayoutControlItem";
+            this.ldeleteQuestionButtonLayoutControlItem.Size = new System.Drawing.Size(100, 36);
+            this.ldeleteQuestionButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.ldeleteQuestionButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.ldeleteQuestionButtonLayoutControlItem.TextVisible = false;
+            // 
             // TrainingAddEditForm
             // 
             resources.ApplyResources(this, "$this");
@@ -275,6 +296,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTrainingContext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ldeleteQuestionButtonLayoutControlItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -302,5 +324,7 @@
         private DevExpress.XtraEditors.SimpleButton saveButton;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayoutControl;
         private DevExpress.XtraLayout.LayoutControlItem cancelButtonLayoutControl;
+        private DevExpress.XtraEditors.SimpleButton deleteQuestionButton;
+        private DevExpress.XtraLayout.LayoutControlItem ldeleteQuestionButtonLayoutControlItem;
     }
 }

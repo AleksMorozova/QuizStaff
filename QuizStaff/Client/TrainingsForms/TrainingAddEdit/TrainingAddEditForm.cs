@@ -51,6 +51,9 @@ namespace Client.TrainingsForms.TrainingAddEdit
 
             mvvmTrainingContext.BindCommand<TrainingViewModel, Training>(saveButton, (viewModel, training)
                 => viewModel.Save(training), x => currentTraining);
+
+            mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(deleteQuestionButton,
+                (x, currentTraining) => x.DeleteQuestion(currentTraining), x => GetCurrentQuestion());
         }
 
         private void BindToViewModel()

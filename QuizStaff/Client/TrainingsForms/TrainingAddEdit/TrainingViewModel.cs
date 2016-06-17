@@ -34,6 +34,12 @@ namespace Client.TrainingsForms.TrainingAddEdit
             training.Questions.Add(questionForm.Question);
         }
 
+        public void DeleteQuestion(Question deletedQuestion)
+        {
+            deletedQuestion.IsActive = false;
+            ServicesHolder.ServiceClient.UpdateQuestion(deletedQuestion);
+        }
+
         public void Cancel()
         {
             //TODO: cancel edeting 

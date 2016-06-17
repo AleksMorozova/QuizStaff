@@ -136,14 +136,6 @@ namespace Server
             repo.Create(newTraining);
         }
 
-        public void UpdateQuestion(QuestionDTO training)
-        {
-            EFRepository<Question> repo = new EFRepository<Question>();
-            Question newTraining = new Question();
-            Conversion.CopyProperty(training, newTraining);
-            repo.Update(newTraining);
-        }
-
         public void UpdateTestee(TesteeDTO testee)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
@@ -189,6 +181,14 @@ namespace Server
             Setting newSetting = new Setting();
             Conversion.CopyProperty(setting, newSetting);
             repo.Update(newSetting);
+        }
+
+        public void UpdateQuestion(QuestionDTO question)
+        {
+            EFRepository<Question> repo = new EFRepository<Question>();
+            Question newQuestion = new Question();
+            Conversion.CopyProperty(question, newQuestion);
+            repo.Update(newQuestion);
         }
     }
 }
