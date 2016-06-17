@@ -118,13 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="deleteQuestionButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>573, 57</value>
+  </data>
+  <data name="deleteQuestionButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 22</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="deleteQuestionButton.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="deleteQuestionButton.Text" xml:space="preserve">
+    <value>Delete question</value>
+  </data>
+  <data name="&gt;&gt;deleteQuestionButton.Name" xml:space="preserve">
+    <value>deleteQuestionButton</value>
+  </data>
+  <data name="&gt;&gt;deleteQuestionButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;deleteQuestionButton.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;deleteQuestionButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>672, 377</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 22</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
@@ -141,7 +165,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>572, 377</value>
@@ -165,7 +189,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="loadQuestionButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>673, 57</value>
@@ -189,10 +213,10 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;loadQuestionButton.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="editQuestionButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>573, 57</value>
+    <value>473, 57</value>
   </data>
   <data name="editQuestionButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 22</value>
@@ -213,10 +237,10 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;editQuestionButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="addQuestionButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>473, 57</value>
+    <value>373, 57</value>
   </data>
   <data name="addQuestionButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 22</value>
@@ -237,7 +261,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;addQuestionButton.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="gridQuestions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -271,7 +295,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;gridQuestions.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="textTrainingName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -298,7 +322,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textTrainingName.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -330,15 +354,15 @@
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="mvvmTrainingContext.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="mvvmTrainingContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>63</value>
-  </data>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -426,13 +450,16 @@
   <data name="&gt;&gt;mvvmTrainingContext.Type" xml:space="preserve">
     <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;ldeleteQuestionButtonLayoutControlItem.Name" xml:space="preserve">
+    <value>ldeleteQuestionButtonLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;ldeleteQuestionButtonLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>TrainingAddEditForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Training</value>
   </data>
 </root>
