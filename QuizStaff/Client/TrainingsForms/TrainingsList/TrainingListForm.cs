@@ -70,7 +70,8 @@ namespace Client.TrainingsListForm
             resources.ApplyResources(buttonAddTraining, "buttonAddTraining", newCultureInfo);
             resources.ApplyResources(trainingsLayoutControlItem, "trainingsLayoutControlItem", newCultureInfo);
             resources.ApplyResources(buttonEditTraining, "buttonEditTraining", newCultureInfo);
-            resources.ApplyResources(buttonLoadTraining, "buttonLoadTraining", newCultureInfo);
+            resources.ApplyResources(buttonLoadTraining, "buttonLoadTraining", newCultureInfo);            
+            resources.ApplyResources(deleteTrainingButton, "deleteTrainingButton", newCultureInfo);
             resources.ApplyResources(titleGridColumn, "titleGridColumn", newCultureInfo);
             resources.ApplyResources(buttonCancel, "buttonCancel", newCultureInfo);
             resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);
