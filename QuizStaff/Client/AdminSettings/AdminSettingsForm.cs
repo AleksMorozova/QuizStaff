@@ -84,10 +84,10 @@ namespace Client.AdminSettings
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            //TODO: Refresh grid and return command binding 
             model.EditSettings(GetSelectedTestees());
             model.GetAllTestees();
             testeeListGridControl.DataSource = model.Testees;
-            //testeeListGridControl.RefreshDataSource();
         }
     }
 }
