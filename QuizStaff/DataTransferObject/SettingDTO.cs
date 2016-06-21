@@ -65,6 +65,8 @@ namespace DataTransferObject
 
         public bool CanUserEdit { get; set; }
 
+        public bool ShowCorrectAnswer { get; set; }
+
         public static implicit operator SettingDTO(Setting setting)
         {
             SettingDTO newSetting = new SettingDTO();

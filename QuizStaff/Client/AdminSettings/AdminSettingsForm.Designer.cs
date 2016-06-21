@@ -55,6 +55,7 @@
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.showCorrectAnswerGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dateImpactLabelLayoutControl)).BeginInit();
             this.dateImpactLabelLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testeeListGridControl)).BeginInit();
@@ -123,9 +124,11 @@
             this.attribute8GridColumn,
             this.attribute9GridColumn,
             this.attribute10GridColumn,
-            this.checkGridColumn});
+            this.checkGridColumn,
+            this.showCorrectAnswerGridColumn});
             this.testeesGridView.GridControl = this.testeeListGridControl;
             this.testeesGridView.Name = "testeesGridView";
+            this.testeesGridView.OptionsDetail.EnableMasterViewMode = false;
             this.testeesGridView.OptionsFind.AlwaysVisible = true;
             this.testeesGridView.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always;
             this.testeesGridView.OptionsView.ShowAutoFilterRow = true;
@@ -304,6 +307,14 @@
             // 
             this.mvvmAdminSettingsContext.ContainerControl = this;
             // 
+            // showCorrectAnswerGridColumn
+            // 
+            this.showCorrectAnswerGridColumn.Caption = "Show correct answer";
+            this.showCorrectAnswerGridColumn.FieldName = "ShowCorrectAnswer";
+            this.showCorrectAnswerGridColumn.Name = "showCorrectAnswerGridColumn";
+            this.showCorrectAnswerGridColumn.Visible = true;
+            this.showCorrectAnswerGridColumn.VisibleIndex = 6;
+            // 
             // AdminSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,5 +367,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn attribute10GridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn checkGridColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn showCorrectAnswerGridColumn;
     }
 }

@@ -48,6 +48,8 @@ namespace DomainModel
 
         public bool CanUserEdit { get; set; }
 
+        public bool ShowCorrectAnswer { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
