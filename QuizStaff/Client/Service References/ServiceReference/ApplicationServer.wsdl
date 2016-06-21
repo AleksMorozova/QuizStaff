@@ -122,6 +122,12 @@
   <wsdl:message name="IApplicationServer_UpdateSettings_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateSettingsResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_DeleteAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_DeleteAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAnswerResponse" />
+  </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetAllTestees">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTestees" message="tns:IApplicationServer_GetAllTestees_InputMessage" />
@@ -198,6 +204,10 @@
     <wsdl:operation name="UpdateSettings">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateSettings" message="tns:IApplicationServer_UpdateSettings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateSettingsResponse" message="tns:IApplicationServer_UpdateSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/DeleteAnswer" message="tns:IApplicationServer_DeleteAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/DeleteAnswerResponse" message="tns:IApplicationServer_DeleteAnswer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -366,6 +376,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateSettings">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/UpdateSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAnswer">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/DeleteAnswer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

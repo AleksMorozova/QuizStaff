@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Globalization;
 using DomainModel;
+using DataTransferObject;
 
 namespace Client.TrainingsForms.TrainingQuestion
 {
@@ -70,6 +71,22 @@ namespace Client.TrainingsForms.TrainingQuestion
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
 
             this.Text = resources.GetString("Title", newCultureInfo);
+        }
+
+        private Answer GetCurrentAnswer()
+        {
+            int rowHandler = answersGridView.FocusedRowHandle;
+            var editedAnswer = (Answer)answersGridView.GetRow(rowHandler);
+            return editedAnswer;
+        }
+
+        private void answersGridControl_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
+        {
+            var answer = GetCurrentAnswer();
+            answer.IsActive = false;
+            AnswerDTO newAnswer = new AnswerDTO();
+            Conversion.CopyProperty(answer, newAnswer);
+            ServicesHolder.ServiceClient.DeleteAnswer(newAnswer);
         }
     }
 }

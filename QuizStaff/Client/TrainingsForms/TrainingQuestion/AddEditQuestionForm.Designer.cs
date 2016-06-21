@@ -90,6 +90,7 @@
             // 
             // answersGridControl
             // 
+            this.answersGridControl.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.answersGridControl_EmbeddedNavigator_ButtonClick);
             resources.ApplyResources(this.answersGridControl, "answersGridControl");
             this.answersGridControl.MainView = this.answersGridView;
             this.answersGridControl.Name = "answersGridControl";
