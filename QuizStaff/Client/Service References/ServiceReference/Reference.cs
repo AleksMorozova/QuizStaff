@@ -128,6 +128,12 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSettingsResponse")]
         System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO setting);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteAnswer", ReplyAction="http://tempuri.org/IApplicationServer/DeleteAnswerResponse")]
+        void DeleteAnswer(DataTransferObject.AnswerDTO answer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteAnswer", ReplyAction="http://tempuri.org/IApplicationServer/DeleteAnswerResponse")]
+        System.Threading.Tasks.Task DeleteAnswerAsync(DataTransferObject.AnswerDTO answer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -307,6 +313,14 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO setting) {
             return base.Channel.UpdateSettingsAsync(setting);
+        }
+        
+        public void DeleteAnswer(DataTransferObject.AnswerDTO answer) {
+            base.Channel.DeleteAnswer(answer);
+        }
+        
+        public System.Threading.Tasks.Task DeleteAnswerAsync(DataTransferObject.AnswerDTO answer) {
+            return base.Channel.DeleteAnswerAsync(answer);
         }
     }
 }
