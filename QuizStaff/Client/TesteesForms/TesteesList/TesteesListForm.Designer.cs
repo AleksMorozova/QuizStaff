@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TesteesListForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.deleteTesteeButton = new DevExpress.XtraEditors.SimpleButton();
             this.buttonCancel = new DevExpress.XtraEditors.SimpleButton();
             this.buttonSave = new DevExpress.XtraEditors.SimpleButton();
             this.addTesteeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -63,9 +64,8 @@
             this.layoutButtonCancel = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutButtonSave = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTesteesContext = new DevExpress.Utils.MVVM.MVVMContext();
-            this.deleteTesteeButton = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.mvvmTesteesContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTestees)).BeginInit();
@@ -91,8 +91,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonSave)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteesContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteesContext)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -108,6 +108,12 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(839, 285, 568, 350);
             this.layoutControl1.Root = this.layoutControlGridAndButtons;
+            // 
+            // deleteTesteeButton
+            // 
+            resources.ApplyResources(this.deleteTesteeButton, "deleteTesteeButton");
+            this.deleteTesteeButton.Name = "deleteTesteeButton";
+            this.deleteTesteeButton.StyleController = this.layoutControl1;
             // 
             // buttonCancel
             // 
@@ -404,24 +410,19 @@
             this.layoutButtonSave.TextSize = new System.Drawing.Size(0, 0);
             this.layoutButtonSave.TextVisible = false;
             // 
-            // mvvmTesteesContext
-            // 
-            this.mvvmTesteesContext.ContainerControl = this;
-            // 
-            // deleteTesteeButton
-            // 
-            resources.ApplyResources(this.deleteTesteeButton, "deleteTesteeButton");
-            this.deleteTesteeButton.Name = "deleteTesteeButton";
-            this.deleteTesteeButton.StyleController = this.layoutControl1;
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.deleteTesteeButton;
             this.layoutControlItem1.Location = new System.Drawing.Point(851, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
             this.layoutControlItem1.Size = new System.Drawing.Size(105, 28);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // mvvmTesteesContext
+            // 
+            this.mvvmTesteesContext.ContainerControl = this;
             // 
             // TesteesListForm
             // 
@@ -454,8 +455,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutButtonSave)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteesContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteesContext)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -126,7 +126,7 @@
   <data name="editTesteeButton.Text" xml:space="preserve">
     <value>Редактировать</value>
   </data>
-  <data name="loadTesteeButton.Text" xml:space="preserve">
+  <data name="loadTesteesButton.Text" xml:space="preserve">
     <value>Загрузить</value>
   </data>
   <data name="buttonSave.Text" xml:space="preserve">
