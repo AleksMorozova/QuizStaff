@@ -190,5 +190,13 @@ namespace Server
             Conversion.CopyProperty(question, newQuestion);
             repo.Update(newQuestion);
         }
+
+        public void DeleteAnswer(AnswerDTO answer)
+        {
+            EFRepository<Answer> repo = new EFRepository<Answer>();
+            Answer newAnswer = new Answer();
+            Conversion.CopyProperty(answer, newAnswer);
+            repo.Update(newAnswer);
+        }
     }
 }

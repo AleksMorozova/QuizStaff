@@ -69,5 +69,8 @@ namespace Server
 
         [OperationContract]
         void UpdateSettings(SettingDTO setting);
+
+        [OperationContract]
+        void DeleteAnswer(AnswerDTO answer);
     }
 }

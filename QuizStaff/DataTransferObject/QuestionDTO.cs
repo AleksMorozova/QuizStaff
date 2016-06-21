@@ -38,7 +38,8 @@ namespace DataTransferObject
                 Conversion.CopyProperty(question, newQuestion);
                 foreach (var a in question.Answers)
                 {
-                    newQuestion.Answers.Add((AnswerDTO)a);
+                    if (a.IsActive)
+                        newQuestion.Answers.Add((AnswerDTO)a);
                 }
             }
             return newQuestion;
