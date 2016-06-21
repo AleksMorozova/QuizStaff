@@ -23,7 +23,7 @@ namespace Client.AdminSettings
             InitializeComponent();
 
             mvvmAdminSettingsContext.ViewModelType = typeof(AdminSettingsViewModel);
-        //    BindCommands();
+            //BindCommands();
             model = new AdminSettingsViewModel();
             mvvmAdminSettingsContext.SetViewModel(typeof(AdminSettingsViewModel), model);
             model.GetAllTestees();
