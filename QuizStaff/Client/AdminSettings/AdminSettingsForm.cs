@@ -23,7 +23,7 @@ namespace Client.AdminSettings
             InitializeComponent();
 
             mvvmAdminSettingsContext.ViewModelType = typeof(AdminSettingsViewModel);
-            BindCommands();
+        //    BindCommands();
             model = new AdminSettingsViewModel();
             mvvmAdminSettingsContext.SetViewModel(typeof(AdminSettingsViewModel), model);
             model.GetAllTestees();
@@ -79,7 +79,15 @@ namespace Client.AdminSettings
             resources.ApplyResources(this.timeOfStartGridColumn, "timeOfStartGridColumn", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
-        ? resources.GetString("Title", newCultureInfo) : "Settings";
+                ? resources.GetString("Title", newCultureInfo) : "Settings";
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            model.EditSettings(GetSelectedTestees());
+            model.GetAllTestees();
+            testeeListGridControl.DataSource = model.Testees;
+            //testeeListGridControl.RefreshDataSource();
         }
     }
 }

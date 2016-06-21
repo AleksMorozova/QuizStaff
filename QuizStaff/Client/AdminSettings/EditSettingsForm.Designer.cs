@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.applyButton = new DevExpress.XtraEditors.SimpleButton();
@@ -41,7 +40,7 @@
             this.timeOfAskingLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.applyButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.mvvmSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTime.Properties)).BeginInit();
@@ -74,6 +73,7 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelButton.Location = new System.Drawing.Point(205, 119);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(175, 22);
@@ -83,6 +83,7 @@
             // 
             // applyButton
             // 
+            this.applyButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.applyButton.Location = new System.Drawing.Point(17, 119);
             this.applyButton.Name = "applyButton";
             this.applyButton.Size = new System.Drawing.Size(174, 22);
@@ -204,8 +205,10 @@
             // 
             // EditSettingsForm
             // 
+            this.AcceptButton = this.applyButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(397, 310);
             this.Controls.Add(this.layoutControl1);
             this.Name = "EditSettingsForm";

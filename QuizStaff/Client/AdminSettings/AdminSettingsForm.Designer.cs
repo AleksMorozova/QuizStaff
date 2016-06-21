@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dateImpactLabelLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.testeeListGridControl = new DevExpress.XtraGrid.GridControl();
@@ -55,7 +54,7 @@
             this.usersListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.dateImpactLabelLayoutControl)).BeginInit();
             this.dateImpactLabelLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testeeListGridControl)).BeginInit();
@@ -91,6 +90,7 @@
             this.saveButton.StyleController = this.dateImpactLabelLayoutControl;
             this.saveButton.TabIndex = 14;
             this.saveButton.Text = "Change settings";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // testeeListGridControl
             // 
