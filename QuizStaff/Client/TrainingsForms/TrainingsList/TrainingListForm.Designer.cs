@@ -136,6 +136,7 @@
             this.titleGridColumn});
             this.trainingsGridView.GridControl = this.trainingsGridControl;
             this.trainingsGridView.Name = "trainingsGridView";
+            this.trainingsGridView.OptionsBehavior.Editable = false;
             this.trainingsGridView.OptionsDetail.EnableMasterViewMode = false;
             this.trainingsGridView.OptionsView.ShowGroupPanel = false;
             this.trainingsGridView.DoubleClick += new System.EventHandler(this.trainingsGridView_DoubleClick);
