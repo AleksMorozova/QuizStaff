@@ -13,6 +13,7 @@ namespace Client.TesteeSettings
         public TesteeSettingsForm()
         {
             InitializeComponent();
+            Localized(Program.currentLang);
 
             mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
             BindCommands();
