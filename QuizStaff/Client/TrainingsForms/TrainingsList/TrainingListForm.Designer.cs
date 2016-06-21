@@ -243,6 +243,7 @@
             this.deleteButtonLayoutControlItem.Control = this.deleteTrainingButton;
             this.deleteButtonLayoutControlItem.Location = new System.Drawing.Point(600, 0);
             this.deleteButtonLayoutControlItem.Name = "deleteButtonLayoutControlItem";
+            this.deleteButtonLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
             this.deleteButtonLayoutControlItem.Size = new System.Drawing.Size(105, 28);
             this.deleteButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.deleteButtonLayoutControlItem.TextVisible = false;

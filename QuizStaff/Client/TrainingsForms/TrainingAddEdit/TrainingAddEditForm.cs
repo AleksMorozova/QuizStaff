@@ -64,8 +64,6 @@ namespace Client.TrainingsForms.TrainingAddEdit
 
         private Question GetCurrentQuestion()
         {
-        //    if (currentTraining!=null)
-        //    model.Training = currentTraining;
             int rowHandler = questionsGridView.FocusedRowHandle;
             var editedQuestion = (Question)questionsGridView.GetRow(rowHandler);
             return editedQuestion;
@@ -87,6 +85,7 @@ namespace Client.TrainingsForms.TrainingAddEdit
                 model.Training = value;
             }
         }
+        
         public void Localized(string language)
         {
             var resources = new ComponentResourceManager(typeof(TrainingAddEditForm));
