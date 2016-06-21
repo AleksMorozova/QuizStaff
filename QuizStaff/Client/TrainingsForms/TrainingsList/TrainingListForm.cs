@@ -74,7 +74,8 @@ namespace Client.TrainingsListForm
             resources.ApplyResources(titleGridColumn, "titleGridColumn", newCultureInfo);
             resources.ApplyResources(buttonCancel, "buttonCancel", newCultureInfo);
             resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);
-            this.Text = resources.GetString("Title", newCultureInfo);
+            this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
+                     ? resources.GetString("Title", newCultureInfo) : "Trainings";
         }
     }
 }
