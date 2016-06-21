@@ -56,17 +56,18 @@ namespace Client.TesteesForms.TesteesList
 
         private void testeeGridView_DoubleClick(object sender, EventArgs e)
         {
-            //model.EditTestee(GetCurrentTestee());
+            model.EditTestee(GetCurrentTestee());
         }
        
         public void Localized(string language)
         {
             var resources = new ComponentResourceManager(typeof(TesteesListForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
-            resources.ApplyResources(addTesteeButton, "buttonAddTestee", newCultureInfo);
+            resources.ApplyResources(addTesteeButton, "addTesteeButton", newCultureInfo);
             resources.ApplyResources(testeesLayoutControlItem, "testeesLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(editTesteeButton, "buttonEditTestee", newCultureInfo);
-            resources.ApplyResources(loadTesteesButton , "buttonLoadTestee", newCultureInfo);
+            resources.ApplyResources(editTesteeButton, "editTesteeButton", newCultureInfo);
+            resources.ApplyResources(loadTesteesButton, "loadTesteesButton", newCultureInfo);
+            resources.ApplyResources(deleteTesteeButton , "deleteTesteeButton", newCultureInfo);
             resources.ApplyResources(columnEmail, "columnEmail", newCultureInfo);
             resources.ApplyResources(columnFirstName, "columnFirstName", newCultureInfo);
             resources.ApplyResources(columnLastName, "columnLastName", newCultureInfo);
