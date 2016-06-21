@@ -196,7 +196,10 @@
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TrainingsForms\TrainingsList\TrainingListViewModel.cs" />
-    <EmbeddedResource Include="TesteeSettings\TrsteeSettingsForm.Ru-ru.resx" />
+    <EmbeddedResource Include="AdminSettings\EditSettingsForm.RU-ru.resx">
+      <DependentUpon>EditSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesteeSettings\TesteeSettingsForm.Ru-ru.resx" />
     <EmbeddedResource Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.resx">
       <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
     </EmbeddedResource>

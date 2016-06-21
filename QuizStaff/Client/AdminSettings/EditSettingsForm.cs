@@ -21,7 +21,9 @@ namespace Client.AdminSettings
 
         public EditSettingsForm(BindingList<Testee> Testees)
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            Localized(Program.currentLang);
+
             mvvmSettingsContext.ViewModelType = typeof(AdminSettingsViewModel);
             //TODO: Set command binding
             BindCommands();
