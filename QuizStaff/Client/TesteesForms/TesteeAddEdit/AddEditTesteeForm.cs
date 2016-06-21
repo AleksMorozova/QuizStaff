@@ -92,7 +92,9 @@ namespace Client.TesteesForm.TesteeAddEdit
             resources.ApplyResources(frequencyLayoutControlItem, "frequencyLayoutControlItem", newCultureInfo);
             resources.ApplyResources(timeOfStartTimeEditLayoutControlItem, "timeOfStartTimeEditLayoutControlItem", newCultureInfo);
             resources.ApplyResources(timeOfStartTimeEditLayoutControlItem, "timeOfStartTimeEditLayoutControlItem", newCultureInfo);
-            this.Text = resources.GetString("Title", newCultureInfo) + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");
+            string title = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
+                ? resources.GetString("Title", newCultureInfo) : "Testee";
+            this.Text = title + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");
         }
 
         private void gridViewTrainings_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)

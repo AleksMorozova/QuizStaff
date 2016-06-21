@@ -87,6 +87,7 @@ namespace Client.TrainingsForms.TrainingAddEdit
                 model.Training = value;
             }
         }
+        
         public void Localized(string language)
         {
             var resources = new ComponentResourceManager(typeof(TrainingAddEditForm));
@@ -98,8 +99,9 @@ namespace Client.TrainingsForms.TrainingAddEdit
             resources.ApplyResources(QuestionText, "QuestionText", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
-
-            this.Text = resources.GetString("Title", newCultureInfo) + (Training != null && !String.IsNullOrEmpty(Training.TrainingTitle) ? ":" + Training.TrainingTitle : "");
+            string title = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
+                ? resources.GetString("Title", newCultureInfo) : "Training";
+            this.Text = title + (Training != null && !String.IsNullOrEmpty(Training.TrainingTitle) ? ":" + Training.TrainingTitle : "");
         }
     }
 }

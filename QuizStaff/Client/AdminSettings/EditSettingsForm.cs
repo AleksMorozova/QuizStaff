@@ -56,7 +56,8 @@ namespace Client.AdminSettings
             resources.ApplyResources(timeOfAskingLayoutControlItem, "timeOfAskingLayoutControlItem", newCultureInfo);
             resources.ApplyResources(applyButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
-            this.Text = resources.GetString("Title", newCultureInfo);
+            this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
+                ? resources.GetString("Title", newCultureInfo) : "Settings";
         }
 
         private void applyButton_Click(object sender, EventArgs e)

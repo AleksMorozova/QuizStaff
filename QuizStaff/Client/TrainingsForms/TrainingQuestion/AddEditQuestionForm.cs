@@ -69,8 +69,8 @@ namespace Client.TrainingsForms.TrainingQuestion
             resources.ApplyResources(isCorrectColumn, "isCorrectColumn", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
-
-            this.Text = resources.GetString("Title", newCultureInfo);
+            this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
+                ? resources.GetString("Title", newCultureInfo) : "Question";
         }
 
         private Answer GetCurrentAnswer()
