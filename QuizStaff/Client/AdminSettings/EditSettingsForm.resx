@@ -128,7 +128,7 @@
     <value>On</value>
   </data>
   <data name="showAnswerToggleSwitch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 24</value>
+    <value>184, 24</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="showAnswerToggleSwitch.TabIndex" type="System.Int32, mscorlib">
@@ -156,7 +156,7 @@
     <value>On</value>
   </data>
   <data name="canEditToggleSwitch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 24</value>
+    <value>184, 24</value>
   </data>
   <data name="canEditToggleSwitch.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -174,10 +174,10 @@
     <value>5</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 183</value>
+    <value>167, 183</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 22</value>
+    <value>135, 22</value>
   </data>
   <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -201,7 +201,7 @@
     <value>17, 183</value>
   </data>
   <data name="applyButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 22</value>
+    <value>136, 22</value>
   </data>
   <data name="applyButton.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -232,7 +232,7 @@
     <value>Combo</value>
   </data>
   <data name="timeOfAskingEditTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 20</value>
+    <value>181, 20</value>
   </data>
   <data name="timeOfAskingEditTime.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -259,7 +259,7 @@
     <value>Combo</value>
   </data>
   <data name="frequencySpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 20</value>
+    <value>181, 20</value>
   </data>
   <data name="frequencySpinEdit.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -286,7 +286,7 @@
     <value>Combo</value>
   </data>
   <data name="questionAmountTextEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 20</value>
+    <value>181, 20</value>
   </data>
   <data name="questionAmountTextEdit.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -326,7 +326,7 @@
     <value>Show correct answer</value>
   </data>
   <data name="layoutControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 242</value>
+    <value>319, 227</value>
   </data>
   <data name="layoutControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -356,7 +356,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>260, 242</value>
+    <value>319, 227</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>EditSettingsForm</value>

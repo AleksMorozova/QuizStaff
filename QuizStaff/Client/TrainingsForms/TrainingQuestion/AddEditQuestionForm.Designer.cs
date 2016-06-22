@@ -109,6 +109,7 @@
             this.answersGridView.Name = "answersGridView";
             this.answersGridView.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
             this.answersGridView.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
+            this.answersGridView.OptionsView.ShowGroupPanel = false;
             this.answersGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.answersGridView_InitNewRow);
             // 
             // answerColumn
