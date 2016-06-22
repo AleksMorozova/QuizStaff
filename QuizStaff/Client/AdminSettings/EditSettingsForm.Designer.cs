@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditSettingsForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.showAnswerToggleSwitch = new DevExpress.XtraEditors.ToggleSwitch();
@@ -46,7 +45,7 @@
             this.canEditToggleSwitchLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.showAnswerToggleSwitchLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.mvvmSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.showAnswerToggleSwitch.Properties)).BeginInit();
@@ -148,7 +147,7 @@
             this.cancelButtonLayoutControlItem});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(260, 242);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(319, 227);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // frequencyLayoutControlItem
@@ -156,7 +155,7 @@
             this.frequencyLayoutControlItem.Control = this.frequencySpinEdit;
             this.frequencyLayoutControlItem.Location = new System.Drawing.Point(0, 34);
             this.frequencyLayoutControlItem.Name = "frequencyLayoutControlItem";
-            this.frequencyLayoutControlItem.Size = new System.Drawing.Size(240, 34);
+            this.frequencyLayoutControlItem.Size = new System.Drawing.Size(299, 34);
             this.frequencyLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             resources.ApplyResources(this.frequencyLayoutControlItem, "frequencyLayoutControlItem");
             this.frequencyLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
@@ -166,7 +165,7 @@
             this.questionAmountLayoutControlItem.Control = this.questionAmountTextEdit;
             this.questionAmountLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.questionAmountLayoutControlItem.Name = "questionAmountLayoutControlItem";
-            this.questionAmountLayoutControlItem.Size = new System.Drawing.Size(240, 34);
+            this.questionAmountLayoutControlItem.Size = new System.Drawing.Size(299, 34);
             this.questionAmountLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             resources.ApplyResources(this.questionAmountLayoutControlItem, "questionAmountLayoutControlItem");
             this.questionAmountLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
@@ -176,7 +175,7 @@
             this.timeOfAskingLayoutControlItem.Control = this.timeOfAskingEditTime;
             this.timeOfAskingLayoutControlItem.Location = new System.Drawing.Point(0, 68);
             this.timeOfAskingLayoutControlItem.Name = "timeOfAskingLayoutControlItem";
-            this.timeOfAskingLayoutControlItem.Size = new System.Drawing.Size(240, 34);
+            this.timeOfAskingLayoutControlItem.Size = new System.Drawing.Size(299, 34);
             this.timeOfAskingLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             resources.ApplyResources(this.timeOfAskingLayoutControlItem, "timeOfAskingLayoutControlItem");
             this.timeOfAskingLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
@@ -186,7 +185,7 @@
             this.applyButtonLayoutControlItem.Control = this.applyButton;
             this.applyButtonLayoutControlItem.Location = new System.Drawing.Point(0, 166);
             this.applyButtonLayoutControlItem.Name = "applyButtonLayoutControlItem";
-            this.applyButtonLayoutControlItem.Size = new System.Drawing.Size(120, 56);
+            this.applyButtonLayoutControlItem.Size = new System.Drawing.Size(150, 41);
             this.applyButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.applyButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.applyButtonLayoutControlItem.TextVisible = false;
@@ -196,7 +195,7 @@
             this.canEditToggleSwitchLayoutControlItem.Control = this.canEditToggleSwitch;
             this.canEditToggleSwitchLayoutControlItem.Location = new System.Drawing.Point(0, 102);
             this.canEditToggleSwitchLayoutControlItem.Name = "canEditToggleSwitchLayoutControlItem";
-            this.canEditToggleSwitchLayoutControlItem.Size = new System.Drawing.Size(240, 32);
+            this.canEditToggleSwitchLayoutControlItem.Size = new System.Drawing.Size(299, 32);
             this.canEditToggleSwitchLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 2, 2, 2);
             resources.ApplyResources(this.canEditToggleSwitchLayoutControlItem, "canEditToggleSwitchLayoutControlItem");
             this.canEditToggleSwitchLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
@@ -206,7 +205,7 @@
             this.showAnswerToggleSwitchLayoutControlItem.Control = this.showAnswerToggleSwitch;
             this.showAnswerToggleSwitchLayoutControlItem.Location = new System.Drawing.Point(0, 134);
             this.showAnswerToggleSwitchLayoutControlItem.Name = "showAnswerToggleSwitchLayoutControlItem";
-            this.showAnswerToggleSwitchLayoutControlItem.Size = new System.Drawing.Size(240, 32);
+            this.showAnswerToggleSwitchLayoutControlItem.Size = new System.Drawing.Size(299, 32);
             this.showAnswerToggleSwitchLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 2, 2, 2);
             resources.ApplyResources(this.showAnswerToggleSwitchLayoutControlItem, "showAnswerToggleSwitchLayoutControlItem");
             this.showAnswerToggleSwitchLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
@@ -214,9 +213,9 @@
             // cancelButtonLayoutControlItem
             // 
             this.cancelButtonLayoutControlItem.Control = this.cancelButton;
-            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(120, 166);
+            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(150, 166);
             this.cancelButtonLayoutControlItem.Name = "cancelButtonLayoutControlItem";
-            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(120, 56);
+            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(149, 41);
             this.cancelButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.cancelButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.cancelButtonLayoutControlItem.TextVisible = false;
