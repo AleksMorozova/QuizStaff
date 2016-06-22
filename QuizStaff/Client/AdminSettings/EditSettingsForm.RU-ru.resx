@@ -126,8 +126,8 @@
   <data name="questionAmountLayoutControlItem.Text" xml:space="preserve">
     <value>Количество вопросов</value>
   </data>
-  <data name="saveButton.Text" xml:space="preserve">
-    <value>Сохранить</value>
+  <data name="applyButton.Text" xml:space="preserve">
+    <value>Применить</value>
   </data>
   <data name="timeOfAskingLayoutControlItem.Text" xml:space="preserve">
     <value>Время начала</value>
@@ -147,10 +147,10 @@
   <data name="showAnswerToggleSwitchLayoutControlItem.Text" xml:space="preserve">
     <value>Показывать правильный ответ</value>
   </data>
-  <data name="toggleSwitchCanUserEdit.Properties.OffText" xml:space="preserve">
+  <data name="canEditToggleSwitch.Properties.OffText" xml:space="preserve">
     <value>Нет</value>
   </data>
-  <data name="toggleSwitchCanUserEdit.Properties.OnText" xml:space="preserve">
+  <data name="canEditToggleSwitch.Properties.OnText" xml:space="preserve">
     <value>Да</value>
   </data>
 </root>

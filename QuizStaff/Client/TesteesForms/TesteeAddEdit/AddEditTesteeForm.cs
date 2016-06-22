@@ -92,7 +92,11 @@ namespace Client.TesteesForm.TesteeAddEdit
             resources.ApplyResources(questionAmountLayoutControlItem, "questionAmountLayoutControlItem", newCultureInfo);
             resources.ApplyResources(frequencyLayoutControlItem, "frequencyLayoutControlItem", newCultureInfo);
             resources.ApplyResources(timeOfStartTimeEditLayoutControlItem, "timeOfStartTimeEditLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(timeOfStartTimeEditLayoutControlItem, "timeOfStartTimeEditLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(showAnswerToggleSwitchLayoutControlItem, "showAnswerToggleSwitchLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(canEditToggleSwitchLayoutControlItem, "canEditToggleSwitchLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(settingLayoutControlGroup, "settingLayoutControlGroup", newCultureInfo);
+            resources.ApplyResources(generalInfLayoutControlGroup, "generalInfLayoutControlGroup", newCultureInfo);
+            
             string title = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Testee";
             this.Text = title + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");

@@ -138,7 +138,7 @@
   <data name="loginLayoutControlItem.Text" xml:space="preserve">
     <value>Логин</value>
   </data>
-  <data name="layoutControlItemQuestionAmount.Text" xml:space="preserve">
+  <data name="questionAmountLayoutControlItem.Text" xml:space="preserve">
     <value>Количество вопросов</value>
   </data>
   <data name="trainingsLayoutControlItem.Text" xml:space="preserve">
@@ -156,10 +156,10 @@
   <data name="titleGridColumn.Caption" xml:space="preserve">
     <value>Название</value>
   </data>
-  <data name="toggleSwitchCanUserEdit.Properties.OffText" xml:space="preserve">
+  <data name="canEditToggleSwitch.Properties.OffText" xml:space="preserve">
     <value>Нет</value>
   </data>
-  <data name="toggleSwitchCanUserEdit.Properties.OnText" xml:space="preserve">
+  <data name="canEditToggleSwitch.Properties.OnText" xml:space="preserve">
     <value>Да</value>
   </data>
   <data name="timeOfStartTimeEditLayoutControlItem.Text" xml:space="preserve">
@@ -176,5 +176,11 @@
   </data>
   <data name="showAnswerToggleSwitch.Properties.OnText" xml:space="preserve">
     <value>Да</value>
+  </data>
+  <data name="generalInfLayoutControlGroup.Text" xml:space="preserve">
+    <value>Общая информация</value>
+  </data>
+  <data name="settingLayoutControlGroup.Text" xml:space="preserve">
+    <value>Настройки</value>
   </data>
 </root>

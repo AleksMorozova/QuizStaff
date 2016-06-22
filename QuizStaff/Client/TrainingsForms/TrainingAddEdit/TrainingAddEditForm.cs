@@ -97,6 +97,7 @@ namespace Client.TrainingsForms.TrainingAddEdit
             resources.ApplyResources(QuestionText, "QuestionText", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
+            resources.ApplyResources(deleteQuestionButton, "deleteQuestionButton", newCultureInfo);
             string title = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Training";
             this.Text = title + (Training != null && !String.IsNullOrEmpty(Training.TrainingTitle) ? ":" + Training.TrainingTitle : "");
