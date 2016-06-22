@@ -41,6 +41,8 @@ namespace Client.AdminSettings
             questionAmountTextEdit.DataBindings.Add("EditValue", outer, "AmountOfQuestionsPerDay");
             frequencySpinEdit.DataBindings.Add("EditValue", outer, "FrequencyOfAsking");
             timeOfAskingEditTime.DataBindings.Add("EditValue", outer, "TimeOfStart");
+            showAnswerToggleSwitch.DataBindings.Add("EditValue", outer, "ShowCorrectAnswer");
+            canEditToggleSwitch.DataBindings.Add("EditValue", outer, "CanUserEdit");
         }
 
         private void BindCommands()
