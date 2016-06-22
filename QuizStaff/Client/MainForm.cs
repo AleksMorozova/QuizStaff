@@ -118,7 +118,7 @@ namespace Client
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+            Configuration config = ConfigurationManager.OpenExeConfiguration(System.Windows.Forms.Application.ExecutablePath);
             config.AppSettings.Settings.Remove("Lang");
             config.AppSettings.Settings.Add("Lang", Program.currentLang);
             config.Save(ConfigurationSaveMode.Modified);

@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditTesteeForm));
-            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource();
+            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.canEditToggleSwitch = new DevExpress.XtraEditors.ToggleSwitch();
             this.timeOfStartTimeEdit = new DevExpress.XtraEditors.TimeEdit();
@@ -64,7 +65,7 @@
             this.loginLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.firstNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emailLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -245,8 +246,8 @@
             // 
             resources.ApplyResources(this.showAnswerToggleSwitch, "showAnswerToggleSwitch");
             this.showAnswerToggleSwitch.Name = "showAnswerToggleSwitch";
-            this.showAnswerToggleSwitch.Properties.OffText = resources.GetString("toggleSwitch1.Properties.OffText");
-            this.showAnswerToggleSwitch.Properties.OnText = resources.GetString("toggleSwitch1.Properties.OnText");
+            this.showAnswerToggleSwitch.Properties.OffText = resources.GetString("showAnswerToggleSwitch.Properties.OffText");
+            this.showAnswerToggleSwitch.Properties.OnText = resources.GetString("showAnswerToggleSwitch.Properties.OnText");
             this.showAnswerToggleSwitch.StyleController = this.layoutControl1;
             // 
             // layoutControlGroup3
@@ -295,10 +296,10 @@
             // 
             this.settingLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.frequencyLayoutControlItem,
-            this.questionAmountLayoutControlItem,
-            this.timeOfStartTimeEditLayoutControlItem,
             this.showAnswerToggleSwitchLayoutControlItem,
-            this.canEditToggleSwitchLayoutControlItem});
+            this.questionAmountLayoutControlItem,
+            this.canEditToggleSwitchLayoutControlItem,
+            this.timeOfStartTimeEditLayoutControlItem});
             this.settingLayoutControlGroup.Location = new System.Drawing.Point(0, 351);
             this.settingLayoutControlGroup.Name = "settingLayoutControlGroup";
             this.settingLayoutControlGroup.Size = new System.Drawing.Size(660, 98);
@@ -309,25 +310,26 @@
             this.frequencyLayoutControlItem.Control = this.frequencySpinEdit;
             this.frequencyLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.frequencyLayoutControlItem.Name = "frequencyLayoutControlItem";
-            this.frequencyLayoutControlItem.Size = new System.Drawing.Size(159, 24);
+            this.frequencyLayoutControlItem.Size = new System.Drawing.Size(202, 24);
             resources.ApplyResources(this.frequencyLayoutControlItem, "frequencyLayoutControlItem");
             this.frequencyLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
             // 
             // questionAmountLayoutControlItem
             // 
             this.questionAmountLayoutControlItem.Control = this.questionAmountSpinEdit;
-            this.questionAmountLayoutControlItem.Location = new System.Drawing.Point(159, 0);
+            this.questionAmountLayoutControlItem.Location = new System.Drawing.Point(202, 0);
             this.questionAmountLayoutControlItem.Name = "questionAmountLayoutControlItem";
-            this.questionAmountLayoutControlItem.Size = new System.Drawing.Size(160, 24);
+            this.questionAmountLayoutControlItem.Size = new System.Drawing.Size(195, 24);
+            this.questionAmountLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
             resources.ApplyResources(this.questionAmountLayoutControlItem, "questionAmountLayoutControlItem");
             this.questionAmountLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
             // 
             // timeOfStartTimeEditLayoutControlItem
             // 
             this.timeOfStartTimeEditLayoutControlItem.Control = this.timeOfStartTimeEdit;
-            this.timeOfStartTimeEditLayoutControlItem.Location = new System.Drawing.Point(319, 0);
+            this.timeOfStartTimeEditLayoutControlItem.Location = new System.Drawing.Point(397, 0);
             this.timeOfStartTimeEditLayoutControlItem.Name = "timeOfStartTimeEditLayoutControlItem";
-            this.timeOfStartTimeEditLayoutControlItem.Size = new System.Drawing.Size(317, 24);
+            this.timeOfStartTimeEditLayoutControlItem.Size = new System.Drawing.Size(239, 24);
             this.timeOfStartTimeEditLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
             resources.ApplyResources(this.timeOfStartTimeEditLayoutControlItem, "timeOfStartTimeEditLayoutControlItem");
             this.timeOfStartTimeEditLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
@@ -338,16 +340,16 @@
             resources.ApplyResources(this.showAnswerToggleSwitchLayoutControlItem, "showAnswerToggleSwitchLayoutControlItem");
             this.showAnswerToggleSwitchLayoutControlItem.Location = new System.Drawing.Point(0, 24);
             this.showAnswerToggleSwitchLayoutControlItem.Name = "showAnswerToggleSwitchLayoutControlItem";
-            this.showAnswerToggleSwitchLayoutControlItem.Size = new System.Drawing.Size(318, 32);
-            this.showAnswerToggleSwitchLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.showAnswerToggleSwitchLayoutControlItem.Size = new System.Drawing.Size(202, 32);
+            this.showAnswerToggleSwitchLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 2, 2, 2);
             this.showAnswerToggleSwitchLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);
             // 
             // canEditToggleSwitchLayoutControlItem
             // 
             this.canEditToggleSwitchLayoutControlItem.Control = this.canEditToggleSwitch;
-            this.canEditToggleSwitchLayoutControlItem.Location = new System.Drawing.Point(318, 24);
+            this.canEditToggleSwitchLayoutControlItem.Location = new System.Drawing.Point(202, 24);
             this.canEditToggleSwitchLayoutControlItem.Name = "canEditToggleSwitchLayoutControlItem";
-            this.canEditToggleSwitchLayoutControlItem.Size = new System.Drawing.Size(318, 32);
+            this.canEditToggleSwitchLayoutControlItem.Size = new System.Drawing.Size(434, 32);
             this.canEditToggleSwitchLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
             resources.ApplyResources(this.canEditToggleSwitchLayoutControlItem, "canEditToggleSwitchLayoutControlItem");
             this.canEditToggleSwitchLayoutControlItem.TextSize = new System.Drawing.Size(101, 13);

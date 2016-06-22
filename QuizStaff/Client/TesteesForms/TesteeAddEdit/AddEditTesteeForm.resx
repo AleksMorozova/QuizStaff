@@ -122,7 +122,7 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="canEditToggleSwitch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>451, 417</value>
+    <value>335, 417</value>
   </data>
   <data name="canEditToggleSwitch.Properties.OffText" xml:space="preserve">
     <value>Off</value>
@@ -131,7 +131,7 @@
     <value>On</value>
   </data>
   <data name="canEditToggleSwitch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 24</value>
+    <value>321, 24</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="canEditToggleSwitch.TabIndex" type="System.Int32, mscorlib">
@@ -153,14 +153,14 @@
     <value>2016-06-16</value>
   </data>
   <data name="timeOfStartTimeEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>452, 393</value>
+    <value>530, 393</value>
   </data>
   <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="timeOfStartTimeEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Combo</value>
   </data>
   <data name="timeOfStartTimeEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 20</value>
+    <value>121, 20</value>
   </data>
   <data name="timeOfStartTimeEdit.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -211,7 +211,7 @@
     <value>Combo</value>
   </data>
   <data name="frequencySpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 20</value>
+    <value>94, 20</value>
   </data>
   <data name="frequencySpinEdit.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -232,13 +232,13 @@
     <value>0</value>
   </data>
   <data name="questionAmountSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 393</value>
+    <value>335, 393</value>
   </data>
   <data name="questionAmountSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Combo</value>
   </data>
   <data name="questionAmountSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 20</value>
+    <value>82, 20</value>
   </data>
   <data name="questionAmountSpinEdit.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -293,15 +293,6 @@
   </data>
   <data name="trainingsRepositoryItemLookUpEdit.NullText" xml:space="preserve">
     <value />
-  </data>
-  <data name="gridColumn1.Caption" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="titleGridColumn.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -412,16 +403,16 @@
     <value>14</value>
   </data>
   <data name="showAnswerToggleSwitch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 419</value>
+    <value>128, 419</value>
   </data>
-  <data name="toggleSwitch1.Properties.OffText" xml:space="preserve">
+  <data name="showAnswerToggleSwitch.Properties.OffText" xml:space="preserve">
     <value>Off</value>
   </data>
-  <data name="toggleSwitch1.Properties.OnText" xml:space="preserve">
+  <data name="showAnswerToggleSwitch.Properties.OnText" xml:space="preserve">
     <value>On</value>
   </data>
   <data name="showAnswerToggleSwitch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 24</value>
+    <value>92, 24</value>
   </data>
   <data name="showAnswerToggleSwitch.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -448,20 +439,20 @@
   <data name="frequencyLayoutControlItem.Text" xml:space="preserve">
     <value>Frequency</value>
   </data>
-  <data name="questionAmountLayoutControlItem.Text" xml:space="preserve">
-    <value>Question amount</value>
-  </data>
-  <data name="timeOfStartTimeEditLayoutControlItem.Text" xml:space="preserve">
-    <value>Time of start</value>
-  </data>
   <data name="showAnswerToggleSwitchLayoutControlItem.CustomizationFormText" xml:space="preserve">
     <value>Show correct answer</value>
   </data>
   <data name="showAnswerToggleSwitchLayoutControlItem.Text" xml:space="preserve">
     <value>Show correct answer</value>
   </data>
+  <data name="questionAmountLayoutControlItem.Text" xml:space="preserve">
+    <value>Question amount</value>
+  </data>
   <data name="canEditToggleSwitchLayoutControlItem.Text" xml:space="preserve">
     <value>Can user edit</value>
+  </data>
+  <data name="timeOfStartTimeEditLayoutControlItem.Text" xml:space="preserve">
+    <value>Time of start</value>
   </data>
   <data name="settingLayoutControlGroup.Text" xml:space="preserve">
     <value>Settings</value>
@@ -503,6 +494,15 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <metadata name="mvvmTesteeContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

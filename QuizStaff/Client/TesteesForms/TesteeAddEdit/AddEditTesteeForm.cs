@@ -62,7 +62,7 @@ namespace Client.TesteesForm.TesteeAddEdit
             frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");
             canEditToggleSwitch.DataBindings.Add("EditValue", inner, "CanUserEdit");
             timeOfStartTimeEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");
-            showAnswerToggleSwitch.DataBindings.Add("EditValue", outer, "ShowCorrectAnswer");
+            showAnswerToggleSwitch.DataBindings.Add("EditValue", inner, "ShowCorrectAnswer");
         }               
 
         public Testee Testee

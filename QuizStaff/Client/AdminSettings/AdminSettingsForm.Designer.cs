@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminSettingsForm));
             this.dateImpactLabelLayoutControl = new DevExpress.XtraLayout.LayoutControl();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.testeeListGridControl = new DevExpress.XtraGrid.GridControl();
@@ -50,12 +52,12 @@
             this.attribute10GridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.checkGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.showCorrectAnswerGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.usersListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
-            this.showCorrectAnswerGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dateImpactLabelLayoutControl)).BeginInit();
             this.dateImpactLabelLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testeeListGridControl)).BeginInit();
@@ -73,36 +75,27 @@
             // 
             this.dateImpactLabelLayoutControl.Controls.Add(this.saveButton);
             this.dateImpactLabelLayoutControl.Controls.Add(this.testeeListGridControl);
-            this.dateImpactLabelLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateImpactLabelLayoutControl.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.dateImpactLabelLayoutControl, "dateImpactLabelLayoutControl");
             this.dateImpactLabelLayoutControl.Name = "dateImpactLabelLayoutControl";
             this.dateImpactLabelLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(780, 211, 391, 473);
             this.dateImpactLabelLayoutControl.OptionsView.UseDefaultDragAndDropRendering = false;
             this.dateImpactLabelLayoutControl.Root = this.layoutControlGroup;
-            this.dateImpactLabelLayoutControl.Size = new System.Drawing.Size(639, 402);
-            this.dateImpactLabelLayoutControl.TabIndex = 0;
-            this.dateImpactLabelLayoutControl.Text = "layoutControl1";
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(421, 368);
+            resources.ApplyResources(this.saveButton, "saveButton");
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(201, 22);
             this.saveButton.StyleController = this.dateImpactLabelLayoutControl;
-            this.saveButton.TabIndex = 14;
-            this.saveButton.Text = "Change settings";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // testeeListGridControl
             // 
-            this.testeeListGridControl.Location = new System.Drawing.Point(12, 28);
+            resources.ApplyResources(this.testeeListGridControl, "testeeListGridControl");
             this.testeeListGridControl.MainView = this.testeesGridView;
             this.testeeListGridControl.Name = "testeeListGridControl";
             this.testeeListGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTimeEdit1,
             this.repositoryItemCheckEdit1});
-            this.testeeListGridControl.Size = new System.Drawing.Size(605, 326);
-            this.testeeListGridControl.TabIndex = 4;
             this.testeeListGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.testeesGridView});
             // 
@@ -135,131 +128,119 @@
             // 
             // firstNameGridColumn
             // 
-            this.firstNameGridColumn.Caption = "First name";
+            resources.ApplyResources(this.firstNameGridColumn, "firstNameGridColumn");
             this.firstNameGridColumn.FieldName = "FirstName";
             this.firstNameGridColumn.Name = "firstNameGridColumn";
-            this.firstNameGridColumn.Visible = true;
-            this.firstNameGridColumn.VisibleIndex = 1;
-            this.firstNameGridColumn.Width = 140;
             // 
             // lastNameGridColumn
             // 
-            this.lastNameGridColumn.Caption = "Last name";
+            resources.ApplyResources(this.lastNameGridColumn, "lastNameGridColumn");
             this.lastNameGridColumn.FieldName = "LastName";
             this.lastNameGridColumn.Name = "lastNameGridColumn";
-            this.lastNameGridColumn.Visible = true;
-            this.lastNameGridColumn.VisibleIndex = 2;
-            this.lastNameGridColumn.Width = 140;
             // 
             // frequencyOfAskingGridColumn
             // 
-            this.frequencyOfAskingGridColumn.Caption = "Frequency of asking";
+            resources.ApplyResources(this.frequencyOfAskingGridColumn, "frequencyOfAskingGridColumn");
             this.frequencyOfAskingGridColumn.FieldName = "UserSetting.FrequencyOfAsking";
             this.frequencyOfAskingGridColumn.Name = "frequencyOfAskingGridColumn";
-            this.frequencyOfAskingGridColumn.Visible = true;
-            this.frequencyOfAskingGridColumn.VisibleIndex = 3;
-            this.frequencyOfAskingGridColumn.Width = 140;
             // 
             // amountOfQuestionsPerDayGridColumn
             // 
-            this.amountOfQuestionsPerDayGridColumn.Caption = "Amount of questions";
+            resources.ApplyResources(this.amountOfQuestionsPerDayGridColumn, "amountOfQuestionsPerDayGridColumn");
             this.amountOfQuestionsPerDayGridColumn.FieldName = "UserSetting.AmountOfQuestionsPerDay";
             this.amountOfQuestionsPerDayGridColumn.Name = "amountOfQuestionsPerDayGridColumn";
-            this.amountOfQuestionsPerDayGridColumn.Visible = true;
-            this.amountOfQuestionsPerDayGridColumn.VisibleIndex = 4;
-            this.amountOfQuestionsPerDayGridColumn.Width = 140;
             // 
             // timeOfStartGridColumn
             // 
-            this.timeOfStartGridColumn.Caption = "Time of start";
+            resources.ApplyResources(this.timeOfStartGridColumn, "timeOfStartGridColumn");
             this.timeOfStartGridColumn.ColumnEdit = this.repositoryItemTimeEdit1;
             this.timeOfStartGridColumn.FieldName = "UserSetting.TimeOfStart";
             this.timeOfStartGridColumn.Name = "timeOfStartGridColumn";
-            this.timeOfStartGridColumn.Visible = true;
-            this.timeOfStartGridColumn.VisibleIndex = 5;
-            this.timeOfStartGridColumn.Width = 145;
             // 
             // repositoryItemTimeEdit1
             // 
-            this.repositoryItemTimeEdit1.AutoHeight = false;
+            resources.ApplyResources(this.repositoryItemTimeEdit1, "repositoryItemTimeEdit1");
             this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemTimeEdit1.Buttons"))))});
             this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
             // 
             // attribute1GridColumn
             // 
-            this.attribute1GridColumn.Caption = "Attribute1";
+            resources.ApplyResources(this.attribute1GridColumn, "attribute1GridColumn");
             this.attribute1GridColumn.FieldName = "Attribute1";
             this.attribute1GridColumn.Name = "attribute1GridColumn";
             // 
             // attribute2GridColumn
             // 
-            this.attribute2GridColumn.Caption = "Attribute2";
+            resources.ApplyResources(this.attribute2GridColumn, "attribute2GridColumn");
             this.attribute2GridColumn.FieldName = "Attribute2";
             this.attribute2GridColumn.Name = "attribute2GridColumn";
             // 
             // attribute3GridColumn
             // 
-            this.attribute3GridColumn.Caption = "Attribute3";
+            resources.ApplyResources(this.attribute3GridColumn, "attribute3GridColumn");
             this.attribute3GridColumn.FieldName = "Attribute3";
             this.attribute3GridColumn.Name = "attribute3GridColumn";
             // 
             // attribute4GridColumn
             // 
-            this.attribute4GridColumn.Caption = "Attribute4";
+            resources.ApplyResources(this.attribute4GridColumn, "attribute4GridColumn");
             this.attribute4GridColumn.FieldName = "Attribute4";
             this.attribute4GridColumn.Name = "attribute4GridColumn";
             // 
             // attribute5GridColumn
             // 
-            this.attribute5GridColumn.Caption = "Attribute5";
+            resources.ApplyResources(this.attribute5GridColumn, "attribute5GridColumn");
             this.attribute5GridColumn.FieldName = "Attribute5";
             this.attribute5GridColumn.Name = "attribute5GridColumn";
             // 
             // attribute6GridColumn
             // 
-            this.attribute6GridColumn.Caption = "Attribute6";
+            resources.ApplyResources(this.attribute6GridColumn, "attribute6GridColumn");
             this.attribute6GridColumn.FieldName = "Attribute6";
             this.attribute6GridColumn.Name = "attribute6GridColumn";
             // 
             // attribute7GridColumn
             // 
-            this.attribute7GridColumn.Caption = "Attribute7";
+            resources.ApplyResources(this.attribute7GridColumn, "attribute7GridColumn");
             this.attribute7GridColumn.FieldName = "Attribute7";
             this.attribute7GridColumn.Name = "attribute7GridColumn";
             // 
             // attribute8GridColumn
             // 
-            this.attribute8GridColumn.Caption = "Attribute8";
+            resources.ApplyResources(this.attribute8GridColumn, "attribute8GridColumn");
             this.attribute8GridColumn.FieldName = "Attribute8";
             this.attribute8GridColumn.Name = "attribute8GridColumn";
             // 
             // attribute9GridColumn
             // 
-            this.attribute9GridColumn.Caption = "Attribute9";
+            resources.ApplyResources(this.attribute9GridColumn, "attribute9GridColumn");
             this.attribute9GridColumn.FieldName = "Attribute9";
             this.attribute9GridColumn.Name = "attribute9GridColumn";
             // 
             // attribute10GridColumn
             // 
-            this.attribute10GridColumn.Caption = "Attribute10";
+            resources.ApplyResources(this.attribute10GridColumn, "attribute10GridColumn");
             this.attribute10GridColumn.FieldName = "Attribute10";
             this.attribute10GridColumn.Name = "attribute10GridColumn";
             // 
             // checkGridColumn
             // 
-            this.checkGridColumn.Caption = "Check";
+            resources.ApplyResources(this.checkGridColumn, "checkGridColumn");
             this.checkGridColumn.ColumnEdit = this.repositoryItemCheckEdit1;
             this.checkGridColumn.FieldName = "IsSelected";
             this.checkGridColumn.Name = "checkGridColumn";
-            this.checkGridColumn.Visible = true;
-            this.checkGridColumn.VisibleIndex = 0;
-            this.checkGridColumn.Width = 54;
             // 
             // repositoryItemCheckEdit1
             // 
-            this.repositoryItemCheckEdit1.AutoHeight = false;
+            resources.ApplyResources(this.repositoryItemCheckEdit1, "repositoryItemCheckEdit1");
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            // 
+            // showCorrectAnswerGridColumn
+            // 
+            resources.ApplyResources(this.showCorrectAnswerGridColumn, "showCorrectAnswerGridColumn");
+            this.showCorrectAnswerGridColumn.FieldName = "ShowCorrectAnswer";
+            this.showCorrectAnswerGridColumn.Name = "showCorrectAnswerGridColumn";
             // 
             // layoutControlGroup
             // 
@@ -281,7 +262,7 @@
             this.usersListLayoutControlItem.Name = "usersListLayoutControlItem";
             this.usersListLayoutControlItem.Size = new System.Drawing.Size(619, 346);
             this.usersListLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 10, 0, 0);
-            this.usersListLayoutControlItem.Text = "Users list:";
+            resources.ApplyResources(this.usersListLayoutControlItem, "usersListLayoutControlItem");
             this.usersListLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.usersListLayoutControlItem.TextSize = new System.Drawing.Size(47, 13);
             // 
@@ -307,22 +288,12 @@
             // 
             this.mvvmAdminSettingsContext.ContainerControl = this;
             // 
-            // showCorrectAnswerGridColumn
-            // 
-            this.showCorrectAnswerGridColumn.Caption = "Show correct answer";
-            this.showCorrectAnswerGridColumn.FieldName = "ShowCorrectAnswer";
-            this.showCorrectAnswerGridColumn.Name = "showCorrectAnswerGridColumn";
-            this.showCorrectAnswerGridColumn.Visible = true;
-            this.showCorrectAnswerGridColumn.VisibleIndex = 6;
-            // 
             // AdminSettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 402);
             this.Controls.Add(this.dateImpactLabelLayoutControl);
             this.Name = "AdminSettingsForm";
-            this.Text = "AdminSettingsForm";
             ((System.ComponentModel.ISupportInitialize)(this.dateImpactLabelLayoutControl)).EndInit();
             this.dateImpactLabelLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.testeeListGridControl)).EndInit();

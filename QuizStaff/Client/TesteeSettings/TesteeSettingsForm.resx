@@ -117,7 +117,287 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="languageComboBoxEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 183</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="comboBoxEdit1.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="languageComboBoxEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 20</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="languageComboBoxEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;languageComboBoxEdit.Name" xml:space="preserve">
+    <value>languageComboBoxEdit</value>
+  </data>
+  <data name="&gt;&gt;languageComboBoxEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;languageComboBoxEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;languageComboBoxEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="frequencySpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="frequencySpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 33</value>
+  </data>
+  <data name="frequencySpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="frequencySpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 20</value>
+  </data>
+  <data name="frequencySpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;frequencySpinEdit.Name" xml:space="preserve">
+    <value>frequencySpinEdit</value>
+  </data>
+  <data name="&gt;&gt;frequencySpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;frequencySpinEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;frequencySpinEdit.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="timeOfAskingEditTime.EditValue" type="System.DateTime, mscorlib">
+    <value>2016-04-28</value>
+  </data>
+  <data name="timeOfAskingEditTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 133</value>
+  </data>
+  <data name="timeOfAskingEditTime.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="timeOfAskingEditTime.Properties.Mask.BeepOnError" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="timeOfAskingEditTime.Properties.Mask.EditMask" xml:space="preserve">
+    <value>t</value>
+  </data>
+  <data name="timeOfAskingEditTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 20</value>
+  </data>
+  <data name="timeOfAskingEditTime.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;timeOfAskingEditTime.Name" xml:space="preserve">
+    <value>timeOfAskingEditTime</value>
+  </data>
+  <data name="&gt;&gt;timeOfAskingEditTime.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TimeEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;timeOfAskingEditTime.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;timeOfAskingEditTime.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="questionAmountSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="questionAmountSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 83</value>
+  </data>
+  <data name="questionAmountSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="questionAmountSpinEdit.Properties.Mask.EditMask" xml:space="preserve">
+    <value>N00</value>
+  </data>
+  <data name="questionAmountSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 20</value>
+  </data>
+  <data name="questionAmountSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.Name" xml:space="preserve">
+    <value>questionAmountSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 217</value>
+  </data>
+  <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 22</value>
+  </data>
+  <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="saveButton.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
+    <value>saveButton</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 217</value>
+  </data>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 22</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MainLayoutControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="MainLayoutControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="questionAmountSpinEditLayoutControlItem.Text" xml:space="preserve">
+    <value>Question amount:</value>
+  </data>
+  <data name="timeOfAskingEditTimeLayoutControlItem.CustomizationFormText" xml:space="preserve">
+    <value>TimeOfStart:</value>
+  </data>
+  <data name="timeOfAskingEditTimeLayoutControlItem.Text" xml:space="preserve">
+    <value>Time of start:</value>
+  </data>
+  <data name="frequencySpinEditLayoutControlItem.CustomizationFormText" xml:space="preserve">
+    <value>Frequency of asking:</value>
+  </data>
+  <data name="frequencySpinEditLayoutControlItem.Text" xml:space="preserve">
+    <value>Frequency of asking:</value>
+  </data>
+  <data name="languageLayoutControlItem.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="MainLayoutControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 251</value>
+  </data>
+  <data name="MainLayoutControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="MainLayoutControl.Text" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;MainLayoutControl.Name" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;MainLayoutControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControl, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MainLayoutControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainLayoutControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="mvvmTesteeSettingsContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>288, 251</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Set up</value>
+  </data>
+  <data name="&gt;&gt;layoutControlGroup1.Name" xml:space="preserve">
+    <value>layoutControlGroup1</value>
+  </data>
+  <data name="&gt;&gt;layoutControlGroup1.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlSaveButton.Name" xml:space="preserve">
+    <value>layoutControlSaveButton</value>
+  </data>
+  <data name="&gt;&gt;layoutControlSaveButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEditLayoutControlItem.Name" xml:space="preserve">
+    <value>questionAmountSpinEditLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEditLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;timeOfAskingEditTimeLayoutControlItem.Name" xml:space="preserve">
+    <value>timeOfAskingEditTimeLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;timeOfAskingEditTimeLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlCancelButton.Name" xml:space="preserve">
+    <value>layoutControlCancelButton</value>
+  </data>
+  <data name="&gt;&gt;layoutControlCancelButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;frequencySpinEditLayoutControlItem.Name" xml:space="preserve">
+    <value>frequencySpinEditLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;frequencySpinEditLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;mvvmTesteeSettingsContext.Name" xml:space="preserve">
+    <value>mvvmTesteeSettingsContext</value>
+  </data>
+  <data name="&gt;&gt;mvvmTesteeSettingsContext.Type" xml:space="preserve">
+    <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;languageLayoutControlItem.Name" xml:space="preserve">
+    <value>languageLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;languageLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>TesteeSettingsForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

@@ -3,6 +3,7 @@ using DomainModel;
 using System.Globalization;
 using System.ComponentModel;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace Client.TesteeSettings
 {
@@ -14,6 +15,7 @@ namespace Client.TesteeSettings
         {
             InitializeComponent();
             Localized(Program.currentLang);
+            SetUpComboBox();
 
             mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
             BindCommands();
@@ -48,9 +50,29 @@ namespace Client.TesteeSettings
             resources.ApplyResources(timeOfAskingEditTimeLayoutControlItem, "timeOfAskingEditTimeLayoutControlItem", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
+            resources.ApplyResources(languageLayoutControlItem, "languageLayoutControlItem", newCultureInfo);
 
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Settings";
         }
+
+        private void languageComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxEdit cb = sender as ComboBoxEdit;
+
+            if (cb != null)
+            {
+                string currentPipeType = cb.SelectedItem as string;
+                Localized(currentPipeType);
+            }
+        }
+
+        private void SetUpComboBox() 
+        {
+            languageComboBoxEdit.Properties.Items.Add("en-US");
+            languageComboBoxEdit.Properties.Items.Add("ru-RU");
+            int index = languageComboBoxEdit.Properties.Items.IndexOf(Program.currentLang);
+            languageComboBoxEdit.SelectedIndex = index;
+        } 
     }
 }
