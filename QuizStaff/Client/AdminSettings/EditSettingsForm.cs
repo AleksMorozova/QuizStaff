@@ -53,12 +53,14 @@ namespace Client.AdminSettings
 
         public void Localized(string language)
         {
-            var resources = new ComponentResourceManager(typeof(AdminSettingsForm));
+            var resources = new ComponentResourceManager(typeof(EditSettingsForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
             resources.ApplyResources(questionAmountLayoutControlItem, "questionAmountLayoutControlItem", newCultureInfo);
             resources.ApplyResources(frequencyLayoutControlItem, "frequencyLayoutControlItem", newCultureInfo);
             resources.ApplyResources(timeOfAskingLayoutControlItem, "timeOfAskingLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(applyButton, "saveButton", newCultureInfo);
+            resources.ApplyResources(showAnswerToggleSwitchLayoutControlItem, "showAnswerToggleSwitchLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(canEditToggleSwitchLayoutControlItem, "canEditToggleSwitchLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(applyButton, "applyButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Settings";

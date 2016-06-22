@@ -122,10 +122,10 @@
     <value>121, 148</value>
   </data>
   <data name="showAnswerToggleSwitch.Properties.OffText" xml:space="preserve">
-    <value>Off</value>
+    <value>No</value>
   </data>
   <data name="showAnswerToggleSwitch.Properties.OnText" xml:space="preserve">
-    <value>On</value>
+    <value>Yes</value>
   </data>
   <data name="showAnswerToggleSwitch.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 24</value>
@@ -150,10 +150,10 @@
     <value>121, 116</value>
   </data>
   <data name="canEditToggleSwitch.Properties.OffText" xml:space="preserve">
-    <value>Off</value>
+    <value>No</value>
   </data>
   <data name="canEditToggleSwitch.Properties.OnText" xml:space="preserve">
-    <value>On</value>
+    <value>Yes</value>
   </data>
   <data name="canEditToggleSwitch.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 24</value>
@@ -346,12 +346,12 @@
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="mvvmSettingsContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="mvvmSettingsContext.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>

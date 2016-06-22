@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditSettingsForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.showAnswerToggleSwitch = new DevExpress.XtraEditors.ToggleSwitch();
@@ -45,7 +46,7 @@
             this.canEditToggleSwitchLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.showAnswerToggleSwitchLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.mvvmSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.showAnswerToggleSwitch.Properties)).BeginInit();
