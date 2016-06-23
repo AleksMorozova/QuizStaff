@@ -75,9 +75,12 @@ namespace Client.AdminSettings
             resources.ApplyResources(attribute8GridColumn, "attribute8GridColumn", newCultureInfo);
             resources.ApplyResources(attribute9GridColumn, "attribute9GridColumn", newCultureInfo);
             resources.ApplyResources(attribute10GridColumn, "attribute10GridColumn", newCultureInfo);
-            resources.ApplyResources(this.frequencyOfAskingGridColumn, "frequencyOfAskingGridColumn", newCultureInfo);
-            resources.ApplyResources(this.timeOfStartGridColumn, "timeOfStartGridColumn", newCultureInfo);
+            resources.ApplyResources(frequencyOfAskingGridColumn, "frequencyOfAskingGridColumn", newCultureInfo);
+            resources.ApplyResources(timeOfStartGridColumn, "timeOfStartGridColumn", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
+            resources.ApplyResources(showCorrectAnswerGridColumn, "showCorrectAnswerGridColumn", newCultureInfo);
+            resources.ApplyResources(checkGridColumn, "checkGridColumn", newCultureInfo);
+
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Settings";
         }

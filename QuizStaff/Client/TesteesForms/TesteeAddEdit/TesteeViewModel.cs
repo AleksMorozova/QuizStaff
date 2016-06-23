@@ -33,7 +33,7 @@ namespace Client.TesteesForm.TesteeAddEdit
         {
             TrainingAddEditForm trainingForm = new TrainingAddEditForm();
             FormManager.Instance.OpenChildForm(trainingForm, "Add training");
-            FormManager.childForms.Add(trainingForm);
+            FormManager.LocalizedFormList.Add(trainingForm);
             FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 

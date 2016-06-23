@@ -62,8 +62,10 @@ namespace Client.TesteeSettings
 
             if (cb != null)
             {
-                string currentPipeType = cb.SelectedItem as string;
-                Localized(currentPipeType);
+                string currentLanguage = cb.SelectedItem as string;
+                Localized(currentLanguage);
+                FormManager.Instance.LocalizedForms(currentLanguage);
+                Program.currentLang = currentLanguage;
             }
         }
 

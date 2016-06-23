@@ -19,13 +19,16 @@ using Client.TesteesForms.TesteesList;
 
 namespace Client
 {
-    public partial class MainForm : DevExpress.XtraEditors.XtraForm
+    public partial class MainForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
 
         public MainForm()
         {
             InitializeComponent();
+
+            FormManager.LocalizedFormList = new List<System.Windows.Forms.Form>();
+            FormManager.LocalizedFormList.Add(this);
         }
 
         private void testBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -38,7 +41,7 @@ namespace Client
         {
             TesteesListForm testeesform = new TesteesListForm();
             FormManager.Instance.OpenChildForm(testeesform, "Testees");
-            FormManager.childForms.Add(testeesform);
+            FormManager.LocalizedFormList.Add(testeesform);
             FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 
@@ -55,7 +58,7 @@ namespace Client
         {
             TrainingsListForm.TrainingListForm trainingsform = new TrainingsListForm.TrainingListForm();
             FormManager.Instance.OpenChildForm(trainingsform, "Trainings");
-            FormManager.childForms.Add(trainingsform);
+            FormManager.LocalizedFormList.Add(trainingsform);
             FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 
@@ -72,7 +75,7 @@ namespace Client
             questionform.ShowDialog();
         }
 
-        private void Localized(string language) 
+        public void Localized(string language) 
         {
             var resources = new ComponentResourceManager(typeof(MainForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
@@ -141,7 +144,7 @@ namespace Client
         {
             AdminSettingsForm trainingsform = new AdminSettingsForm();
             FormManager.Instance.OpenChildForm(trainingsform, "Settings");
-            FormManager.childForms.Add(trainingsform);
+            FormManager.LocalizedFormList.Add(trainingsform);
             FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 

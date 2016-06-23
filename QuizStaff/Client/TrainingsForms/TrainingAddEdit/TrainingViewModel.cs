@@ -19,7 +19,7 @@ namespace Client.TrainingsForms.TrainingAddEdit
         public void EditQuestion(Question question)
         {
             AddEditQuestionForm questionForm = new AddEditQuestionForm(question);
-            FormManager.childForms.Add(questionForm);
+            FormManager.LocalizedFormList.Add(questionForm);
             FormManager.Instance.LocalizedForms(Program.currentLang);
             questionForm.ShowDialog();
         }
@@ -27,7 +27,7 @@ namespace Client.TrainingsForms.TrainingAddEdit
         public void AddQuestion(Training training)
         {
             AddEditQuestionForm questionForm = new AddEditQuestionForm();
-            FormManager.childForms.Add(questionForm);
+            FormManager.LocalizedFormList.Add(questionForm);
             FormManager.Instance.LocalizedForms(Program.currentLang);
             questionForm.ShowDialog();
             questionForm.Question.TrainingId = training.Id;

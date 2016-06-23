@@ -174,7 +174,10 @@
   <data name="timeOfStartGridColumn.Caption" xml:space="preserve">
     <value>Время начала</value>
   </data>
-  <data name="showCorrectAnswerGridColumn.Text" xml:space="preserve">
+  <data name="showCorrectAnswerGridColumn.Caption" xml:space="preserve">
     <value>Показывать правильный ответ</value>
+  </data>
+  <data name="checkGridColumn.Caption" xml:space="preserve">
+    <value>Выбрано</value>
   </data>
 </root>
