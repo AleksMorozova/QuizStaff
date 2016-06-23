@@ -31,7 +31,7 @@ namespace Client.TrainingsListForm
         {
             TrainingAddEditForm trainingForm = new TrainingAddEditForm();
             FormManager.Instance.OpenChildForm(trainingForm, "Add training");
-            FormManager.childForms.Add(trainingForm);
+            FormManager.LocalizedFormList.Add(trainingForm);
             FormManager.Instance.LocalizedForms(Program.currentLang);
             trainings.Add(trainingForm.Training);
         }
@@ -40,7 +40,7 @@ namespace Client.TrainingsListForm
         {
             TrainingAddEditForm trainingForm = new TrainingAddEditForm(editedTraining);
             FormManager.Instance.OpenChildForm(trainingForm, "Edit training: " + editedTraining.TrainingTitle);
-            FormManager.childForms.Add(trainingForm);
+            FormManager.LocalizedFormList.Add(trainingForm);
             FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 

@@ -11,14 +11,14 @@ namespace Client
     {
         public static FormManager Instance { get { return new FormManager();}}
 
-
         public FormManager() 
         {
-            if (childForms == null)
-            childForms = new List<System.Windows.Forms.Form>();
+            if (LocalizedFormList == null)
+                LocalizedFormList = new List<System.Windows.Forms.Form>();
         }
 
-        public static List<System.Windows.Forms.Form> childForms;
+        public static List<System.Windows.Forms.Form> LocalizedFormList;
+        
         public void OpenChildForm(System.Windows.Forms.Form formToOpen, string text)
         {
             formToOpen.MdiParent = Program.ApplicationMainForm;
@@ -29,7 +29,7 @@ namespace Client
 
         public void LocalizedForms(string language) 
         {
-            foreach (ILocalized form in childForms)
+            foreach (ILocalized form in LocalizedFormList)
             {
                 form.Localized(language);
             }

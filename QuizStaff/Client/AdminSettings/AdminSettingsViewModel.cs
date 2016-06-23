@@ -55,7 +55,7 @@ namespace Client.AdminSettings
         public void EditSettings(BindingList<Testee> selectedTestee) 
         {
             EditSettingsForm editSettings = new EditSettingsForm(selectedTestee);
-            FormManager.childForms.Add(editSettings);
+            FormManager.LocalizedFormList.Add(editSettings);
             FormManager.Instance.LocalizedForms(Program.currentLang);
             editSettings.ShowDialog();
         }

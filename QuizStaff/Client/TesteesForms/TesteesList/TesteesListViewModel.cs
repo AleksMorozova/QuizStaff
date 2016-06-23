@@ -28,7 +28,7 @@ namespace Client.TesteesForms.TesteesList
         {
             AddEditTesteeForm testeeForm = new AddEditTesteeForm();
             FormManager.Instance.OpenChildForm(testeeForm, "Add testee");
-            FormManager.childForms.Add(testeeForm);
+            FormManager.LocalizedFormList.Add(testeeForm);
             FormManager.Instance.LocalizedForms(Program.currentLang);
             testee.Add(testeeForm.Testee);
         }
@@ -37,7 +37,7 @@ namespace Client.TesteesForms.TesteesList
         {
             AddEditTesteeForm testeeForm = new AddEditTesteeForm(editedTestee);
             FormManager.Instance.OpenChildForm(testeeForm, "Edit testee: " + editedTestee.Login);
-            FormManager.childForms.Add(testeeForm);
+            FormManager.LocalizedFormList.Add(testeeForm);
             FormManager.Instance.LocalizedForms(Program.currentLang);           
         }
 
