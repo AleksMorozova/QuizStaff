@@ -77,6 +77,7 @@ namespace Client.AdminSettings
             resources.ApplyResources(attribute10GridColumn, "attribute10GridColumn", newCultureInfo);
             resources.ApplyResources(frequencyOfAskingGridColumn, "frequencyOfAskingGridColumn", newCultureInfo);
             resources.ApplyResources(timeOfStartGridColumn, "timeOfStartGridColumn", newCultureInfo);
+            resources.ApplyResources(canEditGridColumn, "canEditGridColumn", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(showCorrectAnswerGridColumn, "showCorrectAnswerGridColumn", newCultureInfo);
             resources.ApplyResources(checkGridColumn, "checkGridColumn", newCultureInfo);
