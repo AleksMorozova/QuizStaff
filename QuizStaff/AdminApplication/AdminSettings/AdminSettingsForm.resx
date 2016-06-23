@@ -156,7 +156,7 @@
     <value>1</value>
   </data>
   <data name="firstNameGridColumn.Width" type="System.Int32, mscorlib">
-    <value>140</value>
+    <value>116</value>
   </data>
   <data name="lastNameGridColumn.Caption" xml:space="preserve">
     <value>Last name</value>
@@ -168,7 +168,7 @@
     <value>2</value>
   </data>
   <data name="lastNameGridColumn.Width" type="System.Int32, mscorlib">
-    <value>140</value>
+    <value>116</value>
   </data>
   <data name="frequencyOfAskingGridColumn.Caption" xml:space="preserve">
     <value>Frequency of asking</value>
@@ -180,7 +180,7 @@
     <value>3</value>
   </data>
   <data name="frequencyOfAskingGridColumn.Width" type="System.Int32, mscorlib">
-    <value>140</value>
+    <value>116</value>
   </data>
   <data name="amountOfQuestionsPerDayGridColumn.Caption" xml:space="preserve">
     <value>Amount of questions</value>
@@ -192,7 +192,7 @@
     <value>4</value>
   </data>
   <data name="amountOfQuestionsPerDayGridColumn.Width" type="System.Int32, mscorlib">
-    <value>140</value>
+    <value>116</value>
   </data>
   <data name="timeOfStartGridColumn.Caption" xml:space="preserve">
     <value>Time of start</value>
@@ -211,7 +211,7 @@
     <value>5</value>
   </data>
   <data name="timeOfStartGridColumn.Width" type="System.Int32, mscorlib">
-    <value>145</value>
+    <value>90</value>
   </data>
   <data name="attribute1GridColumn.Caption" xml:space="preserve">
     <value>Attribute1</value>
@@ -256,16 +256,37 @@
     <value>0</value>
   </data>
   <data name="checkGridColumn.Width" type="System.Int32, mscorlib">
-    <value>54</value>
+    <value>45</value>
   </data>
   <data name="showCorrectAnswerGridColumn.Caption" xml:space="preserve">
     <value>Show correct answer</value>
+  </data>
+  <data name="showAnswerRepositoryItemCheckEdit.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="showCorrectAnswerGridColumn.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="showCorrectAnswerGridColumn.VisibleIndex" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="showCorrectAnswerGridColumn.Width" type="System.Int32, mscorlib">
+    <value>88</value>
+  </data>
+  <data name="canEditGridColumn.Caption" xml:space="preserve">
+    <value>Can edit</value>
+  </data>
+  <data name="canEditRepositoryItemCheckEdit.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="canEditGridColumn.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="canEditGridColumn.VisibleIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="canEditGridColumn.Width" type="System.Int32, mscorlib">
+    <value>72</value>
   </data>
   <data name="testeeListGridControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>605, 326</value>
@@ -450,6 +471,24 @@
   </data>
   <data name="&gt;&gt;showCorrectAnswerGridColumn.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;showAnswerRepositoryItemCheckEdit.Name" xml:space="preserve">
+    <value>showAnswerRepositoryItemCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;showAnswerRepositoryItemCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;canEditGridColumn.Name" xml:space="preserve">
+    <value>canEditGridColumn</value>
+  </data>
+  <data name="&gt;&gt;canEditGridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;canEditRepositoryItemCheckEdit.Name" xml:space="preserve">
+    <value>canEditRepositoryItemCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;canEditRepositoryItemCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;layoutControlGroup.Name" xml:space="preserve">
     <value>layoutControlGroup</value>

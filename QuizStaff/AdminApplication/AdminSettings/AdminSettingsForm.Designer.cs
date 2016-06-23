@@ -53,6 +53,9 @@
             this.checkGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.showCorrectAnswerGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.showAnswerRepositoryItemCheckEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.canEditGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.canEditRepositoryItemCheckEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.layoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.usersListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -64,6 +67,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.testeesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showAnswerRepositoryItemCheckEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.canEditRepositoryItemCheckEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
@@ -95,7 +100,9 @@
             this.testeeListGridControl.Name = "testeeListGridControl";
             this.testeeListGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTimeEdit1,
-            this.repositoryItemCheckEdit1});
+            this.repositoryItemCheckEdit1,
+            this.showAnswerRepositoryItemCheckEdit,
+            this.canEditRepositoryItemCheckEdit});
             this.testeeListGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.testeesGridView});
             // 
@@ -118,7 +125,8 @@
             this.attribute9GridColumn,
             this.attribute10GridColumn,
             this.checkGridColumn,
-            this.showCorrectAnswerGridColumn});
+            this.showCorrectAnswerGridColumn,
+            this.canEditGridColumn});
             this.testeesGridView.GridControl = this.testeeListGridControl;
             this.testeesGridView.Name = "testeesGridView";
             this.testeesGridView.OptionsDetail.EnableMasterViewMode = false;
@@ -131,24 +139,28 @@
             resources.ApplyResources(this.firstNameGridColumn, "firstNameGridColumn");
             this.firstNameGridColumn.FieldName = "FirstName";
             this.firstNameGridColumn.Name = "firstNameGridColumn";
+            this.firstNameGridColumn.OptionsColumn.AllowEdit = false;
             // 
             // lastNameGridColumn
             // 
             resources.ApplyResources(this.lastNameGridColumn, "lastNameGridColumn");
             this.lastNameGridColumn.FieldName = "LastName";
             this.lastNameGridColumn.Name = "lastNameGridColumn";
+            this.lastNameGridColumn.OptionsColumn.AllowEdit = false;
             // 
             // frequencyOfAskingGridColumn
             // 
             resources.ApplyResources(this.frequencyOfAskingGridColumn, "frequencyOfAskingGridColumn");
             this.frequencyOfAskingGridColumn.FieldName = "UserSetting.FrequencyOfAsking";
             this.frequencyOfAskingGridColumn.Name = "frequencyOfAskingGridColumn";
+            this.frequencyOfAskingGridColumn.OptionsColumn.AllowEdit = false;
             // 
             // amountOfQuestionsPerDayGridColumn
             // 
             resources.ApplyResources(this.amountOfQuestionsPerDayGridColumn, "amountOfQuestionsPerDayGridColumn");
             this.amountOfQuestionsPerDayGridColumn.FieldName = "UserSetting.AmountOfQuestionsPerDay";
             this.amountOfQuestionsPerDayGridColumn.Name = "amountOfQuestionsPerDayGridColumn";
+            this.amountOfQuestionsPerDayGridColumn.OptionsColumn.AllowEdit = false;
             // 
             // timeOfStartGridColumn
             // 
@@ -156,6 +168,7 @@
             this.timeOfStartGridColumn.ColumnEdit = this.repositoryItemTimeEdit1;
             this.timeOfStartGridColumn.FieldName = "UserSetting.TimeOfStart";
             this.timeOfStartGridColumn.Name = "timeOfStartGridColumn";
+            this.timeOfStartGridColumn.OptionsColumn.AllowEdit = false;
             // 
             // repositoryItemTimeEdit1
             // 
@@ -169,60 +182,70 @@
             resources.ApplyResources(this.attribute1GridColumn, "attribute1GridColumn");
             this.attribute1GridColumn.FieldName = "Attribute1";
             this.attribute1GridColumn.Name = "attribute1GridColumn";
+            this.attribute1GridColumn.OptionsColumn.AllowEdit = false;
             // 
             // attribute2GridColumn
             // 
             resources.ApplyResources(this.attribute2GridColumn, "attribute2GridColumn");
             this.attribute2GridColumn.FieldName = "Attribute2";
             this.attribute2GridColumn.Name = "attribute2GridColumn";
+            this.attribute2GridColumn.OptionsColumn.AllowEdit = false;
             // 
             // attribute3GridColumn
             // 
             resources.ApplyResources(this.attribute3GridColumn, "attribute3GridColumn");
             this.attribute3GridColumn.FieldName = "Attribute3";
             this.attribute3GridColumn.Name = "attribute3GridColumn";
+            this.attribute3GridColumn.OptionsColumn.AllowEdit = false;
             // 
             // attribute4GridColumn
             // 
             resources.ApplyResources(this.attribute4GridColumn, "attribute4GridColumn");
             this.attribute4GridColumn.FieldName = "Attribute4";
             this.attribute4GridColumn.Name = "attribute4GridColumn";
+            this.attribute4GridColumn.OptionsColumn.AllowEdit = false;
             // 
             // attribute5GridColumn
             // 
             resources.ApplyResources(this.attribute5GridColumn, "attribute5GridColumn");
             this.attribute5GridColumn.FieldName = "Attribute5";
             this.attribute5GridColumn.Name = "attribute5GridColumn";
+            this.attribute5GridColumn.OptionsColumn.AllowEdit = false;
             // 
             // attribute6GridColumn
             // 
             resources.ApplyResources(this.attribute6GridColumn, "attribute6GridColumn");
             this.attribute6GridColumn.FieldName = "Attribute6";
             this.attribute6GridColumn.Name = "attribute6GridColumn";
+            this.attribute6GridColumn.OptionsColumn.AllowEdit = false;
             // 
             // attribute7GridColumn
             // 
             resources.ApplyResources(this.attribute7GridColumn, "attribute7GridColumn");
             this.attribute7GridColumn.FieldName = "Attribute7";
             this.attribute7GridColumn.Name = "attribute7GridColumn";
+            this.attribute7GridColumn.OptionsColumn.AllowEdit = false;
             // 
             // attribute8GridColumn
             // 
             resources.ApplyResources(this.attribute8GridColumn, "attribute8GridColumn");
             this.attribute8GridColumn.FieldName = "Attribute8";
             this.attribute8GridColumn.Name = "attribute8GridColumn";
+            this.attribute8GridColumn.OptionsColumn.AllowEdit = false;
             // 
             // attribute9GridColumn
             // 
             resources.ApplyResources(this.attribute9GridColumn, "attribute9GridColumn");
             this.attribute9GridColumn.FieldName = "Attribute9";
             this.attribute9GridColumn.Name = "attribute9GridColumn";
+            this.attribute9GridColumn.OptionsColumn.AllowEdit = false;
             // 
             // attribute10GridColumn
             // 
             resources.ApplyResources(this.attribute10GridColumn, "attribute10GridColumn");
             this.attribute10GridColumn.FieldName = "Attribute10";
             this.attribute10GridColumn.Name = "attribute10GridColumn";
+            this.attribute10GridColumn.OptionsColumn.AllowEdit = false;
             // 
             // checkGridColumn
             // 
@@ -239,8 +262,27 @@
             // showCorrectAnswerGridColumn
             // 
             resources.ApplyResources(this.showCorrectAnswerGridColumn, "showCorrectAnswerGridColumn");
-            this.showCorrectAnswerGridColumn.FieldName = "ShowCorrectAnswer";
+            this.showCorrectAnswerGridColumn.ColumnEdit = this.showAnswerRepositoryItemCheckEdit;
+            this.showCorrectAnswerGridColumn.FieldName = "UserSetting.ShowCorrectAnswer";
             this.showCorrectAnswerGridColumn.Name = "showCorrectAnswerGridColumn";
+            this.showCorrectAnswerGridColumn.OptionsColumn.AllowEdit = false;
+            // 
+            // showAnswerRepositoryItemCheckEdit
+            // 
+            resources.ApplyResources(this.showAnswerRepositoryItemCheckEdit, "showAnswerRepositoryItemCheckEdit");
+            this.showAnswerRepositoryItemCheckEdit.Name = "showAnswerRepositoryItemCheckEdit";
+            // 
+            // canEditGridColumn
+            // 
+            resources.ApplyResources(this.canEditGridColumn, "canEditGridColumn");
+            this.canEditGridColumn.ColumnEdit = this.canEditRepositoryItemCheckEdit;
+            this.canEditGridColumn.FieldName = "UserSetting.CanUserEdit";
+            this.canEditGridColumn.Name = "canEditGridColumn";
+            // 
+            // canEditRepositoryItemCheckEdit
+            // 
+            resources.ApplyResources(this.canEditRepositoryItemCheckEdit, "canEditRepositoryItemCheckEdit");
+            this.canEditRepositoryItemCheckEdit.Name = "canEditRepositoryItemCheckEdit";
             // 
             // layoutControlGroup
             // 
@@ -300,6 +342,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.testeesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showAnswerRepositoryItemCheckEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.canEditRepositoryItemCheckEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersListLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
@@ -339,5 +383,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn checkGridColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn showCorrectAnswerGridColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit showAnswerRepositoryItemCheckEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn canEditGridColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit canEditRepositoryItemCheckEdit;
     }
 }

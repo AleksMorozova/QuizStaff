@@ -180,4 +180,7 @@
   <data name="checkGridColumn.Caption" xml:space="preserve">
     <value>Выбрано</value>
   </data>
+  <data name="canEditGridColumn.Caption" xml:space="preserve">
+    <value>Может редактировать</value>
+  </data>
 </root>
