@@ -230,6 +230,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ControlBox = false;
             this.Controls.Add(this.MainLayoutControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TesteeSettingsForm";

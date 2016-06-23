@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdminApplication
 {
-    class ServicesHolder
+    public class ServicesHolder
     {
         private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient;
         private static ServicesHolder serviceHolderObject;

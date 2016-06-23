@@ -37,9 +37,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager
@@ -117,10 +115,6 @@
             this.barDockControlRight.Location = new System.Drawing.Point(348, 22);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 317);
             // 
-            // xtraTabbedMdiManager1
-            // 
-            this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,7 +129,6 @@
             this.Text = "MainForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,7 +144,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
 
     }
 }
