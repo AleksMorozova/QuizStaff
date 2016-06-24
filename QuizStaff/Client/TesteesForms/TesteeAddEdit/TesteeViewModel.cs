@@ -13,21 +13,196 @@ namespace Client.TesteesForm.TesteeAddEdit
 {
     public class TesteeViewModel
     {
-        private Testee testee;
-        public Testee Testee
-        { 
-            get { return testee; } 
+        #region Testee
+
+        public Testee Testee { get; set; }
+
+        public string FirstName
+        {
+            get
+            {
+                return Testee.FirstName;
+            }
             set
-            { 
-                if(testee!=value) 
-                    testee = value;
+            {
+                if (value != Testee.FirstName)
+                {
+                    Testee.FirstName = value;
+                    RaisePropertyChanged("FirstName");
+                }
             }
         }
 
-        public Setting Setting { 
-            get { return Testee.UserSetting; }
-            set { if (Testee.UserSetting!=value) Testee.UserSetting = value; }
-        }        
+        public string LastName
+        {
+            get
+            {
+                return Testee.LastName;
+            }
+            set
+            {
+                if (value != Testee.LastName)
+                {
+                    Testee.LastName = value;
+                    RaisePropertyChanged("LastName");
+                }
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return Testee.Email;
+            }
+            set
+            {
+                if (value != Testee.Email)
+                {
+                    Testee.Email = value;
+                    RaisePropertyChanged("Email");
+                }
+            }
+        }
+
+        public string Login
+        {
+            get
+            {
+                return Testee.Login;
+            }
+            set
+            {
+                if (value != Testee.Login)
+                {
+                    Testee.Login = value;
+                    RaisePropertyChanged("Login");
+                }
+            }
+        }
+
+        public BindingList<TesteeTraining> Trainings
+        {
+            get
+            {
+                return Testee.Trainings;
+            }
+            set
+            {
+                if (value != Testee.Trainings)
+                {
+                    Testee.Trainings = value;
+                    RaisePropertyChanged("Trainings");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Setting
+
+        public Setting Setting 
+        { 
+            get 
+            { 
+                return Testee.UserSetting; 
+            }
+            set 
+            {
+                if (Testee.UserSetting != value) 
+                { 
+                    Testee.UserSetting = value;
+                    RaisePropertyChanged("LastName");
+                }
+            }
+        }
+
+        public int AmountOfQuestionsPerDay
+        {
+            get
+            {
+                return Setting.AmountOfQuestionsPerDay;
+            }
+            set
+            {
+                if (value != Setting.AmountOfQuestionsPerDay)
+                {
+                    Setting.AmountOfQuestionsPerDay = value;
+                    RaisePropertyChanged("AmountOfQuestionsPerDay");
+                }
+            }
+        }
+
+        public int FrequencyOfAsking
+        {
+            get
+            {
+                return Setting.FrequencyOfAsking;
+            }
+            set
+            {
+                if (value != Setting.FrequencyOfAsking)
+                {
+                    Setting.FrequencyOfAsking = value;
+                    RaisePropertyChanged("FrequencyOfAsking");
+                }
+            }
+        }
+
+        public DateTime TimeOfStart
+        {
+            get 
+            { 
+                return Setting.TimeOfStart;
+            }
+            set
+            {
+                if (value != Setting.TimeOfStart)
+                {
+                    Setting.TimeOfStart = value;
+                    RaisePropertyChanged("TimeOfStart");
+                }
+            }
+        }
+
+        public bool CanUserEdit 
+        {
+            get
+            {
+                return Setting.CanUserEdit;
+            }
+            set
+            {
+                if (value != Setting.CanUserEdit)
+                {
+                    Setting.CanUserEdit = value;
+                    RaisePropertyChanged("CanUserEdit");
+                }
+            }
+        }
+
+        public bool ShowCorrectAnswer
+        {
+            get
+            {
+                return Setting.ShowCorrectAnswer;
+            }
+            set
+            {
+                if (value != Setting.ShowCorrectAnswer)
+                {
+                    Setting.ShowCorrectAnswer = value;
+                    RaisePropertyChanged("ShowCorrectAnswer");
+                }
+            }
+        }
+        
+        #endregion
+        
+        public void SetUpViewModel(Testee testee)
+        {
+            this.Testee = testee;
+        }
 
         public void AddTraining(Testee testee)
         {
@@ -54,19 +229,29 @@ namespace Client.TesteesForm.TesteeAddEdit
             //TODO: cancel edeting 
         }       
 
-        public void Save(Testee testee)
+        public void Save()
         {
-            if (testee != null)
+            if (this.Testee != null)
             {
-                if (testee.Id == Guid.Empty)
+                if (this.Testee.Id == Guid.Empty)
                 {
-                    ServicesHolder.ServiceClient.SaveTestee(testee);
+                    ServicesHolder.ServiceClient.SaveTestee(this.Testee);
                 }
                 else
                 {
-                    ServicesHolder.ServiceClient.UpdateTestee(testee);
+                    ServicesHolder.ServiceClient.UpdateTestee(this.Testee);
                 }
             }
-        }        
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

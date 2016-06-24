@@ -185,6 +185,7 @@
             this.gridViewTrainings.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
             this.gridViewTrainings.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
             this.gridViewTrainings.OptionsDetail.EnableMasterViewMode = false;
+            this.gridViewTrainings.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridViewTrainings.OptionsView.ShowGroupPanel = false;
             this.gridViewTrainings.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridViewTrainings_InitNewRow);
             // 

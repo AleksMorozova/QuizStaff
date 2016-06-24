@@ -154,6 +154,10 @@ namespace DataTransferObject
             {
                 newTeste.Trainings.Add((TesteeTrainingDTO)q);
             }
+            //TesteeTraining training = new TesteeTraining();
+            //training.Training = new Training();
+            //Conversion.CopyProperty(t.Training, training.Training);
+            //newTestee.Trainings.Add(training);
            
             return newTeste;
         }
