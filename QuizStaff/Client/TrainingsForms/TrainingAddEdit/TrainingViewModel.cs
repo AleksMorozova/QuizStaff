@@ -16,6 +16,45 @@ namespace Client.TrainingsForms.TrainingAddEdit
     {
         public Training Training { get; set; }
 
+        public string TrainingTitle
+        {
+            get
+            {
+                return Training.TrainingTitle;
+            }
+
+            set
+            {
+                if (value != Training.TrainingTitle)
+                {
+                    Training.TrainingTitle = value;
+                    RaisePropertyChanged("TrainingTitle");
+                }
+            }
+        }
+
+        public BindingList<Question> Questions
+        {
+            get
+            {
+                return Training.Questions;
+            }
+
+            set
+            {
+                if (value != Training.Questions) 
+                {
+                    Training.Questions = value;
+                    RaisePropertyChanged("Questions");
+                }
+            }
+        }
+
+        public void SetUpViewModel(Training training)
+        {
+            this.Training = training;
+        }
+
         public void EditQuestion(Question question)
         {
             AddEditQuestionForm questionForm = new AddEditQuestionForm(question);
@@ -45,17 +84,17 @@ namespace Client.TrainingsForms.TrainingAddEdit
             //TODO: cancel edeting 
         }
 
-        public void Save(Training training)
+        public void Save()
         {
-            if (training != null)
+            if (this.Training != null)
             {
-                if (training.Id == Guid.Empty)
+                if (this.Training.Id == Guid.Empty)
                 {
-                    ServicesHolder.ServiceClient.SaveTraining(Conversion.ConvertTrainingToDTO(training));
+                    ServicesHolder.ServiceClient.SaveTraining(Conversion.ConvertTrainingToDTO(this.Training));
                 }
                 else
                 {
-                    ServicesHolder.ServiceClient.UpdateTraining(Conversion.ConvertTrainingToDTO(training));
+                    ServicesHolder.ServiceClient.UpdateTraining(Conversion.ConvertTrainingToDTO(this.Training));
                 }
             }
         }
@@ -64,6 +103,16 @@ namespace Client.TrainingsForms.TrainingAddEdit
         {
             // TODO: implement loading of questions from external source
             XtraMessageBox.Show("Load questions");
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

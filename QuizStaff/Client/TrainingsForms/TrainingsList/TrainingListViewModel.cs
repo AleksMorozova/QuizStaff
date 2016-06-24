@@ -27,13 +27,13 @@ namespace Client.TrainingsListForm
             }
         }
 
-        public void AddTraining(BindingList<Training> trainings)
+        public void AddTraining()
         {
             TrainingAddEditForm trainingForm = new TrainingAddEditForm();
             FormManager.Instance.OpenChildForm(trainingForm, "Add training");
             FormManager.LocalizedFormList.Add(trainingForm);
             FormManager.Instance.LocalizedForms(Program.currentLang);
-            trainings.Add(trainingForm.Training);
+            this.Trainings.Add(trainingForm.Training);
         }
 
         public void EditTraining(Training editedTraining)

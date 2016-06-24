@@ -28,8 +28,8 @@ namespace Client.TrainingsForms.TrainingAddEdit
 
             mvvmTrainingContext.ViewModelType = typeof(TrainingViewModel);
             BindCommand();
-            model = new TrainingViewModel();          
-            model.Training = training;
+            model = mvvmTrainingContext.GetViewModel<TrainingViewModel>();   
+            model.SetUpViewModel(training);
             mvvmTrainingContext.SetViewModel(typeof(TrainingViewModel), model);   
             BindToViewModel(); 
             currentTraining = model.Training;  
@@ -39,27 +39,23 @@ namespace Client.TrainingsForms.TrainingAddEdit
 
         private void BindCommand()
         {
-            mvvmTrainingContext.BindCommand<TrainingViewModel>(cancelButton, viewModel => viewModel.Cancel());
-
+            mvvmTrainingContext.BindCommand<TrainingViewModel>(cancelButton, viewModel => viewModel.Cancel());            
+            mvvmTrainingContext.BindCommand<TrainingViewModel>(saveButton, viewModel => viewModel.Save());
+            
             mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(editQuestionButton, (viewModel, question)
                 => viewModel.EditQuestion(question), x => GetCurrentQuestion());
-
             mvvmTrainingContext.BindCommand<TrainingViewModel, Training>(addQuestionButton, (viewModel, training)
-                => viewModel.AddQuestion(training), x => currentTraining);
+                => viewModel.AddQuestion(training), x => currentTraining);            
+            mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(deleteQuestionButton,(x, currentTraining) 
+                => x.DeleteQuestion(currentTraining), x => GetCurrentQuestion());
 
             mvvmTrainingContext.BindCommand<TrainingViewModel>(loadQuestionButton, viewModel => viewModel.LoadQuestions());
-
-            mvvmTrainingContext.BindCommand<TrainingViewModel, Training>(saveButton, (viewModel, training)
-                => viewModel.Save(training), x => currentTraining);
-
-            mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(deleteQuestionButton,
-                (x, currentTraining) => x.DeleteQuestion(currentTraining), x => GetCurrentQuestion());
         }
 
         private void BindToViewModel()
         {
-            mvvmTrainingContext.SetBinding(textTrainingName, questionText => questionText.EditValue, "Training.TrainingTitle");
-            mvvmTrainingContext.SetBinding(gridQuestions, answers => answers.DataSource, "Training.Questions");
+            mvvmTrainingContext.SetBinding(textTrainingName, questionText => questionText.EditValue, "TrainingTitle");
+            mvvmTrainingContext.SetBinding(gridQuestions, answers => answers.DataSource, "Questions");
         }
 
         private Question GetCurrentQuestion()
