@@ -28,7 +28,7 @@ namespace Client.TrainingsForms.TrainingQuestion
 
             this.answersGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             mvvmQuestionContext.ViewModelType = typeof(QuestionViewModel);
-            model = new QuestionViewModel();
+            model = mvvmQuestionContext.GetViewModel<QuestionViewModel>();   
             mvvmQuestionContext.SetViewModel(typeof(QuestionViewModel), model);
             model.Question = question;
             BindToViewModel();     
@@ -36,8 +36,8 @@ namespace Client.TrainingsForms.TrainingQuestion
 
         private void BindToViewModel()
         {
-            mvvmQuestionContext.SetBinding(questionTextEdit, questionText => questionText.EditValue, "Question.QuestionText");
-            mvvmQuestionContext.SetBinding(answersGridControl, answers => answers.DataSource, "Question.Answers");
+            mvvmQuestionContext.SetBinding(questionTextEdit, questionText => questionText.EditValue, "QuestionText");
+            mvvmQuestionContext.SetBinding(answersGridControl, answers => answers.DataSource, "Answers");
         }
 
         public Question Question 
