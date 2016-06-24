@@ -149,7 +149,9 @@ namespace Server
                 foreach (var t in testee.Trainings)
                 {
                     TesteeTraining training = new TesteeTraining();
-                    Conversion.CopyProperty(t, training);
+                    training.Id = t.Id;
+                    training.Training = new Training();
+                    Conversion.CopyProperty(t.Training, training.Training);
                     newTestee.Trainings.Add(training);
                 }
             }
@@ -168,7 +170,9 @@ namespace Server
                 foreach (var t in testee.Trainings)
                 {
                     TesteeTraining training = new TesteeTraining();
-                    Conversion.CopyProperty(t, training);
+                    training.Id = t.Id;
+                    training.Training = new Training();
+                    Conversion.CopyProperty(t.Training, training.Training);
                     newTestee.Trainings.Add(training);
                 }
             }

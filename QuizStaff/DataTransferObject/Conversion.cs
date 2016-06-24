@@ -84,7 +84,9 @@ namespace DataTransferObject
                 foreach (var t in testee.Trainings)
                 {
                     TesteeTrainingDTO training = new TesteeTrainingDTO();
-                    Conversion.CopyProperty(t, training);
+                    training.Id = t.Id;
+                    training.Training = new Training();
+                    Conversion.CopyProperty(t.Training, training.Training);
                     newTestee.Trainings.Add(training);
                 }
             }
@@ -104,8 +106,11 @@ namespace DataTransferObject
                 foreach (var t in testee.Trainings)
                 {
                     TesteeTraining training = new TesteeTraining();
-                    Conversion.CopyProperty(t, training);
+                    training.Training = new Training();
+                    Conversion.CopyProperty(t.Training, training.Training);
                     newTestee.Trainings.Add(training);
+
+                    
                 }
             }
 

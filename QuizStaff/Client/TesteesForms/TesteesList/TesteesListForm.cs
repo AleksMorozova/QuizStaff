@@ -19,24 +19,25 @@ namespace Client.TesteesForms.TesteesList
             InitializeComponent();
 
             mvvmTesteesContext.ViewModelType = typeof(TesteesListViewModel);
+            model = mvvmTesteesContext.GetViewModel<TesteesListViewModel>();     
             BindCommands();
-            model = new TesteesListViewModel();
             mvvmTesteesContext.SetViewModel(typeof(TesteesListViewModel), model);
             model.GetAllTestee();
             BindToViewModel();            
         }
+
         private void BindCommands()
         {
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(buttonSave, viewModel => viewModel.Save());
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(buttonCancel, viewModel => viewModel.Cancel());
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(loadTesteesButton , viewModel => viewModel.LoadTestees());
+            mvvmTesteesContext.BindCommand<TesteesListViewModel>(addTesteeButton, viewModel => viewModel.AddTestee());
             mvvmTesteesContext.BindCommand<TesteesListViewModel, Testee>(editTesteeButton,
                 (x, currentTestee) => x.EditTestee (currentTestee), x => GetCurrentTestee());
-            mvvmTesteesContext.BindCommand<TesteesListViewModel, BindingList<Testee>>(addTesteeButton,
-                (x, currentTestee) => x.AddTestee (currentTestee), x => GetCurrentTestees());
             mvvmTesteesContext.BindCommand<TesteesListViewModel, Testee>(deleteTesteeButton,
                 (x, currentTestee) => x.DeleteTestee(currentTestee), x => GetCurrentTestee());
         }
+
         private void BindToViewModel()
         {
             mvvmTesteesContext.SetBinding(gridTestees , testee => testee.DataSource, "Testees");              
