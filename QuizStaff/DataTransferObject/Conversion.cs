@@ -101,6 +101,7 @@ namespace DataTransferObject
             newTestee.Trainings = new BindingList<TesteeTraining>();
             Conversion.CopyProperty(testee, newTestee);
             Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
+            
             if (testee.Trainings.Count() > 0)
             {
                 foreach (var t in testee.Trainings)
@@ -108,9 +109,8 @@ namespace DataTransferObject
                     TesteeTraining training = new TesteeTraining();
                     training.Training = new Training();
                     Conversion.CopyProperty(t.Training, training.Training);
+                    training.Id = t.Id;
                     newTestee.Trainings.Add(training);
-
-                    
                 }
             }
 

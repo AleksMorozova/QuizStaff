@@ -11,7 +11,6 @@ namespace ApplicationServer.DAL
     {
         public override void Update(Testee entity)
         {     
-            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             dbContext.Entry(entity.UserSetting).State = System.Data.Entity.EntityState.Modified;
 
             if (entity.Trainings!=null)
@@ -22,6 +21,7 @@ namespace ApplicationServer.DAL
                     : System.Data.Entity.EntityState.Modified;
             }
 
+            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             dbContext.SaveChanges();
         }
     }
