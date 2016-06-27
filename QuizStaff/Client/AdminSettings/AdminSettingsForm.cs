@@ -24,7 +24,7 @@ namespace Client.AdminSettings
 
             mvvmAdminSettingsContext.ViewModelType = typeof(AdminSettingsViewModel);
             //BindCommands();
-            model = new AdminSettingsViewModel();
+            model = mvvmAdminSettingsContext.GetViewModel<AdminSettingsViewModel>();
             mvvmAdminSettingsContext.SetViewModel(typeof(AdminSettingsViewModel), model);
             model.GetAllTestees();
             BindToViewModel();
@@ -32,7 +32,6 @@ namespace Client.AdminSettings
 
         private void BindCommands()
         {
-
             mvvmAdminSettingsContext.BindCommand<AdminSettingsViewModel, BindingList<Testee>>(saveButton, (viewModel, questionID)
                 => viewModel.EditSettings(questionID), x => GetSelectedTestees());
         }
