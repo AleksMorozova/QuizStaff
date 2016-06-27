@@ -85,6 +85,7 @@ namespace DataTransferObject
                 {
                     TesteeTrainingDTO training = new TesteeTrainingDTO();
                     training.Id = t.Id;
+                    training.IsActive = t.IsActive;
                     training.Training = new Training();
                     Conversion.CopyProperty(t.Training, training.Training);
                     newTestee.Trainings.Add(training);
@@ -106,11 +107,16 @@ namespace DataTransferObject
             {
                 foreach (var t in testee.Trainings)
                 {
-                    TesteeTraining training = new TesteeTraining();
-                    training.Training = new Training();
-                    Conversion.CopyProperty(t.Training, training.Training);
-                    training.Id = t.Id;
-                    newTestee.Trainings.Add(training);
+                    if (t.IsActive)
+                    {
+                        TesteeTraining training = new TesteeTraining();
+                        training.Training = new Training();
+                        training.Id = t.Id;
+                        training.IsActive = t.IsActive;
+                        Conversion.CopyProperty(t.Training, training.Training);
+                        training.Id = t.Id;
+                        newTestee.Trainings.Add(training);
+                    }
                 }
             }
 

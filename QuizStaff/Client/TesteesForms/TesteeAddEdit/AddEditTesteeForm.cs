@@ -105,7 +105,32 @@ namespace Client.TesteesForm.TesteeAddEdit
             GridView v = sender as GridView;
             var currentValue = v.EditingValue;
             TesteeTraining training = v.GetRow(e.RowHandle) as TesteeTraining;
+            training.IsActive = true;
             training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
+        }
+
+        private TesteeTraining GetCurrentTesteeTraining()
+        {
+            int rowHandler = this.gridViewTrainings.FocusedRowHandle;
+            var editedTesteeTraining = (TesteeTraining)gridViewTrainings.GetRow(rowHandler);
+            return editedTesteeTraining;
+        }
+
+        private void gridTrainings_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
+        {
+            if (e.Button.ButtonType == NavigatorButtonType.Remove)
+            {
+                var testeeTraining = GetCurrentTesteeTraining();
+                testeeTraining.IsActive = false;
+            
+                TesteeTraining newTesteeTraining = new TesteeTraining();
+                newTesteeTraining.Id = testeeTraining.Id;
+                newTesteeTraining.IsActive = testeeTraining.IsActive;
+                newTesteeTraining.Training = new Training();
+                Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
+
+                ServicesHolder.ServiceClient.DeleteTesteeTraining(newTesteeTraining);
+            }
         }
     }
 }
