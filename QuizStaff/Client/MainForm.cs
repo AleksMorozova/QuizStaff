@@ -70,7 +70,7 @@ namespace Client
 
         private void questionBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            QuestionForm questionform = new QuestionForm(new TesteeDTO() { Id = Guid.NewGuid() });            
+            QuestionForm questionform = new QuestionForm(Program.currentTestee);            
             FormManager.Instance.LocalizedForms(Program.currentLang);
             questionform.ShowDialog();
         }

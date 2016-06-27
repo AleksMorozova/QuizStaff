@@ -59,15 +59,24 @@ namespace Server
         {
             // TODO: implement logic for finding question 
 
-            BindingList<Answer> l = new BindingList<Answer>();
-            l.Add(new Answer() { AnswerText = "This is answer first", IsCorrect = true, Id = Guid.NewGuid() });
-            l.Add(new Answer() { AnswerText = "This is answer second", IsCorrect = true, Id = Guid.NewGuid() });
-            l.Add(new Answer() { AnswerText = "This is answer third", IsCorrect = true, Id = Guid.NewGuid() });
-            l.Add(new Answer() { AnswerText = "This is answer fourth", IsCorrect = true, Id = Guid.NewGuid() });
-            var question = new Question() { QuestionText = "What you gonna do when they come for you?", Answers = l };
-          
-            return question;
+            EFRepository<Question> repo = new EFRepository<Question>();
+            var allQuestions = repo.ReadAll();
+            Question question = new Question();
+
+            if (allQuestions.Count() > 1)
+            {
+                Random rnd = new Random();
+                int index = rnd.Next(0, allQuestions.Count() - 1);
+                question = allQuestions.ElementAt(index);
+            }
+            else 
+            {
+                question = allQuestions.First();
+            }
+    
+            return (QuestionDTO)question;
         }
+
         #region Client's settings  
         public Boolean SetUsersSettings(SettingDTO sets, Guid id)
         {

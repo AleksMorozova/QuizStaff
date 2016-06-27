@@ -6,6 +6,7 @@ using System.Drawing;
 using Client.TesteeQuestion;
 using System.Globalization;
 using System.ComponentModel;
+using DomainModel;
 
 namespace Client
 {
@@ -14,7 +15,7 @@ namespace Client
         private Dictionary<Guid, bool> answers = new Dictionary<Guid,bool>();
         private TesteeQuestionViewModel model;
 
-        public QuestionForm(TesteeDTO testee)
+        public QuestionForm(Testee testee)
         {
             InitializeComponent();
             mvvmQuestionContext.ViewModelType = typeof(TesteeQuestionViewModel);

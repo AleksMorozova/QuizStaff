@@ -116,6 +116,24 @@ namespace DataTransferObject
 
             return newTestee;
         }
+
+        public static Question ConvertQuestionFromDTO(QuestionDTO question) 
+        {
+            Question newQuestion = new Question();
+            newQuestion.Answers = new BindingList<Answer>();
+            if (question != null)
+            {
+                Conversion.CopyProperty(question, newQuestion);
+                foreach (var a in question.Answers)
+                {
+                    Answer ans = new Answer();
+                    CopyProperty(a, ans);
+                    if (a.IsActive)
+                        newQuestion.Answers.Add(ans);
+                }
+            }
+            return newQuestion;
+        }
     }
 }
 

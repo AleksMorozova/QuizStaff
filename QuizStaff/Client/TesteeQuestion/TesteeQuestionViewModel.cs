@@ -1,4 +1,5 @@
 ﻿using DataTransferObject;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,12 @@ namespace Client.TesteeQuestion
 {
     public class TesteeQuestionViewModel
     {
-        public QuestionDTO question;
+        public Question question;
 
-        public void LoadQuestionForTestee(TesteeDTO currentTestee) 
+        public void LoadQuestionForTestee(Testee currentTestee) 
         {
-            question = ServicesHolder.ServiceClient.GetRandomQuestionForTestee(new Guid());
+            var loadQuestion = ServicesHolder.ServiceClient.GetRandomQuestionForTestee(currentTestee.Id);
+            question = Conversion.ConvertQuestionFromDTO(loadQuestion);
         }
 
         public bool MultiSelect
