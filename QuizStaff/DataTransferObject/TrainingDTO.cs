@@ -32,20 +32,6 @@ namespace DataTransferObject
                 foreach (var q in training.Questions)
                 {
                     newTraining.Questions.Add((QuestionDTO)q);
-
-
-                    //Question question = new Question();
-                    //Conversion.CopyProperty(q, question);
-                    //question.Answers = new BindingList<Answer>();
-
-                    //foreach (var a in q.Answers)
-                    //{
-                    //    Answer newA = new Answer();
-                    //    Conversion.CopyProperty(a, newA);
-                    //    question.Answers.Add(newA);
-                    //}
-                    //newTraining.Questions.Add(question);
-
                 }
 
             }
