@@ -129,7 +129,7 @@ namespace Client.TesteesForm.TesteeAddEdit
                 newTesteeTraining.Training = new Training();
                 Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
 
-                ServicesHolder.ServiceClient.DeleteTesteeTraining(newTesteeTraining);
+                ServicesHolder.ServiceClient.DeleteTesteeTraining(Conversion.ConvertTesteeTrainingToDTO(newTesteeTraining));
             }
         }
     }

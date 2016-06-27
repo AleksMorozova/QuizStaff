@@ -41,7 +41,33 @@ namespace DataTransferObject
 
                 foreach (var a in q.Answers)
                 {
-                    Answer newA = new Answer(); //{ IsActive = true}
+                    if (a.IsActive) 
+                    {
+                        Answer newA = new Answer();
+                        Conversion.CopyProperty(a, newA);
+                        question.Answers.Add(newA);
+                    }
+                }
+                newTraining.Questions.Add(question);
+            }
+
+            return newTraining;
+        }
+
+        public static Training ConvertTrainingFromDTO_ForServer(TrainingDTO currentTraining)
+        {
+            Training newTraining = new Training();
+            Conversion.CopyProperty(currentTraining, newTraining);
+            newTraining.Questions = new BindingList<Question>();
+            foreach (var q in currentTraining.Questions)
+            {
+                Question question = new Question();
+                Conversion.CopyProperty(q, question);
+                question.Answers = new BindingList<Answer>();
+
+                foreach (var a in q.Answers)
+                {
+                    Answer newA = new Answer();
                     Conversion.CopyProperty(a, newA);
                     question.Answers.Add(newA);
                 }
@@ -83,12 +109,7 @@ namespace DataTransferObject
             {
                 foreach (var t in testee.Trainings)
                 {
-                    TesteeTrainingDTO training = new TesteeTrainingDTO();
-                    training.Id = t.Id;
-                    training.IsActive = t.IsActive;
-                    training.Training = new Training();
-                    Conversion.CopyProperty(t.Training, training.Training);
-                    newTestee.Trainings.Add(training);
+                    newTestee.Trainings.Add(ConvertTesteeTrainingToDTO(t));
                 }
             }
 
@@ -109,18 +130,56 @@ namespace DataTransferObject
                 {
                     if (t.IsActive)
                     {
-                        TesteeTraining training = new TesteeTraining();
-                        training.Training = new Training();
-                        training.Id = t.Id;
-                        training.IsActive = t.IsActive;
-                        Conversion.CopyProperty(t.Training, training.Training);
-                        training.Id = t.Id;
-                        newTestee.Trainings.Add(training);
+                        newTestee.Trainings.Add(ConvertTesteeTrainingFromDTO(t));
                     }
                 }
             }
 
             return newTestee;
+        }
+
+        public static Testee ConvertTesteeFromDTO_ForServer(TesteeDTO testee)
+        {
+            Testee newTestee = new Testee();
+            newTestee.UserSetting = new Setting();
+            newTestee.Trainings = new BindingList<TesteeTraining>();
+            Conversion.CopyProperty(testee, newTestee);
+            Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
+
+            if (testee.Trainings.Count() > 0)
+            {
+                foreach (var t in testee.Trainings)
+                {
+                    TesteeTraining training = new TesteeTraining();
+                    training.Training = new Training();
+                    training.Id = t.Id;
+                    training.IsActive = t.IsActive;
+                    Conversion.CopyProperty(t.Training, training.Training);
+                    training.Id = t.Id;
+                    newTestee.Trainings.Add(training);
+                }
+            }
+            return newTestee;
+        }
+
+        public static TesteeTrainingDTO ConvertTesteeTrainingToDTO(TesteeTraining testeeTraining)
+        {
+            TesteeTrainingDTO newTesteeTraining = new TesteeTrainingDTO();
+            newTesteeTraining.Id = testeeTraining.Id;
+            newTesteeTraining.IsActive = testeeTraining.IsActive;
+            newTesteeTraining.Training = new TrainingDTO();
+            Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
+            return newTesteeTraining;
+        }
+
+        public static TesteeTraining ConvertTesteeTrainingFromDTO(TesteeTrainingDTO testeeTraining)
+        {
+            TesteeTraining newTesteeTraining = new TesteeTraining();
+            newTesteeTraining.Id = testeeTraining.Id;
+            newTesteeTraining.IsActive = testeeTraining.IsActive;
+            newTesteeTraining.Training = new Training();
+            Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
+            return newTesteeTraining;
         }
     }
 }
