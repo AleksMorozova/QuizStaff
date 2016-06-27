@@ -168,11 +168,13 @@
             // 
             // gridTrainings
             // 
+            this.gridTrainings.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.gridTrainings_EmbeddedNavigator_ButtonClick);
             resources.ApplyResources(this.gridTrainings, "gridTrainings");
             this.gridTrainings.MainView = this.gridViewTrainings;
             this.gridTrainings.Name = "gridTrainings";
             this.gridTrainings.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.trainingsRepositoryItemLookUpEdit});
+            this.gridTrainings.UseEmbeddedNavigator = true;
             this.gridTrainings.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTrainings});
             // 

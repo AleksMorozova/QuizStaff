@@ -134,6 +134,12 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteAnswer", ReplyAction="http://tempuri.org/IApplicationServer/DeleteAnswerResponse")]
         System.Threading.Tasks.Task DeleteAnswerAsync(DataTransferObject.AnswerDTO answer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/DeleteTesteeTrainingResponse")]
+        void DeleteTesteeTraining(DataTransferObject.TesteeTrainingDTO testeeTraining);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/DeleteTesteeTrainingResponse")]
+        System.Threading.Tasks.Task DeleteTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -321,6 +327,14 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task DeleteAnswerAsync(DataTransferObject.AnswerDTO answer) {
             return base.Channel.DeleteAnswerAsync(answer);
+        }
+        
+        public void DeleteTesteeTraining(DataTransferObject.TesteeTrainingDTO testeeTraining) {
+            base.Channel.DeleteTesteeTraining(testeeTraining);
+        }
+        
+        public System.Threading.Tasks.Task DeleteTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining) {
+            return base.Channel.DeleteTesteeTrainingAsync(testeeTraining);
         }
     }
 }
