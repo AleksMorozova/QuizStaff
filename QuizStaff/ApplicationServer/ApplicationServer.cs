@@ -159,6 +159,7 @@ namespace Server
                 {
                     TesteeTraining training = new TesteeTraining();
                     training.Id = t.Id;
+                    training.IsActive = t.IsActive;
                     training.Training = new Training();
                     Conversion.CopyProperty(t.Training, training.Training);
                     newTestee.Trainings.Add(training);
@@ -180,6 +181,7 @@ namespace Server
                 {
                     TesteeTraining training = new TesteeTraining();
                     training.Id = t.Id;
+                    training.IsActive = t.IsActive;
                     training.Training = new Training();
                     Conversion.CopyProperty(t.Training, training.Training);
                     newTestee.Trainings.Add(training);
@@ -210,6 +212,17 @@ namespace Server
             Answer newAnswer = new Answer();
             Conversion.CopyProperty(answer, newAnswer);
             repo.Update(newAnswer);
+        }
+
+        public void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining) 
+        {
+            EFRepository<TesteeTraining> repo = new EFRepository<TesteeTraining>();
+            TesteeTraining newTesteeTraining = new TesteeTraining();
+            newTesteeTraining.Id = testeeTraining.Id;
+            newTesteeTraining.IsActive = testeeTraining.IsActive;
+            newTesteeTraining.Training = new Training();
+            Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
+            repo.Update(newTesteeTraining);
         }
     }
 }

@@ -72,5 +72,8 @@ namespace Server
 
         [OperationContract]
         void DeleteAnswer(AnswerDTO answer);
+
+        [OperationContract]
+        void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining);
     }
 }

@@ -117,10 +117,9 @@
   <xs:complexType name="TesteeTrainingDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
       <xs:element minOccurs="0" name="Testee" nillable="true" type="tns:TesteeDTO" />
-      <xs:element minOccurs="0" name="TesteeID" type="ser:guid" />
       <xs:element minOccurs="0" name="Training" nillable="true" type="tns:TrainingDTO" />
-      <xs:element minOccurs="0" name="TrainingID" type="ser:guid" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TesteeTrainingDTO" nillable="true" type="tns:TesteeTrainingDTO" />
@@ -130,6 +129,7 @@
       <xs:element minOccurs="0" name="CanUserEdit" type="xs:boolean" />
       <xs:element minOccurs="0" name="FrequencyOfAsking" type="xs:int" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="ShowCorrectAnswer" type="xs:boolean" />
       <xs:element minOccurs="0" name="TimeOfStart" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>

@@ -11,5 +11,6 @@ namespace DomainModel
     {
         public virtual Testee Testee { get; set; }
         public virtual Training Training { get; set; }
+        public bool IsActive { get; set; }
     }
 }
