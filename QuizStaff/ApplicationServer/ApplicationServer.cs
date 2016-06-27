@@ -59,8 +59,18 @@ namespace Server
         {
             // TODO: implement logic for finding question 
 
-            EFRepository<Question> repo = new EFRepository<Question>();
-            var allQuestions = repo.ReadAll();
+            EFRepository<Testee> repo = new EFRepository<Testee>();
+            var currentTestee = repo.Read(id);
+
+            BindingList<Question> allQuestions = new BindingList<Question>();
+            foreach(var t in currentTestee.Trainings)
+            {
+                foreach (var q in t.Training.Questions)
+                {
+                    allQuestions.Add(q);
+                }
+            }
+
             Question question = new Question();
 
             if (allQuestions.Count() > 1)
