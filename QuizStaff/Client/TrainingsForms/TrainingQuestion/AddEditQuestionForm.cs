@@ -57,6 +57,7 @@ namespace Client.TrainingsForms.TrainingQuestion
             GridView v = sender as GridView;
             Answer answer = v.GetRow(e.RowHandle) as Answer;
             answer.IsCorrect = false;
+            answer.IsActive = true;
         }
         
         public void Localized(string language)
@@ -82,11 +83,14 @@ namespace Client.TrainingsForms.TrainingQuestion
 
         private void answersGridControl_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
         {
-            var answer = GetCurrentAnswer();
-            answer.IsActive = false;
-            AnswerDTO newAnswer = new AnswerDTO();
-            Conversion.CopyProperty(answer, newAnswer);
-            ServicesHolder.ServiceClient.DeleteAnswer(newAnswer);
+            if (e.Button.ButtonType == NavigatorButtonType.Remove)
+            {
+                var answer = GetCurrentAnswer();
+                answer.IsActive = false;
+                AnswerDTO newAnswer = new AnswerDTO();
+                Conversion.CopyProperty(answer, newAnswer);
+                ServicesHolder.ServiceClient.DeleteAnswer(newAnswer); 
+            }
         }
     }
 }

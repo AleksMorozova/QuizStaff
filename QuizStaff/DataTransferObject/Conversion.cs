@@ -41,7 +41,7 @@ namespace DataTransferObject
 
                 foreach (var a in q.Answers)
                 {
-                    Answer newA = new Answer();
+                    Answer newA = new Answer(); //{ IsActive = true}
                     Conversion.CopyProperty(a, newA);
                     question.Answers.Add(newA);
                 }
