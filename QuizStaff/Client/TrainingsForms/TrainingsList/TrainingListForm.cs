@@ -45,11 +45,6 @@ namespace Client.TrainingsListForm
             mvvmTrainingsContext.SetBinding(trainingsGridControl, training => training.DataSource, "Trainings");
         }
 
-        private BindingList<Training> GetCurrentTrainings()
-        {
-            return (model!=null)? model.Trainings: new BindingList<Training>();
-        }
-
         private Training GetCurrentTraining() 
         {
             int rowHandler = trainingsGridView.FocusedRowHandle;
