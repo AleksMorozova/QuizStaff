@@ -105,7 +105,7 @@ namespace Client.TesteesForm.TesteeAddEdit
             GridView v = sender as GridView;
             var currentValue = v.EditingValue;
             TesteeTraining training = v.GetRow(e.RowHandle) as TesteeTraining;
-            training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
+            //training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
         }
     }
 }

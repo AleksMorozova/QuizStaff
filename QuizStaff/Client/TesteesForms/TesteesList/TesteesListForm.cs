@@ -43,11 +43,6 @@ namespace Client.TesteesForms.TesteesList
             mvvmTesteesContext.SetBinding(gridTestees , testee => testee.DataSource, "Testees");              
         }
 
-        private BindingList<Testee> GetCurrentTestees()
-        {
-            return (model != null) ? model.Testees : new BindingList<Testee>();
-        }
-
         private Testee GetCurrentTestee()
         {
             int rowHandler = testeeGridView.FocusedRowHandle;
