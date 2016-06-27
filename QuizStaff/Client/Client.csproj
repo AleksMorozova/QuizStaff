@@ -100,6 +100,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminSettings\EditSettingsViewModel.cs" />
     <Compile Include="TesteeSettings\TesteeSettingsViewModel.cs" />
     <Compile Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.cs">
       <SubType>Form</SubType>

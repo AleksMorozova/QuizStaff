@@ -11,44 +11,34 @@ using DevExpress.Mvvm.DataAnnotations;
 
 namespace Client.AdminSettings
 {
-    public class AdminSettingsViewModel:  ViewModelBase
+    public class AdminSettingsViewModel
     {
-        public BindingList<Testee> Testees { get; set; }
+        private BindingList<Testee> testees;
+        public BindingList<Testee> Testees
+        { 
+            get 
+            { 
+                return testees;
+            } 
 
-        private Setting setting = new Setting();
-        public virtual Setting Setting { get; set; }
-
-        public void SetUpSettings(BindingList<Testee> currentTestees)
-        {
-            Setting = new Setting();
-
-            var t = currentTestees.GroupBy(_ => _.UserSetting.AmountOfQuestionsPerDay);
-            if (t.Count() == 1)
+            set 
             {
-                Setting.AmountOfQuestionsPerDay = t.First().First().UserSetting.AmountOfQuestionsPerDay;
-            }
-
-            var t1 = currentTestees.GroupBy(_ => _.UserSetting.FrequencyOfAsking);
-            if (t.Count() == 1)
-            {
-                Setting.FrequencyOfAsking = t.First().First().UserSetting.FrequencyOfAsking;
-            }
-
-            var t2 = currentTestees.GroupBy(_ => _.UserSetting.TimeOfStart);
-            if (t.Count() == 1)
-            {
-                Setting.TimeOfStart = t.First().First().UserSetting.TimeOfStart;
-            }
+              if(testees!=value)
+              {
+                  testees = value;
+                  RaisePropertyChanged("Testees");
+              }
+            } 
         }
 
         public void GetAllTestees()
         {
-            Testees = new BindingList<Testee>();
+            testees = new BindingList<Testee>();
             var testeeList = ServicesHolder.ServiceClient.GetAllTestees();
 
             foreach (var testee in testeeList)
             {
-                Testees.Add(Conversion.ConvertTesteeFromDTO(testee));
+                testees.Add(Conversion.ConvertTesteeFromDTO(testee));
             }
         }
 
@@ -60,17 +50,13 @@ namespace Client.AdminSettings
             editSettings.ShowDialog();
         }
 
-        public void Save(BindingList<Testee> selectedTestee)
-        {                
-            // TODO: set to all users new settings
-            if (this.Setting != null)
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
             {
-                SettingDTO s = this.Setting;
-                foreach (Testee testee in selectedTestee)
-                {
-                    s.Id = testee.UserSetting.Id;
-                    ServicesHolder.ServiceClient.UpdateSettings(s);
-                }
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
