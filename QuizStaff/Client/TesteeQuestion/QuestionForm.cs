@@ -19,7 +19,7 @@ namespace Client
             InitializeComponent();
             mvvmQuestionContext.ViewModelType = typeof(TesteeQuestionViewModel);
             BindCommands();
-            model = new TesteeQuestionViewModel();
+            model = mvvmQuestionContext.GetViewModel<TesteeQuestionViewModel>();
             mvvmQuestionContext.SetViewModel(typeof(TesteeQuestionViewModel), model);
             model.LoadQuestionForTestee(Program.currentTestee);
             CreateQuestionControls(model.question);
