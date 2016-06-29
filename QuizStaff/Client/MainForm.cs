@@ -49,7 +49,7 @@ namespace Client
         {
             //TODO: uncomment after implementation of users role
             //ProvideAccessToMenuItems();
-            timer.Interval = 100;
+            timer.Interval = Program.currentTestee.UserSetting.FrequencyOfAsking * 60000;
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
         }
@@ -133,7 +133,7 @@ namespace Client
             QuestionForm f = new QuestionForm(Program.currentTestee);
             var timeToStart = Program.currentTestee.UserSetting.TimeOfStart;
             var userTime = new TimeSpan(timeToStart.Hour, timeToStart.Minute, timeToStart.Second);//new TimeSpan(timeToStart.Hour, timeToStart.Minute + i, timeToStart.Second)
-            //for (int i = 0; i <= Program.currentTestee.UserSetting.FrequencyOfAsking; i++)
+            for (int i = 0; i <= Program.currentTestee.UserSetting.FrequencyOfAsking; i++)
                 if (DateTime.Now.TimeOfDay.Hours == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours
                     && DateTime.Now.TimeOfDay.Minutes == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes)
                 {

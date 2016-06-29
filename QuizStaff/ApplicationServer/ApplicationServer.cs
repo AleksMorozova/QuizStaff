@@ -50,9 +50,10 @@ namespace Server
             var t= (from p in testees.Select(testee => (QuestionDTO)testee) where p.TrainingId==training.Id select p ).ToList() ;
             return t;
         }
+
         public void SaveTesteeAnswer(HistoryDTO history)
         {
-            EFRepository<History> repo = new EFRepository<DomainModel.History>();
+            EFHistoryRepository repo = new EFHistoryRepository();
             History h = new History();
             h.Answers = new BindingList<TesteeAnswer>();
             foreach (var a in history.Answers)
@@ -69,7 +70,7 @@ namespace Server
             }
             h.AnsweringDate = history.AnsweringDate;
             h.Question = new Question();
-            Conversion.CopyProperty (history.Question,  h.Question);
+            Conversion.CopyProperty(history.Question, h.Question);
             h.Testee = Conversion.ConvertTesteeFromDTO(history.Testee);
             repo.Create(h);
         }
