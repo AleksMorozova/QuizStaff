@@ -13,7 +13,6 @@ namespace Client
         System.Drawing.Size cachedSizeOfOneLineOfText = System.Drawing.Size.Empty;
         Dictionary<Size, Size> preferredSizeHash = new Dictionary<Size, Size>(3); // typically we’ve got three different constraints.
 
-
         public WrappingRadioButton()
         {
             this.AutoSize = true;

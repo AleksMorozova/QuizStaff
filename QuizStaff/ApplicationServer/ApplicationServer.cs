@@ -65,7 +65,6 @@ namespace Server
                 ans.Answer.IsActive = a.Answer.IsActive;
                 ans.Answer.IsCorrect = a.Answer.IsCorrect;
 
-                //ans.AnswerID = a.Id;
                 h.Answers.Add(ans);
             }
             h.AnsweringDate = history.AnsweringDate;
