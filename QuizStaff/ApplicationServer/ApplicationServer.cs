@@ -138,13 +138,13 @@ namespace Server
         public void UpdateTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            repo.Update(Conversion.ConvertTrainingFromDTO(training));
+            repo.Update(Conversion.ConvertTrainingFromDTO_ForServer(training));
         }
 
         public void SaveTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            repo.Create(Conversion.ConvertTrainingFromDTO(training));
+            repo.Create(Conversion.ConvertTrainingFromDTO_ForServer(training));
         }
 
         public void SaveQuestion(QuestionDTO training)
@@ -158,46 +158,14 @@ namespace Server
         public void UpdateTestee(TesteeDTO testee)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
-            Testee newTestee = new Testee();
-            newTestee.UserSetting = new Setting();
-            newTestee.Trainings = new BindingList<TesteeTraining>();
-            Conversion.CopyProperty(testee, newTestee);
-            Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
-            if (testee.Trainings != null)
-            {
-                foreach (var t in testee.Trainings)
-                {
-                    TesteeTraining training = new TesteeTraining();
-                    training.Id = t.Id;
-                    training.IsActive = t.IsActive;
-                    training.Training = new Training();
-                    Conversion.CopyProperty(t.Training, training.Training);
-                    newTestee.Trainings.Add(training);
-                }
-            }
-
-            repo.Update(newTestee);
+            repo.Update(Conversion.ConvertTesteeFromDTO_ForServer(testee));
         }
 
         public void SaveTestee(TesteeDTO testee)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
-            Testee newTestee = new Testee();
-            newTestee.Trainings = new BindingList<TesteeTraining>();
-            Conversion.CopyProperty(testee, newTestee);
-            if (testee.Trainings.Count() > 0)
-            {
-                foreach (var t in testee.Trainings)
-                {
-                    TesteeTraining training = new TesteeTraining();
-                    training.Id = t.Id;
-                    training.IsActive = t.IsActive;
-                    training.Training = new Training();
-                    Conversion.CopyProperty(t.Training, training.Training);
-                    newTestee.Trainings.Add(training);
-                }
-            }
-            repo.Create(newTestee);
+
+            repo.Create(Conversion.ConvertTesteeFromDTO_ForServer(testee));
         }
 
         public void UpdateSettings(SettingDTO setting)
@@ -227,12 +195,7 @@ namespace Server
         public void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining) 
         {
             EFRepository<TesteeTraining> repo = new EFRepository<TesteeTraining>();
-            TesteeTraining newTesteeTraining = new TesteeTraining();
-            newTesteeTraining.Id = testeeTraining.Id;
-            newTesteeTraining.IsActive = testeeTraining.IsActive;
-            newTesteeTraining.Training = new Training();
-            Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
-            repo.Update(newTesteeTraining);
+            repo.Update(Conversion.ConvertTesteeTrainingFromDTO(testeeTraining));
         }
     }
 }

@@ -17,13 +17,7 @@ namespace DataTransferObject
 
         public static implicit operator TesteeTrainingDTO(TesteeTraining testeeTrainings)
         {
-            TesteeTrainingDTO newTesteeTrainings = new TesteeTrainingDTO();
-            newTesteeTrainings.Id = testeeTrainings.Id;
-            newTesteeTrainings.IsActive = testeeTrainings.IsActive;
-            newTesteeTrainings.Training = new TrainingDTO();
-            Conversion.CopyProperty(testeeTrainings.Training, newTesteeTrainings.Training);
-
-            return newTesteeTrainings;
+            return Conversion.ConvertTesteeTrainingToDTO(testeeTrainings);
         }
     }
 }
