@@ -35,7 +35,14 @@ namespace Client.TesteeQuestion
             else
             {
                 var trueAnswers = answers.Where(x => x.Value == true).Select(x => x.Key).ToArray();
-                //this.server.SaveTesteeAnswer(this.testee.Id, this.question.Id, DateTime.Now, trueAnswers);
+                var history = new HistoryDTO();
+                history.AnsweringDate = DateTime.Now;
+                history.Question = question;
+                history.Testee = Program.currentTestee;
+                history.Answers = new System.ComponentModel.BindingList<TesteeAnswerDTO>();
+                foreach (var a in trueAnswers)
+                    history.Answers.Add(new TesteeAnswerDTO() { AnswerID = a });
+                ServicesHolder.ServiceClient.SaveTesteeAnswer(history);
             }
         }
     }

@@ -50,9 +50,14 @@ namespace Server
             var t= (from p in testees.Select(testee => (QuestionDTO)testee) where p.TrainingId==training.Id select p ).ToList() ;
             return t;
         }
-        public void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID)
+        public void SaveTesteeAnswer(HistoryDTO history)
         {
-            // TODO: save to database
+            EFRepository<History> repo = new EFRepository<DomainModel.History>();
+            History h = new History();
+            h.Answers = new BindingList<TesteeAnswer>();
+            h.AnsweringDate = history.AnsweringDate;
+            h.Testee = Conversion.ConvertTesteeFromDTO(history.Testee);
+            repo.Create(h);
         }
 
         public QuestionDTO GetRandomQuestionForTestee(Guid id)
