@@ -26,7 +26,7 @@ namespace Client.TesteeQuestion
             }
         }
 
-        public void SaveTesteeAnswer(Dictionary<Guid, bool> answers)
+        public void SaveTesteeAnswer(Dictionary<AnswerDTO, bool> answers)
         {
             if (answers.Where(x => x.Value == true).Count() == 0)
             {
@@ -41,7 +41,7 @@ namespace Client.TesteeQuestion
                 history.Testee = Program.currentTestee;
                 history.Answers = new System.ComponentModel.BindingList<TesteeAnswerDTO>();
                 foreach (var a in trueAnswers)
-                    history.Answers.Add(new TesteeAnswerDTO() { AnswerID = a });
+                    history.Answers.Add(new TesteeAnswerDTO() { Answer = a });
                 ServicesHolder.ServiceClient.SaveTesteeAnswer(history);
             }
         }

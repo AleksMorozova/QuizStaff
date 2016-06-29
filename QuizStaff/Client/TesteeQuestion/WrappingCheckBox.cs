@@ -71,6 +71,13 @@ namespace Client
             }
             return prefSize;
         }
+
+
+        public DataTransferObject.AnswerDTO Answer
+        {
+            get;
+            set;
+        }
     }
 
 

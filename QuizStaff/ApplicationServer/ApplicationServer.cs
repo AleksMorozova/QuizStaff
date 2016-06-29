@@ -55,7 +55,22 @@ namespace Server
             EFRepository<History> repo = new EFRepository<DomainModel.History>();
             History h = new History();
             h.Answers = new BindingList<TesteeAnswer>();
+            foreach (var a in history.Answers)
+            {
+                TesteeAnswer ans = new TesteeAnswer();
+
+                ans.Answer = new Answer();
+                ans.Answer.AnswerText = a.Answer.AnswerText;
+                ans.Answer.Id = a.Answer.Id;
+                ans.Answer.IsActive = a.Answer.IsActive;
+                ans.Answer.IsCorrect = a.Answer.IsCorrect;
+
+                //ans.AnswerID = a.Id;
+                h.Answers.Add(ans);
+            }
             h.AnsweringDate = history.AnsweringDate;
+            h.Question = new Question();
+            Conversion.CopyProperty (history.Question,  h.Question);
             h.Testee = Conversion.ConvertTesteeFromDTO(history.Testee);
             repo.Create(h);
         }
