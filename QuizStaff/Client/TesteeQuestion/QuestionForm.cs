@@ -85,5 +85,10 @@ namespace Client
             CultureInfo newCultureInfo = new CultureInfo(language);
             resources.ApplyResources(buttonSend, "buttonSend", newCultureInfo);           
         }
+
+        private void QuestionForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.Timer.Start();
+        }
     }
 }

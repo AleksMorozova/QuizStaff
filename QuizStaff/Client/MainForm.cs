@@ -21,7 +21,7 @@ namespace Client
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
-        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer timer = Program.Timer;
 
         public MainForm()
         {
@@ -49,9 +49,9 @@ namespace Client
         {
             //TODO: uncomment after implementation of users role
             //ProvideAccessToMenuItems();
-            //timer.Interval = 100;
-            //timer.Tick += new EventHandler(timer_Tick);
-            //timer.Start();
+            timer.Interval = 100;
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
         }
 
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -130,14 +130,16 @@ namespace Client
         private void timer_Tick(object sender, EventArgs e)
         {
             // TODO: uncommit after implementation of authentication
-
-            //var timeToStart = Program.currentTestee.UserSetting.TimeOfStart;
-            //if (DateTime.Now.TimeOfDay > new TimeSpan(timeToStart.Hour, timeToStart.Minute, timeToStart.Second))
-            //{
-            //    QuestionForm f = new QuestionForm(Program.currentTestee);
-            //    f.Show();
-            //    timer.Stop();
-            //}
+            QuestionForm f = new QuestionForm(Program.currentTestee);
+            var timeToStart = Program.currentTestee.UserSetting.TimeOfStart;
+            var userTime = new TimeSpan(timeToStart.Hour, timeToStart.Minute, timeToStart.Second);//new TimeSpan(timeToStart.Hour, timeToStart.Minute + i, timeToStart.Second)
+            for (int i = 0; i <= Program.currentTestee.UserSetting.FrequencyOfAsking; i++)
+                if (DateTime.Now.TimeOfDay.Hours == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours
+                    && DateTime.Now.TimeOfDay.Minutes == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i)
+                {
+                    f.Show();
+                    timer.Stop();
+                }
         }
 
         private void adminSettingsBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
