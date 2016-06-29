@@ -105,6 +105,8 @@ namespace DataTransferObject
             TesteeDTO newTestee = new TesteeDTO();
             newTestee.Trainings = new BindingList<TesteeTrainingDTO>();
             Conversion.CopyProperty(testee, newTestee);
+
+            if (testee.Trainings != null)
             if (testee.Trainings.Count() > 0)
             {
                 foreach (var t in testee.Trainings)
@@ -123,7 +125,8 @@ namespace DataTransferObject
             newTestee.Trainings = new BindingList<TesteeTraining>();
             Conversion.CopyProperty(testee, newTestee);
             Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
-            
+
+            if (testee.Trainings!=null)
             if (testee.Trainings.Count() > 0)
             {
                 foreach (var t in testee.Trainings)
