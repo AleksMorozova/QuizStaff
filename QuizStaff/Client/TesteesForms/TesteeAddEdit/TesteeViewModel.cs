@@ -235,7 +235,9 @@ namespace Client.TesteesForm.TesteeAddEdit
             {
                 if (this.Testee.Id == Guid.Empty)
                 {
-                    ServicesHolder.ServiceClient.SaveTestee(this.Testee);
+                    var t = ServicesHolder.ServiceClient.SaveTestee(this.Testee);
+                    this.Testee.Id = t.Id;
+                    this.Testee.UserSetting.Id = t.UserSetting.Id;
                 }
                 else
                 {

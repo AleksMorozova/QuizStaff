@@ -118,10 +118,10 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task UpdateTesteeAsync(DataTransferObject.TesteeDTO testee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTestee", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeResponse")]
-        void SaveTestee(DataTransferObject.TesteeDTO testee);
+        DataTransferObject.TesteeDTO SaveTestee(DataTransferObject.TesteeDTO testee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTestee", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeResponse")]
-        System.Threading.Tasks.Task SaveTesteeAsync(DataTransferObject.TesteeDTO testee);
+        System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> SaveTesteeAsync(DataTransferObject.TesteeDTO testee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSettingsResponse")]
         void UpdateSettings(DataTransferObject.SettingDTO setting);
@@ -305,11 +305,11 @@ namespace Client.ServiceReference {
             return base.Channel.UpdateTesteeAsync(testee);
         }
         
-        public void SaveTestee(DataTransferObject.TesteeDTO testee) {
-            base.Channel.SaveTestee(testee);
+        public DataTransferObject.TesteeDTO SaveTestee(DataTransferObject.TesteeDTO testee) {
+            return base.Channel.SaveTestee(testee);
         }
         
-        public System.Threading.Tasks.Task SaveTesteeAsync(DataTransferObject.TesteeDTO testee) {
+        public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> SaveTesteeAsync(DataTransferObject.TesteeDTO testee) {
             return base.Channel.SaveTesteeAsync(testee);
         }
         
