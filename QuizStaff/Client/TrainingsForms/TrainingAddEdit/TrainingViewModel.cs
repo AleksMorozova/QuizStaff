@@ -90,7 +90,8 @@ namespace Client.TrainingsForms.TrainingAddEdit
             {
                 if (this.Training.Id == Guid.Empty)
                 {
-                    ServicesHolder.ServiceClient.SaveTraining(Conversion.ConvertTrainingToDTO(this.Training));
+                    var savedTraining = ServicesHolder.ServiceClient.SaveTraining(Conversion.ConvertTrainingToDTO(this.Training));
+                    this.Training = Conversion.ConvertTrainingFromDTO(savedTraining);
                 }
                 else
                 {

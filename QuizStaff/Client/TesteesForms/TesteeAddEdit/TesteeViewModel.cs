@@ -235,13 +235,12 @@ namespace Client.TesteesForm.TesteeAddEdit
             {
                 if (this.Testee.Id == Guid.Empty)
                 {
-                    var t = ServicesHolder.ServiceClient.SaveTestee(this.Testee);
-                    this.Testee.Id = t.Id;
-                    this.Testee.UserSetting.Id = t.UserSetting.Id;
+                    var savedTestee = ServicesHolder.ServiceClient.SaveTestee(Conversion.ConvertTesteeToDTO(this.Testee));
+                    this.Testee = Conversion.ConvertTesteeFromDTO(savedTestee);
                 }
                 else
                 {
-                    ServicesHolder.ServiceClient.UpdateTestee(this.Testee);
+                    ServicesHolder.ServiceClient.UpdateTestee(Conversion.ConvertTesteeToDTO(this.Testee));
                 }
             }
         }
