@@ -69,7 +69,7 @@ namespace Client.TrainingsForms.TrainingAddEdit
             FormManager.LocalizedFormList.Add(questionForm);
             FormManager.Instance.LocalizedForms(Program.currentLang);
             questionForm.ShowDialog();
-            questionForm.Question.TrainingId = training.Id;
+            questionForm.Question.Training = training;
             training.Questions.Add(questionForm.Question);
         }
 
