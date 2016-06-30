@@ -50,24 +50,63 @@ namespace Server
             var t= (from p in testees.Select(testee => (QuestionDTO)testee) where p.TrainingId==training.Id select p ).ToList() ;
             return t;
         }
-        public void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID)
+
+        public void SaveTesteeAnswer(HistoryDTO history)
         {
-            // TODO: save to database
+            EFHistoryRepository repo = new EFHistoryRepository();
+            History h = new History();
+            h.Answers = new BindingList<TesteeAnswer>();
+            foreach (var a in history.Answers)
+            {
+                TesteeAnswer ans = new TesteeAnswer();
+
+                ans.Answer = new Answer();
+                ans.Answer.AnswerText = a.Answer.AnswerText;
+                ans.Answer.Id = a.Answer.Id;
+                ans.Answer.IsActive = a.Answer.IsActive;
+                ans.Answer.IsCorrect = a.Answer.IsCorrect;
+
+                h.Answers.Add(ans);
+            }
+            h.AnsweringDate = history.AnsweringDate;
+            h.Question = new Question();
+            Conversion.CopyProperty(history.Question, h.Question);
+            h.Testee = Conversion.ConvertTesteeFromDTO(history.Testee);
+            repo.Create(h);
         }
 
         public QuestionDTO GetRandomQuestionForTestee(Guid id)
         {
             // TODO: implement logic for finding question 
 
-            BindingList<Answer> l = new BindingList<Answer>();
-            l.Add(new Answer() { AnswerText = "This is answer first", IsCorrect = true, Id = Guid.NewGuid() });
-            l.Add(new Answer() { AnswerText = "This is answer second", IsCorrect = true, Id = Guid.NewGuid() });
-            l.Add(new Answer() { AnswerText = "This is answer third", IsCorrect = true, Id = Guid.NewGuid() });
-            l.Add(new Answer() { AnswerText = "This is answer fourth", IsCorrect = true, Id = Guid.NewGuid() });
-            var question = new Question() { QuestionText = "What you gonna do when they come for you?", Answers = l };
-          
-            return question;
+            EFRepository<Testee> repo = new EFRepository<Testee>();
+            var currentTestee = repo.Read(id);
+
+            BindingList<Question> allQuestions = new BindingList<Question>();
+            foreach(var t in currentTestee.Trainings)
+            {
+                foreach (var q in t.Training.Questions)
+                {
+                    allQuestions.Add(q);
+                }
+            }
+
+            Question question = new Question();
+
+            if (allQuestions.Count() > 1)
+            {
+                Random rnd = new Random();
+                int index = rnd.Next(0, allQuestions.Count() - 1);
+                question = allQuestions.ElementAt(index);
+            }
+            else 
+            {
+                question = allQuestions.First();
+            }
+    
+            return (QuestionDTO)question;
         }
+
         #region Client's settings  
         public Boolean SetUsersSettings(SettingDTO sets, Guid id)
         {

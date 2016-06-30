@@ -1,4 +1,5 @@
 ﻿using DataTransferObject;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,12 @@ namespace Client.TesteeQuestion
 {
     public class TesteeQuestionViewModel
     {
-        public QuestionDTO question;
+        public Question question;
 
-        public void LoadQuestionForTestee(TesteeDTO currentTestee) 
+        public void LoadQuestionForTestee(Testee currentTestee) 
         {
-            question = ServicesHolder.ServiceClient.GetRandomQuestionForTestee(new Guid());
+            var loadQuestion = ServicesHolder.ServiceClient.GetRandomQuestionForTestee(currentTestee.Id);
+            question = Conversion.ConvertQuestionFromDTO(loadQuestion);
         }
 
         public bool MultiSelect
@@ -24,7 +26,7 @@ namespace Client.TesteeQuestion
             }
         }
 
-        public void SaveTesteeAnswer(Dictionary<Guid, bool> answers)
+        public void SaveTesteeAnswer(Dictionary<AnswerDTO, bool> answers)
         {
             if (answers.Where(x => x.Value == true).Count() == 0)
             {
@@ -33,7 +35,14 @@ namespace Client.TesteeQuestion
             else
             {
                 var trueAnswers = answers.Where(x => x.Value == true).Select(x => x.Key).ToArray();
-                //this.server.SaveTesteeAnswer(this.testee.Id, this.question.Id, DateTime.Now, trueAnswers);
+                var history = new HistoryDTO();
+                history.AnsweringDate = DateTime.Now;
+                history.Question = question;
+                history.Testee = Program.currentTestee;
+                history.Answers = new System.ComponentModel.BindingList<TesteeAnswerDTO>();
+                foreach (var a in trueAnswers)
+                    history.Answers.Add(new TesteeAnswerDTO() { Answer = a });
+                ServicesHolder.ServiceClient.SaveTesteeAnswer(history);
             }
         }
     }

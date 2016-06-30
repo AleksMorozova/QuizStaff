@@ -6,20 +6,21 @@ using System.Drawing;
 using Client.TesteeQuestion;
 using System.Globalization;
 using System.ComponentModel;
+using DomainModel;
 
 namespace Client
 {
     public partial class QuestionForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
-        private Dictionary<Guid, bool> answers = new Dictionary<Guid,bool>();
+        private Dictionary<AnswerDTO, bool> answers = new Dictionary<AnswerDTO, bool>();
         private TesteeQuestionViewModel model;
 
-        public QuestionForm(TesteeDTO testee)
+        public QuestionForm(Testee testee)
         {
             InitializeComponent();
             mvvmQuestionContext.ViewModelType = typeof(TesteeQuestionViewModel);
             BindCommands();
-            model = new TesteeQuestionViewModel();
+            model = mvvmQuestionContext.GetViewModel<TesteeQuestionViewModel>();
             mvvmQuestionContext.SetViewModel(typeof(TesteeQuestionViewModel), model);
             model.LoadQuestionForTestee(Program.currentTestee);
             CreateQuestionControls(model.question);
@@ -30,7 +31,7 @@ namespace Client
      
         private void BindCommands()
         {
-            mvvmQuestionContext.BindCommand<TesteeQuestionViewModel, Dictionary<Guid, bool>>(buttonSend,
+            mvvmQuestionContext.BindCommand<TesteeQuestionViewModel, Dictionary<AnswerDTO, bool>>(buttonSend,
                 (x, currentTraining) => x.SaveTesteeAnswer(currentTraining), x => answers);
         }
        
@@ -60,7 +61,8 @@ namespace Client
                 }
                 (control as Control).DataBindings.Add("Text", answer, "AnswerText");
                 control.AnswerID = answer.Id;
-                control.CheckedChanged += (sender, e) => this.answers[control.AnswerID] = control.Checked;
+                control.Answer = answer;
+                control.CheckedChanged += (sender, e) => this.answers[control.Answer] = control.Checked;
                 if (selectFirstRadio && !multiSelect)
                 {
                     control.Checked = true;
@@ -83,6 +85,11 @@ namespace Client
             var resources = new ComponentResourceManager(typeof(QuestionForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
             resources.ApplyResources(buttonSend, "buttonSend", newCultureInfo);           
+        }
+
+        private void QuestionForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.Timer.Start();
         }
     }
 }

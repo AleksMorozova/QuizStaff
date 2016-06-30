@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataTransferObject;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -8,9 +9,9 @@ namespace Client
     public class WrappingRadioButton : System.Windows.Forms.RadioButton, ICheckControl
     {
         public Guid AnswerID { get; set; }
+        public AnswerDTO Answer { get; set; }
         System.Drawing.Size cachedSizeOfOneLineOfText = System.Drawing.Size.Empty;
         Dictionary<Size, Size> preferredSizeHash = new Dictionary<Size, Size>(3); // typically we’ve got three different constraints.
-
 
         public WrappingRadioButton()
         {

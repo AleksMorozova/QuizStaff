@@ -52,10 +52,10 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task<DataTransferObject.SettingDTO> GetUsersSettingsAsync(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeAnswerResponse")]
-        void SaveTesteeAnswer(System.Guid testeeID, System.Guid questionID, System.DateTime date, System.Guid[] answersID);
+        void SaveTesteeAnswer(DataTransferObject.HistoryDTO history);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeAnswerResponse")]
-        System.Threading.Tasks.Task SaveTesteeAnswerAsync(System.Guid testeeID, System.Guid questionID, System.DateTime date, System.Guid[] answersID);
+        System.Threading.Tasks.Task SaveTesteeAnswerAsync(DataTransferObject.HistoryDTO history);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse")]
         DataTransferObject.QuestionDTO GetRandomQuestionForTestee(System.Guid id);
@@ -217,12 +217,12 @@ namespace Client.ServiceReference {
             return base.Channel.GetUsersSettingsAsync(id);
         }
         
-        public void SaveTesteeAnswer(System.Guid testeeID, System.Guid questionID, System.DateTime date, System.Guid[] answersID) {
-            base.Channel.SaveTesteeAnswer(testeeID, questionID, date, answersID);
+        public void SaveTesteeAnswer(DataTransferObject.HistoryDTO history) {
+            base.Channel.SaveTesteeAnswer(history);
         }
         
-        public System.Threading.Tasks.Task SaveTesteeAnswerAsync(System.Guid testeeID, System.Guid questionID, System.DateTime date, System.Guid[] answersID) {
-            return base.Channel.SaveTesteeAnswerAsync(testeeID, questionID, date, answersID);
+        public System.Threading.Tasks.Task SaveTesteeAnswerAsync(DataTransferObject.HistoryDTO history) {
+            return base.Channel.SaveTesteeAnswerAsync(history);
         }
         
         public DataTransferObject.QuestionDTO GetRandomQuestionForTestee(System.Guid id) {

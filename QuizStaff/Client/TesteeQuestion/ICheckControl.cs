@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataTransferObject;
+using DomainModel;
+using System;
 
 namespace Client
 {
@@ -6,6 +8,7 @@ namespace Client
     {
         bool Checked { get; set; }
         Guid AnswerID { get; set; }
+        AnswerDTO Answer { get; set; }
         event EventHandler CheckedChanged;
     }
 }

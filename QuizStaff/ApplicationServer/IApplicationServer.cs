@@ -32,7 +32,7 @@ namespace Server
         SettingDTO GetUsersSettings(Guid id);
         
         [OperationContract]
-        void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID);
+        void SaveTesteeAnswer(HistoryDTO history);
 
         [OperationContract]
         QuestionDTO GetRandomQuestionForTestee(Guid id);
