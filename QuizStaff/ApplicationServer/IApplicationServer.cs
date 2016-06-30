@@ -65,7 +65,7 @@ namespace Server
         void UpdateTestee(TesteeDTO testee);
 
         [OperationContract]
-        void SaveTestee(TesteeDTO testee);
+        TesteeDTO SaveTestee(TesteeDTO testee);
 
         [OperationContract]
         void UpdateSettings(SettingDTO setting);

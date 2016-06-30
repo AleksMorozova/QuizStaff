@@ -181,11 +181,12 @@ namespace Server
             repo.Update(Conversion.ConvertTesteeFromDTO_ForServer(testee));
         }
 
-        public void SaveTestee(TesteeDTO testee)
+        public TesteeDTO SaveTestee(TesteeDTO testee)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
-
-            repo.Create(Conversion.ConvertTesteeFromDTO_ForServer(testee));
+            Testee t = Conversion.ConvertTesteeFromDTO_ForServer(testee);
+            repo.Create(t);
+            return (TesteeDTO)t;
         }
 
         public void UpdateSettings(SettingDTO setting)
