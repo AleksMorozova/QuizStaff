@@ -20,7 +20,7 @@ namespace Client.TesteesForm.TesteeAddEdit
        private TesteeViewModel model;
 
        public AddEditTesteeForm()
-           : this(new Testee() { IsActive = true}) { }
+           : this(new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting()}) { }
 
         public AddEditTesteeForm(Testee testee)
         {
