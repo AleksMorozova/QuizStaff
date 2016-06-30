@@ -161,10 +161,12 @@ namespace Server
             repo.Update(Conversion.ConvertTrainingFromDTO_ForServer(training));
         }
 
-        public void SaveTraining(TrainingDTO training)
+        public TrainingDTO SaveTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            repo.Create(Conversion.ConvertTrainingFromDTO_ForServer(training));
+            Training savedTrainings = Conversion.ConvertTrainingFromDTO_ForServer(training);
+            repo.Create(savedTrainings);
+            return (TrainingDTO)savedTrainings;
         }
 
         public void SaveQuestion(QuestionDTO training)
@@ -184,9 +186,9 @@ namespace Server
         public TesteeDTO SaveTestee(TesteeDTO testee)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
-            Testee t = Conversion.ConvertTesteeFromDTO_ForServer(testee);
-            repo.Create(t);
-            return (TesteeDTO)t;
+            Testee savedTestee = Conversion.ConvertTesteeFromDTO_ForServer(testee);
+            repo.Create(savedTestee);
+            return (TesteeDTO)savedTestee;
         }
 
         public void UpdateSettings(SettingDTO setting)

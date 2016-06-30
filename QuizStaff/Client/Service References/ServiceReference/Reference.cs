@@ -94,10 +94,10 @@ namespace Client.ServiceReference {
         System.Threading.Tasks.Task UpdateTrainingAsync(DataTransferObject.TrainingDTO training);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTraining", ReplyAction="http://tempuri.org/IApplicationServer/SaveTrainingResponse")]
-        void SaveTraining(DataTransferObject.TrainingDTO training);
+        DataTransferObject.TrainingDTO SaveTraining(DataTransferObject.TrainingDTO training);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTraining", ReplyAction="http://tempuri.org/IApplicationServer/SaveTrainingResponse")]
-        System.Threading.Tasks.Task SaveTrainingAsync(DataTransferObject.TrainingDTO training);
+        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> SaveTrainingAsync(DataTransferObject.TrainingDTO training);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateQuestion", ReplyAction="http://tempuri.org/IApplicationServer/UpdateQuestionResponse")]
         void UpdateQuestion(DataTransferObject.QuestionDTO training);
@@ -273,11 +273,11 @@ namespace Client.ServiceReference {
             return base.Channel.UpdateTrainingAsync(training);
         }
         
-        public void SaveTraining(DataTransferObject.TrainingDTO training) {
-            base.Channel.SaveTraining(training);
+        public DataTransferObject.TrainingDTO SaveTraining(DataTransferObject.TrainingDTO training) {
+            return base.Channel.SaveTraining(training);
         }
         
-        public System.Threading.Tasks.Task SaveTrainingAsync(DataTransferObject.TrainingDTO training) {
+        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> SaveTrainingAsync(DataTransferObject.TrainingDTO training) {
             return base.Channel.SaveTrainingAsync(training);
         }
         

@@ -104,8 +104,9 @@ namespace DataTransferObject
         {
             TesteeDTO newTestee = new TesteeDTO();
             newTestee.Trainings = new BindingList<TesteeTrainingDTO>();
+            newTestee.UserSetting = new SettingDTO();
             Conversion.CopyProperty(testee, newTestee);
-
+            Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
             if (testee.Trainings != null)
             if (testee.Trainings.Count() > 0)
             {
