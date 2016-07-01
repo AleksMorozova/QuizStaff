@@ -75,7 +75,7 @@ namespace Client.TesteesForms.TesteesList
                 ?resources.GetString("Title", newCultureInfo):"Testees";
         }
 
-        private void deleteTesteeButton_ClgridTesteesick(object sender, EventArgs e)
+        private void deleteTesteeButton_Click(object sender, EventArgs e)
         {
             //TODO: fiz refreshing of DataSource for gridTestees
             model.GetAllTestee();
