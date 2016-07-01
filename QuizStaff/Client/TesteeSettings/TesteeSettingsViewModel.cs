@@ -9,9 +9,58 @@ namespace Client.TesteeSettings
 {
     public class TesteeSettingsViewModel
     {
-        public Setting UserSetting  { get; set; }      
+        public Setting UserSetting  { get; set; }
+        
+        #region Setting
 
-        public void SetUpSetting() 
+        public int AmountOfQuestionsPerDay
+        {
+            get
+            {
+                return UserSetting.AmountOfQuestionsPerDay;
+            }
+            set
+            {
+                if (value != UserSetting.AmountOfQuestionsPerDay)
+                {
+                    UserSetting.AmountOfQuestionsPerDay = value;
+                }
+            }
+        }
+
+        public int FrequencyOfAsking
+        {
+            get
+            {
+                return UserSetting.FrequencyOfAsking;
+            }
+            set
+            {
+                if (value != UserSetting.FrequencyOfAsking)
+                {
+                    UserSetting.FrequencyOfAsking = value;
+                }
+            }
+        }
+
+        public DateTime TimeOfStart
+        {
+            get
+            {
+                return UserSetting.TimeOfStart;
+            }
+            set
+            {
+                if (value != UserSetting.TimeOfStart)
+                {
+                    UserSetting.TimeOfStart = value;
+                }
+            }
+        }
+
+        #endregion
+
+        public TesteeSettingsViewModel()
         {
             UserSetting = Program.currentTestee.UserSetting;
         }
