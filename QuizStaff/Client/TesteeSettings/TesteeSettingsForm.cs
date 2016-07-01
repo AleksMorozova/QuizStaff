@@ -19,8 +19,9 @@ namespace Client.TesteeSettings
 
             mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
             BindCommands();
-            model = new TesteeSettingsViewModel();
-            model.SetUpSetting();
+            //model = new TesteeSettingsViewModel();
+            model = mvvmTesteeSettingsContext.GetViewModel<TesteeSettingsViewModel>();
+            //model.SetUpSetting();
             mvvmTesteeSettingsContext.SetViewModel(typeof(TesteeSettingsViewModel), model);
             BindToViewModel();
         }
@@ -34,8 +35,7 @@ namespace Client.TesteeSettings
         private void BindToViewModel() 
         {
             //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
-            var outer = new BindingSource { DataSource = Program.currentTestee };
-            var inner = new BindingSource(outer, "UserSetting");
+            var inner = new BindingSource { DataSource = model.UserSetting };
             questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
             frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");
             timeOfAskingEditTime.DataBindings.Add("EditValue", inner, "TimeOfStart");
