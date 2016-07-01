@@ -34,8 +34,8 @@ namespace Client.TesteesForms.TesteesList
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(addTesteeButton, viewModel => viewModel.AddTestee());
             mvvmTesteesContext.BindCommand<TesteesListViewModel, Testee>(editTesteeButton,
                 (x, currentTestee) => x.EditTestee (currentTestee), x => GetCurrentTestee());
-            mvvmTesteesContext.BindCommand<TesteesListViewModel, Testee>(deleteTesteeButton,
-                (x, currentTestee) => x.DeleteTestee(currentTestee), x => GetCurrentTestee());
+            //mvvmTesteesContext.BindCommand<TesteesListViewModel, Testee>(deleteTesteeButton,
+            //    (x, currentTestee) => x.DeleteTestee(currentTestee), x => GetCurrentTestee());
         }
 
         private void BindToViewModel()
@@ -73,6 +73,16 @@ namespace Client.TesteesForms.TesteesList
             resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ?resources.GetString("Title", newCultureInfo):"Testees";
+        }
+
+        private void deleteTesteeButton_ClgridTesteesick(object sender, EventArgs e)
+        {
+            //TODO: fiz refreshing of DataSource for gridTestees
+            model.GetAllTestee();
+            gridTestees.DataSource = model.Testees;
+            model.DeleteTestee(GetCurrentTestee());
+            model.GetAllTestee();
+            gridTestees.DataSource = model.Testees;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TesteesListForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.deleteTesteeButton = new DevExpress.XtraEditors.SimpleButton();
@@ -65,7 +66,7 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutButtonSave = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTesteesContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.mvvmTesteesContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTestees)).BeginInit();
@@ -114,6 +115,7 @@
             resources.ApplyResources(this.deleteTesteeButton, "deleteTesteeButton");
             this.deleteTesteeButton.Name = "deleteTesteeButton";
             this.deleteTesteeButton.StyleController = this.layoutControl1;
+            this.deleteTesteeButton.Click += new System.EventHandler(this.deleteTesteeButton_Click);
             // 
             // buttonCancel
             // 
