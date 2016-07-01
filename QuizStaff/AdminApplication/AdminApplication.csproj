@@ -352,6 +352,10 @@
       <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>
       <Name>DomainModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LoginApplication\LoginApplication.csproj">
+      <Project>{652826af-0fbc-4da6-b0cb-68b6f43e834b}</Project>
+      <Name>LoginApplication</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
