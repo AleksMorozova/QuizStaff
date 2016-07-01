@@ -28,7 +28,7 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
 
             this.answersGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             mvvmQuestionContext.ViewModelType = typeof(QuestionViewModel);
-            model = new QuestionViewModel();
+            model = mvvmQuestionContext.GetViewModel<QuestionViewModel>();   
             mvvmQuestionContext.SetViewModel(typeof(QuestionViewModel), model);
             model.Question = question;
             BindToViewModel();     
@@ -36,8 +36,8 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
 
         private void BindToViewModel()
         {
-            mvvmQuestionContext.SetBinding(questionTextEdit, questionText => questionText.EditValue, "Question.QuestionText");
-            mvvmQuestionContext.SetBinding(answersGridControl, answers => answers.DataSource, "Question.Answers");
+            mvvmQuestionContext.SetBinding(questionTextEdit, questionText => questionText.EditValue, "QuestionText");
+            mvvmQuestionContext.SetBinding(answersGridControl, answers => answers.DataSource, "Answers");
         }
 
         public Question Question 
@@ -57,6 +57,7 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
             GridView v = sender as GridView;
             Answer answer = v.GetRow(e.RowHandle) as Answer;
             answer.IsCorrect = false;
+            answer.IsActive = true;
         }
         
         public void Localized(string language)
@@ -82,11 +83,14 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
 
         private void answersGridControl_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
         {
-            var answer = GetCurrentAnswer();
-            answer.IsActive = false;
-            AnswerDTO newAnswer = new AnswerDTO();
-            Conversion.CopyProperty(answer, newAnswer);
-            ServicesHolder.ServiceClient.DeleteAnswer(newAnswer);
+            if (e.Button.ButtonType == NavigatorButtonType.Remove)
+            {
+                var answer = GetCurrentAnswer();
+                answer.IsActive = false;
+                AnswerDTO newAnswer = new AnswerDTO();
+                Conversion.CopyProperty(answer, newAnswer);
+                ServicesHolder.ServiceClient.DeleteAnswer(newAnswer); 
+            }
         }
     }
 }

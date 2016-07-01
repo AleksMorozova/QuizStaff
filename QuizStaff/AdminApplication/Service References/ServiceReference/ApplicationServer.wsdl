@@ -5,7 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataTransferObject" />
-      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IApplicationServer_GetAllTestees_InputMessage">
@@ -128,6 +127,12 @@
   <wsdl:message name="IApplicationServer_DeleteAnswer_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteAnswerResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_DeleteTesteeTraining_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTesteeTraining" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_DeleteTesteeTraining_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTesteeTrainingResponse" />
+  </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetAllTestees">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTestees" message="tns:IApplicationServer_GetAllTestees_InputMessage" />
@@ -208,6 +213,10 @@
     <wsdl:operation name="DeleteAnswer">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/DeleteAnswer" message="tns:IApplicationServer_DeleteAnswer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/DeleteAnswerResponse" message="tns:IApplicationServer_DeleteAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTesteeTraining">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/DeleteTesteeTraining" message="tns:IApplicationServer_DeleteTesteeTraining_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/DeleteTesteeTrainingResponse" message="tns:IApplicationServer_DeleteTesteeTraining_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -385,6 +394,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteAnswer">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/DeleteAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTesteeTraining">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/DeleteTesteeTraining" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

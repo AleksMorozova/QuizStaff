@@ -14,6 +14,7 @@ namespace AdminApplication.TesteesForms.TesteesList
     public class TesteesListViewModel
     {
         public BindingList<Testee> Testees { get; set; }
+       
         public void GetAllTestee()
         {
             Testees = new BindingList<Testee>();
@@ -24,13 +25,13 @@ namespace AdminApplication.TesteesForms.TesteesList
             }
         }
 
-        public void AddTestee(BindingList<Testee> testee)
+        public void AddTestee()
         {
             AddEditTesteeForm testeeForm = new AddEditTesteeForm();
             FormManager.Instance.OpenChildForm(testeeForm, "Add testee");
             FormManager.LocalizedFormList.Add(testeeForm);
             FormManager.Instance.LocalizedForms(Program.currentLang);
-            testee.Add(testeeForm.Testee);
+            Testees.Add(testeeForm.Testee);
         }
 
         public void EditTestee(Testee editedTestee)

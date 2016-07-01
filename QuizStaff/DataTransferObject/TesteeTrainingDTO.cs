@@ -10,17 +10,14 @@ namespace DataTransferObject
     public class TesteeTrainingDTO
     {
         public Guid Id { get; set; }
-        public Guid TesteeID { get; set; }
-        public Guid TrainingID { get; set; }
         public virtual TesteeDTO Testee { get; set; }
         public virtual TrainingDTO Training { get; set; }
 
+        public bool IsActive { get; set; }
+
         public static implicit operator TesteeTrainingDTO(TesteeTraining testeeTrainings)
         {
-            TesteeTrainingDTO newTesteeTrainings = new TesteeTrainingDTO();
-            Conversion.CopyProperty(testeeTrainings, newTesteeTrainings);
-            newTesteeTrainings.Training = testeeTrainings.Training;
-            return newTesteeTrainings;
+            return Conversion.ConvertTesteeTrainingToDTO(testeeTrainings);
         }
     }
 }

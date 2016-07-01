@@ -32,7 +32,7 @@ namespace Server
         SettingDTO GetUsersSettings(Guid id);
         
         [OperationContract]
-        void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID);
+        void SaveTesteeAnswer(HistoryDTO history);
 
         [OperationContract]
         QuestionDTO GetRandomQuestionForTestee(Guid id);
@@ -53,7 +53,7 @@ namespace Server
         void UpdateTraining(TrainingDTO training);
         
         [OperationContract]
-        void SaveTraining(TrainingDTO training);
+        TrainingDTO SaveTraining(TrainingDTO training);
 
         [OperationContract]
         void UpdateQuestion(QuestionDTO training);
@@ -65,12 +65,15 @@ namespace Server
         void UpdateTestee(TesteeDTO testee);
 
         [OperationContract]
-        void SaveTestee(TesteeDTO testee);
+        TesteeDTO SaveTestee(TesteeDTO testee);
 
         [OperationContract]
         void UpdateSettings(SettingDTO setting);
 
         [OperationContract]
         void DeleteAnswer(AnswerDTO answer);
+
+        [OperationContract]
+        void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining);
     }
 }

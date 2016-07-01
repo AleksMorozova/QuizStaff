@@ -21,7 +21,7 @@ namespace AdminApplication.TrainingsListForm
 
             mvvmTrainingsContext.ViewModelType = typeof(TrainingListViewModel);
             BindCommands();
-            model = new TrainingListViewModel();
+            model = mvvmTrainingsContext.GetViewModel<TrainingListViewModel>();   
             mvvmTrainingsContext.SetViewModel(typeof(TrainingListViewModel), model);
             model.GetAllTrainings();
             BindToViewModel();
@@ -37,18 +37,12 @@ namespace AdminApplication.TrainingsListForm
               (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTraining());
             mvvmTrainingsContext.BindCommand<TrainingListViewModel, Training>(buttonEditTraining,
                 (x, currentTraining) => x.EditTraining(currentTraining), x => GetCurrentTraining());
-            mvvmTrainingsContext.BindCommand<TrainingListViewModel, BindingList<Training>>(buttonAddTraining,
-                (x, currentTraining) => x.AddTraining(currentTraining), x => GetCurrentTrainings());
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonAddTraining, viewModel => viewModel.AddTraining());
         }
 
         private void BindToViewModel()
         {
             mvvmTrainingsContext.SetBinding(trainingsGridControl, training => training.DataSource, "Trainings");
-        }
-
-        private BindingList<Training> GetCurrentTrainings()
-        {
-            return (model!=null)? model.Trainings: new BindingList<Training>();
         }
 
         private Training GetCurrentTraining() 

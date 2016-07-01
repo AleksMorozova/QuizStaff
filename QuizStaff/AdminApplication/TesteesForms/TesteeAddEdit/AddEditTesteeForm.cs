@@ -18,46 +18,42 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
     public partial class AddEditTesteeForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
        private TesteeViewModel model;
-       private Testee currentTestee;
 
        public AddEditTesteeForm()
-           : this(new Testee() { IsActive = true}) { }
+           : this(new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now} }) { }
 
         public AddEditTesteeForm(Testee testee)
         {
             InitializeComponent();
             this.gridViewTrainings.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             mvvmTesteeContext.ViewModelType = typeof(TesteeViewModel);
+            model = mvvmTesteeContext.GetViewModel<TesteeViewModel>();
             BindCommand();
-            model = new TesteeViewModel();
-            model.Testee = testee;
             model.GetAllTrainings();
+            model.SetUpViewModel(testee);
             mvvmTesteeContext.SetViewModel(typeof(TesteeViewModel), model);          
             BindToViewModel(); 
-            currentTestee = model.Testee;  
         }               
 
         private void BindCommand()
         {
-            mvvmTesteeContext.BindCommand<TesteeViewModel, Testee>(saveButton, (viewModel, testee)
-                => viewModel.Save(testee), x => currentTestee);
+            mvvmTesteeContext.BindCommand<TesteeViewModel>(saveButton, viewModel => viewModel.Save());
         }
 
         private void BindToViewModel()
         {
-            mvvmTesteeContext.SetBinding(textFirstName, questionText => questionText.EditValue, "Testee.FirstName");
-            mvvmTesteeContext.SetBinding(textLastName, questionText => questionText.EditValue, "Testee.LastName");
-            mvvmTesteeContext.SetBinding(textEmail, questionText => questionText.EditValue, "Testee.Email");
-            mvvmTesteeContext.SetBinding(textLogin, questionText => questionText.EditValue, "Testee.Login");
-            mvvmTesteeContext.SetBinding(gridTrainings, answers => answers.DataSource, "Testee.Trainings");
+            mvvmTesteeContext.SetBinding(textFirstName, questionText => questionText.EditValue, "FirstName");
+            mvvmTesteeContext.SetBinding(textLastName, questionText => questionText.EditValue, "LastName");
+            mvvmTesteeContext.SetBinding(textEmail, questionText => questionText.EditValue, "Email");
+            mvvmTesteeContext.SetBinding(textLogin, questionText => questionText.EditValue, "Login");
+            mvvmTesteeContext.SetBinding(gridTrainings, answers => answers.DataSource, "Trainings");
+
             mvvmTesteeContext.SetBinding(trainingsRepositoryItemLookUpEdit, training => training.DataSource, "AllTrainings");
-         
             trainingsRepositoryItemLookUpEdit.DisplayMember = "TrainingTitle";
-            trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";  
-                 
+            trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";
+
             //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
-            var outer = new BindingSource { DataSource = model.Testee };
-            var inner = new BindingSource(outer, "UserSetting");
+            var inner = new BindingSource { DataSource = model.Setting };
             questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
             frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");
             canEditToggleSwitch.DataBindings.Add("EditValue", inner, "CanUserEdit");
@@ -76,6 +72,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 model.Testee = value;
             }
         }
+        
         public void Localized(string language)
         {
             var resources = new ComponentResourceManager(typeof(AddEditTesteeForm));
@@ -108,9 +105,32 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             GridView v = sender as GridView;
             var currentValue = v.EditingValue;
             TesteeTraining training = v.GetRow(e.RowHandle) as TesteeTraining;
+            training.IsActive = true;
             training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
-            training.TrainingID = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First().Id;
-            training.TesteeID = model.Testee.Id;
+        }
+
+        private TesteeTraining GetCurrentTesteeTraining()
+        {
+            int rowHandler = this.gridViewTrainings.FocusedRowHandle;
+            var editedTesteeTraining = (TesteeTraining)gridViewTrainings.GetRow(rowHandler);
+            return editedTesteeTraining;
+        }
+
+        private void gridTrainings_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
+        {
+            if (e.Button.ButtonType == NavigatorButtonType.Remove)
+            {
+                var testeeTraining = GetCurrentTesteeTraining();
+                testeeTraining.IsActive = false;
+            
+                TesteeTraining newTesteeTraining = new TesteeTraining();
+                newTesteeTraining.Id = testeeTraining.Id;
+                newTesteeTraining.IsActive = testeeTraining.IsActive;
+                newTesteeTraining.Training = new Training();
+                Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
+
+                ServicesHolder.ServiceClient.DeleteTesteeTraining(Conversion.ConvertTesteeTrainingToDTO(newTesteeTraining));
+            }
         }
     }
 }

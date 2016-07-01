@@ -108,7 +108,6 @@
             resources.ApplyResources(this.applyButton, "applyButton");
             this.applyButton.Name = "applyButton";
             this.applyButton.StyleController = this.layoutControl1;
-            this.applyButton.Click += new System.EventHandler(this.applyButton_Click);
             // 
             // timeOfAskingEditTime
             // 

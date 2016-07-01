@@ -8,56 +8,12 @@ using System.Threading.Tasks;
 
 namespace DomainModel
 {
-    public class Setting : Entity, INotifyPropertyChanged
+    public class Setting : Entity
     {
-        public int amountOfQuestionsPerDay;
-        public int AmountOfQuestionsPerDay
-        {
-            get
-            {
-                return amountOfQuestionsPerDay;
-            }
-            set
-            {
-                if (value != amountOfQuestionsPerDay)
-                {
-                    amountOfQuestionsPerDay = value;
-                    OnPropertyChanged("AmountOfQuestionsPerDay");
-                }
-            }
-        }
-
-        public int frequencyOfAsking;
-        public int FrequencyOfAsking
-        {
-            get
-            {
-                return frequencyOfAsking;
-            }
-            set
-            {
-                if (value != frequencyOfAsking)
-                {
-                    frequencyOfAsking = value;
-                    OnPropertyChanged("FrequencyOfAsking");
-                }
-            }
-        }
-
+        public int AmountOfQuestionsPerDay { get; set; }
+        public int FrequencyOfAsking { get; set; }
         public DateTime TimeOfStart { get; set; }
-
         public bool CanUserEdit { get; set; }
-
         public bool ShowCorrectAnswer { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
 }

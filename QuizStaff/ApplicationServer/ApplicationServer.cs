@@ -50,24 +50,63 @@ namespace Server
             var t= (from p in testees.Select(testee => (QuestionDTO)testee) where p.TrainingId==training.Id select p ).ToList() ;
             return t;
         }
-        public void SaveTesteeAnswer(Guid testeeID, Guid questionID, DateTime date, List<Guid> answersID)
+
+        public void SaveTesteeAnswer(HistoryDTO history)
         {
-            // TODO: save to database
+            EFHistoryRepository repo = new EFHistoryRepository();
+            History h = new History();
+            h.Answers = new BindingList<TesteeAnswer>();
+            foreach (var a in history.Answers)
+            {
+                TesteeAnswer ans = new TesteeAnswer();
+
+                ans.Answer = new Answer();
+                ans.Answer.AnswerText = a.Answer.AnswerText;
+                ans.Answer.Id = a.Answer.Id;
+                ans.Answer.IsActive = a.Answer.IsActive;
+                ans.Answer.IsCorrect = a.Answer.IsCorrect;
+
+                h.Answers.Add(ans);
+            }
+            h.AnsweringDate = history.AnsweringDate;
+            h.Question = new Question();
+            Conversion.CopyProperty(history.Question, h.Question);
+            h.Testee = Conversion.ConvertTesteeFromDTO(history.Testee);
+            repo.Create(h);
         }
 
         public QuestionDTO GetRandomQuestionForTestee(Guid id)
         {
             // TODO: implement logic for finding question 
 
-            BindingList<Answer> l = new BindingList<Answer>();
-            l.Add(new Answer() { AnswerText = "This is answer first", IsCorrect = true, Id = Guid.NewGuid() });
-            l.Add(new Answer() { AnswerText = "This is answer second", IsCorrect = true, Id = Guid.NewGuid() });
-            l.Add(new Answer() { AnswerText = "This is answer third", IsCorrect = true, Id = Guid.NewGuid() });
-            l.Add(new Answer() { AnswerText = "This is answer fourth", IsCorrect = true, Id = Guid.NewGuid() });
-            var question = new Question() { QuestionText = "What you gonna do when they come for you?", Answers = l };
-          
-            return question;
+            EFRepository<Testee> repo = new EFRepository<Testee>();
+            var currentTestee = repo.Read(id);
+
+            BindingList<Question> allQuestions = new BindingList<Question>();
+            foreach(var t in currentTestee.Trainings)
+            {
+                foreach (var q in t.Training.Questions)
+                {
+                    allQuestions.Add(q);
+                }
+            }
+
+            Question question = new Question();
+
+            if (allQuestions.Count() > 1)
+            {
+                Random rnd = new Random();
+                int index = rnd.Next(0, allQuestions.Count() - 1);
+                question = allQuestions.ElementAt(index);
+            }
+            else 
+            {
+                question = allQuestions.First();
+            }
+    
+            return (QuestionDTO)question;
         }
+
         #region Client's settings  
         public Boolean SetUsersSettings(SettingDTO sets, Guid id)
         {
@@ -119,13 +158,15 @@ namespace Server
         public void UpdateTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            repo.Update(Conversion.ConvertTrainingFromDTO(training));
+            repo.Update(Conversion.ConvertTrainingFromDTO_ForServer(training));
         }
 
-        public void SaveTraining(TrainingDTO training)
+        public TrainingDTO SaveTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            repo.Create(Conversion.ConvertTrainingFromDTO(training));
+            Training savedTrainings = Conversion.ConvertTrainingFromDTO_ForServer(training);
+            repo.Create(savedTrainings);
+            return (TrainingDTO)savedTrainings;
         }
 
         public void SaveQuestion(QuestionDTO training)
@@ -139,40 +180,15 @@ namespace Server
         public void UpdateTestee(TesteeDTO testee)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
-            Testee newTestee = new Testee();
-            newTestee.UserSetting = new Setting();
-            newTestee.Trainings = new BindingList<TesteeTraining>();
-            Conversion.CopyProperty(testee, newTestee);
-            Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
-            if (testee.Trainings != null)
-            {
-                foreach (var t in testee.Trainings)
-                {
-                    TesteeTraining training = new TesteeTraining();
-                    Conversion.CopyProperty(t, training);
-                    newTestee.Trainings.Add(training);
-                }
-            }
-
-            repo.Update(newTestee);
+            repo.Update(Conversion.ConvertTesteeFromDTO_ForServer(testee));
         }
 
-        public void SaveTestee(TesteeDTO testee)
+        public TesteeDTO SaveTestee(TesteeDTO testee)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
-            Testee newTestee = new Testee();
-            newTestee.Trainings = new BindingList<TesteeTraining>();
-            Conversion.CopyProperty(testee, newTestee);
-            if (testee.Trainings.Count() > 0)
-            {
-                foreach (var t in testee.Trainings)
-                {
-                    TesteeTraining training = new TesteeTraining();
-                    Conversion.CopyProperty(t, training);
-                    newTestee.Trainings.Add(training);
-                }
-            }
-            repo.Create(newTestee);
+            Testee savedTestee = Conversion.ConvertTesteeFromDTO_ForServer(testee);
+            repo.Create(savedTestee);
+            return (TesteeDTO)savedTestee;
         }
 
         public void UpdateSettings(SettingDTO setting)
@@ -197,6 +213,12 @@ namespace Server
             Answer newAnswer = new Answer();
             Conversion.CopyProperty(answer, newAnswer);
             repo.Update(newAnswer);
+        }
+
+        public void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining) 
+        {
+            EFRepository<TesteeTraining> repo = new EFRepository<TesteeTraining>();
+            repo.Update(Conversion.ConvertTesteeTrainingFromDTO(testeeTraining));
         }
     }
 }

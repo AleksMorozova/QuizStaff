@@ -11,7 +11,6 @@ namespace ApplicationServer.DAL
     {
         public override void Update(Testee entity)
         {     
-            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             dbContext.Entry(entity.UserSetting).State = System.Data.Entity.EntityState.Modified;
 
             if (entity.Trainings!=null)
@@ -20,8 +19,11 @@ namespace ApplicationServer.DAL
                 dbContext.Entry(training).State = training.Id == Guid.Empty
                     ? System.Data.Entity.EntityState.Added
                     : System.Data.Entity.EntityState.Modified;
+
+                dbContext.Entry(training.Training).State = System.Data.Entity.EntityState.Unchanged;
             }
 
+            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             dbContext.SaveChanges();
         }
     }

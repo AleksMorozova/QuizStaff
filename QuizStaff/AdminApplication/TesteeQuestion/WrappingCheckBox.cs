@@ -8,10 +8,10 @@ namespace AdminApplication
     public class WrappingCheckBox : System.Windows.Forms.CheckBox, ICheckControl
     {
         public Guid AnswerID { get; set; }
+        public DataTransferObject.AnswerDTO Answer { get; set; }
 
         System.Drawing.Size cachedSizeOfOneLineOfText = System.Drawing.Size.Empty;
         Dictionary<Size, Size> preferredSizeHash = new Dictionary<Size, Size>(3); // typically we’ve got three different constraints.
-
 
         public WrappingCheckBox()
         {
@@ -72,6 +72,4 @@ namespace AdminApplication
             return prefSize;
         }
     }
-
-
 }
