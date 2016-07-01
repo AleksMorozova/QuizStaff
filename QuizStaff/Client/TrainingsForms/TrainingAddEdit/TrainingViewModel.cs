@@ -76,7 +76,15 @@ namespace Client.TrainingsForms.TrainingAddEdit
         public void DeleteQuestion(Question deletedQuestion)
         {
             deletedQuestion.IsActive = false;
-            ServicesHolder.ServiceClient.UpdateQuestion(deletedQuestion);
+            
+            if (deletedQuestion.Id == Guid.Empty)
+            {
+                Questions.Remove(deletedQuestion);
+            }
+            else 
+            {
+                ServicesHolder.ServiceClient.UpdateQuestion(deletedQuestion);
+            }   
         }
 
         public void Cancel()
