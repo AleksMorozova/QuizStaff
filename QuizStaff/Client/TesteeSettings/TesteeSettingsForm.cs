@@ -19,9 +19,7 @@ namespace Client.TesteeSettings
 
             mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
             BindCommands();
-            //model = new TesteeSettingsViewModel();
             model = mvvmTesteeSettingsContext.GetViewModel<TesteeSettingsViewModel>();
-            //model.SetUpSetting();
             mvvmTesteeSettingsContext.SetViewModel(typeof(TesteeSettingsViewModel), model);
             BindToViewModel();
         }
