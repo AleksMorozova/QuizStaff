@@ -33,8 +33,8 @@ namespace Client.TrainingsListForm
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonCancel, viewModel => viewModel.Cancel());
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonLoadTraining, viewModel => viewModel.LoadTrainings());
 
-            mvvmTrainingsContext.BindCommand<TrainingListViewModel, TrainingDTO>(deleteTrainingButton,
-              (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTraining());
+            //mvvmTrainingsContext.BindCommand<TrainingListViewModel, TrainingDTO>(deleteTrainingButton,
+            //  (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTraining());
             mvvmTrainingsContext.BindCommand<TrainingListViewModel, Training>(buttonEditTraining,
                 (x, currentTraining) => x.EditTraining(currentTraining), x => GetCurrentTraining());
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonAddTraining, viewModel => viewModel.AddTraining());
@@ -44,6 +44,18 @@ namespace Client.TrainingsListForm
         {
             mvvmTrainingsContext.SetBinding(trainingsGridControl, training => training.DataSource, "Trainings");
         }
+
+        # region REWRITE
+        private int GetCurrentRowHandler()
+        {
+            return trainingsGridView.FocusedRowHandle;
+        }
+        private Training GetCurrentTraining(int rowHandler)
+        {
+            var editedTraining = (Training)trainingsGridView.GetRow(rowHandler);
+            return editedTraining;
+        }
+        # endregion
 
         private Training GetCurrentTraining() 
         {
@@ -71,6 +83,17 @@ namespace Client.TrainingsListForm
             resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                      ? resources.GetString("Title", newCultureInfo) : "Trainings";
+        }
+
+        private void deleteTrainingButton_Click(object sender, EventArgs e)
+        {
+            //TODO: fix refreshing of DataSource for trainingsGridControl
+            int row = GetCurrentRowHandler();
+            model.GetAllTrainings();
+            trainingsGridControl.DataSource = model.Trainings;
+            model.DeleteTraining(GetCurrentTraining(row));
+            model.GetAllTrainings();
+            trainingsGridControl.DataSource = model.Trainings;
         }
     }
 }
