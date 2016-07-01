@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrainingListForm));
             this.layoutControlTrainingListForm = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlButAdd = new DevExpress.XtraLayout.LayoutControlItem();
@@ -49,7 +50,7 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.trainingsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.deleteButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTrainingsContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.mvvmTrainingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlTrainingListForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -121,6 +122,7 @@
             resources.ApplyResources(this.deleteTrainingButton, "deleteTrainingButton");
             this.deleteTrainingButton.Name = "deleteTrainingButton";
             this.deleteTrainingButton.StyleController = this.layoutControl1;
+            this.deleteTrainingButton.Click += new System.EventHandler(this.deleteTrainingButton_Click);
             // 
             // trainingsGridControl
             // 
