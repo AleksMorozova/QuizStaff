@@ -18,9 +18,11 @@ namespace Client.TesteeSettings
             SetUpComboBox();
 
             mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
-            BindCommands();
             model = mvvmTesteeSettingsContext.GetViewModel<TesteeSettingsViewModel>();
             mvvmTesteeSettingsContext.SetViewModel(typeof(TesteeSettingsViewModel), model);
+
+            BindCommands();
+            SetControlAccess(model.UserSetting.CanUserEdit);
             BindToViewModel();
         }
 
@@ -37,6 +39,13 @@ namespace Client.TesteeSettings
             questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
             frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");
             timeOfAskingEditTime.DataBindings.Add("EditValue", inner, "TimeOfStart");
+        }
+
+        private void SetControlAccess(bool canEdit)
+        {
+            questionAmountSpinEdit.Enabled = canEdit;
+            frequencySpinEdit.Enabled = canEdit;
+            timeOfAskingEditTime.Enabled = canEdit;
         }
 
         public void Localized(string language)
