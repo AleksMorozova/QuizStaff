@@ -51,6 +51,7 @@
             this.trainingsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.deleteButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmTrainingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlTrainingListForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlButAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -135,7 +136,8 @@
             // trainingsGridView
             // 
             this.trainingsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.titleGridColumn});
+            this.titleGridColumn,
+            this.gridColumn1});
             this.trainingsGridView.GridControl = this.trainingsGridControl;
             this.trainingsGridView.Name = "trainingsGridView";
             this.trainingsGridView.OptionsBehavior.Editable = false;
@@ -255,6 +257,12 @@
             // 
             this.mvvmTrainingsContext.ContainerControl = this;
             // 
+            // gridColumn1
+            // 
+            resources.ApplyResources(this.gridColumn1, "gridColumn1");
+            this.gridColumn1.FieldName = "Id";
+            this.gridColumn1.Name = "gridColumn1";
+            // 
             // TrainingListForm
             // 
             resources.ApplyResources(this, "$this");
@@ -303,5 +311,6 @@
         private DevExpress.Utils.MVVM.MVVMContext mvvmTrainingsContext;
         private DevExpress.XtraEditors.SimpleButton deleteTrainingButton;
         private DevExpress.XtraLayout.LayoutControlItem deleteButtonLayoutControlItem;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

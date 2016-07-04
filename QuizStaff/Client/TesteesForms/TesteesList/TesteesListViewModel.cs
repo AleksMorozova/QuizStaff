@@ -44,8 +44,17 @@ namespace Client.TesteesForms.TesteesList
 
         public void DeleteTestee(Testee deletedTestee)
         {
-            deletedTestee.IsActive = false;
-            ServicesHolder.ServiceClient.UpdateTestee(deletedTestee);
+            if (deletedTestee.Id != Guid.Empty)
+            {
+                deletedTestee.IsActive = false;
+                ServicesHolder.ServiceClient.UpdateTestee(deletedTestee);
+            }
+            else 
+            {
+                var savedTestee = ServicesHolder.ServiceClient.FindByLogin(deletedTestee.Login);
+                savedTestee.IsActive = false;
+                ServicesHolder.ServiceClient.UpdateTestee(savedTestee);
+            }
         }
 
         public void Save()

@@ -140,6 +140,12 @@ namespace Client.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/DeleteTesteeTrainingResponse")]
         System.Threading.Tasks.Task DeleteTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByTitle", ReplyAction="http://tempuri.org/IApplicationServer/FindByTitleResponse")]
+        DataTransferObject.TrainingDTO FindByTitle(string title);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByTitle", ReplyAction="http://tempuri.org/IApplicationServer/FindByTitleResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> FindByTitleAsync(string title);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -335,6 +341,14 @@ namespace Client.ServiceReference {
         
         public System.Threading.Tasks.Task DeleteTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining) {
             return base.Channel.DeleteTesteeTrainingAsync(testeeTraining);
+        }
+        
+        public DataTransferObject.TrainingDTO FindByTitle(string title) {
+            return base.Channel.FindByTitle(title);
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> FindByTitleAsync(string title) {
+            return base.Channel.FindByTitleAsync(title);
         }
     }
 }

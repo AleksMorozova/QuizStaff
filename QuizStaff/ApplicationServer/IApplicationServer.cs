@@ -75,5 +75,8 @@ namespace Server
 
         [OperationContract]
         void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining);
+
+        [OperationContract]
+        TrainingDTO FindByTitle(string title);
     }
 }

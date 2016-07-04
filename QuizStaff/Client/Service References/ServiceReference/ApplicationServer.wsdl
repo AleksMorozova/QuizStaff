@@ -133,6 +133,12 @@
   <wsdl:message name="IApplicationServer_DeleteTesteeTraining_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteTesteeTrainingResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_FindByTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByTitle" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_FindByTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByTitleResponse" />
+  </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetAllTestees">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTestees" message="tns:IApplicationServer_GetAllTestees_InputMessage" />
@@ -217,6 +223,10 @@
     <wsdl:operation name="DeleteTesteeTraining">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/DeleteTesteeTraining" message="tns:IApplicationServer_DeleteTesteeTraining_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/DeleteTesteeTrainingResponse" message="tns:IApplicationServer_DeleteTesteeTraining_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/FindByTitle" message="tns:IApplicationServer_FindByTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/FindByTitleResponse" message="tns:IApplicationServer_FindByTitle_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -403,6 +413,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteTesteeTraining">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/DeleteTesteeTraining" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByTitle">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/FindByTitle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
