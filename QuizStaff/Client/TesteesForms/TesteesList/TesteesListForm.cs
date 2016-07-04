@@ -77,9 +77,6 @@ namespace Client.TesteesForms.TesteesList
 
         private void deleteTesteeButton_Click(object sender, EventArgs e)
         {
-            //TODO: fix refreshing of DataSource for gridTestees
-            model.GetAllTestee();
-            gridTestees.DataSource = model.Testees;
             model.DeleteTestee(GetCurrentTestee());
             model.GetAllTestee();
             gridTestees.DataSource = model.Testees;

@@ -45,18 +45,6 @@ namespace Client.TrainingsListForm
             mvvmTrainingsContext.SetBinding(trainingsGridControl, training => training.DataSource, "Trainings");
         }
 
-        # region REWRITE
-        private int GetCurrentRowHandler()
-        {
-            return trainingsGridView.FocusedRowHandle;
-        }
-        private Training GetCurrentTraining(int rowHandler)
-        {
-            var editedTraining = (Training)trainingsGridView.GetRow(rowHandler);
-            return editedTraining;
-        }
-        # endregion
-
         private Training GetCurrentTraining() 
         {
             int rowHandler = trainingsGridView.FocusedRowHandle;
@@ -88,10 +76,8 @@ namespace Client.TrainingsListForm
         private void deleteTrainingButton_Click(object sender, EventArgs e)
         {
             //TODO: fix refreshing of DataSource for trainingsGridControl
-            int row = GetCurrentRowHandler();
-            model.GetAllTrainings();
-            trainingsGridControl.DataSource = model.Trainings;
-            model.DeleteTraining(GetCurrentTraining(row));
+            trainingsGridControl.Refresh();
+            model.DeleteTraining(GetCurrentTraining());
             model.GetAllTrainings();
             trainingsGridControl.DataSource = model.Trainings;
         }

@@ -271,4 +271,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="FindByTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindByTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="FindByTitleResult" nillable="true" type="q29:TrainingDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
