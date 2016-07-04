@@ -86,10 +86,13 @@ namespace Client.TrainingsForms.TrainingQuestion
             if (e.Button.ButtonType == NavigatorButtonType.Remove)
             {
                 var answer = GetCurrentAnswer();
-                answer.IsActive = false;
-                AnswerDTO newAnswer = new AnswerDTO();
-                Conversion.CopyProperty(answer, newAnswer);
-                ServicesHolder.ServiceClient.DeleteAnswer(newAnswer); 
+                if (answer.Id != Guid.Empty)
+                {
+                    answer.IsActive = false;
+                    AnswerDTO newAnswer = new AnswerDTO();
+                    Conversion.CopyProperty(answer, newAnswer);
+                    ServicesHolder.ServiceClient.DeleteAnswer(newAnswer);
+                }
             }
         }
     }
