@@ -33,23 +33,6 @@ namespace Client.TrainingsForms.TrainingAddEdit
             }
         }
 
-        public Guid Id
-        {
-            get
-            {
-                return Training.Id;
-            }
-
-            set
-            {
-                if (value != Training.Id)
-                {
-                    Training.Id = value;
-                    RaisePropertyChanged("Id");
-                }
-            }
-        }
-
         public BindingList<Question> Questions
         {
             get
@@ -109,7 +92,6 @@ namespace Client.TrainingsForms.TrainingAddEdit
                 {
                     var savedTraining = ServicesHolder.ServiceClient.SaveTraining(Conversion.ConvertTrainingToDTO(this.Training));
                     this.Training = Conversion.ConvertTrainingFromDTO(savedTraining);
-                    this.Id = savedTraining.Id;
                 }
                 else
                 {
