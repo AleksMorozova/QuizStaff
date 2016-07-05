@@ -33,8 +33,8 @@ namespace AdminApplication.TrainingsListForm
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonCancel, viewModel => viewModel.Cancel());
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonLoadTraining, viewModel => viewModel.LoadTrainings());
 
-            mvvmTrainingsContext.BindCommand<TrainingListViewModel, TrainingDTO>(deleteTrainingButton,
-              (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTraining());
+            //mvvmTrainingsContext.BindCommand<TrainingListViewModel, TrainingDTO>(deleteTrainingButton,
+            //  (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTraining());
             mvvmTrainingsContext.BindCommand<TrainingListViewModel, Training>(buttonEditTraining,
                 (x, currentTraining) => x.EditTraining(currentTraining), x => GetCurrentTraining());
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonAddTraining, viewModel => viewModel.AddTraining());
@@ -71,6 +71,15 @@ namespace AdminApplication.TrainingsListForm
             resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                      ? resources.GetString("Title", newCultureInfo) : "Trainings";
+        }
+
+        private void deleteTrainingButton_Click(object sender, EventArgs e)
+        {
+            //TODO: fix refreshing of DataSource for trainingsGridControl
+            trainingsGridControl.Refresh();
+            model.DeleteTraining(GetCurrentTraining());
+            model.GetAllTrainings();
+            trainingsGridControl.DataSource = model.Trainings;
         }
     }
 }

@@ -18,10 +18,11 @@ namespace AdminApplication.TesteeSettings
             SetUpComboBox();
 
             mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
-            BindCommands();
-            model = new TesteeSettingsViewModel();
-            model.SetUpSetting();
+            model = mvvmTesteeSettingsContext.GetViewModel<TesteeSettingsViewModel>();
             mvvmTesteeSettingsContext.SetViewModel(typeof(TesteeSettingsViewModel), model);
+
+            BindCommands();
+            SetControlAccess(model.UserSetting.CanUserEdit);
             BindToViewModel();
         }
 
@@ -34,11 +35,17 @@ namespace AdminApplication.TesteeSettings
         private void BindToViewModel() 
         {
             //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
-            var outer = new BindingSource { DataSource = Program.currentTestee };
-            var inner = new BindingSource(outer, "UserSetting");
+            var inner = new BindingSource { DataSource = model.UserSetting };
             questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
             frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");
             timeOfAskingEditTime.DataBindings.Add("EditValue", inner, "TimeOfStart");
+        }
+
+        private void SetControlAccess(bool canEdit)
+        {
+            questionAmountSpinEdit.Enabled = canEdit;
+            frequencySpinEdit.Enabled = canEdit;
+            timeOfAskingEditTime.Enabled = canEdit;
         }
 
         public void Localized(string language)

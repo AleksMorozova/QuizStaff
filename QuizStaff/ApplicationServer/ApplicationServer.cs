@@ -220,5 +220,13 @@ namespace Server
             EFRepository<TesteeTraining> repo = new EFRepository<TesteeTraining>();
             repo.Update(Conversion.ConvertTesteeTrainingFromDTO(testeeTraining));
         }
+
+
+        public TrainingDTO FindByTitle(string title)
+        {
+            EFRepository<Training> repo = new EFRepository<DomainModel.Training>();
+            var result = repo.ReadAll().Where(_ => _.TrainingTitle == title ).FirstOrDefault();
+            return (result != null) ? result : new TrainingDTO() { IsActive = true };
+        }
     }
 }

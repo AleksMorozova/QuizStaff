@@ -21,7 +21,6 @@ namespace AdminApplication
         public static Testee currentTestee = new Testee();
         public static bool AsAdmin = true;
 
-        private enum LoginResult { None = -1, LoggedIn = 0, Failed = 1 }
         //Global data
         private static MainForm applicationMainForm;
         public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
@@ -36,7 +35,7 @@ namespace AdminApplication
             LoginResult loginResult = LoginResult.None;
             while (loginResult != LoginResult.LoggedIn)
             {
-                loginResult = Login(ref failMessage);
+                loginResult = Authorization.Login(ref failMessage);
                 switch (loginResult)
                 {
                     case LoginResult.Failed:
@@ -51,59 +50,6 @@ namespace AdminApplication
             Application.EnableVisualStyles();
             applicationMainForm = new MainForm();
             Application.Run(ApplicationMainForm);
-        }
-
-        /// <summary>
-        /// Try to log in
-        /// </summary>
-        /// <param name="failMessage">message for user, when login has been failed</param>
-        /// <returns>status of logging in attempt</returns>
-        private static LoginResult Login(ref string failMessage)
-        {
-            UserLoginForm dlg = new UserLoginForm();
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                string login = dlg.Login;
-                string password = dlg.Password;
-
-#if DEBUG
-                if (string.IsNullOrWhiteSpace(dlg.Login) && string.IsNullOrWhiteSpace(dlg.Password))
-                {
-                    login = "admin";
-                    password = "admin";
-                }
-#endif
-
-                var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
-                currentTestee.UserSetting = new Setting();
-                Conversion.CopyProperty(loadedUser, currentTestee);
-                Conversion.CopyProperty(loadedUser.UserSetting, currentTestee.UserSetting);
-
-                if (currentTestee == null)
-                        return LoginResult.Failed;
-
-                if (currentTestee.Password != password)
-                        return LoginResult.Failed;
-
-                    //TODO: uncomment after implementation roles for users 
-                    //DialogResult m = XtraMessageBox.Show("As admin?", "Select", MessageBoxButtons.YesNo);
-                    //if (m == DialogResult.Yes)
-                    //{
-                    //    AsAdmin = true;
-                    //}
-                    //else if (m == DialogResult.No)
-                    //{
-                    //    AsAdmin = false;
-                    //}
-
-                return LoginResult.LoggedIn;
-            }
-            else
-            {
-                System.Environment.Exit(0);
-            }
-
-            return LoginResult.Failed;
         }
     }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:QuizStaff/AdminApplication/AdminApplication.csproj
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -101,8 +102,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminSettings\EditSettingsViewModel.cs" />
-    <Compile Include="Authorization.cs" />
-    <Compile Include="LoginResult.cs" />
     <Compile Include="TesteeSettings\TesteeSettingsViewModel.cs" />
     <Compile Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.cs">
       <SubType>Form</SubType>
@@ -381,6 +380,386 @@
     <Folder Include="obj\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+=======
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B3C3548-8599-46BC-AB53-EC16F2529955}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Quiz</ProductName>
+    <PublisherName>AleksMorozova</PublisherName>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B21FC61E3898F98B152CC6895D5A91014D45ECDA</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Client_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Data.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminSettings\EditSettingsViewModel.cs" />
+    <Compile Include="Authorization.cs" />
+    <Compile Include="LoginResult.cs" />
+    <Compile Include="TesteeSettings\TesteeSettingsViewModel.cs" />
+    <Compile Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.Designer.cs">
+      <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingsForms\TrainingQuestion\QuestionViewModel.cs" />
+    <Compile Include="TesteesForms\TesteeAddEdit\AddEditTesteeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TesteesForms\TesteeAddEdit\AddEditTesteeForm.Designer.cs">
+      <DependentUpon>AddEditTesteeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TesteesForms\TesteeAddEdit\TesteeViewModel.cs" />
+    <Compile Include="AdminSettings\AdminSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSettings\AdminSettingsForm.Designer.cs">
+      <DependentUpon>AdminSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSettings\AdminSettingsViewModel.cs" />
+    <Compile Include="AdminSettings\EditSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSettings\EditSettingsForm.Designer.cs">
+      <DependentUpon>EditSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TesteeSettings\TesteeSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TesteeSettings\TesteeSettingsForm.Designer.cs">
+      <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm\UserLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm\UserLoginForm.Designer.cs">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form.Designer.cs">
+      <DependentUpon>Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormManager.cs" />
+    <Compile Include="ILocalized.cs" />
+    <Compile Include="TesteeQuestion\ICheckControl.cs" />
+    <Compile Include="TesteeQuestion\QuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TesteeQuestion\QuestionForm.Designer.cs">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TesteeQuestion\TesteeQuestionViewModel.cs" />
+    <Compile Include="TesteeQuestion\WrappingCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TesteeQuestion\WrappingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TesteeQuestion\WrappingRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServicesHolder.cs" />
+    <Compile Include="TesteesForms\TesteesList\TesteesListViewModel.cs" />
+    <Compile Include="TesteesForms\TesteesList\TesteesListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TesteesForms\TesteesList\TesteesListForm.Designer.cs">
+      <DependentUpon>TesteesListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingsForms\TrainingAddEdit\TrainingAddEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrainingsForms\TrainingAddEdit\TrainingAddEditForm.Designer.cs">
+      <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingsForms\TrainingAddEdit\TrainingViewModel.cs" />
+    <Compile Include="TrainingsForms\TrainingsList\TrainingListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrainingsForms\TrainingsList\TrainingListForm.Designer.cs">
+      <DependentUpon>TrainingListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingsForms\TrainingsList\TrainingListViewModel.cs" />
+    <EmbeddedResource Include="AdminSettings\EditSettingsForm.RU-ru.resx">
+      <DependentUpon>EditSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesteeSettings\TesteeSettingsForm.Ru-ru.resx">
+      <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.resx">
+      <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.ru-RU.resx">
+      <DependentUpon>AddEditQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesteesForms\TesteeAddEdit\AddEditTesteeForm.resx">
+      <DependentUpon>AddEditTesteeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesteesForms\TesteeAddEdit\AddEditTesteeForm.ru-RU.resx">
+      <DependentUpon>AddEditTesteeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\AdminSettingsForm.resx">
+      <DependentUpon>AdminSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\AdminSettingsForm.ru-RU.resx">
+      <DependentUpon>AdminSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\EditSettingsForm.resx">
+      <DependentUpon>EditSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesteeSettings\TesteeSettingsForm.resx">
+      <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm\UserLoginForm.resx">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm\UserLoginForm.ru-RU.resx">
+      <DependentUpon>UserLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form.resx">
+      <DependentUpon>Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.de-DE.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.ru-RU.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="TesteeQuestion\QuestionForm.resx">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesteeQuestion\QuestionForm.ru-RU.resx">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesteesForms\TesteesList\TesteesListForm.resx">
+      <DependentUpon>TesteesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesteesForms\TesteesList\TesteesListForm.ru-RU.resx">
+      <DependentUpon>TesteesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingsForms\TrainingAddEdit\TrainingAddEditForm.resx">
+      <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingsForms\TrainingAddEdit\TrainingAddEditForm.ru-RU.resx">
+      <DependentUpon>TrainingAddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingsForms\TrainingsList\TrainingListForm.resx">
+      <DependentUpon>TrainingListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingsForms\TrainingsList\TrainingListForm.ru-RU.resx">
+      <DependentUpon>TrainingListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Client_TemporaryKey.pfx" />
+    <None Include="DataTransferObject.QuestionDTO1.datasource" />
+    <None Include="DataTransferObject.SettingDTO.datasource" />
+    <None Include="DataTransferObject.TesteeDTO.datasource" />
+    <None Include="DataTransferObject.TrainingDTO1.datasource" />
+    <None Include="DomainModel.Testee.datasource" />
+    <None Include="DomainModel.Training1.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\ServiceReference\ApplicationServer.wsdl" />
+    <None Include="Service References\ServiceReference\Client.ServiceReference.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationServer\Server.csproj">
+      <Project>{e15db54f-3233-4f07-be16-5be474cfaa59}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
+      <Project>{5a1cd4a2-87f7-48cc-8117-5ebbb44f5c97}</Project>
+      <Name>DataTransferObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="obj\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+>>>>>>> origin/Development:QuizStaff/Client/Client.csproj
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -46,8 +46,17 @@ namespace AdminApplication.TrainingsListForm
 
         public void DeleteTraining(TrainingDTO deletedTraining)
         {
-            deletedTraining.IsActive = false;
-            ServicesHolder.ServiceClient.UpdateTraining(deletedTraining);
+            if (deletedTraining.Id != Guid.Empty)
+            {
+                deletedTraining.IsActive = false;
+                ServicesHolder.ServiceClient.UpdateTraining(deletedTraining);
+            }
+            else
+            {
+                var savedTraining = ServicesHolder.ServiceClient.FindByTitle(deletedTraining.TrainingTitle);
+                savedTraining.IsActive = false;
+                ServicesHolder.ServiceClient.UpdateTraining(savedTraining);
+            }
         }
 
         public void Save()
