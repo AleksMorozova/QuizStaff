@@ -46,8 +46,8 @@ namespace Client.TrainingsForms.TrainingAddEdit
                 => viewModel.EditQuestion(question), x => GetCurrentQuestion());
             mvvmTrainingContext.BindCommand<TrainingViewModel, Training>(addQuestionButton, (viewModel, training)
                 => viewModel.AddQuestion(training), x => currentTraining);            
-            mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(deleteQuestionButton,(x, currentTraining) 
-                => x.DeleteQuestion(currentTraining), x => GetCurrentQuestion());
+            //mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(deleteQuestionButton,(x, currentTraining) 
+            //    => x.DeleteQuestion(currentTraining), x => GetCurrentQuestion());
 
             mvvmTrainingContext.BindCommand<TrainingViewModel>(loadQuestionButton, viewModel => viewModel.LoadQuestions());
         }
@@ -97,6 +97,14 @@ namespace Client.TrainingsForms.TrainingAddEdit
             string title = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Training";
             this.Text = title + (Training != null && !String.IsNullOrEmpty(Training.TrainingTitle) ? ":" + Training.TrainingTitle : "");
+        }
+
+        private void deleteQuestionButton_Click(object sender, EventArgs e)
+        {
+            //TODO: fix refreshing of DataSource for gridQuestions
+            gridQuestions.Refresh();
+            model.DeleteQuestion(GetCurrentQuestion());
+            gridQuestions.DataSource = model.Questions.Where(_=>_.IsActive);
         }
     }
 }
