@@ -66,9 +66,9 @@ namespace AdminApplication
 
         private void questionBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
-            QuestionForm questionform = new QuestionForm(Program.currentTestee);            
-            FormManager.Instance.LocalizedForms(Program.currentLang);
-            questionform.ShowDialog();
+            //QuestionForm questionform = new QuestionForm(Program.currentTestee);            
+            //FormManager.Instance.LocalizedForms(Program.currentLang);
+            //questionform.ShowDialog();
         }
 
         public void Localized(string language) 

@@ -149,23 +149,6 @@
     </Compile>
     <Compile Include="FormManager.cs" />
     <Compile Include="ILocalized.cs" />
-    <Compile Include="TesteeQuestion\ICheckControl.cs" />
-    <Compile Include="TesteeQuestion\QuestionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TesteeQuestion\QuestionForm.Designer.cs">
-      <DependentUpon>QuestionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TesteeQuestion\TesteeQuestionViewModel.cs" />
-    <Compile Include="TesteeQuestion\WrappingCheckBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="TesteeQuestion\WrappingLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="TesteeQuestion\WrappingRadioButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,12 +244,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TesteeQuestion\QuestionForm.resx">
-      <DependentUpon>QuestionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TesteeQuestion\QuestionForm.ru-RU.resx">
-      <DependentUpon>QuestionForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="TesteesForms\TesteesList\TesteesListForm.resx">
       <DependentUpon>TesteesListForm.cs</DependentUpon>
     </EmbeddedResource>

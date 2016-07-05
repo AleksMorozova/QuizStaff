@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using DataTransferObject;
 using System.Drawing;
-using AdminApplication.TesteeQuestion;
 using System.Globalization;
 using System.ComponentModel;
 using DomainModel;
+using TesteeApplication.TesteeQuestion;
 
 namespace TesteeApplication
 {
