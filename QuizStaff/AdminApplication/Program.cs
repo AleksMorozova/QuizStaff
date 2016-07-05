@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LoginApplication;
 
 namespace AdminApplication
 {
@@ -35,11 +36,14 @@ namespace AdminApplication
             LoginResult loginResult = LoginResult.None;
             while (loginResult != LoginResult.LoggedIn)
             {
-                loginResult = Authorization.Login(ref failMessage);
+                loginResult = LoginApplication.Authorization.Login(ref failMessage);
                 switch (loginResult)
                 {
                     case LoginResult.Failed:
                         XtraMessageBox.Show("Login is failed");
+                        break;
+                    case LoginResult.LoggedIn:
+                        GetTestee(LoginApplication.Authorization.AuthorizedTesteeName);
                         break;
                 }
             }
@@ -50,6 +54,14 @@ namespace AdminApplication
             Application.EnableVisualStyles();
             applicationMainForm = new MainForm();
             Application.Run(ApplicationMainForm);
+        }
+
+        static void GetTestee(string login)
+        {
+            var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
+            currentTestee.UserSetting = new Setting();
+            Conversion.CopyProperty(loadedUser, currentTestee);
+            Conversion.CopyProperty(loadedUser.UserSetting, currentTestee.UserSetting);
         }
     }
 }

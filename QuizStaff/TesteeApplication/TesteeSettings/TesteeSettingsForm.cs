@@ -35,7 +35,7 @@ namespace TesteeApplication.TesteeSettings
         {
             //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
             // var outer = new BindingSource { DataSource = Program.currentTestee };
-            var outer = new BindingSource { DataSource = new Testee()};
+            var outer = new BindingSource { DataSource = Program.currentTestee};
             var inner = new BindingSource(outer, "UserSetting");
             questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
             frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");

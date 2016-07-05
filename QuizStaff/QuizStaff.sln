@@ -17,6 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteeApplication", "Testee
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginApplication", "LoginApplication\LoginApplication.csproj", "{652826AF-0FBC-4DA6-B0CB-68B6F43E834B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E15DB54F-3233-4F07-BE16-5BE474CFAA59} = {E15DB54F-3233-4F07-BE16-5BE474CFAA59}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

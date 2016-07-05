@@ -67,6 +67,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ServicesHolder.cs" />
+    <Compile Include="TesteeQuestion\ICheckControl.cs" />
+    <Compile Include="TesteeQuestion\QuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TesteeQuestion\QuestionForm.Designer.cs">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TesteeQuestion\TesteeQuestionViewModel.cs" />
+    <Compile Include="TesteeQuestion\WrappingCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TesteeQuestion\WrappingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TesteeQuestion\WrappingRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TesteeSettings\TesteeSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +105,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TesteeQuestion\QuestionForm.resx">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TesteeSettings\TesteeSettingsForm.resx">
       <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +157,10 @@
       <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>
       <Name>DomainModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LoginApplication\LoginApplication.csproj">
+      <Project>{652826af-0fbc-4da6-b0cb-68b6f43e834b}</Project>
+      <Name>LoginApplication</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -158,6 +183,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

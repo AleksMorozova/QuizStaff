@@ -1,8 +1,14 @@
 ﻿using AdminApplication;
 using DataTransferObject;
+using DevExpress.XtraEditors;
+using DomainModel;
+using LoginApplication;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +18,9 @@ namespace TesteeApplication
     {
         private static MainForm applicationMainForm;
         public static string currentLang = "ru-RU";
+        public static Testee currentTestee = new Testee();
+        public static System.Windows.Forms.Timer Timer = new System.Windows.Forms.Timer();
+
         public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
         /// <summary>
         /// The main entry point for the application.
@@ -19,14 +28,33 @@ namespace TesteeApplication
         [STAThread]
         static void Main()
         {
-            
+
+            string failMessage = String.Empty;
+            LoginResult loginResult = LoginResult.None;
+            while (loginResult != LoginResult.LoggedIn)
+            {
+                loginResult = LoginApplication.Authorization.Login(ref failMessage);
+                switch (loginResult)
+                {
+                    case LoginResult.Failed:
+                        XtraMessageBox.Show("Login is failed");
+                        break;
+                    case LoginResult.LoggedIn:
+                        GetTestee(LoginApplication.Authorization.AuthorizedTesteeName);
+                        break;
+                }
+            }
+
+            currentLang = ConfigurationManager.AppSettings["Lang"];
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentLang);
+
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
             applicationMainForm = new MainForm();
-            var user = ServiceClient.FindByLogin("omor");
-            Application.Run(new MainForm());
+            Application.Run(new QuestionForm(currentTestee));
         }
+        
         private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient;
+        
         public static AdminApplication.ServiceReference.ApplicationServerClient ServiceClient
         {
             get
@@ -35,6 +63,14 @@ namespace TesteeApplication
                     serviceClient = new AdminApplication.ServiceReference.ApplicationServerClient();
                 return serviceClient;
             }
+        }
+
+        static void GetTestee(string login)
+        {
+            var loadedUser = ServiceClient.FindByLogin(login);
+            currentTestee.UserSetting = new Setting();
+            Conversion.CopyProperty(loadedUser, currentTestee);
+            Conversion.CopyProperty(loadedUser.UserSetting, currentTestee.UserSetting);
         }
     }
 }

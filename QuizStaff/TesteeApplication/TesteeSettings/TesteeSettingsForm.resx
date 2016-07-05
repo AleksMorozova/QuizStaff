@@ -296,7 +296,7 @@
     <value>Frequency</value>
   </data>
   <data name="languageLayoutControlItem.Text" xml:space="preserve">
-    <value>LanguageL</value>
+    <value>Language</value>
   </data>
   <data name="MainLayoutControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>284, 261</value>

@@ -48,7 +48,7 @@ namespace AdminApplication
         private void MainForm_Load(object sender, EventArgs e)
         {
             //TODO: uncomment after implementation of users role
-            //ProvideAccessToMenuItems();
+            ProvideAccessToMenuItems();
             timer.Interval = Program.currentTestee.UserSetting.FrequencyOfAsking * 60000;
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
@@ -106,17 +106,19 @@ namespace AdminApplication
         //TODO: implement visibility of menu item depends on users role
         private void ProvideAccessToMenuItems()
         {
-            if (Program.AsAdmin)
-            {
-                settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            }
-            else 
-            {
-                testeesBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                trainingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                adminSettingsBarButtonItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            }
+            settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            //if (Program.AsAdmin)
+            //{
+            //    settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            //    questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            //}
+            //else
+            //{
+            //    testeesBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            //    trainingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            //    adminSettingsBarButtonItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            //}
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

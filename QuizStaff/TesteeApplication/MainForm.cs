@@ -15,6 +15,8 @@ namespace TesteeApplication
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
+        System.Windows.Forms.Timer timer = Program.Timer;
+
         public MainForm()
         {
             InitializeComponent();
@@ -35,6 +37,28 @@ namespace TesteeApplication
             config.AppSettings.Settings.Remove("Lang");
             config.AppSettings.Settings.Add("Lang", Program.currentLang);
             config.Save(ConfigurationSaveMode.Modified);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            timer.Interval = Program.currentTestee.UserSetting.FrequencyOfAsking * 60000;
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            // TODO: uncommit after implementation of authentication
+            QuestionForm f = new QuestionForm(Program.currentTestee);
+            var timeToStart = Program.currentTestee.UserSetting.TimeOfStart;
+            var userTime = new TimeSpan(timeToStart.Hour, timeToStart.Minute, timeToStart.Second);//new TimeSpan(timeToStart.Hour, timeToStart.Minute + i, timeToStart.Second)
+            for (int i = 0; i <= Program.currentTestee.UserSetting.FrequencyOfAsking; i++)
+                if (DateTime.Now.TimeOfDay.Hours == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours
+                    && DateTime.Now.TimeOfDay.Minutes == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes)
+                {
+                    f.Show();
+                    timer.Stop();
+                }
         }
     }
 }
