@@ -35,9 +35,11 @@ namespace Client
                 string login = dlg.Login;
                 string password = dlg.Password;
                 string domain = Environment.UserDomainName;
+                const int LOGON32_PROVIDER_DEFAULT = 0;
+                const int LOGON32_LOGON_INTERACTIVE = 2;
                 IntPtr userToken = IntPtr.Zero;
 
-                bool returnValue = LogonUser(login, domain, password, 2, 0, out userToken);
+                bool returnValue = LogonUser(login, domain, password, LOGON32_LOGON_INTERACTIVE, LOGON32_PROVIDER_DEFAULT, out userToken);
 
                 if (returnValue)
                 
