@@ -6,6 +6,7 @@ using LoginApplication;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -18,7 +19,7 @@ namespace TesteeApplication
     {
         private static MainForm applicationMainForm;
         public static string currentLang = "ru-RU";
-        public static Testee currentTestee = new Testee();
+        public static Testee currentTestee = new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now } };
         public static System.Windows.Forms.Timer Timer = new System.Windows.Forms.Timer();
 
         public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
@@ -50,7 +51,7 @@ namespace TesteeApplication
 
             Application.EnableVisualStyles();
             applicationMainForm = new MainForm();
-            Application.Run(new QuestionForm(currentTestee));
+            Application.Run(applicationMainForm);
         }
         
         private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient;

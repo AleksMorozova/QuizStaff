@@ -9,18 +9,67 @@ namespace TesteeApplication.TesteeSettings
 {
     public class TesteeSettingsViewModel
     {
-        public Setting UserSetting  { get; set; }      
+        public Setting UserSetting { get; set; }
 
-        public void SetUpSetting() 
+        #region Setting
+
+        public int AmountOfQuestionsPerDay
         {
-            //UserSetting = Program.currentTestee.UserSetting;
+            get
+            {
+                return UserSetting.AmountOfQuestionsPerDay;
+            }
+            set
+            {
+                if (value != UserSetting.AmountOfQuestionsPerDay)
+                {
+                    UserSetting.AmountOfQuestionsPerDay = value;
+                }
+            }
+        }
+
+        public int FrequencyOfAsking
+        {
+            get
+            {
+                return UserSetting.FrequencyOfAsking;
+            }
+            set
+            {
+                if (value != UserSetting.FrequencyOfAsking)
+                {
+                    UserSetting.FrequencyOfAsking = value;
+                }
+            }
+        }
+
+        public DateTime TimeOfStart
+        {
+            get
+            {
+                return UserSetting.TimeOfStart;
+            }
+            set
+            {
+                if (value != UserSetting.TimeOfStart)
+                {
+                    UserSetting.TimeOfStart = value;
+                }
+            }
+        }
+
+        #endregion
+
+        public TesteeSettingsViewModel()
+        {
+            UserSetting = Program.currentTestee.UserSetting;
         }
 
         public void Save(Testee testee)
         {
             if (testee != null)
             {
-                //ServicesHolder.ServiceClient.UpdateTestee(testee);
+                ServicesHolder.ServiceClient.UpdateTestee(testee);
             }
         }        
     }

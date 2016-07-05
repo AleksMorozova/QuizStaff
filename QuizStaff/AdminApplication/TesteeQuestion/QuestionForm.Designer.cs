@@ -65,7 +65,6 @@
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.flow);
             this.Name = "QuestionForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuestionForm_FormClosing);
             this.Load += new System.EventHandler(this.QuestionForm_Load);
             this.flow.ResumeLayout(false);
             this.flow.PerformLayout();

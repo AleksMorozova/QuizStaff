@@ -21,8 +21,6 @@ namespace AdminApplication
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
-        System.Windows.Forms.Timer timer = Program.Timer;
-
         public MainForm()
         {
             InitializeComponent();
@@ -48,10 +46,8 @@ namespace AdminApplication
         private void MainForm_Load(object sender, EventArgs e)
         {
             //TODO: uncomment after implementation of users role
-            ProvideAccessToMenuItems();
-            timer.Interval = Program.currentTestee.UserSetting.FrequencyOfAsking * 60000;
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
+            settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
         }
 
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -103,45 +99,12 @@ namespace AdminApplication
             Program.currentLang = "en-US";
         }
 
-        //TODO: implement visibility of menu item depends on users role
-        private void ProvideAccessToMenuItems()
-        {
-            settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            //if (Program.AsAdmin)
-            //{
-            //    settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            //    questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            //}
-            //else
-            //{
-            //    testeesBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            //    trainingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            //    adminSettingsBarButtonItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            //}
-        }
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(System.Windows.Forms.Application.ExecutablePath);
             config.AppSettings.Settings.Remove("Lang");
             config.AppSettings.Settings.Add("Lang", Program.currentLang);
             config.Save(ConfigurationSaveMode.Modified);
-        }
-
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            // TODO: uncommit after implementation of authentication
-            QuestionForm f = new QuestionForm(Program.currentTestee);
-            var timeToStart = Program.currentTestee.UserSetting.TimeOfStart;
-            var userTime = new TimeSpan(timeToStart.Hour, timeToStart.Minute, timeToStart.Second);//new TimeSpan(timeToStart.Hour, timeToStart.Minute + i, timeToStart.Second)
-            for (int i = 0; i <= Program.currentTestee.UserSetting.FrequencyOfAsking; i++)
-                if (DateTime.Now.TimeOfDay.Hours == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours
-                    && DateTime.Now.TimeOfDay.Minutes == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes)
-                {
-                    f.Show();
-                    timer.Stop();
-                }
         }
 
         private void adminSettingsBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)

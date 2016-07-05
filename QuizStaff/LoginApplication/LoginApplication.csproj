@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="Authorization.cs" />
     <Compile Include="ILogin.cs" />
-    <Compile Include="Login.cs" />
     <Compile Include="LoginResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

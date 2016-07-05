@@ -17,7 +17,6 @@ namespace AdminApplication
 {
     static class Program
     {
-        public static System.Windows.Forms.Timer Timer = new System.Windows.Forms.Timer();
         public static string currentLang = "ru-RU";
         public static Testee currentTestee = new Testee();
         public static bool AsAdmin = true;
