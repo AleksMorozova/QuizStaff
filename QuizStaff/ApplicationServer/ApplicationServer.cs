@@ -130,10 +130,17 @@ namespace Server
         }
         #endregion
 
-        public List<TrainingDTO> GetAllTrainings()
+        public List<TrainingDTO> GetAllActiveTrainings()
         {
             EFRepository<Training> repo = new EFRepository<Training>();
             var trainings = new List<Training>(repo.ReadAll().Where(_=>_.IsActive));
+            return trainings.Select(training => (TrainingDTO)training).ToList();
+        }
+
+        public List<TrainingDTO> GetAllTrainings()
+        {
+            EFRepository<Training> repo = new EFRepository<Training>();
+            var trainings = new List<Training>(repo.ReadAll());
             return trainings.Select(training => (TrainingDTO)training).ToList();
         }
 
@@ -227,14 +234,6 @@ namespace Server
             EFRepository<Training> repo = new EFRepository<DomainModel.Training>();
             var result = repo.ReadAll().Where(_ => _.TrainingTitle == title ).FirstOrDefault();
             return (result != null) ? result : new TrainingDTO() { IsActive = true };
-        }
-
-
-        public List<TrainingDTO> GetAllTrainingsForTestee()
-        {
-            EFRepository<Training> repo = new EFRepository<Training>();
-            var trainings = new List<Training>(repo.ReadAll());
-            return trainings.Select(training => (TrainingDTO)training).ToList();
         }
     }
 }

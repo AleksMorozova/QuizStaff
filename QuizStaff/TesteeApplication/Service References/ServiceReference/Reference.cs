@@ -63,6 +63,12 @@ namespace TesteeApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse")]
         System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetRandomQuestionForTesteeAsync(System.Guid id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllActiveTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllActiveTrainingsResponse")]
+        DataTransferObject.TrainingDTO[] GetAllActiveTrainings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllActiveTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllActiveTrainingsResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllActiveTrainingsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse")]
         DataTransferObject.TrainingDTO[] GetAllTrainings();
         
@@ -146,12 +152,6 @@ namespace TesteeApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByTitle", ReplyAction="http://tempuri.org/IApplicationServer/FindByTitleResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> FindByTitleAsync(string title);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTrainingsForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTrainingsForTesteeResponse")]
-        DataTransferObject.TrainingDTO[] GetAllTrainingsForTestee();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTrainingsForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTrainingsForTesteeResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllTrainingsForTesteeAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -243,6 +243,14 @@ namespace TesteeApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetRandomQuestionForTesteeAsync(System.Guid id) {
             return base.Channel.GetRandomQuestionForTesteeAsync(id);
+        }
+        
+        public DataTransferObject.TrainingDTO[] GetAllActiveTrainings() {
+            return base.Channel.GetAllActiveTrainings();
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllActiveTrainingsAsync() {
+            return base.Channel.GetAllActiveTrainingsAsync();
         }
         
         public DataTransferObject.TrainingDTO[] GetAllTrainings() {
@@ -355,14 +363,6 @@ namespace TesteeApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> FindByTitleAsync(string title) {
             return base.Channel.FindByTitleAsync(title);
-        }
-        
-        public DataTransferObject.TrainingDTO[] GetAllTrainingsForTestee() {
-            return base.Channel.GetAllTrainingsForTestee();
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllTrainingsForTesteeAsync() {
-            return base.Channel.GetAllTrainingsForTesteeAsync();
         }
     }
 }

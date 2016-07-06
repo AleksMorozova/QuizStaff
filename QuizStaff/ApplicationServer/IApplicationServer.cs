@@ -38,6 +38,9 @@ namespace Server
         QuestionDTO GetRandomQuestionForTestee(Guid id);
 
         [OperationContract]
+        List<TrainingDTO> GetAllActiveTrainings();
+
+        [OperationContract]
         List<TrainingDTO> GetAllTrainings();
 
         [OperationContract]
@@ -78,8 +81,5 @@ namespace Server
 
         [OperationContract]
         TrainingDTO FindByTitle(string title);
-
-        [OperationContract]
-        List<TrainingDTO> GetAllTrainingsForTestee();
     }
 }
