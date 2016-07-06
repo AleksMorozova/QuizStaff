@@ -55,6 +55,12 @@
   <wsdl:message name="IApplicationServer_GetRandomQuestionForTestee_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRandomQuestionForTesteeResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllActiveTrainings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllActiveTrainings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllActiveTrainings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllActiveTrainingsResponse" />
+  </wsdl:message>
   <wsdl:message name="IApplicationServer_GetAllTrainings_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTrainings" />
   </wsdl:message>
@@ -139,12 +145,6 @@
   <wsdl:message name="IApplicationServer_FindByTitle_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindByTitleResponse" />
   </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetAllTrainingsForTestee_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllTrainingsForTestee" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetAllTrainingsForTestee_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllTrainingsForTesteeResponse" />
-  </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetAllTestees">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTestees" message="tns:IApplicationServer_GetAllTestees_InputMessage" />
@@ -177,6 +177,10 @@
     <wsdl:operation name="GetRandomQuestionForTestee">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee" message="tns:IApplicationServer_GetRandomQuestionForTestee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse" message="tns:IApplicationServer_GetRandomQuestionForTestee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActiveTrainings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllActiveTrainings" message="tns:IApplicationServer_GetAllActiveTrainings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllActiveTrainingsResponse" message="tns:IApplicationServer_GetAllActiveTrainings_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllTrainings">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTrainings" message="tns:IApplicationServer_GetAllTrainings_InputMessage" />
@@ -233,10 +237,6 @@
     <wsdl:operation name="FindByTitle">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/FindByTitle" message="tns:IApplicationServer_FindByTitle_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/FindByTitleResponse" message="tns:IApplicationServer_FindByTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllTrainingsForTestee">
-      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTrainingsForTestee" message="tns:IApplicationServer_GetAllTrainingsForTestee_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTrainingsForTesteeResponse" message="tns:IApplicationServer_GetAllTrainingsForTestee_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -306,6 +306,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetRandomQuestionForTestee">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActiveTrainings">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetAllActiveTrainings" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -432,15 +441,6 @@
     </wsdl:operation>
     <wsdl:operation name="FindByTitle">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/FindByTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllTrainingsForTestee">
-      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetAllTrainingsForTestee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
