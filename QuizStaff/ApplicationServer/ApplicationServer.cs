@@ -228,5 +228,13 @@ namespace Server
             var result = repo.ReadAll().Where(_ => _.TrainingTitle == title ).FirstOrDefault();
             return (result != null) ? result : new TrainingDTO() { IsActive = true };
         }
+
+
+        public List<TrainingDTO> GetAllTrainingsForTestee()
+        {
+            EFRepository<Training> repo = new EFRepository<Training>();
+            var trainings = new List<Training>(repo.ReadAll());
+            return trainings.Select(training => (TrainingDTO)training).ToList();
+        }
     }
 }
