@@ -217,7 +217,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         public void GetAllTrainings()
         {
             AllTrainings = new BindingList<Training>();
-            var trainingsList = ServicesHolder.ServiceClient.GetAllTrainings();
+            var trainingsList = ServicesHolder.ServiceClient.GetAllTrainingsForTestee();
             foreach (var training in trainingsList)
             {
                 AllTrainings.Add(Conversion.ConvertTrainingFromDTO(training));

@@ -35,20 +35,23 @@ namespace DataTransferObject
             newTraining.Questions = new BindingList<Question>();
             foreach (var q in currentTraining.Questions)
             {
-                Question question = new Question();
-                Conversion.CopyProperty(q, question);
-                question.Answers = new BindingList<Answer>();
-
-                foreach (var a in q.Answers)
+                if (q.IsActive)
                 {
-                    if (a.IsActive) 
+                    Question question = new Question();
+                    Conversion.CopyProperty(q, question);
+                    question.Answers = new BindingList<Answer>();
+
+                    foreach (var a in q.Answers)
                     {
-                        Answer newA = new Answer();
-                        Conversion.CopyProperty(a, newA);
-                        question.Answers.Add(newA);
+                        if (a.IsActive)
+                        {
+                            Answer newA = new Answer();
+                            Conversion.CopyProperty(a, newA);
+                            question.Answers.Add(newA);
+                        }
                     }
+                    newTraining.Questions.Add(question);
                 }
-                newTraining.Questions.Add(question);
             }
 
             return newTraining;
