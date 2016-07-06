@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.flow = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonSend = new DevExpress.XtraEditors.SimpleButton();
-            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.labelQuestion = new TesteeApplication.WrappingLabel();
+            this.buttonSend = new DevExpress.XtraEditors.SimpleButton();
+            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext();
             this.flow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmQuestionContext)).BeginInit();
             this.SuspendLayout();
@@ -46,26 +45,26 @@
             this.flow.Size = new System.Drawing.Size(308, 338);
             this.flow.TabIndex = 1;
             // 
-            // buttonSend
-            // 
-            this.buttonSend.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.buttonSend.Appearance.Options.UseFont = true;
-            this.buttonSend.Location = new System.Drawing.Point(222, 344);
-            this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(75, 23);
-            this.buttonSend.TabIndex = 0;
-            this.buttonSend.Text = "Send";
-            // 
-            // mvvmQuestionContext
-            // 
-            this.mvvmQuestionContext.ContainerControl = this;
-            // 
             // labelQuestion
             // 
             this.labelQuestion.Location = new System.Drawing.Point(3, 0);
             this.labelQuestion.Name = "labelQuestion";
-            this.labelQuestion.Size = new System.Drawing.Size(100, 0);
+            this.labelQuestion.Size = new System.Drawing.Size(372, 0);
             this.labelQuestion.TabIndex = 0;
+            // 
+            // buttonSend
+            // 
+            this.buttonSend.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.buttonSend.Appearance.Options.UseFont = true;
+            this.buttonSend.Location = new System.Drawing.Point(113, 344);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(75, 23);
+            this.buttonSend.TabIndex = 0;
+            this.buttonSend.Text = "OK";
+            // 
+            // mvvmQuestionContext
+            // 
+            this.mvvmQuestionContext.ContainerControl = this;
             // 
             // QuestionForm
             // 

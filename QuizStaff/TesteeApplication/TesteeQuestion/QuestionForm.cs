@@ -46,6 +46,7 @@ namespace TesteeApplication
         public void CreateQuestionControls(QuestionDTO question)
         {
             var multiSelect = model.MultiSelect;
+            labelQuestion.Width = this.Width;
             labelQuestion.DataBindings.Add("Text", question, "QuestionText");
             bool selectFirstRadio = true;
             foreach (var answer in question.Answers)
