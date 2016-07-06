@@ -141,7 +141,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;deleteQuestionButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>672, 377</value>
@@ -444,17 +444,17 @@
   <data name="&gt;&gt;cancelButtonLayoutControl.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;mvvmTrainingContext.Name" xml:space="preserve">
-    <value>mvvmTrainingContext</value>
-  </data>
-  <data name="&gt;&gt;mvvmTrainingContext.Type" xml:space="preserve">
-    <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;ldeleteQuestionButtonLayoutControlItem.Name" xml:space="preserve">
     <value>ldeleteQuestionButtonLayoutControlItem</value>
   </data>
   <data name="&gt;&gt;ldeleteQuestionButtonLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;mvvmTrainingContext.Name" xml:space="preserve">
+    <value>mvvmTrainingContext</value>
+  </data>
+  <data name="&gt;&gt;mvvmTrainingContext.Type" xml:space="preserve">
+    <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>TrainingAddEditForm</value>

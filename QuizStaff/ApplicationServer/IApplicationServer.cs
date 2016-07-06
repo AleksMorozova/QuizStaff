@@ -78,5 +78,8 @@ namespace Server
 
         [OperationContract]
         TrainingDTO FindByTitle(string title);
+
+        [OperationContract]
+        List<TrainingDTO> GetAllTrainingsForTestee();
     }
 }
