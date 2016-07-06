@@ -20,7 +20,7 @@ namespace Client.TrainingsListForm
         public void GetAllTrainings()
         {
             Trainings = new BindingList<Training>();
-            var trainingsList = ServicesHolder.ServiceClient.GetAllTrainings();
+            var trainingsList = ServicesHolder.ServiceClient.GetAllActiveTrainings();
             foreach (var training in trainingsList)
             {
                 Trainings.Add(Conversion.ConvertTrainingFromDTO(training));
