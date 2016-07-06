@@ -147,6 +147,7 @@ namespace DataTransferObject
             TesteeDTO newTeste = new TesteeDTO();
 
             Conversion.CopyProperty(testee, newTeste);
+            newTeste.UserSetting = new SettingDTO();
             Conversion.CopyProperty(testee.UserSetting, newTeste.UserSetting);
 
             if (testee.Trainings!=null)
