@@ -40,9 +40,9 @@
             // 
             this.flow.Controls.Add(this.labelQuestion);
             this.flow.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.flow.Location = new System.Drawing.Point(0, 0);
+            this.flow.Location = new System.Drawing.Point(0, 3);
             this.flow.Name = "flow";
-            this.flow.Size = new System.Drawing.Size(308, 338);
+            this.flow.Size = new System.Drawing.Size(308, 321);
             this.flow.TabIndex = 1;
             // 
             // labelQuestion
@@ -56,11 +56,12 @@
             // 
             this.buttonSend.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.buttonSend.Appearance.Options.UseFont = true;
-            this.buttonSend.Location = new System.Drawing.Point(113, 344);
+            this.buttonSend.Location = new System.Drawing.Point(113, 330);
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(75, 23);
+            this.buttonSend.Size = new System.Drawing.Size(89, 37);
             this.buttonSend.TabIndex = 0;
             this.buttonSend.Text = "OK";
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // mvvmQuestionContext
             // 
@@ -71,6 +72,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(309, 372);
+            this.ControlBox = false;
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.flow);
             this.Name = "QuestionForm";
