@@ -106,6 +106,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             var currentValue = v.EditingValue;
             TesteeTraining training = v.GetRow(e.RowHandle) as TesteeTraining;
             training.IsActive = true;
+            training.IsSelect = true;
             training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
         }
 
