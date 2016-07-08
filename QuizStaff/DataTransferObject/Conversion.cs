@@ -162,6 +162,7 @@ namespace DataTransferObject
                     training.Training = new Training();
                     training.Id = t.Id;
                     training.IsActive = t.IsActive;
+                    training.IsSelect = t.IsSelect;
                     Conversion.CopyProperty(t.Training, training.Training);
                     training.Id = t.Id;
                     newTestee.Trainings.Add(training);
@@ -175,6 +176,7 @@ namespace DataTransferObject
             TesteeTrainingDTO newTesteeTraining = new TesteeTrainingDTO();
             newTesteeTraining.Id = testeeTraining.Id;
             newTesteeTraining.IsActive = testeeTraining.IsActive;
+            newTesteeTraining.IsSelect = testeeTraining.IsSelect;
             newTesteeTraining.Training = new TrainingDTO();
             Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
             return newTesteeTraining;
@@ -185,6 +187,7 @@ namespace DataTransferObject
             TesteeTraining newTesteeTraining = new TesteeTraining();
             newTesteeTraining.Id = testeeTraining.Id;
             newTesteeTraining.IsActive = testeeTraining.IsActive;
+            newTesteeTraining.IsSelect = testeeTraining.IsSelect;
             newTesteeTraining.Training = new Training();
             Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
             return newTesteeTraining;
