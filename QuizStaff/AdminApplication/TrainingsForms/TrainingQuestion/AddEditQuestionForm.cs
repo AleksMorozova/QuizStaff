@@ -20,7 +20,7 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
         private QuestionViewModel model;
 
         public AddEditQuestionForm()
-            : this(new Question()) { }
+            : this(new Question() { IsActive=true}) { }
 
         public AddEditQuestionForm(Question question)
         {
@@ -89,8 +89,7 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
                 if (answer.Id != Guid.Empty)
                 {
                     answer.IsActive = false;
-                    AnswerDTO newAnswer = new AnswerDTO();
-                    Conversion.CopyProperty(answer, newAnswer);
+                    AnswerDTO newAnswer = Conversion.ConvertAnswerToDTO(answer);
                     ServicesHolder.ServiceClient.DeleteAnswer(newAnswer);
                 }
             }

@@ -20,8 +20,7 @@ namespace DataTransferObject
 
         public static implicit operator AnswerDTO(Answer answer)
         {
-            AnswerDTO newAnswer = new AnswerDTO();
-            Conversion.CopyProperty(answer, newAnswer);
+            AnswerDTO newAnswer = Conversion.ConvertAnswerToDTO(answer);
             return newAnswer;
         }
     }

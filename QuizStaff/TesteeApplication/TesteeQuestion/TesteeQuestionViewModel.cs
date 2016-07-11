@@ -15,7 +15,7 @@ namespace TesteeApplication.TesteeQuestion
         public void LoadQuestionForTestee(Testee currentTestee) 
         {
             var loadQuestion = ServicesHolder.ServiceClient.GetRandomQuestionForTestee(currentTestee.Id);
-            question = Conversion.ConvertQuestionFromDTO(loadQuestion);
+            question = Conversion.ConvertQuestionFromDTO_ForClient(loadQuestion);
         }
 
         public bool MultiSelect

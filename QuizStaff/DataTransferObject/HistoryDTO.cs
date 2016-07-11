@@ -20,8 +20,7 @@ namespace DataTransferObject
 
         public static implicit operator HistoryDTO(History history)
         {
-            HistoryDTO newHistory = new HistoryDTO();
-            Conversion.CopyProperty(history, newHistory);
+            HistoryDTO newHistory = Conversion.ConvertHistoryToDTO(history);
             return newHistory;
         }
     }

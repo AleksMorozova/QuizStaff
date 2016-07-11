@@ -23,18 +23,8 @@ namespace DataTransferObject
 
         public static implicit operator TrainingDTO(Training training)
         {
-            TrainingDTO newTraining = new TrainingDTO();
-            newTraining.Questions = new BindingList<QuestionDTO>();
-            if (training != null)
-            {
-                Conversion.CopyProperty(training, newTraining);
+            TrainingDTO newTraining = Conversion.ConvertTrainingToDTO(training);
 
-                foreach (var q in training.Questions)
-                {
-                    newTraining.Questions.Add((QuestionDTO)q);
-                }
-
-            }
             return newTraining;
         }
 
