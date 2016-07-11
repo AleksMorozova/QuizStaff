@@ -248,7 +248,7 @@ namespace DataTransferObject
                         training.Training = new Training();
                         training.Id = currentTraining.Id;
                         training.IsActive = currentTraining.IsActive;
-
+                    training.IsSelect = t.IsSelect;
                         training.Training.Id = currentTraining.Training.Id;
                         training.Training.TrainingTitle = currentTraining.Training.TrainingTitle;
                         training.Training.IsActive = currentTraining.Training.IsActive;
@@ -266,7 +266,7 @@ namespace DataTransferObject
             TesteeTrainingDTO newTesteeTraining = new TesteeTrainingDTO();
             newTesteeTraining.Id = testeeTraining.Id;
             newTesteeTraining.IsActive = testeeTraining.IsActive;
-
+            newTesteeTraining.IsSelect = testeeTraining.IsSelect;
             newTesteeTraining.Training = new TrainingDTO();
             newTesteeTraining.Training.Id = testeeTraining.Training.Id;
             newTesteeTraining.Training.IsActive = testeeTraining.Training.IsActive;
@@ -280,7 +280,7 @@ namespace DataTransferObject
             TesteeTraining newTesteeTraining = new TesteeTraining();
             newTesteeTraining.Id = testeeTraining.Id;
             newTesteeTraining.IsActive = testeeTraining.IsActive;
-           
+            newTesteeTraining.IsSelect = testeeTraining.IsSelect;
             newTesteeTraining.Training = new Training();
             newTesteeTraining.Training.Id = testeeTraining.Training.Id;
             newTesteeTraining.Training.IsActive = testeeTraining.Training.IsActive;

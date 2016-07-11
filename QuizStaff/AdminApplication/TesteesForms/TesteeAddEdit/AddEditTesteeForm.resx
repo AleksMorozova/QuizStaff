@@ -309,6 +309,18 @@
   <data name="titleGridColumn.VisibleIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="isSelectGridColumn.Caption" xml:space="preserve">
+    <value>Is select</value>
+  </data>
+  <data name="repositoryItemCheckEdit1.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="isSelectGridColumn.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="isSelectGridColumn.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="gridTrainings.Size" type="System.Drawing.Size, System.Drawing">
     <value>632, 184</value>
   </data>
@@ -561,6 +573,18 @@
   </data>
   <data name="&gt;&gt;gridColumn1.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;isSelectGridColumn.Name" xml:space="preserve">
+    <value>isSelectGridColumn</value>
+  </data>
+  <data name="&gt;&gt;isSelectGridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;repositoryItemCheckEdit1.Name" xml:space="preserve">
+    <value>repositoryItemCheckEdit1</value>
+  </data>
+  <data name="&gt;&gt;repositoryItemCheckEdit1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;layoutControlGroup3.Name" xml:space="preserve">
     <value>layoutControlGroup3</value>

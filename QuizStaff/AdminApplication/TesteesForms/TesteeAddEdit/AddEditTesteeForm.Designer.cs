@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditTesteeForm));
-            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource();
+            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.canEditToggleSwitch = new DevExpress.XtraEditors.ToggleSwitch();
             this.timeOfStartTimeEdit = new DevExpress.XtraEditors.TimeEdit();
@@ -43,6 +44,8 @@
             this.trainingsRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.isSelectGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.textEmail = new DevExpress.XtraEditors.TextEdit();
             this.textLogin = new DevExpress.XtraEditors.TextEdit();
             this.textLastName = new DevExpress.XtraEditors.TextEdit();
@@ -65,7 +68,7 @@
             this.loginLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.firstNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emailLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -77,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTrainings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textLastName.Properties)).BeginInit();
@@ -172,7 +176,8 @@
             this.gridTrainings.MainView = this.gridViewTrainings;
             this.gridTrainings.Name = "gridTrainings";
             this.gridTrainings.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.trainingsRepositoryItemLookUpEdit});
+            this.trainingsRepositoryItemLookUpEdit,
+            this.repositoryItemCheckEdit1});
             this.gridTrainings.UseEmbeddedNavigator = true;
             this.gridTrainings.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTrainings});
@@ -180,7 +185,8 @@
             // gridViewTrainings
             // 
             this.gridViewTrainings.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.titleGridColumn});
+            this.titleGridColumn,
+            this.isSelectGridColumn});
             this.gridViewTrainings.GridControl = this.gridTrainings;
             this.gridViewTrainings.Name = "gridViewTrainings";
             this.gridViewTrainings.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
@@ -221,6 +227,18 @@
             resources.ApplyResources(this.gridColumn1, "gridColumn1");
             this.gridColumn1.FieldName = "TrainingTitle";
             this.gridColumn1.Name = "gridColumn1";
+            // 
+            // isSelectGridColumn
+            // 
+            resources.ApplyResources(this.isSelectGridColumn, "isSelectGridColumn");
+            this.isSelectGridColumn.ColumnEdit = this.repositoryItemCheckEdit1;
+            this.isSelectGridColumn.FieldName = "IsSelect";
+            this.isSelectGridColumn.Name = "isSelectGridColumn";
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            resources.ApplyResources(this.repositoryItemCheckEdit1, "repositoryItemCheckEdit1");
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
             // textEmail
             // 
@@ -467,6 +485,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTrainings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsRepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textLastName.Properties)).EndInit();
@@ -533,5 +552,7 @@
         private DevExpress.XtraEditors.ToggleSwitch showAnswerToggleSwitch;
         private DevExpress.XtraLayout.LayoutControlItem showAnswerToggleSwitchLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraGrid.Columns.GridColumn isSelectGridColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
     }
 }
