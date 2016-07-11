@@ -16,30 +16,24 @@ namespace DataTransferObject
             Answers = new BindingList<AnswerDTO>();
         }
 
-        public Guid Id { get; set; }
-       
-        public Guid TrainingId { get; set; }
-      
+        public Guid Id { get; set; }           
         public bool IsActive { get; set; }
-
         public string QuestionText { get; set; }
        
         public virtual TrainingDTO Training { get; set; }
-
         public virtual BindingList<AnswerDTO> Answers { get; set; }
 
         public static implicit operator QuestionDTO(Question question)
         {
-            QuestionDTO newQuestion = new QuestionDTO();
+            QuestionDTO newQuestion = Conversion.ConvertQuestionToDTO(question);
             newQuestion.Answers = new BindingList<AnswerDTO>();
 
             if (question != null)
             {
-                Conversion.CopyProperty(question, newQuestion);
-                foreach (var a in question.Answers)
+                foreach (var answer in question.Answers)
                 {
-                    if (a.IsActive)
-                        newQuestion.Answers.Add((AnswerDTO)a);
+                    if (answer.IsActive)
+                        newQuestion.Answers.Add((AnswerDTO)answer);
                 }
             }
             return newQuestion;

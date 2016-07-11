@@ -43,13 +43,13 @@ namespace Server
             // TODO: save to database
         }
 
-        public List<QuestionDTO> GetTrainingQuestions(TrainingDTO training)
-        {
-            EFRepository<Question> repo = new EFRepository<DomainModel.Question>();
-            var testees = new List<Question>(repo.ReadAll()) ;
-            var t= (from p in testees.Select(testee => (QuestionDTO)testee) where p.TrainingId==training.Id select p ).ToList() ;
-            return t;
-        }
+        //public List<QuestionDTO> GetTrainingQuestions(TrainingDTO training)
+        //{
+        //    EFRepository<Question> repo = new EFRepository<DomainModel.Question>();
+        //    var testees = new List<Question>(repo.ReadAll()) ;
+        //    var t= (from p in testees.Select(testee => (QuestionDTO)testee) where p.TrainingId==training.Id select p ).ToList() ;
+        //    return t;
+        //}
 
         public void SaveTesteeAnswer(HistoryDTO history)
         {
@@ -69,8 +69,7 @@ namespace Server
                 h.Answers.Add(ans);
             }
             h.AnsweringDate = history.AnsweringDate;
-            h.Question = new Question();
-            Conversion.CopyProperty(history.Question, h.Question);
+            h.Question = Conversion.ConvertQuestionFromDTO(history.Question);
             h.Testee = Conversion.ConvertTesteeFromDTO(history.Testee);
             repo.Create(h);
         }
@@ -176,12 +175,11 @@ namespace Server
             return (TrainingDTO)savedTrainings;
         }
 
-        public void SaveQuestion(QuestionDTO training)
+        public void SaveQuestion(QuestionDTO question)
         {
             EFRepository<Question> repo = new EFRepository<Question>();
-            Question newTraining = new Question();
-            Conversion.CopyProperty(training, newTraining);
-            repo.Create(newTraining);
+            Question newQuestion = Conversion.ConvertQuestionFromDTO(question);
+            repo.Create(newQuestion);
         }
 
         public void UpdateTestee(TesteeDTO testee)
@@ -202,23 +200,28 @@ namespace Server
         {
             EFRepository<Setting> repo = new EFRepository<DomainModel.Setting>();
             Setting newSetting = new Setting();
-            Conversion.CopyProperty(setting, newSetting);
+
+            newSetting.Id = setting.Id;
+            newSetting.FrequencyOfAsking = setting.FrequencyOfAsking;
+            newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
+            newSetting.TimeOfStart = setting.TimeOfStart;
+            newSetting.CanUserEdit = setting.CanUserEdit;
+            newSetting.ShowCorrectAnswer = setting.ShowCorrectAnswer;
+
             repo.Update(newSetting);
         }
 
         public void UpdateQuestion(QuestionDTO question)
         {
             EFRepository<Question> repo = new EFRepository<Question>();
-            Question newQuestion = new Question();
-            Conversion.CopyProperty(question, newQuestion);
+            Question newQuestion = Conversion.ConvertQuestionFromDTO(question);
             repo.Update(newQuestion);
         }
 
         public void DeleteAnswer(AnswerDTO answer)
         {
             EFRepository<Answer> repo = new EFRepository<Answer>();
-            Answer newAnswer = new Answer();
-            Conversion.CopyProperty(answer, newAnswer);
+            Answer newAnswer = Conversion.ConvertAnswerFromDTO(answer);
             repo.Update(newAnswer);
         }
 
