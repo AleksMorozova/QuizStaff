@@ -27,8 +27,35 @@ namespace Server
         public List<TesteeDTO> GetAllTestees()
         {
             EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
-            var testees = new List<Testee>(repo.ReadAll().Where(_=>_.IsActive));
-            return testees.Select(testee => (TesteeDTO)testee).ToList();
+
+            var selectedTestee = repo.ReadAll().Where(x => x.IsActive).AsQueryable()
+                .Select(testee => new Testee
+                {
+                    Id = testee.Id,
+                    FirstName = testee.FirstName,
+                    LastName = testee.LastName,
+                    Login = testee.Login,
+                    Password = testee.Password,
+                    IsActive = testee.IsActive,
+                    Email = testee.Email,
+                    
+                    Attribute1 = testee.Attribute1,
+                    Attribute2 = testee.Attribute2,
+                    Attribute3 = testee.Attribute3,
+                    Attribute4 = testee.Attribute4,
+                    Attribute5 = testee.Attribute5,
+                    Attribute6 = testee.Attribute6,
+                    Attribute8 = testee.Attribute8,
+                    Attribute9 = testee.Attribute9,
+                    Attribute10 = testee.Attribute10,
+
+                    UserSetting = testee.UserSetting,
+                    Trainings = new BindingList<TesteeTraining>(testee.Trainings.ToList().Where(_ => _.IsActive).ToList()),
+                    Histories = new BindingList<History>(testee.Histories.ToList())
+
+                }).ToList();
+
+            return selectedTestee.Select(testee => (TesteeDTO)testee).ToList();
         }
 
         public TesteeDTO GetTesteeByID(Guid id)
@@ -42,14 +69,6 @@ namespace Server
         {
             // TODO: save to database
         }
-
-        //public List<QuestionDTO> GetTrainingQuestions(TrainingDTO training)
-        //{
-        //    EFRepository<Question> repo = new EFRepository<DomainModel.Question>();
-        //    var testees = new List<Question>(repo.ReadAll()) ;
-        //    var t= (from p in testees.Select(testee => (QuestionDTO)testee) where p.TrainingId==training.Id select p ).ToList() ;
-        //    return t;
-        //}
 
         public void SaveTesteeAnswer(HistoryDTO history)
         {
@@ -129,18 +148,36 @@ namespace Server
         }
         #endregion
 
-        public List<TrainingDTO> GetAllActiveTrainings()
-        {
-            EFRepository<Training> repo = new EFRepository<Training>();
-            var trainings = new List<Training>(repo.ReadAll().Where(_=>_.IsActive));
-            return trainings.Select(training => (TrainingDTO)training).ToList();
-        }
-
         public List<TrainingDTO> GetAllTrainings()
         {
             EFRepository<Training> repo = new EFRepository<Training>();
             var trainings = new List<Training>(repo.ReadAll());
             return trainings.Select(training => (TrainingDTO)training).ToList();
+        }
+
+        public List<TrainingDTO>GetAllActiveTrainings()
+        {
+            EFRepository<Training> repo = new EFRepository<Training>();
+
+            var selectedTrainings = repo.ReadAll().Where(x => x.IsActive).AsQueryable()
+                .Select(training => new Training
+                {
+                    Id = training.Id,
+                    TrainingTitle = training.TrainingTitle,
+                    IsActive = training.IsActive,
+                    TesteeTrainings = new BindingList<TesteeTraining>(training.TesteeTrainings.ToList().Where(_ => _.IsActive).ToList()),
+                    Questions = new BindingList<Question>(training.Questions.ToList().Where(_ => _.IsActive)
+                        .Select(question => new Question
+                        {
+                            Id = question.Id,
+                            QuestionText = question.QuestionText,
+                            IsActive = question.IsActive,
+                            Training = question.Training,
+                            Answers = new BindingList<Answer>(question.Answers.ToList().Where(_ => _.IsActive).ToList()),
+                        }).ToList()),
+                }).ToList();
+
+            return selectedTrainings.Select(training => (TrainingDTO)training).ToList();
         }
 
         public void SaveAllTrainings(ICollection<TrainingDTO> trainings)
@@ -164,13 +201,13 @@ namespace Server
         public void UpdateTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            repo.Update(Conversion.ConvertTrainingFromDTO_ForServer(training));
+            repo.Update(Conversion.ConvertTrainingFromDTO(training));
         }
 
         public TrainingDTO SaveTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            Training savedTrainings = Conversion.ConvertTrainingFromDTO_ForServer(training);
+            Training savedTrainings = Conversion.ConvertTrainingFromDTO(training);
             repo.Create(savedTrainings);
             return (TrainingDTO)savedTrainings;
         }
@@ -185,13 +222,13 @@ namespace Server
         public void UpdateTestee(TesteeDTO testee)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
-            repo.Update(Conversion.ConvertTesteeFromDTO_ForServer(testee));
+            repo.Update(Conversion.ConvertTesteeFromDTO(testee));
         }
 
         public TesteeDTO SaveTestee(TesteeDTO testee)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
-            Testee savedTestee = Conversion.ConvertTesteeFromDTO_ForServer(testee);
+            Testee savedTestee = Conversion.ConvertTesteeFromDTO(testee);
             repo.Create(savedTestee);
             return (TesteeDTO)savedTestee;
         }
