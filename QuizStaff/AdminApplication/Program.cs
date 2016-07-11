@@ -58,9 +58,7 @@ namespace AdminApplication
         static void GetTestee(string login)
         {
             var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
-            currentTestee.UserSetting = new Setting();
-            Conversion.CopyProperty(loadedUser, currentTestee);
-            Conversion.CopyProperty(loadedUser.UserSetting, currentTestee.UserSetting);
+            currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);
         }
     }
 }

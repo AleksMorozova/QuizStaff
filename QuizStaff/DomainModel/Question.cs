@@ -16,8 +16,9 @@ namespace DomainModel
         }
 
         public bool IsActive { get; set; }
+        public string QuestionText { get; set; }      
+ 
         public virtual Training Training { get; set; }
-        public string QuestionText { get; set; }
         public virtual BindingList<Answer> Answers { get; set; }
     }
 }

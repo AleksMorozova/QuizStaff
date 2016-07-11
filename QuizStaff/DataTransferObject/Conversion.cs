@@ -9,72 +9,63 @@ using System.Threading.Tasks;
 namespace DataTransferObject
 {
     public class Conversion
-    {
-        public static void CopyProperty(object from, object to)
-        {
-            foreach (System.Reflection.PropertyInfo info in from.GetType().GetProperties())
-            {
-                try
-                {
-                    if (info.CanWrite)
-                    {
-                        to.GetType().GetProperty(info.Name).SetValue(to, info.GetValue(from, null), null);
-                    }
-                }
-                catch
-                { 
-                    //TODO: write to log 
-                }
-            }
-        }
-
+    {     
         public static Training ConvertTrainingFromDTO (TrainingDTO currentTraining)
         {
             Training newTraining = new Training();
-            Conversion.CopyProperty(currentTraining, newTraining);
-            newTraining.Questions = new BindingList<Question>();
-            foreach (var q in currentTraining.Questions)
-            {
-                if (q.IsActive)
-                {
-                    Question question = new Question();
-                    Conversion.CopyProperty(q, question);
-                    question.Answers = new BindingList<Answer>();
+            newTraining.Id = currentTraining.Id;
+            newTraining.TrainingTitle = currentTraining.TrainingTitle;
+            newTraining.IsActive = currentTraining.IsActive;
 
-                    foreach (var a in q.Answers)
+            newTraining.Questions = new BindingList<Question>();
+            foreach (var question in currentTraining.Questions)
+            {
+                if (question.IsActive)
+                {
+                    Question newQuestion = new Question();
+                    newQuestion.Id = question.Id;
+                    newQuestion.IsActive = question.IsActive;
+                    newQuestion.QuestionText = question.QuestionText;
+
+                    newQuestion.Answers = new BindingList<Answer>();
+                    foreach (var answer in question.Answers)
                     {
-                        if (a.IsActive)
+                        if (answer.IsActive)
                         {
-                            Answer newA = new Answer();
-                            Conversion.CopyProperty(a, newA);
-                            question.Answers.Add(newA);
+                            Answer newAnswer = new Answer();
+                            newAnswer.Id = answer.Id;
+                            newAnswer.IsActive = answer.IsActive;
+                            newAnswer.IsCorrect = answer.IsCorrect;
+                            newAnswer.AnswerText = answer.AnswerText;
+                            newQuestion.Answers.Add(newAnswer);
                         }
                     }
-                    newTraining.Questions.Add(question);
+                    newTraining.Questions.Add(newQuestion);
                 }
             }
-
             return newTraining;
         }
 
         public static Training ConvertTrainingFromDTO_ForServer(TrainingDTO currentTraining)
         {
             Training newTraining = new Training();
-            Conversion.CopyProperty(currentTraining, newTraining);
-            newTraining.Questions = new BindingList<Question>();
-            foreach (var q in currentTraining.Questions)
-            {
-                Question question = new Question();
-                Conversion.CopyProperty(q, question);
-                question.Answers = new BindingList<Answer>();
+            newTraining.Id = currentTraining.Id;
+            newTraining.TrainingTitle = currentTraining.TrainingTitle;
+            newTraining.IsActive = currentTraining.IsActive;
 
-                foreach (var a in q.Answers)
+            newTraining.Questions = new BindingList<Question>();
+
+            foreach (var question in currentTraining.Questions)
+            {
+                Question newQuestion = ConvertQuestionFromDTO(question);
+                newQuestion.Answers = new BindingList<Answer>();
+
+                foreach (var answer in question.Answers)
                 {
-                    Answer newA = new Answer();
-                    Conversion.CopyProperty(a, newA);
-                    question.Answers.Add(newA);
+                    newQuestion.Answers.Add(ConvertAnswerFromDTO(answer));
                 }
-                newTraining.Questions.Add(question);
+
+                newTraining.Questions.Add(newQuestion);
             }
 
             return newTraining;
@@ -83,23 +74,36 @@ namespace DataTransferObject
         public static TrainingDTO ConvertTrainingToDTO(Training currentTraining)
         {
             TrainingDTO newTraining = new TrainingDTO();
-            Conversion.CopyProperty(currentTraining, newTraining);
+            newTraining.Id = currentTraining.Id;
+            newTraining.TrainingTitle = currentTraining.TrainingTitle;
+            newTraining.IsActive = currentTraining.IsActive;
+
             newTraining.Questions = new BindingList<QuestionDTO>();
-            foreach (var q in currentTraining.Questions)
+            foreach (var question in currentTraining.Questions)
             {
-                QuestionDTO question = new QuestionDTO();
-                Conversion.CopyProperty(q, question);
-                question.Answers = new BindingList<AnswerDTO>();
-
-                foreach (var a in q.Answers)
+                if (question.IsActive)
                 {
-                    AnswerDTO newA = new AnswerDTO();
-                    Conversion.CopyProperty(a, newA);
-                    question.Answers.Add(newA);
-                }
-                newTraining.Questions.Add(question);
-            }
+                    QuestionDTO newQuestion = new QuestionDTO();
+                    newQuestion.Id = question.Id;
+                    newQuestion.IsActive = question.IsActive;
+                    newQuestion.QuestionText = question.QuestionText;
 
+                    newQuestion.Answers = new BindingList<AnswerDTO>();
+                    foreach (var answer in question.Answers)
+                    {
+                        if (answer.IsActive)
+                        {
+                            AnswerDTO newAnswer = new AnswerDTO();
+                            newAnswer.Id = answer.Id;
+                            newAnswer.IsActive = answer.IsActive;
+                            newAnswer.IsCorrect = answer.IsCorrect;
+                            newAnswer.AnswerText = answer.AnswerText;
+                            newQuestion.Answers.Add(newAnswer);
+                        }
+                    }
+                    newTraining.Questions.Add(newQuestion);
+                }
+            }
             return newTraining;
         }
 
@@ -108,15 +112,43 @@ namespace DataTransferObject
             TesteeDTO newTestee = new TesteeDTO();
             newTestee.Trainings = new BindingList<TesteeTrainingDTO>();
             newTestee.UserSetting = new SettingDTO();
-            Conversion.CopyProperty(testee, newTestee);
-            Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
-            if (testee.Trainings != null)
-            if (testee.Trainings.Count() > 0)
+
+            //Copy testee
+            newTestee.Id = testee.Id;
+            newTestee.FirstName = testee.FirstName;
+            newTestee.LastName = testee.LastName;
+            newTestee.Login = testee.Login;
+            newTestee.Password = testee.Password;
+            newTestee.IsActive = testee.IsActive;
+            newTestee.Email = testee.Email;
+
+            newTestee.Attribute1 = testee.Attribute1;
+            newTestee.Attribute2 = testee.Attribute2;
+            newTestee.Attribute3 = testee.Attribute3;
+            newTestee.Attribute4 = testee.Attribute4;
+            newTestee.Attribute5 = testee.Attribute5;
+            newTestee.Attribute6 = testee.Attribute6;
+            newTestee.Attribute8 = testee.Attribute8;
+            newTestee.Attribute9 = testee.Attribute9;
+            newTestee.Attribute10 = testee.Attribute10;
+
+            //Copy settings
+            newTestee.UserSetting.Id = testee.UserSetting.Id;
+            newTestee.UserSetting.FrequencyOfAsking = testee.UserSetting.FrequencyOfAsking;
+            newTestee.UserSetting.AmountOfQuestionsPerDay = testee.UserSetting.AmountOfQuestionsPerDay;
+            newTestee.UserSetting.TimeOfStart = testee.UserSetting.TimeOfStart;
+            newTestee.UserSetting.CanUserEdit = testee.UserSetting.CanUserEdit;
+            newTestee.UserSetting.ShowCorrectAnswer = testee.UserSetting.ShowCorrectAnswer;
+
+             if (testee.Trainings != null)
             {
-                foreach (var t in testee.Trainings)
+                if (testee.Trainings.Count() > 0)
                 {
-                    newTestee.Trainings.Add(ConvertTesteeTrainingToDTO(t));
-                }
+                    foreach (var t in testee.Trainings)
+                    {
+                        newTestee.Trainings.Add(ConvertTesteeTrainingToDTO(t));
+                    }
+                } 
             }
 
             return newTestee;
@@ -127,17 +159,44 @@ namespace DataTransferObject
             Testee newTestee = new Testee();
             newTestee.UserSetting = new Setting();
             newTestee.Trainings = new BindingList<TesteeTraining>();
-            Conversion.CopyProperty(testee, newTestee);
-            Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
 
-            if (testee.Trainings!=null)
-            if (testee.Trainings.Count() > 0)
+            //Copy testee
+            newTestee.Id = testee.Id;
+            newTestee.FirstName = testee.FirstName;
+            newTestee.LastName = testee.LastName;
+            newTestee.Login = testee.Login;
+            newTestee.Password = testee.Password;
+            newTestee.IsActive = testee.IsActive;
+            newTestee.Email = testee.Email;
+
+            newTestee.Attribute1 = testee.Attribute1;
+            newTestee.Attribute2 = testee.Attribute2;
+            newTestee.Attribute3 = testee.Attribute3;
+            newTestee.Attribute4 = testee.Attribute4;
+            newTestee.Attribute5 = testee.Attribute5;
+            newTestee.Attribute6 = testee.Attribute6;
+            newTestee.Attribute8 = testee.Attribute8;
+            newTestee.Attribute9 = testee.Attribute9;
+            newTestee.Attribute10 = testee.Attribute10;
+
+            //Copy settings
+            newTestee.UserSetting.Id = testee.UserSetting.Id;
+            newTestee.UserSetting.FrequencyOfAsking = testee.UserSetting.FrequencyOfAsking;
+            newTestee.UserSetting.AmountOfQuestionsPerDay = testee.UserSetting.AmountOfQuestionsPerDay;
+            newTestee.UserSetting.TimeOfStart = testee.UserSetting.TimeOfStart;
+            newTestee.UserSetting.CanUserEdit = testee.UserSetting.CanUserEdit;
+            newTestee.UserSetting.ShowCorrectAnswer = testee.UserSetting.ShowCorrectAnswer;
+
+            if (testee.Trainings != null)
             {
-                foreach (var t in testee.Trainings)
+                if (testee.Trainings.Count() > 0)
                 {
-                    if (t.IsActive)
+                    foreach (var t in testee.Trainings)
                     {
-                        newTestee.Trainings.Add(ConvertTesteeTrainingFromDTO(t));
+                        if (t.IsActive)
+                        {
+                            newTestee.Trainings.Add(ConvertTesteeTrainingFromDTO(t));
+                        }
                     }
                 }
             }
@@ -150,24 +209,55 @@ namespace DataTransferObject
             Testee newTestee = new Testee();
             newTestee.UserSetting = new Setting();
             newTestee.Trainings = new BindingList<TesteeTraining>();
-            Conversion.CopyProperty(testee, newTestee);
-            Conversion.CopyProperty(testee.UserSetting, newTestee.UserSetting);
-            
+
+            //Copy testee
+            newTestee.Id = testee.Id;
+            newTestee.FirstName = testee.FirstName;
+            newTestee.LastName = testee.LastName;
+            newTestee.Login = testee.Login;
+            newTestee.Password = testee.Password;
+            newTestee.IsActive = testee.IsActive;
+            newTestee.Email = testee.Email;
+
+            newTestee.Attribute1 = testee.Attribute1;
+            newTestee.Attribute2 = testee.Attribute2;
+            newTestee.Attribute3 = testee.Attribute3;
+            newTestee.Attribute4 = testee.Attribute4;
+            newTestee.Attribute5 = testee.Attribute5;
+            newTestee.Attribute6 = testee.Attribute6;
+            newTestee.Attribute8 = testee.Attribute8;
+            newTestee.Attribute9 = testee.Attribute9;
+            newTestee.Attribute10 = testee.Attribute10;
+
+            //Copy settings
+            newTestee.UserSetting.Id = testee.UserSetting.Id;
+            newTestee.UserSetting.FrequencyOfAsking = testee.UserSetting.FrequencyOfAsking;
+            newTestee.UserSetting.AmountOfQuestionsPerDay = testee.UserSetting.AmountOfQuestionsPerDay;
+            newTestee.UserSetting.TimeOfStart = testee.UserSetting.TimeOfStart;
+            newTestee.UserSetting.CanUserEdit = testee.UserSetting.CanUserEdit;
+            newTestee.UserSetting.ShowCorrectAnswer = testee.UserSetting.ShowCorrectAnswer;
+
+            //Copy trainings
             if (testee.Trainings != null)
-            if (testee.Trainings.Count() > 0)
             {
-                foreach (var t in testee.Trainings)
+                if (testee.Trainings.Count() > 0)
                 {
-                    TesteeTraining training = new TesteeTraining();
-                    training.Training = new Training();
-                    training.Id = t.Id;
-                    training.IsActive = t.IsActive;
+                    foreach (var currentTraining in testee.Trainings)
+                    {
+                        TesteeTraining training = new TesteeTraining();
+                        training.Training = new Training();
+                        training.Id = currentTraining.Id;
+                        training.IsActive = currentTraining.IsActive;
                     training.IsSelect = t.IsSelect;
-                    Conversion.CopyProperty(t.Training, training.Training);
-                    training.Id = t.Id;
-                    newTestee.Trainings.Add(training);
+                        training.Training.Id = currentTraining.Training.Id;
+                        training.Training.TrainingTitle = currentTraining.Training.TrainingTitle;
+                        training.Training.IsActive = currentTraining.Training.IsActive;
+
+                        newTestee.Trainings.Add(training);
+                    }
                 }
             }
+
             return newTestee;
         }
 
@@ -178,7 +268,10 @@ namespace DataTransferObject
             newTesteeTraining.IsActive = testeeTraining.IsActive;
             newTesteeTraining.IsSelect = testeeTraining.IsSelect;
             newTesteeTraining.Training = new TrainingDTO();
-            Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
+            newTesteeTraining.Training.Id = testeeTraining.Training.Id;
+            newTesteeTraining.Training.IsActive = testeeTraining.Training.IsActive;
+            newTesteeTraining.Training.TrainingTitle = testeeTraining.Training.TrainingTitle;
+
             return newTesteeTraining;
         }
 
@@ -189,25 +282,110 @@ namespace DataTransferObject
             newTesteeTraining.IsActive = testeeTraining.IsActive;
             newTesteeTraining.IsSelect = testeeTraining.IsSelect;
             newTesteeTraining.Training = new Training();
-            Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
+            newTesteeTraining.Training.Id = testeeTraining.Training.Id;
+            newTesteeTraining.Training.IsActive = testeeTraining.Training.IsActive;
+            newTesteeTraining.Training.TrainingTitle = testeeTraining.Training.TrainingTitle;
+
             return newTesteeTraining;
         }
 
-        public static Question ConvertQuestionFromDTO(QuestionDTO question) 
+        public static Question ConvertQuestionFromDTO_ForClient(QuestionDTO question) 
         {
             Question newQuestion = new Question();
             newQuestion.Answers = new BindingList<Answer>();
             if (question != null)
             {
-                Conversion.CopyProperty(question, newQuestion);
-                foreach (var a in question.Answers)
+                newQuestion.Id = question.Id;          
+                newQuestion.QuestionText = question.QuestionText;
+                newQuestion.IsActive = question.IsActive;
+
+                foreach (var answer in question.Answers)
                 {
-                    Answer ans = new Answer();
-                    CopyProperty(a, ans);
-                    if (a.IsActive)
-                        newQuestion.Answers.Add(ans);
+                    Answer newAnswer = new Answer();
+                    newAnswer.Id = answer.Id;
+                    newAnswer.IsActive = answer.IsActive;
+                    newAnswer.IsCorrect = answer.IsCorrect;
+                    newAnswer.AnswerText = answer.AnswerText;
+
+                    if (answer.IsActive)
+                        newQuestion.Answers.Add(newAnswer);
                 }
             }
+            return newQuestion;
+        }
+
+        public static History ConvertHistoryFromDTO(HistoryDTO currentHistory)
+        {
+            History newHistory = new History();
+            newHistory.Id = currentHistory.Id;
+            newHistory.AnsweringDate = currentHistory.AnsweringDate;
+
+            return newHistory;
+        }
+
+        public static HistoryDTO ConvertHistoryToDTO(History currentHistory) 
+        {
+            HistoryDTO newHistory = new HistoryDTO();
+            newHistory.Id = currentHistory.Id;
+            newHistory.AnsweringDate = currentHistory.AnsweringDate;
+            return newHistory;
+        }
+
+        public static TesteeAnswer ConvertTesteeAnswerFromDTO(TesteeAnswerDTO currentTesteeAnswer)
+        {
+            TesteeAnswer newTesteeAnswer = new TesteeAnswer();
+            newTesteeAnswer.Id = currentTesteeAnswer.Id;
+
+            return newTesteeAnswer;
+        }
+
+        public static TesteeAnswerDTO ConvertTesteeAnswerToDTO(TesteeAnswer currentTesteeAnswer)
+        {
+            TesteeAnswerDTO newTesteeAnswer = new TesteeAnswerDTO();
+            newTesteeAnswer.Id = currentTesteeAnswer.Id;
+
+            return newTesteeAnswer;
+        }
+
+        public static Answer ConvertAnswerFromDTO(AnswerDTO currentAnswer)
+        {
+            Answer newAnswer = new Answer();
+            newAnswer.Id = currentAnswer.Id;
+            newAnswer.AnswerText = currentAnswer.AnswerText;
+            newAnswer.IsActive = currentAnswer.IsActive;
+            newAnswer.IsCorrect = currentAnswer.IsCorrect;
+
+            return newAnswer;
+        }
+
+        public static AnswerDTO ConvertAnswerToDTO(Answer currentAnswer)
+        {
+            AnswerDTO newAnswer = new AnswerDTO();
+            newAnswer.Id = currentAnswer.Id;
+            newAnswer.AnswerText = currentAnswer.AnswerText;
+            newAnswer.IsActive = currentAnswer.IsActive;
+            newAnswer.IsCorrect = currentAnswer.IsCorrect;
+
+            return newAnswer;
+        }
+
+        public static Question ConvertQuestionFromDTO(QuestionDTO currentQuestion)
+        {
+            Question newQuestion = new Question();
+            newQuestion.Id = currentQuestion.Id;
+            newQuestion.QuestionText = currentQuestion.QuestionText;
+            newQuestion.IsActive = currentQuestion.IsActive;
+
+            return newQuestion;
+        }
+
+        public static QuestionDTO ConvertQuestionToDTO(Question currentQuestion)
+        {
+            QuestionDTO newQuestion = new QuestionDTO();
+            newQuestion.Id = currentQuestion.Id;
+            newQuestion.QuestionText = currentQuestion.QuestionText;
+            newQuestion.IsActive = currentQuestion.IsActive;
+
             return newQuestion;
         }
     }
