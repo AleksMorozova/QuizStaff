@@ -248,7 +248,7 @@ namespace DataTransferObject
                         training.Training = new Training();
                         training.Id = currentTraining.Id;
                         training.IsActive = currentTraining.IsActive;
-                    training.IsSelect = t.IsSelect;
+                        training.IsSelect = currentTraining.IsSelect;
                         training.Training.Id = currentTraining.Training.Id;
                         training.Training.TrainingTitle = currentTraining.Training.TrainingTitle;
                         training.Training.IsActive = currentTraining.Training.IsActive;
