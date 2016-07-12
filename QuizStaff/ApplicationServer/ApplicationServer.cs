@@ -268,7 +268,6 @@ namespace Server
             repo.Update(Conversion.ConvertTesteeTrainingFromDTO(testeeTraining));
         }
 
-
         public TrainingDTO FindByTitle(string title)
         {
             EFRepository<Training> repo = new EFRepository<DomainModel.Training>();

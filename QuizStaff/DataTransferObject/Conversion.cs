@@ -40,7 +40,7 @@ namespace DataTransferObject
             return newTraining;
         }
 
-        public static TrainingDTO ConvertTrainingToDTO(Training currentTraining)
+        public static TrainingDTO ConvertTrainingToDTO (Training currentTraining)
         {
             TrainingDTO newTraining = new TrainingDTO();
             newTraining.Id = currentTraining.Id;
@@ -48,19 +48,19 @@ namespace DataTransferObject
             newTraining.IsActive = currentTraining.IsActive;
 
             newTraining.Questions = new BindingList<QuestionDTO>();
-            foreach (var question in currentTraining.Questions)
+            if (currentTraining.Questions != null)
             {
-                if (question.IsActive)
+                foreach (var question in currentTraining.Questions)
                 {
                     QuestionDTO newQuestion = new QuestionDTO();
                     newQuestion.Id = question.Id;
                     newQuestion.IsActive = question.IsActive;
                     newQuestion.QuestionText = question.QuestionText;
-
+                    
                     newQuestion.Answers = new BindingList<AnswerDTO>();
-                    foreach (var answer in question.Answers)
+                    if (question.Answers != null)
                     {
-                        if (answer.IsActive)
+                        foreach (var answer in question.Answers)
                         {
                             AnswerDTO newAnswer = new AnswerDTO();
                             newAnswer.Id = answer.Id;
@@ -69,8 +69,8 @@ namespace DataTransferObject
                             newAnswer.AnswerText = answer.AnswerText;
                             newQuestion.Answers.Add(newAnswer);
                         }
+                        newTraining.Questions.Add(newQuestion);
                     }
-                    newTraining.Questions.Add(newQuestion);
                 }
             }
             return newTraining;
