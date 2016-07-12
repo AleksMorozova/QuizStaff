@@ -106,15 +106,12 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             GridView v = sender as GridView;
             var currentValue = v.EditingValue;           
             TesteeTraining training = v.GetRow(e.RowHandle) as TesteeTraining;
-         
             training.IsActive = true;
-             
             training.IsSelect = true;
-            if (currentValue != null)
-            {
 
+            if (currentValue != null)
                 training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
-            }
+
         }
 
         private TesteeTraining GetCurrentTesteeTraining()
@@ -146,7 +143,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
             GridLookUpEdit editor = (sender as GridLookUpEdit);
             var currentTraining = editor.EditValue;
-            testeeTraining.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentTraining.ToString()).First();
+            if (currentTraining != null)
+                testeeTraining.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentTraining.ToString()).First();
         }
     }
 }
