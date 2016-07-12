@@ -50,6 +50,14 @@ namespace AdminApplication.AdminSettings
             editSettings.ShowDialog();
         }
 
+        public void EditTesteeTrainigs(BindingList<Testee> selectedTestee)
+        {
+            EditTesteesTrainingsForm editTrainigs = new EditTesteesTrainingsForm(selectedTestee);
+            FormManager.LocalizedFormList.Add(editTrainigs);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
+            editTrainigs.ShowDialog();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void RaisePropertyChanged(string propertyName)
