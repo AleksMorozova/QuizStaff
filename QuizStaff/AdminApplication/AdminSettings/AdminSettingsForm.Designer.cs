@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminSettingsForm));
             this.dateImpactLabelLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.editSettingsSimpleButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.testeeListGridControl = new DevExpress.XtraGrid.GridControl();
             this.testeesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -60,6 +61,7 @@
             this.usersListLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.editSettingsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dateImpactLabelLayoutControl)).BeginInit();
             this.dateImpactLabelLayoutControl.SuspendLayout();
@@ -73,18 +75,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.usersListLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editSettingsLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmAdminSettingsContext)).BeginInit();
             this.SuspendLayout();
             // 
             // dateImpactLabelLayoutControl
             // 
+            this.dateImpactLabelLayoutControl.Controls.Add(this.editSettingsSimpleButton);
             this.dateImpactLabelLayoutControl.Controls.Add(this.saveButton);
             this.dateImpactLabelLayoutControl.Controls.Add(this.testeeListGridControl);
             resources.ApplyResources(this.dateImpactLabelLayoutControl, "dateImpactLabelLayoutControl");
             this.dateImpactLabelLayoutControl.Name = "dateImpactLabelLayoutControl";
-            this.dateImpactLabelLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(780, 211, 391, 473);
+            this.dateImpactLabelLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(727, 211, 391, 473);
             this.dateImpactLabelLayoutControl.OptionsView.UseDefaultDragAndDropRendering = false;
             this.dateImpactLabelLayoutControl.Root = this.layoutControlGroup;
+            // 
+            // editSettingsSimpleButton
+            // 
+            resources.ApplyResources(this.editSettingsSimpleButton, "editSettingsSimpleButton");
+            this.editSettingsSimpleButton.Name = "editSettingsSimpleButton";
+            this.editSettingsSimpleButton.StyleController = this.dateImpactLabelLayoutControl;
+            this.editSettingsSimpleButton.Click += new System.EventHandler(this.editSettingsSimpleButton_Click);
             // 
             // saveButton
             // 
@@ -291,7 +302,8 @@
             this.layoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.usersListLayoutControlItem,
             this.saveButtonLayoutControlItem,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.editSettingsLayoutControlItem});
             this.layoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup.Name = "Root";
             this.layoutControlGroup.Size = new System.Drawing.Size(639, 402);
@@ -311,9 +323,9 @@
             // saveButtonLayoutControlItem
             // 
             this.saveButtonLayoutControlItem.Control = this.saveButton;
-            this.saveButtonLayoutControlItem.Location = new System.Drawing.Point(409, 346);
+            this.saveButtonLayoutControlItem.Location = new System.Drawing.Point(488, 346);
             this.saveButtonLayoutControlItem.Name = "saveButtonLayoutControlItem";
-            this.saveButtonLayoutControlItem.Size = new System.Drawing.Size(210, 36);
+            this.saveButtonLayoutControlItem.Size = new System.Drawing.Size(131, 36);
             this.saveButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 10, 0);
             this.saveButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.saveButtonLayoutControlItem.TextVisible = false;
@@ -323,8 +335,18 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 346);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(409, 36);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(342, 36);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // editSettingsLayoutControlItem
+            // 
+            this.editSettingsLayoutControlItem.Control = this.editSettingsSimpleButton;
+            this.editSettingsLayoutControlItem.Location = new System.Drawing.Point(342, 346);
+            this.editSettingsLayoutControlItem.Name = "editSettingsLayoutControlItem";
+            this.editSettingsLayoutControlItem.Size = new System.Drawing.Size(146, 36);
+            this.editSettingsLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 10, 0);
+            this.editSettingsLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.editSettingsLayoutControlItem.TextVisible = false;
             // 
             // mvvmAdminSettingsContext
             // 
@@ -348,6 +370,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.usersListLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editSettingsLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmAdminSettingsContext)).EndInit();
             this.ResumeLayout(false);
 
@@ -386,5 +409,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit showAnswerRepositoryItemCheckEdit;
         private DevExpress.XtraGrid.Columns.GridColumn canEditGridColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit canEditRepositoryItemCheckEdit;
+        private DevExpress.XtraEditors.SimpleButton editSettingsSimpleButton;
+        private DevExpress.XtraLayout.LayoutControlItem editSettingsLayoutControlItem;
     }
 }

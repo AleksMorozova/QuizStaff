@@ -92,5 +92,10 @@ namespace AdminApplication.AdminSettings
             model.GetAllTestees();
             testeeListGridControl.DataSource = model.Testees;
         }
+
+        private void editSettingsSimpleButton_Click(object sender, EventArgs e)
+        {
+            model.EditTesteeTrainigs(GetSelectedTestees());
+        }
     }
 }

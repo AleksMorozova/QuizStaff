@@ -101,6 +101,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminSettings\EditSettingsViewModel.cs" />
+    <Compile Include="AdminSettings\EditTesteesTrainingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSettings\EditTesteesTrainingsForm.Designer.cs">
+      <DependentUpon>EditTesteesTrainingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSettings\EditTesteesTrainingsViewModel.cs" />
     <Compile Include="TesteeSettings\TesteeSettingsViewModel.cs" />
     <Compile Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.cs">
       <SubType>Form</SubType>
@@ -186,6 +193,9 @@
     <Compile Include="TrainingsForms\TrainingsList\TrainingListViewModel.cs" />
     <EmbeddedResource Include="AdminSettings\EditSettingsForm.RU-ru.resx">
       <DependentUpon>EditSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\EditTesteesTrainingsForm.resx">
+      <DependentUpon>EditTesteesTrainingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TesteeSettings\TesteeSettingsForm.Ru-ru.resx">
       <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
