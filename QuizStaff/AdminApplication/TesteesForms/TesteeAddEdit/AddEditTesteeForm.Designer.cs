@@ -212,6 +212,7 @@
             this.trainingsRepositoryItemLookUpEdit.Name = "trainingsRepositoryItemLookUpEdit";
             this.trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";
             this.trainingsRepositoryItemLookUpEdit.View = this.repositoryItemGridLookUpEdit1View;
+            this.trainingsRepositoryItemLookUpEdit.EditValueChanged += new System.EventHandler(this.trainingsRepositoryItemLookUpEdit_EditValueChanged);
             // 
             // repositoryItemGridLookUpEdit1View
             // 

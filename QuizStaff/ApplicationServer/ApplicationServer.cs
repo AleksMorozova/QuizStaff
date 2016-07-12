@@ -219,10 +219,12 @@ namespace Server
             repo.Create(newQuestion);
         }
 
-        public void UpdateTestee(TesteeDTO testee)
+        public TesteeDTO UpdateTestee(TesteeDTO testee)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
-            repo.Update(Conversion.ConvertTesteeFromDTO(testee));
+            Testee updatedTestee = Conversion.ConvertTesteeFromDTO(testee);
+            repo.Update(updatedTestee);
+            return (TesteeDTO)updatedTestee;
         }
 
         public TesteeDTO SaveTestee(TesteeDTO testee)

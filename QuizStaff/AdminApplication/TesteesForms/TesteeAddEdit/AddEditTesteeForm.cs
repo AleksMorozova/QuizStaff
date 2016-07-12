@@ -104,11 +104,17 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         {
             //TODO: get current testee training 
             GridView v = sender as GridView;
-            var currentValue = v.EditingValue;
+            var currentValue = v.EditingValue;           
             TesteeTraining training = v.GetRow(e.RowHandle) as TesteeTraining;
+         
             training.IsActive = true;
+             
             training.IsSelect = true;
-            training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
+            if (currentValue != null)
+            {
+
+                training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
+            }
         }
 
         private TesteeTraining GetCurrentTesteeTraining()
@@ -132,6 +138,15 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
                 ServicesHolder.ServiceClient.DeleteTesteeTraining(Conversion.ConvertTesteeTrainingToDTO(newTesteeTraining));
             }
+        }
+
+        private void trainingsRepositoryItemLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            var testeeTraining = GetCurrentTesteeTraining();
+
+            GridLookUpEdit editor = (sender as GridLookUpEdit);
+            var currentTraining = editor.EditValue;
+            testeeTraining.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentTraining.ToString()).First();
         }
     }
 }
