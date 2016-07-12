@@ -198,10 +198,12 @@ namespace Server
             //repo.Create((Question)question);
         }
 
-        public void UpdateTraining(TrainingDTO training)
+        public TrainingDTO UpdateTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            repo.Update(Conversion.ConvertTrainingFromDTO(training));
+            Training updateTrainings = Conversion.ConvertTrainingFromDTO(training);
+            repo.Update(updateTrainings);
+            return (TrainingDTO)updateTrainings;
         }
 
         public TrainingDTO SaveTraining(TrainingDTO training)
