@@ -70,7 +70,14 @@ namespace DataTransferObject
         public static implicit operator SettingDTO(Setting setting)
         {
             SettingDTO newSetting = new SettingDTO();
-            Conversion.CopyProperty(setting, newSetting);
+
+            newSetting.Id = setting.Id;
+            newSetting.FrequencyOfAsking = setting.FrequencyOfAsking;
+            newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
+            newSetting.TimeOfStart = setting.TimeOfStart;
+            newSetting.CanUserEdit = setting.CanUserEdit;
+            newSetting.ShowCorrectAnswer = setting.ShowCorrectAnswer;
+
             return newSetting;
         }
 

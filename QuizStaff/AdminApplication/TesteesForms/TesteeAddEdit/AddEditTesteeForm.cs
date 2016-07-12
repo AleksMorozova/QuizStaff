@@ -20,7 +20,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
        private TesteeViewModel model;
 
        public AddEditTesteeForm()
-           : this(new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now} }) { }
+           : this(new Testee() { IsActive = true, IsSelected = false, 
+               UserSetting = new Setting() { TimeOfStart = DateTime.Now }, Trainings = new BindingList<TesteeTraining> { } }) { }
 
         public AddEditTesteeForm(Testee testee)
         {
@@ -106,6 +107,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             var currentValue = v.EditingValue;
             TesteeTraining training = v.GetRow(e.RowHandle) as TesteeTraining;
             training.IsActive = true;
+            training.IsSelect = true;
             training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
         }
 
@@ -126,8 +128,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 TesteeTraining newTesteeTraining = new TesteeTraining();
                 newTesteeTraining.Id = testeeTraining.Id;
                 newTesteeTraining.IsActive = testeeTraining.IsActive;
-                newTesteeTraining.Training = new Training();
-                Conversion.CopyProperty(testeeTraining.Training, newTesteeTraining.Training);
+                newTesteeTraining.Training = Conversion.ConvertTrainingFromDTO(testeeTraining.Training);
 
                 ServicesHolder.ServiceClient.DeleteTesteeTraining(Conversion.ConvertTesteeTrainingToDTO(newTesteeTraining));
             }

@@ -14,6 +14,7 @@ namespace DataTransferObject
         public virtual TrainingDTO Training { get; set; }
 
         public bool IsActive { get; set; }
+        public bool IsSelect { get; set; }
 
         public static implicit operator TesteeTrainingDTO(TesteeTraining testeeTrainings)
         {
