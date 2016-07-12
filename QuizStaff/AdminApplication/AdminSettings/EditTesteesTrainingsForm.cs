@@ -24,6 +24,7 @@ namespace AdminApplication.AdminSettings
 
             mvvmEditTesteesTrainingsContext.ViewModelType = typeof(EditTesteesTrainingsViewModel);
             model = mvvmEditTesteesTrainingsContext.GetViewModel<EditTesteesTrainingsViewModel>();
+            model.SetUpTrainigs(SelectedTestees);
             mvvmEditTesteesTrainingsContext.SetViewModel(typeof(EditTesteesTrainingsViewModel), model);
             BindToViewModel();
         }

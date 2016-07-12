@@ -32,7 +32,6 @@ namespace AdminApplication.AdminSettings
         }
 
         private BindingList<TesteeTraining> trainigs;
-
         public BindingList<TesteeTraining> Trainigs
         {
             get
@@ -49,12 +48,20 @@ namespace AdminApplication.AdminSettings
                 }
             }
         }
-        public void SetUpSettings(BindingList<Testee> currentTestees)
+        public void SetUpTrainigs(BindingList<Testee> currentTestees)
         {
             testees = currentTestees;
             Trainigs = new BindingList<TesteeTraining>();
 
             //TODO: создать список уникальных тренингов
+            if (testees.Count > 0)
+            {
+                foreach(var testee in testees)
+                {
+                    foreach (var training in testee.Trainings.ToArray())
+                        Trainigs.Add(training);
+                }
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
