@@ -48,20 +48,56 @@ namespace AdminApplication.AdminSettings
                 }
             }
         }
+        private BindingList<TesteeTraining> resultTrainings;
         public void SetUpTrainigs(BindingList<Testee> currentTestees)
         {
             testees = currentTestees;
             Trainigs = new BindingList<TesteeTraining>();
+            resultTrainings = new BindingList<TesteeTraining>();
 
-            //TODO: создать список уникальных тренингов
+            List<List<TesteeTraining>> everyTesteeTraningsList = new List<List<TesteeTraining>>();
+
             if (testees.Count > 0)
             {
-                foreach(var testee in testees)
+                // Собрали список тренингов каждого конкретного testee
+                foreach (var testee in testees)
                 {
-                    foreach (var training in testee.Trainings.ToArray())
-                        Trainigs.Add(training);
+                    List<TesteeTraining> currentTesteeTraningList = new List<TesteeTraining>();
+                    foreach (var training in testee.Trainings)
+                    {
+                        currentTesteeTraningList.Add(training);
+                    }
+                    everyTesteeTraningsList.Add(currentTesteeTraningList);
+                }
+                
+                // Выделяем пересекающиеся у всех testee тренинги
+                List<TesteeTraining> firstOfTesteesTrainingsList = everyTesteeTraningsList.First();
+                foreach(TesteeTraining training in firstOfTesteesTrainingsList)
+                {
+                    bool trainingExistInEveryList = true;
+                    foreach (var trainingsList in everyTesteeTraningsList)
+                    {
+                        trainingExistInEveryList = trainingsList.Exists(_=>_.Training == training.Training);
+                        if (!trainingExistInEveryList)
+                            break;
+                    }
+
+                    if(trainingExistInEveryList)
+                    {
+                        resultTrainings.Add(training);
+                    }
+                }
+
+                foreach (var training in resultTrainings)
+                {
+                    Trainigs.Add(training);
                 }
             }
+        }
+
+        public void SaveSelectChanges()
+        {
+            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

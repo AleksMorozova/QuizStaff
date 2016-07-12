@@ -23,6 +23,7 @@ namespace AdminApplication.AdminSettings
             Localized(Program.currentLang);
 
             mvvmEditTesteesTrainingsContext.ViewModelType = typeof(EditTesteesTrainingsViewModel);
+            BindCommand();
             model = mvvmEditTesteesTrainingsContext.GetViewModel<EditTesteesTrainingsViewModel>();
             model.SetUpTrainigs(SelectedTestees);
             mvvmEditTesteesTrainingsContext.SetViewModel(typeof(EditTesteesTrainingsViewModel), model);
@@ -40,7 +41,10 @@ namespace AdminApplication.AdminSettings
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Edit testees and trainings";
         }
-        
+        private void BindCommand()
+        {
+            mvvmEditTesteesTrainingsContext.BindCommand<EditTesteesTrainingsViewModel>(simpleButtonApply, viewModel => viewModel.SaveSelectChanges());
+        }
         private void BindToViewModel()
         {
             mvvmEditTesteesTrainingsContext.SetBinding(gridControlTesteesTrainings, trainings => trainings.DataSource, "Trainigs");
@@ -49,6 +53,11 @@ namespace AdminApplication.AdminSettings
         private void simpleButtonCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void simpleButtonApply_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
