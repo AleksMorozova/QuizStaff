@@ -25,8 +25,8 @@ namespace Server
         [OperationContract]
         Boolean SetUsersSettings(SettingDTO sets, Guid id);
 
-        [OperationContract]
-        List<QuestionDTO> GetTrainingQuestions(TrainingDTO training);
+        //[OperationContract]
+        //List<QuestionDTO> GetTrainingQuestions(TrainingDTO training);
 
         [OperationContract]
         SettingDTO GetUsersSettings(Guid id);
@@ -36,6 +36,9 @@ namespace Server
 
         [OperationContract]
         QuestionDTO GetRandomQuestionForTestee(Guid id);
+
+        [OperationContract]
+        List<TrainingDTO> GetAllActiveTrainings();
 
         [OperationContract]
         List<TrainingDTO> GetAllTrainings();
@@ -62,7 +65,7 @@ namespace Server
         void SaveQuestion(QuestionDTO training);
 
         [OperationContract]
-        void UpdateTestee(TesteeDTO testee);
+        TesteeDTO UpdateTestee(TesteeDTO testee);
 
         [OperationContract]
         TesteeDTO SaveTestee(TesteeDTO testee);
@@ -75,5 +78,8 @@ namespace Server
 
         [OperationContract]
         void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining);
+
+        [OperationContract]
+        TrainingDTO FindByTitle(string title);
     }
 }

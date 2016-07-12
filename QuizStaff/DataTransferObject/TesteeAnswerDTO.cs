@@ -17,8 +17,7 @@ namespace DataTransferObject
 
         public static implicit operator TesteeAnswerDTO(TesteeAnswer testeeAnswer)
         {
-            TesteeAnswerDTO newTesteeAnswer = new TesteeAnswerDTO();
-            Conversion.CopyProperty(testeeAnswer, newTesteeAnswer);
+            TesteeAnswerDTO newTesteeAnswer = Conversion.ConvertTesteeAnswerToDTO(testeeAnswer);
             return newTesteeAnswer;
         }
     }

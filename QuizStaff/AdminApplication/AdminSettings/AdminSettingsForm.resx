@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="editSettingsSimpleButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 368</value>
+  </data>
+  <data name="editSettingsSimpleButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 22</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="editSettingsSimpleButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="editSettingsSimpleButton.Text" xml:space="preserve">
+    <value>Edit settings</value>
+  </data>
+  <data name="&gt;&gt;editSettingsSimpleButton.Name" xml:space="preserve">
+    <value>editSettingsSimpleButton</value>
+  </data>
+  <data name="&gt;&gt;editSettingsSimpleButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;editSettingsSimpleButton.Parent" xml:space="preserve">
+    <value>dateImpactLabelLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;editSettingsSimpleButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>500, 368</value>
+  </data>
+  <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 22</value>
+  </data>
+  <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="saveButton.Text" xml:space="preserve">
+    <value>Change settings</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
+    <value>saveButton</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
+    <value>dateImpactLabelLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="testeeListGridControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 28</value>
+  </data>
+  <data name="firstNameGridColumn.Caption" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="firstNameGridColumn.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="firstNameGridColumn.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="firstNameGridColumn.Width" type="System.Int32, mscorlib">
+    <value>116</value>
+  </data>
+  <data name="lastNameGridColumn.Caption" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="lastNameGridColumn.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lastNameGridColumn.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lastNameGridColumn.Width" type="System.Int32, mscorlib">
+    <value>116</value>
+  </data>
+  <data name="frequencyOfAskingGridColumn.Caption" xml:space="preserve">
+    <value>Frequency of asking</value>
+  </data>
+  <data name="frequencyOfAskingGridColumn.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="frequencyOfAskingGridColumn.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="frequencyOfAskingGridColumn.Width" type="System.Int32, mscorlib">
+    <value>116</value>
+  </data>
+  <data name="amountOfQuestionsPerDayGridColumn.Caption" xml:space="preserve">
+    <value>Amount of questions</value>
+  </data>
+  <data name="amountOfQuestionsPerDayGridColumn.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="amountOfQuestionsPerDayGridColumn.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="amountOfQuestionsPerDayGridColumn.Width" type="System.Int32, mscorlib">
+    <value>116</value>
+  </data>
+  <data name="timeOfStartGridColumn.Caption" xml:space="preserve">
+    <value>Time of start</value>
+  </data>
+  <data name="repositoryItemTimeEdit1.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="repositoryItemTimeEdit1.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="timeOfStartGridColumn.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="timeOfStartGridColumn.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="timeOfStartGridColumn.Width" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="attribute1GridColumn.Caption" xml:space="preserve">
+    <value>Attribute1</value>
+  </data>
+  <data name="attribute2GridColumn.Caption" xml:space="preserve">
+    <value>Attribute2</value>
+  </data>
+  <data name="attribute3GridColumn.Caption" xml:space="preserve">
+    <value>Attribute3</value>
+  </data>
+  <data name="attribute4GridColumn.Caption" xml:space="preserve">
+    <value>Attribute4</value>
+  </data>
+  <data name="attribute5GridColumn.Caption" xml:space="preserve">
+    <value>Attribute5</value>
+  </data>
+  <data name="attribute6GridColumn.Caption" xml:space="preserve">
+    <value>Attribute6</value>
+  </data>
+  <data name="attribute7GridColumn.Caption" xml:space="preserve">
+    <value>Attribute7</value>
+  </data>
+  <data name="attribute8GridColumn.Caption" xml:space="preserve">
+    <value>Attribute8</value>
+  </data>
+  <data name="attribute9GridColumn.Caption" xml:space="preserve">
+    <value>Attribute9</value>
+  </data>
+  <data name="attribute10GridColumn.Caption" xml:space="preserve">
+    <value>Attribute10</value>
+  </data>
+  <data name="checkGridColumn.Caption" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="repositoryItemCheckEdit1.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="checkGridColumn.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkGridColumn.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="checkGridColumn.Width" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="showCorrectAnswerGridColumn.Caption" xml:space="preserve">
+    <value>Show correct answer</value>
+  </data>
+  <data name="showAnswerRepositoryItemCheckEdit.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="showCorrectAnswerGridColumn.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="showCorrectAnswerGridColumn.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="showCorrectAnswerGridColumn.Width" type="System.Int32, mscorlib">
+    <value>88</value>
+  </data>
+  <data name="canEditGridColumn.Caption" xml:space="preserve">
+    <value>Can edit</value>
+  </data>
+  <data name="canEditRepositoryItemCheckEdit.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="canEditGridColumn.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="canEditGridColumn.VisibleIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="canEditGridColumn.Width" type="System.Int32, mscorlib">
+    <value>72</value>
+  </data>
+  <data name="testeeListGridControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>605, 326</value>
+  </data>
+  <data name="testeeListGridControl.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;testeeListGridControl.Name" xml:space="preserve">
+    <value>testeeListGridControl</value>
+  </data>
+  <data name="&gt;&gt;testeeListGridControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;testeeListGridControl.Parent" xml:space="preserve">
+    <value>dateImpactLabelLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;testeeListGridControl.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dateImpactLabelLayoutControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="dateImpactLabelLayoutControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="usersListLayoutControlItem.Text" xml:space="preserve">
+    <value>Users list:</value>
+  </data>
+  <data name="dateImpactLabelLayoutControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 402</value>
+  </data>
+  <data name="dateImpactLabelLayoutControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="dateImpactLabelLayoutControl.Text" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;dateImpactLabelLayoutControl.Name" xml:space="preserve">
+    <value>dateImpactLabelLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;dateImpactLabelLayoutControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControl, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dateImpactLabelLayoutControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dateImpactLabelLayoutControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="mvvmAdminSettingsContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>639, 402</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>AdminSettingsForm</value>
+  </data>
+  <data name="&gt;&gt;testeesGridView.Name" xml:space="preserve">
+    <value>testeesGridView</value>
+  </data>
+  <data name="&gt;&gt;testeesGridView.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;firstNameGridColumn.Name" xml:space="preserve">
+    <value>firstNameGridColumn</value>
+  </data>
+  <data name="&gt;&gt;firstNameGridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lastNameGridColumn.Name" xml:space="preserve">
+    <value>lastNameGridColumn</value>
+  </data>
+  <data name="&gt;&gt;lastNameGridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;frequencyOfAskingGridColumn.Name" xml:space="preserve">
+    <value>frequencyOfAskingGridColumn</value>
+  </data>
+  <data name="&gt;&gt;frequencyOfAskingGridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;amountOfQuestionsPerDayGridColumn.Name" xml:space="preserve">
+    <value>amountOfQuestionsPerDayGridColumn</value>
+  </data>
+  <data name="&gt;&gt;amountOfQuestionsPerDayGridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;timeOfStartGridColumn.Name" xml:space="preserve">
+    <value>timeOfStartGridColumn</value>
+  </data>
+  <data name="&gt;&gt;timeOfStartGridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;repositoryItemTimeEdit1.Name" xml:space="preserve">
+    <value>repositoryItemTimeEdit1</value>
+  </data>
+  <data name="&gt;&gt;repositoryItemTimeEdit1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attribute1GridColumn.Name" xml:space="preserve">
+    <value>attribute1GridColumn</value>
+  </data>
+  <data name="&gt;&gt;attribute1GridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attribute2GridColumn.Name" xml:space="preserve">
+    <value>attribute2GridColumn</value>
+  </data>
+  <data name="&gt;&gt;attribute2GridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attribute3GridColumn.Name" xml:space="preserve">
+    <value>attribute3GridColumn</value>
+  </data>
+  <data name="&gt;&gt;attribute3GridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attribute4GridColumn.Name" xml:space="preserve">
+    <value>attribute4GridColumn</value>
+  </data>
+  <data name="&gt;&gt;attribute4GridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attribute5GridColumn.Name" xml:space="preserve">
+    <value>attribute5GridColumn</value>
+  </data>
+  <data name="&gt;&gt;attribute5GridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attribute6GridColumn.Name" xml:space="preserve">
+    <value>attribute6GridColumn</value>
+  </data>
+  <data name="&gt;&gt;attribute6GridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attribute7GridColumn.Name" xml:space="preserve">
+    <value>attribute7GridColumn</value>
+  </data>
+  <data name="&gt;&gt;attribute7GridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attribute8GridColumn.Name" xml:space="preserve">
+    <value>attribute8GridColumn</value>
+  </data>
+  <data name="&gt;&gt;attribute8GridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attribute9GridColumn.Name" xml:space="preserve">
+    <value>attribute9GridColumn</value>
+  </data>
+  <data name="&gt;&gt;attribute9GridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;attribute10GridColumn.Name" xml:space="preserve">
+    <value>attribute10GridColumn</value>
+  </data>
+  <data name="&gt;&gt;attribute10GridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;checkGridColumn.Name" xml:space="preserve">
+    <value>checkGridColumn</value>
+  </data>
+  <data name="&gt;&gt;checkGridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;repositoryItemCheckEdit1.Name" xml:space="preserve">
+    <value>repositoryItemCheckEdit1</value>
+  </data>
+  <data name="&gt;&gt;repositoryItemCheckEdit1.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;showCorrectAnswerGridColumn.Name" xml:space="preserve">
+    <value>showCorrectAnswerGridColumn</value>
+  </data>
+  <data name="&gt;&gt;showCorrectAnswerGridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;showAnswerRepositoryItemCheckEdit.Name" xml:space="preserve">
+    <value>showAnswerRepositoryItemCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;showAnswerRepositoryItemCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;canEditGridColumn.Name" xml:space="preserve">
+    <value>canEditGridColumn</value>
+  </data>
+  <data name="&gt;&gt;canEditGridColumn.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;canEditRepositoryItemCheckEdit.Name" xml:space="preserve">
+    <value>canEditRepositoryItemCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;canEditRepositoryItemCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlGroup.Name" xml:space="preserve">
+    <value>layoutControlGroup</value>
+  </data>
+  <data name="&gt;&gt;layoutControlGroup.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;usersListLayoutControlItem.Name" xml:space="preserve">
+    <value>usersListLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;usersListLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;saveButtonLayoutControlItem.Name" xml:space="preserve">
+    <value>saveButtonLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;saveButtonLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;emptySpaceItem1.Name" xml:space="preserve">
+    <value>emptySpaceItem1</value>
+  </data>
+  <data name="&gt;&gt;emptySpaceItem1.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;editSettingsLayoutControlItem.Name" xml:space="preserve">
+    <value>editSettingsLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;editSettingsLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;mvvmAdminSettingsContext.Name" xml:space="preserve">
+    <value>mvvmAdminSettingsContext</value>
+  </data>
+  <data name="&gt;&gt;mvvmAdminSettingsContext.Type" xml:space="preserve">
+    <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>AdminSettingsForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+</root>
