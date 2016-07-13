@@ -198,10 +198,12 @@ namespace Server
             //repo.Create((Question)question);
         }
 
-        public void UpdateTraining(TrainingDTO training)
+        public TrainingDTO UpdateTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            repo.Update(Conversion.ConvertTrainingFromDTO(training));
+            Training updateTrainings = Conversion.ConvertTrainingFromDTO(training);
+            repo.Update(updateTrainings);
+            return (TrainingDTO)updateTrainings;
         }
 
         public TrainingDTO SaveTraining(TrainingDTO training)
@@ -219,10 +221,12 @@ namespace Server
             repo.Create(newQuestion);
         }
 
-        public void UpdateTestee(TesteeDTO testee)
+        public TesteeDTO UpdateTestee(TesteeDTO testee)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
-            repo.Update(Conversion.ConvertTesteeFromDTO(testee));
+            Testee updatedTestee = Conversion.ConvertTesteeFromDTO(testee);
+            repo.Update(updatedTestee);
+            return (TesteeDTO)updatedTestee;
         }
 
         public TesteeDTO SaveTestee(TesteeDTO testee)

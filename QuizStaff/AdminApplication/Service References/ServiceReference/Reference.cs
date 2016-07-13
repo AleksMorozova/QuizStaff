@@ -39,12 +39,6 @@ namespace AdminApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SetUsersSettings", ReplyAction="http://tempuri.org/IApplicationServer/SetUsersSettingsResponse")]
         System.Threading.Tasks.Task<bool> SetUsersSettingsAsync(DataTransferObject.SettingDTO sets, System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTrainingQuestions", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingQuestionsResponse")]
-        DataTransferObject.QuestionDTO[] GetTrainingQuestions(DataTransferObject.TrainingDTO training);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTrainingQuestions", ReplyAction="http://tempuri.org/IApplicationServer/GetTrainingQuestionsResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.QuestionDTO[]> GetTrainingQuestionsAsync(DataTransferObject.TrainingDTO training);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetUsersSettings", ReplyAction="http://tempuri.org/IApplicationServer/GetUsersSettingsResponse")]
         DataTransferObject.SettingDTO GetUsersSettings(System.Guid id);
         
@@ -94,10 +88,10 @@ namespace AdminApplication.ServiceReference {
         System.Threading.Tasks.Task SaveAnswerAsync(DataTransferObject.QuestionDTO question);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTrainingResponse")]
-        void UpdateTraining(DataTransferObject.TrainingDTO training);
+        DataTransferObject.TrainingDTO UpdateTraining(DataTransferObject.TrainingDTO training);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTrainingResponse")]
-        System.Threading.Tasks.Task UpdateTrainingAsync(DataTransferObject.TrainingDTO training);
+        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> UpdateTrainingAsync(DataTransferObject.TrainingDTO training);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTraining", ReplyAction="http://tempuri.org/IApplicationServer/SaveTrainingResponse")]
         DataTransferObject.TrainingDTO SaveTraining(DataTransferObject.TrainingDTO training);
@@ -118,10 +112,10 @@ namespace AdminApplication.ServiceReference {
         System.Threading.Tasks.Task SaveQuestionAsync(DataTransferObject.QuestionDTO training);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTestee", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeResponse")]
-        void UpdateTestee(DataTransferObject.TesteeDTO testee);
+        DataTransferObject.TesteeDTO UpdateTestee(DataTransferObject.TesteeDTO testee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTestee", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeResponse")]
-        System.Threading.Tasks.Task UpdateTesteeAsync(DataTransferObject.TesteeDTO testee);
+        System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> UpdateTesteeAsync(DataTransferObject.TesteeDTO testee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTestee", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeResponse")]
         DataTransferObject.TesteeDTO SaveTestee(DataTransferObject.TesteeDTO testee);
@@ -213,14 +207,6 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.SetUsersSettingsAsync(sets, id);
         }
         
-        public DataTransferObject.QuestionDTO[] GetTrainingQuestions(DataTransferObject.TrainingDTO training) {
-            return base.Channel.GetTrainingQuestions(training);
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO[]> GetTrainingQuestionsAsync(DataTransferObject.TrainingDTO training) {
-            return base.Channel.GetTrainingQuestionsAsync(training);
-        }
-        
         public DataTransferObject.SettingDTO GetUsersSettings(System.Guid id) {
             return base.Channel.GetUsersSettings(id);
         }
@@ -285,11 +271,11 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.SaveAnswerAsync(question);
         }
         
-        public void UpdateTraining(DataTransferObject.TrainingDTO training) {
-            base.Channel.UpdateTraining(training);
+        public DataTransferObject.TrainingDTO UpdateTraining(DataTransferObject.TrainingDTO training) {
+            return base.Channel.UpdateTraining(training);
         }
         
-        public System.Threading.Tasks.Task UpdateTrainingAsync(DataTransferObject.TrainingDTO training) {
+        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> UpdateTrainingAsync(DataTransferObject.TrainingDTO training) {
             return base.Channel.UpdateTrainingAsync(training);
         }
         
@@ -317,11 +303,11 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.SaveQuestionAsync(training);
         }
         
-        public void UpdateTestee(DataTransferObject.TesteeDTO testee) {
-            base.Channel.UpdateTestee(testee);
+        public DataTransferObject.TesteeDTO UpdateTestee(DataTransferObject.TesteeDTO testee) {
+            return base.Channel.UpdateTestee(testee);
         }
         
-        public System.Threading.Tasks.Task UpdateTesteeAsync(DataTransferObject.TesteeDTO testee) {
+        public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> UpdateTesteeAsync(DataTransferObject.TesteeDTO testee) {
             return base.Channel.UpdateTesteeAsync(testee);
         }
         

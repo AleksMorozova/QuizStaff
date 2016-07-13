@@ -240,7 +240,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 }
                 else
                 {
-                    ServicesHolder.ServiceClient.UpdateTestee(Conversion.ConvertTesteeToDTO(this.Testee));
+                    var updateTestee = ServicesHolder.ServiceClient.UpdateTestee(Conversion.ConvertTesteeToDTO(this.Testee));
+                    this.Testee = Conversion.ConvertTesteeFromDTO(updateTestee);
                 }
             }
         }

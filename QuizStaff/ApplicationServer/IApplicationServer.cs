@@ -53,7 +53,7 @@ namespace Server
         void SaveAnswer(QuestionDTO question);
 
         [OperationContract]
-        void UpdateTraining(TrainingDTO training);
+        TrainingDTO UpdateTraining(TrainingDTO training);
         
         [OperationContract]
         TrainingDTO SaveTraining(TrainingDTO training);
@@ -65,7 +65,7 @@ namespace Server
         void SaveQuestion(QuestionDTO training);
 
         [OperationContract]
-        void UpdateTestee(TesteeDTO testee);
+        TesteeDTO UpdateTestee(TesteeDTO testee);
 
         [OperationContract]
         TesteeDTO SaveTestee(TesteeDTO testee);
