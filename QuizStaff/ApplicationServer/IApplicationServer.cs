@@ -71,7 +71,7 @@ namespace Server
         TesteeDTO SaveTestee(TesteeDTO testee);
 
         [OperationContract]
-        void UpdateSettings(SettingDTO setting);
+        void UpdateSettings(SettingDTO[] setting);
 
         [OperationContract]
         void DeleteAnswer(AnswerDTO answer);

@@ -140,4 +140,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfTrainingDTO" nillable="true" type="tns:ArrayOfTrainingDTO" />
+  <xs:complexType name="ArrayOfSettingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SettingDTO" nillable="true" type="tns:SettingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSettingDTO" nillable="true" type="tns:ArrayOfSettingDTO" />
 </xs:schema>
