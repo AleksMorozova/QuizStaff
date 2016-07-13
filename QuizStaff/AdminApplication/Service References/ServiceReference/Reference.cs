@@ -124,10 +124,10 @@ namespace AdminApplication.ServiceReference {
         System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> SaveTesteeAsync(DataTransferObject.TesteeDTO testee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSettingsResponse")]
-        void UpdateSettings(DataTransferObject.SettingDTO setting);
+        void UpdateSettings(DataTransferObject.SettingDTO[] setting);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSettingsResponse")]
-        System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO setting);
+        System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO[] setting);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteAnswer", ReplyAction="http://tempuri.org/IApplicationServer/DeleteAnswerResponse")]
         void DeleteAnswer(DataTransferObject.AnswerDTO answer);
@@ -319,11 +319,11 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.SaveTesteeAsync(testee);
         }
         
-        public void UpdateSettings(DataTransferObject.SettingDTO setting) {
+        public void UpdateSettings(DataTransferObject.SettingDTO[] setting) {
             base.Channel.UpdateSettings(setting);
         }
         
-        public System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO setting) {
+        public System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO[] setting) {
             return base.Channel.UpdateSettingsAsync(setting);
         }
         
