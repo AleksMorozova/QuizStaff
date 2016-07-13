@@ -86,7 +86,7 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
             if (e.Button.ButtonType == NavigatorButtonType.Remove)
             {
                 var answer = GetCurrentAnswer();
-                if (answer.Id != Guid.Empty)
+                if (answer!= null && answer.Id != Guid.Empty)
                 {
                     answer.IsActive = false;
                     AnswerDTO newAnswer = Conversion.ConvertAnswerToDTO(answer);

@@ -126,14 +126,17 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             if (e.Button.ButtonType == NavigatorButtonType.Remove)
             {
                 var testeeTraining = GetCurrentTesteeTraining();
-                testeeTraining.IsActive = false;
-            
-                TesteeTraining newTesteeTraining = new TesteeTraining();
-                newTesteeTraining.Id = testeeTraining.Id;
-                newTesteeTraining.IsActive = testeeTraining.IsActive;
-                newTesteeTraining.Training = Conversion.ConvertTrainingFromDTO(testeeTraining.Training);
+                if (testeeTraining != null)
+                {
+                    testeeTraining.IsActive = false;
 
-                ServicesHolder.ServiceClient.DeleteTesteeTraining(Conversion.ConvertTesteeTrainingToDTO(newTesteeTraining));
+                    TesteeTraining newTesteeTraining = new TesteeTraining();
+                    newTesteeTraining.Id = testeeTraining.Id;
+                    newTesteeTraining.IsActive = testeeTraining.IsActive;
+                    newTesteeTraining.Training = Conversion.ConvertTrainingFromDTO(testeeTraining.Training);
+                    // TODO: implement discarding of entity 
+                    ServicesHolder.ServiceClient.DeleteTesteeTraining(Conversion.ConvertTesteeTrainingToDTO(newTesteeTraining));
+                }
             }
         }
 
