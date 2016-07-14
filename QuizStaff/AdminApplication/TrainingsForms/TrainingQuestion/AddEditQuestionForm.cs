@@ -81,18 +81,20 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
             return editedAnswer;
         }
 
-        private void answersGridControl_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
+        private void deleteAnswerButton_Click(object sender, EventArgs e)
         {
-            if (e.Button.ButtonType == NavigatorButtonType.Remove)
-            {
-                var answer = GetCurrentAnswer();
-                if (answer!= null && answer.Id != Guid.Empty)
-                {
-                    answer.IsActive = false;
-                    AnswerDTO newAnswer = Conversion.ConvertAnswerToDTO(answer);
-                    ServicesHolder.ServiceClient.DeleteAnswer(newAnswer);
-                }
-            }
+            model.DeleteAnswer(GetCurrentAnswer());
+            this.answersGridControl.DataSource = model.Question.Answers.Select(_ => _).Where(t => t.IsActive);
+        }
+
+        private void addAnswerButton_Click(object sender, EventArgs e)
+        {
+            Answer answer = new Answer();
+            answer.IsActive = true;
+            answer.IsCorrect = true;
+            model.Question.Answers.Add(answer);
+
+            this.answersGridControl.DataSource = model.Question.Answers.Select(_ => _).Where(t => t.IsActive);
         }
     }
 }

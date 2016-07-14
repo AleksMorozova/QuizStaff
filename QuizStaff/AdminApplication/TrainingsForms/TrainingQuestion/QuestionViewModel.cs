@@ -50,6 +50,18 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
             this.Question = question;
         }
 
+        public void DeleteAnswer(Answer deleteAnswer) 
+        {
+            if (deleteAnswer != null && deleteAnswer.Id != Guid.Empty)
+            {
+                var findAnswer = this.Question.Answers.Select(_ => _).Where(t => t.Id == deleteAnswer.Id);
+                foreach (var answer in findAnswer)
+                {
+                    answer.IsActive = false;
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void RaisePropertyChanged(string propertyName)
         {
