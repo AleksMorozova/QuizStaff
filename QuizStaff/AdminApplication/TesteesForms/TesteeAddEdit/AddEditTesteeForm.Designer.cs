@@ -71,8 +71,8 @@
             this.firstNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emailLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.deleteTrainingButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.addTrainingButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -109,8 +109,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deleteTrainingButtonLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addTrainingButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,7 +201,6 @@
             this.gridTrainings.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.trainingsRepositoryItemLookUpEdit,
             this.repositoryItemCheckEdit1});
-            this.gridTrainings.UseEmbeddedNavigator = false;
             this.gridTrainings.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTrainings});
             // 
@@ -429,8 +428,8 @@
             this.firstNameLayoutControlItem,
             this.emailLayoutControlItem,
             this.emptySpaceItem3,
-            this.layoutControlItem1,
-            this.layoutControlItem2});
+            this.deleteTrainingButtonLayoutControlItem,
+            this.addTrainingButtonLayoutControlItem});
             this.generalInfLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.generalInfLayoutControlGroup.Name = "generalInfLayoutControlGroup";
             this.generalInfLayoutControlGroup.Size = new System.Drawing.Size(660, 351);
@@ -499,25 +498,25 @@
             this.emptySpaceItem3.Size = new System.Drawing.Size(416, 26);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem1
+            // deleteTrainingButtonLayoutControlItem
             // 
-            this.layoutControlItem1.Control = this.deleteTrainingButton;
-            this.layoutControlItem1.Location = new System.Drawing.Point(528, 283);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(108, 26);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.deleteTrainingButtonLayoutControlItem.Control = this.deleteTrainingButton;
+            this.deleteTrainingButtonLayoutControlItem.Location = new System.Drawing.Point(528, 283);
+            this.deleteTrainingButtonLayoutControlItem.Name = "deleteTrainingButtonLayoutControlItem";
+            this.deleteTrainingButtonLayoutControlItem.Size = new System.Drawing.Size(108, 26);
+            this.deleteTrainingButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
+            this.deleteTrainingButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.deleteTrainingButtonLayoutControlItem.TextVisible = false;
             // 
-            // layoutControlItem2
+            // addTrainingButtonLayoutControlItem
             // 
-            this.layoutControlItem2.Control = this.addTrainingButton;
-            this.layoutControlItem2.Location = new System.Drawing.Point(416, 283);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(112, 26);
-            this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
+            this.addTrainingButtonLayoutControlItem.Control = this.addTrainingButton;
+            this.addTrainingButtonLayoutControlItem.Location = new System.Drawing.Point(416, 283);
+            this.addTrainingButtonLayoutControlItem.Name = "addTrainingButtonLayoutControlItem";
+            this.addTrainingButtonLayoutControlItem.Size = new System.Drawing.Size(112, 26);
+            this.addTrainingButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 0, 0);
+            this.addTrainingButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.addTrainingButtonLayoutControlItem.TextVisible = false;
             // 
             // mvvmTesteeContext
             // 
@@ -564,8 +563,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstNameLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deleteTrainingButtonLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addTrainingButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).EndInit();
             this.ResumeLayout(false);
 
@@ -614,8 +613,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraEditors.SimpleButton deleteTrainingButton;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem deleteTrainingButtonLayoutControlItem;
         private DevExpress.XtraEditors.SimpleButton addTrainingButton;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem addTrainingButtonLayoutControlItem;
     }
 }
