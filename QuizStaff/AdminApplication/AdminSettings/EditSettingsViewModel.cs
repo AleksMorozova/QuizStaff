@@ -117,19 +117,31 @@ namespace AdminApplication.AdminSettings
             {
                 Setting.TimeOfStart = t.First().First().UserSetting.TimeOfStart;
             }
+            else 
+            {
+                Setting.TimeOfStart = System.DateTime.Today.AddHours(11);
+            }
         }
         
         public void Save()
         {
+            List<SettingDTO> savedSettings = new List<SettingDTO>();
+
             if (this.Setting != null)
             {
-                SettingDTO s = this.Setting;
                 foreach (Testee testee in SelectedTestees)
                 {
-                    s.Id = testee.UserSetting.Id;
-                    ServicesHolder.ServiceClient.UpdateSettings(s);
+                    testee.UserSetting.AmountOfQuestionsPerDay = this.Setting.AmountOfQuestionsPerDay;
+                    testee.UserSetting.FrequencyOfAsking = this.Setting.FrequencyOfAsking;
+                    testee.UserSetting.CanUserEdit = this.Setting.CanUserEdit;
+                    testee.UserSetting.ShowCorrectAnswer = this.Setting.ShowCorrectAnswer;
+                    testee.UserSetting.TimeOfStart = this.Setting.TimeOfStart;
+
+                    savedSettings.Add(testee.UserSetting);
                 }
             }
+
+            ServicesHolder.ServiceClient.UpdateSettings(savedSettings.ToArray());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

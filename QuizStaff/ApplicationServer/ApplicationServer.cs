@@ -237,19 +237,21 @@ namespace Server
             return (TesteeDTO)savedTestee;
         }
 
-        public void UpdateSettings(SettingDTO setting)
+        public void UpdateSettings(SettingDTO[] settings)
         {
             EFRepository<Setting> repo = new EFRepository<DomainModel.Setting>();
-            Setting newSetting = new Setting();
-
-            newSetting.Id = setting.Id;
-            newSetting.FrequencyOfAsking = setting.FrequencyOfAsking;
-            newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
-            newSetting.TimeOfStart = setting.TimeOfStart;
-            newSetting.CanUserEdit = setting.CanUserEdit;
-            newSetting.ShowCorrectAnswer = setting.ShowCorrectAnswer;
-
-            repo.Update(newSetting);
+            foreach(var setting in settings.ToList())
+            {
+                Setting newSetting = new Setting();
+                newSetting.Id = setting.Id;
+                newSetting.FrequencyOfAsking = setting.FrequencyOfAsking;
+                newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
+                newSetting.TimeOfStart = setting.TimeOfStart;
+                newSetting.CanUserEdit = setting.CanUserEdit;
+                newSetting.ShowCorrectAnswer = setting.ShowCorrectAnswer;
+                
+                repo.Update(newSetting);
+            }      
         }
 
         public void UpdateQuestion(QuestionDTO question)

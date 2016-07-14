@@ -14,14 +14,19 @@ namespace AdminApplication.TesteesForms.TesteesList
     public class TesteesListViewModel
     {
         public BindingList<Testee> Testees { get; set; }
-       
+        private TesteeDTO[] ReadTestees { get; set; }
+
         public void GetAllTestee()
         {
             Testees = new BindingList<Testee>();
-            var testeesList = ServicesHolder.ServiceClient.GetAllTestees();
-            foreach (var testee in testeesList)
+
+            if (ReadTestees == null)
+                ReadTestees = ServicesHolder.ServiceClient.GetAllTestees();
+
+            foreach (var testee in ReadTestees)
             {
-                Testees.Add(Conversion.ConvertTesteeFromDTO(testee));              
+                if (testee.IsActive)
+                    Testees.Add(Conversion.ConvertTesteeFromDTO(testee));              
             }
         }
 

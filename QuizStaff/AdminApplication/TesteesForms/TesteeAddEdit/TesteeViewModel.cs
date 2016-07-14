@@ -255,5 +255,10 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public void DeleteTraining(TesteeTraining deletedTraining)
+        {
+            deletedTraining.IsActive = false;
+        }
     }
 }

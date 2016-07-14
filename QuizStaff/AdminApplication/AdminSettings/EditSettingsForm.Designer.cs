@@ -115,6 +115,7 @@
             this.timeOfAskingEditTime.Name = "timeOfAskingEditTime";
             this.timeOfAskingEditTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("timeOfAskingEditTime.Properties.Buttons"))))});
+            this.timeOfAskingEditTime.Properties.Mask.EditMask = resources.GetString("timeOfAskingEditTime.Properties.Mask.EditMask");
             this.timeOfAskingEditTime.StyleController = this.layoutControl1;
             // 
             // frequencySpinEdit

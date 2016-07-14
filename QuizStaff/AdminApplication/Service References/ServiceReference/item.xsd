@@ -240,7 +240,7 @@
   <xs:element name="UpdateSettings">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="setting" nillable="true" type="q27:SettingDTO" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="setting" nillable="true" type="q27:ArrayOfSettingDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
