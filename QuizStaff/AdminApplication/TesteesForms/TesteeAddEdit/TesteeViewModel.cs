@@ -256,16 +256,9 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             }
         }
 
-        public void DeleteTraining(TesteeTraining deletedTraining) 
+        public void DeleteTraining(TesteeTraining deletedTraining)
         {
-            if (deletedTraining != null && deletedTraining.Id != Guid.Empty)
-            {
-                var findTraining = this.Testee.Trainings.Select(_ => _).Where(t => t.Id == deletedTraining.Id);
-                foreach (var training in findTraining)
-                {
-                    training.IsActive = false;
-                }
-            }
+            deletedTraining.IsActive = false;
         }
     }
 }
