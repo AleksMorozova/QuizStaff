@@ -54,10 +54,5 @@ namespace AdminApplication.AdminSettings
         {
             Close();
         }
-
-        private void simpleButtonApply_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

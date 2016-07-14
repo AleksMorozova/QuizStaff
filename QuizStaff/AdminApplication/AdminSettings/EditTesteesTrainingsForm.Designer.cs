@@ -89,7 +89,6 @@
             this.simpleButtonApply.StyleController = this.layoutControl1;
             this.simpleButtonApply.TabIndex = 5;
             this.simpleButtonApply.Text = "Apply";
-            this.simpleButtonApply.Click += new System.EventHandler(this.simpleButtonApply_Click);
             // 
             // gridControlTesteesTrainings
             // 

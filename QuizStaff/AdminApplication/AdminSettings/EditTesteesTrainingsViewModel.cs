@@ -30,6 +30,7 @@ namespace AdminApplication.AdminSettings
               }
             } 
         }
+        private BindingList<TesteeTraining> allTrainingsOfSelectedTestees;
 
         private BindingList<TesteeTraining> trainigs;
         public BindingList<TesteeTraining> Trainigs
@@ -48,56 +49,62 @@ namespace AdminApplication.AdminSettings
                 }
             }
         }
-        private BindingList<TesteeTraining> resultTrainings;
         public void SetUpTrainigs(BindingList<Testee> currentTestees)
         {
             testees = currentTestees;
             Trainigs = new BindingList<TesteeTraining>();
-            resultTrainings = new BindingList<TesteeTraining>();
 
             List<List<TesteeTraining>> everyTesteeTraningsList = new List<List<TesteeTraining>>();
 
             if (testees.Count > 0)
             {
                 // Собрали список тренингов каждого конкретного testee
-                foreach (var testee in testees)
+                foreach (var testee in Testees)
                 {
                     List<TesteeTraining> currentTesteeTraningList = new List<TesteeTraining>();
                     foreach (var training in testee.Trainings)
                     {
                         currentTesteeTraningList.Add(training);
+                        allTrainingsOfSelectedTestees.Add(training);
                     }
                     everyTesteeTraningsList.Add(currentTesteeTraningList);
                 }
                 
                 // Выделяем пересекающиеся у всех testee тренинги
-                List<TesteeTraining> firstOfTesteesTrainingsList = everyTesteeTraningsList.First();
+                List<TesteeTraining> firstOfTesteesTrainingsList = everyTesteeTraningsList.First(); 
                 foreach(TesteeTraining training in firstOfTesteesTrainingsList)
                 {
                     bool trainingExistInEveryList = true;
                     foreach (var trainingsList in everyTesteeTraningsList)
                     {
-                        trainingExistInEveryList = trainingsList.Exists(_=>_.Training == training.Training);
+                        trainingExistInEveryList = trainingsList.Exists(_=>_.Training.TrainingTitle == training.Training.TrainingTitle);
                         if (!trainingExistInEveryList)
                             break;
                     }
 
                     if(trainingExistInEveryList)
                     {
-                        resultTrainings.Add(training);
+                        Trainigs.Add(training);
                     }
-                }
-
-                foreach (var training in resultTrainings)
-                {
-                    Trainigs.Add(training);
                 }
             }
         }
 
         public void SaveSelectChanges()
         {
-            
+            BindingList<TesteeTraining> resultList = new BindingList<TesteeTraining>();
+            foreach(var training in Trainigs)
+            {
+                foreach(var trainingFromAllTrainings in allTrainingsOfSelectedTestees)
+                {
+                    if(trainingFromAllTrainings.Training.TrainingTitle == training.Training.TrainingTitle)
+                    {
+                        trainingFromAllTrainings.IsSelect = training.IsSelect;
+                        resultList.Add(trainingFromAllTrainings);
+                    }
+                }
+            }
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
