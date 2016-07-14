@@ -183,4 +183,10 @@
   <data name="settingLayoutControlGroup.Text" xml:space="preserve">
     <value>Настройки</value>
   </data>
+  <data name="addTrainingButton.Text" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="deleteTrainingButton.Text" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
 </root>

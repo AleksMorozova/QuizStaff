@@ -16,14 +16,19 @@ namespace AdminApplication.TrainingsListForm
     public class TrainingListViewModel
     {
         public BindingList<Training> Trainings { get; set; }
+        private TrainingDTO[] ReadTrainings;
 
         public void GetAllTrainings()
         {
             Trainings = new BindingList<Training>();
-            var trainingsList = ServicesHolder.ServiceClient.GetAllActiveTrainings();
-            foreach (var training in trainingsList)
+
+            if (ReadTrainings==null)
+                ReadTrainings = ServicesHolder.ServiceClient.GetAllActiveTrainings();
+
+            foreach (var training in ReadTrainings)
             {
-                Trainings.Add(Conversion.ConvertTrainingFromDTO(training));
+                if (training.IsActive)
+                    Trainings.Add(Conversion.ConvertTrainingFromDTO(training));
             }
         }
 

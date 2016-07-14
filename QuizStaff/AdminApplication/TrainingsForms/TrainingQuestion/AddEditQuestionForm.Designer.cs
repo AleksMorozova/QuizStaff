@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditQuestionForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.deleteAnswerButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
             this.answersGridControl = new DevExpress.XtraGrid.GridControl();
@@ -44,8 +46,12 @@
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.questionBindingSource = new System.Windows.Forms.BindingSource();
-            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.questionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.addAnswerButton = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersGridControl)).BeginInit();
@@ -58,12 +64,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmQuestionContext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.addAnswerButton);
+            this.layoutControl1.Controls.Add(this.deleteAnswerButton);
             this.layoutControl1.Controls.Add(this.cancelButton);
             this.layoutControl1.Controls.Add(this.saveButton);
             this.layoutControl1.Controls.Add(this.answersGridControl);
@@ -73,6 +84,13 @@
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(457, 272, 250, 350);
             this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl1.Root = this.layoutControlGroup1;
+            // 
+            // deleteAnswerButton
+            // 
+            resources.ApplyResources(this.deleteAnswerButton, "deleteAnswerButton");
+            this.deleteAnswerButton.Name = "deleteAnswerButton";
+            this.deleteAnswerButton.StyleController = this.layoutControl1;
+            this.deleteAnswerButton.Click += new System.EventHandler(this.deleteAnswerButton_Click);
             // 
             // cancelButton
             // 
@@ -90,13 +108,11 @@
             // 
             // answersGridControl
             // 
-            this.answersGridControl.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.answersGridControl_EmbeddedNavigator_ButtonClick);
             resources.ApplyResources(this.answersGridControl, "answersGridControl");
             this.answersGridControl.MainView = this.answersGridView;
             this.answersGridControl.Name = "answersGridControl";
             this.answersGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.isCorrectRepositoryItemCheckEdit});
-            this.answersGridControl.UseEmbeddedNavigator = true;
             this.answersGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.answersGridView});
             // 
@@ -145,7 +161,10 @@
             this.answersLayoutControlItem,
             this.saveButtonLayoutControlItem,
             this.emptySpaceItem1,
-            this.cancelButtonLayoutControlItem});
+            this.cancelButtonLayoutControlItem,
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.emptySpaceItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(652, 449);
@@ -163,10 +182,9 @@
             // answersLayoutControlItem
             // 
             this.answersLayoutControlItem.Control = this.answersGridControl;
-            this.answersLayoutControlItem.Location = new System.Drawing.Point(0, 24);
+            this.answersLayoutControlItem.Location = new System.Drawing.Point(0, 60);
             this.answersLayoutControlItem.Name = "answersLayoutControlItem";
-            this.answersLayoutControlItem.Size = new System.Drawing.Size(632, 369);
-            this.answersLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 10, 0);
+            this.answersLayoutControlItem.Size = new System.Drawing.Size(632, 333);
             resources.ApplyResources(this.answersLayoutControlItem, "answersLayoutControlItem");
             this.answersLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.answersLayoutControlItem.TextSize = new System.Drawing.Size(45, 13);
@@ -199,9 +217,44 @@
             this.cancelButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.cancelButtonLayoutControlItem.TextVisible = false;
             // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.deleteAnswerButton;
+            this.layoutControlItem1.Location = new System.Drawing.Point(491, 24);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(141, 36);
+            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 5, 5);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // mvvmQuestionContext
             // 
             this.mvvmQuestionContext.ContainerControl = this;
+            // 
+            // addAnswerButton
+            // 
+            resources.ApplyResources(this.addAnswerButton, "addAnswerButton");
+            this.addAnswerButton.Name = "addAnswerButton";
+            this.addAnswerButton.StyleController = this.layoutControl1;
+            this.addAnswerButton.Click += new System.EventHandler(this.addAnswerButton_Click);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.addAnswerButton;
+            this.layoutControlItem2.Location = new System.Drawing.Point(350, 24);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(141, 36);
+            this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(350, 36);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // AddEditQuestionForm
             // 
@@ -223,8 +276,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmQuestionContext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,5 +304,10 @@
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem cancelButtonLayoutControlItem;
+        private DevExpress.XtraEditors.SimpleButton deleteAnswerButton;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.SimpleButton addAnswerButton;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }

@@ -33,12 +33,14 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             model.GetAllTrainings();
             model.SetUpViewModel(testee);
             mvvmTesteeContext.SetViewModel(typeof(TesteeViewModel), model);          
-            BindToViewModel(); 
+            BindToViewModel();
         }               
 
         private void BindCommand()
         {
             mvvmTesteeContext.BindCommand<TesteeViewModel>(saveButton, viewModel => viewModel.Save());
+            //mvvmTesteeContext.BindCommand<TesteeViewModel, TesteeTraining>(deleteTrainingButton,
+            //    (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTesteeTraining());
         }
 
         private void BindToViewModel()
@@ -121,25 +123,6 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             return editedTesteeTraining;
         }
 
-        private void gridTrainings_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
-        {
-            if (e.Button.ButtonType == NavigatorButtonType.Remove)
-            {
-                var testeeTraining = GetCurrentTesteeTraining();
-                if (testeeTraining != null)
-                {
-                    testeeTraining.IsActive = false;
-
-                    TesteeTraining newTesteeTraining = new TesteeTraining();
-                    newTesteeTraining.Id = testeeTraining.Id;
-                    newTesteeTraining.IsActive = testeeTraining.IsActive;
-                    newTesteeTraining.Training = Conversion.ConvertTrainingFromDTO(testeeTraining.Training);
-                    // TODO: implement discarding of entity 
-                    ServicesHolder.ServiceClient.DeleteTesteeTraining(Conversion.ConvertTesteeTrainingToDTO(newTesteeTraining));
-                }
-            }
-        }
-
         private void trainingsRepositoryItemLookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
             var testeeTraining = GetCurrentTesteeTraining();
@@ -148,6 +131,22 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             var currentTraining = editor.EditValue;
             if (currentTraining != null)
                 testeeTraining.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentTraining.ToString()).First();
+        }
+
+        private void deleteTrainingButton_Click(object sender, EventArgs e)
+        {
+            model.DeleteTraining(GetCurrentTesteeTraining());
+            this.gridTrainings.DataSource = model.Testee.Trainings.Select(_ => _).Where(t => t.IsActive);
+        }
+
+        private void addTrainingButton_Click(object sender, EventArgs e)
+        {
+            TesteeTraining training = new TesteeTraining();
+            training.IsActive = true;
+            training.IsSelect = true;
+            model.Testee.Trainings.Add(training);
+
+            this.gridTrainings.DataSource = model.Testee.Trainings.Select(_ => _).Where(t => t.IsActive);
         }
     }
 }
