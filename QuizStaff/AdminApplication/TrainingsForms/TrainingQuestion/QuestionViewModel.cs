@@ -50,6 +50,11 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
             this.Question = question;
         }
 
+        public void DeleteAnswer(Answer deleteAnswer) 
+        {
+            deleteAnswer.IsActive = false;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void RaisePropertyChanged(string propertyName)
         {

@@ -88,10 +88,10 @@ namespace AdminApplication.ServiceReference {
         System.Threading.Tasks.Task SaveAnswerAsync(DataTransferObject.QuestionDTO question);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTrainingResponse")]
-        void UpdateTraining(DataTransferObject.TrainingDTO training);
+        DataTransferObject.TrainingDTO UpdateTraining(DataTransferObject.TrainingDTO training);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTrainingResponse")]
-        System.Threading.Tasks.Task UpdateTrainingAsync(DataTransferObject.TrainingDTO training);
+        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> UpdateTrainingAsync(DataTransferObject.TrainingDTO training);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTraining", ReplyAction="http://tempuri.org/IApplicationServer/SaveTrainingResponse")]
         DataTransferObject.TrainingDTO SaveTraining(DataTransferObject.TrainingDTO training);
@@ -124,10 +124,10 @@ namespace AdminApplication.ServiceReference {
         System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> SaveTesteeAsync(DataTransferObject.TesteeDTO testee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSettingsResponse")]
-        void UpdateSettings(DataTransferObject.SettingDTO setting);
+        void UpdateSettings(DataTransferObject.SettingDTO[] setting);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSettingsResponse")]
-        System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO setting);
+        System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO[] setting);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteAnswer", ReplyAction="http://tempuri.org/IApplicationServer/DeleteAnswerResponse")]
         void DeleteAnswer(DataTransferObject.AnswerDTO answer);
@@ -271,11 +271,11 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.SaveAnswerAsync(question);
         }
         
-        public void UpdateTraining(DataTransferObject.TrainingDTO training) {
-            base.Channel.UpdateTraining(training);
+        public DataTransferObject.TrainingDTO UpdateTraining(DataTransferObject.TrainingDTO training) {
+            return base.Channel.UpdateTraining(training);
         }
         
-        public System.Threading.Tasks.Task UpdateTrainingAsync(DataTransferObject.TrainingDTO training) {
+        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> UpdateTrainingAsync(DataTransferObject.TrainingDTO training) {
             return base.Channel.UpdateTrainingAsync(training);
         }
         
@@ -319,11 +319,11 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.SaveTesteeAsync(testee);
         }
         
-        public void UpdateSettings(DataTransferObject.SettingDTO setting) {
+        public void UpdateSettings(DataTransferObject.SettingDTO[] setting) {
             base.Channel.UpdateSettings(setting);
         }
         
-        public System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO setting) {
+        public System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO[] setting) {
             return base.Channel.UpdateSettingsAsync(setting);
         }
         

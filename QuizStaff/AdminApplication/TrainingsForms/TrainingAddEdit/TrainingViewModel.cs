@@ -102,7 +102,8 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
                 }
                 else
                 {
-                    ServicesHolder.ServiceClient.UpdateTraining(Conversion.ConvertTrainingToDTO(this.Training));
+                    var updateTraining = ServicesHolder.ServiceClient.UpdateTraining(Conversion.ConvertTrainingToDTO(this.Training));
+                    this.Training = Conversion.ConvertTrainingFromDTO(updateTraining);
                 }
             }
         }

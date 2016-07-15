@@ -198,10 +198,12 @@ namespace Server
             //repo.Create((Question)question);
         }
 
-        public void UpdateTraining(TrainingDTO training)
+        public TrainingDTO UpdateTraining(TrainingDTO training)
         {
             EFTrainingRepository repo = new EFTrainingRepository();
-            repo.Update(Conversion.ConvertTrainingFromDTO(training));
+            Training updateTrainings = Conversion.ConvertTrainingFromDTO(training);
+            repo.Update(updateTrainings);
+            return (TrainingDTO)updateTrainings;
         }
 
         public TrainingDTO SaveTraining(TrainingDTO training)
@@ -235,19 +237,21 @@ namespace Server
             return (TesteeDTO)savedTestee;
         }
 
-        public void UpdateSettings(SettingDTO setting)
+        public void UpdateSettings(SettingDTO[] settings)
         {
             EFRepository<Setting> repo = new EFRepository<DomainModel.Setting>();
-            Setting newSetting = new Setting();
-
-            newSetting.Id = setting.Id;
-            newSetting.FrequencyOfAsking = setting.FrequencyOfAsking;
-            newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
-            newSetting.TimeOfStart = setting.TimeOfStart;
-            newSetting.CanUserEdit = setting.CanUserEdit;
-            newSetting.ShowCorrectAnswer = setting.ShowCorrectAnswer;
-
-            repo.Update(newSetting);
+            foreach(var setting in settings.ToList())
+            {
+                Setting newSetting = new Setting();
+                newSetting.Id = setting.Id;
+                newSetting.FrequencyOfAsking = setting.FrequencyOfAsking;
+                newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
+                newSetting.TimeOfStart = setting.TimeOfStart;
+                newSetting.CanUserEdit = setting.CanUserEdit;
+                newSetting.ShowCorrectAnswer = setting.ShowCorrectAnswer;
+                
+                repo.Update(newSetting);
+            }      
         }
 
         public void UpdateQuestion(QuestionDTO question)
