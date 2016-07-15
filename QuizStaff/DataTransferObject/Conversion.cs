@@ -115,7 +115,8 @@ namespace DataTransferObject
                 {
                     foreach (var t in testee.Trainings)
                     {
-                        newTestee.Trainings.Add(ConvertTesteeTrainingToDTO(t));
+                        if (t.Training!= null)
+                            newTestee.Trainings.Add(ConvertTesteeTrainingToDTO(t));
                     }
                 } 
             }

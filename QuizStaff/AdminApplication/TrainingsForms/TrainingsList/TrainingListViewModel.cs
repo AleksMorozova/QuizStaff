@@ -22,8 +22,7 @@ namespace AdminApplication.TrainingsListForm
         {
             Trainings = new BindingList<Training>();
 
-            if (ReadTrainings==null)
-                ReadTrainings = ServicesHolder.ServiceClient.GetAllActiveTrainings();
+            ReadTrainings = ServicesHolder.ServiceClient.GetAllActiveTrainings();
 
             foreach (var training in ReadTrainings)
             {
