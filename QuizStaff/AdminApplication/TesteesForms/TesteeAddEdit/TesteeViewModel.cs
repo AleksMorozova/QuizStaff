@@ -11,11 +11,42 @@ using System.Threading.Tasks;
 
 namespace AdminApplication.TesteesForm.TesteeAddEdit
 {
-    public class TesteeViewModel
+    public class TesteeViewModel : INotifyPropertyChanged 
     {
+        private Testee LoadedTeste
+        {
+            get;
+            set;
+        }
+
         #region Testee
 
-        public Testee Testee { get; set; }
+        private Testee testee;
+        public Testee Testee
+        {
+            get
+            {
+                return testee;
+            }
+            set
+            {
+                if (testee != value)
+                {
+                    testee = value;
+                    RaisePropertyChanged("Setting");
+                    RaisePropertyChanged("AmountOfQuestionsPerDay");
+                    RaisePropertyChanged("FrequencyOfAsking");
+                    RaisePropertyChanged("TimeOfStart");
+                    RaisePropertyChanged("CanUserEdit");
+                    RaisePropertyChanged("ShowCorrectAnswer");
+                    RaisePropertyChanged("FirstName");
+                    RaisePropertyChanged("LastName");
+                    RaisePropertyChanged("Email");
+                    RaisePropertyChanged("Login");
+                    RaisePropertyChanged("Trainings");
+                }
+            }
+        }
 
         public string FirstName
         {
@@ -60,7 +91,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 if (value != Testee.Email)
                 {
                     Testee.Email = value;
-                    RaisePropertyChanged("Email");
+                   RaisePropertyChanged("Email");
+                   // OnPropertyChanged("Email");
                 }
             }
         }
@@ -112,7 +144,12 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 if (Testee.UserSetting != value) 
                 { 
                     Testee.UserSetting = value;
-                    RaisePropertyChanged("LastName");
+                    RaisePropertyChanged("Setting");
+                    RaisePropertyChanged("AmountOfQuestionsPerDay");
+                    RaisePropertyChanged("FrequencyOfAsking");
+                    RaisePropertyChanged("TimeOfStart");
+                    RaisePropertyChanged("CanUserEdit");
+                    RaisePropertyChanged("ShowCorrectAnswer");
                 }
             }
         }
@@ -202,6 +239,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         public void SetUpViewModel(Testee testee)
         {
             this.Testee = testee;
+            LoadedTeste = Conversion.CopyTestee(testee);
         }
 
         public void AddTraining(Testee testee)
@@ -226,7 +264,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
         public void Cancel()
         {
-            //TODO: cancel edeting 
+            this.Testee = Conversion.CopyTestee(LoadedTeste);
         }       
 
         public void Save()
@@ -246,13 +284,15 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         protected virtual void RaisePropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                handler(this, new PropertyChangedEventArgs(propertyName));
+
             }
         }
 
