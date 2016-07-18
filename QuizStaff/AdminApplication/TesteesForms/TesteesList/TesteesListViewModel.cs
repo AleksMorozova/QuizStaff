@@ -19,9 +19,7 @@ namespace AdminApplication.TesteesForms.TesteesList
         public void GetAllTestee()
         {
             Testees = new BindingList<Testee>();
-
-            if (ReadTestees == null)
-                ReadTestees = ServicesHolder.ServiceClient.GetAllTestees();
+            ReadTestees = ServicesHolder.ServiceClient.GetAllTestees();
 
             foreach (var testee in ReadTestees)
             {
