@@ -22,8 +22,7 @@ namespace AdminApplication.TrainingsListForm
         {
             Trainings = new BindingList<Training>();
 
-            if (ReadTrainings==null)
-                ReadTrainings = ServicesHolder.ServiceClient.GetAllActiveTrainings();
+            ReadTrainings = ServicesHolder.ServiceClient.GetAllActiveTrainings();
 
             foreach (var training in ReadTrainings)
             {
@@ -51,21 +50,24 @@ namespace AdminApplication.TrainingsListForm
 
         public void DeleteTraining(TrainingDTO deletedTraining)
         {
-            if (deletedTraining.Id != Guid.Empty)
+            if (deletedTraining != null)
             {
-                deletedTraining.IsActive = false;
-                ServicesHolder.ServiceClient.UpdateTraining(deletedTraining);
-            }
-            else
-            {
-                var savedTraining = ServicesHolder.ServiceClient.FindByTitle(deletedTraining.TrainingTitle);
-                savedTraining.IsActive = false;
-                ServicesHolder.ServiceClient.UpdateTraining(savedTraining);
+                if (deletedTraining.Id != Guid.Empty)
+                {
+                    deletedTraining.IsActive = false;
+                    ServicesHolder.ServiceClient.UpdateTraining(deletedTraining);
+                }
+                else
+                {
+                    var savedTraining = ServicesHolder.ServiceClient.FindByTitle(deletedTraining.TrainingTitle);
+                    savedTraining.IsActive = false;
+                    ServicesHolder.ServiceClient.UpdateTraining(savedTraining);
+                }
             }
         }
 
         public void Save()
-        {            
+        {
             // TODO: implement save of loaded of trainings
             XtraMessageBox.Show("Save");
         }
@@ -73,7 +75,7 @@ namespace AdminApplication.TrainingsListForm
         public void Cancel()
         {
             // TODO: implement cancel of loading of trainings
-            XtraMessageBox.Show("Cancel");           
+            XtraMessageBox.Show("Cancel");
         }
 
         public void LoadTrainings()

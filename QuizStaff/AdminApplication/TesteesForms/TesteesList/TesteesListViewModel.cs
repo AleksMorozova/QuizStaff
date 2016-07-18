@@ -19,14 +19,12 @@ namespace AdminApplication.TesteesForms.TesteesList
         public void GetAllTestee()
         {
             Testees = new BindingList<Testee>();
-
-            if (ReadTestees == null)
-                ReadTestees = ServicesHolder.ServiceClient.GetAllTestees();
+            ReadTestees = ServicesHolder.ServiceClient.GetAllTestees();
 
             foreach (var testee in ReadTestees)
             {
                 if (testee.IsActive)
-                    Testees.Add(Conversion.ConvertTesteeFromDTO(testee));              
+                    Testees.Add(Conversion.ConvertTesteeFromDTO(testee));
             }
         }
 
@@ -44,22 +42,26 @@ namespace AdminApplication.TesteesForms.TesteesList
             AddEditTesteeForm testeeForm = new AddEditTesteeForm(editedTestee);
             FormManager.Instance.OpenChildForm(testeeForm, "Edit testee: " + editedTestee.Login);
             FormManager.LocalizedFormList.Add(testeeForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);           
+            FormManager.Instance.LocalizedForms(Program.currentLang);
         }
 
         public void DeleteTestee(Testee deletedTestee)
         {
-            if (deletedTestee.Id != Guid.Empty)
+            if (deletedTestee != null)
             {
-                deletedTestee.IsActive = false;
-                ServicesHolder.ServiceClient.UpdateTestee(deletedTestee);
+                if (deletedTestee.Id != Guid.Empty)
+                {
+                    deletedTestee.IsActive = false;
+                    ServicesHolder.ServiceClient.UpdateTestee(deletedTestee);
+                }
+                else
+                {
+                    var savedTestee = ServicesHolder.ServiceClient.FindByLogin(deletedTestee.Login);
+                    savedTestee.IsActive = false;
+                    ServicesHolder.ServiceClient.UpdateTestee(savedTestee);
+                }
             }
-            else 
-            {
-                var savedTestee = ServicesHolder.ServiceClient.FindByLogin(deletedTestee.Login);
-                savedTestee.IsActive = false;
-                ServicesHolder.ServiceClient.UpdateTestee(savedTestee);
-            }
+
         }
 
         public void Save()
