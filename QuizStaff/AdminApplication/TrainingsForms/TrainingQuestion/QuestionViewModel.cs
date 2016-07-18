@@ -52,7 +52,8 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
 
         public void DeleteAnswer(Answer deleteAnswer) 
         {
-            deleteAnswer.IsActive = false;
+            if(deleteAnswer != null)
+                deleteAnswer.IsActive = false;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -258,7 +258,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
         public void DeleteTraining(TesteeTraining deletedTraining)
         {
-            deletedTraining.IsActive = false;
+            if (deletedTraining!=null)
+                deletedTraining.IsActive = false;
         }
     }
 }
