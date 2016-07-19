@@ -28,8 +28,8 @@ namespace TesteeApplication.TesteeSettings
 
         private void BindCommands()
         {
-            mvvmTesteeSettingsContext.BindCommand<TesteeSettingsViewModel, Testee>(saveButton, (viewModel, testee)
-                => viewModel.Save(testee), x => Program.currentTestee);
+            mvvmTesteeSettingsContext.BindCommand<TesteeSettingsViewModel>(saveButton, setting => setting.Save());
+            mvvmTesteeSettingsContext.BindCommand<TesteeSettingsViewModel>(cancelButton, setting => setting.Cancel());
         }
 
         private void BindToViewModel()
