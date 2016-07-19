@@ -77,9 +77,13 @@ namespace AdminApplication.TesteesForms.TesteesList
 
         private void deleteTesteeButton_Click(object sender, EventArgs e)
         {
-            model.DeleteTestee(GetCurrentTestee());
-            model.GetAllTestee();
-            gridTestees.DataSource = model.Testees;
+            var deletedTestee = GetCurrentTestee();
+            if (deletedTestee != null)
+            {
+                model.DeleteTestee(deletedTestee);
+                model.GetAllTestee();
+                gridTestees.DataSource = model.Testees;
+            }
         }
     }
 }

@@ -136,8 +136,12 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
         private void deleteTrainingButton_Click(object sender, EventArgs e)
         {
-            model.DeleteTraining(GetCurrentTesteeTraining());
-            this.gridTrainings.DataSource = model.Testee.Trainings.Select(_ => _).Where(t => t.IsActive);
+            var deletedTraining = GetCurrentTesteeTraining();
+            if (deletedTraining!=null)
+            {
+                model.DeleteTraining(deletedTraining);
+                this.gridTrainings.DataSource = model.Testee.Trainings.Select(_ => _).Where(t => t.IsActive);
+            }
         }
 
         private void addTrainingButton_Click(object sender, EventArgs e)
