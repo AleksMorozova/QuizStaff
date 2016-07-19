@@ -386,6 +386,20 @@ namespace DataTransferObject
             }
             return newTraining;
         }
+
+        public static Setting CopySetting(Setting setting)
+        {
+            Setting newSetting = new Setting();
+
+            newSetting.Id = setting.Id;
+            newSetting.FrequencyOfAsking = setting.FrequencyOfAsking;
+            newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
+            newSetting.TimeOfStart = setting.TimeOfStart;
+            newSetting.CanUserEdit = setting.CanUserEdit;
+            newSetting.ShowCorrectAnswer = setting.ShowCorrectAnswer;
+
+            return newSetting;
+        }
     }
 }
 
