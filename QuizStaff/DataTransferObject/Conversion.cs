@@ -356,6 +356,36 @@ namespace DataTransferObject
 
             return newTestee;
         }
+
+        public static Training CopyTraining(Training currentTraining)
+        {
+            Training newTraining = new Training();
+            newTraining.Id = currentTraining.Id;
+            newTraining.TrainingTitle = currentTraining.TrainingTitle;
+            newTraining.IsActive = currentTraining.IsActive;
+
+            newTraining.Questions = new BindingList<Question>();
+            foreach (var question in currentTraining.Questions)
+            {
+                Question newQuestion = new Question();
+                newQuestion.Id = question.Id;
+                newQuestion.IsActive = question.IsActive;
+                newQuestion.QuestionText = question.QuestionText;
+
+                newQuestion.Answers = new BindingList<Answer>();
+                foreach (var answer in question.Answers)
+                {
+                    Answer newAnswer = new Answer();
+                    newAnswer.Id = answer.Id;
+                    newAnswer.IsActive = answer.IsActive;
+                    newAnswer.IsCorrect = answer.IsCorrect;
+                    newAnswer.AnswerText = answer.AnswerText;
+                    newQuestion.Answers.Add(newAnswer);
+                }
+                newTraining.Questions.Add(newQuestion);
+            }
+            return newTraining;
+        }
     }
 }
 
