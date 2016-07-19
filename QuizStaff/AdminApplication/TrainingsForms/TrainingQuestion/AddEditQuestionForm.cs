@@ -83,8 +83,12 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
 
         private void deleteAnswerButton_Click(object sender, EventArgs e)
         {
-            model.DeleteAnswer(GetCurrentAnswer());
-            this.answersGridControl.DataSource = model.Question.Answers.Select(_ => _).Where(t => t.IsActive);
+            var deletedAnswer = GetCurrentAnswer();
+            if (deletedAnswer != null)
+            {
+                model.DeleteAnswer(deletedAnswer);
+                this.answersGridControl.DataSource = model.Question.Answers.Select(_ => _).Where(t => t.IsActive);
+            }
         }
 
         private void addAnswerButton_Click(object sender, EventArgs e)

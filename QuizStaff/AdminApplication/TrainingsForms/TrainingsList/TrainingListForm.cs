@@ -77,9 +77,13 @@ namespace AdminApplication.TrainingsListForm
         {
             //TODO: fix refreshing of DataSource for trainingsGridControl
             trainingsGridControl.Refresh();
-            model.DeleteTraining(GetCurrentTraining());
-            model.GetAllTrainings();
-            trainingsGridControl.DataSource = model.Trainings;
+            var deletedTrainining = GetCurrentTraining();
+            if (deletedTrainining!= null)
+            {
+                model.DeleteTraining(deletedTrainining);
+                model.GetAllTrainings();
+                trainingsGridControl.DataSource = model.Trainings;
+            }
         }
     }
 }

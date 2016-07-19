@@ -103,8 +103,12 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
         {
             //TODO: fix refreshing of DataSource for gridQuestions
             gridQuestions.Refresh();
-            model.DeleteQuestion(GetCurrentQuestion());
-            gridQuestions.DataSource = model.Questions.Where(_=>_.IsActive);
+            var deletedQuestion = GetCurrentQuestion();
+            if (deletedQuestion!=null)
+            {
+                model.DeleteQuestion(deletedQuestion);
+                gridQuestions.DataSource = model.Questions.Where(_=>_.IsActive);
+            }
         }
     }
 }
