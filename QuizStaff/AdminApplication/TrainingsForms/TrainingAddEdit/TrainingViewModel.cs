@@ -12,9 +12,29 @@ using System.Windows.Forms;
 
 namespace AdminApplication.TrainingsForms.TrainingAddEdit
 {
-    public class TrainingViewModel
+    public class TrainingViewModel : INotifyPropertyChanged 
     {
-        public Training Training { get; set; }
+        private Training LoadTraining { get; set; }
+
+        private Training training;
+        public Training Training
+        {
+            get
+            {
+                return training;
+            }
+
+            set
+            {
+                if (value != training)
+                {
+                    training = value;
+                    //RaisePropertyChanged("Training");
+                    RaisePropertyChanged("TrainingTitle");
+                    RaisePropertyChanged("Questions");
+                }
+            }
+        }
 
         public string TrainingTitle
         {
@@ -53,6 +73,7 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
         public void SetUpViewModel(Training training)
         {
             this.Training = training;
+            LoadTraining = Conversion.CopyTraining(training);
         }
 
         public void EditQuestion(Question question)
@@ -70,7 +91,7 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
             FormManager.Instance.LocalizedForms(Program.currentLang);
             questionForm.ShowDialog();
             questionForm.Question.Training = training;
-            training.Questions.Add(questionForm.Question);
+            Training.Questions.Add(questionForm.Question);
         }
 
         public void DeleteQuestion(Question deletedQuestion)
@@ -92,7 +113,7 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
 
         public void Cancel()
         {
-            //TODO: cancel edeting 
+            this.Training = Conversion.CopyTraining(LoadTraining);
         }
 
         public void Save()
@@ -118,13 +139,15 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
             XtraMessageBox.Show("Load questions");
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         protected virtual void RaisePropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                handler(this, new PropertyChangedEventArgs(propertyName));
+
             }
         }
     }

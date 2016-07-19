@@ -39,6 +39,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         private void BindCommand()
         {
             mvvmTesteeContext.BindCommand<TesteeViewModel>(saveButton, viewModel => viewModel.Save());
+            mvvmTesteeContext.BindCommand<TesteeViewModel>(cancelButton, viewModel => viewModel.Cancel());
             //mvvmTesteeContext.BindCommand<TesteeViewModel, TesteeTraining>(deleteTrainingButton,
             //    (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTesteeTraining());
         }

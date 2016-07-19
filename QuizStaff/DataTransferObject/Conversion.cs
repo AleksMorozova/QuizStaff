@@ -308,6 +308,84 @@ namespace DataTransferObject
 
             return newQuestion;
         }
+      
+        public static Testee CopyTestee(Testee testee)
+        {
+            Testee newTestee = new Testee();
+            newTestee.Trainings = new BindingList<TesteeTraining>();
+            newTestee.UserSetting = new Setting();
+
+            //Copy testee
+            newTestee.Id = testee.Id;
+            newTestee.FirstName = testee.FirstName;
+            newTestee.LastName = testee.LastName;
+            newTestee.Login = testee.Login;
+            newTestee.Password = testee.Password;
+            newTestee.IsActive = testee.IsActive;
+            newTestee.Email = testee.Email;
+
+            newTestee.Attribute1 = testee.Attribute1;
+            newTestee.Attribute2 = testee.Attribute2;
+            newTestee.Attribute3 = testee.Attribute3;
+            newTestee.Attribute4 = testee.Attribute4;
+            newTestee.Attribute5 = testee.Attribute5;
+            newTestee.Attribute6 = testee.Attribute6;
+            newTestee.Attribute8 = testee.Attribute8;
+            newTestee.Attribute9 = testee.Attribute9;
+            newTestee.Attribute10 = testee.Attribute10;
+
+            //Copy settings
+            newTestee.UserSetting.Id = testee.UserSetting.Id;
+            newTestee.UserSetting.FrequencyOfAsking = testee.UserSetting.FrequencyOfAsking;
+            newTestee.UserSetting.AmountOfQuestionsPerDay = testee.UserSetting.AmountOfQuestionsPerDay;
+            newTestee.UserSetting.TimeOfStart = testee.UserSetting.TimeOfStart;
+            newTestee.UserSetting.CanUserEdit = testee.UserSetting.CanUserEdit;
+            newTestee.UserSetting.ShowCorrectAnswer = testee.UserSetting.ShowCorrectAnswer;
+
+            if (testee.Trainings != null)
+            {
+                if (testee.Trainings.Count() > 0)
+                {
+                    foreach (var training in testee.Trainings)
+                    {
+                        if (training.Training != null)
+                            newTestee.Trainings.Add(training);
+                    }
+                }
+            }
+
+            return newTestee;
+        }
+
+        public static Training CopyTraining(Training currentTraining)
+        {
+            Training newTraining = new Training();
+            newTraining.Id = currentTraining.Id;
+            newTraining.TrainingTitle = currentTraining.TrainingTitle;
+            newTraining.IsActive = currentTraining.IsActive;
+
+            newTraining.Questions = new BindingList<Question>();
+            foreach (var question in currentTraining.Questions)
+            {
+                Question newQuestion = new Question();
+                newQuestion.Id = question.Id;
+                newQuestion.IsActive = question.IsActive;
+                newQuestion.QuestionText = question.QuestionText;
+
+                newQuestion.Answers = new BindingList<Answer>();
+                foreach (var answer in question.Answers)
+                {
+                    Answer newAnswer = new Answer();
+                    newAnswer.Id = answer.Id;
+                    newAnswer.IsActive = answer.IsActive;
+                    newAnswer.IsCorrect = answer.IsCorrect;
+                    newAnswer.AnswerText = answer.AnswerText;
+                    newQuestion.Answers.Add(newAnswer);
+                }
+                newTraining.Questions.Add(newQuestion);
+            }
+            return newTraining;
+        }
     }
 }
 
