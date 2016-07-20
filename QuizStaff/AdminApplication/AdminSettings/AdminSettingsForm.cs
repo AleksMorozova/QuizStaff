@@ -80,7 +80,7 @@ namespace AdminApplication.AdminSettings
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(showCorrectAnswerGridColumn, "showCorrectAnswerGridColumn", newCultureInfo);
             resources.ApplyResources(checkGridColumn, "checkGridColumn", newCultureInfo);
-
+            resources.ApplyResources(editSettingsSimpleButton, "editSettingsSimpleButton", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Settings";
         }

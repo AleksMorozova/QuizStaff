@@ -197,6 +197,9 @@
     <EmbeddedResource Include="AdminSettings\EditTesteesTrainingsForm.resx">
       <DependentUpon>EditTesteesTrainingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\EditTesteesTrainingsForm.ru-RU.resx">
+      <DependentUpon>EditTesteesTrainingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TesteeSettings\TesteeSettingsForm.Ru-ru.resx">
       <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +279,7 @@
     <None Include="DataTransferObject.QuestionDTO1.datasource" />
     <None Include="DataTransferObject.SettingDTO.datasource" />
     <None Include="DataTransferObject.TesteeDTO.datasource" />
+    <None Include="DataTransferObject.TesteeTrainingDTO.datasource" />
     <None Include="DataTransferObject.TrainingDTO1.datasource" />
     <None Include="DomainModel.Testee.datasource" />
     <None Include="DomainModel.Training1.datasource" />

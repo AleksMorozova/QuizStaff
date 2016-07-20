@@ -35,6 +35,7 @@
             this.gridControlTesteesTrainings = new DevExpress.XtraGrid.GridControl();
             this.gridViewTesteesTrainings = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IsSelected = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.isSelectRepositoryItemCheckEdit = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.Trainings = new DevExpress.XtraGrid.Columns.GridColumn();
             this.trainingsGridLayoutControl = new DevExpress.XtraLayout.LayoutControlGroup();
             this.testeeTraingsGridlayoutControl = new DevExpress.XtraLayout.LayoutControlItem();
@@ -47,6 +48,7 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTesteesTrainings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTesteesTrainings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isSelectRepositoryItemCheckEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsGridLayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testeeTraingsGridlayoutControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -77,6 +79,7 @@
             this.simpleButtonCancel.StyleController = this.layoutControl1;
             this.simpleButtonCancel.TabIndex = 6;
             this.simpleButtonCancel.Text = "Cancel";
+            this.simpleButtonCancel.Click += new System.EventHandler(this.simpleButtonCancel_Click);
             // 
             // simpleButtonApply
             // 
@@ -92,6 +95,8 @@
             this.gridControlTesteesTrainings.Location = new System.Drawing.Point(12, 28);
             this.gridControlTesteesTrainings.MainView = this.gridViewTesteesTrainings;
             this.gridControlTesteesTrainings.Name = "gridControlTesteesTrainings";
+            this.gridControlTesteesTrainings.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.isSelectRepositoryItemCheckEdit});
             this.gridControlTesteesTrainings.Size = new System.Drawing.Size(555, 350);
             this.gridControlTesteesTrainings.TabIndex = 4;
             this.gridControlTesteesTrainings.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -104,13 +109,21 @@
             this.Trainings});
             this.gridViewTesteesTrainings.GridControl = this.gridControlTesteesTrainings;
             this.gridViewTesteesTrainings.Name = "gridViewTesteesTrainings";
+            this.gridViewTesteesTrainings.OptionsView.ShowGroupPanel = false;
             // 
             // IsSelected
             // 
             this.IsSelected.Caption = "Is select";
+            this.IsSelected.ColumnEdit = this.isSelectRepositoryItemCheckEdit;
+            this.IsSelected.FieldName = "IsSelect";
             this.IsSelected.Name = "IsSelected";
             this.IsSelected.Visible = true;
             this.IsSelected.VisibleIndex = 1;
+            // 
+            // isSelectRepositoryItemCheckEdit
+            // 
+            this.isSelectRepositoryItemCheckEdit.AutoHeight = false;
+            this.isSelectRepositoryItemCheckEdit.Name = "isSelectRepositoryItemCheckEdit";
             // 
             // Trainings
             // 
@@ -190,11 +203,12 @@
             this.ClientSize = new System.Drawing.Size(579, 416);
             this.Controls.Add(this.layoutControl1);
             this.Name = "EditTesteesTrainingsForm";
-            this.Text = "EditTesteesTrainingsForm";
+            this.Text = "Edit testees and trainings";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTesteesTrainings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTesteesTrainings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isSelectRepositoryItemCheckEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsGridLayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testeeTraingsGridlayoutControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
@@ -222,6 +236,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.Utils.MVVM.MVVMContext mvvmEditTesteesTrainingsContext;
         private DevExpress.XtraGrid.Columns.GridColumn IsSelected;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit isSelectRepositoryItemCheckEdit;
 
     }
 }

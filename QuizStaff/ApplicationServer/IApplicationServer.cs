@@ -68,6 +68,9 @@ namespace Server
         TesteeDTO UpdateTestee(TesteeDTO testee);
 
         [OperationContract]
+        void UpdateSomeTestees(TesteeDTO[] testeeArray);
+
+        [OperationContract]
         TesteeDTO SaveTestee(TesteeDTO testee);
 
         [OperationContract]
@@ -78,6 +81,9 @@ namespace Server
 
         [OperationContract]
         void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining);
+
+        [OperationContract]
+        void UpdateTesteeTraining(TesteeTrainingDTO[] testeeTraining);
 
         [OperationContract]
         TrainingDTO FindByTitle(string title);

@@ -30,9 +30,9 @@ namespace AdminApplication.AdminSettings
               }
             } 
         }
+        private BindingList<TesteeTraining> allTrainingsOfSelectedTestees;
 
         private BindingList<TesteeTraining> trainigs;
-
         public BindingList<TesteeTraining> Trainigs
         {
             get
@@ -49,12 +49,85 @@ namespace AdminApplication.AdminSettings
                 }
             }
         }
-        public void SetUpSettings(BindingList<Testee> currentTestees)
+        public void SetUpTrainigs(BindingList<Testee> currentTestees)
         {
             testees = currentTestees;
             Trainigs = new BindingList<TesteeTraining>();
 
-            //TODO: создать список уникальных тренингов
+            List<List<TesteeTraining>> everyTesteeTraningsList = new List<List<TesteeTraining>>();
+            allTrainingsOfSelectedTestees = new BindingList<TesteeTraining>();
+
+            if (testees.Count > 0)
+            {
+                // Собрали список тренингов каждого конкретного testee
+                foreach (var testee in Testees)
+                {
+                    List<TesteeTraining> currentTesteeTraningList = new List<TesteeTraining>();
+                    foreach (var training in testee.Trainings)
+                    {
+                        currentTesteeTraningList.Add(training);
+                        allTrainingsOfSelectedTestees.Add(training);
+                    }
+                    everyTesteeTraningsList.Add(currentTesteeTraningList);
+                }
+                
+                // Выделяем пересекающиеся у всех testee тренинги
+                List<TesteeTraining> firstOfTesteesTrainingsList = everyTesteeTraningsList.First(); 
+                foreach(TesteeTraining training in firstOfTesteesTrainingsList)
+                {
+                    bool trainingExistInEveryList = true;
+                    foreach (var trainingsList in everyTesteeTraningsList)
+                    {
+                        trainingExistInEveryList = trainingsList.Exists(_=>_.Training.TrainingTitle == training.Training.TrainingTitle);
+                        if (!trainingExistInEveryList)
+                            break;
+                    }
+
+                    if(trainingExistInEveryList)
+                    {
+                        Trainigs.Add(training);
+                    }
+                }
+            }
+        }
+
+        public void SaveSelectChanges()
+        {
+            List<TesteeTrainingDTO> resultList = new List<TesteeTrainingDTO>();
+            foreach (var training in Trainigs)
+            {
+                foreach (var trainingFromAllTrainings in allTrainingsOfSelectedTestees)
+                {
+                    if (trainingFromAllTrainings.Training.TrainingTitle == training.Training.TrainingTitle)
+                    {
+                        trainingFromAllTrainings.IsSelect = training.IsSelect;
+                        resultList.Add(Conversion.ConvertTesteeTrainingToDTO(trainingFromAllTrainings));
+                    }
+                }
+            }
+            ServicesHolder.ServiceClient.UpdateTesteeTraining(resultList.ToArray());
+
+            //List<TesteeDTO> resultList = new List<TesteeDTO>();
+            //foreach (var training in Trainigs)
+            //{
+            //    foreach (var testee in Testees)
+            //    {
+            //        BindingList<TesteeTraining> currentTesteeTrainings = testee.Trainings;
+            //        BindingList<TesteeTraining> resultTraningList = new BindingList<TesteeTraining>();
+            //        foreach (var currentTesteeTraining in currentTesteeTrainings)
+            //        {
+            //            TesteeTraining tmpTesteeTraining = currentTesteeTraining;
+            //            if (currentTesteeTraining.Training.TrainingTitle == training.Training.TrainingTitle)
+            //            {
+            //                tmpTesteeTraining.IsSelect = training.IsSelect;
+            //            }
+            //            resultTraningList.Add(tmpTesteeTraining);
+            //        }
+            //        testee.Trainings = resultTraningList;
+            //        resultList.Add(Conversion.ConvertTesteeToDTO(testee));
+            //    }
+            //}
+            //ServicesHolder.ServiceClient.UpdateSomeTestees(resultList.ToArray());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

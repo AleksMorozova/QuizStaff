@@ -109,6 +109,12 @@
   <wsdl:message name="IApplicationServer_UpdateTestee_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateTesteeResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateSomeTestees_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSomeTestees" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateSomeTestees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSomeTesteesResponse" />
+  </wsdl:message>
   <wsdl:message name="IApplicationServer_SaveTestee_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveTestee" />
   </wsdl:message>
@@ -132,6 +138,12 @@
   </wsdl:message>
   <wsdl:message name="IApplicationServer_DeleteTesteeTraining_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteTesteeTrainingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateTesteeTraining_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTesteeTraining" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateTesteeTraining_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTesteeTrainingResponse" />
   </wsdl:message>
   <wsdl:message name="IApplicationServer_FindByTitle_InputMessage">
     <wsdl:part name="parameters" element="tns:FindByTitle" />
@@ -208,6 +220,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateTestee" message="tns:IApplicationServer_UpdateTestee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateTesteeResponse" message="tns:IApplicationServer_UpdateTestee_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateSomeTestees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateSomeTestees" message="tns:IApplicationServer_UpdateSomeTestees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateSomeTesteesResponse" message="tns:IApplicationServer_UpdateSomeTestees_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SaveTestee">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveTestee" message="tns:IApplicationServer_SaveTestee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveTesteeResponse" message="tns:IApplicationServer_SaveTestee_OutputMessage" />
@@ -223,6 +239,10 @@
     <wsdl:operation name="DeleteTesteeTraining">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/DeleteTesteeTraining" message="tns:IApplicationServer_DeleteTesteeTraining_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/DeleteTesteeTrainingResponse" message="tns:IApplicationServer_DeleteTesteeTraining_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTesteeTraining">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateTesteeTraining" message="tns:IApplicationServer_UpdateTesteeTraining_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingResponse" message="tns:IApplicationServer_UpdateTesteeTraining_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="FindByTitle">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/FindByTitle" message="tns:IApplicationServer_FindByTitle_InputMessage" />
@@ -384,6 +404,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateSomeTestees">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/UpdateSomeTestees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SaveTestee">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/SaveTestee" style="document" />
       <wsdl:input>
@@ -413,6 +442,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteTesteeTraining">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/DeleteTesteeTraining" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTesteeTraining">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/UpdateTesteeTraining" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
