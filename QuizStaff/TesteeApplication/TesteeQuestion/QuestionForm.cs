@@ -14,7 +14,7 @@ namespace TesteeApplication
     {
         private Dictionary<AnswerDTO, bool> answers = new Dictionary<AnswerDTO, bool>();
         private TesteeQuestionViewModel model;
-
+        private bool wasClick = false;
         public QuestionForm(Testee testee)
         {
             InitializeComponent();
@@ -46,6 +46,7 @@ namespace TesteeApplication
         public void CreateQuestionControls(QuestionDTO question)
         {
             var multiSelect = model.MultiSelect;
+            labelQuestion.Width = this.Width;
             labelQuestion.DataBindings.Add("Text", question, "QuestionText");
             bool selectFirstRadio = true;
             foreach (var answer in question.Answers)
@@ -90,6 +91,17 @@ namespace TesteeApplication
         private void QuestionForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Program.Timer.Start();
+        }
+
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionForm));
+            buttonSend.Image = ((System.Drawing.Image)(resources.GetObject("buttonSend.Image")));
+            if (wasClick)
+            {
+                this.Close();
+            }
+            wasClick = true;
         }
     }
 }
