@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DataTransferObject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataTransferObject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="ArrayOfTesteeDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeDTO" nillable="true" type="tns:TesteeDTO" />
@@ -82,7 +82,6 @@
       <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
       <xs:element minOccurs="0" name="QuestionText" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Training" nillable="true" type="tns:TrainingDTO" />
-      <xs:element minOccurs="0" name="TrainingId" type="ser:guid" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="QuestionDTO" nillable="true" type="tns:QuestionDTO" />
@@ -117,10 +116,10 @@
   <xs:complexType name="TesteeTrainingDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSelect" type="xs:boolean" />
       <xs:element minOccurs="0" name="Testee" nillable="true" type="tns:TesteeDTO" />
-      <xs:element minOccurs="0" name="TesteeID" type="ser:guid" />
       <xs:element minOccurs="0" name="Training" nillable="true" type="tns:TrainingDTO" />
-      <xs:element minOccurs="0" name="TrainingID" type="ser:guid" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TesteeTrainingDTO" nillable="true" type="tns:TesteeTrainingDTO" />
@@ -141,4 +140,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfTrainingDTO" nillable="true" type="tns:ArrayOfTrainingDTO" />
+  <xs:complexType name="ArrayOfSettingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SettingDTO" nillable="true" type="tns:SettingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSettingDTO" nillable="true" type="tns:ArrayOfSettingDTO" />
 </xs:schema>

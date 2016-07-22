@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -169,17 +169,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ServiceReference\ApplicationServer.wsdl" />
-    <None Include="Service References\ServiceReference\item.xsd">
+    <None Include="Service References\ServiceReference\ApplicationServer1.wsdl" />
+    <None Include="Service References\ServiceReference\item4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\item1.xsd">
+    <None Include="Service References\ServiceReference\item41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference\item3.xsd">
+    <None Include="Service References\ServiceReference\item42.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="TesteeApplication_TemporaryKey.pfx" />
@@ -206,9 +203,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceReference\configuration91.svcinfo" />
@@ -540,6 +534,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\item1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
