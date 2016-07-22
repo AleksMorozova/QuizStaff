@@ -95,17 +95,18 @@ namespace Server
 
         public QuestionDTO GetRandomQuestionForTestee(Guid id)
         {
-            // TODO: implement logic for finding question 
-
             EFRepository<Testee> repo = new EFRepository<Testee>();
             var currentTestee = repo.Read(id);
 
             BindingList<Question> allQuestions = new BindingList<Question>();
             foreach(var t in currentTestee.Trainings)
             {
-                foreach (var q in t.Training.Questions)
+                if (t.IsSelect)
                 {
-                    allQuestions.Add(q);
+                    foreach (var q in t.Training.Questions)
+                    {
+                        allQuestions.Add(q);
+                    }
                 }
             }
 
@@ -119,9 +120,12 @@ namespace Server
             }
             else 
             {
-                question = allQuestions.First();
+                question = allQuestions.FirstOrDefault();
             }
-    
+
+            if (question == null)
+                return null;
+
             return (QuestionDTO)question;
         }
 

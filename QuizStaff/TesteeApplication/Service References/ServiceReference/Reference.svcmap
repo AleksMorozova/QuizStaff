@@ -19,15 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://DWS01:8733/Design_Time_Addresses/Server/ApplicationServer/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ApplicationServer.wsdl" MetadataType="Wsdl" ID="be092224-b77f-41f9-b5d6-2c1aee32ddb4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?wsdl" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="3e65c0dd-2b55-4ab3-b14b-add71d41fea4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd3" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="4bcf38a2-0c76-4b95-8027-dc70ee1f5203" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd2" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="1f6190a4-602a-45e3-a029-965df3bc1831" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd1" />
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="165aac64-7aad-4e70-9230-3e45ddc09ec1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd0" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="04daf5e6-ec51-459c-a668-61266524f7d2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?disco" />
+    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="39327565-7c41-46b8-94ed-26fe5b8ebcd0" SourceId="1" SourceUrl="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?disco" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="836722e8-5cb1-4d46-a4d2-3ff0372df242" SourceId="1" SourceUrl="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd0" />
+    <MetadataFile FileName="item41.xsd" MetadataType="Schema" ID="eb50fc22-e954-4ddc-9cbe-75083c2b5652" SourceId="1" SourceUrl="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd1" />
+    <MetadataFile FileName="item42.xsd" MetadataType="Schema" ID="19d77334-d08f-40fe-8e10-8469ae50e57e" SourceId="1" SourceUrl="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd2" />
+    <MetadataFile FileName="ApplicationServer1.wsdl" MetadataType="Wsdl" ID="f8f49539-87b1-46ce-ae25-901fe4a801b1" SourceId="1" SourceUrl="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

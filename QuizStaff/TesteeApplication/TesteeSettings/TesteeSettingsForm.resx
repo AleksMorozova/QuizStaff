@@ -180,9 +180,8 @@
   <data name="timeOfAskingEditTime.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Glyph</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="timeOfAskingEditTime.Properties.Mask.EditMask" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="timeOfAskingEditTime.Properties.Mask.EditMask" xml:space="preserve">
+    <value>t</value>
   </data>
   <data name="timeOfAskingEditTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>260, 20</value>
@@ -211,6 +210,7 @@
   <data name="questionAmountSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Glyph</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="questionAmountSpinEdit.Properties.Mask.EditMask" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>

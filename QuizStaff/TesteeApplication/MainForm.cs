@@ -24,6 +24,7 @@ namespace TesteeApplication
 
         private void settingsBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Program.GetTestee(Authorization.AuthorizedTesteeName);
             TesteeSettingsForm newMDIChild = new TesteeSettingsForm();
             newMDIChild.Text = "Settings";
             newMDIChild.WindowState = FormWindowState.Maximized;
@@ -48,16 +49,16 @@ namespace TesteeApplication
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            // TODO: uncommit after implementation of authentication
             QuestionForm f = new QuestionForm(Program.currentTestee);
             var timeToStart = Program.currentTestee.UserSetting.TimeOfStart;
             var userTime = new TimeSpan(timeToStart.Hour, timeToStart.Minute, timeToStart.Second);
-            for (int i = 0; i <= Program.currentTestee.UserSetting.FrequencyOfAsking; i++)
+            for (int i = 0; i <= Program.currentTestee.UserSetting.FrequencyOfAsking; i ++)
                 if (DateTime.Now.TimeOfDay.Hours == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours
-                    && DateTime.Now.TimeOfDay.Minutes == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes)
-                {
-                    f.Show();
+                    && DateTime.Now.TimeOfDay.Minutes == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes
+                    + i * Program.currentTestee.UserSetting.FrequencyOfAsking)
+                {       
                     timer.Interval = Program.currentTestee.UserSetting.FrequencyOfAsking * 60000;
+                    f.Show();
                 }
         }
     }
