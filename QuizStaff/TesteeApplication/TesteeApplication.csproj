@@ -108,6 +108,9 @@
     <EmbeddedResource Include="TesteeQuestion\QuestionForm.resx">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TesteeQuestion\QuestionForm.ru-RU.resx">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TesteeSettings\TesteeSettingsForm.resx">
       <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -119,9 +119,12 @@ namespace Server
             }
             else 
             {
-                question = allQuestions.First();
+                question = allQuestions.FirstOrDefault();
             }
-    
+
+            if (question == null)
+                return null;
+
             return (QuestionDTO)question;
         }
 
