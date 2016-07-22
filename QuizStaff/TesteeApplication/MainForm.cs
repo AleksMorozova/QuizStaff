@@ -24,6 +24,7 @@ namespace TesteeApplication
 
         private void settingsBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Program.GetTestee(Authorization.AuthorizedTesteeName);
             TesteeSettingsForm newMDIChild = new TesteeSettingsForm();
             newMDIChild.Text = "Settings";
             newMDIChild.WindowState = FormWindowState.Maximized;

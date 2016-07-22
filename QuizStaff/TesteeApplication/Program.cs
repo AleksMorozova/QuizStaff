@@ -65,7 +65,7 @@ namespace TesteeApplication
             }
         }
 
-        static void GetTestee(string login)
+        public static void GetTestee(string login)
         {
             var loadedUser = ServiceClient.FindByLogin(login);
             currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);
