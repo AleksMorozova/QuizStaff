@@ -7,6 +7,7 @@ using System.Globalization;
 using System.ComponentModel;
 using DomainModel;
 using TesteeApplication.TesteeQuestion;
+using DevExpress.XtraEditors;
 
 namespace TesteeApplication
 {
@@ -23,7 +24,9 @@ namespace TesteeApplication
             model = mvvmQuestionContext.GetViewModel<TesteeQuestionViewModel>();
             mvvmQuestionContext.SetViewModel(typeof(TesteeQuestionViewModel), model);
             model.LoadQuestionForTestee(Program.currentTestee);
-            CreateQuestionControls(model.question);
+
+            if (model.question != null)
+                CreateQuestionControls(model.question);
 
             // Send form to bottom right corner of display
             SetWindowsPosition();
@@ -95,13 +98,26 @@ namespace TesteeApplication
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionForm));
-            buttonSend.Image = ((System.Drawing.Image)(resources.GetObject("buttonSend.Image")));
-            if (wasClick)
+            var resources = new ComponentResourceManager(typeof(QuestionForm));
+            CultureInfo newCultureInfo = new CultureInfo(Program.currentLang);
+           
+            var header = !String.IsNullOrEmpty(resources.GetString("Header", newCultureInfo))
+                ? resources.GetString("Header", newCultureInfo) : "Result";
+
+            var message = !String.IsNullOrEmpty(resources.GetString("Message", newCultureInfo))
+                ? resources.GetString("Message", newCultureInfo) : "Your answer was ";
+
+            var result = model.FindWasAnswerCorrect(answers)
+                ? (!String.IsNullOrEmpty(resources.GetString("Correct", newCultureInfo))
+                    ? resources.GetString("Correct", newCultureInfo) : "correct")
+                : (!String.IsNullOrEmpty(resources.GetString("Wrong", newCultureInfo))
+                    ? resources.GetString("Wrong", newCultureInfo) : "wrong");
+
+            //DevExpress.Utils.AppearanceObject.DefaultFont = new Font("Tahoma", 12, FontStyle.Italic, GraphicsUnit.Point, 0);
+            if (DialogResult.OK == XtraMessageBox.Show(message + result, header, MessageBoxButtons.OK))
             {
                 this.Close();
             }
-            wasClick = true;
         }
     }
 }
