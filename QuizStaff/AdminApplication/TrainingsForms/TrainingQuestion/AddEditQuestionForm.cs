@@ -70,6 +70,9 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
             resources.ApplyResources(isCorrectColumn, "isCorrectColumn", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
+            resources.ApplyResources(addAnswerButton, "addAnswerButton", newCultureInfo);
+            resources.ApplyResources(deleteAnswerButton, "deleteAnswerButton", newCultureInfo);
+
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Question";
         }

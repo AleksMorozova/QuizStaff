@@ -32,7 +32,7 @@ namespace AdminApplication.AdminSettings
 
         private void BindCommands()
         {
-            mvvmAdminSettingsContext.BindCommand<AdminSettingsViewModel, BindingList<Testee>>(saveButton, (viewModel, questionID)
+            mvvmAdminSettingsContext.BindCommand<AdminSettingsViewModel, BindingList<Testee>>(editSettingsButton, (viewModel, questionID)
                 => viewModel.EditSettings(questionID), x => GetSelectedTestees());
         }
 
@@ -77,10 +77,10 @@ namespace AdminApplication.AdminSettings
             resources.ApplyResources(frequencyOfAskingGridColumn, "frequencyOfAskingGridColumn", newCultureInfo);
             resources.ApplyResources(timeOfStartGridColumn, "timeOfStartGridColumn", newCultureInfo);
             resources.ApplyResources(canEditGridColumn, "canEditGridColumn", newCultureInfo);
-            resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
+            resources.ApplyResources(editSettingsButton, "editSettingsButton", newCultureInfo);
             resources.ApplyResources(showCorrectAnswerGridColumn, "showCorrectAnswerGridColumn", newCultureInfo);
             resources.ApplyResources(checkGridColumn, "checkGridColumn", newCultureInfo);
-            resources.ApplyResources(editSettingsSimpleButton, "editSettingsSimpleButton", newCultureInfo);
+            resources.ApplyResources(editTrainingsButton, "editTrainingsButton", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Settings";
         }
