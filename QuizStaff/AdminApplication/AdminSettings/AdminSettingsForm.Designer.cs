@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminSettingsForm));
             this.dateImpactLabelLayoutControl = new DevExpress.XtraLayout.LayoutControl();
-            this.editSettingsSimpleButton = new DevExpress.XtraEditors.SimpleButton();
-            this.saveButton = new DevExpress.XtraEditors.SimpleButton();
+            this.editTrainingsButton = new DevExpress.XtraEditors.SimpleButton();
+            this.editSettingsButton = new DevExpress.XtraEditors.SimpleButton();
             this.testeeListGridControl = new DevExpress.XtraGrid.GridControl();
             this.testeesGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.firstNameGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -62,7 +61,7 @@
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.editSettingsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.mvvmAdminSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.dateImpactLabelLayoutControl)).BeginInit();
             this.dateImpactLabelLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.testeeListGridControl)).BeginInit();
@@ -81,8 +80,8 @@
             // 
             // dateImpactLabelLayoutControl
             // 
-            this.dateImpactLabelLayoutControl.Controls.Add(this.editSettingsSimpleButton);
-            this.dateImpactLabelLayoutControl.Controls.Add(this.saveButton);
+            this.dateImpactLabelLayoutControl.Controls.Add(this.editTrainingsButton);
+            this.dateImpactLabelLayoutControl.Controls.Add(this.editSettingsButton);
             this.dateImpactLabelLayoutControl.Controls.Add(this.testeeListGridControl);
             resources.ApplyResources(this.dateImpactLabelLayoutControl, "dateImpactLabelLayoutControl");
             this.dateImpactLabelLayoutControl.Name = "dateImpactLabelLayoutControl";
@@ -90,19 +89,19 @@
             this.dateImpactLabelLayoutControl.OptionsView.UseDefaultDragAndDropRendering = false;
             this.dateImpactLabelLayoutControl.Root = this.layoutControlGroup;
             // 
-            // editSettingsSimpleButton
+            // editTrainingsButton
             // 
-            resources.ApplyResources(this.editSettingsSimpleButton, "editSettingsSimpleButton");
-            this.editSettingsSimpleButton.Name = "editSettingsSimpleButton";
-            this.editSettingsSimpleButton.StyleController = this.dateImpactLabelLayoutControl;
-            this.editSettingsSimpleButton.Click += new System.EventHandler(this.editSettingsSimpleButton_Click);
+            resources.ApplyResources(this.editTrainingsButton, "editTrainingsButton");
+            this.editTrainingsButton.Name = "editTrainingsButton";
+            this.editTrainingsButton.StyleController = this.dateImpactLabelLayoutControl;
+            this.editTrainingsButton.Click += new System.EventHandler(this.editSettingsSimpleButton_Click);
             // 
-            // saveButton
+            // editSettingsButton
             // 
-            resources.ApplyResources(this.saveButton, "saveButton");
-            this.saveButton.Name = "saveButton";
-            this.saveButton.StyleController = this.dateImpactLabelLayoutControl;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            resources.ApplyResources(this.editSettingsButton, "editSettingsButton");
+            this.editSettingsButton.Name = "editSettingsButton";
+            this.editSettingsButton.StyleController = this.dateImpactLabelLayoutControl;
+            this.editSettingsButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // testeeListGridControl
             // 
@@ -322,7 +321,7 @@
             // 
             // saveButtonLayoutControlItem
             // 
-            this.saveButtonLayoutControlItem.Control = this.saveButton;
+            this.saveButtonLayoutControlItem.Control = this.editSettingsButton;
             this.saveButtonLayoutControlItem.Location = new System.Drawing.Point(488, 346);
             this.saveButtonLayoutControlItem.Name = "saveButtonLayoutControlItem";
             this.saveButtonLayoutControlItem.Size = new System.Drawing.Size(131, 36);
@@ -340,7 +339,7 @@
             // 
             // editSettingsLayoutControlItem
             // 
-            this.editSettingsLayoutControlItem.Control = this.editSettingsSimpleButton;
+            this.editSettingsLayoutControlItem.Control = this.editTrainingsButton;
             this.editSettingsLayoutControlItem.Location = new System.Drawing.Point(342, 346);
             this.editSettingsLayoutControlItem.Name = "editSettingsLayoutControlItem";
             this.editSettingsLayoutControlItem.Size = new System.Drawing.Size(146, 36);
@@ -386,7 +385,7 @@
         private DevExpress.Utils.MVVM.MVVMContext mvvmAdminSettingsContext;
         private DevExpress.XtraGrid.Columns.GridColumn firstNameGridColumn;
         private DevExpress.XtraGrid.Columns.GridColumn lastNameGridColumn;
-        private DevExpress.XtraEditors.SimpleButton saveButton;
+        private DevExpress.XtraEditors.SimpleButton editSettingsButton;
         private DevExpress.XtraLayout.LayoutControlItem saveButtonLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraGrid.Columns.GridColumn frequencyOfAskingGridColumn;
@@ -409,7 +408,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit showAnswerRepositoryItemCheckEdit;
         private DevExpress.XtraGrid.Columns.GridColumn canEditGridColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit canEditRepositoryItemCheckEdit;
-        private DevExpress.XtraEditors.SimpleButton editSettingsSimpleButton;
+        private DevExpress.XtraEditors.SimpleButton editTrainingsButton;
         private DevExpress.XtraLayout.LayoutControlItem editSettingsLayoutControlItem;
     }
 }
