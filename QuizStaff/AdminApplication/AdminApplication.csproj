@@ -100,6 +100,20 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminSettings\EditeRoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSettings\EditeRoleForm.Designer.cs">
+      <DependentUpon>EditeRoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSettings\EditeRoleViewModel.cs" />
+    <Compile Include="AdminSettings\EditPermissionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminSettings\EditPermissionForm.Designer.cs">
+      <DependentUpon>EditPermissionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminSettings\EditPermissionsViewModel.cs" />
     <Compile Include="AdminSettings\EditSettingsViewModel.cs" />
     <Compile Include="AdminSettings\EditTesteesTrainingsForm.cs">
       <SubType>Form</SubType>
@@ -191,6 +205,18 @@
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TrainingsForms\TrainingsList\TrainingListViewModel.cs" />
+    <EmbeddedResource Include="AdminSettings\EditeRoleForm.resx">
+      <DependentUpon>EditeRoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\EditeRoleForm.RU-ru.resx">
+      <DependentUpon>EditeRoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\EditPermissionForm.resx">
+      <DependentUpon>EditPermissionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminSettings\EditPermissionForm.RU-ru.resx">
+      <DependentUpon>EditPermissionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminSettings\EditSettingsForm.RU-ru.resx">
       <DependentUpon>EditSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,7 +302,9 @@
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Client_TemporaryKey.pfx" />
+    <None Include="DataTransferObject.PermissionDTO.datasource" />
     <None Include="DataTransferObject.QuestionDTO1.datasource" />
+    <None Include="DataTransferObject.RoleDTO.datasource" />
     <None Include="DataTransferObject.SettingDTO.datasource" />
     <None Include="DataTransferObject.TesteeDTO.datasource" />
     <None Include="DataTransferObject.TesteeTrainingDTO.datasource" />

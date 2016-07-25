@@ -45,7 +45,9 @@
     <Compile Include="Answer.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="History.cs" />
+    <Compile Include="Permission.cs" />
     <Compile Include="Question.cs" />
+    <Compile Include="Role.cs" />
     <Compile Include="Setting.cs" />
     <Compile Include="Testee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

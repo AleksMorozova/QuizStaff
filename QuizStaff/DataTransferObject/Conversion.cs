@@ -400,6 +400,42 @@ namespace DataTransferObject
 
             return newSetting;
         }
+
+        public static Role ConvertRoleFromDTO(RoleDTO role) 
+        {
+            Role newRole = new Role();
+            newRole.Id = role.Id;
+            newRole.Name = role.Name;
+            newRole.Permissions = new BindingList<Permission>();
+
+            foreach (var p in role.Permissions)
+            {
+                Permission permission = new Permission();
+                permission.Id = p.Id;
+                permission.Title = p.Title;
+                newRole.Permissions.Add(permission);
+            }
+
+            return newRole;
+        }
+
+        public static RoleDTO ConvertRoleToDTO(Role role)
+        {
+            RoleDTO newRole = new RoleDTO();
+            newRole.Id = role.Id;
+            newRole.Name = role.Name;
+            newRole.Permissions = new BindingList<PermissionDTO>();
+
+            foreach (var p in role.Permissions)
+            {
+                PermissionDTO permission = new PermissionDTO();
+                permission.Id = p.Id;
+                permission.Title = p.Title;
+                newRole.Permissions.Add(permission);
+            }
+
+            return newRole;
+        }
     }
 }
 

@@ -28,6 +28,7 @@
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Trainings" nillable="true" type="tns:ArrayOfTesteeTrainingDTO" />
+      <xs:element minOccurs="0" name="UserRole" nillable="true" type="tns:RoleDTO" />
       <xs:element minOccurs="0" name="UserSetting" nillable="true" type="tns:SettingDTO" />
     </xs:sequence>
   </xs:complexType>
@@ -123,6 +124,29 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TesteeTrainingDTO" nillable="true" type="tns:TesteeTrainingDTO" />
+  <xs:complexType name="RoleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Permissions" nillable="true" type="tns:ArrayOfPermissionDTO" />
+      <xs:element minOccurs="0" name="Testees" nillable="true" type="tns:ArrayOfTesteeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleDTO" nillable="true" type="tns:RoleDTO" />
+  <xs:complexType name="ArrayOfPermissionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PermissionDTO" nillable="true" type="tns:PermissionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPermissionDTO" nillable="true" type="tns:ArrayOfPermissionDTO" />
+  <xs:complexType name="PermissionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PermissionDTO" nillable="true" type="tns:PermissionDTO" />
   <xs:complexType name="SettingDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="AmountOfQuestionsPerDay" type="xs:int" />
@@ -146,4 +170,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfSettingDTO" nillable="true" type="tns:ArrayOfSettingDTO" />
+  <xs:complexType name="ArrayOfRoleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoleDTO" nillable="true" type="tns:RoleDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoleDTO" nillable="true" type="tns:ArrayOfRoleDTO" />
 </xs:schema>

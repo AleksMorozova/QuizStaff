@@ -151,6 +151,24 @@
   <wsdl:message name="IApplicationServer_FindByTitle_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindByTitleResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRoles" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllPermissions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPermissions" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRoles" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRolesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetAllTestees">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTestees" message="tns:IApplicationServer_GetAllTestees_InputMessage" />
@@ -247,6 +265,18 @@
     <wsdl:operation name="FindByTitle">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/FindByTitle" message="tns:IApplicationServer_FindByTitle_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/FindByTitleResponse" message="tns:IApplicationServer_FindByTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllRoles" message="tns:IApplicationServer_GetAllRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllRolesResponse" message="tns:IApplicationServer_GetAllRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPermissions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllPermissions" message="tns:IApplicationServer_GetAllPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllPermissionsResponse" message="tns:IApplicationServer_GetAllPermissions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateRoles" message="tns:IApplicationServer_UpdateRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateRolesResponse" message="tns:IApplicationServer_UpdateRoles_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -460,6 +490,33 @@
     </wsdl:operation>
     <wsdl:operation name="FindByTitle">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/FindByTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetAllRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPermissions">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/GetAllPermissions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRoles">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/UpdateRoles" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

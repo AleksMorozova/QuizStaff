@@ -83,6 +83,7 @@ namespace AdminApplication
             resources.ApplyResources(englishBarButtonItem, "englishBarButtonItem", newCultureInfo);
             resources.ApplyResources(adminSettingsBarButtonItem, "adminSettingsBarButtonItem", newCultureInfo);
             resources.ApplyResources(questionBarButton, "questionBarButton", newCultureInfo);
+            resources.ApplyResources(roleBarButton, "roleBarButton", newCultureInfo);
         }
 
         private void russianBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
@@ -119,6 +120,14 @@ namespace AdminApplication
         {
             var formSets = new TesteeSettings.TesteeSettingsForm();
             formSets.ShowDialog();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            EditeRoleForm testeesform = new EditeRoleForm();
+            FormManager.Instance.OpenChildForm(testeesform, "Role");
+            //FormManager.LocalizedFormList.Add(testeesform);
+          //  FormManager.Instance.LocalizedForms(Program.currentLang);
         }
     }
 }

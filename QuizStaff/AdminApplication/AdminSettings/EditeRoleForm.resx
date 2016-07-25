@@ -117,31 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="adminSettingsBarButtonItem.Caption" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
-  <data name="englishBarButtonItem.Caption" xml:space="preserve">
-    <value>Aнглийский</value>
-  </data>
-  <data name="languageBarSubItem.Caption" xml:space="preserve">
-    <value>Язык</value>
-  </data>
-  <data name="questionBarButton.Caption" xml:space="preserve">
-    <value>Вопрос</value>
-  </data>
-  <data name="roleBarButton.Caption" xml:space="preserve">
-    <value>Роли</value>
-  </data>
-  <data name="russianBarButtonItem.Caption" xml:space="preserve">
-    <value>Pусский</value>
-  </data>
-  <data name="settingsBarButton.Caption" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
-  <data name="testeesBarButton.Caption" xml:space="preserve">
-    <value>Тестируемыe</value>
-  </data>
-  <data name="trainingsBarButton.Caption" xml:space="preserve">
-    <value>Тренинги</value>
-  </data>
+  <metadata name="mvvmRoleContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

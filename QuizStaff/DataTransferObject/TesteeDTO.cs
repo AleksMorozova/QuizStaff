@@ -141,6 +141,7 @@ namespace DataTransferObject
                 trainings = value; 
             } 
         }
+        public virtual RoleDTO UserRole { get; set; }
 
         public static implicit operator TesteeDTO(Testee testee)
         {

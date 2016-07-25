@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="DAL\EFHistoryRepository.cs" />
     <Compile Include="DAL\EFRepository.cs" />
+    <Compile Include="DAL\EFRoleRepository .cs" />
     <Compile Include="DAL\EFTesteeRepository.cs" />
     <Compile Include="DAL\EFTesteeTrainingRepository.cs" />
     <Compile Include="DAL\EFTrainingRepository.cs" />

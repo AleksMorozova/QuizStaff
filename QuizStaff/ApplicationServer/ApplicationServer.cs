@@ -303,5 +303,37 @@ namespace Server
             var result = repo.ReadAll().Where(_ => _.TrainingTitle == title ).FirstOrDefault();
             return (result != null) ? result : new TrainingDTO() { IsActive = true };
         }
+
+
+        public List<RoleDTO> GetAllRoles()
+        {
+            EFRepository<Role> repo = new EFRepository<Role>();
+            var roles = new List<Role>(repo.ReadAll());
+            return roles.Select(role => (RoleDTO)role).ToList();
+        }
+
+        public List<PermissionDTO> GetAllPermissions()
+        {
+            EFRepository<Permission> repo = new EFRepository<Permission>();
+            var permissions = new List<Permission>(repo.ReadAll());
+            return permissions.Select(permission => (PermissionDTO)permission).ToList();
+        }
+
+
+        public void UpdateRoles(List<RoleDTO> roles)
+        {            
+            EFRoleRepository repo = new EFRoleRepository();
+            foreach (var r in roles)
+            {
+                if (r.Id == Guid.Empty)
+                {
+                    repo.Create(Conversion.ConvertRoleFromDTO(r));
+                }
+                else 
+                { 
+                    repo.Update(Conversion.ConvertRoleFromDTO(r));
+                }
+            }
+        }
     }
 }

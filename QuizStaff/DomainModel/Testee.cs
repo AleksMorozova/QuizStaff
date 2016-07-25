@@ -18,6 +18,7 @@ namespace DomainModel
         public bool IsActive { get; set; }
         public bool IsSelected { get; set; }
 
+        public virtual Role UserRole { get; set; }
         public virtual Setting UserSetting { get;set; }
         public virtual BindingList<History> Histories { get; set; }
         public virtual BindingList<TesteeTraining> Trainings { get; set; }
