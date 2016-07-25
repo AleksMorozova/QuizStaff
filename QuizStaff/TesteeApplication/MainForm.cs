@@ -52,10 +52,18 @@ namespace TesteeApplication
             QuestionForm f = new QuestionForm(Program.currentTestee);
             var timeToStart = Program.currentTestee.UserSetting.TimeOfStart;
             var userTime = new TimeSpan(timeToStart.Hour, timeToStart.Minute, timeToStart.Second);
+
+            var aditionalHours = (Program.currentTestee.UserSetting.FrequencyOfAsking > 60) 
+                ? Program.currentTestee.UserSetting.FrequencyOfAsking / 60 
+                : 0;
+
+            var aditionalMinits = (Program.currentTestee.UserSetting.FrequencyOfAsking > 60)
+                ? Program.currentTestee.UserSetting.FrequencyOfAsking % 60
+                : Program.currentTestee.UserSetting.FrequencyOfAsking;
+
             for (int i = 0; i <= Program.currentTestee.UserSetting.FrequencyOfAsking; i ++)
-                if (DateTime.Now.TimeOfDay.Hours == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours
-                    && DateTime.Now.TimeOfDay.Minutes == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes
-                    + i * Program.currentTestee.UserSetting.FrequencyOfAsking)
+                if (DateTime.Now.TimeOfDay.Hours == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + i * aditionalHours
+                    && DateTime.Now.TimeOfDay.Minutes == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits)
                 {       
                     timer.Interval = Program.currentTestee.UserSetting.FrequencyOfAsking * 60000;
                     f.Show();
