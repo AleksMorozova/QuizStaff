@@ -338,11 +338,23 @@
   <xs:element name="UpdateRoles">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="roles" nillable="true" type="q35:ArrayOfRoleDTO" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="role" nillable="true" type="q35:RoleDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateRolesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePermissions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="permission" nillable="true" type="q36:PermissionDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePermissionsResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

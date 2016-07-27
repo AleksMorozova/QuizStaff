@@ -172,10 +172,16 @@ namespace AdminApplication.ServiceReference {
         System.Threading.Tasks.Task<DataTransferObject.PermissionDTO[]> GetAllPermissionsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateRoles", ReplyAction="http://tempuri.org/IApplicationServer/UpdateRolesResponse")]
-        void UpdateRoles(DataTransferObject.RoleDTO[] roles);
+        void UpdateRoles(DataTransferObject.RoleDTO role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateRoles", ReplyAction="http://tempuri.org/IApplicationServer/UpdateRolesResponse")]
-        System.Threading.Tasks.Task UpdateRolesAsync(DataTransferObject.RoleDTO[] roles);
+        System.Threading.Tasks.Task UpdateRolesAsync(DataTransferObject.RoleDTO role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdatePermissions", ReplyAction="http://tempuri.org/IApplicationServer/UpdatePermissionsResponse")]
+        void UpdatePermissions(DataTransferObject.PermissionDTO permission);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdatePermissions", ReplyAction="http://tempuri.org/IApplicationServer/UpdatePermissionsResponse")]
+        System.Threading.Tasks.Task UpdatePermissionsAsync(DataTransferObject.PermissionDTO permission);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -413,12 +419,20 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.GetAllPermissionsAsync();
         }
         
-        public void UpdateRoles(DataTransferObject.RoleDTO[] roles) {
-            base.Channel.UpdateRoles(roles);
+        public void UpdateRoles(DataTransferObject.RoleDTO role) {
+            base.Channel.UpdateRoles(role);
         }
         
-        public System.Threading.Tasks.Task UpdateRolesAsync(DataTransferObject.RoleDTO[] roles) {
-            return base.Channel.UpdateRolesAsync(roles);
+        public System.Threading.Tasks.Task UpdateRolesAsync(DataTransferObject.RoleDTO role) {
+            return base.Channel.UpdateRolesAsync(role);
+        }
+        
+        public void UpdatePermissions(DataTransferObject.PermissionDTO permission) {
+            base.Channel.UpdatePermissions(permission);
+        }
+        
+        public System.Threading.Tasks.Task UpdatePermissionsAsync(DataTransferObject.PermissionDTO permission) {
+            return base.Channel.UpdatePermissionsAsync(permission);
         }
     }
 }

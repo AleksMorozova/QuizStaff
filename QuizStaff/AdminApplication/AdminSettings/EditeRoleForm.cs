@@ -44,11 +44,12 @@ namespace AdminApplication.AdminSettings
         {
             EditPermissionForm form = new EditPermissionForm(model.Permissions);
             form.ShowDialog();
+            permissionGridControl.DataSource = form.Permissions;
         }
 
         public void Localized(string language)
         {
-            var resources = new ComponentResourceManager(typeof(AdminSettingsForm));
+            var resources = new ComponentResourceManager(typeof(EditeRoleForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
 
             resources.ApplyResources(roleGridControlLayoutControlItem, "roleGridControlLayoutControlItem", newCultureInfo);
@@ -59,14 +60,14 @@ namespace AdminApplication.AdminSettings
             resources.ApplyResources(descriptionGridColumn, "descriptionGridColumn", newCultureInfo);
             resources.ApplyResources(roleGridColumn, "roleGridColumn", newCultureInfo);
             resources.ApplyResources(permissionGridColumn, "permissionGridColumn", newCultureInfo);
-            //permissionGridColumn
+
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
-                ? resources.GetString("Title", newCultureInfo) : "Settings";
+                ? resources.GetString("Title", newCultureInfo) : "Roles";
         }
 
         public bool RoleHasPermission(Role role, Permission perm)
         {
-            return (from p in role.Permissions where p.Id == perm.Id select p).Count() > 0;
+            return (from p in role.Permissions where p.Permission.Id == perm.Id select p).Count() > 0;
         }
 
         void RefreshRolePermissions(int rowIndex)
@@ -82,9 +83,12 @@ namespace AdminApplication.AdminSettings
                     for (int rowHandle = 0; rowHandle < permissionGridView.RowCount; rowHandle++)
                     {
                         var perm = permissionGridView.GetRow(rowHandle) as Permission;
-                        if (RoleHasPermission(role, perm))
+                        if (perm!=null)
+                        {
+                            if (RoleHasPermission(role, perm))
                         {
                             permissionGridView.SelectRow(rowHandle);
+                        }
                         }
                     }
                 }
@@ -145,7 +149,9 @@ namespace AdminApplication.AdminSettings
             var rolePerm = role.Permissions.Where(_ => _.Id == p.Id).FirstOrDefault();
             if (rolePerm == null)
             {
-                role.Permissions.Add(p);
+                RolePermission rolePermission = new RolePermission();
+                rolePermission.Permission = p;
+                role.Permissions.Add(rolePermission);
             }
         }
 
@@ -157,6 +163,13 @@ namespace AdminApplication.AdminSettings
                 role.Permissions.Remove(rolePerm);
             }
 
+        }
+
+        private void roleGridView_InitNewRow(object sender, InitNewRowEventArgs e)
+        {
+            GridView v = sender as GridView;
+            Role role = v.GetRow(e.RowHandle) as Role;
+            role.Permissions = new BindingList<RolePermission>();
         }
     }
 }

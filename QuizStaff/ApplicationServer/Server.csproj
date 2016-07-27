@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\EFHistoryRepository.cs" />
+    <Compile Include="DAL\EFPermissionRepository.cs" />
     <Compile Include="DAL\EFRepository.cs" />
     <Compile Include="DAL\EFRoleRepository .cs" />
     <Compile Include="DAL\EFTesteeRepository.cs" />

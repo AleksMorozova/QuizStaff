@@ -33,6 +33,10 @@ namespace AdminApplication.AdminSettings
             Permissions = permissions;
         }
 
+        public void Save()
+        {
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void RaisePropertyChanged(string propertyName)

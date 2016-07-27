@@ -93,12 +93,21 @@ namespace AdminApplication.AdminSettings
 
         public void Save() 
         {
-            BindingList<RoleDTO> savedRoles = new BindingList<RoleDTO>();
+
+            foreach (var p in Permissions)
+            {
+
+                PermissionDTO savedPermission = new PermissionDTO();
+                savedPermission.Id = p.Id;
+                savedPermission.Title = p.Title;
+
+                ServicesHolder.ServiceClient.UpdatePermissions(savedPermission);
+            }
+
             foreach (var r in Roles)
             {
-                savedRoles.Add(Conversion.ConvertRoleToDTO(r));
+                ServicesHolder.ServiceClient.UpdateRoles(Conversion.ConvertRoleToDTO(r));
             }
-            ServicesHolder.ServiceClient.UpdateRoles(savedRoles.ToArray());
         }
     }
 }

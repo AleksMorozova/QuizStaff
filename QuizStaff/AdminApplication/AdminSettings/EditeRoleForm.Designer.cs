@@ -44,7 +44,6 @@
             this.permissionGridControlLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -60,7 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.permissionGridControlLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
@@ -85,38 +83,38 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(437, 387);
+            this.cancelButton.Location = new System.Drawing.Point(484, 387);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(137, 22);
+            this.cancelButton.Size = new System.Drawing.Size(90, 22);
             this.cancelButton.StyleController = this.layoutControl1;
             this.cancelButton.TabIndex = 8;
             this.cancelButton.Text = "Cancel";
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(302, 387);
+            this.saveButton.Location = new System.Drawing.Point(391, 387);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(121, 22);
+            this.saveButton.Size = new System.Drawing.Size(79, 22);
             this.saveButton.StyleController = this.layoutControl1;
             this.saveButton.TabIndex = 7;
             this.saveButton.Text = "Save";
             // 
             // editPermissionButton
             // 
-            this.editPermissionButton.Location = new System.Drawing.Point(421, 17);
+            this.editPermissionButton.Location = new System.Drawing.Point(302, 387);
             this.editPermissionButton.Name = "editPermissionButton";
-            this.editPermissionButton.Size = new System.Drawing.Size(153, 22);
+            this.editPermissionButton.Size = new System.Drawing.Size(85, 22);
             this.editPermissionButton.StyleController = this.layoutControl1;
             this.editPermissionButton.TabIndex = 6;
-            this.editPermissionButton.Text = "Edit permission";
+            this.editPermissionButton.Text = "Edit permissions";
             this.editPermissionButton.Click += new System.EventHandler(this.editPermissionButton_Click);
             // 
             // permissionGridControl
             // 
-            this.permissionGridControl.Location = new System.Drawing.Point(352, 64);
+            this.permissionGridControl.Location = new System.Drawing.Point(352, 28);
             this.permissionGridControl.MainView = this.permissionGridView;
             this.permissionGridControl.Name = "permissionGridControl";
-            this.permissionGridControl.Size = new System.Drawing.Size(222, 314);
+            this.permissionGridControl.Size = new System.Drawing.Size(222, 350);
             this.permissionGridControl.TabIndex = 5;
             this.permissionGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.permissionGridView});
@@ -127,9 +125,11 @@
             this.permissionGridColumn});
             this.permissionGridView.GridControl = this.permissionGridControl;
             this.permissionGridView.Name = "permissionGridView";
+            this.permissionGridView.OptionsDetail.EnableMasterViewMode = false;
             this.permissionGridView.OptionsSelection.MultiSelect = true;
             this.permissionGridView.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.permissionGridView.OptionsView.ShowGroupPanel = false;
+            this.permissionGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.permissionGridView.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.permissionGridView_SelectionChanged);
             // 
             // permissionGridColumn
@@ -142,10 +142,10 @@
             // 
             // roleGridControl
             // 
-            this.roleGridControl.Location = new System.Drawing.Point(12, 64);
+            this.roleGridControl.Location = new System.Drawing.Point(12, 28);
             this.roleGridControl.MainView = this.roleGridView;
             this.roleGridControl.Name = "roleGridControl";
-            this.roleGridControl.Size = new System.Drawing.Size(321, 314);
+            this.roleGridControl.Size = new System.Drawing.Size(321, 350);
             this.roleGridControl.TabIndex = 4;
             this.roleGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.roleGridView});
@@ -158,7 +158,9 @@
             this.roleGridView.GridControl = this.roleGridControl;
             this.roleGridView.Name = "roleGridView";
             this.roleGridView.OptionsDetail.EnableMasterViewMode = false;
+            this.roleGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.roleGridView.OptionsView.ShowGroupPanel = false;
+            this.roleGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.roleGridView_InitNewRow);
             this.roleGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.roleGridView_FocusedRowChanged);
             // 
             // roleGridColumn
@@ -185,11 +187,10 @@
             this.roleGridControlLayoutControlItem,
             this.permissionGridControlLayoutControlItem,
             this.splitterItem1,
-            this.layoutControlItem1,
-            this.emptySpaceItem1,
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.emptySpaceItem2});
+            this.emptySpaceItem2,
+            this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(586, 426);
@@ -198,9 +199,9 @@
             // roleGridControlLayoutControlItem
             // 
             this.roleGridControlLayoutControlItem.Control = this.roleGridControl;
-            this.roleGridControlLayoutControlItem.Location = new System.Drawing.Point(0, 36);
+            this.roleGridControlLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.roleGridControlLayoutControlItem.Name = "roleGridControlLayoutControlItem";
-            this.roleGridControlLayoutControlItem.Size = new System.Drawing.Size(330, 334);
+            this.roleGridControlLayoutControlItem.Size = new System.Drawing.Size(330, 370);
             this.roleGridControlLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 0);
             this.roleGridControlLayoutControlItem.Text = "Role";
             this.roleGridControlLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -209,9 +210,9 @@
             // permissionGridControlLayoutControlItem
             // 
             this.permissionGridControlLayoutControlItem.Control = this.permissionGridControl;
-            this.permissionGridControlLayoutControlItem.Location = new System.Drawing.Point(335, 36);
+            this.permissionGridControlLayoutControlItem.Location = new System.Drawing.Point(335, 0);
             this.permissionGridControlLayoutControlItem.Name = "permissionGridControlLayoutControlItem";
-            this.permissionGridControlLayoutControlItem.Size = new System.Drawing.Size(231, 334);
+            this.permissionGridControlLayoutControlItem.Size = new System.Drawing.Size(231, 370);
             this.permissionGridControlLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
             this.permissionGridControlLayoutControlItem.Text = "Permission";
             this.permissionGridControlLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -220,34 +221,27 @@
             // splitterItem1
             // 
             this.splitterItem1.AllowHotTrack = true;
-            this.splitterItem1.Location = new System.Drawing.Point(330, 36);
+            this.splitterItem1.Location = new System.Drawing.Point(330, 0);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(5, 334);
+            this.splitterItem1.Size = new System.Drawing.Size(5, 370);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.editPermissionButton;
-            this.layoutControlItem1.Location = new System.Drawing.Point(409, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(290, 370);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(157, 36);
+            this.layoutControlItem1.Size = new System.Drawing.Size(89, 36);
             this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(409, 36);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.saveButton;
-            this.layoutControlItem2.Location = new System.Drawing.Point(290, 370);
+            this.layoutControlItem2.Location = new System.Drawing.Point(379, 370);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(130, 36);
+            this.layoutControlItem2.Size = new System.Drawing.Size(88, 36);
             this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -255,9 +249,9 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.cancelButton;
-            this.layoutControlItem3.Location = new System.Drawing.Point(420, 370);
+            this.layoutControlItem3.Location = new System.Drawing.Point(467, 370);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(146, 36);
+            this.layoutControlItem3.Size = new System.Drawing.Size(99, 36);
             this.layoutControlItem3.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 5, 5);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
@@ -294,7 +288,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.permissionGridControlLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
@@ -318,7 +311,6 @@
         private DevExpress.XtraEditors.SimpleButton saveButton;
         private DevExpress.XtraEditors.SimpleButton editPermissionButton;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;

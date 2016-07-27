@@ -12,15 +12,40 @@ namespace ApplicationServer.DAL
     {
         public override void Update(Role entity)
         {
-            //foreach (var permission in entity.Permissions)
-            //{
-            //    dbContext.Entry(permission).State = permission.Id == Guid.Empty
-            //        ? System.Data.Entity.EntityState.Added
-            //        : System.Data.Entity.EntityState.Modified;
-            //}
+            if (entity.Permissions != null)
+            {
+                foreach (var permission in entity.Permissions)
+                {
+                    dbContext.Entry(permission).State = permission.Id == Guid.Empty
+                        ? System.Data.Entity.EntityState.Added
+                        : System.Data.Entity.EntityState.Modified;
 
-            ////dbContext.Entry(entity.Testees).State = System.Data.Entity.EntityState.Unchanged;
-            //dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+                    dbContext.Entry(permission.Permission).State = System.Data.Entity.EntityState.Unchanged;
+                }
+            }
+               
+
+            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            dbContext.SaveChanges();
+        }
+
+        public override void Create(Role entity)
+        {
+            if (entity.Permissions != null)
+            {
+                foreach (var permission in entity.Permissions)
+                {
+                    dbContext.Entry(permission).State = permission.Id == Guid.Empty
+                        ? System.Data.Entity.EntityState.Added
+                        : System.Data.Entity.EntityState.Modified;
+
+                    dbContext.Entry(permission.Permission).State = System.Data.Entity.EntityState.Unchanged;
+                }
+            }
+
+
+            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Added;
+            dbContext.SaveChanges();
         }
     }
 }

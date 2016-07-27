@@ -95,6 +95,9 @@ namespace Server
         List<PermissionDTO> GetAllPermissions();
 
         [OperationContract]
-        void UpdateRoles(List<RoleDTO> roles);
+        void UpdateRoles(RoleDTO role);
+
+        [OperationContract]
+        void UpdatePermissions(PermissionDTO permission);
     }
 }

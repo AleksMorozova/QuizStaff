@@ -126,8 +126,8 @@ namespace AdminApplication
         {
             EditeRoleForm testeesform = new EditeRoleForm();
             FormManager.Instance.OpenChildForm(testeesform, "Role");
-            //FormManager.LocalizedFormList.Add(testeesform);
-          //  FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.LocalizedFormList.Add(testeesform);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
         }
     }
 }

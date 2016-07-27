@@ -320,19 +320,33 @@ namespace Server
         }
 
 
-        public void UpdateRoles(List<RoleDTO> roles)
+        public void UpdateRoles(RoleDTO role)
         {            
             EFRoleRepository repo = new EFRoleRepository();
-            foreach (var r in roles)
-            {
-                if (r.Id == Guid.Empty)
+            if (role.Id == Guid.Empty)
                 {
-                    repo.Create(Conversion.ConvertRoleFromDTO(r));
+                    repo.Create(Conversion.ConvertRoleFromDTO(role));
                 }
                 else 
                 { 
-                    repo.Update(Conversion.ConvertRoleFromDTO(r));
+                    repo.Update(Conversion.ConvertRoleFromDTO(role));
                 }
+        }
+
+        public void UpdatePermissions(PermissionDTO permission)
+        {
+            Permission savedPermission = new Permission();
+            savedPermission.Id = permission.Id;
+            savedPermission.Title = permission.Title;
+
+            EFPermissionRepository repo = new EFPermissionRepository();
+            if (permission.Id == Guid.Empty)
+            {
+                repo.Create(savedPermission);
+            }
+            else
+            {
+                repo.Update(savedPermission);
             }
         }
     }

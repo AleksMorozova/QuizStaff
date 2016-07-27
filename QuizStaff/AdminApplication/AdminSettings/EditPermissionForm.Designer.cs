@@ -92,7 +92,10 @@
             this.permissionGridColumn});
             this.permissionGridView.GridControl = this.permissionGridControl;
             this.permissionGridView.Name = "permissionGridView";
+            this.permissionGridView.OptionsDetail.EnableMasterViewMode = false;
+            this.permissionGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.permissionGridView.OptionsView.ShowGroupPanel = false;
+            this.permissionGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.permissionGridView_InitNewRow);
             // 
             // permissionGridColumn
             // 

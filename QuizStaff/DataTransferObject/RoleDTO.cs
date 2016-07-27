@@ -44,8 +44,8 @@ namespace DataTransferObject
             }
         }
 
-        private BindingList<PermissionDTO> permissions;
-        public virtual BindingList<PermissionDTO> Permissions
+        private BindingList<RolePermissionDTO> permissions;
+        public virtual BindingList<RolePermissionDTO> Permissions
         {
             get
             {
@@ -69,13 +69,13 @@ namespace DataTransferObject
             newRole.Id = role.Id;
             newRole.Name = role.Name;
             newRole.Description = role.Description;
-            newRole.Permissions = new BindingList<PermissionDTO>();
+            newRole.Permissions = new BindingList<RolePermissionDTO>();
 
             if (role != null)
             {
                 foreach (var permission in role.Permissions)
                 {
-                    newRole.Permissions.Add((PermissionDTO)permission);
+                    newRole.Permissions.Add((RolePermissionDTO)permission);
                 }
             }
             return newRole;
