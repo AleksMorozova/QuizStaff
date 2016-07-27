@@ -11,7 +11,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LoginApplication;
 
 namespace AdminApplication
 {
@@ -35,14 +34,14 @@ namespace AdminApplication
             LoginResult loginResult = LoginResult.None;
             while (loginResult != LoginResult.LoggedIn)
             {
-                loginResult = LoginApplication.Authorization.Login(ref failMessage);
+                loginResult = Authorization.Login(ref failMessage);
                 switch (loginResult)
                 {
                     case LoginResult.Failed:
                         XtraMessageBox.Show("Login is failed");
                         break;
                     case LoginResult.LoggedIn:
-                        GetTestee(LoginApplication.Authorization.AuthorizedTesteeName);
+                        GetTestee(Authorization.AuthorizedTesteeName);
                         break;
                 }
             }
