@@ -118,53 +118,53 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="editSettingsSimpleButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="editTrainingsButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>354, 368</value>
   </data>
-  <data name="editSettingsSimpleButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="editTrainingsButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 22</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="editSettingsSimpleButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="editTrainingsButton.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="editSettingsSimpleButton.Text" xml:space="preserve">
-    <value>Edit settings</value>
+  <data name="editTrainingsButton.Text" xml:space="preserve">
+    <value>Edit trainings</value>
   </data>
-  <data name="&gt;&gt;editSettingsSimpleButton.Name" xml:space="preserve">
-    <value>editSettingsSimpleButton</value>
+  <data name="&gt;&gt;editTrainingsButton.Name" xml:space="preserve">
+    <value>editTrainingsButton</value>
   </data>
-  <data name="&gt;&gt;editSettingsSimpleButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;editTrainingsButton.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;editSettingsSimpleButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;editTrainingsButton.Parent" xml:space="preserve">
     <value>dateImpactLabelLayoutControl</value>
   </data>
-  <data name="&gt;&gt;editSettingsSimpleButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;editTrainingsButton.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="editSettingsButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>500, 368</value>
   </data>
-  <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="editSettingsButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 22</value>
   </data>
-  <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="editSettingsButton.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="saveButton.Text" xml:space="preserve">
-    <value>Change settings</value>
+  <data name="editSettingsButton.Text" xml:space="preserve">
+    <value>Edit settings</value>
   </data>
-  <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
-    <value>saveButton</value>
+  <data name="&gt;&gt;editSettingsButton.Name" xml:space="preserve">
+    <value>editSettingsButton</value>
   </data>
-  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;editSettingsButton.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;editSettingsButton.Parent" xml:space="preserve">
     <value>dateImpactLabelLayoutControl</value>
   </data>
-  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;editSettingsButton.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="testeeListGridControl.Location" type="System.Drawing.Point, System.Drawing">
