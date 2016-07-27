@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using log4net;
 
 namespace AdminApplication
 {
@@ -19,11 +20,15 @@ namespace AdminApplication
         public static string currentLang = "ru-RU";
         public static Testee currentTestee = new Testee();
         public static bool AsAdmin = true;
-
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
         //Global data
         private static MainForm applicationMainForm;
         public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
+        static Program()
+        {
+            log4net.Config.XmlConfigurator.Configure();
 
+        }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -40,6 +45,9 @@ namespace AdminApplication
                     case LoginResult.Failed:
                         XtraMessageBox.Show("Login is failed");
                         break;
+                    case LoginResult.NotExist:
+                        XtraMessageBox.Show("Not such user in database. For more details contact administrator");
+                        break;
                     case LoginResult.LoggedIn:
                         GetTestee(Authorization.AuthorizedTesteeName);
                         break;
@@ -54,7 +62,7 @@ namespace AdminApplication
             Application.Run(ApplicationMainForm);
         }
 
-        static void GetTestee(string login)
+        public static void GetTestee(string login)
         {
             var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
             currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);

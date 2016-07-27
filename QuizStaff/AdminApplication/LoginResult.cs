@@ -10,6 +10,7 @@ namespace AdminApplication
     {
         None = -1,
         LoggedIn = 0,
-        Failed = 1
+        Failed = 1,
+        NotExist = 2
     }
 }
