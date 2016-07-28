@@ -50,6 +50,7 @@
     <Compile Include="TesteeAnswerDTO.cs" />
     <Compile Include="TesteeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TesteeRolesDTO.cs" />
     <Compile Include="TesteeTrainingDTO.cs" />
     <Compile Include="TrainingDTO.cs" />
   </ItemGroup>

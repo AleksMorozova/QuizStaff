@@ -189,4 +189,7 @@
   <data name="deleteTrainingButton.Text" xml:space="preserve">
     <value>Удалить</value>
   </data>
+  <data name="rolesComboBoxLayoutControlItem.Text" xml:space="preserve">
+    <value>Роли</value>
+  </data>
 </root>

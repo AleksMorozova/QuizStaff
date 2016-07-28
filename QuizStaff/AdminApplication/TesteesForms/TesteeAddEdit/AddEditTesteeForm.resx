@@ -121,13 +121,38 @@
     <value>179, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="rolesComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 113</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="rolesComboBox.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="rolesComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>298, 20</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="rolesComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;rolesComboBox.Name" xml:space="preserve">
+    <value>rolesComboBox</value>
+  </data>
+  <data name="&gt;&gt;rolesComboBox.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckedComboBoxEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rolesComboBox.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;rolesComboBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="addTrainingButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>445, 325</value>
   </data>
   <data name="addTrainingButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>98, 22</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="addTrainingButton.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
   </data>
@@ -144,7 +169,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;addTrainingButton.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="deleteTrainingButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>557, 325</value>
@@ -168,7 +193,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;deleteTrainingButton.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="canEditToggleSwitch.Location" type="System.Drawing.Point, System.Drawing">
     <value>300, 419</value>
@@ -195,7 +220,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;canEditToggleSwitch.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="timeOfStartTimeEdit.EditValue" type="System.DateTime, mscorlib">
     <value>2016-06-16</value>
@@ -203,7 +228,6 @@
   <data name="timeOfStartTimeEdit.Location" type="System.Drawing.Point, System.Drawing">
     <value>514, 393</value>
   </data>
-  <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="timeOfStartTimeEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Combo</value>
   </data>
@@ -223,7 +247,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;timeOfStartTimeEdit.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>537, 461</value>
@@ -247,7 +271,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="frequencySpinEdit.EditValue" type="System.Decimal, mscorlib">
     <value>0</value>
@@ -274,7 +298,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;frequencySpinEdit.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="questionAmountSpinEdit.EditValue" type="System.Decimal, mscorlib">
     <value>0</value>
@@ -301,7 +325,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;questionAmountSpinEdit.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>392, 461</value>
@@ -325,10 +349,10 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="gridTrainings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 158</value>
+    <value>24, 163</value>
   </data>
   <data name="titleGridColumn.Caption" xml:space="preserve">
     <value>Title</value>
@@ -370,7 +394,7 @@
     <value>1</value>
   </data>
   <data name="gridTrainings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>632, 158</value>
+    <value>632, 153</value>
   </data>
   <data name="gridTrainings.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -385,13 +409,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;gridTrainings.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="textEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>352, 108</value>
+    <value>331, 113</value>
   </data>
   <data name="textEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>299, 20</value>
+    <value>320, 20</value>
   </data>
   <data name="textEmail.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -406,13 +430,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textEmail.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="textLogin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 108</value>
+    <value>24, 63</value>
   </data>
   <data name="textLogin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>314, 20</value>
+    <value>129, 20</value>
   </data>
   <data name="textLogin.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -427,13 +451,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textLogin.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="textLastName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>352, 58</value>
+    <value>412, 58</value>
   </data>
   <data name="textLastName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 20</value>
+    <value>244, 20</value>
   </data>
   <data name="textLastName.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -448,13 +472,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textLastName.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="textFirstName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 58</value>
+    <value>162, 58</value>
   </data>
   <data name="textFirstName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>314, 20</value>
+    <value>236, 20</value>
   </data>
   <data name="textFirstName.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -469,7 +493,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textFirstName.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="showAnswerToggleSwitch.Location" type="System.Drawing.Point, System.Drawing">
     <value>130, 419</value>
@@ -496,7 +520,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;showAnswerToggleSwitch.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -532,14 +556,17 @@
   <data name="trainingsLayoutControlItem.Text" xml:space="preserve">
     <value>Tranings</value>
   </data>
-  <data name="loginLayoutControlItem.Text" xml:space="preserve">
-    <value>Login:</value>
-  </data>
   <data name="firstNameLayoutControlItem.Text" xml:space="preserve">
     <value>First name:</value>
   </data>
   <data name="emailLayoutControlItem.Text" xml:space="preserve">
     <value>E-mail:</value>
+  </data>
+  <data name="loginLayoutControlItem.Text" xml:space="preserve">
+    <value>Login:</value>
+  </data>
+  <data name="rolesComboBoxLayoutControlItem.Text" xml:space="preserve">
+    <value>Roles:</value>
   </data>
   <data name="generalInfLayoutControlGroup.Text" xml:space="preserve">
     <value>General information</value>
@@ -718,12 +745,6 @@
   <data name="&gt;&gt;trainingsLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;loginLayoutControlItem.Name" xml:space="preserve">
-    <value>loginLayoutControlItem</value>
-  </data>
-  <data name="&gt;&gt;loginLayoutControlItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;firstNameLayoutControlItem.Name" xml:space="preserve">
     <value>firstNameLayoutControlItem</value>
   </data>
@@ -752,6 +773,18 @@
     <value>addTrainingButtonLayoutControlItem</value>
   </data>
   <data name="&gt;&gt;addTrainingButtonLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;loginLayoutControlItem.Name" xml:space="preserve">
+    <value>loginLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;loginLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;rolesComboBoxLayoutControlItem.Name" xml:space="preserve">
+    <value>rolesComboBoxLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;rolesComboBoxLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;mvvmTesteeContext.Name" xml:space="preserve">

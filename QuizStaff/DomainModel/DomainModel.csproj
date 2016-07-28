@@ -52,6 +52,7 @@
     <Compile Include="Setting.cs" />
     <Compile Include="Testee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TesteeRoles.cs" />
     <Compile Include="TesteeTraining.cs" />
     <Compile Include="Training.cs" />
     <Compile Include="TesteeAnswer.cs" />

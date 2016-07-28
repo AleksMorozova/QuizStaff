@@ -16,6 +16,7 @@ namespace DataTransferObject
         {
             trainings = new BindingList<TesteeTrainingDTO>();
             userSetting = new SettingDTO();
+            Roles = new BindingList<TesteeRolesDTO>();
         }
 
         public Guid Id { get; set; }
@@ -141,7 +142,7 @@ namespace DataTransferObject
                 trainings = value; 
             } 
         }
-        public virtual RoleDTO UserRole { get; set; }
+        public virtual BindingList<TesteeRolesDTO> Roles { get; set; }
 
         public static implicit operator TesteeDTO(Testee testee)
         {

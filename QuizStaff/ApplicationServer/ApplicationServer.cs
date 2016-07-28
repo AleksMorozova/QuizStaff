@@ -51,6 +51,7 @@ namespace Server
 
                     UserSetting = testee.UserSetting,
                     Trainings = new BindingList<TesteeTraining>(testee.Trainings.ToList().Where(_ => _.IsActive).ToList()),
+                    Roles = new BindingList<TesteeRoles>(testee.Roles.ToList()),
                     Histories = new BindingList<History>(testee.Histories.ToList())
 
                 }).ToList();

@@ -31,10 +31,22 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             model = mvvmTesteeContext.GetViewModel<TesteeViewModel>();
             BindCommand();
             model.GetAllTrainings();
+            model.GetAllRoles();
             model.SetUpViewModel(testee);
             mvvmTesteeContext.SetViewModel(typeof(TesteeViewModel), model);          
             BindToViewModel();
-        }               
+
+            SetUpRolesComboBox();
+        }
+
+        private void SetUpRolesComboBox()
+        {                
+            var userRoles = model.Roles.Where(_=>_.IsActive).Select(r => r.Role.Id);
+            foreach (var role in model.AllRoles)
+            {
+                rolesComboBox.Properties.Items.Add(role.Name, userRoles.Contains(role.Id));
+            }
+        }
 
         private void BindCommand()
         {
@@ -97,7 +109,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             resources.ApplyResources(canEditToggleSwitchLayoutControlItem, "canEditToggleSwitchLayoutControlItem", newCultureInfo);
             resources.ApplyResources(settingLayoutControlGroup, "settingLayoutControlGroup", newCultureInfo);
             resources.ApplyResources(generalInfLayoutControlGroup, "generalInfLayoutControlGroup", newCultureInfo);
-            
+            resources.ApplyResources(rolesComboBoxLayoutControlItem, "rolesComboBoxLayoutControlItem", newCultureInfo);
+
             string title = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Testee";
             this.Text = title + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");
@@ -152,6 +165,11 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             model.Testee.Trainings.Add(training);
 
             this.gridTrainings.DataSource = model.Testee.Trainings.Select(_ => _).Where(t => t.IsActive);
+        }
+
+        private void rolesComboBox_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

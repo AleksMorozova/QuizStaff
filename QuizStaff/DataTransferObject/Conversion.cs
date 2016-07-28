@@ -109,6 +109,17 @@ namespace DataTransferObject
             newTestee.UserSetting.CanUserEdit = testee.UserSetting.CanUserEdit;
             newTestee.UserSetting.ShowCorrectAnswer = testee.UserSetting.ShowCorrectAnswer;
 
+            newTestee.Roles = new BindingList<TesteeRolesDTO>();
+
+            if (testee.Roles.Count() > 0)
+            {
+                foreach (var role in testee.Roles)
+                {
+                    if (role.Role != null)
+                        newTestee.Roles.Add(ConvertTesteeRoleToDTO(role));
+                }
+            } 
+
              if (testee.Trainings != null)
              {
                  if (testee.Trainings.Count() > 0)
@@ -156,6 +167,16 @@ namespace DataTransferObject
             newTestee.UserSetting.TimeOfStart = testee.UserSetting.TimeOfStart;
             newTestee.UserSetting.CanUserEdit = testee.UserSetting.CanUserEdit;
             newTestee.UserSetting.ShowCorrectAnswer = testee.UserSetting.ShowCorrectAnswer;
+
+            newTestee.Roles = new BindingList<TesteeRoles>();
+            if (testee.Roles.Count() > 0)
+            {
+                foreach (var role in testee.Roles)
+                {
+                    if (role.Role != null)
+                        newTestee.Roles.Add(ConvertTesteeRoleFromDTO(role));
+                }
+            } 
 
             //Copy trainings
             if (testee.Trainings != null)
@@ -471,6 +492,20 @@ namespace DataTransferObject
             newRolePermission.Permission.Title = rolePermission.Permission.Title;
 
             return newRolePermission;
+        }
+
+        public static TesteeRolesDTO ConvertTesteeRoleToDTO(TesteeRoles role)
+        {
+            TesteeRolesDTO newRole = new TesteeRolesDTO();
+            newRole.Role = ConvertRoleToDTO(role.Role);
+            return newRole;
+        }
+
+        public static TesteeRoles ConvertTesteeRoleFromDTO(TesteeRolesDTO role)
+        {
+            TesteeRoles newRole = new TesteeRoles();
+            newRole.Role = ConvertRoleFromDTO(role.Role);
+            return newRole;
         }
     }
 }
