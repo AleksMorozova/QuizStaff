@@ -58,6 +58,9 @@ namespace AdminApplication
 
                     log.Debug("Login result:" + returnValue);
 
+                    log.Debug(ServicesHolder.ServiceClient.State.ToString());
+                    log.Error(ServicesHolder.ServiceClient.Endpoint.ListenUri);
+
                     if (returnValue)
                     {
                         AuthorizedTesteeName = login;
@@ -89,7 +92,9 @@ namespace AdminApplication
             }
             catch (Exception ex) 
             {
-                log.Error(ex.Message);
+                log.Error("Error message "+ex.Message);
+                log.Error("InnerException " + ex.InnerException.InnerException);
+                log.Error("InnerException message " + ex.InnerException.Message);
                 return LoginResult.Failed;
             }
         }
