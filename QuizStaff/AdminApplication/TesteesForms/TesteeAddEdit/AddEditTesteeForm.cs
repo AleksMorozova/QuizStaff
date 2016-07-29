@@ -31,7 +31,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             model = mvvmTesteeContext.GetViewModel<TesteeViewModel>();
             BindCommand();
             model.GetAllTrainings();
-            model.GetAllRoles();
+            //model.GetAllRoles();
             model.SetUpViewModel(testee);
             mvvmTesteeContext.SetViewModel(typeof(TesteeViewModel), model);          
             BindToViewModel();
@@ -41,17 +41,16 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
         private void SetUpRolesComboBox()
         {
-            List<Guid> userRoles = new List<Guid>();
+            List<Role> userRoles = new List<Role>();
 
             if (model.Roles != null)
             {
-                userRoles = model.Roles.Select(r => r.Role.Id).ToList();
+                userRoles = model.Roles.Select(r => r.Role).ToList();
+                foreach (var role in userRoles)
+                {
+                    rolesComboBox.Properties.Items.Add(role.Name,true);
+                }
             } 
-
-            foreach (var role in model.AllRoles)
-            {
-                rolesComboBox.Properties.Items.Add(role.Name, userRoles.Contains(role.Id));
-            }
         }
 
         private void BindCommand()
