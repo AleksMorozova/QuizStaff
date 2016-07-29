@@ -328,7 +328,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ServiceReference\ApplicationServer.wsdl" />
+    <None Include="Service References\ServiceReference\ApplicationServer1.wsdl" />
     <None Include="Service References\ServiceReference\Client.ServiceReference.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -349,13 +349,13 @@
     <None Include="Service References\ServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference\item.xsd">
+    <None Include="Service References\ServiceReference\item31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\item1.xsd">
+    <None Include="Service References\ServiceReference\item32.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\item2.xsd">
+    <None Include="Service References\ServiceReference\item33.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference\Reference.svcmap">
@@ -711,7 +711,7 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference\item.disco" />
+    <None Include="Service References\ServiceReference\item1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

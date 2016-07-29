@@ -497,6 +497,8 @@ namespace DataTransferObject
         public static TesteeRolesDTO ConvertTesteeRoleToDTO(TesteeRoles role)
         {
             TesteeRolesDTO newRole = new TesteeRolesDTO();
+            newRole.IsActive = role.IsActive;
+            newRole.Id = role.Id;
             newRole.Role = ConvertRoleToDTO(role.Role);
             return newRole;
         }
@@ -504,6 +506,8 @@ namespace DataTransferObject
         public static TesteeRoles ConvertTesteeRoleFromDTO(TesteeRolesDTO role)
         {
             TesteeRoles newRole = new TesteeRoles();
+            newRole.IsActive = role.IsActive;
+            newRole.Id = role.Id;
             newRole.Role = ConvertRoleFromDTO(role.Role);
             return newRole;
         }
