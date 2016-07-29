@@ -11,6 +11,7 @@ namespace TesteeApplication
         None = -1,
         LoggedIn = 0,
         Failed = 1,
-        NotExist = 2
+        NotExist = 2,
+        NoPermissions = 3
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DataTransferObject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataTransferObject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="ArrayOfTesteeDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeDTO" nillable="true" type="tns:TesteeDTO" />
@@ -27,8 +27,8 @@
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Roles" nillable="true" type="tns:ArrayOfTesteeRolesDTO" />
       <xs:element minOccurs="0" name="Trainings" nillable="true" type="tns:ArrayOfTesteeTrainingDTO" />
-      <xs:element minOccurs="0" name="UserRole" nillable="true" type="tns:RoleDTO" />
       <xs:element minOccurs="0" name="UserSetting" nillable="true" type="tns:SettingDTO" />
     </xs:sequence>
   </xs:complexType>
@@ -124,6 +124,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TesteeTrainingDTO" nillable="true" type="tns:TesteeTrainingDTO" />
+  <xs:complexType name="ArrayOfTesteeRolesDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeRolesDTO" nillable="true" type="tns:TesteeRolesDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTesteeRolesDTO" nillable="true" type="tns:ArrayOfTesteeRolesDTO" />
+  <xs:complexType name="TesteeRolesDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="tns:RoleDTO" />
+      <xs:element minOccurs="0" name="Testee" nillable="true" type="tns:TesteeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TesteeRolesDTO" nillable="true" type="tns:TesteeRolesDTO" />
   <xs:complexType name="RoleDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
@@ -153,9 +168,50 @@
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="Roles" nillable="true" type="tns:ArrayOfRolePermissionDTO" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:PermissionType" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PermissionDTO" nillable="true" type="tns:PermissionDTO" />
+  <xs:simpleType name="PermissionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EditTestee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EditTraining">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EditSetUp">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GetQuestion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PermissionType" nillable="true" type="tns:PermissionType" />
   <xs:complexType name="SettingDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="AmountOfQuestionsPerDay" type="xs:int" />

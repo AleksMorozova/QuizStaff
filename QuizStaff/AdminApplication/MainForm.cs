@@ -51,10 +51,10 @@ namespace AdminApplication
 
         private void CheckPermission ()
         {
-            testeesBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Title).Contains("Edit testee");
-            trainingsBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Title).Contains("Edit trainings");
-            adminSettingsBarButtonItem.Enabled = Program.CurrentUserPermissions.Select(_ => _.Title).Contains("Edit testee setup");
-            roleBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Title).Contains("Edit roles");
+            testeesBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee);
+            trainingsBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining);
+            adminSettingsBarButtonItem.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.GetQuestion);
+            roleBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp);
         }
 
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -69,13 +69,6 @@ namespace AdminApplication
         {
             var f = new LoginForm.UserLoginForm();
             f.ShowDialog();
-        }
-
-        private void questionBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //QuestionForm questionform = new QuestionForm(Program.currentTestee);            
-            //FormManager.Instance.LocalizedForms(Program.currentLang);
-            //questionform.ShowDialog();
         }
 
         public void Localized(string language) 

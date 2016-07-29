@@ -146,7 +146,6 @@
             this.questionBarButton.Id = 5;
             this.questionBarButton.Name = "questionBarButton";
             this.questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.questionBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.questionBarButton_ItemClick);
             // 
             // adminSettingsBarButtonItem
             // 

@@ -44,10 +44,13 @@ namespace AdminApplication
                 switch (loginResult)
                 {
                     case LoginResult.Failed:
-                        XtraMessageBox.Show("Login is failed");
+                        XtraMessageBox.Show("Authorization error. User authentication failed");
                         break;
                     case LoginResult.NotExist:
-                        XtraMessageBox.Show("Not such user in database. For more details contact administrator");
+                        XtraMessageBox.Show("Authorization error. There is no match of login and password in database. Please, contact to IT administrator");
+                        break;
+                    case LoginResult.NoPermissions:
+                        XtraMessageBox.Show("Authentication error. You have no permissions to access the database");
                         break;
                     case LoginResult.LoggedIn:
                         GetTestee(Authorization.AuthorizedTesteeName);
@@ -70,13 +73,12 @@ namespace AdminApplication
             currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);
         }
 
-        static void GetUserPermissions(string login)
+        public static void GetUserPermissions(string login)
         {
             var userPermission = Program.currentTestee.Roles.Select(_ => _.Role.Permissions);
             foreach (var p in userPermission)
                 foreach (var p1 in p.Select(_ => _.Permission))
                     CurrentUserPermissions.Add(p1);
-
         }
     }
 }
