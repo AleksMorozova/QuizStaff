@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditTesteeForm));
-            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.rolesComboBox = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.addTrainingButton = new DevExpress.XtraEditors.SimpleButton();
@@ -75,7 +74,7 @@
             this.addTrainingButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.loginLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.rolesComboBoxLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -457,7 +456,7 @@
             this.lastNameLayoutControlItem.Location = new System.Drawing.Point(383, 0);
             this.lastNameLayoutControlItem.Name = "lastNameLayoutControlItem";
             this.lastNameLayoutControlItem.Size = new System.Drawing.Size(253, 50);
-            this.lastNameLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 5);
+            this.lastNameLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 5, 5);
             resources.ApplyResources(this.lastNameLayoutControlItem, "lastNameLayoutControlItem");
             this.lastNameLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.lastNameLayoutControlItem.TextSize = new System.Drawing.Size(54, 13);
@@ -479,7 +478,7 @@
             this.firstNameLayoutControlItem.Location = new System.Drawing.Point(138, 0);
             this.firstNameLayoutControlItem.Name = "firstNameLayoutControlItem";
             this.firstNameLayoutControlItem.Size = new System.Drawing.Size(245, 50);
-            this.firstNameLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 5);
+            this.firstNameLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
             resources.ApplyResources(this.firstNameLayoutControlItem, "firstNameLayoutControlItem");
             this.firstNameLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.firstNameLayoutControlItem.TextSize = new System.Drawing.Size(54, 13);

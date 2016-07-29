@@ -111,7 +111,7 @@ namespace DataTransferObject
 
             newTestee.Roles = new BindingList<TesteeRolesDTO>();
 
-            if (testee.Roles.Count() > 0)
+            if (testee.Roles!=null && testee.Roles.Count() > 0)
             {
                 foreach (var role in testee.Roles)
                 {

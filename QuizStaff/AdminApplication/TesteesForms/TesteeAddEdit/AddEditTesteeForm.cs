@@ -40,8 +40,14 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         }
 
         private void SetUpRolesComboBox()
-        {                
-            var userRoles = model.Roles.Select(r => r.Role.Id);
+        {
+            List<Guid> userRoles = new List<Guid>();
+
+            if (model.Roles != null)
+            {
+                userRoles = model.Roles.Select(r => r.Role.Id).ToList();
+            } 
+
             foreach (var role in model.AllRoles)
             {
                 rolesComboBox.Properties.Items.Add(role.Name, userRoles.Contains(role.Id));
