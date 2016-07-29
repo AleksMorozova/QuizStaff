@@ -11,7 +11,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LoginApplication;
+using log4net;
 using System.ComponentModel;
 
 namespace AdminApplication
@@ -22,30 +22,36 @@ namespace AdminApplication
         public static Testee currentTestee = new Testee();
         public static bool AsAdmin = true;
         public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
-
         //Global data
         private static MainForm applicationMainForm;
         public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
+        static Program()
+        {
+            log4net.Config.XmlConfigurator.Configure();
 
+        }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        { 
             string failMessage = String.Empty;
             LoginResult loginResult = LoginResult.None;
             while (loginResult != LoginResult.LoggedIn)
             {
-                loginResult = LoginApplication.Authorization.Login(ref failMessage);
+                loginResult = Authorization.Login(ref failMessage);
                 switch (loginResult)
                 {
                     case LoginResult.Failed:
                         XtraMessageBox.Show("Login is failed");
                         break;
+                    case LoginResult.NotExist:
+                        XtraMessageBox.Show("Not such user in database. For more details contact administrator");
+                        break;
                     case LoginResult.LoggedIn:
-                        GetTestee(LoginApplication.Authorization.AuthorizedTesteeName);
-                        GetUserPermissions(LoginApplication.Authorization.AuthorizedTesteeName);
+                        GetTestee(Authorization.AuthorizedTesteeName);
+                        GetUserPermissions(Authorization.AuthorizedTesteeName);
                         break;
                 }
             }
@@ -58,7 +64,7 @@ namespace AdminApplication
             Application.Run(ApplicationMainForm);
         }
 
-        static void GetTestee(string login)
+        public static void GetTestee(string login)
         {
             var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
             currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);

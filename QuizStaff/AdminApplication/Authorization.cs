@@ -1,14 +1,15 @@
-﻿using DomainModel;
+﻿using AdminApplication.LoginForm;
+using DomainModel;
+using log4net;
 using System;
 using System.Collections.Generic;
-using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TesteeApplication.LoginForm;
+using System.DirectoryServices.AccountManagement;
 
-namespace TesteeApplication
+namespace AdminApplication
 {
     public class Authorization
     {
@@ -38,7 +39,7 @@ namespace TesteeApplication
         /// <returns>status of logging in attempt</returns>
         public static LoginResult Login(ref string failMessage)
         {
-            try
+            try 
             {
                 UserLoginForm dlg = new UserLoginForm();
                 if (dlg.ShowDialog() == DialogResult.OK)
@@ -79,9 +80,9 @@ namespace TesteeApplication
                 return LoginResult.Failed;
             }
 
-            catch (Exception ex)
+            catch (Exception ex) 
             {
-                log.Error("Error message " + ex.Message);
+                log.Error("Error message "+ex.Message);
                 return LoginResult.Failed;
             }
         }
