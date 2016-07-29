@@ -46,8 +46,15 @@ namespace AdminApplication
         private void MainForm_Load(object sender, EventArgs e)
         {
             //TODO: uncomment after implementation of users role
-            settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            //CheckPermission();
+        }
+
+        private void CheckPermission ()
+        {
+            testeesBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Title).Contains("Edit testee");
+            trainingsBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Title).Contains("Edit trainings");
+            adminSettingsBarButtonItem.Enabled = Program.CurrentUserPermissions.Select(_ => _.Title).Contains("Edit testee setup");
+            roleBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Title).Contains("Edit roles");
         }
 
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)

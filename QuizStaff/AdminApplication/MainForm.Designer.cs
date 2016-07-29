@@ -121,6 +121,7 @@
             resources.ApplyResources(this.settingsBarButton, "settingsBarButton");
             this.settingsBarButton.Id = 2;
             this.settingsBarButton.Name = "settingsBarButton";
+            this.settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.settingsBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.settingsBarButton_ItemClick);
             // 
             // testBarButton
@@ -144,6 +145,7 @@
             resources.ApplyResources(this.questionBarButton, "questionBarButton");
             this.questionBarButton.Id = 5;
             this.questionBarButton.Name = "questionBarButton";
+            this.questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.questionBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.questionBarButton_ItemClick);
             // 
             // adminSettingsBarButtonItem

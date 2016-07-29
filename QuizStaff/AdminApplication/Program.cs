@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LoginApplication;
+using System.ComponentModel;
 
 namespace AdminApplication
 {
@@ -20,6 +21,7 @@ namespace AdminApplication
         public static string currentLang = "ru-RU";
         public static Testee currentTestee = new Testee();
         public static bool AsAdmin = true;
+        public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
 
         //Global data
         private static MainForm applicationMainForm;
@@ -43,6 +45,7 @@ namespace AdminApplication
                         break;
                     case LoginResult.LoggedIn:
                         GetTestee(LoginApplication.Authorization.AuthorizedTesteeName);
+                        GetUserPermissions(LoginApplication.Authorization.AuthorizedTesteeName);
                         break;
                 }
             }
@@ -59,6 +62,15 @@ namespace AdminApplication
         {
             var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
             currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);
+        }
+
+        static void GetUserPermissions(string login)
+        {
+            var userPermission = Program.currentTestee.Roles.Select(_ => _.Role.Permissions);
+            foreach (var p in userPermission)
+                foreach (var p1 in p.Select(_ => _.Permission))
+                    CurrentUserPermissions.Add(p1);
+
         }
     }
 }

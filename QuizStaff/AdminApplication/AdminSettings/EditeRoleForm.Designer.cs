@@ -43,10 +43,10 @@
             this.roleGridControlLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.permissionGridControlLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmRoleContext = new DevExpress.Utils.MVVM.MVVMContext();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -58,10 +58,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.roleGridControlLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissionGridControlLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmRoleContext)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,7 +129,6 @@
             this.permissionGridView.OptionsSelection.MultiSelect = true;
             this.permissionGridView.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.permissionGridView.OptionsView.ShowGroupPanel = false;
-            this.permissionGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.permissionGridView.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.permissionGridView_SelectionChanged);
             // 
             // permissionGridColumn
@@ -225,17 +224,6 @@
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.Size = new System.Drawing.Size(5, 370);
             // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.editPermissionButton;
-            this.layoutControlItem1.Location = new System.Drawing.Point(290, 370);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(89, 36);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            this.layoutControlItem1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.saveButton;
@@ -264,6 +252,17 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(290, 36);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.editPermissionButton;
+            this.layoutControlItem1.Location = new System.Drawing.Point(290, 370);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(89, 36);
+            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            this.layoutControlItem1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
             // mvvmRoleContext
             // 
             this.mvvmRoleContext.ContainerControl = this;
@@ -287,10 +286,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.roleGridControlLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissionGridControlLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmRoleContext)).EndInit();
             this.ResumeLayout(false);
 
