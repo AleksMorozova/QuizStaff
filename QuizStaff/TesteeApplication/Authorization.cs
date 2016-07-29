@@ -1,8 +1,8 @@
 ﻿using DomainModel;
 using System;
 using System.Collections.Generic;
+using System.DirectoryServices.AccountManagement;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,18 +12,24 @@ namespace TesteeApplication
 {
     public class Authorization
     {
-        [DllImport("advapi32.dll", SetLastError = true)]
-        public static extern bool LogonUser(
-                  string lpszUsername,
-                  string lpszDomain,
-                  string lpszPassword,
-                  int dwLogonType,
-                  int dwLogonProvider,
-                  out IntPtr phToken);
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Authorization));
 
         public static Testee AuthorizedTeste { get; set; }
 
         public static string AuthorizedTesteeName { get; set; }
+
+        static string login;
+        static string password;
+        static string domain;
+
+        public static bool LogonUser()
+        {
+            using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, domain))
+            {
+                //validate the credentials
+                return pc.ValidateCredentials(login, password);
+            }
+        }
 
         /// <summary>
         /// Try to log in
@@ -32,36 +38,52 @@ namespace TesteeApplication
         /// <returns>status of logging in attempt</returns>
         public static LoginResult Login(ref string failMessage)
         {
-            UserLoginForm dlg = new UserLoginForm();
-            if (dlg.ShowDialog() == DialogResult.OK)
+            try
             {
-                string login = dlg.Login;
-                string password = dlg.Password;
-                string domain = Environment.UserDomainName;
-                const int LOGON32_PROVIDER_DEFAULT = 0;
-                const int LOGON32_LOGON_INTERACTIVE = 2;
-                IntPtr userToken = IntPtr.Zero;
-
-                bool returnValue = LogonUser(login, domain, password, LOGON32_LOGON_INTERACTIVE, LOGON32_PROVIDER_DEFAULT, out userToken);
-
-                if (returnValue)
+                UserLoginForm dlg = new UserLoginForm();
+                if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    AuthorizedTesteeName = login;
-                    return LoginResult.LoggedIn;
+                    login = dlg.Login;
+                    password = dlg.Password;
+                    domain = dlg.Domain;
+
+                    bool logonResult = LogonUser();
+
+                    if (logonResult)
+                    {
+                        AuthorizedTesteeName = login;
+                        Program.GetTestee(AuthorizedTesteeName);
+                        Testee loadTestee = Program.currentTestee;
+
+                        if (loadTestee.Id != Guid.Empty)
+                        {
+                            return LoginResult.LoggedIn;
+                        }
+                        else
+                        {
+                            return LoginResult.NotExist;
+                        }
+                    }
+
+                    else
+                    {
+                        return LoginResult.Failed;
+                    }
                 }
 
                 else
                 {
-                    return LoginResult.Failed;
+                    System.Environment.Exit(0);
                 }
+
+                return LoginResult.Failed;
             }
 
-            else
+            catch (Exception ex)
             {
-                System.Environment.Exit(0);
+                log.Error("Error message " + ex.Message);
+                return LoginResult.Failed;
             }
-
-            return LoginResult.Failed;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace AdminApplication
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        { 
             string failMessage = String.Empty;
             LoginResult loginResult = LoginResult.None;
             while (loginResult != LoginResult.LoggedIn)

@@ -39,6 +39,9 @@ namespace TesteeApplication
                     case LoginResult.Failed:
                         XtraMessageBox.Show("Login is failed");
                         break;
+                    case LoginResult.NotExist:
+                        XtraMessageBox.Show("Not such user in database. For more details contact administrator");
+                        break;
                     case LoginResult.LoggedIn:
                         GetTestee(Authorization.AuthorizedTesteeName);
                         break;
