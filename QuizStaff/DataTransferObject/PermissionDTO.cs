@@ -30,6 +30,8 @@ namespace DataTransferObject
 
         public virtual BindingList<RolePermissionDTO> Roles { get; set; }
 
+        public virtual PermissionType Type { get; set; }
+
         public static implicit operator PermissionDTO(Permission permission)
         {
             PermissionDTO newPermission = new PermissionDTO();
