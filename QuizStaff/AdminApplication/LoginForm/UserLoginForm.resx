@@ -118,16 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="domainLlabel.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 10pt</value>
+  </data>
+  <data name="domainLlabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>65, 98</value>
+  </data>
+  <data name="domainLlabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 16</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="domainLlabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="domainLlabel.Text" xml:space="preserve">
+    <value>labelControl1</value>
+  </data>
+  <data name="&gt;&gt;domainLlabel.Name" xml:space="preserve">
+    <value>domainLlabel</value>
+  </data>
+  <data name="&gt;&gt;domainLlabel.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;domainLlabel.Parent" xml:space="preserve">
+    <value>layoutControl1</value>
+  </data>
+  <data name="&gt;&gt;domainLlabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="loginButton.Appearance.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 10pt</value>
   </data>
   <data name="loginButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 103</value>
+    <value>107, 128</value>
   </data>
   <data name="loginButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 23</value>
+    <value>93, 23</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="loginButton.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
@@ -144,13 +171,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;loginButton.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="passwordTextEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 74</value>
+    <value>12, 69</value>
   </data>
   <data name="passwordTextEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 20</value>
+    <value>283, 20</value>
   </data>
   <data name="passwordTextEdit.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -165,13 +192,13 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;passwordTextEdit.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="loginTextEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 31</value>
+    <value>12, 26</value>
   </data>
   <data name="loginTextEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 20</value>
+    <value>283, 20</value>
   </data>
   <data name="loginTextEdit.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -186,7 +213,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;loginTextEdit.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -194,6 +221,9 @@
   </data>
   <data name="layoutControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
+  </data>
+  <data name="layoutControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
   </data>
   <data name="loginLayoutControlItem.AppearanceItemCaption.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 10pt</value>
@@ -207,8 +237,14 @@
   <data name="passwordLayoutControlItem.Text" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="domainLayoutControlItem.AppearanceItemCaption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt</value>
+  </data>
+  <data name="domainLayoutControlItem.Text" xml:space="preserve">
+    <value>Domain:</value>
+  </data>
   <data name="layoutControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 138</value>
+    <value>307, 161</value>
   </data>
   <data name="layoutControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -228,14 +264,14 @@
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>275, 138</value>
+    <value>307, 161</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Login</value>
@@ -276,13 +312,16 @@
   <data name="&gt;&gt;emptySpaceItem1.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;domainLayoutControlItem.Name" xml:space="preserve">
+    <value>domainLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;domainLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>UserLoginForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Login</value>
   </data>
 </root>
