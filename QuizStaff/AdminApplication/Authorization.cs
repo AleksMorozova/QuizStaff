@@ -50,13 +50,7 @@ namespace AdminApplication
                     const int LOGON32_LOGON_INTERACTIVE = 2;
                     IntPtr userToken = IntPtr.Zero;
 
-                    log.Debug("User domain:" + domain);
-                    log.Debug("User name:" + Environment.UserName);
-                    log.Debug("User login:" + login);
-
                     bool returnValue = LogonUser(login, domain, password, LOGON32_LOGON_INTERACTIVE, LOGON32_PROVIDER_DEFAULT, out userToken);
-
-                    log.Debug("Login result:" + returnValue);
 
                     log.Debug(ServicesHolder.ServiceClient.State.ToString());
                     log.Error(ServicesHolder.ServiceClient.Endpoint.ListenUri);
@@ -93,8 +87,6 @@ namespace AdminApplication
             catch (Exception ex) 
             {
                 log.Error("Error message "+ex.Message);
-                log.Error("InnerException " + ex.InnerException.InnerException);
-                log.Error("InnerException message " + ex.InnerException.Message);
                 return LoginResult.Failed;
             }
         }
