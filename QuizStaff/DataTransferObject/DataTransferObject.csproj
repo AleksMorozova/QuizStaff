@@ -43,7 +43,6 @@
     <Compile Include="Conversion.cs" />
     <Compile Include="HistoryDTO.cs" />
     <Compile Include="PermissionDTO.cs" />
-    <Compile Include="PermissionType.cs" />
     <Compile Include="QuestionDTO.cs" />
     <Compile Include="RoleDTO.cs" />
     <Compile Include="RolePermissionDTO.cs" />

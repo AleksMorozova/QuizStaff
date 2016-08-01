@@ -19,14 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="88c5dc4b-05b6-4093-8632-3e13d4f26461" SourceId="1" SourceUrl="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?disco" />
-    <MetadataFile FileName="item31.xsd" MetadataType="Schema" ID="c5853324-01e5-4031-8ff0-22125302994b" SourceId="1" SourceUrl="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd0" />
-    <MetadataFile FileName="item32.xsd" MetadataType="Schema" ID="d5fe54ee-e263-4c4e-abb6-c34f33a02d68" SourceId="1" SourceUrl="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd1" />
-    <MetadataFile FileName="item33.xsd" MetadataType="Schema" ID="81070015-a87a-4e72-9c24-5de5717353ef" SourceId="1" SourceUrl="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?xsd=xsd2" />
-    <MetadataFile FileName="ApplicationServer1.wsdl" MetadataType="Wsdl" ID="c594f739-d177-4c80-91b9-e3bf4653bab9" SourceId="1" SourceUrl="http://dws01:8733/Design_Time_Addresses/Server/ApplicationServer/?wsdl" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="f32fe3a1-0329-4a01-a987-8a86ec037bf2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="b2c0b833-20f5-4bcc-ae89-05873c573810" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="e28a4f89-520a-475c-a56c-88d66f935224" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/mex" />
+    <MetadataFile FileName="DataTransferObject1.xsd" MetadataType="Schema" ID="5d4cad57-ce6b-46e8-8e9c-153e25a9ce8c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

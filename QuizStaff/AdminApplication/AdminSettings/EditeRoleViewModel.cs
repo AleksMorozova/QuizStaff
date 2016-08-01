@@ -93,17 +93,6 @@ namespace AdminApplication.AdminSettings
 
         public void Save() 
         {
-
-            foreach (var p in Permissions)
-            {
-
-                PermissionDTO savedPermission = new PermissionDTO();
-                savedPermission.Id = p.Id;
-                savedPermission.Title = p.Title;
-
-                ServicesHolder.ServiceClient.UpdatePermissions(savedPermission);
-            }
-
             foreach (var r in Roles)
             {
                 ServicesHolder.ServiceClient.UpdateRoles(Conversion.ConvertRoleToDTO(r));

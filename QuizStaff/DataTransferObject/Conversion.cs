@@ -433,11 +433,11 @@ namespace DataTransferObject
             {
                 RolePermission permission = new RolePermission();
                 permission.Id = p.Id;
-                //permission.Role = Conversion.ConvertRoleFromDTO(p.Role);
 
                 permission.Permission = new Permission();
                 permission.Permission.Id = p.Permission.Id;
                 permission.Permission.Title = p.Permission.Title;
+                permission.Permission.Type = p.Permission.Type;
 
                 newRole.Permissions.Add(permission);
             }
@@ -456,11 +456,11 @@ namespace DataTransferObject
             {
                 RolePermissionDTO permission = new RolePermissionDTO();
                 permission.Id = p.Id;
-                //permission.Title = p.Title;
 
                 permission.Permission = new Permission();
                 permission.Permission.Id = p.Permission.Id;
                 permission.Permission.Title = p.Permission.Title;
+                permission.Permission.Type = p.Permission.Type;
 
                 newRole.Permissions.Add(permission);
             }
@@ -477,6 +477,7 @@ namespace DataTransferObject
             newRolePermission.Permission = new Permission();
             newRolePermission.Permission.Id = rolePermission.Permission.Id;
             newRolePermission.Permission.Title = rolePermission.Permission.Title;
+            newRolePermission.Permission.Type = rolePermission.Permission.Type;
 
             return newRolePermission;
         }
@@ -490,6 +491,7 @@ namespace DataTransferObject
             newRolePermission.Permission = new PermissionDTO();
             newRolePermission.Permission.Id = rolePermission.Permission.Id;
             newRolePermission.Permission.Title = rolePermission.Permission.Title;
+            newRolePermission.Permission.Type = rolePermission.Permission.Type;
 
             return newRolePermission;
         }
