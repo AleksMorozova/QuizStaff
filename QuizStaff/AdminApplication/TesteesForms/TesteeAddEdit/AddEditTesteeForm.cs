@@ -12,6 +12,7 @@ using DataTransferObject;
 using System.Globalization;
 using DevExpress.XtraGrid.Views.Grid;
 using DomainModel;
+using DevExpress.XtraEditors.Controls;
 
 namespace AdminApplication.TesteesForm.TesteeAddEdit
 {
@@ -31,7 +32,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             model = mvvmTesteeContext.GetViewModel<TesteeViewModel>();
             BindCommand();
             model.GetAllTrainings();
-            //model.GetAllRoles();
+            model.GetAllRoles();
             model.SetUpViewModel(testee);
             mvvmTesteeContext.SetViewModel(typeof(TesteeViewModel), model);          
             BindToViewModel();
@@ -41,14 +42,11 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
         private void SetUpRolesComboBox()
         {
-            List<Role> userRoles = new List<Role>();
-
             if (model.Roles != null)
             {
-                userRoles = model.Roles.Select(r => r.Role).ToList();
-                foreach (var role in userRoles)
+                foreach (var role in model.Roles)
                 {
-                    rolesComboBox.Properties.Items.Add(role.Name,true);
+                    rolesComboBox.Properties.Items.Add(role.Role.Name, role.IsActive);
                 }
             } 
         }
@@ -172,9 +170,20 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             this.gridTrainings.DataSource = model.Testee.Trainings.Select(_ => _).Where(t => t.IsActive);
         }
 
-        private void rolesComboBox_EditValueChanged(object sender, EventArgs e)
+        private void rolesComboBox_QueryCloseUp(object sender, CancelEventArgs e)
         {
-
+            if (model.Roles != null)
+            {
+                foreach (var role in model.Roles)
+                {
+                    bool exists = rolesComboBox.Properties.Items.Where(_ => _.Value == role.Role.Name).Count() > 0;//.Any(item => (item as CheckedListBoxItem).Value == role.Role.Name);
+                    if (exists)
+                    {
+                        var t = rolesComboBox.Properties.Items.Where(_ => _.Value == role.Role.Name).First().CheckState;
+                        role.IsActive = !(t == CheckState.Checked);
+                    }
+                }
+            } 
         }
     }
 }

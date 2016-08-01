@@ -23,6 +23,11 @@ namespace ApplicationServer.DAL
                 dbContext.Entry(training.Training).State = System.Data.Entity.EntityState.Unchanged;
             }
 
+            foreach (var role in entity.Roles)
+            {
+                dbContext.Entry(role).State = System.Data.Entity.EntityState.Modified;
+            }
+
             dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             dbContext.SaveChanges();
         }

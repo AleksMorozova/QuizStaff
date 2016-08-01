@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditTesteeForm));
-            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource();
+            this.settingDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.rolesComboBox = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.addTrainingButton = new DevExpress.XtraEditors.SimpleButton();
@@ -74,7 +75,7 @@
             this.addTrainingButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.loginLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.rolesComboBoxLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -147,7 +148,7 @@
             this.rolesComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("rolesComboBox.Properties.Buttons"))))});
             this.rolesComboBox.StyleController = this.layoutControl1;
-            this.rolesComboBox.EditValueChanged += new System.EventHandler(this.rolesComboBox_EditValueChanged);
+            this.rolesComboBox.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.rolesComboBox_QueryCloseUp);
             // 
             // addTrainingButton
             // 
