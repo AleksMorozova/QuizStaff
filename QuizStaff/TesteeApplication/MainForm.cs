@@ -16,10 +16,12 @@ namespace TesteeApplication
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
         System.Windows.Forms.Timer timer = Program.Timer;
+        QuestionForm questionForm;
 
         public MainForm()
         {
             InitializeComponent();
+            questionForm = new QuestionForm(Program.currentTestee);
         }
 
         private void settingsBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -49,7 +51,6 @@ namespace TesteeApplication
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            QuestionForm f = new QuestionForm(Program.currentTestee);
             var timeToStart = Program.currentTestee.UserSetting.TimeOfStart;
             var userTime = new TimeSpan(timeToStart.Hour, timeToStart.Minute, timeToStart.Second);
 
@@ -61,13 +62,27 @@ namespace TesteeApplication
                 ? Program.currentTestee.UserSetting.FrequencyOfAsking % 60
                 : Program.currentTestee.UserSetting.FrequencyOfAsking;
 
-            for (int i = 0; i <= Program.currentTestee.UserSetting.FrequencyOfAsking; i ++)
-                if (DateTime.Now.TimeOfDay.Hours == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + i * aditionalHours
-                    && DateTime.Now.TimeOfDay.Minutes == Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits)
-                {       
+            for (int i = 0; i <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay; i++)
+            {         
+                var userMinits = (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits) > 60
+                    ? Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits - 60
+                    : Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits;
+
+                var additionalHour = (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits) > 60 
+                    ? (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits) /60
+                    : 0;
+
+                var userHours = (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + i * aditionalHours + additionalHour) > 24
+                    ? Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + i * aditionalHours + additionalHour - 24
+                    : Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + i * aditionalHours + additionalHour;
+
+                if (DateTime.Now.TimeOfDay.Hours == userHours && DateTime.Now.TimeOfDay.Minutes == userMinits)
+                {
+                    QuestionForm questionForm = new QuestionForm(Program.currentTestee);
                     timer.Interval = Program.currentTestee.UserSetting.FrequencyOfAsking * 60000;
-                    f.Show();
+                    questionForm.Show();
                 }
+            }
         }
     }
 }
