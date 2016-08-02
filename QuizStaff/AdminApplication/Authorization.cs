@@ -54,11 +54,23 @@ namespace AdminApplication
                     {
                         AuthorizedTesteeName = login;
                         Program.GetTestee(AuthorizedTesteeName);
+                        Program.GetUserPermissions(AuthorizedTesteeName);
+
                         Testee loadTestee = Program.currentTestee;
 
                         if (loadTestee.Id != Guid.Empty)
                         {
                             return LoginResult.LoggedIn;
+                            if (Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee)
+                                || Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining)
+                                || Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp))
+                            {
+                                return LoginResult.LoggedIn;
+                            }
+                            else
+                            {
+                                return LoginResult.NoPermissions;
+                            }                
                         }
                         else
                         {

@@ -12,6 +12,7 @@ using DataTransferObject;
 using System.Globalization;
 using DevExpress.XtraGrid.Views.Grid;
 using DomainModel;
+using DevExpress.XtraEditors.Controls;
 
 namespace AdminApplication.TesteesForm.TesteeAddEdit
 {
@@ -31,10 +32,33 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             model = mvvmTesteeContext.GetViewModel<TesteeViewModel>();
             BindCommand();
             model.GetAllTrainings();
+            model.GetAllRoles();
             model.SetUpViewModel(testee);
             mvvmTesteeContext.SetViewModel(typeof(TesteeViewModel), model);          
             BindToViewModel();
-        }               
+
+            SetUpRolesComboBox();
+        }
+
+        private void SetUpRolesComboBox()
+        {
+            if (model.Roles != null)
+            {
+                foreach (var role in model.Roles)
+                {
+                    rolesComboBox.Properties.Items.Add(role.Role.Name, role.IsActive);
+                }
+            }
+            else 
+            {
+                model.Roles = new BindingList<TesteeRoles>();
+                foreach (var role in model.AllRoles)
+                {
+                    rolesComboBox.Properties.Items.Add(role.Name, false);
+                    model.Roles.Add(new TesteeRoles() { IsActive = false, Role = role });
+                }
+            }
+        }
 
         private void BindCommand()
         {
@@ -97,7 +121,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             resources.ApplyResources(canEditToggleSwitchLayoutControlItem, "canEditToggleSwitchLayoutControlItem", newCultureInfo);
             resources.ApplyResources(settingLayoutControlGroup, "settingLayoutControlGroup", newCultureInfo);
             resources.ApplyResources(generalInfLayoutControlGroup, "generalInfLayoutControlGroup", newCultureInfo);
-            
+            resources.ApplyResources(rolesComboBoxLayoutControlItem, "rolesComboBoxLayoutControlItem", newCultureInfo);
+
             string title = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Testee";
             this.Text = title + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");
@@ -152,6 +177,22 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             model.Testee.Trainings.Add(training);
 
             this.gridTrainings.DataSource = model.Testee.Trainings.Select(_ => _).Where(t => t.IsActive);
+        }
+
+        private void rolesComboBox_QueryCloseUp(object sender, CancelEventArgs e)
+        {
+            if (model.Roles != null)
+            {
+                foreach (var role in model.Roles)
+                {
+                    bool exists = rolesComboBox.Properties.Items.Where(_ => _.Value == role.Role.Name).Count() > 0;//.Any(item => (item as CheckedListBoxItem).Value == role.Role.Name);
+                    if (exists)
+                    {
+                        var t = rolesComboBox.Properties.Items.Where(_ => _.Value == role.Role.Name).First().CheckState;
+                        role.IsActive = !(t == CheckState.Checked);
+                    }
+                }
+            } 
         }
     }
 }

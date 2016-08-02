@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdminApplication
+namespace DomainModel
 {
-    public enum LoginResult
+    public enum PermissionType
     {
         None = -1,
-        LoggedIn = 0,
-        Failed = 1,
-        NotExist = 2,
-        NoPermissions = 3
+        EditTestee = 0,
+        EditTraining = 1,
+        EditSetUp = 2,
+        GetQuestion = 3
     }
 }

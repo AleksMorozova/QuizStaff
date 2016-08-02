@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.tabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.mainMenuManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.tabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.mainMenuManager = new DevExpress.XtraBars.BarManager();
             this.mainMenu = new DevExpress.XtraBars.Bar();
             this.testeesBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.trainingsBarButton = new DevExpress.XtraBars.BarButtonItem();
@@ -40,6 +39,7 @@
             this.loginBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.questionBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.adminSettingsBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.roleBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.russianBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.englishBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
@@ -76,9 +76,10 @@
             this.languageBarSubItem,
             this.russianBarButtonItem,
             this.englishBarButtonItem,
-            this.adminSettingsBarButtonItem});
+            this.adminSettingsBarButtonItem,
+            this.roleBarButton});
             this.mainMenuManager.MainMenu = this.mainMenu;
-            this.mainMenuManager.MaxItemId = 10;
+            this.mainMenuManager.MaxItemId = 11;
             this.mainMenuManager.StatusBar = this.statusBar;
             // 
             // mainMenu
@@ -95,6 +96,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.loginBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.questionBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.adminSettingsBarButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.roleBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.languageBarSubItem, true)});
             this.mainMenu.OptionsBar.MultiLine = true;
             this.mainMenu.OptionsBar.UseWholeRow = true;
@@ -119,6 +121,7 @@
             resources.ApplyResources(this.settingsBarButton, "settingsBarButton");
             this.settingsBarButton.Id = 2;
             this.settingsBarButton.Name = "settingsBarButton";
+            this.settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.settingsBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.settingsBarButton_ItemClick);
             // 
             // testBarButton
@@ -142,7 +145,7 @@
             resources.ApplyResources(this.questionBarButton, "questionBarButton");
             this.questionBarButton.Id = 5;
             this.questionBarButton.Name = "questionBarButton";
-            this.questionBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.questionBarButton_ItemClick);
+            this.questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // adminSettingsBarButtonItem
             // 
@@ -150,6 +153,13 @@
             this.adminSettingsBarButtonItem.Id = 9;
             this.adminSettingsBarButtonItem.Name = "adminSettingsBarButtonItem";
             this.adminSettingsBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.adminSettingsBarButtonItem_ItemClick);
+            // 
+            // roleBarButton
+            // 
+            resources.ApplyResources(this.roleBarButton, "roleBarButton");
+            this.roleBarButton.Id = 10;
+            this.roleBarButton.Name = "roleBarButton";
+            this.roleBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // languageBarSubItem
             // 
@@ -245,6 +255,7 @@
         private DevExpress.XtraBars.BarButtonItem russianBarButtonItem;
         private DevExpress.XtraBars.BarButtonItem englishBarButtonItem;
         private DevExpress.XtraBars.BarButtonItem adminSettingsBarButtonItem;
+        private DevExpress.XtraBars.BarButtonItem roleBarButton;
 
 
     }

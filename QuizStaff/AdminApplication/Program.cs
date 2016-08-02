@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using log4net;
+using System.ComponentModel;
 
 namespace AdminApplication
 {
@@ -20,7 +21,7 @@ namespace AdminApplication
         public static string currentLang = "ru-RU";
         public static Testee currentTestee = new Testee();
         public static bool AsAdmin = true;
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
+        public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
         //Global data
         private static MainForm applicationMainForm;
         public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
@@ -43,13 +44,17 @@ namespace AdminApplication
                 switch (loginResult)
                 {
                     case LoginResult.Failed:
-                        XtraMessageBox.Show("Login is failed");
+                        XtraMessageBox.Show("Authorization error. User authentication failed");
                         break;
                     case LoginResult.NotExist:
-                        XtraMessageBox.Show("Not such user in database. For more details contact administrator");
+                        XtraMessageBox.Show("Authorization error. There is no match of login and password in database. Please, contact to IT administrator");
+                        break;
+                    case LoginResult.NoPermissions:
+                        XtraMessageBox.Show("Authentication error. You have no permissions to access the database");
                         break;
                     case LoginResult.LoggedIn:
                         GetTestee(Authorization.AuthorizedTesteeName);
+                        GetUserPermissions(Authorization.AuthorizedTesteeName);
                         break;
                 }
             }
@@ -66,6 +71,14 @@ namespace AdminApplication
         {
             var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
             currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);
+        }
+
+        public static void GetUserPermissions(string login)
+        {
+            var userPermission = Program.currentTestee.Roles.Select(_ => _.Role.Permissions);
+            foreach (var p in userPermission)
+                foreach (var p1 in p.Select(_ => _.Permission))
+                    CurrentUserPermissions.Add(p1);
         }
     }
 }

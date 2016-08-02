@@ -42,11 +42,15 @@
     <Compile Include="AnswerDTO.cs" />
     <Compile Include="Conversion.cs" />
     <Compile Include="HistoryDTO.cs" />
+    <Compile Include="PermissionDTO.cs" />
     <Compile Include="QuestionDTO.cs" />
+    <Compile Include="RoleDTO.cs" />
+    <Compile Include="RolePermissionDTO.cs" />
     <Compile Include="SettingDTO.cs" />
     <Compile Include="TesteeAnswerDTO.cs" />
     <Compile Include="TesteeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TesteeRolesDTO.cs" />
     <Compile Include="TesteeTrainingDTO.cs" />
     <Compile Include="TrainingDTO.cs" />
   </ItemGroup>

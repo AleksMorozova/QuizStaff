@@ -13,11 +13,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 {
     public class TesteeViewModel : INotifyPropertyChanged 
     {
-        private Testee LoadedTeste
-        {
-            get;
-            set;
-        }
+        private Testee LoadedTeste{ get; set; }
 
         #region Testee
 
@@ -129,6 +125,21 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             }
         }
 
+        public BindingList<TesteeRoles> Roles
+        {
+            get
+            {
+                return Testee.Roles;
+            }
+            set
+            {
+                if (value != Testee.Roles)
+                {
+                    Testee.Roles = value;
+                    RaisePropertyChanged("Roles");
+                }
+            }
+        }
         #endregion
 
         #region Setting
@@ -259,6 +270,18 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             foreach (var training in trainingsList)
             {
                 AllTrainings.Add(Conversion.ConvertTrainingFromDTO(training));
+            }
+        }
+
+        public BindingList<Role> AllRoles { get; set; }
+
+        public void GetAllRoles()
+        {
+            AllRoles = new BindingList<Role>();
+            var rolesList = ServicesHolder.ServiceClient.GetAllRoles();
+            foreach (var role in rolesList)
+            {
+                AllRoles.Add(Conversion.ConvertRoleFromDTO(role));
             }
         }
 

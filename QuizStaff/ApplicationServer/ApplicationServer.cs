@@ -51,6 +51,7 @@ namespace Server
 
                     UserSetting = testee.UserSetting,
                     Trainings = new BindingList<TesteeTraining>(testee.Trainings.ToList().Where(_ => _.IsActive).ToList()),
+                    Roles = new BindingList<TesteeRoles>(testee.Roles.ToList()),
                     Histories = new BindingList<History>(testee.Histories.ToList())
 
                 }).ToList();
@@ -302,6 +303,52 @@ namespace Server
             EFRepository<Training> repo = new EFRepository<DomainModel.Training>();
             var result = repo.ReadAll().Where(_ => _.TrainingTitle == title ).FirstOrDefault();
             return (result != null) ? result : new TrainingDTO() { IsActive = true };
+        }
+
+
+        public List<RoleDTO> GetAllRoles()
+        {
+            EFRepository<Role> repo = new EFRepository<Role>();
+            var roles = new List<Role>(repo.ReadAll());
+            return roles.Select(role => (RoleDTO)role).ToList();
+        }
+
+        public List<PermissionDTO> GetAllPermissions()
+        {
+            EFRepository<Permission> repo = new EFRepository<Permission>();
+            var permissions = new List<Permission>(repo.ReadAll());
+            return permissions.Select(permission => (PermissionDTO)permission).ToList();
+        }
+
+
+        public void UpdateRoles(RoleDTO role)
+        {            
+            EFRoleRepository repo = new EFRoleRepository();
+            if (role.Id == Guid.Empty)
+                {
+                    repo.Create(Conversion.ConvertRoleFromDTO(role));
+                }
+                else 
+                { 
+                    repo.Update(Conversion.ConvertRoleFromDTO(role));
+                }
+        }
+
+        public void UpdatePermissions(PermissionDTO permission)
+        {
+            Permission savedPermission = new Permission();
+            savedPermission.Id = permission.Id;
+            savedPermission.Title = permission.Title;
+
+            EFPermissionRepository repo = new EFPermissionRepository();
+            if (permission.Id == Guid.Empty)
+            {
+                repo.Create(savedPermission);
+            }
+            else
+            {
+                repo.Update(savedPermission);
+            }
         }
     }
 }

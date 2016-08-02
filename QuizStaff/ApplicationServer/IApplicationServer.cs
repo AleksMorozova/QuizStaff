@@ -87,5 +87,17 @@ namespace Server
 
         [OperationContract]
         TrainingDTO FindByTitle(string title);
+               
+        [OperationContract]
+        List<RoleDTO> GetAllRoles();
+
+        [OperationContract]
+        List<PermissionDTO> GetAllPermissions();
+
+        [OperationContract]
+        void UpdateRoles(RoleDTO role);
+
+        [OperationContract]
+        void UpdatePermissions(PermissionDTO permission);
     }
 }
