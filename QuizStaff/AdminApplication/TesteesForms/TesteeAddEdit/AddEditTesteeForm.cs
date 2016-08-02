@@ -48,7 +48,16 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 {
                     rolesComboBox.Properties.Items.Add(role.Role.Name, role.IsActive);
                 }
-            } 
+            }
+            else 
+            {
+                model.Roles = new BindingList<TesteeRoles>();
+                foreach (var role in model.AllRoles)
+                {
+                    rolesComboBox.Properties.Items.Add(role.Name, false);
+                    model.Roles.Add(new TesteeRoles() { IsActive = false, Role = role });
+                }
+            }
         }
 
         private void BindCommand()
