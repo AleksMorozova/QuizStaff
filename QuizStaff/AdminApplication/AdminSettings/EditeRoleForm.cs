@@ -40,13 +40,6 @@ namespace AdminApplication.AdminSettings
             mvvmRoleContext.BindCommand<EditeRoleViewModel>(saveButton, viewModel => viewModel.Save());
         }
 
-        private void editPermissionButton_Click(object sender, EventArgs e)
-        {
-            EditPermissionForm form = new EditPermissionForm(model.Permissions);
-            form.ShowDialog();
-            permissionGridControl.DataSource = form.Permissions;
-        }
-
         public void Localized(string language)
         {
             var resources = new ComponentResourceManager(typeof(EditeRoleForm));
@@ -56,7 +49,6 @@ namespace AdminApplication.AdminSettings
             resources.ApplyResources(permissionGridControlLayoutControlItem, "permissionGridControlLayoutControlItem", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
-            resources.ApplyResources(editPermissionButton, "editPermissionButton", newCultureInfo);
             resources.ApplyResources(descriptionGridColumn, "descriptionGridColumn", newCultureInfo);
             resources.ApplyResources(roleGridColumn, "roleGridColumn", newCultureInfo);
             resources.ApplyResources(permissionGridColumn, "permissionGridColumn", newCultureInfo);

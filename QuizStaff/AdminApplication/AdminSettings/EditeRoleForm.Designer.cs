@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.saveButton = new DevExpress.XtraEditors.SimpleButton();
-            this.editPermissionButton = new DevExpress.XtraEditors.SimpleButton();
             this.permissionGridControl = new DevExpress.XtraGrid.GridControl();
             this.permissionGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.permissionGridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,8 +46,7 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmRoleContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.mvvmRoleContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.permissionGridControl)).BeginInit();
@@ -61,7 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmRoleContext)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +67,6 @@
             // 
             this.layoutControl1.Controls.Add(this.cancelButton);
             this.layoutControl1.Controls.Add(this.saveButton);
-            this.layoutControl1.Controls.Add(this.editPermissionButton);
             this.layoutControl1.Controls.Add(this.permissionGridControl);
             this.layoutControl1.Controls.Add(this.roleGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -92,22 +89,12 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(391, 387);
+            this.saveButton.Location = new System.Drawing.Point(367, 387);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(79, 22);
+            this.saveButton.Size = new System.Drawing.Size(103, 22);
             this.saveButton.StyleController = this.layoutControl1;
             this.saveButton.TabIndex = 7;
             this.saveButton.Text = "Save";
-            // 
-            // editPermissionButton
-            // 
-            this.editPermissionButton.Location = new System.Drawing.Point(302, 387);
-            this.editPermissionButton.Name = "editPermissionButton";
-            this.editPermissionButton.Size = new System.Drawing.Size(85, 22);
-            this.editPermissionButton.StyleController = this.layoutControl1;
-            this.editPermissionButton.TabIndex = 6;
-            this.editPermissionButton.Text = "Edit permissions";
-            this.editPermissionButton.Click += new System.EventHandler(this.editPermissionButton_Click);
             // 
             // permissionGridControl
             // 
@@ -157,7 +144,6 @@
             this.roleGridView.GridControl = this.roleGridControl;
             this.roleGridView.Name = "roleGridView";
             this.roleGridView.OptionsDetail.EnableMasterViewMode = false;
-            this.roleGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.roleGridView.OptionsView.ShowGroupPanel = false;
             this.roleGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.roleGridView_InitNewRow);
             this.roleGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.roleGridView_FocusedRowChanged);
@@ -188,8 +174,7 @@
             this.splitterItem1,
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.emptySpaceItem2,
-            this.layoutControlItem1});
+            this.emptySpaceItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(586, 426);
@@ -227,9 +212,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.saveButton;
-            this.layoutControlItem2.Location = new System.Drawing.Point(379, 370);
+            this.layoutControlItem2.Location = new System.Drawing.Point(355, 370);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(88, 36);
+            this.layoutControlItem2.Size = new System.Drawing.Size(112, 36);
             this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -249,19 +234,8 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 370);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(290, 36);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(355, 36);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.editPermissionButton;
-            this.layoutControlItem1.Location = new System.Drawing.Point(290, 370);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(89, 36);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            this.layoutControlItem1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // mvvmRoleContext
             // 
@@ -289,7 +263,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmRoleContext)).EndInit();
             this.ResumeLayout(false);
 
@@ -308,8 +281,6 @@
         private DevExpress.XtraLayout.SplitterItem splitterItem1;
         private DevExpress.XtraEditors.SimpleButton cancelButton;
         private DevExpress.XtraEditors.SimpleButton saveButton;
-        private DevExpress.XtraEditors.SimpleButton editPermissionButton;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
