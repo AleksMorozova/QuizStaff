@@ -278,6 +278,12 @@
   <data name="&gt;&gt;adminSettingsBarButtonItem.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;roleBarButton.Name" xml:space="preserve">
+    <value>roleBarButton</value>
+  </data>
+  <data name="&gt;&gt;roleBarButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;languageBarSubItem.Name" xml:space="preserve">
     <value>languageBarSubItem</value>
   </data>
@@ -331,6 +337,9 @@
   </data>
   <data name="adminSettingsBarButtonItem.Caption" xml:space="preserve">
     <value>Setting</value>
+  </data>
+  <data name="roleBarButton.Caption" xml:space="preserve">
+    <value>Role</value>
   </data>
   <data name="languageBarSubItem.Caption" xml:space="preserve">
     <value>Language</value>

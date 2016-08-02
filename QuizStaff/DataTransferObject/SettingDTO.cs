@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataTransferObject
 {
-    public class SettingDTO : INotifyPropertyChanged
+    public class SettingDTO
     {
         public Guid Id { get; set; }
 
@@ -24,7 +24,6 @@ namespace DataTransferObject
                 if (value != amountOfQuestionsPerDay)
                 {
                     amountOfQuestionsPerDay = value;
-                    OnPropertyChanged("AmountOfQuestionsPerDay");
                 }
             }
         }
@@ -41,7 +40,6 @@ namespace DataTransferObject
                 if (value != frequencyOfAsking)
                 {
                     frequencyOfAsking = value;
-                    OnPropertyChanged("FrequencyOfAsking");
                 }
             }
         }
@@ -58,7 +56,6 @@ namespace DataTransferObject
                 if (value != timeOfStart)
                 {
                     timeOfStart = value;
-                    OnPropertyChanged("TimeOfStart");
                 }
             }
         }
@@ -79,16 +76,6 @@ namespace DataTransferObject
             newSetting.ShowCorrectAnswer = setting.ShowCorrectAnswer;
 
             return newSetting;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

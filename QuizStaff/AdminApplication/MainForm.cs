@@ -46,8 +46,15 @@ namespace AdminApplication
         private void MainForm_Load(object sender, EventArgs e)
         {
             //TODO: uncomment after implementation of users role
-            settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            //CheckPermission();
+        }
+
+        private void CheckPermission ()
+        {
+            testeesBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee);
+            trainingsBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining);
+            adminSettingsBarButtonItem.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.GetQuestion);
+            roleBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp);
         }
 
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -64,13 +71,6 @@ namespace AdminApplication
             f.ShowDialog();
         }
 
-        private void questionBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //QuestionForm questionform = new QuestionForm(Program.currentTestee);            
-            //FormManager.Instance.LocalizedForms(Program.currentLang);
-            //questionform.ShowDialog();
-        }
-
         public void Localized(string language) 
         {
             var resources = new ComponentResourceManager(typeof(MainForm));
@@ -83,6 +83,7 @@ namespace AdminApplication
             resources.ApplyResources(englishBarButtonItem, "englishBarButtonItem", newCultureInfo);
             resources.ApplyResources(adminSettingsBarButtonItem, "adminSettingsBarButtonItem", newCultureInfo);
             resources.ApplyResources(questionBarButton, "questionBarButton", newCultureInfo);
+            resources.ApplyResources(roleBarButton, "roleBarButton", newCultureInfo);
         }
 
         private void russianBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
@@ -119,6 +120,14 @@ namespace AdminApplication
         {
             var formSets = new TesteeSettings.TesteeSettingsForm();
             formSets.ShowDialog();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            EditeRoleForm testeesform = new EditeRoleForm();
+            FormManager.Instance.OpenChildForm(testeesform, "Role");
+            FormManager.LocalizedFormList.Add(testeesform);
+            FormManager.Instance.LocalizedForms(Program.currentLang);
         }
     }
 }

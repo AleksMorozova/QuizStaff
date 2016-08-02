@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditTesteeForm));
             this.settingDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.rolesComboBox = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.addTrainingButton = new DevExpress.XtraEditors.SimpleButton();
             this.deleteTrainingButton = new DevExpress.XtraEditors.SimpleButton();
             this.canEditToggleSwitch = new DevExpress.XtraEditors.ToggleSwitch();
@@ -67,16 +68,18 @@
             this.generalInfLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lastNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.trainingsLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.loginLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.firstNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emailLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.deleteTrainingButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.addTrainingButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.loginLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.rolesComboBoxLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.canEditToggleSwitch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfStartTimeEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).BeginInit();
@@ -105,17 +108,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.generalInfLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastNameLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstNameLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteTrainingButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addTrainingButtonLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesComboBoxLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.rolesComboBox);
             this.layoutControl1.Controls.Add(this.addTrainingButton);
             this.layoutControl1.Controls.Add(this.deleteTrainingButton);
             this.layoutControl1.Controls.Add(this.canEditToggleSwitch);
@@ -134,6 +139,16 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(263, 184, 383, 428);
             this.layoutControl1.Root = this.layoutControlGroup3;
+            // 
+            // rolesComboBox
+            // 
+            resources.ApplyResources(this.rolesComboBox, "rolesComboBox");
+            this.rolesComboBox.Name = "rolesComboBox";
+            this.rolesComboBox.Properties.AllowMultiSelect = true;
+            this.rolesComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("rolesComboBox.Properties.Buttons"))))});
+            this.rolesComboBox.StyleController = this.layoutControl1;
+            this.rolesComboBox.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.rolesComboBox_QueryCloseUp);
             // 
             // addTrainingButton
             // 
@@ -424,12 +439,13 @@
             this.generalInfLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.lastNameLayoutControlItem,
             this.trainingsLayoutControlItem,
-            this.loginLayoutControlItem,
             this.firstNameLayoutControlItem,
             this.emailLayoutControlItem,
             this.emptySpaceItem3,
             this.deleteTrainingButtonLayoutControlItem,
-            this.addTrainingButtonLayoutControlItem});
+            this.addTrainingButtonLayoutControlItem,
+            this.loginLayoutControlItem,
+            this.rolesComboBoxLayoutControlItem});
             this.generalInfLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.generalInfLayoutControlGroup.Name = "generalInfLayoutControlGroup";
             this.generalInfLayoutControlGroup.Size = new System.Drawing.Size(660, 351);
@@ -438,10 +454,10 @@
             // lastNameLayoutControlItem
             // 
             this.lastNameLayoutControlItem.Control = this.textLastName;
-            this.lastNameLayoutControlItem.Location = new System.Drawing.Point(323, 0);
+            this.lastNameLayoutControlItem.Location = new System.Drawing.Point(383, 0);
             this.lastNameLayoutControlItem.Name = "lastNameLayoutControlItem";
-            this.lastNameLayoutControlItem.Size = new System.Drawing.Size(313, 45);
-            this.lastNameLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 5);
+            this.lastNameLayoutControlItem.Size = new System.Drawing.Size(253, 50);
+            this.lastNameLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 5, 5);
             resources.ApplyResources(this.lastNameLayoutControlItem, "lastNameLayoutControlItem");
             this.lastNameLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.lastNameLayoutControlItem.TextSize = new System.Drawing.Size(54, 13);
@@ -449,32 +465,21 @@
             // trainingsLayoutControlItem
             // 
             this.trainingsLayoutControlItem.Control = this.gridTrainings;
-            this.trainingsLayoutControlItem.Location = new System.Drawing.Point(0, 95);
+            this.trainingsLayoutControlItem.Location = new System.Drawing.Point(0, 100);
             this.trainingsLayoutControlItem.Name = "trainingsLayoutControlItem";
-            this.trainingsLayoutControlItem.Size = new System.Drawing.Size(636, 188);
+            this.trainingsLayoutControlItem.Size = new System.Drawing.Size(636, 183);
             this.trainingsLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
             resources.ApplyResources(this.trainingsLayoutControlItem, "trainingsLayoutControlItem");
             this.trainingsLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.trainingsLayoutControlItem.TextSize = new System.Drawing.Size(54, 13);
             // 
-            // loginLayoutControlItem
-            // 
-            this.loginLayoutControlItem.Control = this.textLogin;
-            this.loginLayoutControlItem.Location = new System.Drawing.Point(0, 45);
-            this.loginLayoutControlItem.Name = "loginLayoutControlItem";
-            this.loginLayoutControlItem.Size = new System.Drawing.Size(323, 50);
-            this.loginLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
-            resources.ApplyResources(this.loginLayoutControlItem, "loginLayoutControlItem");
-            this.loginLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.loginLayoutControlItem.TextSize = new System.Drawing.Size(54, 13);
-            // 
             // firstNameLayoutControlItem
             // 
             this.firstNameLayoutControlItem.Control = this.textFirstName;
-            this.firstNameLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.firstNameLayoutControlItem.Location = new System.Drawing.Point(138, 0);
             this.firstNameLayoutControlItem.Name = "firstNameLayoutControlItem";
-            this.firstNameLayoutControlItem.Size = new System.Drawing.Size(323, 45);
-            this.firstNameLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 5);
+            this.firstNameLayoutControlItem.Size = new System.Drawing.Size(245, 50);
+            this.firstNameLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
             resources.ApplyResources(this.firstNameLayoutControlItem, "firstNameLayoutControlItem");
             this.firstNameLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.firstNameLayoutControlItem.TextSize = new System.Drawing.Size(54, 13);
@@ -482,9 +487,9 @@
             // emailLayoutControlItem
             // 
             this.emailLayoutControlItem.Control = this.textEmail;
-            this.emailLayoutControlItem.Location = new System.Drawing.Point(323, 45);
+            this.emailLayoutControlItem.Location = new System.Drawing.Point(302, 50);
             this.emailLayoutControlItem.Name = "emailLayoutControlItem";
-            this.emailLayoutControlItem.Size = new System.Drawing.Size(313, 50);
+            this.emailLayoutControlItem.Size = new System.Drawing.Size(334, 50);
             this.emailLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 0);
             resources.ApplyResources(this.emailLayoutControlItem, "emailLayoutControlItem");
             this.emailLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -518,6 +523,28 @@
             this.addTrainingButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.addTrainingButtonLayoutControlItem.TextVisible = false;
             // 
+            // loginLayoutControlItem
+            // 
+            this.loginLayoutControlItem.Control = this.textLogin;
+            this.loginLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.loginLayoutControlItem.Name = "loginLayoutControlItem";
+            this.loginLayoutControlItem.Size = new System.Drawing.Size(138, 50);
+            this.loginLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
+            resources.ApplyResources(this.loginLayoutControlItem, "loginLayoutControlItem");
+            this.loginLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.loginLayoutControlItem.TextSize = new System.Drawing.Size(54, 13);
+            // 
+            // rolesComboBoxLayoutControlItem
+            // 
+            this.rolesComboBoxLayoutControlItem.Control = this.rolesComboBox;
+            this.rolesComboBoxLayoutControlItem.Location = new System.Drawing.Point(0, 50);
+            this.rolesComboBoxLayoutControlItem.Name = "rolesComboBoxLayoutControlItem";
+            this.rolesComboBoxLayoutControlItem.Size = new System.Drawing.Size(302, 50);
+            this.rolesComboBoxLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
+            resources.ApplyResources(this.rolesComboBoxLayoutControlItem, "rolesComboBoxLayoutControlItem");
+            this.rolesComboBoxLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.rolesComboBoxLayoutControlItem.TextSize = new System.Drawing.Size(54, 13);
+            // 
             // mvvmTesteeContext
             // 
             this.mvvmTesteeContext.ContainerControl = this;
@@ -531,6 +558,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rolesComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.canEditToggleSwitch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfStartTimeEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frequencySpinEdit.Properties)).EndInit();
@@ -559,12 +587,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.generalInfLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastNameLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainingsLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstNameLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteTrainingButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addTrainingButtonLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesComboBoxLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).EndInit();
             this.ResumeLayout(false);
 
@@ -616,5 +645,7 @@
         private DevExpress.XtraLayout.LayoutControlItem deleteTrainingButtonLayoutControlItem;
         private DevExpress.XtraEditors.SimpleButton addTrainingButton;
         private DevExpress.XtraLayout.LayoutControlItem addTrainingButtonLayoutControlItem;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit rolesComboBox;
+        private DevExpress.XtraLayout.LayoutControlItem rolesComboBoxLayoutControlItem;
     }
 }

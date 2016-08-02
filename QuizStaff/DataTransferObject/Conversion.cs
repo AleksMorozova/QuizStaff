@@ -109,17 +109,28 @@ namespace DataTransferObject
             newTestee.UserSetting.CanUserEdit = testee.UserSetting.CanUserEdit;
             newTestee.UserSetting.ShowCorrectAnswer = testee.UserSetting.ShowCorrectAnswer;
 
-             if (testee.Trainings != null)
+            newTestee.Roles = new BindingList<TesteeRolesDTO>();
+
+            if (testee.Roles!=null && testee.Roles.Count() > 0)
             {
-                if (testee.Trainings.Count() > 0)
+                foreach (var role in testee.Roles)
                 {
-                    foreach (var t in testee.Trainings)
-                    {
-                        if (t.Training!= null)
-                            newTestee.Trainings.Add(ConvertTesteeTrainingToDTO(t));
-                    }
-                } 
-            }
+                    if (role.Role != null)
+                        newTestee.Roles.Add(ConvertTesteeRoleToDTO(role));
+                }
+            } 
+
+             if (testee.Trainings != null)
+             {
+                 if (testee.Trainings.Count() > 0)
+                 {
+                     foreach (var t in testee.Trainings)
+                     {
+                         if (t.Training!= null)
+                             newTestee.Trainings.Add(ConvertTesteeTrainingToDTO(t));
+                     }
+                 } 
+             }
 
             return newTestee;
         }
@@ -156,6 +167,16 @@ namespace DataTransferObject
             newTestee.UserSetting.TimeOfStart = testee.UserSetting.TimeOfStart;
             newTestee.UserSetting.CanUserEdit = testee.UserSetting.CanUserEdit;
             newTestee.UserSetting.ShowCorrectAnswer = testee.UserSetting.ShowCorrectAnswer;
+
+            newTestee.Roles = new BindingList<TesteeRoles>();
+            if (testee.Roles.Count() > 0)
+            {
+                foreach (var role in testee.Roles)
+                {
+                    if (role.Role != null)
+                        newTestee.Roles.Add(ConvertTesteeRoleFromDTO(role));
+                }
+            } 
 
             //Copy trainings
             if (testee.Trainings != null)
@@ -399,6 +420,98 @@ namespace DataTransferObject
             newSetting.ShowCorrectAnswer = setting.ShowCorrectAnswer;
 
             return newSetting;
+        }
+
+        public static Role ConvertRoleFromDTO(RoleDTO role) 
+        {
+            Role newRole = new Role();
+            newRole.Id = role.Id;
+            newRole.Name = role.Name;
+            newRole.Permissions = new BindingList<RolePermission>();
+
+            foreach (var p in role.Permissions)
+            {
+                RolePermission permission = new RolePermission();
+                permission.Id = p.Id;
+
+                permission.Permission = new Permission();
+                permission.Permission.Id = p.Permission.Id;
+                permission.Permission.Title = p.Permission.Title;
+                permission.Permission.Type = p.Permission.Type;
+
+                newRole.Permissions.Add(permission);
+            }
+
+            return newRole;
+        }
+
+        public static RoleDTO ConvertRoleToDTO(Role role)
+        {
+            RoleDTO newRole = new RoleDTO();
+            newRole.Id = role.Id;
+            newRole.Name = role.Name;
+            newRole.Permissions = new BindingList<RolePermissionDTO>();
+
+            foreach (var p in role.Permissions)
+            {
+                RolePermissionDTO permission = new RolePermissionDTO();
+                permission.Id = p.Id;
+
+                permission.Permission = new Permission();
+                permission.Permission.Id = p.Permission.Id;
+                permission.Permission.Title = p.Permission.Title;
+                permission.Permission.Type = p.Permission.Type;
+
+                newRole.Permissions.Add(permission);
+            }
+
+            return newRole;
+        }
+
+        public static RolePermission ConvertRolePermissonFromDTO(RolePermissionDTO rolePermission)
+        {
+            RolePermission newRolePermission = new RolePermission();
+            newRolePermission.Id = rolePermission.Id;
+            newRolePermission.Role = Conversion.ConvertRoleFromDTO(rolePermission.Role);
+
+            newRolePermission.Permission = new Permission();
+            newRolePermission.Permission.Id = rolePermission.Permission.Id;
+            newRolePermission.Permission.Title = rolePermission.Permission.Title;
+            newRolePermission.Permission.Type = rolePermission.Permission.Type;
+
+            return newRolePermission;
+        }
+
+        public static RolePermissionDTO ConvertRolePermissonToDTO(RolePermission rolePermission)
+        {
+            RolePermissionDTO newRolePermission = new RolePermissionDTO();
+            newRolePermission.Id = rolePermission.Id;
+            newRolePermission.Role = Conversion.ConvertRoleToDTO(rolePermission.Role);
+
+            newRolePermission.Permission = new PermissionDTO();
+            newRolePermission.Permission.Id = rolePermission.Permission.Id;
+            newRolePermission.Permission.Title = rolePermission.Permission.Title;
+            newRolePermission.Permission.Type = rolePermission.Permission.Type;
+
+            return newRolePermission;
+        }
+
+        public static TesteeRolesDTO ConvertTesteeRoleToDTO(TesteeRoles role)
+        {
+            TesteeRolesDTO newRole = new TesteeRolesDTO();
+            newRole.IsActive = role.IsActive;
+            newRole.Id = role.Id;
+            newRole.Role = ConvertRoleToDTO(role.Role);
+            return newRole;
+        }
+
+        public static TesteeRoles ConvertTesteeRoleFromDTO(TesteeRolesDTO role)
+        {
+            TesteeRoles newRole = new TesteeRoles();
+            newRole.IsActive = role.IsActive;
+            newRole.Id = role.Id;
+            newRole.Role = ConvertRoleFromDTO(role.Role);
+            return newRole;
         }
     }
 }

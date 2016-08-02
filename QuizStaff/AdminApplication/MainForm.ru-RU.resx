@@ -129,6 +129,9 @@
   <data name="questionBarButton.Caption" xml:space="preserve">
     <value>Вопрос</value>
   </data>
+  <data name="roleBarButton.Caption" xml:space="preserve">
+    <value>Роли</value>
+  </data>
   <data name="russianBarButtonItem.Caption" xml:space="preserve">
     <value>Pусский</value>
   </data>

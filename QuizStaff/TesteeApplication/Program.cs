@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using DomainModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Drawing;
 using System.Globalization;
@@ -20,6 +21,7 @@ namespace TesteeApplication
         public static string currentLang = "ru-RU";
         public static Testee currentTestee = new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now } };
         public static System.Windows.Forms.Timer Timer = new System.Windows.Forms.Timer();
+        public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
 
         public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
         /// <summary>
@@ -37,10 +39,17 @@ namespace TesteeApplication
                 switch (loginResult)
                 {
                     case LoginResult.Failed:
-                        XtraMessageBox.Show("Login is failed");
+                        XtraMessageBox.Show("Authorization error. User authentication failed");
+                        break;
+                    case LoginResult.NotExist:
+                        XtraMessageBox.Show("Authorization error. There is no match of login and password in database. Please, contact to IT administrator");
+                        break;
+                    case LoginResult.NoPermissions:
+                        XtraMessageBox.Show("Authentication error. You have no permissions to access the database. Please, contact to IT administrator");
                         break;
                     case LoginResult.LoggedIn:
                         GetTestee(Authorization.AuthorizedTesteeName);
+                        GetUserPermissions(Authorization.AuthorizedTesteeName);
                         break;
                 }
             }
@@ -63,6 +72,15 @@ namespace TesteeApplication
                     serviceClient = new AdminApplication.ServiceReference.ApplicationServerClient();
                 return serviceClient;
             }
+        }
+       
+        public static void GetUserPermissions(string login)
+        {
+            var userPermission = Program.currentTestee.Roles.Select(_ => _.Role.Permissions);
+            foreach (var p in userPermission)
+                foreach (var p1 in p.Select(_ => _.Permission))
+                    CurrentUserPermissions.Add(p1);
+
         }
 
         public static void GetTestee(string login)
