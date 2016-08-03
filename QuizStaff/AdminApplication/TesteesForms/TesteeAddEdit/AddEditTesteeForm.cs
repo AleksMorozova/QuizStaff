@@ -179,17 +179,18 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             this.gridTrainings.DataSource = model.Testee.Trainings.Select(_ => _).Where(t => t.IsActive);
         }
 
-        private void rolesComboBox_QueryCloseUp(object sender, CancelEventArgs e)
+        private void rolesComboBox_Closed(object sender, ClosedEventArgs e)
         {
             if (model.Roles != null)
             {
                 foreach (var role in model.Roles)
                 {
-                    bool exists = rolesComboBox.Properties.Items.Where(_ => _.Value == role.Role.Name).Count() > 0;//.Any(item => (item as CheckedListBoxItem).Value == role.Role.Name);
+                    var countItems = rolesComboBox.Properties.Items.Where(_ => _.Value == role.Role.Name);
+                    bool exists = countItems.Count() > 0;
                     if (exists)
                     {
                         var t = rolesComboBox.Properties.Items.Where(_ => _.Value == role.Role.Name).First().CheckState;
-                        role.IsActive = !(t == CheckState.Checked);
+                        role.IsActive = (t == CheckState.Checked);
                     }
                 }
             } 
