@@ -24,13 +24,20 @@ namespace TesteeApplication
 
         public static bool LogonUser()
         {
-            using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, domain))
+            try
             {
-                //validate the credentials
-                return pc.ValidateCredentials(login, password);
+                using (PrincipalContext principalContext = new PrincipalContext(ContextType.Domain, domain))
+                {
+                    //validate the credentials
+                    return principalContext.ValidateCredentials(login, password, ContextOptions.Negotiate);
+                }
+            }
+            catch (PrincipalServerDownException ex)
+            {
+                log.Error("Error at LogonUser. Problem with ValidateCredentials(). Error Message " + ex.Message);
+                return false;
             }
         }
-
         /// <summary>
         /// Try to log in
         /// </summary>
