@@ -112,13 +112,6 @@
       <DependentUpon>EditeRoleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminSettings\EditeRoleViewModel.cs" />
-    <Compile Include="AdminSettings\EditPermissionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminSettings\EditPermissionForm.Designer.cs">
-      <DependentUpon>EditPermissionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdminSettings\EditPermissionsViewModel.cs" />
     <Compile Include="AdminSettings\EditSettingsViewModel.cs" />
     <Compile Include="AdminSettings\EditTesteesTrainingsForm.cs">
       <SubType>Form</SubType>
@@ -217,12 +210,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminSettings\EditeRoleForm.RU-ru.resx">
       <DependentUpon>EditeRoleForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminSettings\EditPermissionForm.resx">
-      <DependentUpon>EditPermissionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminSettings\EditPermissionForm.RU-ru.resx">
-      <DependentUpon>EditPermissionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminSettings\EditSettingsForm.RU-ru.resx">
       <DependentUpon>EditSettingsForm.cs</DependentUpon>
