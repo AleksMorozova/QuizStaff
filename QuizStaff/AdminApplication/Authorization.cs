@@ -25,10 +25,18 @@ namespace AdminApplication
 
         public static bool LogonUser()
         {
-            using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, domain))
+            try
             {
-                //validate the credentials
-                return pc.ValidateCredentials(login, password);
+                using (PrincipalContext principalContext = new PrincipalContext(ContextType.Domain, domain))
+                {          
+                    //validate the credentials
+                    return principalContext.ValidateCredentials(login, password, ContextOptions.Negotiate);
+                }
+            }
+            catch (PrincipalServerDownException ex)
+            {
+                log.Error("Error at LogonUser(). Problem with ValidateCredentials. Error Message " + ex.Message);
+                return false;
             }
         }
 
@@ -94,7 +102,7 @@ namespace AdminApplication
 
             catch (Exception ex) 
             {
-                log.Error("Error message "+ex.Message);
+                log.Error("Problew with connection to server. Error message "+ex.Message);
                 return LoginResult.Failed;
             }
         }
