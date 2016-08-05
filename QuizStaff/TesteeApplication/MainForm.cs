@@ -74,7 +74,8 @@ namespace TesteeApplication
                 ? Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + Program.AddedHours * aditionalHours + additionalHour - 24
                 : Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + Program.AddedHours * aditionalHours + additionalHour;
 
-            if (DateTime.Now.TimeOfDay.Hours == userHours && DateTime.Now.TimeOfDay.Minutes == userMinits)
+            if (DateTime.Now.TimeOfDay.Hours == userHours && DateTime.Now.TimeOfDay.Minutes == userMinits 
+                && Program.QuestionAmount <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay)
             {
                 QuestionForm questionForm = new QuestionForm(Program.currentTestee);
                 timer.Stop();

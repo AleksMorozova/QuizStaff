@@ -26,6 +26,7 @@ namespace TesteeApplication
         public static int AddedMinuts = 0;
         public static int AddedHours = 0;
 
+        public static int QuestionAmount = 0;
         public static int MinuteOfGettingQuestion = 0;
         public static int HourOfGettingQuestion = 0;
 

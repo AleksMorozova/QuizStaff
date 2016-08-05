@@ -118,18 +118,29 @@ namespace TesteeApplication
             {
                 this.Close();
                 Program.Timer.Start();
-
+                Program.QuestionAmount += 1;
                 if (DateTime.Now.Hour == Program.HourOfGettingQuestion)
                 {
                     int i = (DateTime.Now.Minute - Program.MinuteOfGettingQuestion != 0)
                         ? DateTime.Now.Minute - Program.MinuteOfGettingQuestion
                         : 1;
-                    Program.AddedMinuts += i;
+
+                    if (i == 60)
+                        Program.AddedMinuts = 0;
+                    else
+                        Program.AddedMinuts += i;
                 }
-                else 
+                else
                 {
-                    Program.AddedMinuts += DateTime.Now.Minute + 60 - Program.MinuteOfGettingQuestion + 1;
-                    Program.AddedHours += DateTime.Now.Hour - Program.HourOfGettingQuestion + 1;
+                    if (DateTime.Now.Minute + 60 - Program.MinuteOfGettingQuestion + 1 == 60)
+                        Program.AddedMinuts += 1;
+                    else
+                        Program.AddedMinuts += DateTime.Now.Minute + 60 - Program.MinuteOfGettingQuestion + 1;
+
+                    if (DateTime.Now.Hour - Program.HourOfGettingQuestion + 1 > 23)
+                        Program.AddedHours = 0;
+                    else
+                        Program.AddedHours += DateTime.Now.Hour - Program.HourOfGettingQuestion + 1;
                 }
             }
         }
