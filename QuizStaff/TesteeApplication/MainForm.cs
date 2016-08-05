@@ -54,34 +54,33 @@ namespace TesteeApplication
             var timeToStart = Program.currentTestee.UserSetting.TimeOfStart;
             var userTime = new TimeSpan(timeToStart.Hour, timeToStart.Minute, timeToStart.Second);
 
-            var aditionalHours = (Program.currentTestee.UserSetting.FrequencyOfAsking > 60) 
-                ? Program.currentTestee.UserSetting.FrequencyOfAsking / 60 
+            var aditionalHours = (Program.currentTestee.UserSetting.FrequencyOfAsking > 60)
+                ? Program.currentTestee.UserSetting.FrequencyOfAsking / 60
                 : 0;
 
             var aditionalMinits = (Program.currentTestee.UserSetting.FrequencyOfAsking > 60)
                 ? Program.currentTestee.UserSetting.FrequencyOfAsking % 60
                 : Program.currentTestee.UserSetting.FrequencyOfAsking;
 
-            for (int i = 0; i <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay; i++)
-            {         
-                var userMinits = (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits) > 60
-                    ? Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits - 60
-                    : Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits;
+            var userMinits = (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + Program.AddedMinuts * aditionalMinits) > 60
+                    ? Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + Program.AddedMinuts * aditionalMinits - 60
+                    : Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + Program.AddedMinuts * aditionalMinits;
 
-                var additionalHour = (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits) > 60 
-                    ? (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + i * aditionalMinits) /60
-                    : 0;
+            var additionalHour = (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + Program.AddedMinuts * aditionalMinits) > 60
+                ? (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Minutes + Program.AddedMinuts * aditionalMinits) / 60
+                : 0;
 
-                var userHours = (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + i * aditionalHours + additionalHour) > 24
-                    ? Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + i * aditionalHours + additionalHour - 24
-                    : Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + i * aditionalHours + additionalHour;
+            var userHours = (Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + Program.AddedHours * aditionalHours + additionalHour) > 24
+                ? Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + Program.AddedHours * aditionalHours + additionalHour - 24
+                : Program.currentTestee.UserSetting.TimeOfStart.TimeOfDay.Hours + Program.AddedHours * aditionalHours + additionalHour;
 
-                if (DateTime.Now.TimeOfDay.Hours == userHours && DateTime.Now.TimeOfDay.Minutes == userMinits)
-                {
-                    QuestionForm questionForm = new QuestionForm(Program.currentTestee);
-                    timer.Interval = Program.currentTestee.UserSetting.FrequencyOfAsking * 60000;
-                    questionForm.Show();
-                }
+            if (DateTime.Now.TimeOfDay.Hours == userHours && DateTime.Now.TimeOfDay.Minutes == userMinits)
+            {
+                QuestionForm questionForm = new QuestionForm(Program.currentTestee);
+                timer.Stop();
+                Program.MinuteOfGettingQuestion = DateTime.Now.TimeOfDay.Minutes;
+                Program.HourOfGettingQuestion = DateTime.Now.TimeOfDay.Hours;
+                questionForm.Show();
             }
         }
     }

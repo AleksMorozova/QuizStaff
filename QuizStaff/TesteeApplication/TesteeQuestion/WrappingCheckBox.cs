@@ -52,6 +52,7 @@ namespace TesteeApplication
 
         public override Size GetPreferredSize(Size proposedSize)
         {
+            proposedSize = new Size(Int32.MaxValue, Int32.MaxValue);
             Size prefSize = base.GetPreferredSize(proposedSize);
             if ((prefSize.Width > proposedSize.Width) && (!String.IsNullOrEmpty(this.Text) && !proposedSize.Width.Equals(Int32.MaxValue) || !proposedSize.Height.Equals(Int32.MaxValue)))
             {
@@ -70,6 +71,17 @@ namespace TesteeApplication
                 }
             }
             return prefSize;
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // WrappingCheckBox
+            // 
+            this.Size = new System.Drawing.Size(0, 0);
+            this.ResumeLayout(false);
+
         }
     }
 }

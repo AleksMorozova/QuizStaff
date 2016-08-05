@@ -23,6 +23,12 @@ namespace TesteeApplication
         public static System.Windows.Forms.Timer Timer = new System.Windows.Forms.Timer();
         public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
 
+        public static int AddedMinuts = 0;
+        public static int AddedHours = 0;
+
+        public static int MinuteOfGettingQuestion = 0;
+        public static int HourOfGettingQuestion = 0;
+
         public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
         /// <summary>
         /// The main entry point for the application.
