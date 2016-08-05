@@ -61,12 +61,11 @@ namespace TesteeApplication
                         AuthorizedTesteeName = login;
                         Program.GetTestee(AuthorizedTesteeName);
                         Testee loadTestee = Program.currentTestee;
+                        Program.GetUserPermissions(AuthorizedTesteeName);
 
                         if (loadTestee.Id != Guid.Empty)
                         {
-                            if (Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee)
-                                  || Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining)
-                                  || Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp))
+                            if (Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.GetQuestion))
                             {
                                 return LoginResult.LoggedIn;
                             }

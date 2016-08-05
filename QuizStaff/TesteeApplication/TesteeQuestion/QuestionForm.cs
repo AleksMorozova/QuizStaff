@@ -117,6 +117,20 @@ namespace TesteeApplication
             if (DialogResult.OK == XtraMessageBox.Show(message + result, header, MessageBoxButtons.OK))
             {
                 this.Close();
+                Program.Timer.Start();
+
+                if (DateTime.Now.Hour == Program.HourOfGettingQuestion)
+                {
+                    int i = (DateTime.Now.Minute - Program.MinuteOfGettingQuestion != 0)
+                        ? DateTime.Now.Minute - Program.MinuteOfGettingQuestion
+                        : 1;
+                    Program.AddedMinuts += i;
+                }
+                else 
+                {
+                    Program.AddedMinuts += DateTime.Now.Minute + 60 - Program.MinuteOfGettingQuestion + 1;
+                    Program.AddedHours += DateTime.Now.Hour - Program.HourOfGettingQuestion + 1;
+                }
             }
         }
     }

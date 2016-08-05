@@ -164,6 +164,12 @@
     <EmbeddedResource Include="TesteeQuestion\QuestionForm.ru-RU.resx">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TesteeQuestion\WrappingCheckBox.resx">
+      <DependentUpon>WrappingCheckBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TesteeQuestion\WrappingRadioButton.resx">
+      <DependentUpon>WrappingRadioButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TesteeSettings\TesteeSettingsForm.resx">
       <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
