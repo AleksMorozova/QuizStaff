@@ -23,11 +23,9 @@ namespace TesteeApplication
         public static System.Windows.Forms.Timer Timer = new System.Windows.Forms.Timer();
         public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
 
-        public static int AddedMinuts = 0;
-        public static int AddedHours = 0;
-
-        public static int MinuteOfGettingQuestion = 0;
-        public static int HourOfGettingQuestion = 0;
+        public static DateTime AskedTime;
+        public static DateTime UserTime = DateTime.Now;
+        public static int QuestionAmount = 0;
 
         public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
         /// <summary>
@@ -36,7 +34,6 @@ namespace TesteeApplication
         [STAThread]
         static void Main()
         {
-
             string failMessage = String.Empty;
             LoginResult loginResult = LoginResult.None;
             while (loginResult != LoginResult.LoggedIn)
@@ -59,6 +56,8 @@ namespace TesteeApplication
                         break;
                 }
             }
+
+            SetUpStartTime();
 
             currentLang = ConfigurationManager.AppSettings["Lang"];
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentLang);
@@ -93,6 +92,21 @@ namespace TesteeApplication
         {
             var loadedUser = ServiceClient.FindByLogin(login);
             currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);
+        }
+
+        public static void SetUpStartTime()
+        {
+            AskedTime = (DateTime.Now.Hour >= Program.currentTestee.UserSetting.TimeOfStart.Hour
+                && DateTime.Now.Minute >= Program.currentTestee.UserSetting.TimeOfStart.Minute)
+                ? DateTime.Now
+                : Program.currentTestee.UserSetting.TimeOfStart;
+
+            UserTime = Program.currentTestee.UserSetting.TimeOfStart;
+        }
+
+        public static void SetUpStartTime(int minites)
+        {
+            AskedTime = DateTime.Now.AddMinutes(minites);
         }
     }
 }
