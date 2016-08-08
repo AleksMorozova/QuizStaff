@@ -15,10 +15,11 @@ namespace TesteeApplication
     {
         private Dictionary<AnswerDTO, bool> answers = new Dictionary<AnswerDTO, bool>();
         private TesteeQuestionViewModel model;
-        private bool wasClick = false;
+
         public QuestionForm(Testee testee)
         {
             InitializeComponent();
+            Localized(Program.currentLang);
             mvvmQuestionContext.ViewModelType = typeof(TesteeQuestionViewModel);
             BindCommands();
             model = mvvmQuestionContext.GetViewModel<TesteeQuestionViewModel>();
@@ -46,12 +47,23 @@ namespace TesteeApplication
             flow.SetFlowBreak(labelQuestion, true);
         }
 
+        private const int WS_SYSMENU = 0x80000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style &= ~WS_SYSMENU;
+                return cp;
+            }
+        }   
+
         public void CreateQuestionControls(QuestionDTO question)
         {
             var multiSelect = model.MultiSelect;
             labelQuestion.Width = this.Width;
             labelQuestion.DataBindings.Add("Text", question, "QuestionText");
-            bool selectFirstRadio = true;
+            bool selectFirstRadio = false;
             foreach (var answer in question.Answers)
             {
                 ICheckControl control;
@@ -88,7 +100,11 @@ namespace TesteeApplication
         {
             var resources = new ComponentResourceManager(typeof(QuestionForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
-            resources.ApplyResources(buttonSend, "buttonSend", newCultureInfo);           
+            resources.ApplyResources(buttonSend, "buttonSend", newCultureInfo);
+
+            this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
+                ? resources.GetString("Title", newCultureInfo) + " " : "Question for" + " ";
+            this.Text += Program.currentTestee.Login;
         }
 
         private void QuestionForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -113,35 +129,12 @@ namespace TesteeApplication
                 : (!String.IsNullOrEmpty(resources.GetString("Wrong", newCultureInfo))
                     ? resources.GetString("Wrong", newCultureInfo) : "wrong");
 
-            //DevExpress.Utils.AppearanceObject.DefaultFont = new Font("Tahoma", 12, FontStyle.Italic, GraphicsUnit.Point, 0);
             if (DialogResult.OK == XtraMessageBox.Show(message + result, header, MessageBoxButtons.OK))
             {
                 this.Close();
                 Program.Timer.Start();
                 Program.QuestionAmount += 1;
-                if (DateTime.Now.Hour == Program.HourOfGettingQuestion)
-                {
-                    int i = (DateTime.Now.Minute - Program.MinuteOfGettingQuestion != 0)
-                        ? DateTime.Now.Minute - Program.MinuteOfGettingQuestion
-                        : 1;
-
-                    if (i == 60)
-                        Program.AddedMinuts = 0;
-                    else
-                        Program.AddedMinuts += i;
-                }
-                else
-                {
-                    if (DateTime.Now.Minute + 60 - Program.MinuteOfGettingQuestion + 1 == 60)
-                        Program.AddedMinuts += 1;
-                    else
-                        Program.AddedMinuts += DateTime.Now.Minute + 60 - Program.MinuteOfGettingQuestion + 1;
-
-                    if (DateTime.Now.Hour - Program.HourOfGettingQuestion + 1 > 23)
-                        Program.AddedHours = 0;
-                    else
-                        Program.AddedHours += DateTime.Now.Hour - Program.HourOfGettingQuestion + 1;
-                }
+                Program.SetUpStartTime(Program.currentTestee.UserSetting.FrequencyOfAsking);
             }
         }
     }

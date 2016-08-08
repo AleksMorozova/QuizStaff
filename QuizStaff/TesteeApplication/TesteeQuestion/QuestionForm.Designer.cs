@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionForm));
             this.flow = new System.Windows.Forms.FlowLayoutPanel();
             this.labelQuestion = new TesteeApplication.WrappingLabel();
             this.buttonSend = new DevExpress.XtraEditors.SimpleButton();
-            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.flow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmQuestionContext)).BeginInit();
             this.SuspendLayout();
@@ -39,28 +41,20 @@
             // flow
             // 
             this.flow.Controls.Add(this.labelQuestion);
-            this.flow.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.flow.Location = new System.Drawing.Point(0, 3);
+            resources.ApplyResources(this.flow, "flow");
             this.flow.Name = "flow";
-            this.flow.Size = new System.Drawing.Size(308, 321);
-            this.flow.TabIndex = 1;
             // 
             // labelQuestion
             // 
-            this.labelQuestion.Location = new System.Drawing.Point(3, 0);
+            resources.ApplyResources(this.labelQuestion, "labelQuestion");
             this.labelQuestion.Name = "labelQuestion";
-            this.labelQuestion.Size = new System.Drawing.Size(372, 0);
-            this.labelQuestion.TabIndex = 0;
             // 
             // buttonSend
             // 
-            this.buttonSend.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.buttonSend.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("buttonSend.Appearance.Font")));
             this.buttonSend.Appearance.Options.UseFont = true;
-            this.buttonSend.Location = new System.Drawing.Point(113, 330);
+            resources.ApplyResources(this.buttonSend, "buttonSend");
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(89, 37);
-            this.buttonSend.TabIndex = 0;
-            this.buttonSend.Text = "OK";
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // mvvmQuestionContext
@@ -69,14 +63,11 @@
             // 
             // QuestionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 372);
-            this.ControlBox = false;
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.flow);
             this.Name = "QuestionForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuestionForm_FormClosing);
             this.Load += new System.EventHandler(this.QuestionForm_Load);
             this.flow.ResumeLayout(false);
