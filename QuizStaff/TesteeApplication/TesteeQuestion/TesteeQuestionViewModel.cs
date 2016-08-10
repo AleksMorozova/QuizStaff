@@ -28,30 +28,24 @@ namespace TesteeApplication.TesteeQuestion
             }
         }
 
-        public void SaveTesteeAnswer(Dictionary<AnswerDTO, bool> answers)
+        public void SaveTesteeAnswer(List<Answer> answers)
         {
-            if (answers.Where(x => x.Value == true).Count() == 0)
+            var history = new HistoryDTO();
+            history.AnsweringDate = DateTime.Now;
+            history.Question = question;
+            history.Testee = Program.currentTestee;
+            history.Answers = new System.ComponentModel.BindingList<TesteeAnswerDTO>();
+            foreach (var a in answers)
             {
-                //this.form.NotifyNoAnswersChecked();
+                history.Answers.Add(new TesteeAnswerDTO() { Answer = Conversion.ConvertAnswerToDTO(a)});
             }
-            else
-            {
-                var trueAnswers = answers.Where(x => x.Value == true).Select(x => x.Key).ToArray();
-                var history = new HistoryDTO();
-                history.AnsweringDate = DateTime.Now;
-                history.Question = question;
-                history.Testee = Program.currentTestee;
-                history.Answers = new System.ComponentModel.BindingList<TesteeAnswerDTO>();
-                foreach (var a in trueAnswers)
-                    history.Answers.Add(new TesteeAnswerDTO() { Answer = a });
-                ServicesHolder.ServiceClient.SaveTesteeAnswer(history);
-            }
+            ServicesHolder.ServiceClient.SaveTesteeAnswer(history);
         }
 
-        public bool FindWasAnswerCorrect(Dictionary<AnswerDTO, bool> answers)
+        public bool FindWasAnswerCorrect(List<Answer> answers)
         {
-            var trueAnswers = answers.Where(x => x.Value == true).Select(x => x.Key).ToList();
-            List<AnswerDTO> correctAnswer = new List<AnswerDTO>(); ;
+            var trueAnswers = answers.ToList();
+            List<Answer> correctAnswer = new List<Answer>(); ;
             foreach (var a in  question.Answers.ToList().Where(_ => _.IsCorrect).ToList())
             {
                 correctAnswer.Add(a);
@@ -59,7 +53,7 @@ namespace TesteeApplication.TesteeQuestion
             return CompareLists(correctAnswer, trueAnswers); 
         }
 
-        public static bool CompareLists(List<AnswerDTO> list1, List<AnswerDTO> list2)
+        public static bool CompareLists(List<Answer> list1, List<Answer> list2)
         {
 
             if (list1.Count == list2.Count)

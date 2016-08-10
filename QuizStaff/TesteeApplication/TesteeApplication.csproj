@@ -115,23 +115,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="ServicesHolder.cs" />
-    <Compile Include="TesteeQuestion\ICheckControl.cs" />
-    <Compile Include="TesteeQuestion\QuestionForm.cs">
+    <Compile Include="TesteeQuestion\TesteeQuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TesteeQuestion\QuestionForm.Designer.cs">
-      <DependentUpon>QuestionForm.cs</DependentUpon>
+    <Compile Include="TesteeQuestion\TesteeQuestionForm.Designer.cs">
+      <DependentUpon>TesteeQuestionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TesteeQuestion\TesteeQuestionViewModel.cs" />
-    <Compile Include="TesteeQuestion\WrappingCheckBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="TesteeQuestion\WrappingLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="TesteeQuestion\WrappingRadioButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="TesteeSettings\TesteeSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,17 +148,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TesteeQuestion\QuestionForm.resx">
-      <DependentUpon>QuestionForm.cs</DependentUpon>
+    <EmbeddedResource Include="TesteeQuestion\TesteeQuestionForm.resx">
+      <DependentUpon>TesteeQuestionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TesteeQuestion\QuestionForm.ru-RU.resx">
-      <DependentUpon>QuestionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TesteeQuestion\WrappingCheckBox.resx">
-      <DependentUpon>WrappingCheckBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TesteeQuestion\WrappingRadioButton.resx">
-      <DependentUpon>WrappingRadioButton.cs</DependentUpon>
+    <EmbeddedResource Include="TesteeQuestion\TesteeQuestionForm.ru-RU.resx">
+      <DependentUpon>TesteeQuestionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TesteeSettings\TesteeSettingsForm.resx">
       <DependentUpon>TesteeSettingsForm.cs</DependentUpon>
@@ -180,6 +164,7 @@
     <None Include="Properties\DataSources\DataTransferObject.SettingDTO.datasource" />
     <None Include="Properties\DataSources\DataTransferObject.TesteeDTO.datasource" />
     <None Include="Properties\DataSources\DataTransferObject.TrainingDTO.datasource" />
+    <None Include="Properties\DataSources\DomainModel.Answer.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
