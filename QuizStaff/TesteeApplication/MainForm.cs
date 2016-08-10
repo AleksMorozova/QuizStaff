@@ -10,18 +10,17 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using TesteeApplication.TesteeSettings;
 using System.Configuration;
+using TesteeApplication.TesteeQuestion;
 
 namespace TesteeApplication
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
         System.Windows.Forms.Timer timer = Program.Timer;
-        QuestionForm questionForm;
 
         public MainForm()
         {
             InitializeComponent();
-            questionForm = new QuestionForm(Program.currentTestee);
         }
 
         private void settingsBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -61,7 +60,7 @@ namespace TesteeApplication
                 && Program.QuestionAmount <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay)
             {
                 Program.AskedTime = DateTime.Now;
-                QuestionForm questionForm = new QuestionForm(Program.currentTestee);
+                TesteeQuestionForm questionForm = new TesteeQuestionForm(Program.currentTestee);
                 timer.Stop();
                 questionForm.Show();
             }
