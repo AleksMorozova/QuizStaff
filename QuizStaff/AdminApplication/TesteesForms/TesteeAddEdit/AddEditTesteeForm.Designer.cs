@@ -148,7 +148,9 @@
             this.rolesComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("rolesComboBox.Properties.Buttons"))))});
             this.rolesComboBox.StyleController = this.layoutControl1;
+            this.rolesComboBox.Popup += new System.EventHandler(this.rolesComboBox_Popup);
             this.rolesComboBox.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.rolesComboBox_Closed);
+            this.rolesComboBox.EditValueChanged += new System.EventHandler(this.rolesComboBox_EditValueChanged);
             // 
             // addTrainingButton
             // 

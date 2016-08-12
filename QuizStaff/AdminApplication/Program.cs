@@ -75,7 +75,7 @@ namespace AdminApplication
 
         public static void GetUserPermissions(string login)
         {
-            var userPermission = Program.currentTestee.Roles.Select(_ => _.Role.Permissions);
+            var userPermission = Program.currentTestee.Roles.Where(r=>r.IsActive).Select(_ => _.Role.Permissions);
             foreach (var p in userPermission)
                 foreach (var p1 in p.Select(_ => _.Permission))
                     CurrentUserPermissions.Add(p1);

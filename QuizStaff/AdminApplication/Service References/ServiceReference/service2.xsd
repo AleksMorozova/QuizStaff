@@ -359,4 +359,17 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddTesteeRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testee" nillable="true" type="q37:TesteeDTO" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="role" nillable="true" type="q38:RoleDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTesteeRoleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

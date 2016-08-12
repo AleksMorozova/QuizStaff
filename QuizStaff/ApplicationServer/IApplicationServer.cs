@@ -99,5 +99,8 @@ namespace Server
 
         [OperationContract]
         void UpdatePermissions(PermissionDTO permission);
+
+        [OperationContract]
+        void AddTesteeRole(TesteeDTO testee, RoleDTO role);
     }
 }

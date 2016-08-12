@@ -11,10 +11,12 @@ namespace AdminApplication.AdminSettings
 {
     public class EditeRoleViewModel
     {
+        private TesteeDTO[] Testees;
         public void SetUpViewModel() 
         {
             this.Roles = LoadRoles();
             this.Permissions = LoadPermissions();
+            Testees = ServicesHolder.ServiceClient.GetAllTestees();
         }
 
         public BindingList<Role> LoadRoles()
@@ -95,7 +97,18 @@ namespace AdminApplication.AdminSettings
         {
             foreach (var r in Roles)
             {
-                ServicesHolder.ServiceClient.UpdateRoles(Conversion.ConvertRoleToDTO(r));
+                if (r.Id == Guid.Empty)
+                {
+                    foreach (var testee in Testees.ToList())
+                    {
+                        ServicesHolder.ServiceClient.AddTesteeRole(testee, Conversion.ConvertRoleToDTO(r));
+                    }
+                }
+                else 
+                {
+                    ServicesHolder.ServiceClient.UpdateRoles(Conversion.ConvertRoleToDTO(r));
+                }
+                
             }
         }
     }

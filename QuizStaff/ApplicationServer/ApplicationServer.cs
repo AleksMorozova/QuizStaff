@@ -350,5 +350,13 @@ namespace Server
                 repo.Update(savedPermission);
             }
         }
+
+
+        public void AddTesteeRole(TesteeDTO testee, RoleDTO role)
+        {
+            EFTesteeRepository repo = new EFTesteeRepository();
+            testee.Roles.Add(new TesteeRolesDTO() { Role = role, IsActive = false });
+            repo.Update(Conversion.ConvertTesteeFromDTO(testee));
+        }
     }
 }

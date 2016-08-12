@@ -25,7 +25,10 @@ namespace ApplicationServer.DAL
 
             foreach (var role in entity.Roles)
             {
-                dbContext.Entry(role).State = System.Data.Entity.EntityState.Modified;
+                if (role.Id == Guid.Empty)
+                    dbContext.Entry(role).State = System.Data.Entity.EntityState.Added;
+                else
+                    dbContext.Entry(role).State = System.Data.Entity.EntityState.Modified;
             }
 
             dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
