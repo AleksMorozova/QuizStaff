@@ -33,6 +33,7 @@ namespace TesteeApplication.TesteeQuestion
             var history = new HistoryDTO();
             history.AnsweringDate = DateTime.Now;
             history.Question = question;
+            history.IsAnswerCorrect = FindWasAnswerCorrect(answers);
             history.Testee = Program.currentTestee;
             history.Answers = new System.ComponentModel.BindingList<TesteeAnswerDTO>();
             foreach (var a in answers)
