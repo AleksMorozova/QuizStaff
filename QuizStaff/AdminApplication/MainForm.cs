@@ -45,11 +45,10 @@ namespace AdminApplication
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //TODO: uncomment after implementation of users role
-            //CheckPermission();
+            CheckPermission();
         }
 
-        private void CheckPermission ()
+        private void CheckPermission()
         {
             testeesBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee);
             trainingsBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining);
