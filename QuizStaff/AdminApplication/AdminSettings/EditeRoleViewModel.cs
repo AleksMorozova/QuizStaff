@@ -26,7 +26,8 @@ namespace AdminApplication.AdminSettings
 
             foreach (var r in loadedRoles)
             {
-                roles.Add(Conversion.ConvertRoleFromDTO(r));
+                if (r.Name != "Super administrator")
+                    roles.Add(Conversion.ConvertRoleFromDTO(r));
             }
 
             return roles;
@@ -38,10 +39,14 @@ namespace AdminApplication.AdminSettings
             var loadedPermissions = ServicesHolder.ServiceClient.GetAllPermissions();
             foreach (var p in loadedPermissions)
             {
-                Permission permission = new Permission();
-                permission.Id = p.Id;
-                permission.Title = p.Title;
-                permissions.Add(permission);
+                if (p.Type != PermissionType.CreateAdministrator)
+                {              
+                    Permission permission = new Permission();
+                    permission.Id = p.Id;
+                    permission.Title = p.Title;
+                    permission.Type = p.Type;
+                    permissions.Add(permission);
+                }
             }
 
             return permissions;

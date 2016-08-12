@@ -179,15 +179,6 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             this.gridTrainings.DataSource = model.Testee.Trainings.Select(_ => _).Where(t => t.IsActive);
         }
 
-        private void rolesComboBox_Properties_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.Delete)
-            {
-                (sender as CheckedComboBoxEdit).EditValue = null;
-                (sender as CheckedComboBoxEdit).RefreshEditValue();
-            }
-        }
-
         private void rolesComboBox_Closed(object sender, ClosedEventArgs e)
         {
             if (model.Roles != null)
@@ -205,42 +196,10 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             } 
         }
 
-        private void rolesComboBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
-            {
-                CheckedComboBoxEdit comboEdit = sender as CheckedComboBoxEdit;
-                for (int i = 0; i < comboEdit.Properties.Items.Count; i++)
-                    comboEdit.Properties.Items[i].CheckState = CheckState.Unchecked;
-            }
-        }
-
-        private void rolesComboBox_Popup(object sender, EventArgs e)
-        {
-            //var superUseRole = model.AllRoles.
-            //    Where(_ => _.Permissions.Any(p => p.Permission.Type == PermissionType.CreateAdministrator)).Select(r=>r.Name);
-          
-            //var unShow = model.AllRoles.
-            //    Where(_ => _.Permissions.Any(p => p.Permission.Type == PermissionType.GetQuestion)).Select(r => r.Name);
-
-            //CheckedComboBoxEdit comboEdit = sender as CheckedComboBoxEdit;
-            //for (int i = 0; i < comboEdit.Properties.Items.Count; i++)
-            //{
-            //    if (superUseRole.Contains(comboEdit.Properties.Items[i].Value))
-            //        comboEdit.Properties.Items[i].Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator);
-            //}
-
-            //for (int i = 0; i < comboEdit.Properties.Items.Count; i++)
-            //{
-            //    if (comboEdit.Properties.Items[i].Value.ToString() == "Super admin".ToString())
-            //        comboEdit.Properties.Items.Remove(comboEdit.Properties.Items[i]);
-            //}
-        }
-
         private void rolesComboBox_EditValueChanged(object sender, EventArgs e)
         {
             var superUseRole = model.AllRoles.
-               Where(_ => _.Permissions.Any(p => p.Permission.Type == PermissionType.CreateAdministrator)).Select(r => r.Name);
+               Where(_ => _.Permissions.Any(p => p.Permission.Type == PermissionType.EditSetUp)).Select(r => r.Name);
 
             var unShow = model.AllRoles.
              Where(_ => _.Permissions.Any(p => p.Permission.Type == PermissionType.GetQuestion)).Select(r => r.Name);
@@ -254,8 +213,11 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
             for (int i = 0; i < comboEdit.Properties.Items.Count; i++)
             {
-                if (comboEdit.Properties.Items[i].Value.ToString() == "Super admin".ToString())
-                    comboEdit.Properties.Items.Remove(comboEdit.Properties.Items[i]);
+                if (!Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator))
+                {
+                    if (comboEdit.Properties.Items[i].Value.ToString() == "Super administrator".ToString())
+                        comboEdit.Properties.Items.Remove(comboEdit.Properties.Items[i]);
+                }
             }
         }
     }
