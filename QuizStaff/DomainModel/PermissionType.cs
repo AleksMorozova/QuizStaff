@@ -12,6 +12,7 @@ namespace DomainModel
         EditTestee = 0,
         EditTraining = 1,
         EditSetUp = 2,
-        GetQuestion = 3
+        GetQuestion = 3,
+        CreateAdministrator = 4
     }
 }

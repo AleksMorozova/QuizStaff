@@ -195,5 +195,30 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 }
             } 
         }
+
+        private void rolesComboBox_EditValueChanged(object sender, EventArgs e)
+        {
+            var superUseRole = model.AllRoles.
+               Where(_ => _.Permissions.Any(p => p.Permission.Type == PermissionType.EditSetUp)).Select(r => r.Name);
+
+            var unShow = model.AllRoles.
+             Where(_ => _.Permissions.Any(p => p.Permission.Type == PermissionType.GetQuestion)).Select(r => r.Name);
+
+            CheckedComboBoxEdit comboEdit = sender as CheckedComboBoxEdit;
+            for (int i = 0; i < comboEdit.Properties.Items.Count; i++)
+            {
+                if (superUseRole.Contains(comboEdit.Properties.Items[i].Value))
+                    comboEdit.Properties.Items[i].Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator);
+            }
+
+            for (int i = 0; i < comboEdit.Properties.Items.Count; i++)
+            {
+                if (!Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator))
+                {
+                    if (comboEdit.Properties.Items[i].Value.ToString() == "Super administrator".ToString())
+                        comboEdit.Properties.Items.Remove(comboEdit.Properties.Items[i]);
+                }
+            }
+        }
     }
 }

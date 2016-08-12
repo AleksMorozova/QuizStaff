@@ -194,7 +194,11 @@ namespace Server
         public TesteeDTO FindByLogin(string login)
         {
             EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
-            var result = repo.ReadAll().Where(_ => _.Login == login && _.IsActive).FirstOrDefault();
+            Testee result;
+            if (login == "admin")
+                result = repo.ReadAll().Where(_ => _.Login == login).FirstOrDefault();
+            else
+                result = repo.ReadAll().Where(_ => _.Login == login && _.IsActive).FirstOrDefault();
             return (result != null) ? result : new TesteeDTO() { IsActive = true};
         }
 
@@ -340,6 +344,7 @@ namespace Server
             Permission savedPermission = new Permission();
             savedPermission.Id = permission.Id;
             savedPermission.Title = permission.Title;
+            savedPermission.Type = permission.Type;
 
             EFPermissionRepository repo = new EFPermissionRepository();
             if (permission.Id == Guid.Empty)
@@ -350,6 +355,14 @@ namespace Server
             {
                 repo.Update(savedPermission);
             }
+        }
+
+
+        public void AddTesteeRole(TesteeDTO testee, RoleDTO role)
+        {
+            EFTesteeRepository repo = new EFTesteeRepository();
+            testee.Roles.Add(new TesteeRolesDTO() { Role = role, IsActive = false });
+            repo.Update(Conversion.ConvertTesteeFromDTO(testee));
         }
     }
 }

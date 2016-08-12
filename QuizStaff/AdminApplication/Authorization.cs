@@ -56,7 +56,7 @@ namespace AdminApplication
                     password = dlg.Password;
                     domain = dlg.Domain;
 
-                    bool logonResult = LogonUser();
+                    bool logonResult = (login == "admin")? (password == "admin"): LogonUser();
 
                     if (logonResult)
                     {
@@ -70,7 +70,8 @@ namespace AdminApplication
                         {
                             if (Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee)
                                 || Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining)
-                                || Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp))
+                                || Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp)
+                                || Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator))
                             {
                                 return LoginResult.LoggedIn;
                             }

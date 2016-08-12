@@ -38,6 +38,7 @@ namespace DataTransferObject
             
             newPermission.Id = permission.Id;
             newPermission.Title = permission.Title;
+            newPermission.Type = permission.Type;
 
             return newPermission;
         }

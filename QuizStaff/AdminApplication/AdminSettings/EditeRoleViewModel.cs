@@ -11,10 +11,12 @@ namespace AdminApplication.AdminSettings
 {
     public class EditeRoleViewModel
     {
+        private TesteeDTO[] Testees;
         public void SetUpViewModel() 
         {
             this.Roles = LoadRoles();
             this.Permissions = LoadPermissions();
+            Testees = ServicesHolder.ServiceClient.GetAllTestees();
         }
 
         public BindingList<Role> LoadRoles()
@@ -24,7 +26,8 @@ namespace AdminApplication.AdminSettings
 
             foreach (var r in loadedRoles)
             {
-                roles.Add(Conversion.ConvertRoleFromDTO(r));
+                if (r.Name != "Super administrator")
+                    roles.Add(Conversion.ConvertRoleFromDTO(r));
             }
 
             return roles;
@@ -36,10 +39,14 @@ namespace AdminApplication.AdminSettings
             var loadedPermissions = ServicesHolder.ServiceClient.GetAllPermissions();
             foreach (var p in loadedPermissions)
             {
-                Permission permission = new Permission();
-                permission.Id = p.Id;
-                permission.Title = p.Title;
-                permissions.Add(permission);
+                if (p.Type != PermissionType.CreateAdministrator)
+                {              
+                    Permission permission = new Permission();
+                    permission.Id = p.Id;
+                    permission.Title = p.Title;
+                    permission.Type = p.Type;
+                    permissions.Add(permission);
+                }
             }
 
             return permissions;
@@ -95,7 +102,18 @@ namespace AdminApplication.AdminSettings
         {
             foreach (var r in Roles)
             {
-                ServicesHolder.ServiceClient.UpdateRoles(Conversion.ConvertRoleToDTO(r));
+                if (r.Id == Guid.Empty)
+                {
+                    foreach (var testee in Testees.ToList())
+                    {
+                        ServicesHolder.ServiceClient.AddTesteeRole(testee, Conversion.ConvertRoleToDTO(r));
+                    }
+                }
+                else 
+                {
+                    ServicesHolder.ServiceClient.UpdateRoles(Conversion.ConvertRoleToDTO(r));
+                }
+                
             }
         }
     }

@@ -182,6 +182,12 @@ namespace AdminApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdatePermissions", ReplyAction="http://tempuri.org/IApplicationServer/UpdatePermissionsResponse")]
         System.Threading.Tasks.Task UpdatePermissionsAsync(DataTransferObject.PermissionDTO permission);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/AddTesteeRole", ReplyAction="http://tempuri.org/IApplicationServer/AddTesteeRoleResponse")]
+        void AddTesteeRole(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/AddTesteeRole", ReplyAction="http://tempuri.org/IApplicationServer/AddTesteeRoleResponse")]
+        System.Threading.Tasks.Task AddTesteeRoleAsync(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -433,6 +439,14 @@ namespace AdminApplication.ServiceReference {
         
         public System.Threading.Tasks.Task UpdatePermissionsAsync(DataTransferObject.PermissionDTO permission) {
             return base.Channel.UpdatePermissionsAsync(permission);
+        }
+        
+        public void AddTesteeRole(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role) {
+            base.Channel.AddTesteeRole(testee, role);
+        }
+        
+        public System.Threading.Tasks.Task AddTesteeRoleAsync(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role) {
+            return base.Channel.AddTesteeRoleAsync(testee, role);
         }
     }
 }
