@@ -20,12 +20,9 @@ namespace TesteeApplication.TesteeQuestion
                 question = Conversion.ConvertQuestionFromDTO_ForClient(loadQuestion);
         }
 
-        public bool MultiSelect
+        public bool IsMultiSelect()
         {
-            get
-            {
-                return question.Answers.Where(answer => answer.IsCorrect == true).Count() != 1;
-            }
+            return question.Answers.Where(answer => answer.IsCorrect == true).Count() != 1;
         }
 
         public void SaveTesteeAnswer(List<Answer> answers)
