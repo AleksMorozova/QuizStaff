@@ -50,13 +50,19 @@ namespace TesteeApplication.TesteeQuestion
 
         public void SetUpCombobox()
         {
+            if (!model.IsMultiSelect())
+            {
+                answersCheckedList.CheckStyle = CheckStyles.Radio;
+                answersCheckedList.SelectionMode = SelectionMode.One;
+            }
+
             questionLabel.Text = model.question.QuestionText;
 
-            foreach (var a in model.question.Answers) 
+            foreach (var a in model.question.Answers)
             {
                 answersCheckedList.Items.Add(a.AnswerText);
             }
-            
+
             answersCheckedList.ItemHeight = CalcHeight(answersCheckedList);
         }
 
@@ -127,7 +133,10 @@ namespace TesteeApplication.TesteeQuestion
             {
                 this.Close();
                 Program.Timer.Start();
-                Program.QuestionAmount += 1;
+                Program.QuestionAmount = (Program.AskedTime.Date == DateTime.Now.Date) 
+                    ?  Program.QuestionAmount +1 
+                    : 0;
+           
                 Program.SetUpStartTime(Program.currentTestee.UserSetting.FrequencyOfAsking);
             }
         }
@@ -135,6 +144,21 @@ namespace TesteeApplication.TesteeQuestion
         private void TesteeQuestionForm_Load(object sender, EventArgs e)
         {
             SetWindowsPosition();
+        }
+
+        private void answersCheckedList_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
+        {
+            if (e.State == CheckState.Checked)
+            {
+                foreach (CheckedListBoxItem item in answersCheckedList.Items)
+                {
+                    if (item.Value != answersCheckedList.Items[e.Index].Value && item.CheckState == CheckState.Checked)
+                    {
+                        if (!model.IsMultiSelect())
+                            item.CheckState = CheckState.Unchecked;
+                    }
+                }
+            }
         }
     }
 }

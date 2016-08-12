@@ -108,6 +108,7 @@
             this.answersCheckedList.Size = new System.Drawing.Size(282, 389);
             this.answersCheckedList.StyleController = this.layoutControl1;
             this.answersCheckedList.TabIndex = 4;
+            this.answersCheckedList.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.answersCheckedList_ItemCheck);
             // 
             // layoutControlGroup1
             // 
