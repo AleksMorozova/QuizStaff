@@ -13,6 +13,7 @@ namespace DomainModel
         public virtual Testee Testee { get; set; }
         public virtual Question Question { get; set; }
         public virtual DateTime AnsweringDate { get; set; }
+        public virtual bool IsAnswerCorrect { get; set; }
         public virtual BindingList<TesteeAnswer> Answers { get; set; }
     }
 }

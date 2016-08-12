@@ -260,7 +260,7 @@ namespace DataTransferObject
             History newHistory = new History();
             newHistory.Id = currentHistory.Id;
             newHistory.AnsweringDate = currentHistory.AnsweringDate;
-
+            newHistory.IsAnswerCorrect = currentHistory.IsAnswerCorrect;
             return newHistory;
         }
 
@@ -269,6 +269,7 @@ namespace DataTransferObject
             HistoryDTO newHistory = new HistoryDTO();
             newHistory.Id = currentHistory.Id;
             newHistory.AnsweringDate = currentHistory.AnsweringDate;
+            newHistory.IsAnswerCorrect = currentHistory.IsAnswerCorrect;
             return newHistory;
         }
 

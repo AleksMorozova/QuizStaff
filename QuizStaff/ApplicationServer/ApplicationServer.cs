@@ -91,6 +91,7 @@ namespace Server
             h.AnsweringDate = history.AnsweringDate;
             h.Question = Conversion.ConvertQuestionFromDTO(history.Question);
             h.Testee = Conversion.ConvertTesteeFromDTO(history.Testee);
+            h.IsAnswerCorrect = history.IsAnswerCorrect;
             repo.Create(h);
         }
 
