@@ -144,7 +144,6 @@
             this.roleGridView.GridControl = this.roleGridControl;
             this.roleGridView.Name = "roleGridView";
             this.roleGridView.OptionsDetail.EnableMasterViewMode = false;
-            this.roleGridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.roleGridView.OptionsView.ShowGroupPanel = false;
             this.roleGridView.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.roleGridView_InitNewRow);
             this.roleGridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.roleGridView_FocusedRowChanged);
