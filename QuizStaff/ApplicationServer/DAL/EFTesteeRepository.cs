@@ -10,28 +10,66 @@ namespace ApplicationServer.DAL
     public class EFTesteeRepository : EFRepository<Testee>
     {
         public override void Update(Testee entity)
-        {     
+        {
             dbContext.Entry(entity.UserSetting).State = System.Data.Entity.EntityState.Modified;
 
-            if (entity.Trainings!=null)
-            foreach (var training in entity.Trainings)
-            {
-                dbContext.Entry(training).State = training.Id == Guid.Empty
-                    ? System.Data.Entity.EntityState.Added
-                    : System.Data.Entity.EntityState.Modified;
+            if (entity.Trainings != null)
+                foreach (var training in entity.Trainings)
+                {
+                    dbContext.Entry(training).State = training.Id == Guid.Empty
+                        ? System.Data.Entity.EntityState.Added
+                        : System.Data.Entity.EntityState.Modified;
 
-                dbContext.Entry(training.Training).State = System.Data.Entity.EntityState.Unchanged;
-            }
+                    dbContext.Entry(training.Training).State = System.Data.Entity.EntityState.Unchanged;
+                }
 
             foreach (var role in entity.Roles)
             {
-                if (role.Id == Guid.Empty)
-                    dbContext.Entry(role).State = System.Data.Entity.EntityState.Added;
-                else
-                    dbContext.Entry(role).State = System.Data.Entity.EntityState.Modified;
+                foreach (var permission in role.Role.Permissions)
+                {
+                    dbContext.Entry(permission).State = System.Data.Entity.EntityState.Unchanged;
+                }
+
+                dbContext.Entry(role.Role).State = System.Data.Entity.EntityState.Unchanged;
+
+                dbContext.Entry(role).State = role.Id == Guid.Empty
+                      ? System.Data.Entity.EntityState.Added
+                      : System.Data.Entity.EntityState.Modified;
             }
 
             dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            dbContext.SaveChanges();
+        }
+
+        public override void Create(Testee entity)
+        {
+            dbContext.Entry(entity.UserSetting).State = System.Data.Entity.EntityState.Added;
+
+            if (entity.Trainings != null)
+                foreach (var training in entity.Trainings)
+                {
+                    dbContext.Entry(training).State = training.Id == Guid.Empty
+                        ? System.Data.Entity.EntityState.Added
+                        : System.Data.Entity.EntityState.Modified;
+
+                    dbContext.Entry(training.Training).State = System.Data.Entity.EntityState.Unchanged;
+                }
+
+            foreach (var role in entity.Roles)
+            {
+                foreach (var permission in role.Role.Permissions)
+                {
+                    dbContext.Entry(permission).State = System.Data.Entity.EntityState.Unchanged;
+                }
+
+                dbContext.Entry(role.Role).State = System.Data.Entity.EntityState.Unchanged;
+
+                dbContext.Entry(role).State = role.Id == Guid.Empty
+                    ? System.Data.Entity.EntityState.Added
+                    : System.Data.Entity.EntityState.Modified;
+            }
+
+            dbContext.Entry(entity).State = System.Data.Entity.EntityState.Added;
             dbContext.SaveChanges();
         }
     }
