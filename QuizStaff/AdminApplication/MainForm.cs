@@ -53,7 +53,7 @@ namespace AdminApplication
         {
             testeesBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee);
             trainingsBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining);
-            adminSettingsBarButtonItem.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.GetQuestion);
+            adminSettingsBarButtonItem.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp);
             roleBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp);
         }
 
