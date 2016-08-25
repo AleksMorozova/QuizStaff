@@ -45,7 +45,7 @@ namespace TesteeApplication
         {
             timer.Interval = 100;
             timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
+       //     timer.Start();
         }
 
         private void timer_Tick(object sender, EventArgs e)

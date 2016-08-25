@@ -12,12 +12,13 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TesteeApplication.TesteeSettings;
 
 namespace TesteeApplication
 {
     static class Program
     {
-        private static MainForm applicationMainForm;
+        private static TesteeSettingsForm applicationMainForm;
         public static string currentLang = "ru-RU";
         public static Testee currentTestee = new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now } };
         public static System.Windows.Forms.Timer Timer = new System.Windows.Forms.Timer();
@@ -27,7 +28,7 @@ namespace TesteeApplication
         public static DateTime UserTime = DateTime.Now;
         public static int QuestionAmount = 0;
 
-        public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
+        public static TesteeSettingsForm ApplicationMainForm { get { return applicationMainForm; } }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -63,8 +64,9 @@ namespace TesteeApplication
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentLang);
 
             Application.EnableVisualStyles();
-            applicationMainForm = new MainForm();
+            applicationMainForm = new TesteeSettingsForm();
             Application.Run(applicationMainForm);
+            applicationMainForm.Hide();
         }
         
         private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient;

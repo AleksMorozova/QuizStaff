@@ -120,14 +120,11 @@
   <data name="cancelButton.Text" xml:space="preserve">
     <value>Отменить</value>
   </data>
-  <data name="frequencySpinEditLayoutControlItem.Text" xml:space="preserve">
-    <value>Частота</value>
-  </data>
   <data name="languageLayoutControlItem.Text" xml:space="preserve">
     <value>Язык</value>
   </data>
   <data name="questionAmountSpinEditLayoutControlItem.Text" xml:space="preserve">
-    <value>Количество вопросов </value>
+    <value>вопросов</value>
   </data>
   <data name="saveButton.Text" xml:space="preserve">
     <value>Сохранить</value>
@@ -140,5 +137,38 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>Настройки </value>
+  </data>
+  <data name="endAfterCheckEdit.Text" xml:space="preserve">
+    <value>Завершить после: </value>
+  </data>
+  <data name="endDateCheckEdit.Text" xml:space="preserve">
+    <value>Дата окончания</value>
+  </data>
+  <data name="hoursEditLayoutControlItem.Text" xml:space="preserve">
+    <value>часы</value>
+  </data>
+  <data name="intervalIayoutControlGroup.Text" xml:space="preserve">
+    <value>Интервал между вопросами</value>
+  </data>
+  <data name="intervalLabelControl.Text" xml:space="preserve">
+    <value>Интервал:</value>
+  </data>
+  <data name="languageLayoutControlGroup.Text" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="minuteLayoutControlItem.Text" xml:space="preserve">
+    <value>мин</value>
+  </data>
+  <data name="recurrenceLayoutControlGroup.Text" xml:space="preserve">
+    <value>Диапазон повторения</value>
+  </data>
+  <data name="secondLayoutControlItem.Text" xml:space="preserve">
+    <value>сек</value>
+  </data>
+  <data name="startLayoutControlGroup.Text" xml:space="preserve">
+    <value>Дата и время начала</value>
+  </data>
+  <data name="withoutEndDateCheckEdit.Text" xml:space="preserve">
+    <value>Нет конечной даты</value>
   </data>
 </root>

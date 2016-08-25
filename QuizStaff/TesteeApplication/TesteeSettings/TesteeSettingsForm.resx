@@ -117,18 +117,199 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="MainLayoutControl.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="languageComboBoxEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 183</value>
+  <data name="withoutEndDateCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 314</value>
+  </data>
+  <data name="withoutEndDateCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Without end date</value>
+  </data>
+  <data name="withoutEndDateCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 19</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="withoutEndDateCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;withoutEndDateCheckEdit.Name" xml:space="preserve">
+    <value>withoutEndDateCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;withoutEndDateCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;withoutEndDateCheckEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;withoutEndDateCheckEdit.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <metadata name="endAfterCheckEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="endAfterCheckEdit.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="endAfterCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 342</value>
+  </data>
+  <data name="endAfterCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>End after</value>
+  </data>
+  <data name="endAfterCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 19</value>
+  </data>
+  <data name="endAfterCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;endAfterCheckEdit.Name" xml:space="preserve">
+    <value>endAfterCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;endAfterCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;endAfterCheckEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;endAfterCheckEdit.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <metadata name="endDateCheckEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="endDateCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 376</value>
+  </data>
+  <data name="endDateCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="endDateCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 19</value>
+  </data>
+  <data name="endDateCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;endDateCheckEdit.Name" xml:space="preserve">
+    <value>endDateCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;endDateCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;endDateCheckEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;endDateCheckEdit.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <metadata name="dateEdit2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dateEdit2.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="dateEdit2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 376</value>
   </data>
   <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="dateEdit2.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="dateEdit2.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="dateEdit2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 20</value>
+  </data>
+  <data name="dateEdit2.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;dateEdit2.Name" xml:space="preserve">
+    <value>dateEdit2</value>
+  </data>
+  <data name="&gt;&gt;dateEdit2.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;dateEdit2.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;dateEdit2.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <metadata name="startDateDateEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="startDateDateEdit.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="startDateDateEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 237</value>
+  </data>
+  <data name="startDateDateEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="startDateDateEdit.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="startDateDateEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 20</value>
+  </data>
+  <data name="startDateDateEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;startDateDateEdit.Name" xml:space="preserve">
+    <value>startDateDateEdit</value>
+  </data>
+  <data name="&gt;&gt;startDateDateEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;startDateDateEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;startDateDateEdit.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <metadata name="intervalLabelControl.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="intervalLabelControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 139</value>
+  </data>
+  <data name="intervalLabelControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="intervalLabelControl.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="intervalLabelControl.Text" xml:space="preserve">
+    <value>Interval: </value>
+  </data>
+  <data name="&gt;&gt;intervalLabelControl.Name" xml:space="preserve">
+    <value>intervalLabelControl</value>
+  </data>
+  <data name="&gt;&gt;intervalLabelControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;intervalLabelControl.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;intervalLabelControl.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <metadata name="languageComboBoxEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="languageComboBoxEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 63</value>
+  </data>
   <data name="languageComboBoxEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Glyph</value>
   </data>
   <data name="languageComboBoxEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 20</value>
+    <value>341, 20</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="languageComboBoxEdit.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -142,40 +323,49 @@
     <value>MainLayoutControl</value>
   </data>
   <data name="&gt;&gt;languageComboBoxEdit.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>10</value>
   </data>
-  <data name="frequencySpinEdit.EditValue" type="System.Decimal, mscorlib">
+  <metadata name="hoursSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="hoursSpinEdit.EditValue" type="System.Decimal, mscorlib">
     <value>0</value>
   </data>
-  <data name="frequencySpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 33</value>
+  <data name="hoursSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 139</value>
   </data>
-  <data name="frequencySpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+  <data name="hoursSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Glyph</value>
   </data>
-  <data name="frequencySpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 20</value>
+  <data name="hoursSpinEdit.Properties.Mask.EditMask" xml:space="preserve">
+    <value>f0</value>
   </data>
-  <data name="frequencySpinEdit.TabIndex" type="System.Int32, mscorlib">
+  <data name="hoursSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="hoursSpinEdit.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;frequencySpinEdit.Name" xml:space="preserve">
-    <value>frequencySpinEdit</value>
+  <data name="&gt;&gt;hoursSpinEdit.Name" xml:space="preserve">
+    <value>hoursSpinEdit</value>
   </data>
-  <data name="&gt;&gt;frequencySpinEdit.Type" xml:space="preserve">
+  <data name="&gt;&gt;hoursSpinEdit.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;frequencySpinEdit.Parent" xml:space="preserve">
+  <data name="&gt;&gt;hoursSpinEdit.Parent" xml:space="preserve">
     <value>MainLayoutControl</value>
   </data>
-  <data name="&gt;&gt;frequencySpinEdit.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;hoursSpinEdit.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
+  <metadata name="timeOfAskingEditTime.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="timeOfAskingEditTime.EditValue" type="System.DateTime, mscorlib">
     <value>2016-06-23</value>
   </data>
   <data name="timeOfAskingEditTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 133</value>
+    <value>195, 237</value>
   </data>
   <data name="timeOfAskingEditTime.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Glyph</value>
@@ -184,7 +374,7 @@
     <value>t</value>
   </data>
   <data name="timeOfAskingEditTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 20</value>
+    <value>165, 20</value>
   </data>
   <data name="timeOfAskingEditTime.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -199,23 +389,25 @@
     <value>MainLayoutControl</value>
   </data>
   <data name="&gt;&gt;timeOfAskingEditTime.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>12</value>
   </data>
+  <metadata name="questionAmountSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="questionAmountSpinEdit.EditValue" type="System.Decimal, mscorlib">
     <value>0</value>
   </data>
   <data name="questionAmountSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 83</value>
+    <value>115, 342</value>
   </data>
   <data name="questionAmountSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Glyph</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="questionAmountSpinEdit.Properties.Mask.EditMask" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
   </data>
   <data name="questionAmountSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 20</value>
+    <value>115, 20</value>
   </data>
   <data name="questionAmountSpinEdit.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -230,13 +422,16 @@
     <value>MainLayoutControl</value>
   </data>
   <data name="&gt;&gt;questionAmountSpinEdit.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>13</value>
   </data>
+  <metadata name="saveButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 217</value>
+    <value>12, 425</value>
   </data>
   <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -254,13 +449,16 @@
     <value>MainLayoutControl</value>
   </data>
   <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>14</value>
   </data>
+  <metadata name="cancelButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 217</value>
+    <value>196, 425</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>181, 22</value>
   </data>
   <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -278,7 +476,73 @@
     <value>MainLayoutControl</value>
   </data>
   <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>15</value>
+  </data>
+  <metadata name="minuteSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="minuteSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="minuteSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 139</value>
+  </data>
+  <data name="minuteSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="minuteSpinEdit.Properties.Mask.EditMask" xml:space="preserve">
+    <value>f0</value>
+  </data>
+  <data name="minuteSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 20</value>
+  </data>
+  <data name="minuteSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;minuteSpinEdit.Name" xml:space="preserve">
+    <value>minuteSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;minuteSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;minuteSpinEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;minuteSpinEdit.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <metadata name="secondSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="secondSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="secondSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>274, 139</value>
+  </data>
+  <data name="secondSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="secondSpinEdit.Properties.Mask.EditMask" xml:space="preserve">
+    <value>f0</value>
+  </data>
+  <data name="secondSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 20</value>
+  </data>
+  <data name="secondSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;secondSpinEdit.Name" xml:space="preserve">
+    <value>secondSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;secondSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;secondSpinEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;secondSpinEdit.ZOrder" xml:space="preserve">
+    <value>17</value>
   </data>
   <data name="MainLayoutControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -286,20 +550,44 @@
   <data name="MainLayoutControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="layoutControlItem5.Text" xml:space="preserve">
+    <value>End date</value>
+  </data>
   <data name="questionAmountSpinEditLayoutControlItem.Text" xml:space="preserve">
-    <value>Amount</value>
+    <value>question at a day</value>
+  </data>
+  <data name="recurrenceLayoutControlGroup.Text" xml:space="preserve">
+    <value>Range of recurrence</value>
+  </data>
+  <data name="hoursEditLayoutControlItem.Text" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="minuteLayoutControlItem.Text" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="secondLayoutControlItem.Text" xml:space="preserve">
+    <value>sec</value>
+  </data>
+  <data name="intervalIayoutControlGroup.Text" xml:space="preserve">
+    <value>Interval between question </value>
   </data>
   <data name="timeOfAskingEditTimeLayoutControlItem.Text" xml:space="preserve">
     <value>Time of start</value>
   </data>
-  <data name="frequencySpinEditLayoutControlItem.Text" xml:space="preserve">
-    <value>Frequency</value>
+  <data name="startDateLayoutControlItem.Text" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="startLayoutControlGroup.Text" xml:space="preserve">
+    <value>Date and time question </value>
   </data>
   <data name="languageLayoutControlItem.Text" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="languageLayoutControlGroup.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="MainLayoutControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 261</value>
+    <value>389, 476</value>
   </data>
   <data name="MainLayoutControl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -326,7 +614,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>284, 261</value>
+    <value>389, 476</value>
   </data>
   <data name="&gt;&gt;layoutControlGroup1.Name" xml:space="preserve">
     <value>layoutControlGroup1</value>
@@ -334,10 +622,28 @@
   <data name="&gt;&gt;layoutControlGroup1.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlSaveButton.Name" xml:space="preserve">
-    <value>layoutControlSaveButton</value>
+  <data name="&gt;&gt;recurrenceLayoutControlGroup.Name" xml:space="preserve">
+    <value>recurrenceLayoutControlGroup</value>
   </data>
-  <data name="&gt;&gt;layoutControlSaveButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;recurrenceLayoutControlGroup.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem5.Name" xml:space="preserve">
+    <value>layoutControlItem5</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem5.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem6.Name" xml:space="preserve">
+    <value>layoutControlItem6</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem6.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem7.Name" xml:space="preserve">
+    <value>layoutControlItem7</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem7.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;questionAmountSpinEditLayoutControlItem.Name" xml:space="preserve">
@@ -346,10 +652,76 @@
   <data name="&gt;&gt;questionAmountSpinEditLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;emptySpaceItem2.Name" xml:space="preserve">
+    <value>emptySpaceItem2</value>
+  </data>
+  <data name="&gt;&gt;emptySpaceItem2.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;emptySpaceItem1.Name" xml:space="preserve">
+    <value>emptySpaceItem1</value>
+  </data>
+  <data name="&gt;&gt;emptySpaceItem1.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem8.Name" xml:space="preserve">
+    <value>layoutControlItem8</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem8.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;intervalIayoutControlGroup.Name" xml:space="preserve">
+    <value>intervalIayoutControlGroup</value>
+  </data>
+  <data name="&gt;&gt;intervalIayoutControlGroup.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;hoursEditLayoutControlItem.Name" xml:space="preserve">
+    <value>hoursEditLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;hoursEditLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;minuteLayoutControlItem.Name" xml:space="preserve">
+    <value>minuteLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;minuteLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;secondLayoutControlItem.Name" xml:space="preserve">
+    <value>secondLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;secondLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem1.Name" xml:space="preserve">
+    <value>layoutControlItem1</value>
+  </data>
+  <data name="&gt;&gt;layoutControlItem1.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;startLayoutControlGroup.Name" xml:space="preserve">
+    <value>startLayoutControlGroup</value>
+  </data>
+  <data name="&gt;&gt;startLayoutControlGroup.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;timeOfAskingEditTimeLayoutControlItem.Name" xml:space="preserve">
     <value>timeOfAskingEditTimeLayoutControlItem</value>
   </data>
   <data name="&gt;&gt;timeOfAskingEditTimeLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;startDateLayoutControlItem.Name" xml:space="preserve">
+    <value>startDateLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;startDateLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;layoutControlSaveButton.Name" xml:space="preserve">
+    <value>layoutControlSaveButton</value>
+  </data>
+  <data name="&gt;&gt;layoutControlSaveButton.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;layoutControlCancelButton.Name" xml:space="preserve">
@@ -358,11 +730,11 @@
   <data name="&gt;&gt;layoutControlCancelButton.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;frequencySpinEditLayoutControlItem.Name" xml:space="preserve">
-    <value>frequencySpinEditLayoutControlItem</value>
+  <data name="&gt;&gt;languageLayoutControlGroup.Name" xml:space="preserve">
+    <value>languageLayoutControlGroup</value>
   </data>
-  <data name="&gt;&gt;frequencySpinEditLayoutControlItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;languageLayoutControlGroup.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;languageLayoutControlItem.Name" xml:space="preserve">
     <value>languageLayoutControlItem</value>
@@ -376,10 +748,191 @@
   <data name="&gt;&gt;mvvmTesteeSettingsContext.Type" xml:space="preserve">
     <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;quizNotifyIcon.Name" xml:space="preserve">
+    <value>quizNotifyIcon</value>
+  </data>
+  <data name="&gt;&gt;quizNotifyIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>TesteeSettingsForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <metadata name="quizNotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>223, 17</value>
+  </metadata>
+  <data name="quizNotifyIcon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAMDAAAAEAIACoJQAAFgAAACgAAAAwAAAAYAAAAAEAIAAAAAAAgCUAAAAAAAAAAAAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAsOUT/LDlE/yw5RP////8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAsOUT/LDlE/yw5RP/3+fr/+vv7//39/f8sOUT/////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAsOUT/LDlE/yw5RP9slLL/bJSy/6vI3f/2+fr/+fr7//z8/P8sOUT/////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAsOUT/LDlE/yw5RP9slLL/bJSy/2yUsv8sOUT/LDlE/2yUsv+ryN3/+Pr7//v7
+        /P8sOUT/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAsOUT/LDlE/yw5RP9slLL/LDlE//39/f8sOUT/LDlE/yw5RP/6+/z//f39/yw5
+        RP9slLL/q8jd//r7/P/9/f3/LDlE/////wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAsOUT/LDlE/yw5RP/U4u3/q8jd/2yUsv8sOUT/q8jd/6vI3f/9/f3/LDlE/2yU
+        sv+ryN3/+/z8/yw5RP9slLL/q8jd//n6+//8/Pz/LDlE/////wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAsOUT/LDlE/yw5RP/L3en/zt7q/6vI3f+ryN3/bJSy/yw5RP+ryN3/bJSy/2yU
+        sv+ryN3/q8jd/yw5RP9slLL/q8jd//39/f8sOUT/bJSy/6vI3f/7+/z/LDlE/////wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAsOUT/LDlE/yw5RP/C1+b/xdnn/8ja6P+ryN3/q8jd/2yUsv9slLL/LDlE/6vI
+        3f9slLL/LDlE/yw5RP9slLL/bJSy/6vI3f8sOUT/bJSy/6vI3f8sOUT/bJSy/6vI3f/6+/z//f39/yw5
+        RP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAsOUT/LDlE/yw5RP+50eL/vNPj/7/V5P/B1uX/q8jd/6vI3f9slLL/bJSy/yw5
+        RP8sOUT/q8jd/2yUsv8sOUT/9Pf5//X4+v8sOUT/LDlE/2yUsv9slLL/LDlE/2yUsv+ryN3/LDlE/2yU
+        sv+ryN3//Pz8/yw5RP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAsOUT/LDlE/yw5RP+xy9//s83g/7bP4f+50eL/u9Lj/6vI3f+ryN3/bJSy/2yU
+        sv8sOUT/LDlE/yw5RP/s8vb/q8jd/2yUsv8sOUT/8vb4//P3+f/1+Pn/9vj6/yw5RP8sOUT/bJSy/yw5
+        RP9slLL/LDlE/2yUsv+ryN3/+/z8/yw5RP////8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////ACw5RP+qx93/qsfd/63J3v+wy9//ss3g/7XO4f+ryN3/q8jd/2yU
+        sv9slLL/LDlE/yw5RP9slLL/LDlE/+nw9f+ryN3/bJSy/yw5RP/u8/f/8PT4//H1+P/z9vn/9Pf5//X4
+        +v/3+fr/LDlE/yw5RP8sOUT/bJSy/yw5RP9slLL/q8jd//39/f8sOUT/////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP7+/gD8/PwA////ACw5RP+qx93/qsfd/6zJ3f+vyt7/q8jd/6vI
+        3f9slLL/bJSy/yw5RP8sOUT/q8jd/2yUsv8sOUT/5e3z/6vI3f9slLL/LDlE/+vx9v/s8vb/7vP3/+/0
+        9//x9fj/8vb4//P3+f/1+Pn/9vj6//j5+/8sOUT/LDlE/yw5RP9slLL/q8jd/6vI3f8sOUT/////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////ACw5RP+qx93/qsfd/6vI
+        3f+ryN3/bJSy/2yUsv8sOUT/LDlE/8ja6P+ryN3/bJSy/yw5RP/h6/L/4+zz/6vI3f9slLL/LDlE/+nw
+        9f/q8fX/7PL2/+3z9v/u8/f/8PT4//H1+P/z9vn/9Pf5//X4+v/3+fr/+Pr7/yw5RP8sOUT/bJSy/2yU
+        sv8sOUT/////AP39/QD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wAsOUT/q8jd/2yUsv9slLL/LDlE/yw5RP/B1uX/xNjm/6vI3f9slLL/LDlE/97p8P/f6vH/q8jd/2yU
+        sv8sOUT/5e7z/+fu9P/o7/X/6vD1/+vx9v/s8vb/7vP3/+/09//x9fj/8vb4//P3+f/1+Pn/9vj6//j5
+        +//5+vv/LDlE/yw5RP9slLL/LDlE/////wD///8A/v7+AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAsOUT/bJSy/yw5RP8sOUT/u9Lj/73U5P/A1eX/q8jd/2yUsv8sOUT/2ubv/9zn
+        8P+ryN3/bJSy/yw5RP/i6/L/4+zz/+Xt8//m7vT/5+/0/+nw9f/q8fX/7PL2/+3z9v/u8/f/8PT4//H1
+        +P/z9vn/9Pf5//X4+v/3+fr/+Pr7//r7+/8sOUT/LDlE/////wD///8A////AP39/QD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wAsOUT/LDlE/7XO4P+30OH/utHi/7zT4/+ryN3/bJSy/yw5
+        RP/W5O7/2OXu/9rm7/+ryN3/bJSy/yw5RP/g6vH/4evy/+Ps8v/k7fP/5e7z/+fu9P/o7/X/6vD1/+vx
+        9v/s8vb/7vP3/+/09//x9fj/8vb4//P3+f/1+Pn/9vj6//j5+//5+vv/+vv8/yw5RP8sOUT/////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8ALDlE/yw5RP+uyt7/sczf/7PN4P+2z+H/uNDi/6vI
+        3f9slLL/LDlE/9Ph7P/U4+3/1uTu/6vI3f9slLL/LDlE/9zo8P/e6fD/3+nx/+Dq8v/i6/L/4+zz/+Xt
+        8//m7vT/5+/0/+nw9f/q8fX/7PL2/+3z9v/u8/f/8PT4//H1+P/z9vn/9Pf5//X4+v/3+fr/+Pr7//r7
+        +//7/Pz/LDlE/yw5RP/9/f0A/Pz8AP///wD///8A////AP///wAsOUT/qsfd/6rH3f+tyd3/sMve/7LM
+        3/+1zuD/q8jd/2yUsv8sOUT/z9/r/9Hg6//T4ez/q8jd/2yUsv8sOUT/2eXv/9rm7//c5/D/3ejw/97p
+        8f/g6vH/4evy/+Ps8v/k7fP/5e7z/+fu9P/o7/X/6vD1/+vx9v/s8vb/7vP3/+/09//x9fj/8vb4//P3
+        +f/1+Pn/9vj6//j5+//5+vv/+vv8//z8/P8sOUT/LDlE/////wD///8A////AP///wAsOUT/qsfd/6rH
+        3f+syN3/rsre/7HM3/+ryN3/bJSy/yw5RP/L3en/zd7q/8/f6//R4Ov/q8jd/2yUsv8sOUT/1+Tu/9jl
+        7v/Z5u//2+fv/9zo8P/e6fD/3+nx/+Dq8v/i6/L/4+zz/+Xt8//m7vT/5+/0/+nw9f/q8fX/7PL2/+3z
+        9v/u8/f/8PT4//H1+P/z9vn/9Pf5//X4+v/3+fr/+Pr7//r7+//7/Pz//f39/yw5RP////8A////AP//
+        /wD///8ALDlE/6rH3f+qx93/rcnd/6vI3f9slLL/LDlE/8ja6P/K3On/y93p/83e6v+ryN3/bJSy/yw5
+        RP/T4uz/1ePt/9bk7f/X5O7/2eXv/9rm7//c5/D/3ejw/97p8f/g6vH/4evy/+Ps8v/k7fP/5e7z/+fu
+        9P/o7/X/6vD1/+vx9v/s8vb/7vP3/+/09//x9fj/8vb4//P3+f/1+Pn/9vj6//j5+//5+vv/+vv8/yw5
+        RP////8A////AP///wD///8ALDlE/6rH3f+qx93/q8jd/2yUsv8sOUT/xNjm/8bZ5//I2uj/ydvp/6vI
+        3f9slLL/LDlE/9Dg6//R4Oz/0uHs/9Ti7f/V4+3/1+Tu/9jl7v/Z5u//2+fv/9zo8P/e6fD/3+nx/+Dq
+        8v/i6/L/4+zz/+Xt8//m7vT/5+/0/+nw9f/q8fX/7PL2/+3z9v/u8/f/8PT4//H1+P/z9vn/9Pf5//X4
+        +v/3+fr/LDlE//Pz8wD///8A////AP///wD///8A////ACw5RP+ryN3/bJSy/yw5RP/A1uX/wtfm/8TY
+        5v/G2ef/yNro/6vI3f9slLL/LDlE/87e6v/P3+v/0ODr/9Lh7P/T4uz/1ePt/9bk7f/X5O7/2eXv/9rm
+        7//c5/D/3ejw/97p8f/g6vH/4evy/+Ps8v/k7fP/5e7z/+fu9P/o7/X/6vD1/+vx9v/s8vb/7vP3/+/0
+        9//x9fj/8vb4//P3+f/1+Pn/LDlE//7+/gD9/f0A////AP///wD///8A////ACw5RP9slLL/LDlE/73T
+        5P+/1OT/wNbl/8LX5v/E2Ob/q8jd/2yUsv8sOUT/ytzp/8vd6f/N3ur/zt/q/9Dg6//R4Oz/0uHs/9Ti
+        7f/V4+3/1+Tu/9jl7v/Z5u//2+fv/9zo8P/e6fD/3+nx/+Dq8v/i6/L/4+zz/+Xt8//m7vT/5+/0/+nw
+        9f/q8fX/7PL2/+3z9v/u8/f/8PT4//H1+P8sOUT//f39AP7+/gD///8A////AP///wD///8A////AP//
+        /wAsOUT/udHi/7vS4/+90+T/vtTk/8DW5f+ryN3/bJSy/yw5RP/H2uf/yNvo/8nb6f/L3On/zN3q/87e
+        6v/P3+v/0ODr/9Lh7P/T4uz/1ePt/9bk7f/X5O7/2eXv/9rm7//c5/D/3ejw/97p8f/g6vH/4evy/+Ps
+        8v/k7fP/5e7z/+fu9P/o7/X/6vD1/+vx9v/s8vb/7vP3/yw5RP/09PQA////AP7+/gD///8A////AP//
+        /wD///8A////ACw5RP+2z+H/t9Dh/7nR4v+70uP/vdPk/77U5P+ryN3/bJSy/yw5RP/E2Of/xtnn/8fa
+        6P/J2+j/ytzp/8vd6f/N3ur/zt/q/9Dg6//R4Oz/0uHs/9Ti7f/V4+3/1+Tu/9jl7v/Z5u//2+fv/9zo
+        8P/e6fD/3+nx/+Dq8v/i6/L/4+zz/+Xt8//m7vT/5+/0/+nw9f/q8fX/7PL2/yw5RP////8A+vr6AP39
+        /QD///8A////AP///wD///8ALDlE/7LM3/+0zeD/tc/h/7fQ4f+50eL/u9Lj/6vI3f9slLL/LDlE/8HW
+        5f/C1+b/xNjm/8XZ5//H2uf/yNvo/8nb6f/L3On/zN3q/87e6v/P3+v/0ODr/9Lh7P/T4uz/1ePt/9bk
+        7f/X5O7/2eXv/9rm7//c5/D/3ejw/97p8f/g6vH/4evy/+Ps8v/k7fP/5e7z/+fu9P/o7/X/LDlE////
+        /wD///8A/v7+AP7+/gD///8A////AP///wAsOUT/rsre/7DL3/+yzN//tM3g/7XP4f+30OH/q8jd/2yU
+        sv8sOUT/vdTk/7/V5P/A1uX/wtbm/8PX5v/E2Of/xtnn/8fa6P/J2+j/ytzp/8vd6f/N3ur/zt/q/9Dg
+        6//R4Oz/0uHs/9Ti7f/V4+3/1+Tu/9jl7v/Z5u//2+fv/9zo8P/e6fD/3+nx/+Dq8v/i6/L/4+zz/+Xt
+        8/8sOUT/////AP///wD///8A////AP7+/gD///8A////ACw5RP+ryN3/rMnd/67K3v+wy9//sszf/7PN
+        4P+1zuH/q8jd/2yUsv8sOUT/u9Lj/73T5P++1OT/wNXl/8HW5f/C1+b/xNjm/8XZ5//H2uf/yNvo/8nb
+        6f/L3On/zN3q/87e6v/P3+v/0ODr/9Lh7P/T4uz/1ePt/9bk7f/X5O7/2eXv/9rm7//c5/D/3ejw/97p
+        8f/g6vH/4evy/+Ps8v8sOUT/////AP///wD///8A////AP///wD///8ALDlE/6rH3f+qx93/qsfd/6zJ
+        3f+uyt7/sMvf/7LM3/+ryN3/bJSy/yw5RP+40OL/udHi/7vS4/+80+P/vdTk/7/V5P/A1uX/wtbm/8PX
+        5v/E2Of/xtnn/8fa6P/J2+j/ytzp/8vd6f/N3ur/zt/q/9Dg6//R4Oz/0uHs/9Ti7f/V4+3/1+Tu/9jl
+        7v/Z5u//2+fv/9zo8P/e6fD/3+nx/yw5RP/+/v4A////AP///wD///8A////AP7+/gD///8A/v7+ACw5
+        RP+qx93/qsfd/6rH3f+syd3/rsre/6vI3f9slLL/LDlE/7TO4P+2z+H/t9Dh/7nR4v+60eP/u9Lj/73T
+        5P++1OT/wNXl/8HW5f/C1+b/xNjm/8XZ5//H2uf/yNvo/8nb6f/L3On/zN3q/87e6v/P3+v/0ODr/9Lh
+        7P/T4uz/1ePt/9bk7f/X5O7/2eXv/9rm7//c5/D/LDlE/////wD///8A////AP///wD///8A/v7+AP7+
+        /gD///8A////AP39/QAsOUT/qsfd/6rH3f+qx93/rMnd/6vI3f9slLL/LDlE/7LM4P+0zeD/tc7h/7bP
+        4f+40OL/udHi/7vS4/+80+P/vdTk/7/V5P/A1uX/wtbm/8PX5v/E2Of/xtnn/8fa6P/J2+j/ytzp/8vd
+        6f/N3ur/zt/q/9Dg6//R4Oz/0uHs/9Ti7f/V4+3/1+Tu/9jl7v/Z5u//LDlE/////wD///8A////AP//
+        /wD///8A////AP///wD///8A/v7+AP///wD+/v4ALDlE/6rH3f+qx93/q8jd/2yUsv8sOUT/r8re/7DL
+        3/+yzN//s83g/7TO4P+2z+H/t9Dh/7nR4v+60eP/u9Lj/73T5P++1OT/wNXl/8HW5f/C1+b/xNjm/8XZ
+        5//H2uf/yNvo/8nb6f/L3On/zN3q/87e6v/P3+v/0ODr/9Lh7P/T4uz/1ePt/9bk7f8sOUT/////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////ACw5RP+ryN3/bJSy/yw5
+        RP+ryN3/rcnd/67K3v+vy97/sczf/7LM4P+0zeD/tc7h/7bP4f+40OL/udHi/7vS4/+80+P/vdTk/7/V
+        5P/A1uX/wtbm/8PX5v/E2Of/xtnn/8fa6P/J2+j/ytzp/8vd6f/N3ur/zt/q/9Dg6//R4Oz/0uHs/yw5
+        RP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wAsOUT/bJSy/yw5RP+qx93/qsfd/6zI3f+tyd7/r8re/7DL3/+yzN//s83g/7TO4P+2z+H/t9Dh/7nR
+        4v+60eP/u9Lj/73T5P++1OT/wNXl/8HW5f/C1+b/xNjm/8XZ5//H2uf/yNvo/8nb6f/L3On/zN3q/87e
+        6v/P3+v/0ODr/yw5RP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD9/f0A/v7+APv7+wD19fUALDlE/6rH3f+qx93/qsfd/6rH3f+ryN3/rcnd/67K3v+vy97/sczf/7LM
+        4P+0zeD/tc7h/7bP4f+40OL/udHi/7vS4/+80+P/vdTk/7/V5P/A1uX/wtbm/8PX5v/E2Of/xtnn/8fa
+        6P/J2+j/ytzp/8vd6f/N3ur/LDlE/////wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD+/v4A/v7+AP///wAsOUT/qsfd/6rH3f+qx93/qsfd/6rH3f+qx93/qsfd/6zI
+        3f+tyd7/r8re/7DL3/+yzN//s83g/7TO4P+2z+H/t9Dh/7nR4v+60eP/u9Lj/73T5P++1OT/wNXl/8HW
+        5f/C1+b/xNjm/8XZ5//H2uf/yNvo/8nb6f8sOUT/////AP7+/gD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wAsOUT/qsfd/6rH3f+qx93/qsfd/6rH
+        3f+qx93/qsfd/6rH3f+ryN3/rcnd/67K3v+vy97/sczf/7LM4P+0zeD/tc7h/7bP4f+40OL/udHi/7vS
+        4/+80+P/vdTk/7/V5P/A1uX/wtbm/8PX5v/E2Of/xtnn/8fa6P8sOUT/////AP7+/gD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A/v7+AP39/QD+/v4ALDlE/yw5
+        RP+qx93/qsfd/6rH3f+qx93/qsfd/6rH3f+qx93/qsfd/6zI3f+tyd7/r8re/7DL3/+yzN//s83g/7TO
+        4P+2z+H/t9Dh/7nR4v+60eP/u9Lj/73T5P++1OT/wNXl/8HW5f/C1+b/xNjm/yw5RP/+/v4A/v7+AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A/f39AP///wAsOUT/LDlE/6rH3f+qx93/qsfd/6rH3f+qx93/qsfd/6rH3f+ryN3/rcnd/67K
+        3v+vy97/sczf/7LM4P+0zeD/tc7h/7bP4f+40OL/udHi/7vS4/+80+P/vdTk/7/V5P/A1uX/LDlE////
+        /wD+/v4A////AP7+/gD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A/f39AP///wD+/v4A////ACw5RP8sOUT/qsfd/6rH3f+qx93/qsfd/6rH
+        3f+qx93/qsfd/6zI3f+tyd7/r8re/7DL3/+yzN//s83g/7TO4P+2z+H/t9Dh/7nR4v+60eP/u9Lj/73T
+        5P++1OT/LDlE/////wD+/v4A/f39AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A/v7+AP///wD///8A/v7+AP///wD///8ALDlE/yw5
+        RP+qx93/qsfd/6rH3f+qx93/qsfd/6rH3f+ryN3/rcnd/67K3v+vy97/sczf/7LM4P+0zeD/tc7h/7bP
+        4f+40OL/udHi/7vS4/8sOUT/////AP///wD///8A/v7+AP7+/gD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////ACw5RP8sOUT/LDlE/6rH3f+qx93/qsfd/6rH3f+qx93/qsfd/6zI3f+tyd7/r8re/7DL
+        3/+yzN//s83g/7TO4P+2z+H/t9Dh/yw5RP////8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wAsOUT/qsfd/yw5RP8sOUT/qsfd/6rH3f+qx93/qsfd/6rH
+        3f+ryN3/rcnd/67K3v+vy97/sczf/7LM4P+0zeD/tc7h/yw5RP////8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8ALDlE/6rH3f+qx93/LDlE/yw5
+        RP+qx93/qsfd/6rH3f+qx93/qsfd/6zI3f+tyd7/r8re/7DL3/+yzN//LDlE/////wD+/v4A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////ACw5
+        RP+qx93/rMjd/67K3v8sOUT/LDlE/6rH3f+qx93/qsfd/6rH3f+ryN3/rcnd/67K3v8sOUT/////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A/f39AP///wAsOUT/qsfd/yw5RP/9/f0A////ACw5RP8sOUT/qsfd/6rH3f+qx93/qsfd/6zI
+        3f8sOUT//v7+AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP7+/gD8/PwA/v7+AP39/QD+/v4ALDlE//v7+wD9/f0A////AP39/QD///8ALDlE/yw5
+        RP+qx93/qsfd/yw5RP/8/PwA/v7+AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD9/f0A/f39AP39
+        /QD///8A////AP///wAsOUT/LDlE/////wD///8A/v7+AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAA=
+</value>
+  </data>
+  <data name="quizNotifyIcon.Text" xml:space="preserve">
+    <value>notifyIcon1</value>
+  </data>
+  <data name="quizNotifyIcon.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
 </root>
