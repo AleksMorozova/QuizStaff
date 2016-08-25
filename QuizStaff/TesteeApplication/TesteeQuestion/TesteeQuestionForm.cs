@@ -136,8 +136,8 @@ namespace TesteeApplication.TesteeQuestion
                 Program.QuestionAmount = (Program.AskedTime.Date == DateTime.Now.Date) 
                     ?  Program.QuestionAmount +1 
                     : 0;
-           
-                Program.SetUpStartTime(Program.currentTestee.UserSetting.FrequencyOfAsking);
+
+                Program.SetUpStartTime(Program.currentTestee.UserSetting.Minutes);
             }
         }
 

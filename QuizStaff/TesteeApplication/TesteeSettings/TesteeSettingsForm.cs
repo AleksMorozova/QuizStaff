@@ -26,7 +26,10 @@ namespace TesteeApplication.TesteeSettings
 
             BindCommands();
             SetControlAccess(model.UserSetting.CanUserEdit);
+            SetUpRangeOfRecurrence(model.UserSetting.Recurrence);
             BindToViewModel();
+            endDateDateEdit.EditValue = null;
+            endDateDateEdit.Text = null;
         }
 
         private void BindCommands()
@@ -40,8 +43,12 @@ namespace TesteeApplication.TesteeSettings
             //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
             var inner = new BindingSource { DataSource = model.UserSetting };
             questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
-            hoursSpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");
+            hoursSpinEdit.DataBindings.Add("EditValue", inner, "Hours");
+            minuteSpinEdit.DataBindings.Add("EditValue", inner, "Minutes");
+            secondSpinEdit.DataBindings.Add("EditValue", inner, "Seconds");
             timeOfAskingEditTime.DataBindings.Add("EditValue", inner, "TimeOfStart");
+
+            startDateDateEdit.DataBindings.Add("EditValue", inner, "StartDate");
         }
 
         private void SetControlAccess(bool canEdit)
@@ -49,6 +56,13 @@ namespace TesteeApplication.TesteeSettings
             questionAmountSpinEdit.Enabled = canEdit;
             hoursSpinEdit.Enabled = canEdit;
             timeOfAskingEditTime.Enabled = canEdit;
+        }
+
+        private void SetUpRangeOfRecurrence(RecurrenceType type)
+        {
+            withoutEndDateCheckEdit.Checked = (type == RecurrenceType.WithoutEnding);
+            endAfterCheckEdit.Checked = (type == RecurrenceType.WithExactRepeated);
+            endDateCheckEdit.Checked = (type == RecurrenceType.WithSpecifiedEndDate);
         }
 
         public void Localized(string language)
@@ -106,6 +120,7 @@ namespace TesteeApplication.TesteeSettings
             {
                 endAfterCheckEdit.Checked = false;
                 endDateCheckEdit.Checked = false;
+                Program.currentTestee.UserSetting.Recurrence = RecurrenceType.WithoutEnding;
             }
         }
 
@@ -116,6 +131,7 @@ namespace TesteeApplication.TesteeSettings
             {
                 withoutEndDateCheckEdit.Checked = false;
                 endDateCheckEdit.Checked = false;
+                Program.currentTestee.UserSetting.Recurrence = RecurrenceType.WithExactRepeated;
             }
         }
 
@@ -126,6 +142,7 @@ namespace TesteeApplication.TesteeSettings
             {
                 endAfterCheckEdit.Checked = false;
                 withoutEndDateCheckEdit.Checked = false;
+                Program.currentTestee.UserSetting.Recurrence = RecurrenceType.WithSpecifiedEndDate;
             }
         }
 
@@ -193,6 +210,12 @@ namespace TesteeApplication.TesteeSettings
                 timer.Stop();
                 questionForm.Show();
             }
+        }
+
+        private void endDateDateEdit_EditValueChanged(object sender, EventArgs e)
+        {
+                DateEdit edit = sender as DateEdit;
+                Program.currentTestee.UserSetting.EndDate = (DateTime)edit.EditValue;
         }
     }
 }

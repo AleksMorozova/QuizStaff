@@ -34,7 +34,7 @@
             this.withoutEndDateCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.endAfterCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.endDateCheckEdit = new DevExpress.XtraEditors.CheckEdit();
-            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.endDateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.startDateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.intervalLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.languageComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -73,8 +73,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.withoutEndDateCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endAfterCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDateCheckEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageComboBoxEdit.Properties)).BeginInit();
@@ -112,7 +112,7 @@
             this.MainLayoutControl.Controls.Add(this.withoutEndDateCheckEdit);
             this.MainLayoutControl.Controls.Add(this.endAfterCheckEdit);
             this.MainLayoutControl.Controls.Add(this.endDateCheckEdit);
-            this.MainLayoutControl.Controls.Add(this.dateEdit2);
+            this.MainLayoutControl.Controls.Add(this.endDateDateEdit);
             this.MainLayoutControl.Controls.Add(this.startDateDateEdit);
             this.MainLayoutControl.Controls.Add(this.intervalLabelControl);
             this.MainLayoutControl.Controls.Add(this.languageComboBoxEdit);
@@ -155,15 +155,17 @@
             this.endDateCheckEdit.StyleController = this.MainLayoutControl;
             this.endDateCheckEdit.CheckedChanged += new System.EventHandler(this.endDateCheckEdit_CheckedChanged);
             // 
-            // dateEdit2
+            // endDateDateEdit
             // 
-            resources.ApplyResources(this.dateEdit2, "dateEdit2");
-            this.dateEdit2.Name = "dateEdit2";
-            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            resources.ApplyResources(this.endDateDateEdit, "endDateDateEdit");
+            this.endDateDateEdit.Name = "endDateDateEdit";
+            this.endDateDateEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.endDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("dateEdit2.Properties.Buttons"))))});
-            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.endDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("dateEdit2.Properties.CalendarTimeProperties.Buttons"))))});
-            this.dateEdit2.StyleController = this.MainLayoutControl;
+            this.endDateDateEdit.StyleController = this.MainLayoutControl;
+            this.endDateDateEdit.EditValueChanged += new System.EventHandler(this.endDateDateEdit_EditValueChanged);
             // 
             // startDateDateEdit
             // 
@@ -304,7 +306,7 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.dateEdit2;
+            this.layoutControlItem5.Control = this.endDateDateEdit;
             this.layoutControlItem5.Location = new System.Drawing.Point(91, 57);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(154, 34);
@@ -533,8 +535,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.withoutEndDateCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.endAfterCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.endDateCheckEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageComboBoxEdit.Properties)).EndInit();
@@ -598,7 +600,7 @@
         private DevExpress.XtraEditors.CheckEdit withoutEndDateCheckEdit;
         private DevExpress.XtraEditors.CheckEdit endAfterCheckEdit;
         private DevExpress.XtraEditors.CheckEdit endDateCheckEdit;
-        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevExpress.XtraEditors.DateEdit endDateDateEdit;
         private DevExpress.XtraEditors.SpinEdit questionAmountSpinEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;

@@ -28,22 +28,6 @@ namespace DataTransferObject
             }
         }
 
-        private int frequencyOfAsking;
-        public int FrequencyOfAsking
-        {
-            get
-            {
-                return frequencyOfAsking;
-            }
-            set
-            {
-                if (value != frequencyOfAsking)
-                {
-                    frequencyOfAsking = value;
-                }
-            }
-        }
-
         private DateTime timeOfStart;
         public DateTime TimeOfStart
         {
@@ -64,12 +48,25 @@ namespace DataTransferObject
 
         public bool ShowCorrectAnswer { get; set; }
 
+        public int Hours { get; set; }
+        public int Minutes { get; set; }
+        public int Seconds { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public RecurrenceType Recurrence { get; set; }
+
         public static implicit operator SettingDTO(Setting setting)
         {
             SettingDTO newSetting = new SettingDTO();
 
             newSetting.Id = setting.Id;
-            newSetting.FrequencyOfAsking = setting.FrequencyOfAsking;
+            newSetting.Hours = setting.Hours;
+            newSetting.Minutes = setting.Minutes;
+            newSetting.Seconds = setting.Seconds;
+            newSetting.StartDate = setting.StartDate;
+            newSetting.EndDate = setting.EndDate;
+            newSetting.Recurrence = setting.Recurrence;
+
             newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
             newSetting.TimeOfStart = setting.TimeOfStart;
             newSetting.CanUserEdit = setting.CanUserEdit;

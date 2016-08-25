@@ -148,7 +148,8 @@ namespace Server
         public SettingDTO GetUsersSettings(Guid id)
         {
             Setting sets = new Setting() { AmountOfQuestionsPerDay = 1,
-                                                FrequencyOfAsking = 1,
+                                                Minutes = 1,
+                                                StartDate = DateTime.Now,
                                                     TimeOfStart = new DateTime(2016, 5, 8, 10, 10, 10, 10) };
             return sets;
         }
@@ -263,7 +264,12 @@ namespace Server
             {
                 Setting newSetting = new Setting();
                 newSetting.Id = setting.Id;
-                newSetting.FrequencyOfAsking = setting.FrequencyOfAsking;
+                newSetting.Hours = setting.Hours;
+                newSetting.Minutes = setting.Minutes;
+                newSetting.Seconds = setting.Seconds;
+                newSetting.StartDate = setting.StartDate;
+                newSetting.EndDate = setting.EndDate;
+                newSetting.Recurrence = setting.Recurrence;
                 newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
                 newSetting.TimeOfStart = setting.TimeOfStart;
                 newSetting.CanUserEdit = setting.CanUserEdit;

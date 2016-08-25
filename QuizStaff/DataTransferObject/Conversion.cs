@@ -103,7 +103,13 @@ namespace DataTransferObject
 
             //Copy settings
             newTestee.UserSetting.Id = testee.UserSetting.Id;
-            newTestee.UserSetting.FrequencyOfAsking = testee.UserSetting.FrequencyOfAsking;
+            newTestee.UserSetting.Hours = testee.UserSetting.Hours;
+            newTestee.UserSetting.Minutes = testee.UserSetting.Minutes;
+            newTestee.UserSetting.Seconds = testee.UserSetting.Seconds;
+            newTestee.UserSetting.StartDate = testee.UserSetting.StartDate;
+            newTestee.UserSetting.EndDate = testee.UserSetting.EndDate;
+            newTestee.UserSetting.Recurrence = testee.UserSetting.Recurrence;
+
             newTestee.UserSetting.AmountOfQuestionsPerDay = testee.UserSetting.AmountOfQuestionsPerDay;
             newTestee.UserSetting.TimeOfStart = testee.UserSetting.TimeOfStart;
             newTestee.UserSetting.CanUserEdit = testee.UserSetting.CanUserEdit;
@@ -162,7 +168,12 @@ namespace DataTransferObject
 
             //Copy settings
             newTestee.UserSetting.Id = testee.UserSetting.Id;
-            newTestee.UserSetting.FrequencyOfAsking = testee.UserSetting.FrequencyOfAsking;
+            newTestee.UserSetting.Hours = testee.UserSetting.Hours;
+            newTestee.UserSetting.Minutes = testee.UserSetting.Minutes;
+            newTestee.UserSetting.Seconds = testee.UserSetting.Seconds;
+            newTestee.UserSetting.StartDate = testee.UserSetting.StartDate;
+            newTestee.UserSetting.EndDate = testee.UserSetting.EndDate;
+            newTestee.UserSetting.Recurrence = testee.UserSetting.Recurrence;
             newTestee.UserSetting.AmountOfQuestionsPerDay = testee.UserSetting.AmountOfQuestionsPerDay;
             newTestee.UserSetting.TimeOfStart = testee.UserSetting.TimeOfStart;
             newTestee.UserSetting.CanUserEdit = testee.UserSetting.CanUserEdit;
@@ -358,7 +369,12 @@ namespace DataTransferObject
 
             //Copy settings
             newTestee.UserSetting.Id = testee.UserSetting.Id;
-            newTestee.UserSetting.FrequencyOfAsking = testee.UserSetting.FrequencyOfAsking;
+            newTestee.UserSetting.Hours = testee.UserSetting.Hours;
+            newTestee.UserSetting.Minutes = testee.UserSetting.Minutes;
+            newTestee.UserSetting.Seconds = testee.UserSetting.Seconds;
+            newTestee.UserSetting.StartDate = testee.UserSetting.StartDate;
+            newTestee.UserSetting.EndDate = testee.UserSetting.EndDate;
+            newTestee.UserSetting.Recurrence = testee.UserSetting.Recurrence;
             newTestee.UserSetting.AmountOfQuestionsPerDay = testee.UserSetting.AmountOfQuestionsPerDay;
             newTestee.UserSetting.TimeOfStart = testee.UserSetting.TimeOfStart;
             newTestee.UserSetting.CanUserEdit = testee.UserSetting.CanUserEdit;
@@ -414,7 +430,12 @@ namespace DataTransferObject
             Setting newSetting = new Setting();
 
             newSetting.Id = setting.Id;
-            newSetting.FrequencyOfAsking = setting.FrequencyOfAsking;
+            newSetting.Hours = setting.Hours;
+            newSetting.Minutes = setting.Minutes;
+            newSetting.Seconds = setting.Seconds;
+            newSetting.StartDate = setting.StartDate;
+            newSetting.EndDate = setting.EndDate;
+            newSetting.Recurrence = setting.Recurrence;
             newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
             newSetting.TimeOfStart = setting.TimeOfStart;
             newSetting.CanUserEdit = setting.CanUserEdit;
