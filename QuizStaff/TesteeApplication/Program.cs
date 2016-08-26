@@ -106,9 +106,11 @@ namespace TesteeApplication
             UserTime = Program.currentTestee.UserSetting.TimeOfStart;
         }
 
-        public static void SetUpStartTime(int minites)
+        public static void SetUpStartTime(int hours, int minutes, int seconds)
         {
-            AskedTime = DateTime.Now.AddMinutes(minites);
+            AskedTime = DateTime.Now.AddHours(hours);
+            AskedTime = DateTime.Now.AddMinutes(minutes);
+            AskedTime = DateTime.Now.AddSeconds(seconds);
         }
     }
 }

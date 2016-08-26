@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TesteeSettingsForm));
             this.MainLayoutControl = new DevExpress.XtraLayout.LayoutControl();
+            this.startParametersLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.withoutEndDateCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.endAfterCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.endDateCheckEdit = new DevExpress.XtraEditors.CheckEdit();
@@ -62,12 +62,21 @@
             this.startLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.timeOfAskingEditTimeLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.startDateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.startParametersLabelLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlSaveButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlCancelButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.languageLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.languageLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.mvvmTesteeSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
-            this.quizNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.mvvmTesteeSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.quizNotifyIcon = new System.Windows.Forms.NotifyIcon();
+            this.popupMenu = new DevExpress.XtraBars.PopupMenu();
+            this.settingsBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.exitBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.barManager = new DevExpress.XtraBars.BarManager();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.MainLayoutControl)).BeginInit();
             this.MainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.withoutEndDateCheckEdit.Properties)).BeginInit();
@@ -100,15 +109,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.startLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTimeLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startParametersLabelLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSaveButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCancelButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeSettingsContext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             this.SuspendLayout();
             // 
             // MainLayoutControl
             // 
+            this.MainLayoutControl.Controls.Add(this.startParametersLabelControl);
             this.MainLayoutControl.Controls.Add(this.withoutEndDateCheckEdit);
             this.MainLayoutControl.Controls.Add(this.endAfterCheckEdit);
             this.MainLayoutControl.Controls.Add(this.endDateCheckEdit);
@@ -127,6 +140,12 @@
             this.MainLayoutControl.Name = "MainLayoutControl";
             this.MainLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(457, 42, 580, 350);
             this.MainLayoutControl.Root = this.layoutControlGroup1;
+            // 
+            // startParametersLabelControl
+            // 
+            resources.ApplyResources(this.startParametersLabelControl, "startParametersLabelControl");
+            this.startParametersLabelControl.Name = "startParametersLabelControl";
+            this.startParametersLabelControl.StyleController = this.MainLayoutControl;
             // 
             // withoutEndDateCheckEdit
             // 
@@ -161,9 +180,9 @@
             this.endDateDateEdit.Name = "endDateDateEdit";
             this.endDateDateEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.endDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("dateEdit2.Properties.Buttons"))))});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("endDateDateEdit.Properties.Buttons"))))});
             this.endDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("dateEdit2.Properties.CalendarTimeProperties.Buttons"))))});
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("endDateDateEdit.Properties.CalendarTimeProperties.Buttons"))))});
             this.endDateDateEdit.StyleController = this.MainLayoutControl;
             this.endDateDateEdit.EditValueChanged += new System.EventHandler(this.endDateDateEdit_EditValueChanged);
             // 
@@ -298,7 +317,7 @@
             this.emptySpaceItem2,
             this.emptySpaceItem1,
             this.layoutControlItem8});
-            this.recurrenceLayoutControlGroup.Location = new System.Drawing.Point(0, 269);
+            this.recurrenceLayoutControlGroup.Location = new System.Drawing.Point(0, 286);
             this.recurrenceLayoutControlGroup.Name = "recurrenceLayoutControlGroup";
             this.recurrenceLayoutControlGroup.Size = new System.Drawing.Size(369, 139);
             this.recurrenceLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 5);
@@ -307,9 +326,9 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.endDateDateEdit;
-            this.layoutControlItem5.Location = new System.Drawing.Point(91, 57);
+            this.layoutControlItem5.Location = new System.Drawing.Point(92, 57);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(154, 34);
+            this.layoutControlItem5.Size = new System.Drawing.Size(153, 34);
             this.layoutControlItem5.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
             resources.ApplyResources(this.layoutControlItem5, "layoutControlItem5");
             this.layoutControlItem5.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
@@ -323,7 +342,7 @@
             this.layoutControlItem6.Control = this.endDateCheckEdit;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 57);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(91, 34);
+            this.layoutControlItem6.Size = new System.Drawing.Size(92, 34);
             this.layoutControlItem6.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
@@ -393,7 +412,7 @@
             this.hoursEditLayoutControlItem.Location = new System.Drawing.Point(54, 0);
             this.hoursEditLayoutControlItem.Name = "hoursEditLayoutControlItem";
             this.hoursEditLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 0, 2, 2);
-            this.hoursEditLayoutControlItem.Size = new System.Drawing.Size(89, 34);
+            this.hoursEditLayoutControlItem.Size = new System.Drawing.Size(95, 34);
             this.hoursEditLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
             resources.ApplyResources(this.hoursEditLayoutControlItem, "hoursEditLayoutControlItem");
             this.hoursEditLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
@@ -404,9 +423,9 @@
             // minuteLayoutControlItem
             // 
             this.minuteLayoutControlItem.Control = this.minuteSpinEdit;
-            this.minuteLayoutControlItem.Location = new System.Drawing.Point(143, 0);
+            this.minuteLayoutControlItem.Location = new System.Drawing.Point(149, 0);
             this.minuteLayoutControlItem.Name = "minuteLayoutControlItem";
-            this.minuteLayoutControlItem.Size = new System.Drawing.Size(102, 34);
+            this.minuteLayoutControlItem.Size = new System.Drawing.Size(99, 34);
             this.minuteLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             resources.ApplyResources(this.minuteLayoutControlItem, "minuteLayoutControlItem");
             this.minuteLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
@@ -417,9 +436,9 @@
             // secondLayoutControlItem
             // 
             this.secondLayoutControlItem.Control = this.secondSpinEdit;
-            this.secondLayoutControlItem.Location = new System.Drawing.Point(245, 0);
+            this.secondLayoutControlItem.Location = new System.Drawing.Point(248, 0);
             this.secondLayoutControlItem.Name = "secondLayoutControlItem";
-            this.secondLayoutControlItem.Size = new System.Drawing.Size(100, 34);
+            this.secondLayoutControlItem.Size = new System.Drawing.Size(97, 34);
             this.secondLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             resources.ApplyResources(this.secondLayoutControlItem, "secondLayoutControlItem");
             this.secondLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
@@ -441,17 +460,18 @@
             // 
             this.startLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.timeOfAskingEditTimeLayoutControlItem,
-            this.startDateLayoutControlItem});
+            this.startDateLayoutControlItem,
+            this.startParametersLabelLayoutControlItem});
             this.startLayoutControlGroup.Location = new System.Drawing.Point(0, 171);
             this.startLayoutControlGroup.Name = "startLayoutControlGroup";
-            this.startLayoutControlGroup.Size = new System.Drawing.Size(369, 98);
+            this.startLayoutControlGroup.Size = new System.Drawing.Size(369, 115);
             this.startLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 5);
             resources.ApplyResources(this.startLayoutControlGroup, "startLayoutControlGroup");
             // 
             // timeOfAskingEditTimeLayoutControlItem
             // 
             this.timeOfAskingEditTimeLayoutControlItem.Control = this.timeOfAskingEditTime;
-            this.timeOfAskingEditTimeLayoutControlItem.Location = new System.Drawing.Point(166, 0);
+            this.timeOfAskingEditTimeLayoutControlItem.Location = new System.Drawing.Point(166, 17);
             this.timeOfAskingEditTimeLayoutControlItem.Name = "timeOfAskingEditTimeLayoutControlItem";
             this.timeOfAskingEditTimeLayoutControlItem.Size = new System.Drawing.Size(179, 50);
             this.timeOfAskingEditTimeLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -462,7 +482,7 @@
             // startDateLayoutControlItem
             // 
             this.startDateLayoutControlItem.Control = this.startDateDateEdit;
-            this.startDateLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.startDateLayoutControlItem.Location = new System.Drawing.Point(0, 17);
             this.startDateLayoutControlItem.Name = "startDateLayoutControlItem";
             this.startDateLayoutControlItem.Size = new System.Drawing.Size(166, 50);
             this.startDateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
@@ -470,12 +490,21 @@
             this.startDateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
             this.startDateLayoutControlItem.TextSize = new System.Drawing.Size(84, 13);
             // 
+            // startParametersLabelLayoutControlItem
+            // 
+            this.startParametersLabelLayoutControlItem.Control = this.startParametersLabelControl;
+            this.startParametersLabelLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.startParametersLabelLayoutControlItem.Name = "startParametersLabelLayoutControlItem";
+            this.startParametersLabelLayoutControlItem.Size = new System.Drawing.Size(345, 17);
+            this.startParametersLabelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.startParametersLabelLayoutControlItem.TextVisible = false;
+            // 
             // layoutControlSaveButton
             // 
             this.layoutControlSaveButton.Control = this.saveButton;
-            this.layoutControlSaveButton.Location = new System.Drawing.Point(0, 408);
+            this.layoutControlSaveButton.Location = new System.Drawing.Point(0, 425);
             this.layoutControlSaveButton.Name = "layoutControlSaveButton";
-            this.layoutControlSaveButton.Size = new System.Drawing.Size(184, 48);
+            this.layoutControlSaveButton.Size = new System.Drawing.Size(184, 31);
             this.layoutControlSaveButton.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
             this.layoutControlSaveButton.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlSaveButton.TextVisible = false;
@@ -483,9 +512,9 @@
             // layoutControlCancelButton
             // 
             this.layoutControlCancelButton.Control = this.cancelButton;
-            this.layoutControlCancelButton.Location = new System.Drawing.Point(184, 408);
+            this.layoutControlCancelButton.Location = new System.Drawing.Point(184, 425);
             this.layoutControlCancelButton.Name = "layoutControlCancelButton";
-            this.layoutControlCancelButton.Size = new System.Drawing.Size(185, 48);
+            this.layoutControlCancelButton.Size = new System.Drawing.Size(185, 31);
             this.layoutControlCancelButton.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
             this.layoutControlCancelButton.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlCancelButton.TextVisible = false;
@@ -517,13 +546,72 @@
             // quizNotifyIcon
             // 
             resources.ApplyResources(this.quizNotifyIcon, "quizNotifyIcon");
+            this.quizNotifyIcon.DoubleClick += new System.EventHandler(this.quizNotifyIcon_DoubleClick);
             this.quizNotifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.quizNotifyIcon_MouseClick);
+            // 
+            // popupMenu
+            // 
+            this.popupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.settingsBarButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.exitBarButtonItem, true)});
+            this.popupMenu.Manager = this.barManager;
+            this.popupMenu.Name = "popupMenu";
+            // 
+            // settingsBarButtonItem
+            // 
+            resources.ApplyResources(this.settingsBarButtonItem, "settingsBarButtonItem");
+            this.settingsBarButtonItem.Id = 1;
+            this.settingsBarButtonItem.Name = "settingsBarButtonItem";
+            this.settingsBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.settingsBarButtonItem_ItemClick);
+            // 
+            // exitBarButtonItem
+            // 
+            resources.ApplyResources(this.exitBarButtonItem, "exitBarButtonItem");
+            this.exitBarButtonItem.Id = 0;
+            this.exitBarButtonItem.Name = "exitBarButtonItem";
+            this.exitBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.exitBarButtonItem_ItemClick);
+            // 
+            // barManager
+            // 
+            this.barManager.DockControls.Add(this.barDockControlTop);
+            this.barManager.DockControls.Add(this.barDockControlBottom);
+            this.barManager.DockControls.Add(this.barDockControlLeft);
+            this.barManager.DockControls.Add(this.barDockControlRight);
+            this.barManager.Form = this;
+            this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.exitBarButtonItem,
+            this.settingsBarButtonItem});
+            this.barManager.MaxItemId = 2;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            resources.ApplyResources(this.barDockControlTop, "barDockControlTop");
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            resources.ApplyResources(this.barDockControlBottom, "barDockControlBottom");
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            resources.ApplyResources(this.barDockControlLeft, "barDockControlLeft");
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            resources.ApplyResources(this.barDockControlRight, "barDockControlRight");
             // 
             // TesteeSettingsForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.MainLayoutControl);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TesteeSettingsForm";
             this.ShowInTaskbar = false;
@@ -562,12 +650,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.startLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTimeLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startParametersLabelLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSaveButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCancelButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeSettingsContext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -611,5 +703,15 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlGroup languageLayoutControlGroup;
         private System.Windows.Forms.NotifyIcon quizNotifyIcon;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.PopupMenu popupMenu;
+        private DevExpress.XtraBars.BarButtonItem exitBarButtonItem;
+        private DevExpress.XtraBars.BarManager barManager;
+        private DevExpress.XtraBars.BarButtonItem settingsBarButtonItem;
+        private DevExpress.XtraEditors.LabelControl startParametersLabelControl;
+        private DevExpress.XtraLayout.LayoutControlItem startParametersLabelLayoutControlItem;
     }
 }

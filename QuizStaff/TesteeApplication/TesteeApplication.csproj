@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authorization.cs" />
+    <Compile Include="LanguageEnum.cs" />
     <Compile Include="LoginForm\UserLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

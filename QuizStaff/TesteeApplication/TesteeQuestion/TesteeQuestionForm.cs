@@ -13,6 +13,7 @@ using DataTransferObject;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraEditors.Controls;
 using System.Globalization;
+using DevExpress.Utils.Text;
 
 namespace TesteeApplication.TesteeQuestion
 {
@@ -32,7 +33,10 @@ namespace TesteeApplication.TesteeQuestion
             model.LoadQuestionForTestee(Program.currentTestee);
 
             if (model.question != null)
+            {     
                 SetUpCombobox();
+                SetUpCheckedListType();
+            }
         }
 
         private void SetWindowsPosition()
@@ -50,26 +54,23 @@ namespace TesteeApplication.TesteeQuestion
 
         public void SetUpCombobox()
         {
-            if (!model.IsMultiSelect())
-            {
-                answersCheckedList.CheckStyle = CheckStyles.Radio;
-                answersCheckedList.SelectionMode = SelectionMode.One;
-            }
-
+            //fill comboBox and question label
             questionLabel.Text = model.question.QuestionText;
 
             foreach (var a in model.question.Answers)
             {
                 answersCheckedList.Items.Add(a.AnswerText);
             }
-
-            answersCheckedList.ItemHeight = CalcHeight(answersCheckedList);
         }
 
-        public int CalcHeight(CheckedListBoxControl listBox)
+        public void SetUpCheckedListType()
         {
-            CheckedListBoxViewInfo info = listBox.GetViewInfo() as CheckedListBoxViewInfo;
-            return listBox.ItemCount * info.ItemHeight;
+            //determination of CheckedList type depends on amount of right question 
+            if (!model.IsMultiSelect())
+            {
+                answersCheckedList.CheckStyle = CheckStyles.Radio;
+                answersCheckedList.SelectionMode = SelectionMode.One;
+            }
         }
 
         private void BindCommands() 
@@ -137,7 +138,9 @@ namespace TesteeApplication.TesteeQuestion
                     ?  Program.QuestionAmount +1 
                     : 0;
 
-                Program.SetUpStartTime(Program.currentTestee.UserSetting.Minutes);
+                Program.SetUpStartTime(Program.currentTestee.UserSetting.Hours, 
+                    Program.currentTestee.UserSetting.Minutes, 
+                    Program.currentTestee.UserSetting.Seconds);
             }
         }
 
@@ -159,6 +162,16 @@ namespace TesteeApplication.TesteeQuestion
                     }
                 }
             }
+        }
+
+        //Dynamically determine the distance between CheckedList items
+        private void answersCheckedList_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            CheckedListBoxControl control = (CheckedListBoxControl)sender;
+            string text = control.GetItemText(e.Index);
+            Size textSize = TextUtils.GetStringSize(e.Graphics, text, control.Appearance.Font,
+                StringFormat.GenericDefault, control.ClientRectangle.Width);
+            e.ItemHeight = textSize.Height + 10;
         }
     }
 }

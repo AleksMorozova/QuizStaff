@@ -25,11 +25,10 @@ namespace TesteeApplication.TesteeSettings
             mvvmTesteeSettingsContext.SetViewModel(typeof(TesteeSettingsViewModel), model);
 
             BindCommands();
+            BindToViewModel();
+
             SetControlAccess(model.UserSetting.CanUserEdit);
             SetUpRangeOfRecurrence(model.UserSetting.Recurrence);
-            BindToViewModel();
-            endDateDateEdit.EditValue = null;
-            endDateDateEdit.Text = null;
         }
 
         private void BindCommands()
@@ -53,9 +52,16 @@ namespace TesteeApplication.TesteeSettings
 
         private void SetControlAccess(bool canEdit)
         {
-            questionAmountSpinEdit.Enabled = canEdit;
             hoursSpinEdit.Enabled = canEdit;
+            minuteSpinEdit.Enabled = canEdit;
+            secondSpinEdit.Enabled = canEdit;
+            startDateDateEdit.Enabled = canEdit;
             timeOfAskingEditTime.Enabled = canEdit;
+            withoutEndDateCheckEdit.Enabled = canEdit;
+            endAfterCheckEdit.Enabled = canEdit; 
+            questionAmountSpinEdit.Enabled = canEdit;
+            endDateCheckEdit.Enabled = canEdit;
+            endDateDateEdit.Enabled = canEdit;
         }
 
         private void SetUpRangeOfRecurrence(RecurrenceType type)
@@ -63,6 +69,12 @@ namespace TesteeApplication.TesteeSettings
             withoutEndDateCheckEdit.Checked = (type == RecurrenceType.WithoutEnding);
             endAfterCheckEdit.Checked = (type == RecurrenceType.WithExactRepeated);
             endDateCheckEdit.Checked = (type == RecurrenceType.WithSpecifiedEndDate);
+
+            if (type != RecurrenceType.WithSpecifiedEndDate)
+            {
+                endDateDateEdit.EditValue = null;
+                endDateDateEdit.Text = null;
+            }            
         }
 
         public void Localized(string language)
@@ -87,32 +99,35 @@ namespace TesteeApplication.TesteeSettings
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
             resources.ApplyResources(languageLayoutControlItem, "languageLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(startParametersLabelControl, "startParametersLabelControl", newCultureInfo);
 
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Settings";
         }
 
+        //Implement filling of current language into config file 
         private void languageComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBoxEdit cb = sender as ComboBoxEdit;
-
             if (cb != null)
             {
-                string currentLanguage = cb.SelectedItem as string;
-                Localized(currentLanguage);
-                //FormManager.Instance.LocalizedForms(currentLanguage);
-                Program.currentLang = currentLanguage;
+                LanguageEnum currentLanguage = (LanguageEnum)cb.SelectedItem;
+                Localized(LanguageConvert.ConvertFromEnum(currentLanguage));
+                Program.currentLang = LanguageConvert.ConvertFromEnum(currentLanguage);
             }
         }
 
+        //Fill langauge comboBox items 
         private void SetUpComboBox() 
         {
-            languageComboBoxEdit.Properties.Items.Add("en-US");
-            languageComboBoxEdit.Properties.Items.Add("ru-RU");
-            int index = languageComboBoxEdit.Properties.Items.IndexOf(Program.currentLang);
+            //TODO: implement translation of comboBox items
+            languageComboBoxEdit.Properties.Items.Add(LanguageEnum.English);
+            languageComboBoxEdit.Properties.Items.Add(LanguageEnum.Russian);
+            int index = languageComboBoxEdit.Properties.Items.IndexOf(LanguageConvert.ConvertToEnum(Program.currentLang));
             languageComboBoxEdit.SelectedIndex = index;
         }
 
+        #region Recurrence type changing
         private void withoutEndDateCheckEdit_CheckedChanged(object sender, EventArgs e)
         {
             CheckEdit edit = sender as CheckEdit;
@@ -145,48 +160,8 @@ namespace TesteeApplication.TesteeSettings
                 Program.currentTestee.UserSetting.Recurrence = RecurrenceType.WithSpecifiedEndDate;
             }
         }
-
-        private void quizNotifyIcon_MouseClick(object sender, MouseEventArgs e)
-        {
-            this.Show();
-            wasShow = false;
-            // делаем нашу иконку скрытой
-            quizNotifyIcon.Visible = false;
-            // возвращаем отображение окна в панели
-            this.ShowInTaskbar = true;
-            //разворачиваем окно
-            WindowState = FormWindowState.Normal;
-        }
-
-        private void TesteeSettingsForm_Resize(object sender, EventArgs e)
-        {
-            // проверяем наше окно, и если оно было свернуто, делаем событие        
-            if (WindowState == FormWindowState.Minimized)
-            {
-                // прячем наше окно из панели
-                this.ShowInTaskbar = false;
-                // делаем нашу иконку в трее активной
-                quizNotifyIcon.Visible = true;
-            }
-
-            if (wasShow)
-            {
-                this.Hide();
-            }
-           
-        }
-
-        private void TesteeSettingsForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // прячем наше окно из панели
-            this.ShowInTaskbar = false;
-            // делаем нашу иконку в трее активной
-            quizNotifyIcon.Visible = true;
-
-            this.Hide();
-            e.Cancel = true;
-        }
-
+        #endregion
+              
         private void TesteeSettingsForm_Load(object sender, EventArgs e)
         {
             timer.Interval = 100;
@@ -201,21 +176,97 @@ namespace TesteeApplication.TesteeSettings
                 Program.SetUpStartTime();
             }
 
-            if (DateTime.Now.TimeOfDay.Hours == Program.AskedTime.Hour
-                && DateTime.Now.TimeOfDay.Minutes == Program.AskedTime.Minute
-                && Program.QuestionAmount <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay)
+            if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithExactRepeated)
             {
-                Program.AskedTime = DateTime.Now;
-                TesteeQuestionForm questionForm = new TesteeQuestionForm(Program.currentTestee);
+                if (DateTime.Now.TimeOfDay.Hours == Program.AskedTime.Hour
+                    && DateTime.Now.TimeOfDay.Minutes == Program.AskedTime.Minute
+                    && Program.QuestionAmount <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay)
+                {
+                    AskQuestion();
+                }
+            }
+            else if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithSpecifiedEndDate)
+            {
+                if (DateTime.Now != Program.currentTestee.UserSetting.EndDate)
+                {
+                    AskQuestion();
+                }
+            }
+            else 
+            {
                 timer.Stop();
-                questionForm.Show();
             }
         }
 
+        private void AskQuestion() 
+        {
+            Program.AskedTime = DateTime.Now;
+            TesteeQuestionForm questionForm = new TesteeQuestionForm(Program.currentTestee);
+            timer.Stop();
+            questionForm.Show();
+        }
+      
+        private void TesteeSettingsForm_Resize(object sender, EventArgs e)
+        {
+            // проверяем наше окно, и если оно было свернуто, делаем событие        
+            if (WindowState == FormWindowState.Minimized)
+            {
+                HideFormIntoTray();
+            }
+        }
+
+        private void TesteeSettingsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            HideFormIntoTray();
+            e.Cancel = true;
+        }
+  
+        private void quizNotifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            ShowFromTray();
+        }
+        
         private void endDateDateEdit_EditValueChanged(object sender, EventArgs e)
         {
                 DateEdit edit = sender as DateEdit;
                 Program.currentTestee.UserSetting.EndDate = (DateTime)edit.EditValue;
         }
+
+        private void HideFormIntoTray() 
+        {
+            // Remove application icon from taskbar
+            this.ShowInTaskbar = false;  
+            
+            //Hide TesteeSettingsForm
+            this.Hide();
+        }
+
+        private void ShowFromTray()
+        {
+            //Show TesteeSettingsForm with default size 
+            this.Show();       
+            WindowState = FormWindowState.Normal;
+            
+            //Display application icon at taskbar
+            this.ShowInTaskbar = true;
+        }
+
+        #region Tray menu
+        private void quizNotifyIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && IsHandleCreated)
+                popupMenu.ShowPopup(MousePosition);
+        }
+
+        private void exitBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void settingsBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowFromTray();
+        }
+        #endregion
     }
 }
