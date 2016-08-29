@@ -47,7 +47,7 @@ namespace TesteeApplication.TesteeSettings
             secondSpinEdit.DataBindings.Add("EditValue", inner, "Seconds");
             timeOfAskingEditTime.DataBindings.Add("EditValue", inner, "TimeOfStart");
 
-            startDateDateEdit.DataBindings.Add("EditValue", inner, "StartDate");
+            startDateDateEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");
         }
 
         private void SetControlAccess(bool canEdit)
@@ -178,7 +178,8 @@ namespace TesteeApplication.TesteeSettings
 
             if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithExactRepeated)
             {
-                if (DateTime.Now.TimeOfDay.Hours == Program.AskedTime.Hour
+                if (DateTime.Now.Date.CompareTo(Program.currentTestee.UserSetting.TimeOfStart.Date)== 0 
+                    && DateTime.Now.TimeOfDay.Hours == Program.AskedTime.Hour
                     && DateTime.Now.TimeOfDay.Minutes == Program.AskedTime.Minute
                     && Program.QuestionAmount <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay)
                 {
