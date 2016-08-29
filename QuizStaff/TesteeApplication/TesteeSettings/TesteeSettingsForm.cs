@@ -181,9 +181,11 @@ namespace TesteeApplication.TesteeSettings
                 if (DateTime.Now.Date.CompareTo(Program.currentTestee.UserSetting.TimeOfStart.Date)== 0 
                     && DateTime.Now.TimeOfDay.Hours == Program.AskedTime.Hour
                     && DateTime.Now.TimeOfDay.Minutes == Program.AskedTime.Minute
+                    //&& DateTime.Now.TimeOfDay.Seconds == Program.AskedTime.Second
                     && Program.QuestionAmount <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay)
                 {
                     AskQuestion();
+                    UpdateTime();
                 }
             }
             else if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithSpecifiedEndDate)
@@ -191,6 +193,7 @@ namespace TesteeApplication.TesteeSettings
                 if (DateTime.Now != Program.currentTestee.UserSetting.EndDate)
                 {
                     AskQuestion();
+                    UpdateTime();
                 }
             }
             else 
@@ -204,9 +207,20 @@ namespace TesteeApplication.TesteeSettings
             Program.AskedTime = DateTime.Now;
             TesteeQuestionForm questionForm = new TesteeQuestionForm(Program.currentTestee);
             timer.Stop();
-            questionForm.Show();
+            questionForm.ShowDialog();
         }
-      
+
+        private void UpdateTime()
+        {
+            Program.SetUpStartTime(Program.currentTestee.UserSetting.Hours,
+                Program.currentTestee.UserSetting.Minutes,
+                Program.currentTestee.UserSetting.Seconds);
+
+            Program.QuestionAmount = (Program.AskedTime.Date == DateTime.Now.Date)
+                ? Program.QuestionAmount + 1
+                : 0;
+        }
+
         private void TesteeSettingsForm_Resize(object sender, EventArgs e)
         {
             // проверяем наше окно, и если оно было свернуто, делаем событие        

@@ -24,7 +24,7 @@ namespace TesteeApplication
         public static System.Windows.Forms.Timer Timer = new System.Windows.Forms.Timer();
         public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
 
-        public static DateTime AskedTime;
+        public static DateTime AskedTime = DateTime.Now;
         public static DateTime UserTime = DateTime.Now;
         public static int QuestionAmount = 0;
 
@@ -100,8 +100,8 @@ namespace TesteeApplication
         {
             AskedTime = (DateTime.Now.Hour >= Program.currentTestee.UserSetting.TimeOfStart.Hour
                 && DateTime.Now.Minute >= Program.currentTestee.UserSetting.TimeOfStart.Minute)
-                ? DateTime.Now
-                : Program.currentTestee.UserSetting.TimeOfStart;
+                ? Program.currentTestee.UserSetting.TimeOfStart
+                : DateTime.Now;
 
             UserTime = Program.currentTestee.UserSetting.TimeOfStart;
         }

@@ -134,13 +134,6 @@ namespace TesteeApplication.TesteeQuestion
             {
                 this.Close();
                 Program.Timer.Start();
-                Program.QuestionAmount = (Program.AskedTime.Date == DateTime.Now.Date) 
-                    ?  Program.QuestionAmount +1 
-                    : 0;
-
-                Program.SetUpStartTime(Program.currentTestee.UserSetting.Hours, 
-                    Program.currentTestee.UserSetting.Minutes, 
-                    Program.currentTestee.UserSetting.Seconds);
             }
         }
 
