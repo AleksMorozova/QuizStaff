@@ -11,9 +11,15 @@ namespace TesteeApplication.TesteeSettings
 {
     public class TesteeSettingsViewModel : INotifyPropertyChanged 
     {
-        private Setting LoadSetting { get; set; }
+        public TesteeSettingsViewModel()
+        {
+            UserSetting = Program.currentTestee.UserSetting;
+            LoadSetting = Conversion.CopySetting(UserSetting);
+        }
 
+        private Setting LoadSetting { get; set; }
         private Setting userSetting;
+       
         public Setting UserSetting
         {
             get
@@ -30,6 +36,8 @@ namespace TesteeApplication.TesteeSettings
                     RaisePropertyChanged("Hours");
                     RaisePropertyChanged("Seconds");
                     RaisePropertyChanged("TimeOfStart");
+                    RaisePropertyChanged("EndDate");
+                    RaisePropertyChanged("Recurrence");
                 }
             }
         }
@@ -116,22 +124,6 @@ namespace TesteeApplication.TesteeSettings
             }
         }
 
-        public DateTime StartDate
-        {
-            get
-            {
-                return UserSetting.StartDate;
-            }
-            set
-            {
-                if (value != UserSetting.StartDate)
-                {
-                    UserSetting.StartDate = value;
-                    RaisePropertyChanged("StartDate");
-                }
-            }
-        }
-
         public DateTime EndDate
         {
             get
@@ -164,12 +156,6 @@ namespace TesteeApplication.TesteeSettings
             }
         }
         #endregion
-
-        public TesteeSettingsViewModel()
-        {
-            UserSetting = Program.currentTestee.UserSetting;
-            LoadSetting = Conversion.CopySetting(UserSetting);
-        }
 
         public void Save()
         {

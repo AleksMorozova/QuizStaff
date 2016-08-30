@@ -28,17 +28,17 @@ namespace AdminApplication.TesteeSettings
             }
         }
 
-        public int FrequencyOfAsking
+        public int Minutes
         {
             get
             {
-                return UserSetting.FrequencyOfAsking;
+                return UserSetting.Minutes;
             }
             set
             {
-                if (value != UserSetting.FrequencyOfAsking)
+                if (value != UserSetting.Minutes)
                 {
-                    UserSetting.FrequencyOfAsking = value;
+                    UserSetting.Minutes = value;
                 }
             }
         }

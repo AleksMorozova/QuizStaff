@@ -47,20 +47,20 @@
             this.secondSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.recurrenceLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.endDateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.endDateButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.endAfterQuestionButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.questionAmountSpinEditLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.withoutEndLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.intervalIayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.hoursEditLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.minuteLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.secondLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.intervalLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.startLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.timeOfAskingEditTimeLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.startTimeLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.startDateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.startParametersLabelLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlSaveButton = new DevExpress.XtraLayout.LayoutControlItem();
@@ -94,20 +94,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.secondSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recurrenceLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateButtonLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endAfterQuestionButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionAmountSpinEditLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.withoutEndLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.intervalIayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoursEditLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minuteLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondLayoutControlItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intervalLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTimeLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startTimeLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startParametersLabelLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSaveButton)).BeginInit();
@@ -208,6 +208,7 @@
             this.languageComboBoxEdit.Name = "languageComboBoxEdit";
             this.languageComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("languageComboBoxEdit.Properties.Buttons"))))});
+            this.languageComboBoxEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.languageComboBoxEdit.StyleController = this.MainLayoutControl;
             this.languageComboBoxEdit.SelectedIndexChanged += new System.EventHandler(this.languageComboBoxEdit_SelectedIndexChanged);
             // 
@@ -304,65 +305,66 @@
             this.languageLayoutControlGroup});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(389, 476);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(392, 461);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // recurrenceLayoutControlGroup
             // 
             this.recurrenceLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem5,
-            this.layoutControlItem6,
-            this.layoutControlItem7,
+            this.endDateLayoutControlItem,
+            this.endDateButtonLayoutControlItem,
+            this.endAfterQuestionButtonLayoutControlItem,
             this.questionAmountSpinEditLayoutControlItem,
             this.emptySpaceItem2,
             this.emptySpaceItem1,
-            this.layoutControlItem8});
-            this.recurrenceLayoutControlGroup.Location = new System.Drawing.Point(0, 286);
+            this.withoutEndLayoutControlItem});
+            this.recurrenceLayoutControlGroup.Location = new System.Drawing.Point(0, 271);
             this.recurrenceLayoutControlGroup.Name = "recurrenceLayoutControlGroup";
-            this.recurrenceLayoutControlGroup.Size = new System.Drawing.Size(369, 139);
+            this.recurrenceLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.recurrenceLayoutControlGroup.Size = new System.Drawing.Size(372, 131);
             this.recurrenceLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 5);
             resources.ApplyResources(this.recurrenceLayoutControlGroup, "recurrenceLayoutControlGroup");
             // 
-            // layoutControlItem5
+            // endDateLayoutControlItem
             // 
-            this.layoutControlItem5.Control = this.endDateDateEdit;
-            this.layoutControlItem5.Location = new System.Drawing.Point(92, 57);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(153, 34);
-            this.layoutControlItem5.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
-            resources.ApplyResources(this.layoutControlItem5, "layoutControlItem5");
-            this.layoutControlItem5.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
-            this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextToControlDistance = 0;
-            this.layoutControlItem5.TextVisible = false;
+            this.endDateLayoutControlItem.Control = this.endDateDateEdit;
+            this.endDateLayoutControlItem.Location = new System.Drawing.Point(95, 57);
+            this.endDateLayoutControlItem.Name = "endDateLayoutControlItem";
+            this.endDateLayoutControlItem.Size = new System.Drawing.Size(158, 34);
+            this.endDateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
+            resources.ApplyResources(this.endDateLayoutControlItem, "endDateLayoutControlItem");
+            this.endDateLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
+            this.endDateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Left;
+            this.endDateLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.endDateLayoutControlItem.TextToControlDistance = 0;
+            this.endDateLayoutControlItem.TextVisible = false;
             // 
-            // layoutControlItem6
+            // endDateButtonLayoutControlItem
             // 
-            this.layoutControlItem6.Control = this.endDateCheckEdit;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 57);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(92, 34);
-            this.layoutControlItem6.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
+            this.endDateButtonLayoutControlItem.Control = this.endDateCheckEdit;
+            this.endDateButtonLayoutControlItem.Location = new System.Drawing.Point(0, 57);
+            this.endDateButtonLayoutControlItem.Name = "endDateButtonLayoutControlItem";
+            this.endDateButtonLayoutControlItem.Size = new System.Drawing.Size(95, 34);
+            this.endDateButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
+            this.endDateButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.endDateButtonLayoutControlItem.TextVisible = false;
             // 
-            // layoutControlItem7
+            // endAfterQuestionButtonLayoutControlItem
             // 
-            this.layoutControlItem7.Control = this.endAfterCheckEdit;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 23);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(91, 34);
-            this.layoutControlItem7.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
+            this.endAfterQuestionButtonLayoutControlItem.Control = this.endAfterCheckEdit;
+            this.endAfterQuestionButtonLayoutControlItem.Location = new System.Drawing.Point(0, 23);
+            this.endAfterQuestionButtonLayoutControlItem.Name = "endAfterQuestionButtonLayoutControlItem";
+            this.endAfterQuestionButtonLayoutControlItem.Size = new System.Drawing.Size(95, 34);
+            this.endAfterQuestionButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
+            this.endAfterQuestionButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.endAfterQuestionButtonLayoutControlItem.TextVisible = false;
             // 
             // questionAmountSpinEditLayoutControlItem
             // 
             this.questionAmountSpinEditLayoutControlItem.Control = this.questionAmountSpinEdit;
-            this.questionAmountSpinEditLayoutControlItem.Location = new System.Drawing.Point(91, 23);
+            this.questionAmountSpinEditLayoutControlItem.Location = new System.Drawing.Point(95, 23);
             this.questionAmountSpinEditLayoutControlItem.Name = "questionAmountSpinEditLayoutControlItem";
-            this.questionAmountSpinEditLayoutControlItem.Size = new System.Drawing.Size(206, 34);
+            this.questionAmountSpinEditLayoutControlItem.Size = new System.Drawing.Size(211, 34);
             this.questionAmountSpinEditLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
             resources.ApplyResources(this.questionAmountSpinEditLayoutControlItem, "questionAmountSpinEditLayoutControlItem");
             this.questionAmountSpinEditLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Right;
@@ -371,27 +373,27 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(245, 57);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(253, 57);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(100, 34);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(103, 34);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(297, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(306, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(48, 57);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(50, 57);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem8
+            // withoutEndLayoutControlItem
             // 
-            this.layoutControlItem8.Control = this.withoutEndDateCheckEdit;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(297, 23);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
+            this.withoutEndLayoutControlItem.Control = this.withoutEndDateCheckEdit;
+            this.withoutEndLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.withoutEndLayoutControlItem.Name = "withoutEndLayoutControlItem";
+            this.withoutEndLayoutControlItem.Size = new System.Drawing.Size(306, 23);
+            this.withoutEndLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.withoutEndLayoutControlItem.TextVisible = false;
             // 
             // intervalIayoutControlGroup
             // 
@@ -399,11 +401,12 @@
             this.hoursEditLayoutControlItem,
             this.minuteLayoutControlItem,
             this.secondLayoutControlItem,
-            this.layoutControlItem1});
-            this.intervalIayoutControlGroup.Location = new System.Drawing.Point(0, 92);
+            this.intervalLayoutControlItem});
+            this.intervalIayoutControlGroup.Location = new System.Drawing.Point(0, 90);
             this.intervalIayoutControlGroup.Name = "intervalIayoutControlGroup";
-            this.intervalIayoutControlGroup.Size = new System.Drawing.Size(369, 79);
-            this.intervalIayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 5);
+            this.intervalIayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.intervalIayoutControlGroup.Size = new System.Drawing.Size(372, 74);
+            this.intervalIayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 5);
             resources.ApplyResources(this.intervalIayoutControlGroup, "intervalIayoutControlGroup");
             // 
             // hoursEditLayoutControlItem
@@ -412,7 +415,7 @@
             this.hoursEditLayoutControlItem.Location = new System.Drawing.Point(54, 0);
             this.hoursEditLayoutControlItem.Name = "hoursEditLayoutControlItem";
             this.hoursEditLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 0, 2, 2);
-            this.hoursEditLayoutControlItem.Size = new System.Drawing.Size(95, 34);
+            this.hoursEditLayoutControlItem.Size = new System.Drawing.Size(99, 34);
             this.hoursEditLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
             resources.ApplyResources(this.hoursEditLayoutControlItem, "hoursEditLayoutControlItem");
             this.hoursEditLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
@@ -423,9 +426,9 @@
             // minuteLayoutControlItem
             // 
             this.minuteLayoutControlItem.Control = this.minuteSpinEdit;
-            this.minuteLayoutControlItem.Location = new System.Drawing.Point(149, 0);
+            this.minuteLayoutControlItem.Location = new System.Drawing.Point(153, 0);
             this.minuteLayoutControlItem.Name = "minuteLayoutControlItem";
-            this.minuteLayoutControlItem.Size = new System.Drawing.Size(99, 34);
+            this.minuteLayoutControlItem.Size = new System.Drawing.Size(103, 34);
             this.minuteLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             resources.ApplyResources(this.minuteLayoutControlItem, "minuteLayoutControlItem");
             this.minuteLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
@@ -436,55 +439,56 @@
             // secondLayoutControlItem
             // 
             this.secondLayoutControlItem.Control = this.secondSpinEdit;
-            this.secondLayoutControlItem.Location = new System.Drawing.Point(248, 0);
+            this.secondLayoutControlItem.Location = new System.Drawing.Point(256, 0);
             this.secondLayoutControlItem.Name = "secondLayoutControlItem";
-            this.secondLayoutControlItem.Size = new System.Drawing.Size(97, 34);
-            this.secondLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.secondLayoutControlItem.Size = new System.Drawing.Size(100, 34);
+            this.secondLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 5, 5);
             resources.ApplyResources(this.secondLayoutControlItem, "secondLayoutControlItem");
             this.secondLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.secondLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Right;
             this.secondLayoutControlItem.TextSize = new System.Drawing.Size(16, 13);
             this.secondLayoutControlItem.TextToControlDistance = 5;
             // 
-            // layoutControlItem1
+            // intervalLayoutControlItem
             // 
-            this.layoutControlItem1.Control = this.intervalLabelControl;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(54, 34);
-            this.layoutControlItem1.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.intervalLayoutControlItem.Control = this.intervalLabelControl;
+            this.intervalLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.intervalLayoutControlItem.Name = "intervalLayoutControlItem";
+            this.intervalLayoutControlItem.Size = new System.Drawing.Size(54, 34);
+            this.intervalLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
+            this.intervalLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
+            this.intervalLayoutControlItem.TextVisible = false;
             // 
             // startLayoutControlGroup
             // 
             this.startLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.timeOfAskingEditTimeLayoutControlItem,
+            this.startTimeLayoutControlItem,
             this.startDateLayoutControlItem,
             this.startParametersLabelLayoutControlItem});
-            this.startLayoutControlGroup.Location = new System.Drawing.Point(0, 171);
+            this.startLayoutControlGroup.Location = new System.Drawing.Point(0, 164);
             this.startLayoutControlGroup.Name = "startLayoutControlGroup";
-            this.startLayoutControlGroup.Size = new System.Drawing.Size(369, 115);
+            this.startLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.startLayoutControlGroup.Size = new System.Drawing.Size(372, 107);
             this.startLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 5);
             resources.ApplyResources(this.startLayoutControlGroup, "startLayoutControlGroup");
             // 
-            // timeOfAskingEditTimeLayoutControlItem
+            // startTimeLayoutControlItem
             // 
-            this.timeOfAskingEditTimeLayoutControlItem.Control = this.timeOfAskingEditTime;
-            this.timeOfAskingEditTimeLayoutControlItem.Location = new System.Drawing.Point(166, 17);
-            this.timeOfAskingEditTimeLayoutControlItem.Name = "timeOfAskingEditTimeLayoutControlItem";
-            this.timeOfAskingEditTimeLayoutControlItem.Size = new System.Drawing.Size(179, 50);
-            this.timeOfAskingEditTimeLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            resources.ApplyResources(this.timeOfAskingEditTimeLayoutControlItem, "timeOfAskingEditTimeLayoutControlItem");
-            this.timeOfAskingEditTimeLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.timeOfAskingEditTimeLayoutControlItem.TextSize = new System.Drawing.Size(84, 13);
+            this.startTimeLayoutControlItem.Control = this.timeOfAskingEditTime;
+            this.startTimeLayoutControlItem.Location = new System.Drawing.Point(171, 17);
+            this.startTimeLayoutControlItem.Name = "startTimeLayoutControlItem";
+            this.startTimeLayoutControlItem.Size = new System.Drawing.Size(185, 50);
+            this.startTimeLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            resources.ApplyResources(this.startTimeLayoutControlItem, "startTimeLayoutControlItem");
+            this.startTimeLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.startTimeLayoutControlItem.TextSize = new System.Drawing.Size(84, 13);
             // 
             // startDateLayoutControlItem
             // 
             this.startDateLayoutControlItem.Control = this.startDateDateEdit;
             this.startDateLayoutControlItem.Location = new System.Drawing.Point(0, 17);
             this.startDateLayoutControlItem.Name = "startDateLayoutControlItem";
-            this.startDateLayoutControlItem.Size = new System.Drawing.Size(166, 50);
+            this.startDateLayoutControlItem.Size = new System.Drawing.Size(171, 50);
             this.startDateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
             resources.ApplyResources(this.startDateLayoutControlItem, "startDateLayoutControlItem");
             this.startDateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -495,16 +499,16 @@
             this.startParametersLabelLayoutControlItem.Control = this.startParametersLabelControl;
             this.startParametersLabelLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.startParametersLabelLayoutControlItem.Name = "startParametersLabelLayoutControlItem";
-            this.startParametersLabelLayoutControlItem.Size = new System.Drawing.Size(345, 17);
+            this.startParametersLabelLayoutControlItem.Size = new System.Drawing.Size(356, 17);
             this.startParametersLabelLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.startParametersLabelLayoutControlItem.TextVisible = false;
             // 
             // layoutControlSaveButton
             // 
             this.layoutControlSaveButton.Control = this.saveButton;
-            this.layoutControlSaveButton.Location = new System.Drawing.Point(0, 425);
+            this.layoutControlSaveButton.Location = new System.Drawing.Point(0, 402);
             this.layoutControlSaveButton.Name = "layoutControlSaveButton";
-            this.layoutControlSaveButton.Size = new System.Drawing.Size(184, 31);
+            this.layoutControlSaveButton.Size = new System.Drawing.Size(185, 39);
             this.layoutControlSaveButton.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
             this.layoutControlSaveButton.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlSaveButton.TextVisible = false;
@@ -512,9 +516,9 @@
             // layoutControlCancelButton
             // 
             this.layoutControlCancelButton.Control = this.cancelButton;
-            this.layoutControlCancelButton.Location = new System.Drawing.Point(184, 425);
+            this.layoutControlCancelButton.Location = new System.Drawing.Point(185, 402);
             this.layoutControlCancelButton.Name = "layoutControlCancelButton";
-            this.layoutControlCancelButton.Size = new System.Drawing.Size(185, 31);
+            this.layoutControlCancelButton.Size = new System.Drawing.Size(187, 39);
             this.layoutControlCancelButton.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
             this.layoutControlCancelButton.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlCancelButton.TextVisible = false;
@@ -525,7 +529,9 @@
             this.languageLayoutControlItem});
             this.languageLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.languageLayoutControlGroup.Name = "languageLayoutControlGroup";
-            this.languageLayoutControlGroup.Size = new System.Drawing.Size(369, 92);
+            this.languageLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.languageLayoutControlGroup.Size = new System.Drawing.Size(372, 90);
+            this.languageLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 5);
             resources.ApplyResources(this.languageLayoutControlGroup, "languageLayoutControlGroup");
             // 
             // languageLayoutControlItem
@@ -533,7 +539,7 @@
             this.languageLayoutControlItem.Control = this.languageComboBoxEdit;
             this.languageLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.languageLayoutControlItem.Name = "languageLayoutControlItem";
-            this.languageLayoutControlItem.Size = new System.Drawing.Size(345, 50);
+            this.languageLayoutControlItem.Size = new System.Drawing.Size(356, 50);
             this.languageLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
             resources.ApplyResources(this.languageLayoutControlItem, "languageLayoutControlItem");
             this.languageLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
@@ -635,20 +641,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.secondSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recurrenceLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endDateButtonLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endAfterQuestionButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionAmountSpinEditLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.withoutEndLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.intervalIayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoursEditLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minuteLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondLayoutControlItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intervalLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTimeLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startTimeLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startParametersLabelLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSaveButton)).EndInit();
@@ -672,7 +678,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlCancelButton;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlSaveButton;
         private DevExpress.XtraEditors.TimeEdit timeOfAskingEditTime;
-        private DevExpress.XtraLayout.LayoutControlItem timeOfAskingEditTimeLayoutControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem startTimeLayoutControlItem;
         private DevExpress.Utils.MVVM.MVVMContext mvvmTesteeSettingsContext;
         private DevExpress.XtraEditors.SpinEdit hoursSpinEdit;
         private DevExpress.XtraLayout.LayoutControlItem hoursEditLayoutControlItem;
@@ -681,7 +687,7 @@
         private DevExpress.XtraEditors.LabelControl intervalLabelControl;
         private DevExpress.XtraEditors.SpinEdit minuteSpinEdit;
         private DevExpress.XtraEditors.SpinEdit secondSpinEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem intervalLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem minuteLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem secondLayoutControlItem;
         private DevExpress.XtraEditors.DateEdit startDateDateEdit;
@@ -694,13 +700,13 @@
         private DevExpress.XtraEditors.CheckEdit endDateCheckEdit;
         private DevExpress.XtraEditors.DateEdit endDateDateEdit;
         private DevExpress.XtraEditors.SpinEdit questionAmountSpinEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.LayoutControlItem endDateLayoutControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem endDateButtonLayoutControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem endAfterQuestionButtonLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem questionAmountSpinEditLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem withoutEndLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlGroup languageLayoutControlGroup;
         private System.Windows.Forms.NotifyIcon quizNotifyIcon;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;

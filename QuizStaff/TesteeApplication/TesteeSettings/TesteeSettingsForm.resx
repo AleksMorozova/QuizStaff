@@ -122,7 +122,7 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="startParametersLabelControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 216</value>
+    <value>20, 205</value>
   </data>
   <data name="startParametersLabelControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 13</value>
@@ -147,13 +147,13 @@
     <value>4</value>
   </data>
   <data name="withoutEndDateCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 331</value>
+    <value>20, 312</value>
   </data>
   <data name="withoutEndDateCheckEdit.Properties.Caption" xml:space="preserve">
-    <value>Without end date</value>
+    <value>Without end condition </value>
   </data>
   <data name="withoutEndDateCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 19</value>
+    <value>302, 19</value>
   </data>
   <data name="withoutEndDateCheckEdit.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -177,13 +177,13 @@
     <value>True</value>
   </data>
   <data name="endAfterCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 359</value>
+    <value>20, 340</value>
   </data>
   <data name="endAfterCheckEdit.Properties.Caption" xml:space="preserve">
     <value>End after</value>
   </data>
   <data name="endAfterCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 19</value>
+    <value>91, 19</value>
   </data>
   <data name="endAfterCheckEdit.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -204,13 +204,13 @@
     <value>True</value>
   </metadata>
   <data name="endDateCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 393</value>
+    <value>20, 374</value>
   </data>
   <data name="endDateCheckEdit.Properties.Caption" xml:space="preserve">
     <value>End date</value>
   </data>
   <data name="endDateCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 19</value>
+    <value>86, 19</value>
   </data>
   <data name="endDateCheckEdit.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -235,7 +235,7 @@
     <value />
   </data>
   <data name="endDateDateEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 393</value>
+    <value>115, 374</value>
   </data>
   <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="endDateDateEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
@@ -245,7 +245,7 @@
     <value>Combo</value>
   </data>
   <data name="endDateDateEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 20</value>
+    <value>149, 20</value>
   </data>
   <data name="endDateDateEdit.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -269,7 +269,7 @@
     <value />
   </data>
   <data name="startDateDateEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 254</value>
+    <value>20, 243</value>
   </data>
   <data name="startDateDateEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Combo</value>
@@ -278,7 +278,7 @@
     <value>Combo</value>
   </data>
   <data name="startDateDateEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 20</value>
+    <value>162, 20</value>
   </data>
   <data name="startDateDateEdit.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -299,7 +299,7 @@
     <value>True</value>
   </metadata>
   <data name="intervalLabelControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 139</value>
+    <value>20, 136</value>
   </data>
   <data name="intervalLabelControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 13</value>
@@ -326,13 +326,13 @@
     <value>True</value>
   </metadata>
   <data name="languageComboBoxEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 63</value>
+    <value>20, 62</value>
   </data>
   <data name="languageComboBoxEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Glyph</value>
   </data>
   <data name="languageComboBoxEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>341, 20</value>
+    <value>352, 20</value>
   </data>
   <data name="languageComboBoxEdit.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -356,7 +356,7 @@
     <value>0</value>
   </data>
   <data name="hoursSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 139</value>
+    <value>74, 136</value>
   </data>
   <data name="hoursSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Glyph</value>
@@ -365,7 +365,7 @@
     <value>f0</value>
   </data>
   <data name="hoursSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 20</value>
+    <value>60, 20</value>
   </data>
   <data name="hoursSpinEdit.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -389,7 +389,7 @@
     <value>2016-06-23</value>
   </data>
   <data name="timeOfAskingEditTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>195, 254</value>
+    <value>196, 243</value>
   </data>
   <data name="timeOfAskingEditTime.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Glyph</value>
@@ -398,7 +398,7 @@
     <value>t</value>
   </data>
   <data name="timeOfAskingEditTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 20</value>
+    <value>171, 20</value>
   </data>
   <data name="timeOfAskingEditTime.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -422,7 +422,7 @@
     <value>0</value>
   </data>
   <data name="questionAmountSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>115, 359</value>
+    <value>115, 340</value>
   </data>
   <data name="questionAmountSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Glyph</value>
@@ -431,7 +431,7 @@
     <value />
   </data>
   <data name="questionAmountSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 20</value>
+    <value>120, 20</value>
   </data>
   <data name="questionAmountSpinEdit.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -452,10 +452,10 @@
     <value>True</value>
   </metadata>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 442</value>
+    <value>12, 419</value>
   </data>
   <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>181, 22</value>
   </data>
   <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -479,10 +479,10 @@
     <value>True</value>
   </metadata>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 442</value>
+    <value>197, 419</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
+    <value>183, 22</value>
   </data>
   <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -509,7 +509,7 @@
     <value>0</value>
   </data>
   <data name="minuteSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>178, 139</value>
+    <value>178, 136</value>
   </data>
   <data name="minuteSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Combo</value>
@@ -518,7 +518,7 @@
     <value>f0</value>
   </data>
   <data name="minuteSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 20</value>
+    <value>68, 20</value>
   </data>
   <data name="minuteSpinEdit.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -542,7 +542,7 @@
     <value>0</value>
   </data>
   <data name="secondSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, 139</value>
+    <value>281, 136</value>
   </data>
   <data name="secondSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
     <value>Combo</value>
@@ -551,7 +551,7 @@
     <value>f0</value>
   </data>
   <data name="secondSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
+    <value>70, 20</value>
   </data>
   <data name="secondSpinEdit.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -574,32 +574,11 @@
   <data name="MainLayoutControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="layoutControlItem5.Text" xml:space="preserve">
-    <value>End date</value>
-  </data>
-  <data name="questionAmountSpinEditLayoutControlItem.Text" xml:space="preserve">
-    <value>question at a day</value>
-  </data>
   <data name="recurrenceLayoutControlGroup.Text" xml:space="preserve">
     <value>Range of recurrence</value>
   </data>
-  <data name="hoursEditLayoutControlItem.Text" xml:space="preserve">
-    <value>hours</value>
-  </data>
-  <data name="minuteLayoutControlItem.Text" xml:space="preserve">
-    <value>min</value>
-  </data>
-  <data name="secondLayoutControlItem.Text" xml:space="preserve">
-    <value>sec</value>
-  </data>
   <data name="intervalIayoutControlGroup.Text" xml:space="preserve">
     <value>Interval between question </value>
-  </data>
-  <data name="timeOfAskingEditTimeLayoutControlItem.Text" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="startDateLayoutControlItem.Text" xml:space="preserve">
-    <value>Date</value>
   </data>
   <data name="startLayoutControlGroup.Text" xml:space="preserve">
     <value>Date and time settings</value>
@@ -611,7 +590,7 @@
     <value>Language</value>
   </data>
   <data name="MainLayoutControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>389, 476</value>
+    <value>392, 461</value>
   </data>
   <data name="MainLayoutControl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -628,6 +607,27 @@
   <data name="&gt;&gt;MainLayoutControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="endDateLayoutControlItem.Text" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="questionAmountSpinEditLayoutControlItem.Text" xml:space="preserve">
+    <value>question at a day</value>
+  </data>
+  <data name="hoursEditLayoutControlItem.Text" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="minuteLayoutControlItem.Text" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="secondLayoutControlItem.Text" xml:space="preserve">
+    <value>sec</value>
+  </data>
+  <data name="startTimeLayoutControlItem.Text" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="startDateLayoutControlItem.Text" xml:space="preserve">
+    <value>Date</value>
+  </data>
   <metadata name="mvvmTesteeSettingsContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -638,7 +638,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>389, 476</value>
+    <value>392, 461</value>
   </data>
   <data name="barDockControlLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -647,7 +647,7 @@
     <value>0, 0</value>
   </data>
   <data name="barDockControlLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 476</value>
+    <value>0, 461</value>
   </data>
   <data name="&gt;&gt;barDockControlLeft.Name" xml:space="preserve">
     <value>barDockControlLeft</value>
@@ -665,10 +665,10 @@
     <value>Right</value>
   </data>
   <data name="barDockControlRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>389, 0</value>
+    <value>392, 0</value>
   </data>
   <data name="barDockControlRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 476</value>
+    <value>0, 461</value>
   </data>
   <data name="&gt;&gt;barDockControlRight.Name" xml:space="preserve">
     <value>barDockControlRight</value>
@@ -686,10 +686,10 @@
     <value>Bottom</value>
   </data>
   <data name="barDockControlBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 476</value>
+    <value>0, 461</value>
   </data>
   <data name="barDockControlBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>389, 0</value>
+    <value>392, 0</value>
   </data>
   <data name="&gt;&gt;barDockControlBottom.Name" xml:space="preserve">
     <value>barDockControlBottom</value>
@@ -710,7 +710,7 @@
     <value>0, 0</value>
   </data>
   <data name="barDockControlTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>389, 0</value>
+    <value>392, 0</value>
   </data>
   <data name="&gt;&gt;barDockControlTop.Name" xml:space="preserve">
     <value>barDockControlTop</value>
@@ -736,22 +736,22 @@
   <data name="&gt;&gt;recurrenceLayoutControlGroup.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem5.Name" xml:space="preserve">
-    <value>layoutControlItem5</value>
+  <data name="&gt;&gt;endDateLayoutControlItem.Name" xml:space="preserve">
+    <value>endDateLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem5.Type" xml:space="preserve">
+  <data name="&gt;&gt;endDateLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem6.Name" xml:space="preserve">
-    <value>layoutControlItem6</value>
+  <data name="&gt;&gt;endDateButtonLayoutControlItem.Name" xml:space="preserve">
+    <value>endDateButtonLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem6.Type" xml:space="preserve">
+  <data name="&gt;&gt;endDateButtonLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem7.Name" xml:space="preserve">
-    <value>layoutControlItem7</value>
+  <data name="&gt;&gt;endAfterQuestionButtonLayoutControlItem.Name" xml:space="preserve">
+    <value>endAfterQuestionButtonLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem7.Type" xml:space="preserve">
+  <data name="&gt;&gt;endAfterQuestionButtonLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;questionAmountSpinEditLayoutControlItem.Name" xml:space="preserve">
@@ -772,10 +772,10 @@
   <data name="&gt;&gt;emptySpaceItem1.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem8.Name" xml:space="preserve">
-    <value>layoutControlItem8</value>
+  <data name="&gt;&gt;withoutEndLayoutControlItem.Name" xml:space="preserve">
+    <value>withoutEndLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem8.Type" xml:space="preserve">
+  <data name="&gt;&gt;withoutEndLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;intervalIayoutControlGroup.Name" xml:space="preserve">
@@ -802,10 +802,10 @@
   <data name="&gt;&gt;secondLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem1.Name" xml:space="preserve">
-    <value>layoutControlItem1</value>
+  <data name="&gt;&gt;intervalLayoutControlItem.Name" xml:space="preserve">
+    <value>intervalLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;layoutControlItem1.Type" xml:space="preserve">
+  <data name="&gt;&gt;intervalLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;startLayoutControlGroup.Name" xml:space="preserve">
@@ -814,10 +814,10 @@
   <data name="&gt;&gt;startLayoutControlGroup.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;timeOfAskingEditTimeLayoutControlItem.Name" xml:space="preserve">
-    <value>timeOfAskingEditTimeLayoutControlItem</value>
+  <data name="&gt;&gt;startTimeLayoutControlItem.Name" xml:space="preserve">
+    <value>startTimeLayoutControlItem</value>
   </data>
-  <data name="&gt;&gt;timeOfAskingEditTimeLayoutControlItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;startTimeLayoutControlItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;startDateLayoutControlItem.Name" xml:space="preserve">

@@ -38,6 +38,11 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             BindToViewModel();
 
             SetUpRolesComboBox();
+            SetUpRangeOfRecurrence(model.Setting.Recurrence);
+
+            //Expande settings group
+            settingLayoutControlGroup.Expanded = false;
+            settingLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
         }
 
         private void SetUpRolesComboBox()
@@ -81,6 +86,13 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             }
         }
 
+        private void SetUpRangeOfRecurrence(RecurrenceType type)
+        {
+            withoutEndDateCheckEdit.Checked = (type == RecurrenceType.WithoutEnding);
+            endAfterCheckEdit.Checked = (type == RecurrenceType.WithExactRepeated);
+            endDateCheckEdit.Checked = (type == RecurrenceType.WithSpecifiedEndDate);
+        }
+
         private void BindCommand()
         {
             mvvmTesteeContext.BindCommand<TesteeViewModel>(saveButton, viewModel => viewModel.Save());
@@ -103,11 +115,16 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
             //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
             var inner = new BindingSource { DataSource = model.Setting };
-            questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
-            frequencySpinEdit.DataBindings.Add("EditValue", inner, "FrequencyOfAsking");
-            canEditToggleSwitch.DataBindings.Add("EditValue", inner, "CanUserEdit");
-            timeOfStartTimeEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");
+                        
+            canEditToggleSwitch.DataBindings.Add("EditValue", inner, "CanUserEdit");            
             showAnswerToggleSwitch.DataBindings.Add("EditValue", inner, "ShowCorrectAnswer");
+            hoursSpinEdit.DataBindings.Add("EditValue", inner, "Hours");
+            minutesSpinEdit.DataBindings.Add("EditValue", inner, "Minutes");
+            secondsSpinEdit.DataBindings.Add("EditValue", inner, "Seconds");
+            startDateEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");
+            startTimeEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");       
+            questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
+            endDateDateEdit.DataBindings.Add("EditValue", inner, "EndDate");       
         }               
 
         public Testee Testee
@@ -135,14 +152,35 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
             resources.ApplyResources(titleGridColumn, "titleGridColumn", newCultureInfo);
-            resources.ApplyResources(questionAmountLayoutControlItem, "questionAmountLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(frequencyLayoutControlItem, "frequencyLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(timeOfStartTimeEditLayoutControlItem, "timeOfStartTimeEditLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(generalInfLayoutControlGroup, "generalInfLayoutControlGroup", newCultureInfo);
+            resources.ApplyResources(rolesComboBoxLayoutControlItem, "rolesComboBoxLayoutControlItem", newCultureInfo);        
             resources.ApplyResources(showAnswerToggleSwitchLayoutControlItem, "showAnswerToggleSwitchLayoutControlItem", newCultureInfo);
             resources.ApplyResources(canEditToggleSwitchLayoutControlItem, "canEditToggleSwitchLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(settingLayoutControlGroup, "settingLayoutControlGroup", newCultureInfo);
-            resources.ApplyResources(generalInfLayoutControlGroup, "generalInfLayoutControlGroup", newCultureInfo);
-            resources.ApplyResources(rolesComboBoxLayoutControlItem, "rolesComboBoxLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(generalSettingsLayoutControlGroup, "generalSettingsLayoutControlGroup", newCultureInfo);
+            resources.ApplyResources(intervalIayoutControlGroup, "intervalIayoutControlGroup", newCultureInfo);
+            resources.ApplyResources(intervalLabelControl, "intervalLabelControl", newCultureInfo);
+            resources.ApplyResources(hoursLayoutControlItem, "hoursLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(minuteLayoutControlItem, "minuteLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(secondLayoutControlItem, "secondLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(startLayoutControlGroup, "startLayoutControlGroup", newCultureInfo);
+            resources.ApplyResources(startParametersLabelControl, "startParametersLabelControl", newCultureInfo);
+            resources.ApplyResources(startDateLayoutControlItem, "startDateLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(startTimeLayoutControlItem, "startTimeLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(recurrenceLayoutControlGroup, "recurrenceLayoutControlGroup", newCultureInfo);
+            resources.ApplyResources(questionAmountSpinEditLayoutControlItem, "questionAmountSpinEditLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(editSettingButton, "editSettingButton", newCultureInfo);
+
+            #region Trnslate radio group
+            string withoutEnding = !String.IsNullOrEmpty(resources.GetString("withoutEndDateCheckEdit.Text", newCultureInfo))
+                ? resources.GetString("withoutEndDateCheckEdit.Text", newCultureInfo) : "Without end condition";
+            withoutEndDateCheckEdit.Text = withoutEnding;        
+            string endAfter = !String.IsNullOrEmpty(resources.GetString("endAfterCheckEdit.Text", newCultureInfo))
+                ? resources.GetString("endAfterCheckEdit.Text", newCultureInfo) : "End after";
+            endAfterCheckEdit.Text = endAfter;
+            string endDate = !String.IsNullOrEmpty(resources.GetString("endDateCheckEdit.Text", newCultureInfo))
+                ? resources.GetString("endDateCheckEdit.Text", newCultureInfo) : "End date";
+            endDateCheckEdit.Text = endDate;
+            #endregion
 
             string title = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Testee";
@@ -216,5 +254,51 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 }
             } 
         }
+
+        private void editSettingButton_Click(object sender, EventArgs e)
+        {
+            bool currentValue = settingLayoutControlGroup.Expanded;
+
+            settingLayoutControlGroup.Visibility = (!currentValue)
+                ? DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+                :DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+
+            settingLayoutControlGroup.Expanded = !currentValue;
+        }
+
+        #region Recurrence type changing
+        private void withoutEndDateCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckEdit edit = sender as CheckEdit;
+            if (edit.Checked)
+            {
+                endAfterCheckEdit.Checked = false;
+                endDateCheckEdit.Checked = false;
+                model.Recurrence = RecurrenceType.WithoutEnding;
+            }
+        }
+
+        private void endAfterCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckEdit edit = sender as CheckEdit;
+            if (edit.Checked)
+            {
+                withoutEndDateCheckEdit.Checked = false;
+                endDateCheckEdit.Checked = false;
+                model.Recurrence = RecurrenceType.WithExactRepeated;
+            }
+        }
+
+        private void endDateCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckEdit edit = sender as CheckEdit;
+            if (edit.Checked)
+            {
+                endAfterCheckEdit.Checked = false;
+                withoutEndDateCheckEdit.Checked = false;
+                model.Recurrence = RecurrenceType.WithSpecifiedEndDate;
+            }
+        }
+        #endregion
     }
 }

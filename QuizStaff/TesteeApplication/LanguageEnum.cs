@@ -10,7 +10,7 @@ namespace TesteeApplication
     {
         None = -1,
         English = 0,
-        Russian = 1
+        Русский = 1
     }
 
     public static class LanguageConvert
@@ -21,7 +21,7 @@ namespace TesteeApplication
             {
                 case LanguageEnum.English:
                     return "en-US";
-                case LanguageEnum.Russian:
+                case LanguageEnum.Русский:
                     return "ru-RU";
                 default :
                     return "en-US";
@@ -35,7 +35,7 @@ namespace TesteeApplication
                 case "en-US" :
                     return LanguageEnum.English;
                 case "ru-RU":
-                    return LanguageEnum.Russian;
+                    return LanguageEnum.Русский;
                 default:
                     return LanguageEnum.English;
             }

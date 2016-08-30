@@ -31,18 +31,50 @@ namespace AdminApplication.AdminSettings
             }
         }
 
-        public int FrequencyOfAsking
+        public int Hours
         {
             get
             {
-                return Setting.FrequencyOfAsking;
+                return Setting.Hours;
             }
             set
             {
-                if (value != Setting.FrequencyOfAsking)
+                if (value != Setting.Hours)
                 {
-                    Setting.FrequencyOfAsking = value;
-                    RaisePropertyChanged("FrequencyOfAsking");
+                    Setting.Hours = value;
+                    RaisePropertyChanged("Hours");
+                }
+            }
+        }
+        
+        public int Minutes
+        {
+            get
+            {
+                return Setting.Minutes;
+            }
+            set
+            {
+                if (value != Setting.Minutes)
+                {
+                    Setting.Minutes = value;
+                    RaisePropertyChanged("Minutes");
+                }
+            }
+        }
+
+        public int Seconds
+        {
+            get
+            {
+                return Setting.Seconds;
+            }
+            set
+            {
+                if (value != Setting.Seconds)
+                {
+                    Setting.Seconds = value;
+                    RaisePropertyChanged("Seconds");
                 }
             }
         }
@@ -59,6 +91,22 @@ namespace AdminApplication.AdminSettings
                 {
                     Setting.TimeOfStart = value;
                     RaisePropertyChanged("TimeOfStart");
+                }
+            }
+        }
+
+        public DateTime EndDate
+        {
+            get
+            {
+                return Setting.EndDate;
+            }
+            set
+            {
+                if (value != Setting.EndDate)
+                {
+                    Setting.EndDate = value;
+                    RaisePropertyChanged("EndDate");
                 }
             }
         }
@@ -94,32 +142,80 @@ namespace AdminApplication.AdminSettings
                 }
             }
         }
-        
+
+        public RecurrenceType Recurrence
+        {
+            get
+            {
+                return Setting.Recurrence;
+            }
+            set
+            {
+                if (value != Setting.Recurrence)
+                {
+                    Setting.Recurrence = value;
+                    RaisePropertyChanged("Recurrence");
+                }
+            }
+        }
+
         public void SetUpSettings(BindingList<Testee> currentTestees)
         {
             SelectedTestees = currentTestees;
             Setting = new Setting();
 
-            var t = currentTestees.GroupBy(_ => _.UserSetting.AmountOfQuestionsPerDay);
-            if (t.Count() == 1)
+            var allAmount = currentTestees.GroupBy(_ => _.UserSetting.AmountOfQuestionsPerDay);
+            if (allAmount.Count() == 1)
             {
-                Setting.AmountOfQuestionsPerDay = t.First().First().UserSetting.AmountOfQuestionsPerDay;
+                Setting.AmountOfQuestionsPerDay = allAmount.First().First().UserSetting.AmountOfQuestionsPerDay;
             }
 
-            var t1 = currentTestees.GroupBy(_ => _.UserSetting.FrequencyOfAsking);
-            if (t1.Count() == 1)
+            var allHours = currentTestees.GroupBy(_ => _.UserSetting.Hours);
+            if (allHours.Count() == 1)
             {
-                Setting.FrequencyOfAsking = t.First().First().UserSetting.FrequencyOfAsking;
+                Setting.Hours = allHours.First().First().UserSetting.Hours;
             }
 
-            var t2 = currentTestees.GroupBy(_ => _.UserSetting.TimeOfStart);
-            if (t2.Count() == 1)
+            var allMinutes = currentTestees.GroupBy(_ => _.UserSetting.Minutes);
+            if (allMinutes.Count() == 1)
             {
-                Setting.TimeOfStart = t.First().First().UserSetting.TimeOfStart;
+                Setting.Minutes = allMinutes.First().First().UserSetting.Minutes;
+            }
+
+            var allSeconds = currentTestees.GroupBy(_ => _.UserSetting.Seconds);
+            if (allSeconds.Count() == 1)
+            {
+                Setting.Seconds = allSeconds.First().First().UserSetting.Seconds;
+            }
+
+            var allTimeOfStart = currentTestees.GroupBy(_ => _.UserSetting.TimeOfStart);
+            if (allTimeOfStart.Count() == 1)
+            {
+                Setting.TimeOfStart = allTimeOfStart.First().First().UserSetting.TimeOfStart;
             }
             else 
             {
-                Setting.TimeOfStart = System.DateTime.Today.AddHours(11);
+                Setting.TimeOfStart = System.DateTime.Now;
+            }
+
+            var allEndDate = currentTestees.GroupBy(_ => _.UserSetting.EndDate);
+            if (allEndDate.Count() == 1)
+            {
+                Setting.EndDate = allEndDate.First().First().UserSetting.EndDate;
+            }
+            else
+            {
+                Setting.EndDate = System.DateTime.Today.AddHours(11);
+            }
+
+            var allRecurrence = currentTestees.GroupBy(_ => _.UserSetting.Recurrence);
+            if (allRecurrence.Count() == 1)
+            {
+                Setting.Recurrence = allEndDate.First().First().UserSetting.Recurrence;
+            }
+            else
+            {
+                Setting.Recurrence = RecurrenceType.WithExactRepeated;
             }
         }
         
@@ -130,12 +226,16 @@ namespace AdminApplication.AdminSettings
             if (this.Setting != null)
             {
                 foreach (Testee testee in SelectedTestees)
-                {
-                    testee.UserSetting.AmountOfQuestionsPerDay = this.Setting.AmountOfQuestionsPerDay;
-                    testee.UserSetting.FrequencyOfAsking = this.Setting.FrequencyOfAsking;
+                {                   
                     testee.UserSetting.CanUserEdit = this.Setting.CanUserEdit;
                     testee.UserSetting.ShowCorrectAnswer = this.Setting.ShowCorrectAnswer;
-                    testee.UserSetting.TimeOfStart = this.Setting.TimeOfStart;
+                    testee.UserSetting.Hours = this.Setting.Hours;
+                    testee.UserSetting.Minutes = this.Setting.Minutes;
+                    testee.UserSetting.Seconds = this.Setting.Seconds;
+                    testee.UserSetting.TimeOfStart = this.Setting.TimeOfStart;   
+                    testee.UserSetting.AmountOfQuestionsPerDay = this.Setting.AmountOfQuestionsPerDay;
+                    testee.UserSetting.EndDate = this.Setting.EndDate;
+                    testee.UserSetting.Recurrence = this.Setting.Recurrence;
 
                     savedSettings.Add(testee.UserSetting);
                 }

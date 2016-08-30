@@ -46,7 +46,6 @@ namespace TesteeApplication.TesteeSettings
             minuteSpinEdit.DataBindings.Add("EditValue", inner, "Minutes");
             secondSpinEdit.DataBindings.Add("EditValue", inner, "Seconds");
             timeOfAskingEditTime.DataBindings.Add("EditValue", inner, "TimeOfStart");
-
             startDateDateEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");
         }
 
@@ -89,17 +88,26 @@ namespace TesteeApplication.TesteeSettings
             resources.ApplyResources(minuteLayoutControlItem, "minuteLayoutControlItem", newCultureInfo);
             resources.ApplyResources(secondLayoutControlItem, "secondLayoutControlItem", newCultureInfo);
             resources.ApplyResources(startLayoutControlGroup, "startLayoutControlGroup", newCultureInfo);
-            resources.ApplyResources(timeOfAskingEditTimeLayoutControlItem, "timeOfAskingEditTimeLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(startTimeLayoutControlItem, "timeOfAskingEditTimeLayoutControlItem", newCultureInfo);
             resources.ApplyResources(recurrenceLayoutControlGroup, "recurrenceLayoutControlGroup", newCultureInfo);
             resources.ApplyResources(questionAmountSpinEditLayoutControlItem, "questionAmountSpinEditLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(endAfterCheckEdit, "endAfterCheckEdit", newCultureInfo);
-            resources.ApplyResources(withoutEndDateCheckEdit, "withoutEndDateCheckEdit", newCultureInfo);
-            resources.ApplyResources(endDateCheckEdit, "endDateCheckEdit", newCultureInfo);
             resources.ApplyResources(startDateLayoutControlItem, "startDateLayoutControlItem", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
             resources.ApplyResources(languageLayoutControlItem, "languageLayoutControlItem", newCultureInfo);
             resources.ApplyResources(startParametersLabelControl, "startParametersLabelControl", newCultureInfo);
+
+            #region Trnslate radio group
+            string withoutEnding = !String.IsNullOrEmpty(resources.GetString("withoutEndDateCheckEdit.Text", newCultureInfo))
+                ? resources.GetString("withoutEndDateCheckEdit.Text", newCultureInfo) : "Without end condition";
+            withoutEndDateCheckEdit.Text = withoutEnding;
+            string endAfter = !String.IsNullOrEmpty(resources.GetString("endAfterCheckEdit.Text", newCultureInfo))
+                ? resources.GetString("endAfterCheckEdit.Text", newCultureInfo) : "End after";
+            endAfterCheckEdit.Text = endAfter;
+            string endDate = !String.IsNullOrEmpty(resources.GetString("endDateCheckEdit.Text", newCultureInfo))
+                ? resources.GetString("endDateCheckEdit.Text", newCultureInfo) : "End date";
+            endDateCheckEdit.Text = endDate;
+            #endregion
 
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Settings";
@@ -120,9 +128,8 @@ namespace TesteeApplication.TesteeSettings
         //Fill langauge comboBox items 
         private void SetUpComboBox() 
         {
-            //TODO: implement translation of comboBox items
             languageComboBoxEdit.Properties.Items.Add(LanguageEnum.English);
-            languageComboBoxEdit.Properties.Items.Add(LanguageEnum.Russian);
+            languageComboBoxEdit.Properties.Items.Add(LanguageEnum.Русский);
             int index = languageComboBoxEdit.Properties.Items.IndexOf(LanguageConvert.ConvertToEnum(Program.currentLang));
             languageComboBoxEdit.SelectedIndex = index;
         }

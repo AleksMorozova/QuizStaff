@@ -181,18 +181,50 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             }
         }
 
-        public int FrequencyOfAsking
+        public int Minutes
         {
             get
             {
-                return Setting.FrequencyOfAsking;
+                return Setting.Minutes;
             }
             set
             {
-                if (value != Setting.FrequencyOfAsking)
+                if (value != Setting.Minutes)
                 {
-                    Setting.FrequencyOfAsking = value;
-                    RaisePropertyChanged("FrequencyOfAsking");
+                    Setting.Minutes = value;
+                    RaisePropertyChanged("Minutes");
+                }
+            }
+        }
+
+        public int Hours
+        {
+            get
+            {
+                return Setting.Hours;
+            }
+            set
+            {
+                if (value != Setting.Hours)
+                {
+                    Setting.Hours = value;
+                    RaisePropertyChanged("Hours");
+                }
+            }
+        }
+
+        public int Seconds
+        {
+            get
+            {
+                return Setting.Seconds;
+            }
+            set
+            {
+                if (value != Setting.Seconds)
+                {
+                    Setting.Seconds = value;
+                    RaisePropertyChanged("Seconds");
                 }
             }
         }
@@ -209,6 +241,54 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 {
                     Setting.TimeOfStart = value;
                     RaisePropertyChanged("TimeOfStart");
+                }
+            }
+        }
+
+        public DateTime StartDate
+        {
+            get
+            {
+                return Setting.StartDate;
+            }
+            set
+            {
+                if (value != Setting.StartDate)
+                {
+                    Setting.StartDate = value;
+                    RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+
+        public DateTime EndDate
+        {
+            get
+            {
+                return Setting.EndDate;
+            }
+            set
+            {
+                if (value != Setting.EndDate)
+                {
+                    Setting.EndDate = value;
+                    RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+
+        public RecurrenceType Recurrence
+        {
+            get
+            {
+                return Setting.Recurrence;
+            }
+            set
+            {
+                if (value != Setting.Recurrence)
+                {
+                    Setting.Recurrence = value;
+                    RaisePropertyChanged("Recurrence");
                 }
             }
         }
