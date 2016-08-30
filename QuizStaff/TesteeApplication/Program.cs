@@ -18,6 +18,10 @@ namespace TesteeApplication
 {
     static class Program
     {
+        public static bool FirstShow = true;
+        public static int LeftPosition = 0;
+        public static int TopPosition = 0;
+
         private static TesteeSettingsForm applicationMainForm;
         public static string currentLang = "ru-RU";
         public static Testee currentTestee = new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now } };

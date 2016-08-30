@@ -21,6 +21,8 @@ namespace TesteeApplication.TesteeQuestion
     {
         private TesteeQuestionViewModel model;
 
+
+
         public TesteeQuestionForm(Testee testee)
         {
             InitializeComponent();
@@ -48,8 +50,9 @@ namespace TesteeApplication.TesteeQuestion
                     rightmost = screen;
             }
 
-            this.Left = rightmost.WorkingArea.Right - this.Width;
-            this.Top = rightmost.WorkingArea.Bottom - this.Height;
+            this.Left = (Program.FirstShow) ? rightmost.WorkingArea.Right - this.Width : Program.LeftPosition;
+            this.Top = (Program.FirstShow) ? rightmost.WorkingArea.Bottom - this.Height : Program.TopPosition;
+            Program.FirstShow = false;
         }
 
         public void SetUpCombobox()
@@ -103,6 +106,9 @@ namespace TesteeApplication.TesteeQuestion
 
         private void OKButton_Click(object sender, EventArgs e)
         {
+            Program.LeftPosition = this.Left;
+            Program.TopPosition = this.Top;
+
             List<Answer> list = new List<Answer>();
 
             foreach (CheckedListBoxItem item in answersCheckedList.Items)
