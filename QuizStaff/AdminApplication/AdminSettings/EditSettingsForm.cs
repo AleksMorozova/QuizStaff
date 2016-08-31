@@ -22,7 +22,7 @@ namespace AdminApplication.AdminSettings
         public EditSettingsForm(BindingList<Testee> Testees)
         {
             InitializeComponent(); 
-            Localized(Program.currentLang);
+            Localized(Program.СurrentLang);
 
             mvvmSettingsContext.ViewModelType = typeof(EditSettingsViewModel);
             BindCommands();

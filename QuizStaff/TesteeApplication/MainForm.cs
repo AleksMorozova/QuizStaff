@@ -23,7 +23,6 @@ namespace TesteeApplication
 
         private void settingsBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Program.GetTestee(Authorization.AuthorizedTesteeName);
             TesteeSettingsForm newMDIChild = new TesteeSettingsForm();
             newMDIChild.Text = "Settings";
             newMDIChild.WindowState = FormWindowState.Maximized;
@@ -35,13 +34,8 @@ namespace TesteeApplication
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(System.Windows.Forms.Application.ExecutablePath);
             config.AppSettings.Settings.Remove("Lang");
-            config.AppSettings.Settings.Add("Lang", Program.currentLang);
+            config.AppSettings.Settings.Add("Lang", Program.СurrentLang);
             config.Save(ConfigurationSaveMode.Modified);
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

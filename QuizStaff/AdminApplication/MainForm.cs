@@ -40,7 +40,7 @@ namespace AdminApplication
             TesteesListForm testeesform = new TesteesListForm();
             FormManager.Instance.OpenChildForm(testeesform, "Testees");
             FormManager.LocalizedFormList.Add(testeesform);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace AdminApplication
             TrainingsListForm.TrainingListForm trainingsform = new TrainingsListForm.TrainingListForm();
             FormManager.Instance.OpenChildForm(trainingsform, "Trainings");
             FormManager.LocalizedFormList.Add(trainingsform);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
         private void loginBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -92,21 +92,21 @@ namespace AdminApplication
         {
             FormManager.Instance.LocalizedForms("ru-RU");
             Localized("ru-RU");
-            Program.currentLang = "ru-RU";
+            Program.СurrentLang = "ru-RU";
         }
 
         private void englishBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             FormManager.Instance.LocalizedForms("en-US");
             Localized("en-US");
-            Program.currentLang = "en-US";
+            Program.СurrentLang = "en-US";
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(System.Windows.Forms.Application.ExecutablePath);
             config.AppSettings.Settings.Remove("Lang");
-            config.AppSettings.Settings.Add("Lang", Program.currentLang);
+            config.AppSettings.Settings.Add("Lang", Program.СurrentLang);
             config.Save(ConfigurationSaveMode.Modified);
         }
 
@@ -115,7 +115,7 @@ namespace AdminApplication
             AdminSettingsForm trainingsform = new AdminSettingsForm();
             FormManager.Instance.OpenChildForm(trainingsform, "Settings");
             FormManager.LocalizedFormList.Add(trainingsform);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
         private void settingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -129,7 +129,7 @@ namespace AdminApplication
             EditeRoleForm testeesform = new EditeRoleForm();
             FormManager.Instance.OpenChildForm(testeesform, "Role");
             FormManager.LocalizedFormList.Add(testeesform);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
     }
 }

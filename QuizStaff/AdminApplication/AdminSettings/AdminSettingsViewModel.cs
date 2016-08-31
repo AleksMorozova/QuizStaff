@@ -46,7 +46,7 @@ namespace AdminApplication.AdminSettings
         {
             EditSettingsForm editSettings = new EditSettingsForm(selectedTestee);
             FormManager.LocalizedFormList.Add(editSettings);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
             editSettings.ShowDialog();
         }
 
@@ -54,7 +54,7 @@ namespace AdminApplication.AdminSettings
         {
             EditTesteesTrainingsForm editTrainigs = new EditTesteesTrainingsForm(selectedTestee);
             FormManager.LocalizedFormList.Add(editTrainigs);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
             editTrainigs.ShowDialog();
         }
 

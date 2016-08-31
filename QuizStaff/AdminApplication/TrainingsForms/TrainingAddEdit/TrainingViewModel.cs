@@ -80,7 +80,7 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
         {
             AddEditQuestionForm questionForm = new AddEditQuestionForm(question);
             FormManager.LocalizedFormList.Add(questionForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
             questionForm.ShowDialog();
         }
 
@@ -88,7 +88,7 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
         {
             AddEditQuestionForm questionForm = new AddEditQuestionForm();
             FormManager.LocalizedFormList.Add(questionForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
             questionForm.ShowDialog();
             questionForm.Question.Training = training;
             Training.Questions.Add(questionForm.Question);

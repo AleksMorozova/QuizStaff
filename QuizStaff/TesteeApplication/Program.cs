@@ -18,15 +18,14 @@ namespace TesteeApplication
 {
     static class Program
     {
+        //REmember question form position
         public static bool FirstShow = true;
         public static int LeftPosition = 0;
         public static int TopPosition = 0;
 
         private static TesteeSettingsForm applicationMainForm;
-        public static string currentLang = "ru-RU";
-        public static Testee currentTestee = new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now } };
-        public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
-
+        public static string СurrentLang = "ru-RU";
+        public static Testee СurrentTestee = new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now }};
 
         public static TesteeSettingsForm ApplicationMainForm { get { return applicationMainForm; } }
         /// <summary>
@@ -51,47 +50,15 @@ namespace TesteeApplication
                     case LoginResult.NoPermissions:
                         XtraMessageBox.Show("Authentication error. You have no permissions to access the database. Please, contact to IT administrator");
                         break;
-                    case LoginResult.LoggedIn:
-                        GetTestee(Authorization.AuthorizedTesteeName);
-                        GetUserPermissions(Authorization.AuthorizedTesteeName);
-                        break;
                 }
             }
 
-            currentLang = ConfigurationManager.AppSettings["Lang"];
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentLang);
-
+            СurrentLang = ConfigurationManager.AppSettings["Lang"];
+            
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(СurrentLang);
             Application.EnableVisualStyles();
             applicationMainForm = new TesteeSettingsForm();
             Application.Run(applicationMainForm);
-            applicationMainForm.Hide();
-        }
-        
-        private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient;
-        
-        public static AdminApplication.ServiceReference.ApplicationServerClient ServiceClient
-        {
-            get
-            {
-                if (serviceClient == null)
-                    serviceClient = new AdminApplication.ServiceReference.ApplicationServerClient();
-                return serviceClient;
-            }
-        }
-       
-        public static void GetUserPermissions(string login)
-        {
-            var userPermission = Program.currentTestee.Roles.Select(_ => _.Role.Permissions);
-            foreach (var p in userPermission)
-                foreach (var p1 in p.Select(_ => _.Permission))
-                    CurrentUserPermissions.Add(p1);
-
-        }
-
-        public static void GetTestee(string login)
-        {
-            var loadedUser = ServiceClient.FindByLogin(login);
-            currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);
         }
     }
 }

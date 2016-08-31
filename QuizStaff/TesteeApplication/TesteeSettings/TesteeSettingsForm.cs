@@ -15,12 +15,12 @@ namespace TesteeApplication.TesteeSettings
         //Timer fields
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private int QuestionAmount = 0;
-        private DateTime QuestionTime = Program.currentTestee.UserSetting.TimeOfStart;
+        private DateTime QuestionTime = Program.СurrentTestee.UserSetting.TimeOfStart;
 
         public TesteeSettingsForm()
         {
             InitializeComponent();
-            Localized(Program.currentLang);
+            Localized(Program.СurrentLang);
             SetUpComboBox();
 
             mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
@@ -142,7 +142,7 @@ namespace TesteeApplication.TesteeSettings
             {
                 LanguageEnum currentLanguage = (LanguageEnum)cb.SelectedItem;
                 Localized(LanguageConvert.ConvertFromEnum(currentLanguage));
-                Program.currentLang = LanguageConvert.ConvertFromEnum(currentLanguage);
+                Program.СurrentLang = LanguageConvert.ConvertFromEnum(currentLanguage);
             }
         }
 
@@ -151,7 +151,7 @@ namespace TesteeApplication.TesteeSettings
         {
             languageComboBoxEdit.Properties.Items.Add(LanguageEnum.English);
             languageComboBoxEdit.Properties.Items.Add(LanguageEnum.Русский);
-            int index = languageComboBoxEdit.Properties.Items.IndexOf(LanguageConvert.ConvertToEnum(Program.currentLang));
+            int index = languageComboBoxEdit.Properties.Items.IndexOf(LanguageConvert.ConvertToEnum(Program.СurrentLang));
             languageComboBoxEdit.SelectedIndex = index;
         }
 
@@ -163,7 +163,7 @@ namespace TesteeApplication.TesteeSettings
             {
                 endAfterCheckEdit.Checked = false;
                 endDateCheckEdit.Checked = false;
-                Program.currentTestee.UserSetting.Recurrence = RecurrenceType.WithoutEnding;
+                Program.СurrentTestee.UserSetting.Recurrence = RecurrenceType.WithoutEnding;
             }
         }
 
@@ -174,7 +174,7 @@ namespace TesteeApplication.TesteeSettings
             {
                 withoutEndDateCheckEdit.Checked = false;
                 endDateCheckEdit.Checked = false;
-                Program.currentTestee.UserSetting.Recurrence = RecurrenceType.WithExactRepeated;
+                Program.СurrentTestee.UserSetting.Recurrence = RecurrenceType.WithExactRepeated;
             }
         }
 
@@ -185,14 +185,14 @@ namespace TesteeApplication.TesteeSettings
             {
                 endAfterCheckEdit.Checked = false;
                 withoutEndDateCheckEdit.Checked = false;
-                Program.currentTestee.UserSetting.Recurrence = RecurrenceType.WithSpecifiedEndDate;
+                Program.СurrentTestee.UserSetting.Recurrence = RecurrenceType.WithSpecifiedEndDate;
             }
         }
 
         private void endDateDateEdit_EditValueChanged(object sender, EventArgs e)
         {
             DateEdit edit = sender as DateEdit;
-            Program.currentTestee.UserSetting.EndDate = (DateTime)edit.EditValue;
+            Program.СurrentTestee.UserSetting.EndDate = (DateTime)edit.EditValue;
         }
 
         private void questionAmountSpinEdit_EditValueChanged(object sender, EventArgs e)
@@ -213,19 +213,19 @@ namespace TesteeApplication.TesteeSettings
         
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithExactRepeated 
-                && QuestionAmount <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay)
+            if (Program.СurrentTestee.UserSetting.Recurrence == RecurrenceType.WithExactRepeated 
+                && QuestionAmount <= Program.СurrentTestee.UserSetting.AmountOfQuestionsPerDay)
             {
                 AskQuestion();
             }
 
-            else if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithSpecifiedEndDate
-                && DateTime.Now != Program.currentTestee.UserSetting.EndDate)
+            else if (Program.СurrentTestee.UserSetting.Recurrence == RecurrenceType.WithSpecifiedEndDate
+                && DateTime.Now != Program.СurrentTestee.UserSetting.EndDate)
             {
                 AskQuestion();
             }
 
-            else if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithoutEnding)
+            else if (Program.СurrentTestee.UserSetting.Recurrence == RecurrenceType.WithoutEnding)
             {
                 AskQuestion();
             }
@@ -243,7 +243,7 @@ namespace TesteeApplication.TesteeSettings
         {
             if (CheckDateAndTime())
             {
-                TesteeQuestionForm questionForm = new TesteeQuestionForm(Program.currentTestee);
+                TesteeQuestionForm questionForm = new TesteeQuestionForm(Program.СurrentTestee);
                 timer.Stop();
                 questionForm.ShowDialog();
                 timer.Start();

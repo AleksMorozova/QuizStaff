@@ -8,9 +8,9 @@ namespace TesteeApplication
 {
     public class ServicesHolder
     {
-
         private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient;
         private static ServicesHolder serviceHolderObject;
+        
         public static AdminApplication.ServiceReference.ApplicationServerClient ServiceClient
         {
             get
@@ -20,10 +20,12 @@ namespace TesteeApplication
                 return serviceClient;
             }
         }
+
         private ServicesHolder()
         {
             serviceClient = new AdminApplication.ServiceReference.ApplicationServerClient();
         }
+
         public static ServicesHolder ServiceHolderObject
         {
             get

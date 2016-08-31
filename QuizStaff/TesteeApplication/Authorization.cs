@@ -1,12 +1,15 @@
-﻿using DomainModel;
+﻿using AdminApplication.LoginForm;
+using DomainModel;
+using log4net;
 using System;
 using System.Collections.Generic;
-using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TesteeApplication.LoginForm;
+using System.DirectoryServices.AccountManagement;
+using System.ComponentModel;
+using DataTransferObject;
 
 namespace TesteeApplication
 {
@@ -14,15 +17,16 @@ namespace TesteeApplication
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Authorization));
 
-        public static Testee AuthorizedTeste { get; set; }
+        private static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
 
-        public static string AuthorizedTesteeName { get; set; }
-
-        static string login;
-        static string password;
-        static string domain;
-
-        public static bool LogonUser()
+        /// <summary>
+        /// Domain authorization
+        /// </summary>
+        /// <param name="login">Authorized users login</param>
+        /// <param name="password">Authorized users password</param>
+        /// <param name="domain">Authorized users domain</param>
+        /// <returns>Authorization Result</returns>
+        public static bool LogonUser(string login, string password, string domain)
         {
             try
             {
@@ -38,6 +42,7 @@ namespace TesteeApplication
                 return false;
             }
         }
+
         /// <summary>
         /// Try to log in
         /// </summary>
@@ -50,22 +55,17 @@ namespace TesteeApplication
                 UserLoginForm dlg = new UserLoginForm();
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    login = dlg.Login;
-                    password = dlg.Password;
-                    domain = dlg.Domain;
+                    bool logonResult = LogonUser(dlg.Login, dlg.Password, dlg.Domain);
 
-                    bool logonResult = LogonUser();
-
-                    if (logonResult)
+                    if (LogonUser(dlg.Login, dlg.Password, dlg.Domain))
                     {
-                        AuthorizedTesteeName = login;
-                        Program.GetTestee(AuthorizedTesteeName);
-                        Testee loadTestee = Program.currentTestee;
-                        Program.GetUserPermissions(AuthorizedTesteeName);
+                        Program.СurrentTestee = GetTestee(dlg.Login);
+                        Testee loadTestee = Program.СurrentTestee;
+                        GetUserPermissions(dlg.Login);
 
                         if (loadTestee.Id != Guid.Empty)
                         {
-                            if (Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.GetQuestion))
+                            if (CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.GetQuestion))
                             {
                                 return LoginResult.LoggedIn;
                             }
@@ -99,6 +99,20 @@ namespace TesteeApplication
                 log.Error("Error message " + ex.Message);
                 return LoginResult.Failed;
             }
+        }
+
+        private static void GetUserPermissions(string login)
+        {
+            var userRolePermission = Program.СurrentTestee.Roles.Select(_ => _.Role.Permissions);
+            foreach (var rolePermission in userRolePermission)
+                foreach (var permission in rolePermission.Select(_ => _.Permission))
+                    CurrentUserPermissions.Add(permission);
+        }
+
+        private static Testee GetTestee(string login)
+        {
+            var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
+            return Conversion.ConvertTesteeFromDTO(loadedUser);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace AdminApplication.TrainingsListForm
             TrainingAddEditForm trainingForm = new TrainingAddEditForm();
             FormManager.Instance.OpenChildForm(trainingForm, "Add training");
             FormManager.LocalizedFormList.Add(trainingForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
             this.Trainings.Add(trainingForm.Training);
         }
 
@@ -45,7 +45,7 @@ namespace AdminApplication.TrainingsListForm
             TrainingAddEditForm trainingForm = new TrainingAddEditForm(editedTraining);
             FormManager.Instance.OpenChildForm(trainingForm, "Edit training: " + editedTraining.TrainingTitle);
             FormManager.LocalizedFormList.Add(trainingForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
         public void DeleteTraining(TrainingDTO deletedTraining)

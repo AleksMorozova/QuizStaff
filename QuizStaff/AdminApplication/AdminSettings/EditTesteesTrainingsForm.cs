@@ -20,7 +20,7 @@ namespace AdminApplication.AdminSettings
         public EditTesteesTrainingsForm(BindingList<Testee> SelectedTestees)
         {
             InitializeComponent();
-            Localized(Program.currentLang);
+            Localized(Program.СurrentLang);
 
             mvvmEditTesteesTrainingsContext.ViewModelType = typeof(EditTesteesTrainingsViewModel);
             BindCommand();

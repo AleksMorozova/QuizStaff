@@ -27,12 +27,12 @@ namespace TesteeApplication.TesteeQuestion
         {
             InitializeComponent();
             
-            Localized(Program.currentLang);
+            Localized(Program.СurrentLang);
             mvvmQuestionContext.ViewModelType = typeof(TesteeQuestionViewModel);
             BindCommands();
             model = mvvmQuestionContext.GetViewModel<TesteeQuestionViewModel>();
             mvvmQuestionContext.SetViewModel(typeof(TesteeQuestionViewModel), model);
-            model.LoadQuestionForTestee(Program.currentTestee);
+            model.LoadQuestionForTestee(Program.СurrentTestee);
 
             if (model.question != null)
             {     
@@ -89,7 +89,7 @@ namespace TesteeApplication.TesteeQuestion
 
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) + " " : "Question for" + " ";
-            this.Text += Program.currentTestee.Login;
+            this.Text += Program.СurrentTestee.Login;
         }
 
         //hide control box without hidding form title 
@@ -122,7 +122,7 @@ namespace TesteeApplication.TesteeQuestion
             model.SaveTesteeAnswer(list);
 
             var resources = new ComponentResourceManager(typeof(TesteeQuestionForm));
-            CultureInfo newCultureInfo = new CultureInfo(Program.currentLang);
+            CultureInfo newCultureInfo = new CultureInfo(Program.СurrentLang);
 
             var header = !String.IsNullOrEmpty(resources.GetString("Header", newCultureInfo))
                 ? resources.GetString("Header", newCultureInfo) : "Result";

@@ -33,7 +33,7 @@ namespace AdminApplication.TesteesForms.TesteesList
             AddEditTesteeForm testeeForm = new AddEditTesteeForm();
             FormManager.Instance.OpenChildForm(testeeForm, "Add testee");
             FormManager.LocalizedFormList.Add(testeeForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
             Testees.Add(testeeForm.Testee);
         }
 
@@ -42,7 +42,7 @@ namespace AdminApplication.TesteesForms.TesteesList
             AddEditTesteeForm testeeForm = new AddEditTesteeForm(editedTestee);
             FormManager.Instance.OpenChildForm(testeeForm, "Edit testee: " + editedTestee.Login);
             FormManager.LocalizedFormList.Add(testeeForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
         public void DeleteTestee(Testee deletedTestee)

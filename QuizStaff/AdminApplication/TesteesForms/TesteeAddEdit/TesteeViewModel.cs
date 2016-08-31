@@ -338,7 +338,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             TrainingAddEditForm trainingForm = new TrainingAddEditForm();
             FormManager.Instance.OpenChildForm(trainingForm, "Add training");
             FormManager.LocalizedFormList.Add(trainingForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
         public BindingList<Training> AllTrainings { get; set; }

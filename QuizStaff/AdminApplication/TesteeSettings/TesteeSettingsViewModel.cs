@@ -62,7 +62,7 @@ namespace AdminApplication.TesteeSettings
 
         public TesteeSettingsViewModel()
         {
-            UserSetting = Program.currentTestee.UserSetting;
+            UserSetting = Program.СurrentTestee.UserSetting;
         }
 
         public void Save(Testee testee)

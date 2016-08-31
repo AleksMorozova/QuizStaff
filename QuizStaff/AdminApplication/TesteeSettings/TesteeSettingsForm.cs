@@ -14,7 +14,7 @@ namespace AdminApplication.TesteeSettings
         public TesteeSettingsForm()
         {
             InitializeComponent();
-            Localized(Program.currentLang);
+            Localized(Program.СurrentLang);
             SetUpComboBox();
 
             mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
@@ -29,7 +29,7 @@ namespace AdminApplication.TesteeSettings
         private void BindCommands()
         {
             mvvmTesteeSettingsContext.BindCommand<TesteeSettingsViewModel, Testee>(saveButton, (viewModel, testee)
-                => viewModel.Save(testee), x => Program.currentTestee);
+                => viewModel.Save(testee), x => Program.СurrentTestee);
         }
 
         private void BindToViewModel() 
@@ -72,7 +72,7 @@ namespace AdminApplication.TesteeSettings
                 string currentLanguage = cb.SelectedItem as string;
                 Localized(currentLanguage);
                 FormManager.Instance.LocalizedForms(currentLanguage);
-                Program.currentLang = currentLanguage;
+                Program.СurrentLang = currentLanguage;
             }
         }
 
@@ -80,7 +80,7 @@ namespace AdminApplication.TesteeSettings
         {
             languageComboBoxEdit.Properties.Items.Add("en-US");
             languageComboBoxEdit.Properties.Items.Add("ru-RU");
-            int index = languageComboBoxEdit.Properties.Items.IndexOf(Program.currentLang);
+            int index = languageComboBoxEdit.Properties.Items.IndexOf(Program.СurrentLang);
             languageComboBoxEdit.SelectedIndex = index;
         } 
     }

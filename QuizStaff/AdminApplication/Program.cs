@@ -18,13 +18,14 @@ namespace AdminApplication
 {
     static class Program
     {
-        public static string currentLang = "ru-RU";
-        public static Testee currentTestee = new Testee();
-        public static bool AsAdmin = true;
-        public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
         //Global data
+        public static string СurrentLang = "ru-RU";
+        public static Testee СurrentTestee = new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now } };
+        public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
+
         private static MainForm applicationMainForm;
         public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
+       
         static Program()
         {
             log4net.Config.XmlConfigurator.Configure();
@@ -52,33 +53,15 @@ namespace AdminApplication
                     case LoginResult.NoPermissions:
                         XtraMessageBox.Show("Authentication error. You have no permissions to access the database");
                         break;
-                    case LoginResult.LoggedIn:
-                        GetTestee(Authorization.AuthorizedTesteeName);
-                        GetUserPermissions(Authorization.AuthorizedTesteeName);
-                        break;
                 }
             }
 
-            currentLang = ConfigurationManager.AppSettings["Lang"];
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentLang);
-
+            СurrentLang = ConfigurationManager.AppSettings["Lang"];
+         
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(СurrentLang);
             Application.EnableVisualStyles();
             applicationMainForm = new MainForm();
             Application.Run(ApplicationMainForm);
-        }
-
-        public static void GetTestee(string login)
-        {
-            var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
-            currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);
-        }
-
-        public static void GetUserPermissions(string login)
-        {
-            var userPermission = Program.currentTestee.Roles.Where(r=>r.IsActive).Select(_ => _.Role.Permissions);
-            foreach (var p in userPermission)
-                foreach (var p1 in p.Select(_ => _.Permission))
-                    CurrentUserPermissions.Add(p1);
         }
     }
 }
