@@ -390,6 +390,15 @@
   <data name="trainingsRepositoryItemLookUpEdit.NullText" xml:space="preserve">
     <value />
   </data>
+  <data name="gridColumn1.Caption" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="titleGridColumn.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -790,8 +799,38 @@
   <data name="layoutControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="lastNameLayoutControlItem.Text" xml:space="preserve">
+    <value>Last name:</value>
+  </data>
+  <data name="trainingsLayoutControlItem.Text" xml:space="preserve">
+    <value>Tranings</value>
+  </data>
+  <data name="firstNameLayoutControlItem.Text" xml:space="preserve">
+    <value>First name:</value>
+  </data>
+  <data name="emailLayoutControlItem.Text" xml:space="preserve">
+    <value>E-mail:</value>
+  </data>
+  <data name="loginLayoutControlItem.Text" xml:space="preserve">
+    <value>Login:</value>
+  </data>
+  <data name="rolesComboBoxLayoutControlItem.Text" xml:space="preserve">
+    <value>Roles:</value>
+  </data>
   <data name="generalInfLayoutControlGroup.Text" xml:space="preserve">
     <value>General information</value>
+  </data>
+  <data name="hoursLayoutControlItem.CustomizationFormText" xml:space="preserve">
+    <value>Frequency</value>
+  </data>
+  <data name="hoursLayoutControlItem.Text" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="minuteLayoutControlItem.Text" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="secondLayoutControlItem.Text" xml:space="preserve">
+    <value>sec</value>
   </data>
   <data name="intervalIayoutControlGroup.Text" xml:space="preserve">
     <value>Interval between question </value>
@@ -835,8 +874,32 @@
   <data name="startLayoutControlGroup.CustomizationFormText" xml:space="preserve">
     <value>Date and time settings</value>
   </data>
+  <data name="startTimeLayoutControlItem.CustomizationFormText" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="startTimeLayoutControlItem.Text" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="startDateLayoutControlItem.CustomizationFormText" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="startDateLayoutControlItem.Text" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="startParametersLabelLayoutControlItem.CustomizationFormText" xml:space="preserve">
+    <value>startParametersLabelLayoutControlItem</value>
+  </data>
   <data name="startLayoutControlGroup.Text" xml:space="preserve">
     <value>Date and time settings</value>
+  </data>
+  <data name="canEditToggleSwitchLayoutControlItem.Text" xml:space="preserve">
+    <value>Can user edit</value>
+  </data>
+  <data name="showAnswerToggleSwitchLayoutControlItem.CustomizationFormText" xml:space="preserve">
+    <value>Show correct answer</value>
+  </data>
+  <data name="showAnswerToggleSwitchLayoutControlItem.Text" xml:space="preserve">
+    <value>Show correct answer</value>
   </data>
   <data name="generalSettingsLayoutControlGroup.Text" xml:space="preserve">
     <value>General settings</value>
@@ -864,69 +927,6 @@
   </data>
   <data name="&gt;&gt;layoutControl1.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="gridColumn1.Caption" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="gridColumn1.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="gridColumn1.VisibleIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lastNameLayoutControlItem.Text" xml:space="preserve">
-    <value>Last name:</value>
-  </data>
-  <data name="trainingsLayoutControlItem.Text" xml:space="preserve">
-    <value>Tranings</value>
-  </data>
-  <data name="firstNameLayoutControlItem.Text" xml:space="preserve">
-    <value>First name:</value>
-  </data>
-  <data name="emailLayoutControlItem.Text" xml:space="preserve">
-    <value>E-mail:</value>
-  </data>
-  <data name="loginLayoutControlItem.Text" xml:space="preserve">
-    <value>Login:</value>
-  </data>
-  <data name="rolesComboBoxLayoutControlItem.Text" xml:space="preserve">
-    <value>Roles:</value>
-  </data>
-  <data name="hoursLayoutControlItem.CustomizationFormText" xml:space="preserve">
-    <value>Frequency</value>
-  </data>
-  <data name="hoursLayoutControlItem.Text" xml:space="preserve">
-    <value>hours</value>
-  </data>
-  <data name="minuteLayoutControlItem.Text" xml:space="preserve">
-    <value>min</value>
-  </data>
-  <data name="secondLayoutControlItem.Text" xml:space="preserve">
-    <value>sec</value>
-  </data>
-  <data name="startTimeLayoutControlItem.CustomizationFormText" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="startTimeLayoutControlItem.Text" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="startDateLayoutControlItem.CustomizationFormText" xml:space="preserve">
-    <value>Date</value>
-  </data>
-  <data name="startDateLayoutControlItem.Text" xml:space="preserve">
-    <value>Date</value>
-  </data>
-  <data name="startParametersLabelLayoutControlItem.CustomizationFormText" xml:space="preserve">
-    <value>startParametersLabelLayoutControlItem</value>
-  </data>
-  <data name="canEditToggleSwitchLayoutControlItem.Text" xml:space="preserve">
-    <value>Can user edit</value>
-  </data>
-  <data name="showAnswerToggleSwitchLayoutControlItem.CustomizationFormText" xml:space="preserve">
-    <value>Show correct answer</value>
-  </data>
-  <data name="showAnswerToggleSwitchLayoutControlItem.Text" xml:space="preserve">
-    <value>Show correct answer</value>
   </data>
   <metadata name="mvvmTesteeContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

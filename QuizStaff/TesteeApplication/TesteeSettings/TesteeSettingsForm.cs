@@ -27,13 +27,29 @@ namespace TesteeApplication.TesteeSettings
             model = mvvmTesteeSettingsContext.GetViewModel<TesteeSettingsViewModel>();
             mvvmTesteeSettingsContext.SetViewModel(typeof(TesteeSettingsViewModel), model);
 
-            BindCommands();
+            BindCommands();  
             BindToViewModel();
-
+          
+            BindEndParameters();
             SetControlAccess(model.UserSetting.CanUserEdit);
             SetUpRangeOfRecurrence(model.UserSetting.Recurrence);
 
             StartTimer();
+        }
+
+        private void BindEndParameters()
+        {
+            questionAmountSpinEdit.EditValue = null;
+            endDateDateEdit.EditValue = null;
+
+            if (model.Recurrence == RecurrenceType.WithSpecifiedEndDate)
+            {
+                endDateDateEdit.EditValue = model.EndDate;
+            }
+            else if (model.Recurrence == RecurrenceType.WithExactRepeated)
+            {
+                questionAmountSpinEdit.EditValue = model.AmountOfQuestionsPerDay;
+            }
         }
 
         private void BindCommands()
@@ -46,7 +62,7 @@ namespace TesteeApplication.TesteeSettings
         {
             //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
             var inner = new BindingSource { DataSource = model.UserSetting };
-            questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
+            //questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
             hoursSpinEdit.DataBindings.Add("EditValue", inner, "Hours");
             minuteSpinEdit.DataBindings.Add("EditValue", inner, "Minutes");
             secondSpinEdit.DataBindings.Add("EditValue", inner, "Seconds");
@@ -172,13 +188,20 @@ namespace TesteeApplication.TesteeSettings
                 Program.currentTestee.UserSetting.Recurrence = RecurrenceType.WithSpecifiedEndDate;
             }
         }
-        #endregion
-         
+
         private void endDateDateEdit_EditValueChanged(object sender, EventArgs e)
         {
-                DateEdit edit = sender as DateEdit;
-                Program.currentTestee.UserSetting.EndDate = (DateTime)edit.EditValue;
-        }         
+            DateEdit edit = sender as DateEdit;
+            Program.currentTestee.UserSetting.EndDate = (DateTime)edit.EditValue;
+        }
+
+        private void questionAmountSpinEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            SpinEdit date = sender as SpinEdit;
+            if ((int)date.Value != 0)
+                model.AmountOfQuestionsPerDay = (int)date.Value;
+        }
+        #endregion         
 
         #region Timer
         private void StartTimer() 

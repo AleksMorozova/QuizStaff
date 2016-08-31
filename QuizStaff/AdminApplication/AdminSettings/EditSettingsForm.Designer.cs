@@ -227,6 +227,7 @@
             this.endDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("endDateDateEdit.Properties.CalendarTimeProperties.Buttons"))))});
             this.endDateDateEdit.StyleController = this.layoutControl1;
+            this.endDateDateEdit.EditValueChanged += new System.EventHandler(this.endDateDateEdit_EditValueChanged);
             // 
             // endDateCheckEdit
             // 
@@ -265,6 +266,7 @@
             0,
             0});
             this.questionAmountSpinEdit.StyleController = this.layoutControl1;
+            this.questionAmountSpinEdit.EnabledChanged += new System.EventHandler(this.questionAmountSpinEdit_EditValueChanged);
             // 
             // withoutEndDateCheckEdit
             // 

@@ -260,6 +260,7 @@
             0,
             0});
             this.questionAmountSpinEdit.StyleController = this.MainLayoutControl;
+            this.questionAmountSpinEdit.EditValueChanged += new System.EventHandler(this.questionAmountSpinEdit_EditValueChanged);
             // 
             // saveButton
             // 

@@ -37,12 +37,28 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             mvvmTesteeContext.SetViewModel(typeof(TesteeViewModel), model);          
             BindToViewModel();
 
+            BindEndParameters();
             SetUpRolesComboBox();
             SetUpRangeOfRecurrence(model.Setting.Recurrence);
 
             //Expande settings group
             settingLayoutControlGroup.Expanded = false;
             settingLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+        }
+
+        private void BindEndParameters()
+        {
+            questionAmountSpinEdit.EditValue = null;
+            endDateDateEdit.EditValue = null;
+
+            if (model.Recurrence == RecurrenceType.WithSpecifiedEndDate)
+            {
+                endDateDateEdit.EditValue = model.EndDate;
+            }
+            else if (model.Recurrence == RecurrenceType.WithExactRepeated)
+            {
+                questionAmountSpinEdit.EditValue = model.AmountOfQuestionsPerDay;
+            }
         }
 
         private void SetUpRolesComboBox()
@@ -123,8 +139,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             secondsSpinEdit.DataBindings.Add("EditValue", inner, "Seconds");
             startDateEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");
             startTimeEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");       
-            questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
-            endDateDateEdit.DataBindings.Add("EditValue", inner, "EndDate");       
+            //questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
+            //endDateDateEdit.DataBindings.Add("EditValue", inner, "EndDate");       
         }               
 
         public Testee Testee
@@ -285,6 +301,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             {
                 withoutEndDateCheckEdit.Checked = false;
                 endDateCheckEdit.Checked = false;
+                questionAmountSpinEdit.EditValue = model.AmountOfQuestionsPerDay;
                 model.Recurrence = RecurrenceType.WithExactRepeated;
             }
         }
@@ -296,9 +313,25 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             {
                 endAfterCheckEdit.Checked = false;
                 withoutEndDateCheckEdit.Checked = false;
+                endDateDateEdit.EditValue = model.EndDate;
                 model.Recurrence = RecurrenceType.WithSpecifiedEndDate;
             }
+        } 
+        
+        private void endDateDateEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            DateEdit date = sender as DateEdit;
+            model.EndDate = date.DateTime;
+        }
+
+        private void questionAmountSpinEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            SpinEdit date = sender as SpinEdit;
+            if((int)date.Value != 0)
+                model.AmountOfQuestionsPerDay = (int)date.Value;
         }
         #endregion
+
+       
     }
 }
