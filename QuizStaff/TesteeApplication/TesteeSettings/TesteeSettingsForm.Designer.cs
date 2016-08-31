@@ -622,7 +622,6 @@
             this.Name = "TesteeSettingsForm";
             this.ShowInTaskbar = false;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TesteeSettingsForm_FormClosing);
-            this.Load += new System.EventHandler(this.TesteeSettingsForm_Load);
             this.Resize += new System.EventHandler(this.TesteeSettingsForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.MainLayoutControl)).EndInit();
             this.MainLayoutControl.ResumeLayout(false);

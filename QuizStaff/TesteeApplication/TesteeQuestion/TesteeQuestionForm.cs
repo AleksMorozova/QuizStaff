@@ -139,7 +139,6 @@ namespace TesteeApplication.TesteeQuestion
             if (DialogResult.OK == XtraMessageBox.Show(message + result, header, MessageBoxButtons.OK))
             {
                 this.Close();
-                Program.Timer.Start();
             }
         }
 

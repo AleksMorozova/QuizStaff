@@ -11,8 +11,11 @@ namespace TesteeApplication.TesteeSettings
     public partial class TesteeSettingsForm : DevExpress.XtraEditors.XtraForm//, ILocalized
     {
         private TesteeSettingsViewModel model;
-        private bool wasShow = true;
-        System.Windows.Forms.Timer timer = Program.Timer;
+
+        //Timer fields
+        private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+        private int QuestionAmount = 0;
+        private DateTime QuestionTime = Program.currentTestee.UserSetting.TimeOfStart;
 
         public TesteeSettingsForm()
         {
@@ -29,6 +32,8 @@ namespace TesteeApplication.TesteeSettings
 
             SetControlAccess(model.UserSetting.CanUserEdit);
             SetUpRangeOfRecurrence(model.UserSetting.Recurrence);
+
+            StartTimer();
         }
 
         private void BindCommands()
@@ -97,7 +102,7 @@ namespace TesteeApplication.TesteeSettings
             resources.ApplyResources(languageLayoutControlItem, "languageLayoutControlItem", newCultureInfo);
             resources.ApplyResources(startParametersLabelControl, "startParametersLabelControl", newCultureInfo);
 
-            #region Trnslate radio group
+            #region Translate radio group
             string withoutEnding = !String.IsNullOrEmpty(resources.GetString("withoutEndDateCheckEdit.Text", newCultureInfo))
                 ? resources.GetString("withoutEndDateCheckEdit.Text", newCultureInfo) : "Without end condition";
             withoutEndDateCheckEdit.Text = withoutEnding;
@@ -168,66 +173,75 @@ namespace TesteeApplication.TesteeSettings
             }
         }
         #endregion
-              
-        private void TesteeSettingsForm_Load(object sender, EventArgs e)
+         
+        private void endDateDateEdit_EditValueChanged(object sender, EventArgs e)
+        {
+                DateEdit edit = sender as DateEdit;
+                Program.currentTestee.UserSetting.EndDate = (DateTime)edit.EditValue;
+        }         
+
+        #region Timer
+        private void StartTimer() 
         {
             timer.Interval = 100;
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
         }
-
+        
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (Program.UserTime != Program.currentTestee.UserSetting.TimeOfStart)
+            if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithExactRepeated 
+                && QuestionAmount <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay)
             {
-                Program.SetUpStartTime();
+                AskQuestion();
             }
 
-            if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithExactRepeated)
+            else if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithSpecifiedEndDate
+                && DateTime.Now != Program.currentTestee.UserSetting.EndDate)
             {
-                if (DateTime.Now.Date.CompareTo(Program.currentTestee.UserSetting.TimeOfStart.Date)== 0 
-                    && DateTime.Now.TimeOfDay.Hours == Program.AskedTime.Hour
-                    && DateTime.Now.TimeOfDay.Minutes == Program.AskedTime.Minute
-                    //&& DateTime.Now.TimeOfDay.Seconds == Program.AskedTime.Second
-                    && Program.QuestionAmount <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay)
-                {
-                    AskQuestion();
-                    UpdateTime();
-                }
+                AskQuestion();
             }
-            else if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithSpecifiedEndDate)
+
+            else if (Program.currentTestee.UserSetting.Recurrence == RecurrenceType.WithoutEnding)
             {
-                if (DateTime.Now != Program.currentTestee.UserSetting.EndDate)
-                {
-                    AskQuestion();
-                    UpdateTime();
-                }
+                AskQuestion();
             }
-            else 
-            {
-                timer.Stop();
-            }
+        }
+
+        private bool CheckDateAndTime()
+        {
+            int currentTime = DateTime.Now.TimeOfDay.Hours*60*60 + DateTime.Now.TimeOfDay.Minutes*60 + DateTime.Now.TimeOfDay.Seconds;
+            int askedTime = QuestionTime.Hour * 60 * 60 + QuestionTime.Minute * 60 + QuestionTime.Second;
+
+            return (DateTime.Now.Date.CompareTo(QuestionTime.Date) >= 0 && currentTime >= askedTime);
         }
 
         private void AskQuestion() 
         {
-            Program.AskedTime = DateTime.Now;
-            TesteeQuestionForm questionForm = new TesteeQuestionForm(Program.currentTestee);
-            timer.Stop();
-            questionForm.ShowDialog();
+            if (CheckDateAndTime())
+            {
+                TesteeQuestionForm questionForm = new TesteeQuestionForm(Program.currentTestee);
+                timer.Stop();
+                questionForm.ShowDialog();
+                timer.Start();
+                UpdateTime();
+            }
         }
 
         private void UpdateTime()
         {
-            Program.SetUpStartTime(Program.currentTestee.UserSetting.Hours,
-                Program.currentTestee.UserSetting.Minutes,
-                Program.currentTestee.UserSetting.Seconds);
+            QuestionTime = DateTime.Now;
+            QuestionTime = QuestionTime.AddHours(0);
+            QuestionTime = QuestionTime.AddMinutes(2);
+            QuestionTime = QuestionTime.AddSeconds(0);
 
-            Program.QuestionAmount = (Program.AskedTime.Date == DateTime.Now.Date)
-                ? Program.QuestionAmount + 1
+            QuestionAmount = (QuestionTime.Date == DateTime.Now.Date)
+                ? QuestionAmount + 1
                 : 0;
         }
-
+        #endregion
+    
+        #region Hide and show form from tray
         private void TesteeSettingsForm_Resize(object sender, EventArgs e)
         {
             // проверяем наше окно, и если оно было свернуто, делаем событие        
@@ -246,14 +260,8 @@ namespace TesteeApplication.TesteeSettings
         private void quizNotifyIcon_DoubleClick(object sender, EventArgs e)
         {
             ShowFromTray();
-        }
+        }  
         
-        private void endDateDateEdit_EditValueChanged(object sender, EventArgs e)
-        {
-                DateEdit edit = sender as DateEdit;
-                Program.currentTestee.UserSetting.EndDate = (DateTime)edit.EditValue;
-        }
-
         private void HideFormIntoTray() 
         {
             // Remove application icon from taskbar
@@ -272,6 +280,7 @@ namespace TesteeApplication.TesteeSettings
             //Display application icon at taskbar
             this.ShowInTaskbar = true;
         }
+        #endregion
 
         #region Tray menu
         private void quizNotifyIcon_MouseClick(object sender, MouseEventArgs e)
