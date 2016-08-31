@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserLoginForm));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.loginButton = new DevExpress.XtraEditors.SimpleButton();
             this.passwordTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -197,6 +198,7 @@
             this.ClientSize = new System.Drawing.Size(297, 169);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UserLoginForm";

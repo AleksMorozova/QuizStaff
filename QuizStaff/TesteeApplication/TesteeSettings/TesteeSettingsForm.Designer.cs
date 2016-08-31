@@ -71,6 +71,7 @@
             this.quizNotifyIcon = new System.Windows.Forms.NotifyIcon();
             this.popupMenu = new DevExpress.XtraBars.PopupMenu();
             this.settingsBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.aboutBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.exitBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.barManager = new DevExpress.XtraBars.BarManager();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -559,6 +560,7 @@
             // 
             this.popupMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.settingsBarButtonItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.aboutBarButtonItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.exitBarButtonItem, true)});
             this.popupMenu.Manager = this.barManager;
             this.popupMenu.Name = "popupMenu";
@@ -569,6 +571,13 @@
             this.settingsBarButtonItem.Id = 1;
             this.settingsBarButtonItem.Name = "settingsBarButtonItem";
             this.settingsBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.settingsBarButtonItem_ItemClick);
+            // 
+            // aboutBarButtonItem
+            // 
+            resources.ApplyResources(this.aboutBarButtonItem, "aboutBarButtonItem");
+            this.aboutBarButtonItem.Id = 2;
+            this.aboutBarButtonItem.Name = "aboutBarButtonItem";
+            this.aboutBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.aboutBarButtonItem_ItemClick);
             // 
             // exitBarButtonItem
             // 
@@ -586,8 +595,9 @@
             this.barManager.Form = this;
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.exitBarButtonItem,
-            this.settingsBarButtonItem});
-            this.barManager.MaxItemId = 2;
+            this.settingsBarButtonItem,
+            this.aboutBarButtonItem});
+            this.barManager.MaxItemId = 3;
             // 
             // barDockControlTop
             // 
@@ -718,5 +728,6 @@
         private DevExpress.XtraBars.BarButtonItem settingsBarButtonItem;
         private DevExpress.XtraEditors.LabelControl startParametersLabelControl;
         private DevExpress.XtraLayout.LayoutControlItem startParametersLabelLayoutControlItem;
+        private DevExpress.XtraBars.BarButtonItem aboutBarButtonItem;
     }
 }

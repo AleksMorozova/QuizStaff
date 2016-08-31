@@ -297,6 +297,12 @@ namespace TesteeApplication.TesteeSettings
         private void settingsBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ShowFromTray();
+        }      
+        
+        private void aboutBarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            AboutForm about = new AboutForm();
+            about.ShowDialog();
         }
         #endregion
     }
