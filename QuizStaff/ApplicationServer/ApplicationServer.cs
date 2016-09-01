@@ -150,6 +150,7 @@ namespace Server
             Setting sets = new Setting() { AmountOfQuestionsPerDay = 1,
                                                 Minutes = 1,
                                                 StartDate = DateTime.Now,
+                                                EndDate = DateTime.Now,
                                                     TimeOfStart = new DateTime(2016, 5, 8, 10, 10, 10, 10) };
             return sets;
         }
@@ -267,8 +268,8 @@ namespace Server
                 newSetting.Hours = setting.Hours;
                 newSetting.Minutes = setting.Minutes;
                 newSetting.Seconds = setting.Seconds;
-                newSetting.StartDate = setting.StartDate;
-                newSetting.EndDate = setting.EndDate;
+                newSetting.StartDate = setting.TimeOfStart;
+                newSetting.EndDate = setting.TimeOfStart;
                 newSetting.Recurrence = setting.Recurrence;
                 newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
                 newSetting.TimeOfStart = setting.TimeOfStart;
@@ -299,7 +300,7 @@ namespace Server
             repo.Update(Conversion.ConvertTesteeTrainingFromDTO(testeeTraining));
         }
 
-        public void UpdateTesteeTraining(TesteeTrainingDTO[] testeeTrainings)
+        public void UpdateTesteeTrainings(TesteeTrainingDTO[] testeeTrainings)
         {
             EFTesteeTrainingRepository repo = new EFTesteeTrainingRepository();
             foreach(var testeeTraining in testeeTrainings)
@@ -307,6 +308,13 @@ namespace Server
                 TesteeTraining updateTesteeTraining = Conversion.ConvertTesteeTrainingFromDTO(testeeTraining);
                 repo.Update(updateTesteeTraining);
             }
+        }
+
+        public void UpdateTesteeTraining(TesteeTrainingDTO testeeTraining)
+        {
+            EFTesteeTrainingRepository repo = new EFTesteeTrainingRepository();
+            TesteeTraining updateTesteeTraining = Conversion.ConvertTesteeTrainingFromDTO(testeeTraining);
+            repo.Update(updateTesteeTraining);
         }
 
         public TrainingDTO FindByTitle(string title)

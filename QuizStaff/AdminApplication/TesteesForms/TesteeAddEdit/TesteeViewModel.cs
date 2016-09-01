@@ -11,8 +11,15 @@ using System.Threading.Tasks;
 
 namespace AdminApplication.TesteesForm.TesteeAddEdit
 {
+    public delegate void TesteeChangedEventHandler(object sender, EventArgs e);
+
     public class TesteeViewModel : INotifyPropertyChanged 
-    {
+    {       
+        public event TesteeChangedEventHandler TesteeListChanged;
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
+        public BindingList<Role> AllRoles { get; set; }       
+        public BindingList<Training> AllTrainings { get; set; }
         private Testee LoadedTeste{ get; set; }
 
         #region Testee
@@ -87,8 +94,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 if (value != Testee.Email)
                 {
                     Testee.Email = value;
-                   RaisePropertyChanged("Email");
-                   // OnPropertyChanged("Email");
+                    RaisePropertyChanged("Email");
                 }
             }
         }
@@ -329,21 +335,13 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         
         public void SetUpViewModel(Testee testee)
         {
+            GetAllTrainings();
+            GetAllRoles();
             this.Testee = testee;
             LoadedTeste = Conversion.CopyTestee(testee);
         }
 
-        public void AddTraining(Testee testee)
-        {
-            TrainingAddEditForm trainingForm = new TrainingAddEditForm();
-            FormManager.Instance.OpenChildForm(trainingForm, "Add training");
-            FormManager.LocalizedFormList.Add(trainingForm);
-            FormManager.Instance.LocalizedForms(Program.СurrentLang);
-        }
-
-        public BindingList<Training> AllTrainings { get; set; }
-
-        public void GetAllTrainings()
+        private void GetAllTrainings()
         {
             AllTrainings = new BindingList<Training>();
             var trainingsList = ServicesHolder.ServiceClient.GetAllTrainings();
@@ -353,15 +351,49 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             }
         }
 
-        public BindingList<Role> AllRoles { get; set; }
-
-        public void GetAllRoles()
+        private void GetAllRoles()
         {
             AllRoles = new BindingList<Role>();
             var rolesList = ServicesHolder.ServiceClient.GetAllRoles();
             foreach (var role in rolesList)
             {
                 AllRoles.Add(Conversion.ConvertRoleFromDTO(role));
+            }
+        }
+
+        protected virtual void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+
+            }
+        }
+        
+        protected virtual void OnTesteeListChanged(EventArgs e)
+        {
+            if (TesteeListChanged != null)
+                TesteeListChanged(this, e);
+        }
+
+        public void DeleteTraining(TesteeTraining deletedTraining)
+        {
+            if (deletedTraining != null)
+            {
+                deletedTraining.IsActive = false;
+                Testee.Trainings.Remove(deletedTraining);
+                ServicesHolder.ServiceClient.UpdateTesteeTraining(Conversion.ConvertTesteeTrainingToDTO(deletedTraining));
+                OnTesteeListChanged(EventArgs.Empty);
+            }
+        }
+
+        public void AddTraining(TesteeTraining addedTraining)
+        {
+            if (addedTraining != null)
+            {
+                addedTraining.IsActive = true;
+                Testee.Trainings.Add(addedTraining);
             }
         }
 
@@ -385,24 +417,6 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                     this.Testee = Conversion.ConvertTesteeFromDTO(updateTestee);
                 }
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
-        protected virtual void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-
-            }
-        }
-
-        public void DeleteTraining(TesteeTraining deletedTraining)
-        {
-            if (deletedTraining!=null)
-                deletedTraining.IsActive = false;
-        }
+        }    
     }
 }

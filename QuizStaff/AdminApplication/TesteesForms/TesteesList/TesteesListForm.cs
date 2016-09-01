@@ -23,6 +23,7 @@ namespace AdminApplication.TesteesForms.TesteesList
             BindCommands();
             mvvmTesteesContext.SetViewModel(typeof(TesteesListViewModel), model);
             model.GetAllTestee();
+            model.TesteeListChanged += new TesteeChangedEventHandler(TesteeListChanged);
             BindToViewModel();            
         }
 
@@ -34,13 +35,18 @@ namespace AdminApplication.TesteesForms.TesteesList
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(addTesteeButton, viewModel => viewModel.AddTestee());
             mvvmTesteesContext.BindCommand<TesteesListViewModel, Testee>(editTesteeButton,
                 (x, currentTestee) => x.EditTestee (currentTestee), x => GetCurrentTestee());
-            //mvvmTesteesContext.BindCommand<TesteesListViewModel, Testee>(deleteTesteeButton,
-            //    (x, currentTestee) => x.DeleteTestee(currentTestee), x => GetCurrentTestee());
+            mvvmTesteesContext.BindCommand<TesteesListViewModel, Testee>(deleteTesteeButton,
+                (x, currentTestee) => x.DeleteTestee(currentTestee), x => GetCurrentTestee());
         }
 
         private void BindToViewModel()
         {
             mvvmTesteesContext.SetBinding(gridTestees , testee => testee.DataSource, "Testees");              
+        }
+       
+        private void TesteeListChanged(object sender, EventArgs e)
+        {
+            gridTestees.Refresh();
         }
 
         private Testee GetCurrentTestee()
@@ -73,17 +79,6 @@ namespace AdminApplication.TesteesForms.TesteesList
             resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ?resources.GetString("Title", newCultureInfo):"Testees";
-        }
-
-        private void deleteTesteeButton_Click(object sender, EventArgs e)
-        {
-            var deletedTestee = GetCurrentTestee();
-            if (deletedTestee != null)
-            {
-                model.DeleteTestee(deletedTestee);
-                model.GetAllTestee();
-                gridTestees.DataSource = model.Testees;
-            }
         }
     }
 }

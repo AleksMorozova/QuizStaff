@@ -253,14 +253,12 @@
             resources.ApplyResources(this.addTrainingButton, "addTrainingButton");
             this.addTrainingButton.Name = "addTrainingButton";
             this.addTrainingButton.StyleController = this.layoutControl1;
-            this.addTrainingButton.Click += new System.EventHandler(this.addTrainingButton_Click);
             // 
             // deleteTrainingButton
             // 
             resources.ApplyResources(this.deleteTrainingButton, "deleteTrainingButton");
             this.deleteTrainingButton.Name = "deleteTrainingButton";
             this.deleteTrainingButton.StyleController = this.layoutControl1;
-            this.deleteTrainingButton.Click += new System.EventHandler(this.deleteTrainingButton_Click);
             // 
             // canEditToggleSwitch
             // 

@@ -114,7 +114,6 @@
             resources.ApplyResources(this.deleteTesteeButton, "deleteTesteeButton");
             this.deleteTesteeButton.Name = "deleteTesteeButton";
             this.deleteTesteeButton.StyleController = this.layoutControl1;
-            this.deleteTesteeButton.Click += new System.EventHandler(this.deleteTesteeButton_Click);
             // 
             // buttonCancel
             // 

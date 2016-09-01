@@ -105,7 +105,7 @@ namespace AdminApplication.AdminSettings
                     }
                 }
             }
-            ServicesHolder.ServiceClient.UpdateTesteeTraining(resultList.ToArray());
+            ServicesHolder.ServiceClient.UpdateTesteeTrainings(resultList.ToArray());
 
             //List<TesteeDTO> resultList = new List<TesteeDTO>();
             //foreach (var training in Trainigs)

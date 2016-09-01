@@ -14,7 +14,7 @@ namespace AdminApplication.TrainingsListForm
     public partial class TrainingListForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
         private TrainingListViewModel model;
-      
+
         public TrainingListForm()
         {            
             InitializeComponent();
@@ -24,7 +24,13 @@ namespace AdminApplication.TrainingsListForm
             model = mvvmTrainingsContext.GetViewModel<TrainingListViewModel>();   
             mvvmTrainingsContext.SetViewModel(typeof(TrainingListViewModel), model);
             model.GetAllTrainings();
+            model.TrainingListChanged += new TrainingChangedEventHandler(TrainingListChanged);
             BindToViewModel();
+        }
+
+        private void TrainingListChanged(object sender, EventArgs e)
+        {
+            trainingsGridControl.Refresh();
         }
 
         private void BindCommands()
@@ -33,8 +39,8 @@ namespace AdminApplication.TrainingsListForm
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonCancel, viewModel => viewModel.Cancel());
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonLoadTraining, viewModel => viewModel.LoadTrainings());
 
-            //mvvmTrainingsContext.BindCommand<TrainingListViewModel, TrainingDTO>(deleteTrainingButton,
-            //  (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTraining());
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel, Training>(deleteTrainingButton,
+              (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTraining());
             mvvmTrainingsContext.BindCommand<TrainingListViewModel, Training>(buttonEditTraining,
                 (x, currentTraining) => x.EditTraining(currentTraining), x => GetCurrentTraining());
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonAddTraining, viewModel => viewModel.AddTraining());
@@ -71,19 +77,6 @@ namespace AdminApplication.TrainingsListForm
             resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                      ? resources.GetString("Title", newCultureInfo) : "Trainings";
-        }
-
-        private void deleteTrainingButton_Click(object sender, EventArgs e)
-        {
-            //TODO: fix refreshing of DataSource for trainingsGridControl
-            trainingsGridControl.Refresh();
-            var deletedTrainining = GetCurrentTraining();
-            if (deletedTrainining!= null)
-            {
-                model.DeleteTraining(deletedTrainining);
-                model.GetAllTrainings();
-                trainingsGridControl.DataSource = model.Trainings;
-            }
         }
     }
 }

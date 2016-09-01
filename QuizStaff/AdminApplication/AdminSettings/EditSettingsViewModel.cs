@@ -234,7 +234,7 @@ namespace AdminApplication.AdminSettings
                     testee.UserSetting.Seconds = this.Setting.Seconds;
                     testee.UserSetting.TimeOfStart = this.Setting.TimeOfStart;   
                     testee.UserSetting.AmountOfQuestionsPerDay = this.Setting.AmountOfQuestionsPerDay;
-                    testee.UserSetting.EndDate = this.Setting.EndDate;
+                    testee.UserSetting.EndDate = this.Setting.TimeOfStart;
                     testee.UserSetting.Recurrence = this.Setting.Recurrence;
 
                     savedSettings.Add(testee.UserSetting);

@@ -31,11 +31,11 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             mvvmTesteeContext.ViewModelType = typeof(TesteeViewModel);
             model = mvvmTesteeContext.GetViewModel<TesteeViewModel>();
             BindCommand();
-            model.GetAllTrainings();
-            model.GetAllRoles();
             model.SetUpViewModel(testee);
             mvvmTesteeContext.SetViewModel(typeof(TesteeViewModel), model);          
             BindToViewModel();
+
+            model.TesteeListChanged += new TesteeChangedEventHandler(TesteeListChanged);
 
             BindEndParameters();
             SetUpRolesComboBox();
@@ -45,7 +45,12 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             settingLayoutControlGroup.Expanded = false;
             settingLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
         }
-
+       
+        private void TesteeListChanged(object sender, EventArgs e)
+        {
+            gridTrainings.Refresh();
+        }
+       
         private void BindEndParameters()
         {
             questionAmountSpinEdit.EditValue = null;
@@ -113,8 +118,10 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         {
             mvvmTesteeContext.BindCommand<TesteeViewModel>(saveButton, viewModel => viewModel.Save());
             mvvmTesteeContext.BindCommand<TesteeViewModel>(cancelButton, viewModel => viewModel.Cancel());
-            //mvvmTesteeContext.BindCommand<TesteeViewModel, TesteeTraining>(deleteTrainingButton,
-            //    (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTesteeTraining());
+            mvvmTesteeContext.BindCommand<TesteeViewModel, TesteeTraining>(deleteTrainingButton,
+                (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTesteeTraining());
+            mvvmTesteeContext.BindCommand<TesteeViewModel, TesteeTraining>(addTrainingButton,
+                (x, currentTraining) => x.AddTraining(currentTraining), x => new TesteeTraining() { IsActive = true, IsSelect = true});
         }
 
         private void BindToViewModel()
@@ -205,16 +212,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
         private void gridViewTrainings_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            //TODO: get current testee training 
-            GridView v = sender as GridView;
-            var currentValue = v.EditingValue;           
-            TesteeTraining training = v.GetRow(e.RowHandle) as TesteeTraining;
-            training.IsActive = true;
-            training.IsSelect = true;
-
-            if (currentValue != null)
-                training.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentValue.ToString()).First();
-
+            model.AddTraining(new TesteeTraining() { IsActive = true, IsSelect = true });
         }
 
         private TesteeTraining GetCurrentTesteeTraining()
@@ -226,32 +224,16 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
         private void trainingsRepositoryItemLookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
+            //Write selected training to testee trainings 
             var testeeTraining = GetCurrentTesteeTraining();
 
             GridLookUpEdit editor = (sender as GridLookUpEdit);
             var currentTraining = editor.EditValue;
             if (currentTraining != null)
-                testeeTraining.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentTraining.ToString()).First();
-        }
-
-        private void deleteTrainingButton_Click(object sender, EventArgs e)
-        {
-            var deletedTraining = GetCurrentTesteeTraining();
-            if (deletedTraining!=null)
             {
-                model.DeleteTraining(deletedTraining);
-                this.gridTrainings.DataSource = model.Testee.Trainings.Select(_ => _).Where(t => t.IsActive);
+                testeeTraining.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentTraining.ToString()).First();
+                testeeTraining.IsActive = true;
             }
-        }
-
-        private void addTrainingButton_Click(object sender, EventArgs e)
-        {
-            TesteeTraining training = new TesteeTraining();
-            training.IsActive = true;
-            training.IsSelect = true;
-            model.Testee.Trainings.Add(training);
-
-            this.gridTrainings.DataSource = model.Testee.Trainings.Select(_ => _).Where(t => t.IsActive);
         }
 
         private void rolesComboBox_Closed(object sender, ClosedEventArgs e)
@@ -331,7 +313,5 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 model.AmountOfQuestionsPerDay = (int)date.Value;
         }
         #endregion
-
-       
     }
 }

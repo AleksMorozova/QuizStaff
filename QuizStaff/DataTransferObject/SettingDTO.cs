@@ -63,8 +63,8 @@ namespace DataTransferObject
             newSetting.Hours = setting.Hours;
             newSetting.Minutes = setting.Minutes;
             newSetting.Seconds = setting.Seconds;
-            newSetting.StartDate = setting.StartDate;
-            newSetting.EndDate = setting.EndDate;
+            newSetting.StartDate = setting.TimeOfStart;
+            newSetting.EndDate = setting.TimeOfStart;
             newSetting.Recurrence = setting.Recurrence;
 
             newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;

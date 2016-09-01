@@ -13,8 +13,15 @@ using System.Windows.Forms;
 
 namespace AdminApplication.TrainingsListForm
 {
+    // A delegate type for hooking up change notifications.
+    public delegate void TrainingChangedEventHandler(object sender, EventArgs e);
+
     public class TrainingListViewModel
     {
+        // An event that clients can use to be notified whenever the
+        // elements of the list change.
+        public event TrainingChangedEventHandler TrainingListChanged;
+
         public BindingList<Training> Trainings { get; set; }
         private TrainingDTO[] ReadTrainings;
 
@@ -48,7 +55,14 @@ namespace AdminApplication.TrainingsListForm
             FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
-        public void DeleteTraining(TrainingDTO deletedTraining)
+        // Invoke the TrainingListChanged event; called whenever list changes
+        protected virtual void OnTrainingListChanged(EventArgs e)
+        {
+            if (TrainingListChanged != null)
+                TrainingListChanged(this, e);
+        }
+
+        public void DeleteTraining(Training deletedTraining)
         {
             if (deletedTraining != null)
             {
@@ -63,6 +77,8 @@ namespace AdminApplication.TrainingsListForm
                     savedTraining.IsActive = false;
                     ServicesHolder.ServiceClient.UpdateTraining(savedTraining);
                 }
+                this.Trainings.Remove(deletedTraining);
+                OnTrainingListChanged(EventArgs.Empty);
             }
         }
 

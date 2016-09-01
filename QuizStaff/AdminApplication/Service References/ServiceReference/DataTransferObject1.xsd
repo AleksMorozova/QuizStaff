@@ -45,6 +45,7 @@
       <xs:element minOccurs="0" name="AnsweringDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Answers" nillable="true" type="tns:ArrayOfTesteeAnswerDTO" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsAnswerCorrect" type="xs:boolean" />
       <xs:element minOccurs="0" name="Question" nillable="true" type="tns:QuestionDTO" />
       <xs:element minOccurs="0" name="QuestionId" type="ser:guid" />
       <xs:element minOccurs="0" name="Testee" nillable="true" type="tns:TesteeDTO" />
@@ -177,9 +178,14 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="AmountOfQuestionsPerDay" type="xs:int" />
       <xs:element minOccurs="0" name="CanUserEdit" type="xs:boolean" />
-      <xs:element minOccurs="0" name="FrequencyOfAsking" type="xs:int" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Hours" type="xs:int" />
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Minutes" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DomainModel" minOccurs="0" name="Recurrence" type="q2:RecurrenceType" />
+      <xs:element minOccurs="0" name="Seconds" type="xs:int" />
       <xs:element minOccurs="0" name="ShowCorrectAnswer" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="TimeOfStart" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>

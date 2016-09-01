@@ -147,11 +147,17 @@ namespace AdminApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/DeleteTesteeTrainingResponse")]
         System.Threading.Tasks.Task DeleteTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingResponse")]
-        void UpdateTesteeTraining(DataTransferObject.TesteeTrainingDTO[] testeeTraining);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTrainings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingsResponse")]
+        void UpdateTesteeTrainings(DataTransferObject.TesteeTrainingDTO[] testeeTraining);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTrainings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingsResponse")]
+        System.Threading.Tasks.Task UpdateTesteeTrainingsAsync(DataTransferObject.TesteeTrainingDTO[] testeeTraining);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingResponse")]
-        System.Threading.Tasks.Task UpdateTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO[] testeeTraining);
+        void UpdateTesteeTraining(DataTransferObject.TesteeTrainingDTO testeeTraining);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingResponse")]
+        System.Threading.Tasks.Task UpdateTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByTitle", ReplyAction="http://tempuri.org/IApplicationServer/FindByTitleResponse")]
         DataTransferObject.TrainingDTO FindByTitle(string title);
@@ -393,11 +399,19 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.DeleteTesteeTrainingAsync(testeeTraining);
         }
         
-        public void UpdateTesteeTraining(DataTransferObject.TesteeTrainingDTO[] testeeTraining) {
+        public void UpdateTesteeTrainings(DataTransferObject.TesteeTrainingDTO[] testeeTraining) {
+            base.Channel.UpdateTesteeTrainings(testeeTraining);
+        }
+        
+        public System.Threading.Tasks.Task UpdateTesteeTrainingsAsync(DataTransferObject.TesteeTrainingDTO[] testeeTraining) {
+            return base.Channel.UpdateTesteeTrainingsAsync(testeeTraining);
+        }
+        
+        public void UpdateTesteeTraining(DataTransferObject.TesteeTrainingDTO testeeTraining) {
             base.Channel.UpdateTesteeTraining(testeeTraining);
         }
         
-        public System.Threading.Tasks.Task UpdateTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO[] testeeTraining) {
+        public System.Threading.Tasks.Task UpdateTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining) {
             return base.Channel.UpdateTesteeTrainingAsync(testeeTraining);
         }
         

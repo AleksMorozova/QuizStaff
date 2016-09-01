@@ -11,8 +11,12 @@ using System.Threading.Tasks;
 
 namespace AdminApplication.TesteesForms.TesteesList
 {
+    public delegate void TesteeChangedEventHandler(object sender, EventArgs e);
+
     public class TesteesListViewModel
     {
+        public event TesteeChangedEventHandler TesteeListChanged;
+
         public BindingList<Testee> Testees { get; set; }
         private TesteeDTO[] ReadTestees { get; set; }
 
@@ -45,6 +49,12 @@ namespace AdminApplication.TesteesForms.TesteesList
             FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
+        protected virtual void OnTesteeListChanged(EventArgs e)
+        {
+            if (TesteeListChanged != null)
+                TesteeListChanged(this, e);
+        }
+
         public void DeleteTestee(Testee deletedTestee)
         {
             if (deletedTestee != null)
@@ -60,8 +70,9 @@ namespace AdminApplication.TesteesForms.TesteesList
                     savedTestee.IsActive = false;
                     ServicesHolder.ServiceClient.UpdateTestee(savedTestee);
                 }
+                this.Testees.Remove(deletedTestee);
+                OnTesteeListChanged(EventArgs.Empty);
             }
-
         }
 
         public void Save()
