@@ -102,5 +102,8 @@ namespace Server
 
         [OperationContract]
         void AddTesteeRole(TesteeDTO testee, RoleDTO role);
+
+        [OperationContract]
+        List<LoginTrainingQuestion> LoadDataFromFile(string path);
     }
 }

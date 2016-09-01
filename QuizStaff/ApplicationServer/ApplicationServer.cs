@@ -1,5 +1,8 @@
 ﻿using ApplicationServer.DAL;
 using DomainModel;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +13,8 @@ using DataTransferObject;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using ApplicationServer;
+
 
 namespace Server
 {
@@ -363,6 +368,49 @@ namespace Server
             EFTesteeRepository repo = new EFTesteeRepository();
             testee.Roles.Add(new TesteeRolesDTO() { Role = role, IsActive = false });
             repo.Update(Conversion.ConvertTesteeFromDTO(testee));
+        }
+
+        public List<LoginTrainingQuestion> LoadDataFromFile(string path)
+        {
+            List<LoginTrainingQuestion> resultList = new List<LoginTrainingQuestion>();
+
+            using (SpreadsheetDocument spreadsheetDocument =
+    SpreadsheetDocument.Open(path, false))
+            {
+                WorkbookPart workbookPart = spreadsheetDocument.WorkbookPart;
+                SharedStringTablePart sstpart = workbookPart.GetPartsOfType<SharedStringTablePart>().First();
+                SharedStringTable sst = sstpart.SharedStringTable;
+
+                WorksheetPart worksheetPart = workbookPart.WorksheetParts.First();
+                Worksheet sheet = worksheetPart.Worksheet;
+
+                var cells = sheet.Descendants<Cell>();
+                var rows = sheet.Descendants<Row>();
+
+                int i = 1;
+
+                // One way: go through each cell in the sheet
+                foreach (Cell cell in cells)
+                {
+                    LoginTrainingQuestion currentDataElement = new LoginTrainingQuestion();
+                    if (cell.CellValue != null)
+                    {
+                        switch (i % 3)
+                        {
+                            case 0: currentDataElement.login = cell.CellValue.Text;
+                                break;
+                            case 1: currentDataElement.training = cell.CellValue.Text;
+                                break;
+                            case 2: currentDataElement.question = bool.Parse(cell.CellValue.Text);
+                                resultList.Add(currentDataElement);
+                                break;
+                        }
+                    }
+                    i++;
+                }
+            }
+
+            return resultList;
         }
     }
 }
