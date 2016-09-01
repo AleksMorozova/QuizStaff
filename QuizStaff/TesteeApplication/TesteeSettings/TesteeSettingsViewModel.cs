@@ -17,9 +17,10 @@ namespace TesteeApplication.TesteeSettings
             LoadSetting = Conversion.CopySetting(UserSetting);
         }
 
+        #region Setting
         private Setting LoadSetting { get; set; }
-        private Setting userSetting;
        
+        private Setting userSetting;      
         public Setting UserSetting
         {
             get
@@ -41,9 +42,7 @@ namespace TesteeApplication.TesteeSettings
                 }
             }
         }
-
-        #region Setting
-
+       
         public int AmountOfQuestionsPerDay
         {
             get

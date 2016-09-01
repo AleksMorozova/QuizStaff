@@ -48,7 +48,7 @@ namespace AdminApplication
         /// </summary>
         /// <param name="failMessage">message for user, when login has been failed</param>
         /// <returns>status of logging in attempt</returns>
-        public static LoginResult Login(ref string failMessage)
+        public static LoginResult Login()
         {
             try
             {

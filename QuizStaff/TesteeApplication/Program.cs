@@ -18,27 +18,28 @@ namespace TesteeApplication
 {
     static class Program
     {
-        //REmember question form position
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
+
+        //Remember question form position
         public static bool FirstShow = true;
         public static int LeftPosition = 0;
         public static int TopPosition = 0;
 
-        private static TesteeSettingsForm applicationMainForm;
-        public static string СurrentLang = "ru-RU";
-        public static Testee СurrentTestee = new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now }};
+        public static string СurrentLang { get; set; }
+        public static Testee СurrentTestee { get; set; }
 
-        public static TesteeSettingsForm ApplicationMainForm { get { return applicationMainForm; } }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            string failMessage = String.Empty;
+            log4net.Config.XmlConfigurator.Configure();
+
             LoginResult loginResult = LoginResult.None;
             while (loginResult != LoginResult.LoggedIn)
             {
-                loginResult = Authorization.Login(ref failMessage);
+                loginResult = Authorization.Login();
                 switch (loginResult)
                 {
                     case LoginResult.Failed:
@@ -50,6 +51,12 @@ namespace TesteeApplication
                     case LoginResult.NoPermissions:
                         XtraMessageBox.Show("Authentication error. You have no permissions to access the database. Please, contact to IT administrator");
                         break;
+                    case LoginResult.LoggedIn:
+                        log.Info("User " + СurrentTestee.Login + " was successfully login");
+                        break;
+                    default:
+                        log.Error("Authentication error. You have no permissions to access the database. Please, contact to IT administrator");
+                        break;
                 }
             }
 
@@ -57,8 +64,7 @@ namespace TesteeApplication
             
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(СurrentLang);
             Application.EnableVisualStyles();
-            applicationMainForm = new TesteeSettingsForm();
-            Application.Run(applicationMainForm);
+            Application.Run(new TesteeSettingsForm());
         }
     }
 }

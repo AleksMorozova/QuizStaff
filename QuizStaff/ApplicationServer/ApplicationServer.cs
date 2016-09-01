@@ -200,7 +200,7 @@ namespace Server
                 result = repo.ReadAll().Where(_ => _.Login == login).FirstOrDefault();
             else
                 result = repo.ReadAll().Where(_ => _.Login == login && _.IsActive).FirstOrDefault();
-            return (result != null) ? result : new TesteeDTO() { IsActive = true};
+            return (result != null) ? result : new TesteeDTO() { IsActive = true, UserSetting = new Setting() { TimeOfStart = DateTime.Now, Recurrence = RecurrenceType.WithoutEnding, Minutes = 5}};
         }
 
         public void SaveAnswer(QuestionDTO question) 

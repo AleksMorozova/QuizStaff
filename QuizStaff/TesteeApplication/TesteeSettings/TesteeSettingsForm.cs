@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using TesteeApplication.TesteeQuestion;
+using System.Configuration;
 
 namespace TesteeApplication.TesteeSettings
 {
@@ -21,7 +22,6 @@ namespace TesteeApplication.TesteeSettings
         {
             InitializeComponent();
             Localized(Program.СurrentLang);
-            SetUpComboBox();
 
             mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
             model = mvvmTesteeSettingsContext.GetViewModel<TesteeSettingsViewModel>();
@@ -29,12 +29,30 @@ namespace TesteeApplication.TesteeSettings
 
             BindCommands();  
             BindToViewModel();
-          
+                 
+            SetUpLanguageComboBox();
             BindEndParameters();
             SetControlAccess(model.UserSetting.CanUserEdit);
             SetUpRangeOfRecurrence(model.UserSetting.Recurrence);
 
             StartTimer();
+        }
+
+        private void BindCommands()
+        {
+            mvvmTesteeSettingsContext.BindCommand<TesteeSettingsViewModel>(saveButton, setting => setting.Save());
+            mvvmTesteeSettingsContext.BindCommand<TesteeSettingsViewModel>(cancelButton, setting => setting.Cancel());
+        }
+
+        private void BindToViewModel()
+        {
+            //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
+            var inner = new BindingSource { DataSource = model.UserSetting };
+            hoursSpinEdit.DataBindings.Add("EditValue", inner, "Hours");
+            minuteSpinEdit.DataBindings.Add("EditValue", inner, "Minutes");
+            secondSpinEdit.DataBindings.Add("EditValue", inner, "Seconds");
+            timeOfAskingEditTime.DataBindings.Add("EditValue", inner, "TimeOfStart");
+            startDateDateEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");
         }
 
         private void BindEndParameters()
@@ -50,24 +68,6 @@ namespace TesteeApplication.TesteeSettings
             {
                 questionAmountSpinEdit.EditValue = model.AmountOfQuestionsPerDay;
             }
-        }
-
-        private void BindCommands()
-        {
-            mvvmTesteeSettingsContext.BindCommand<TesteeSettingsViewModel>(saveButton, setting => setting.Save());
-            mvvmTesteeSettingsContext.BindCommand<TesteeSettingsViewModel>(cancelButton, setting => setting.Cancel());
-        }
-
-        private void BindToViewModel()
-        {
-            //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
-            var inner = new BindingSource { DataSource = model.UserSetting };
-            //questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
-            hoursSpinEdit.DataBindings.Add("EditValue", inner, "Hours");
-            minuteSpinEdit.DataBindings.Add("EditValue", inner, "Minutes");
-            secondSpinEdit.DataBindings.Add("EditValue", inner, "Seconds");
-            timeOfAskingEditTime.DataBindings.Add("EditValue", inner, "TimeOfStart");
-            startDateDateEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");
         }
 
         private void SetControlAccess(bool canEdit)
@@ -134,6 +134,7 @@ namespace TesteeApplication.TesteeSettings
                 ? resources.GetString("Title", newCultureInfo) : "Settings";
         }
 
+        #region Language comboBox
         //Implement filling of current language into config file 
         private void languageComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -143,17 +144,28 @@ namespace TesteeApplication.TesteeSettings
                 LanguageEnum currentLanguage = (LanguageEnum)cb.SelectedItem;
                 Localized(LanguageConvert.ConvertFromEnum(currentLanguage));
                 Program.СurrentLang = LanguageConvert.ConvertFromEnum(currentLanguage);
+
+                WriteCurrentLanguageToConfig();
             }
         }
 
+        private void WriteCurrentLanguageToConfig()
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(System.Windows.Forms.Application.ExecutablePath);
+            config.AppSettings.Settings.Remove("Lang");
+            config.AppSettings.Settings.Add("Lang", Program.СurrentLang);
+            config.Save(ConfigurationSaveMode.Modified);
+        }
+
         //Fill langauge comboBox items 
-        private void SetUpComboBox() 
+        private void SetUpLanguageComboBox() 
         {
             languageComboBoxEdit.Properties.Items.Add(LanguageEnum.English);
             languageComboBoxEdit.Properties.Items.Add(LanguageEnum.Русский);
             int index = languageComboBoxEdit.Properties.Items.IndexOf(LanguageConvert.ConvertToEnum(Program.СurrentLang));
             languageComboBoxEdit.SelectedIndex = index;
         }
+        #endregion
 
         #region Recurrence type changing
         private void withoutEndDateCheckEdit_CheckedChanged(object sender, EventArgs e)
