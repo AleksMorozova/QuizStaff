@@ -15,58 +15,47 @@ namespace AdminApplication.LoginForm
 {
     public partial class UserLoginForm : DevExpress.XtraEditors.XtraForm
     {
-        private string login;
-        public String Login 
+        public String Login
         {
             get
             {
-                if (this.loginTextEdit.Text.Contains(@"\"))
-                {
-                    int k = this.loginTextEdit.Text.IndexOf(@"\");
-                    login = this.loginTextEdit.Text.Substring(k + 1, this.loginTextEdit.Text.Length - k - 1);
+                int index = this.loginTextEdit.Text.Contains(@"\")
+                    ? this.loginTextEdit.Text.IndexOf(@"\")
+                    : 0;
 
-                }
-                else
-                {
-                    login = this.loginTextEdit.Text;
-                }
-                return login;
+                return this.loginTextEdit.Text.Contains(@"\")
+                    ? this.loginTextEdit.Text.Substring(index + 1, this.loginTextEdit.Text.Length - index - 1)
+                    : this.loginTextEdit.Text;
             }
             set
-            { 
-                this.loginTextEdit.Text = value; 
+            {
+                this.loginTextEdit.Text = value;
             }
         }
 
-        public String Password 
+        public String Password
         {
             get
-            { 
+            {
                 return this.passwordTextEdit.Text;
             }
             set
-            { 
+            {
                 this.passwordTextEdit.Text = value;
             }
         }
 
-        private string domain;
         public String Domain
         {
             get
             {
-                if (this.loginTextEdit.Text.Contains(@"\"))
-                {
-                    int k = this.loginTextEdit.Text.IndexOf(@"\");
-                    domain = this.loginTextEdit.Text.Substring(0, k);
+                int index = this.loginTextEdit.Text.Contains(@"\")
+                    ? this.loginTextEdit.Text.IndexOf(@"\")
+                    : 0;
 
-                }
-                else 
-                {
-                    domain = Environment.UserDomainName;
-                }
-                
-                return domain; 
+                return this.loginTextEdit.Text.Contains(@"\") ?
+                    this.loginTextEdit.Text.Substring(0, index)
+                    : Environment.UserDomainName;
             }
             set
             {
@@ -78,11 +67,7 @@ namespace AdminApplication.LoginForm
         {
             InitializeComponent();
             Localized(System.Configuration.ConfigurationManager.AppSettings["Lang"]);
-        }
-
-        private void loginButton_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
+            domainLlabel.Text = Environment.UserDomainName;
         }
 
         public void Localized(string language)
@@ -96,23 +81,15 @@ namespace AdminApplication.LoginForm
             this.Text = resources.GetString("Title", newCultureInfo);
         }
 
-        private void UserLoginForm_Load(object sender, EventArgs e)
-        {
-            domainLlabel.Text = Environment.UserDomainName;
-        }
-
         private void loginTextEdit_EditValueChanged(object sender, EventArgs e)
         {
-            if (this.loginTextEdit.Text.Contains(@"\"))
-            {
-                int k = this.loginTextEdit.Text.IndexOf(@"\");
-                this.domainLlabel.Text = this.loginTextEdit.Text.Substring(0, k);
+            int index = this.loginTextEdit.Text.Contains(@"\")
+                ? this.loginTextEdit.Text.IndexOf(@"\")
+                : 0;
 
-            }
-            else
-            {
-                this.domainLlabel.Text = Environment.UserDomainName;
-            }
+            this.domainLlabel.Text = this.loginTextEdit.Text.Contains(@"\")
+                ? this.loginTextEdit.Text.Substring(0, index)
+                : Environment.UserDomainName;
         }
     }
 }
