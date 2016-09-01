@@ -15,9 +15,7 @@ namespace TesteeApplication
         {
             get
             {
-                if (serviceClient == null)
-                    serviceClient = new AdminApplication.ServiceReference.ApplicationServerClient();
-                return serviceClient;
+                return (serviceClient != null) ? serviceClient : new AdminApplication.ServiceReference.ApplicationServerClient();
             }
         }
 
@@ -30,9 +28,7 @@ namespace TesteeApplication
         {
             get
             {
-                if (serviceHolderObject == null)
-                    serviceHolderObject = new ServicesHolder();
-                return serviceHolderObject;
+                return (serviceHolderObject != null) ? serviceHolderObject : new ServicesHolder();
             }
         }
     }
