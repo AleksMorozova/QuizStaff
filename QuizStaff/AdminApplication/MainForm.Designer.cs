@@ -92,10 +92,6 @@
             this.mainMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.testeesBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.trainingsBarButton),
-            new DevExpress.XtraBars.LinkPersistInfo(this.settingsBarButton),
-            new DevExpress.XtraBars.LinkPersistInfo(this.testBarButton),
-            new DevExpress.XtraBars.LinkPersistInfo(this.loginBarButton),
-            new DevExpress.XtraBars.LinkPersistInfo(this.questionBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.adminSettingsBarButtonItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.roleBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.languageBarSubItem, true)});
@@ -123,7 +119,6 @@
             this.settingsBarButton.Id = 2;
             this.settingsBarButton.Name = "settingsBarButton";
             this.settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.settingsBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.settingsBarButton_ItemClick);
             // 
             // testBarButton
             // 
@@ -131,7 +126,6 @@
             this.testBarButton.Id = 3;
             this.testBarButton.Name = "testBarButton";
             this.testBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.testBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.testBarButton_ItemClick);
             // 
             // loginBarButton
             // 
@@ -139,7 +133,6 @@
             this.loginBarButton.Id = 4;
             this.loginBarButton.Name = "loginBarButton";
             this.loginBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.loginBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.loginBarButton_ItemClick);
             // 
             // questionBarButton
             // 
@@ -160,7 +153,7 @@
             resources.ApplyResources(this.roleBarButton, "roleBarButton");
             this.roleBarButton.Id = 10;
             this.roleBarButton.Name = "roleBarButton";
-            this.roleBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            this.roleBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.roleBarButton_ItemClick);
             // 
             // languageBarSubItem
             // 

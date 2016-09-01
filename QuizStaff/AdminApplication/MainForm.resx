@@ -323,18 +323,6 @@
   <data name="trainingsBarButton.Caption" xml:space="preserve">
     <value>Trainings</value>
   </data>
-  <data name="settingsBarButton.Caption" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="testBarButton.Caption" xml:space="preserve">
-    <value>Test</value>
-  </data>
-  <data name="loginBarButton.Caption" xml:space="preserve">
-    <value>Test Login</value>
-  </data>
-  <data name="questionBarButton.Caption" xml:space="preserve">
-    <value>Question</value>
-  </data>
   <data name="adminSettingsBarButtonItem.Caption" xml:space="preserve">
     <value>Setting</value>
   </data>
@@ -355,5 +343,17 @@
   </data>
   <data name="statusBar.Text" xml:space="preserve">
     <value>Status bar</value>
+  </data>
+  <data name="settingsBarButton.Caption" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="testBarButton.Caption" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="loginBarButton.Caption" xml:space="preserve">
+    <value>Test Login</value>
+  </data>
+  <data name="questionBarButton.Caption" xml:space="preserve">
+    <value>Question</value>
   </data>
 </root>

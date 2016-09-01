@@ -29,50 +29,27 @@ namespace AdminApplication
             FormManager.LocalizedFormList.Add(this);
         }
 
-        private void testBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var formSets = new TesteeSettings.TesteeSettingsForm();
-            formSets.ShowDialog();
-        }
-
-        private void testeesBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            TesteesListForm testeesform = new TesteesListForm();
-            FormManager.Instance.OpenChildForm(testeesform, "Testees");
-            FormManager.LocalizedFormList.Add(testeesform);
-            FormManager.Instance.LocalizedForms(Program.СurrentLang);
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
-            CheckPermission();
+            SetUpControlAccess();
         }
 
-        private void CheckPermission()
+        private void SetUpControlAccess()
         {
-            if (!Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator))
-            {       
-                testeesBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee);
-                trainingsBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining);
-                adminSettingsBarButtonItem.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp);
-                roleBarButton.Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp);
+            if (!CheckPermission(DomainModel.PermissionType.CreateAdministrator))
+            {
+                testeesBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditTestee);
+                trainingsBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditTraining);
+                adminSettingsBarButtonItem.Enabled = CheckPermission(DomainModel.PermissionType.EditSetUp);
+                roleBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditSetUp);
             }
         }
 
-        private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        private bool CheckPermission(DomainModel.PermissionType permissionType)
         {
-            TrainingsListForm.TrainingListForm trainingsform = new TrainingsListForm.TrainingListForm();
-            FormManager.Instance.OpenChildForm(trainingsform, "Trainings");
-            FormManager.LocalizedFormList.Add(trainingsform);
-            FormManager.Instance.LocalizedForms(Program.СurrentLang);
+            return Program.CurrentUserPermissions.Select(_ => _.Type).Contains(permissionType);
         }
-
-        private void loginBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var f = new LoginForm.UserLoginForm();
-            f.ShowDialog();
-        }
-
+       
         public void Localized(string language) 
         {
             var resources = new ComponentResourceManager(typeof(MainForm));
@@ -86,6 +63,22 @@ namespace AdminApplication
             resources.ApplyResources(adminSettingsBarButtonItem, "adminSettingsBarButtonItem", newCultureInfo);
             resources.ApplyResources(questionBarButton, "questionBarButton", newCultureInfo);
             resources.ApplyResources(roleBarButton, "roleBarButton", newCultureInfo);
+        }
+       
+        private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            TrainingsListForm.TrainingListForm trainingsform = new TrainingsListForm.TrainingListForm();
+            FormManager.Instance.OpenChildForm(trainingsform, "Trainings");
+            FormManager.LocalizedFormList.Add(trainingsform);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
+        }
+
+        private void testeesBarButton_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            TesteesListForm testeesform = new TesteesListForm();
+            FormManager.Instance.OpenChildForm(testeesform, "Testees");
+            FormManager.LocalizedFormList.Add(testeesform);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
         private void russianBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
@@ -101,15 +94,7 @@ namespace AdminApplication
             Localized("en-US");
             Program.СurrentLang = "en-US";
         }
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Configuration config = ConfigurationManager.OpenExeConfiguration(System.Windows.Forms.Application.ExecutablePath);
-            config.AppSettings.Settings.Remove("Lang");
-            config.AppSettings.Settings.Add("Lang", Program.СurrentLang);
-            config.Save(ConfigurationSaveMode.Modified);
-        }
-
+       
         private void adminSettingsBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             AdminSettingsForm trainingsform = new AdminSettingsForm();
@@ -118,18 +103,20 @@ namespace AdminApplication
             FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
-        private void settingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var formSets = new TesteeSettings.TesteeSettingsForm();
-            formSets.ShowDialog();
-        }
-
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        private void roleBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             EditeRoleForm testeesform = new EditeRoleForm();
             FormManager.Instance.OpenChildForm(testeesform, "Role");
             FormManager.LocalizedFormList.Add(testeesform);
             FormManager.Instance.LocalizedForms(Program.СurrentLang);
+        }
+       
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(System.Windows.Forms.Application.ExecutablePath);
+            config.AppSettings.Settings.Remove("Lang");
+            config.AppSettings.Settings.Add("Lang", Program.СurrentLang);
+            config.Save(ConfigurationSaveMode.Modified);
         }
     }
 }
