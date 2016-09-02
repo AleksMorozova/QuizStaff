@@ -23,17 +23,20 @@ namespace AdminApplication.AdminSettings
             InitializeComponent();
 
             mvvmAdminSettingsContext.ViewModelType = typeof(AdminSettingsViewModel);
-            //BindCommands();
+            BindCommands();
             model = mvvmAdminSettingsContext.GetViewModel<AdminSettingsViewModel>();
             mvvmAdminSettingsContext.SetViewModel(typeof(AdminSettingsViewModel), model);
+            model.TesteeListChanged += new TesteeChangedEventHandler(TesteeListChanged);
             model.GetAllTestees();
             BindToViewModel();
         }
 
         private void BindCommands()
         {
-            mvvmAdminSettingsContext.BindCommand<AdminSettingsViewModel, BindingList<Testee>>(editSettingsButton, (viewModel, questionID)
-                => viewModel.EditSettings(questionID), x => GetSelectedTestees());
+            mvvmAdminSettingsContext.BindCommand<AdminSettingsViewModel, BindingList<Testee>>(editSettingsButton, (viewModel, selectedTestee)
+                => viewModel.EditSettings(selectedTestee), x => GetSelectedTestees());
+            mvvmAdminSettingsContext.BindCommand<AdminSettingsViewModel, BindingList<Testee>>(this.editTrainingsButton, (viewModel, selectedTestee)
+                => viewModel.EditTesteeTrainigs(selectedTestee), x => GetSelectedTestees());
         }
 
         private BindingList<Testee> GetSelectedTestees() 
@@ -85,17 +88,9 @@ namespace AdminApplication.AdminSettings
                 ? resources.GetString("Title", newCultureInfo) : "Settings";
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void TesteeListChanged(object sender, EventArgs e)
         {
-            //TODO: Refresh grid and return command binding 
-            model.EditSettings(GetSelectedTestees());
-            model.GetAllTestees();
-            testeeListGridControl.DataSource = model.Testees;
-        }
-
-        private void editSettingsSimpleButton_Click(object sender, EventArgs e)
-        {
-            model.EditTesteeTrainigs(GetSelectedTestees());
+            testeeListGridControl.RefreshDataSource();
         }
     }
 }

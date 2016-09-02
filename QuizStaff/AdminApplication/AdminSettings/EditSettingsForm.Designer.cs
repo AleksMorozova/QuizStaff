@@ -266,6 +266,7 @@
             0,
             0});
             this.questionAmountSpinEdit.StyleController = this.layoutControl1;
+            this.questionAmountSpinEdit.EditValueChanged += new System.EventHandler(this.questionAmountSpinEdit_EditValueChanged);
             this.questionAmountSpinEdit.EnabledChanged += new System.EventHandler(this.questionAmountSpinEdit_EditValueChanged);
             // 
             // withoutEndDateCheckEdit

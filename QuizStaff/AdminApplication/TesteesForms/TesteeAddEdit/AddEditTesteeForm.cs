@@ -18,25 +18,38 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 {
     public partial class AddEditTesteeForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
-       private TesteeViewModel model;
+        private TesteeViewModel model;
+        
+        public Testee Testee
+        {
+            get
+            {
+                return model.Testee;
+            }
+            set
+            {
+                model.Testee = value;
+            }
+        }
 
-       public AddEditTesteeForm()
-           : this(new Testee() { IsActive = true, IsSelected = false, 
-               UserSetting = new Setting() { TimeOfStart = DateTime.Now }, Trainings = new BindingList<TesteeTraining> { } }) { }
+        public AddEditTesteeForm()
+            : this(new Testee() { IsActive = true, IsSelected = false, 
+                UserSetting = new Setting() { TimeOfStart = DateTime.Now }, Trainings = new BindingList<TesteeTraining> { } }) { }
 
         public AddEditTesteeForm(Testee testee)
         {
             InitializeComponent();
             this.gridViewTrainings.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            
             mvvmTesteeContext.ViewModelType = typeof(TesteeViewModel);
             model = mvvmTesteeContext.GetViewModel<TesteeViewModel>();
             BindCommand();
             model.SetUpViewModel(testee);
             mvvmTesteeContext.SetViewModel(typeof(TesteeViewModel), model);          
             BindToViewModel();
-
             model.TesteeListChanged += new TesteeChangedEventHandler(TesteeListChanged);
 
+            //set up form
             BindEndParameters();
             SetUpRolesComboBox();
             SetUpRangeOfRecurrence(model.Setting.Recurrence);
@@ -50,21 +63,38 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         {
             gridTrainings.Refresh();
         }
-       
-        private void BindEndParameters()
-        {
-            questionAmountSpinEdit.EditValue = null;
-            endDateDateEdit.EditValue = null;
 
-            if (model.Recurrence == RecurrenceType.WithSpecifiedEndDate)
-            {
-                endDateDateEdit.EditValue = model.EndDate;
-            }
-            else if (model.Recurrence == RecurrenceType.WithExactRepeated)
-            {
-                questionAmountSpinEdit.EditValue = model.AmountOfQuestionsPerDay;
-            }
+        private void BindCommand()
+        {
+            mvvmTesteeContext.BindCommand<TesteeViewModel>(saveButton, viewModel => viewModel.Save());
+            mvvmTesteeContext.BindCommand<TesteeViewModel>(cancelButton, viewModel => viewModel.Cancel());
+            mvvmTesteeContext.BindCommand<TesteeViewModel, TesteeTraining>(deleteTrainingButton,
+                (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTesteeTraining());
+            mvvmTesteeContext.BindCommand<TesteeViewModel, TesteeTraining>(addTrainingButton,
+                (x, currentTraining) => x.AddTraining(currentTraining), x => new TesteeTraining() { IsActive = true, IsSelect = true});
         }
+
+        private void BindToViewModel()
+        {
+            mvvmTesteeContext.SetBinding(textFirstName, questionText => questionText.EditValue, "FirstName");
+            mvvmTesteeContext.SetBinding(textLastName, questionText => questionText.EditValue, "LastName");
+            mvvmTesteeContext.SetBinding(textEmail, questionText => questionText.EditValue, "Email");
+            mvvmTesteeContext.SetBinding(textLogin, questionText => questionText.EditValue, "Login");
+            mvvmTesteeContext.SetBinding(gridTrainings, answers => answers.DataSource, "Trainings");
+            mvvmTesteeContext.SetBinding(trainingsRepositoryItemLookUpEdit, training => training.DataSource, "AllTrainings");
+            trainingsRepositoryItemLookUpEdit.DisplayMember = "TrainingTitle";
+            trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";
+
+            //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
+            var settingsBindingSource = new BindingSource { DataSource = model.Setting };
+            canEditToggleSwitch.DataBindings.Add("EditValue", settingsBindingSource, "CanUserEdit");
+            showAnswerToggleSwitch.DataBindings.Add("EditValue", settingsBindingSource, "ShowCorrectAnswer");
+            hoursSpinEdit.DataBindings.Add("EditValue", settingsBindingSource, "Hours");
+            minutesSpinEdit.DataBindings.Add("EditValue", settingsBindingSource, "Minutes");
+            secondsSpinEdit.DataBindings.Add("EditValue", settingsBindingSource, "Seconds");
+            startDateEdit.DataBindings.Add("EditValue", settingsBindingSource, "TimeOfStart");
+            startTimeEdit.DataBindings.Add("EditValue", settingsBindingSource, "TimeOfStart");           
+        }               
 
         private void SetUpRolesComboBox()
         {
@@ -106,7 +136,22 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 }
             }
         }
+        
+        private void BindEndParameters()
+        {
+            questionAmountSpinEdit.EditValue = null;
+            endDateDateEdit.EditValue = null;
 
+            if (model.Recurrence == RecurrenceType.WithSpecifiedEndDate)
+            {
+                endDateDateEdit.EditValue = model.EndDate;
+            }
+            else if (model.Recurrence == RecurrenceType.WithExactRepeated)
+            {
+                questionAmountSpinEdit.EditValue = model.AmountOfQuestionsPerDay;
+            }
+        }
+        
         private void SetUpRangeOfRecurrence(RecurrenceType type)
         {
             withoutEndDateCheckEdit.Checked = (type == RecurrenceType.WithoutEnding);
@@ -114,54 +159,6 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             endDateCheckEdit.Checked = (type == RecurrenceType.WithSpecifiedEndDate);
         }
 
-        private void BindCommand()
-        {
-            mvvmTesteeContext.BindCommand<TesteeViewModel>(saveButton, viewModel => viewModel.Save());
-            mvvmTesteeContext.BindCommand<TesteeViewModel>(cancelButton, viewModel => viewModel.Cancel());
-            mvvmTesteeContext.BindCommand<TesteeViewModel, TesteeTraining>(deleteTrainingButton,
-                (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTesteeTraining());
-            mvvmTesteeContext.BindCommand<TesteeViewModel, TesteeTraining>(addTrainingButton,
-                (x, currentTraining) => x.AddTraining(currentTraining), x => new TesteeTraining() { IsActive = true, IsSelect = true});
-        }
-
-        private void BindToViewModel()
-        {
-            mvvmTesteeContext.SetBinding(textFirstName, questionText => questionText.EditValue, "FirstName");
-            mvvmTesteeContext.SetBinding(textLastName, questionText => questionText.EditValue, "LastName");
-            mvvmTesteeContext.SetBinding(textEmail, questionText => questionText.EditValue, "Email");
-            mvvmTesteeContext.SetBinding(textLogin, questionText => questionText.EditValue, "Login");
-            mvvmTesteeContext.SetBinding(gridTrainings, answers => answers.DataSource, "Trainings");
-
-            mvvmTesteeContext.SetBinding(trainingsRepositoryItemLookUpEdit, training => training.DataSource, "AllTrainings");
-            trainingsRepositoryItemLookUpEdit.DisplayMember = "TrainingTitle";
-            trainingsRepositoryItemLookUpEdit.ValueMember = "TrainingTitle";
-
-            //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
-            var inner = new BindingSource { DataSource = model.Setting };
-                        
-            canEditToggleSwitch.DataBindings.Add("EditValue", inner, "CanUserEdit");            
-            showAnswerToggleSwitch.DataBindings.Add("EditValue", inner, "ShowCorrectAnswer");
-            hoursSpinEdit.DataBindings.Add("EditValue", inner, "Hours");
-            minutesSpinEdit.DataBindings.Add("EditValue", inner, "Minutes");
-            secondsSpinEdit.DataBindings.Add("EditValue", inner, "Seconds");
-            startDateEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");
-            startTimeEdit.DataBindings.Add("EditValue", inner, "TimeOfStart");       
-            //questionAmountSpinEdit.DataBindings.Add("EditValue", inner, "AmountOfQuestionsPerDay");
-            //endDateDateEdit.DataBindings.Add("EditValue", inner, "EndDate");       
-        }               
-
-        public Testee Testee
-        {
-            get
-            {
-                return model.Testee;
-            }
-            set
-            {
-                model.Testee = value;
-            }
-        }
-        
         public void Localized(string language)
         {
             var resources = new ComponentResourceManager(typeof(AddEditTesteeForm));
@@ -210,30 +207,11 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             this.Text = title + (Testee != null && !String.IsNullOrEmpty(Testee.Login) ? ":" + Testee.Login : "");
         }
 
-        private void gridViewTrainings_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
-        {
-            model.AddTraining(new TesteeTraining() { IsActive = true, IsSelect = true });
-        }
-
         private TesteeTraining GetCurrentTesteeTraining()
         {
             int rowHandler = this.gridViewTrainings.FocusedRowHandle;
             var editedTesteeTraining = (TesteeTraining)gridViewTrainings.GetRow(rowHandler);
             return editedTesteeTraining;
-        }
-
-        private void trainingsRepositoryItemLookUpEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            //Write selected training to testee trainings 
-            var testeeTraining = GetCurrentTesteeTraining();
-
-            GridLookUpEdit editor = (sender as GridLookUpEdit);
-            var currentTraining = editor.EditValue;
-            if (currentTraining != null)
-            {
-                testeeTraining.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentTraining.ToString()).First();
-                testeeTraining.IsActive = true;
-            }
         }
 
         private void rolesComboBox_Closed(object sender, ClosedEventArgs e)
@@ -263,6 +241,27 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
             settingLayoutControlGroup.Expanded = !currentValue;
         }
+
+        #region Work with newly added training
+        private void gridViewTrainings_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            model.AddTraining(new TesteeTraining() { IsActive = true, IsSelect = true });
+        }
+       
+        private void trainingsRepositoryItemLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            //Write selected training to testee trainings 
+            var testeeTraining = GetCurrentTesteeTraining();
+
+            GridLookUpEdit editor = (sender as GridLookUpEdit);
+            var currentTraining = editor.EditValue;
+            if (currentTraining != null)
+            {
+                testeeTraining.Training = model.AllTrainings.Where(_ => _.TrainingTitle == currentTraining.ToString()).First();
+                testeeTraining.IsActive = true;
+            }
+        }
+        #endregion
 
         #region Recurrence type changing
         private void withoutEndDateCheckEdit_CheckedChanged(object sender, EventArgs e)

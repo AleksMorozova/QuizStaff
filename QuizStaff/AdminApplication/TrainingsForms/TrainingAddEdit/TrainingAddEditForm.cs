@@ -30,7 +30,8 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
             BindCommand();
             model = mvvmTrainingContext.GetViewModel<TrainingViewModel>();   
             model.SetUpViewModel(training);
-            mvvmTrainingContext.SetViewModel(typeof(TrainingViewModel), model);   
+            mvvmTrainingContext.SetViewModel(typeof(TrainingViewModel), model);
+            model.QuestionsListChanged += new TrainingChangedEventHandler(QuestionsListChanged);
             BindToViewModel(); 
             currentTraining = model.Training;  
         }
@@ -40,15 +41,13 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
         private void BindCommand()
         {
             mvvmTrainingContext.BindCommand<TrainingViewModel>(cancelButton, viewModel => viewModel.Cancel());            
-            mvvmTrainingContext.BindCommand<TrainingViewModel>(saveButton, viewModel => viewModel.Save());
-            
+            mvvmTrainingContext.BindCommand<TrainingViewModel>(saveButton, viewModel => viewModel.Save());   
             mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(editQuestionButton, (viewModel, question)
                 => viewModel.EditQuestion(question), x => GetCurrentQuestion());
             mvvmTrainingContext.BindCommand<TrainingViewModel, Training>(addQuestionButton, (viewModel, training)
-                => viewModel.AddQuestion(training), x => currentTraining);            
-            //mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(deleteQuestionButton,(x, currentTraining) 
-            //    => x.DeleteQuestion(currentTraining), x => GetCurrentQuestion());
-
+                => viewModel.AddQuestion(training), x => currentTraining);
+            mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(deleteQuestionButton, (x, currentTraining)
+                => x.DeleteQuestion(currentTraining), x => GetCurrentQuestion());
             mvvmTrainingContext.BindCommand<TrainingViewModel>(loadQuestionButton, viewModel => viewModel.LoadQuestions());
         }
 
@@ -98,17 +97,10 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
                 ? resources.GetString("Title", newCultureInfo) : "Training";
             this.Text = title + (Training != null && !String.IsNullOrEmpty(Training.TrainingTitle) ? ":" + Training.TrainingTitle : "");
         }
-
-        private void deleteQuestionButton_Click(object sender, EventArgs e)
+       
+        private void QuestionsListChanged(object sender, EventArgs e)
         {
-            //TODO: fix refreshing of DataSource for gridQuestions
             gridQuestions.Refresh();
-            var deletedQuestion = GetCurrentQuestion();
-            if (deletedQuestion!=null)
-            {
-                model.DeleteQuestion(deletedQuestion);
-                gridQuestions.DataSource = model.Questions.Where(_=>_.IsActive);
-            }
         }
     }
 }

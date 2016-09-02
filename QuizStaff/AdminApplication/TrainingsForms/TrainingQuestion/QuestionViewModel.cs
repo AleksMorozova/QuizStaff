@@ -1,4 +1,5 @@
-﻿using DomainModel;
+﻿using DataTransferObject;
+using DomainModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,8 @@ using System.Windows.Forms;
 
 namespace AdminApplication.TrainingsForms.TrainingQuestion
 {
+    public delegate void QuestionChangedEventHandler(object sender, EventArgs e);
+
     public class QuestionViewModel
     {
         public Question Question { get; set; }
@@ -50,19 +53,42 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
             this.Question = question;
         }
 
-        public void DeleteAnswer(Answer deleteAnswer) 
+        public void DeleteAnswer(Answer deletedAnswer) 
         {
-            if(deleteAnswer != null)
-                deleteAnswer.IsActive = false;
+            if (deletedAnswer != null)
+            {
+                deletedAnswer.IsActive = false;
+                ServicesHolder.ServiceClient.UpdateAnswer(Conversion.ConvertAnswerToDTO(deletedAnswer));
+                Question.Answers.Remove(deletedAnswer);
+
+                OnQuestionChanged(EventArgs.Empty);
+            }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public void AddAnswer(Answer addAnswer)
+        {
+            if (addAnswer != null)
+            {
+                Question.Answers.Add(addAnswer);
+                OnQuestionChanged(EventArgs.Empty);
+            }   
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
         protected virtual void RaisePropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                handler(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+        
+        public event QuestionChangedEventHandler QuestionsListChanged;
+        protected virtual void OnQuestionChanged(EventArgs e)
+        {
+            if (QuestionsListChanged != null)
+                QuestionsListChanged(this, e);
         }
     }
 }

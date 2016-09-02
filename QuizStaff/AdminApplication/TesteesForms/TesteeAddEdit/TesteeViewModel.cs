@@ -14,10 +14,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
     public delegate void TesteeChangedEventHandler(object sender, EventArgs e);
 
     public class TesteeViewModel : INotifyPropertyChanged 
-    {       
-        public event TesteeChangedEventHandler TesteeListChanged;
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
+    {    
         public BindingList<Role> AllRoles { get; set; }       
         public BindingList<Training> AllTrainings { get; set; }
         private Testee LoadedTeste{ get; set; }
@@ -361,22 +358,6 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             }
         }
 
-        protected virtual void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-
-            }
-        }
-        
-        protected virtual void OnTesteeListChanged(EventArgs e)
-        {
-            if (TesteeListChanged != null)
-                TesteeListChanged(this, e);
-        }
-
         public void DeleteTraining(TesteeTraining deletedTraining)
         {
             if (deletedTraining != null)
@@ -418,5 +399,23 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 }
             }
         }    
+          
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        protected virtual void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+
+            }
+        }
+              
+        public event TesteeChangedEventHandler TesteeListChanged;
+        protected virtual void OnTesteeListChanged(EventArgs e)
+        {
+            if (TesteeListChanged != null)
+                TesteeListChanged(this, e);
+        }
     }
 }

@@ -13,15 +13,10 @@ using System.Windows.Forms;
 
 namespace AdminApplication.TrainingsListForm
 {
-    // A delegate type for hooking up change notifications.
     public delegate void TrainingChangedEventHandler(object sender, EventArgs e);
 
     public class TrainingListViewModel
     {
-        // An event that clients can use to be notified whenever the
-        // elements of the list change.
-        public event TrainingChangedEventHandler TrainingListChanged;
-
         public BindingList<Training> Trainings { get; set; }
         private TrainingDTO[] ReadTrainings;
 
@@ -53,13 +48,6 @@ namespace AdminApplication.TrainingsListForm
             FormManager.Instance.OpenChildForm(trainingForm, "Edit training: " + editedTraining.TrainingTitle);
             FormManager.LocalizedFormList.Add(trainingForm);
             FormManager.Instance.LocalizedForms(Program.СurrentLang);
-        }
-
-        // Invoke the TrainingListChanged event; called whenever list changes
-        protected virtual void OnTrainingListChanged(EventArgs e)
-        {
-            if (TrainingListChanged != null)
-                TrainingListChanged(this, e);
         }
 
         public void DeleteTraining(Training deletedTraining)
@@ -98,6 +86,13 @@ namespace AdminApplication.TrainingsListForm
         {
             // TODO: implement loading of trainings from external source
             XtraMessageBox.Show("Load trainings");
+        }
+           
+        public event TrainingChangedEventHandler TrainingListChanged;
+        protected virtual void OnTrainingListChanged(EventArgs e)
+        {
+            if (TrainingListChanged != null)
+                TrainingListChanged(this, e);
         }
     }
 }

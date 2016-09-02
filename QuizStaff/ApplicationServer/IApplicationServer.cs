@@ -105,5 +105,8 @@ namespace Server
 
         [OperationContract]
         void AddTesteeRole(TesteeDTO testee, RoleDTO role);
+       
+        [OperationContract]
+        void UpdateAnswer(AnswerDTO answer);
     }
 }

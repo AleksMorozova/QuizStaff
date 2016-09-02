@@ -12,6 +12,8 @@ using System.Windows.Forms;
 
 namespace AdminApplication.TrainingsForms.TrainingAddEdit
 {
+    public delegate void TrainingChangedEventHandler(object sender, EventArgs e);
+
     public class TrainingViewModel : INotifyPropertyChanged 
     {
         private Training LoadTraining { get; set; }
@@ -29,7 +31,7 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
                 if (value != training)
                 {
                     training = value;
-                    //RaisePropertyChanged("Training");
+                    RaisePropertyChanged("Training");
                     RaisePropertyChanged("TrainingTitle");
                     RaisePropertyChanged("Questions");
                 }
@@ -104,10 +106,9 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
 
                     ServicesHolder.ServiceClient.UpdateQuestion(deletedQuestion);
                 }
-                else
-                {
-                    this.Training.Questions.Remove(deletedQuestion);
-                }
+
+                this.Training.Questions.Remove(deletedQuestion);
+                OnTrainingChanged(EventArgs.Empty);
             }  
         }
 
@@ -140,15 +141,20 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
         protected virtual void RaisePropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(propertyName));
-
             }
+        }
+        
+        public event TrainingChangedEventHandler QuestionsListChanged;
+        protected virtual void OnTrainingChanged(EventArgs e)
+        {
+            if (QuestionsListChanged != null)
+                QuestionsListChanged(this, e);
         }
     }
 }

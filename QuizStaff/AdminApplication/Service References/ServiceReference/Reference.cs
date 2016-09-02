@@ -194,6 +194,12 @@ namespace AdminApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/AddTesteeRole", ReplyAction="http://tempuri.org/IApplicationServer/AddTesteeRoleResponse")]
         System.Threading.Tasks.Task AddTesteeRoleAsync(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateAnswer", ReplyAction="http://tempuri.org/IApplicationServer/UpdateAnswerResponse")]
+        void UpdateAnswer(DataTransferObject.AnswerDTO answer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateAnswer", ReplyAction="http://tempuri.org/IApplicationServer/UpdateAnswerResponse")]
+        System.Threading.Tasks.Task UpdateAnswerAsync(DataTransferObject.AnswerDTO answer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -461,6 +467,14 @@ namespace AdminApplication.ServiceReference {
         
         public System.Threading.Tasks.Task AddTesteeRoleAsync(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role) {
             return base.Channel.AddTesteeRoleAsync(testee, role);
+        }
+        
+        public void UpdateAnswer(DataTransferObject.AnswerDTO answer) {
+            base.Channel.UpdateAnswer(answer);
+        }
+        
+        public System.Threading.Tasks.Task UpdateAnswerAsync(DataTransferObject.AnswerDTO answer) {
+            return base.Channel.UpdateAnswerAsync(answer);
         }
     }
 }

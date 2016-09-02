@@ -69,8 +69,6 @@ namespace AdminApplication.AdminSettings
             secondsSpinEdit.DataBindings.Add("EditValue", outer, "Seconds");
             startDateEdit.DataBindings.Add("EditValue", outer, "TimeOfStart");
             startTimeEdit.DataBindings.Add("EditValue", outer, "TimeOfStart");
-            //endDateDateEdit.DataBindings.Add("EditValue", outer, "EndDate");
-            //questionAmountSpinEdit.DataBindings.Add("EditValue", outer, "AmountOfQuestionsPerDay");
         }
 
         private void BindCommands()

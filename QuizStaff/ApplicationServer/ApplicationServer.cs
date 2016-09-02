@@ -324,7 +324,6 @@ namespace Server
             return (result != null) ? result : new TrainingDTO() { IsActive = true };
         }
 
-
         public List<RoleDTO> GetAllRoles()
         {
             EFRepository<Role> repo = new EFRepository<Role>();
@@ -338,7 +337,6 @@ namespace Server
             var permissions = new List<Permission>(repo.ReadAll());
             return permissions.Select(permission => (PermissionDTO)permission).ToList();
         }
-
 
         public void UpdateRoles(RoleDTO role)
         {            
@@ -371,12 +369,18 @@ namespace Server
             }
         }
 
-
         public void AddTesteeRole(TesteeDTO testee, RoleDTO role)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
             testee.Roles.Add(new TesteeRolesDTO() { Role = role, IsActive = false });
             repo.Update(Conversion.ConvertTesteeFromDTO(testee));
+        }
+
+        public void UpdateAnswer(AnswerDTO answer) 
+        {
+            EFRepository<Answer> repo = new EFRepository<Answer>();
+            Answer newAnswer = Conversion.ConvertAnswerFromDTO(answer);
+            repo.Update(newAnswer);
         }
     }
 }

@@ -15,8 +15,6 @@ namespace AdminApplication.TesteesForms.TesteesList
 
     public class TesteesListViewModel
     {
-        public event TesteeChangedEventHandler TesteeListChanged;
-
         public BindingList<Testee> Testees { get; set; }
         private TesteeDTO[] ReadTestees { get; set; }
 
@@ -47,12 +45,6 @@ namespace AdminApplication.TesteesForms.TesteesList
             FormManager.Instance.OpenChildForm(testeeForm, "Edit testee: " + editedTestee.Login);
             FormManager.LocalizedFormList.Add(testeeForm);
             FormManager.Instance.LocalizedForms(Program.СurrentLang);
-        }
-
-        protected virtual void OnTesteeListChanged(EventArgs e)
-        {
-            if (TesteeListChanged != null)
-                TesteeListChanged(this, e);
         }
 
         public void DeleteTestee(Testee deletedTestee)
@@ -91,6 +83,13 @@ namespace AdminApplication.TesteesForms.TesteesList
         {
             // TODO: implement loading of testees from external source
             XtraMessageBox.Show("Load trainings");
+        }    
+    
+        public event TesteeChangedEventHandler TesteeListChanged;
+        protected virtual void OnTesteeListChanged(EventArgs e)
+        {
+            if (TesteeListChanged != null)
+                TesteeListChanged(this, e);
         }
     }
 }

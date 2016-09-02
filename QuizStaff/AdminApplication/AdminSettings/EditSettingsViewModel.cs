@@ -245,7 +245,6 @@ namespace AdminApplication.AdminSettings
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected virtual void RaisePropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

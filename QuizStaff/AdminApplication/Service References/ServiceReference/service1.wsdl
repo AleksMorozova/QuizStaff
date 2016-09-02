@@ -188,6 +188,12 @@
   <wsdl:message name="IApplicationServer_AddTesteeRole_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddTesteeRoleResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnswerResponse" />
+  </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetAllTestees">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTestees" message="tns:IApplicationServer_GetAllTestees_InputMessage" />
@@ -308,6 +314,10 @@
     <wsdl:operation name="AddTesteeRole">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/AddTesteeRole" message="tns:IApplicationServer_AddTesteeRole_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/AddTesteeRoleResponse" message="tns:IApplicationServer_AddTesteeRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateAnswer" message="tns:IApplicationServer_UpdateAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateAnswerResponse" message="tns:IApplicationServer_UpdateAnswer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -575,6 +585,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddTesteeRole">
       <soap:operation soapAction="http://tempuri.org/IApplicationServer/AddTesteeRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnswer">
+      <soap:operation soapAction="http://tempuri.org/IApplicationServer/UpdateAnswer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
