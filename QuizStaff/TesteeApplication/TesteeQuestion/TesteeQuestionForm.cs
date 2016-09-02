@@ -92,6 +92,9 @@ namespace TesteeApplication.TesteeQuestion
 
             this.Left = (Program.FirstShow) ? rightmost.WorkingArea.Right - this.Width : Program.LeftPosition;
             this.Top = (Program.FirstShow) ? rightmost.WorkingArea.Bottom - this.Height : Program.TopPosition;
+            this.Width = (Program.FirstShow) ? this.Width : Program.Width;
+            this.Height = (Program.FirstShow) ? this.Height : Program.Height;
+
             Program.FirstShow = false;
         }
  
@@ -175,6 +178,8 @@ namespace TesteeApplication.TesteeQuestion
             //Remember windows position
             Program.LeftPosition = this.Left;
             Program.TopPosition = this.Top;
+            Program.Width = this.Width;
+            Program.Height = this.Height;
 
             var userAnswer = GetUserAnswer();
             model.SaveTesteeAnswer(userAnswer);

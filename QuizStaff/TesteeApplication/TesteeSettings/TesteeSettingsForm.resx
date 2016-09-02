@@ -150,10 +150,10 @@
     <value>20, 312</value>
   </data>
   <data name="withoutEndDateCheckEdit.Properties.Caption" xml:space="preserve">
-    <value>Without end condition </value>
+    <value>Without end date</value>
   </data>
   <data name="withoutEndDateCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>302, 19</value>
+    <value>282, 19</value>
   </data>
   <data name="withoutEndDateCheckEdit.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -204,7 +204,7 @@
     <value>True</value>
   </metadata>
   <data name="endDateCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 374</value>
+    <value>20, 369</value>
   </data>
   <data name="endDateCheckEdit.Properties.Caption" xml:space="preserve">
     <value>End date</value>
@@ -235,7 +235,7 @@
     <value />
   </data>
   <data name="endDateDateEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>115, 374</value>
+    <value>115, 369</value>
   </data>
   <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="endDateDateEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
@@ -452,7 +452,7 @@
     <value>True</value>
   </metadata>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 419</value>
+    <value>12, 409</value>
   </data>
   <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 22</value>
@@ -479,7 +479,7 @@
     <value>True</value>
   </metadata>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 419</value>
+    <value>197, 409</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 22</value>

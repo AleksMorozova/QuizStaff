@@ -13,13 +13,16 @@ using System.Globalization;
 using DevExpress.XtraGrid.Views.Grid;
 using DomainModel;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.Utils;
 
 namespace AdminApplication.TesteesForm.TesteeAddEdit
 {
     public partial class AddEditTesteeForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
         private TesteeViewModel model;
-        
+        private bool isExtended = false;
+        private int SettingGroupWidth = 0;
         public Testee Testee
         {
             get
@@ -55,8 +58,10 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             SetUpRangeOfRecurrence(model.Setting.Recurrence);
 
             //Expande settings group
+            SettingGroupWidth = settingLayoutControlGroup.Width;
             settingLayoutControlGroup.Expanded = false;
             settingLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            isExtended = false;
         }
        
         private void TesteeListChanged(object sender, EventArgs e)
@@ -233,13 +238,21 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
         private void editSettingButton_Click(object sender, EventArgs e)
         {
-            bool currentValue = settingLayoutControlGroup.Expanded;
+            if (settingLayoutControlGroup.Expanded)
+            {
+                Program.ApplicationMainForm.Width -= SettingGroupWidth; 
+            }
+            else
+            {
+                Program.ApplicationMainForm.Width += SettingGroupWidth; 
+            }
 
-            settingLayoutControlGroup.Visibility = (!currentValue)
+            settingLayoutControlGroup.Visibility = (!isExtended)
                 ? DevExpress.XtraLayout.Utils.LayoutVisibility.Always
                 :DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
 
-            settingLayoutControlGroup.Expanded = !currentValue;
+            settingLayoutControlGroup.Expanded = !isExtended;
+            isExtended = settingLayoutControlGroup.Expanded;
         }
 
         #region Work with newly added training

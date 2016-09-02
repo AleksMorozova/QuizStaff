@@ -24,6 +24,8 @@ namespace TesteeApplication
         public static bool FirstShow = true;
         public static int LeftPosition = 0;
         public static int TopPosition = 0;
+        public static int Width = 0;
+        public static int Height = 0;
 
         public static string СurrentLang { get; set; }
         public static Testee СurrentTestee { get; set; }

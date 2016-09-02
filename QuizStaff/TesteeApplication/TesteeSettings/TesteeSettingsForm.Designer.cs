@@ -323,17 +323,17 @@
             this.recurrenceLayoutControlGroup.Location = new System.Drawing.Point(0, 271);
             this.recurrenceLayoutControlGroup.Name = "recurrenceLayoutControlGroup";
             this.recurrenceLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.recurrenceLayoutControlGroup.Size = new System.Drawing.Size(372, 131);
+            this.recurrenceLayoutControlGroup.Size = new System.Drawing.Size(372, 121);
             this.recurrenceLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 5);
             resources.ApplyResources(this.recurrenceLayoutControlGroup, "recurrenceLayoutControlGroup");
             // 
             // endDateLayoutControlItem
             // 
             this.endDateLayoutControlItem.Control = this.endDateDateEdit;
-            this.endDateLayoutControlItem.Location = new System.Drawing.Point(95, 57);
+            this.endDateLayoutControlItem.Location = new System.Drawing.Point(95, 52);
             this.endDateLayoutControlItem.Name = "endDateLayoutControlItem";
-            this.endDateLayoutControlItem.Size = new System.Drawing.Size(158, 34);
-            this.endDateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
+            this.endDateLayoutControlItem.Size = new System.Drawing.Size(158, 29);
+            this.endDateLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 0);
             resources.ApplyResources(this.endDateLayoutControlItem, "endDateLayoutControlItem");
             this.endDateLayoutControlItem.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.endDateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Left;
@@ -344,10 +344,10 @@
             // endDateButtonLayoutControlItem
             // 
             this.endDateButtonLayoutControlItem.Control = this.endDateCheckEdit;
-            this.endDateButtonLayoutControlItem.Location = new System.Drawing.Point(0, 57);
+            this.endDateButtonLayoutControlItem.Location = new System.Drawing.Point(0, 52);
             this.endDateButtonLayoutControlItem.Name = "endDateButtonLayoutControlItem";
-            this.endDateButtonLayoutControlItem.Size = new System.Drawing.Size(95, 34);
-            this.endDateButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 5);
+            this.endDateButtonLayoutControlItem.Size = new System.Drawing.Size(95, 29);
+            this.endDateButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 5, 0);
             this.endDateButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.endDateButtonLayoutControlItem.TextVisible = false;
             // 
@@ -356,8 +356,8 @@
             this.endAfterQuestionButtonLayoutControlItem.Control = this.endAfterCheckEdit;
             this.endAfterQuestionButtonLayoutControlItem.Location = new System.Drawing.Point(0, 23);
             this.endAfterQuestionButtonLayoutControlItem.Name = "endAfterQuestionButtonLayoutControlItem";
-            this.endAfterQuestionButtonLayoutControlItem.Size = new System.Drawing.Size(95, 34);
-            this.endAfterQuestionButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
+            this.endAfterQuestionButtonLayoutControlItem.Size = new System.Drawing.Size(95, 29);
+            this.endAfterQuestionButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
             this.endAfterQuestionButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.endAfterQuestionButtonLayoutControlItem.TextVisible = false;
             // 
@@ -366,8 +366,8 @@
             this.questionAmountSpinEditLayoutControlItem.Control = this.questionAmountSpinEdit;
             this.questionAmountSpinEditLayoutControlItem.Location = new System.Drawing.Point(95, 23);
             this.questionAmountSpinEditLayoutControlItem.Name = "questionAmountSpinEditLayoutControlItem";
-            this.questionAmountSpinEditLayoutControlItem.Size = new System.Drawing.Size(211, 34);
-            this.questionAmountSpinEditLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
+            this.questionAmountSpinEditLayoutControlItem.Size = new System.Drawing.Size(211, 29);
+            this.questionAmountSpinEditLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
             resources.ApplyResources(this.questionAmountSpinEditLayoutControlItem, "questionAmountSpinEditLayoutControlItem");
             this.questionAmountSpinEditLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Right;
             this.questionAmountSpinEditLayoutControlItem.TextSize = new System.Drawing.Size(84, 13);
@@ -375,9 +375,9 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(253, 57);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(253, 52);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(103, 34);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(103, 29);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem1
@@ -385,7 +385,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(306, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(50, 57);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(50, 52);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // withoutEndLayoutControlItem
@@ -394,6 +394,7 @@
             this.withoutEndLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.withoutEndLayoutControlItem.Name = "withoutEndLayoutControlItem";
             this.withoutEndLayoutControlItem.Size = new System.Drawing.Size(306, 23);
+            this.withoutEndLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 20, 0, 0);
             this.withoutEndLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.withoutEndLayoutControlItem.TextVisible = false;
             // 
@@ -508,9 +509,9 @@
             // layoutControlSaveButton
             // 
             this.layoutControlSaveButton.Control = this.saveButton;
-            this.layoutControlSaveButton.Location = new System.Drawing.Point(0, 402);
+            this.layoutControlSaveButton.Location = new System.Drawing.Point(0, 392);
             this.layoutControlSaveButton.Name = "layoutControlSaveButton";
-            this.layoutControlSaveButton.Size = new System.Drawing.Size(185, 39);
+            this.layoutControlSaveButton.Size = new System.Drawing.Size(185, 49);
             this.layoutControlSaveButton.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
             this.layoutControlSaveButton.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlSaveButton.TextVisible = false;
@@ -518,9 +519,9 @@
             // layoutControlCancelButton
             // 
             this.layoutControlCancelButton.Control = this.cancelButton;
-            this.layoutControlCancelButton.Location = new System.Drawing.Point(185, 402);
+            this.layoutControlCancelButton.Location = new System.Drawing.Point(185, 392);
             this.layoutControlCancelButton.Name = "layoutControlCancelButton";
-            this.layoutControlCancelButton.Size = new System.Drawing.Size(187, 39);
+            this.layoutControlCancelButton.Size = new System.Drawing.Size(187, 49);
             this.layoutControlCancelButton.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
             this.layoutControlCancelButton.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlCancelButton.TextVisible = false;

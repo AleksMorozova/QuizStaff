@@ -689,7 +689,7 @@
     <value>468, 312</value>
   </data>
   <data name="withoutEndDateCheckEdit.Properties.Caption" xml:space="preserve">
-    <value>Without end condition</value>
+    <value>Without end date</value>
   </data>
   <data name="withoutEndDateCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 19</value>
