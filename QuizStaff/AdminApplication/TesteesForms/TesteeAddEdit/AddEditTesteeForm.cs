@@ -15,6 +15,7 @@ using DomainModel;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.Utils;
+using System.Collections;
 
 namespace AdminApplication.TesteesForm.TesteeAddEdit
 {
@@ -23,6 +24,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         private TesteeViewModel model;
         private bool isExtended = false;
         private int SettingGroupWidth = 0;
+        private int DefaultWidth = Program.ApplicationMainForm.Width;
+        
         public Testee Testee
         {
             get
@@ -62,6 +65,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             settingLayoutControlGroup.Expanded = false;
             settingLayoutControlGroup.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             isExtended = false;
+            settingsGroupEmptySpaceItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
         }
        
         private void TesteeListChanged(object sender, EventArgs e)
@@ -251,6 +255,10 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 ? DevExpress.XtraLayout.Utils.LayoutVisibility.Always
                 :DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
 
+            settingsGroupEmptySpaceItem.Visibility = (!isExtended)
+                ? DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+                : DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+
             settingLayoutControlGroup.Expanded = !isExtended;
             isExtended = settingLayoutControlGroup.Expanded;
         }
@@ -315,7 +323,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         private void endDateDateEdit_EditValueChanged(object sender, EventArgs e)
         {
             DateEdit date = sender as DateEdit;
-            model.EndDate = date.DateTime;
+
+            model.EndDate = (DateTime)date.EditValue;
         }
 
         private void questionAmountSpinEdit_EditValueChanged(object sender, EventArgs e)
@@ -325,5 +334,29 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 model.AmountOfQuestionsPerDay = (int)date.Value;
         }
         #endregion
+
+        /// <summary>
+        /// Display only active training at training popup list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repositoryItemGridLookUpEdit1View_CustomRowFilter(object sender, DevExpress.XtraGrid.Views.Base.RowFilterEventArgs e)
+        {
+            GridView view = sender as GridView;
+            var data = view.GetRow(e.ListSourceRow) as Training;
+            if (data != null)
+            {
+                e.Visible = data.IsActive;
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// Return main for default width  
+        /// </summary>
+        private void AddEditTesteeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.ApplicationMainForm.Width = DefaultWidth;
+        }
     }
 }

@@ -150,7 +150,7 @@ namespace Server
             Setting sets = new Setting() { AmountOfQuestionsPerDay = 1,
                                                 Minutes = 1,
                                                 StartDate = DateTime.Now,
-                                                EndDate = DateTime.Now,
+                                                EndDate = DateTime.MaxValue,
                                                     TimeOfStart = new DateTime(2016, 5, 8, 10, 10, 10, 10) };
             return sets;
         }
@@ -269,7 +269,8 @@ namespace Server
                 newSetting.Minutes = setting.Minutes;
                 newSetting.Seconds = setting.Seconds;
                 newSetting.StartDate = setting.TimeOfStart;
-                newSetting.EndDate = setting.TimeOfStart;
+                newSetting.EndDate = setting.EndDate;
+                setting.EndDate = (setting.EndDate != DateTime.MinValue) ? setting.EndDate : DateTime.MaxValue;
                 newSetting.Recurrence = setting.Recurrence;
                 newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
                 newSetting.TimeOfStart = setting.TimeOfStart;

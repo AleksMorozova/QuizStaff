@@ -121,524 +121,54 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="startParametersLabelControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 205</value>
+  <data name="languageComboBoxEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 57</value>
   </data>
-  <data name="startParametersLabelControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 13</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="startParametersLabelControl.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="startParametersLabelControl.Text" xml:space="preserve">
-    <value>First question comes at:</value>
-  </data>
-  <data name="&gt;&gt;startParametersLabelControl.Name" xml:space="preserve">
-    <value>startParametersLabelControl</value>
-  </data>
-  <data name="&gt;&gt;startParametersLabelControl.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;startParametersLabelControl.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;startParametersLabelControl.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="withoutEndDateCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 312</value>
-  </data>
-  <data name="withoutEndDateCheckEdit.Properties.Caption" xml:space="preserve">
-    <value>Without end date</value>
-  </data>
-  <data name="withoutEndDateCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 19</value>
-  </data>
-  <data name="withoutEndDateCheckEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;withoutEndDateCheckEdit.Name" xml:space="preserve">
-    <value>withoutEndDateCheckEdit</value>
-  </data>
-  <data name="&gt;&gt;withoutEndDateCheckEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;withoutEndDateCheckEdit.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;withoutEndDateCheckEdit.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <metadata name="endAfterCheckEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="endAfterCheckEdit.EditValue" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="endAfterCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 340</value>
-  </data>
-  <data name="endAfterCheckEdit.Properties.Caption" xml:space="preserve">
-    <value>End after</value>
-  </data>
-  <data name="endAfterCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 19</value>
-  </data>
-  <data name="endAfterCheckEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;endAfterCheckEdit.Name" xml:space="preserve">
-    <value>endAfterCheckEdit</value>
-  </data>
-  <data name="&gt;&gt;endAfterCheckEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;endAfterCheckEdit.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;endAfterCheckEdit.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <metadata name="endDateCheckEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="endDateCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 369</value>
-  </data>
-  <data name="endDateCheckEdit.Properties.Caption" xml:space="preserve">
-    <value>End date</value>
-  </data>
-  <data name="endDateCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 19</value>
-  </data>
-  <data name="endDateCheckEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;endDateCheckEdit.Name" xml:space="preserve">
-    <value>endDateCheckEdit</value>
-  </data>
-  <data name="&gt;&gt;endDateCheckEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;endDateCheckEdit.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;endDateCheckEdit.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <metadata name="endDateDateEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="barManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>480, 17</value>
   </metadata>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="endDateDateEdit.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
+  <data name="barDockControlTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
-  <data name="endDateDateEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>115, 369</value>
-  </data>
-  <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-  <data name="endDateDateEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Combo</value>
-  </data>
-  <data name="endDateDateEdit.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Combo</value>
-  </data>
-  <data name="endDateDateEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 20</value>
-  </data>
-  <data name="endDateDateEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;endDateDateEdit.Name" xml:space="preserve">
-    <value>endDateDateEdit</value>
-  </data>
-  <data name="&gt;&gt;endDateDateEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;endDateDateEdit.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;endDateDateEdit.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <metadata name="startDateDateEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="startDateDateEdit.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="startDateDateEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 243</value>
-  </data>
-  <data name="startDateDateEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Combo</value>
-  </data>
-  <data name="startDateDateEdit.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Combo</value>
-  </data>
-  <data name="startDateDateEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 20</value>
-  </data>
-  <data name="startDateDateEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;startDateDateEdit.Name" xml:space="preserve">
-    <value>startDateDateEdit</value>
-  </data>
-  <data name="&gt;&gt;startDateDateEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;startDateDateEdit.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;startDateDateEdit.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <metadata name="intervalLabelControl.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="intervalLabelControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 136</value>
-  </data>
-  <data name="intervalLabelControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 13</value>
-  </data>
-  <data name="intervalLabelControl.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="intervalLabelControl.Text" xml:space="preserve">
-    <value>Interval: </value>
-  </data>
-  <data name="&gt;&gt;intervalLabelControl.Name" xml:space="preserve">
-    <value>intervalLabelControl</value>
-  </data>
-  <data name="&gt;&gt;intervalLabelControl.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;intervalLabelControl.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;intervalLabelControl.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <metadata name="languageComboBoxEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="languageComboBoxEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 62</value>
-  </data>
-  <data name="languageComboBoxEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Glyph</value>
-  </data>
-  <data name="languageComboBoxEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>352, 20</value>
-  </data>
-  <data name="languageComboBoxEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;languageComboBoxEdit.Name" xml:space="preserve">
-    <value>languageComboBoxEdit</value>
-  </data>
-  <data name="&gt;&gt;languageComboBoxEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;languageComboBoxEdit.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;languageComboBoxEdit.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <metadata name="hoursSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="hoursSpinEdit.EditValue" type="System.Decimal, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="hoursSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>74, 136</value>
-  </data>
-  <data name="hoursSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Glyph</value>
-  </data>
-  <data name="hoursSpinEdit.Properties.Mask.EditMask" xml:space="preserve">
-    <value>f0</value>
-  </data>
-  <data name="hoursSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 20</value>
-  </data>
-  <data name="hoursSpinEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;hoursSpinEdit.Name" xml:space="preserve">
-    <value>hoursSpinEdit</value>
-  </data>
-  <data name="&gt;&gt;hoursSpinEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;hoursSpinEdit.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;hoursSpinEdit.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <metadata name="timeOfAskingEditTime.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="timeOfAskingEditTime.EditValue" type="System.DateTime, mscorlib">
-    <value>2016-06-23</value>
-  </data>
-  <data name="timeOfAskingEditTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 243</value>
-  </data>
-  <data name="timeOfAskingEditTime.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Glyph</value>
-  </data>
-  <data name="timeOfAskingEditTime.Properties.Mask.EditMask" xml:space="preserve">
-    <value>t</value>
-  </data>
-  <data name="timeOfAskingEditTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 20</value>
-  </data>
-  <data name="timeOfAskingEditTime.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;timeOfAskingEditTime.Name" xml:space="preserve">
-    <value>timeOfAskingEditTime</value>
-  </data>
-  <data name="&gt;&gt;timeOfAskingEditTime.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TimeEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;timeOfAskingEditTime.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;timeOfAskingEditTime.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <metadata name="questionAmountSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="questionAmountSpinEdit.EditValue" type="System.Decimal, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="questionAmountSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>115, 340</value>
-  </data>
-  <data name="questionAmountSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Glyph</value>
-  </data>
-  <data name="questionAmountSpinEdit.Properties.Mask.EditMask" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="questionAmountSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 20</value>
-  </data>
-  <data name="questionAmountSpinEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;questionAmountSpinEdit.Name" xml:space="preserve">
-    <value>questionAmountSpinEdit</value>
-  </data>
-  <data name="&gt;&gt;questionAmountSpinEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;questionAmountSpinEdit.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;questionAmountSpinEdit.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <metadata name="saveButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 409</value>
-  </data>
-  <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
-  </data>
-  <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="saveButton.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
-    <value>saveButton</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <metadata name="cancelButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 409</value>
-  </data>
-  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 22</value>
-  </data>
-  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="cancelButton.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
-    <value>cancelButton</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <metadata name="minuteSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="minuteSpinEdit.EditValue" type="System.Decimal, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="minuteSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>178, 136</value>
-  </data>
-  <data name="minuteSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Combo</value>
-  </data>
-  <data name="minuteSpinEdit.Properties.Mask.EditMask" xml:space="preserve">
-    <value>f0</value>
-  </data>
-  <data name="minuteSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 20</value>
-  </data>
-  <data name="minuteSpinEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;minuteSpinEdit.Name" xml:space="preserve">
-    <value>minuteSpinEdit</value>
-  </data>
-  <data name="&gt;&gt;minuteSpinEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;minuteSpinEdit.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;minuteSpinEdit.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <metadata name="secondSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="secondSpinEdit.EditValue" type="System.Decimal, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="secondSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 136</value>
-  </data>
-  <data name="secondSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
-    <value>Combo</value>
-  </data>
-  <data name="secondSpinEdit.Properties.Mask.EditMask" xml:space="preserve">
-    <value>f0</value>
-  </data>
-  <data name="secondSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 20</value>
-  </data>
-  <data name="secondSpinEdit.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;secondSpinEdit.Name" xml:space="preserve">
-    <value>secondSpinEdit</value>
-  </data>
-  <data name="&gt;&gt;secondSpinEdit.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;secondSpinEdit.Parent" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;secondSpinEdit.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="MainLayoutControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="MainLayoutControl.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="barDockControlTop.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="endDateLayoutControlItem.Text" xml:space="preserve">
-    <value>End date</value>
+  <data name="barDockControlTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>392, 0</value>
   </data>
-  <data name="questionAmountSpinEditLayoutControlItem.Text" xml:space="preserve">
-    <value>question at a day</value>
+  <data name="&gt;&gt;barDockControlTop.Name" xml:space="preserve">
+    <value>barDockControlTop</value>
   </data>
-  <data name="recurrenceLayoutControlGroup.Text" xml:space="preserve">
-    <value>Range of recurrence</value>
+  <data name="&gt;&gt;barDockControlTop.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="hoursEditLayoutControlItem.Text" xml:space="preserve">
-    <value>hours</value>
-  </data>
-  <data name="minuteLayoutControlItem.Text" xml:space="preserve">
-    <value>min</value>
-  </data>
-  <data name="secondLayoutControlItem.Text" xml:space="preserve">
-    <value>sec</value>
-  </data>
-  <data name="intervalIayoutControlGroup.Text" xml:space="preserve">
-    <value>Interval between question </value>
-  </data>
-  <data name="startTimeLayoutControlItem.Text" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="startDateLayoutControlItem.Text" xml:space="preserve">
-    <value>Date</value>
-  </data>
-  <data name="startLayoutControlGroup.Text" xml:space="preserve">
-    <value>Date and time settings</value>
-  </data>
-  <data name="languageLayoutControlItem.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="languageLayoutControlGroup.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="MainLayoutControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>392, 461</value>
-  </data>
-  <data name="MainLayoutControl.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;MainLayoutControl.Name" xml:space="preserve">
-    <value>MainLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;MainLayoutControl.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControl, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;MainLayoutControl.Parent" xml:space="preserve">
+  <data name="&gt;&gt;barDockControlTop.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;MainLayoutControl.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;barDockControlTop.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <metadata name="mvvmTesteeSettingsContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="barDockControlBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>392, 461</value>
+  <data name="barDockControlBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 461</value>
+  </data>
+  <data name="barDockControlBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>392, 0</value>
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.Name" xml:space="preserve">
+    <value>barDockControlBottom</value>
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;barDockControlBottom.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="barDockControlLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -682,47 +212,14 @@
   <data name="&gt;&gt;barDockControlRight.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="barDockControlBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="barDockControlBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 461</value>
-  </data>
-  <data name="barDockControlBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>392, 0</value>
-  </data>
-  <data name="&gt;&gt;barDockControlBottom.Name" xml:space="preserve">
-    <value>barDockControlBottom</value>
-  </data>
-  <data name="&gt;&gt;barDockControlBottom.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;barDockControlBottom.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;barDockControlBottom.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="barDockControlTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="barDockControlTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="barDockControlTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>392, 0</value>
-  </data>
-  <data name="&gt;&gt;barDockControlTop.Name" xml:space="preserve">
-    <value>barDockControlTop</value>
-  </data>
-  <data name="&gt;&gt;barDockControlTop.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarDockControl, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;barDockControlTop.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;barDockControlTop.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>392, 461</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1016,12 +513,6 @@
   <data name="&gt;&gt;languageLayoutControlGroup.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;languageLayoutControlItem.Name" xml:space="preserve">
-    <value>languageLayoutControlItem</value>
-  </data>
-  <data name="&gt;&gt;languageLayoutControlItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;mvvmTesteeSettingsContext.Name" xml:space="preserve">
     <value>mvvmTesteeSettingsContext</value>
   </data>
@@ -1064,12 +555,530 @@
   <data name="&gt;&gt;barManager.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarManager, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;languageLayoutControlItem.Name" xml:space="preserve">
+    <value>languageLayoutControlItem</value>
+  </data>
+  <data name="&gt;&gt;languageLayoutControlItem.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>TesteeSettingsForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="exitBarButtonItem.Caption" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="settingsBarButtonItem.Caption" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="aboutBarButtonItem.Caption" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <assembly alias="DevExpress.Utils.v15.2" name="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="comboBoxEdit1.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="languageComboBoxEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>352, 20</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="languageComboBoxEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;languageComboBoxEdit.Name" xml:space="preserve">
+    <value>languageComboBoxEdit</value>
+  </data>
+  <data name="&gt;&gt;languageComboBoxEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.ComboBoxEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;languageComboBoxEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;languageComboBoxEdit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="startParametersLabelControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 195</value>
+  </data>
+  <data name="startParametersLabelControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 13</value>
+  </data>
+  <data name="startParametersLabelControl.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="startParametersLabelControl.Text" xml:space="preserve">
+    <value>First question comes at:</value>
+  </data>
+  <data name="&gt;&gt;startParametersLabelControl.Name" xml:space="preserve">
+    <value>startParametersLabelControl</value>
+  </data>
+  <data name="&gt;&gt;startParametersLabelControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;startParametersLabelControl.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;startParametersLabelControl.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="withoutEndDateCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 302</value>
+  </data>
+  <data name="withoutEndDateCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>Without end date</value>
+  </data>
+  <data name="withoutEndDateCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>282, 19</value>
+  </data>
+  <data name="withoutEndDateCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;withoutEndDateCheckEdit.Name" xml:space="preserve">
+    <value>withoutEndDateCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;withoutEndDateCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;withoutEndDateCheckEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;withoutEndDateCheckEdit.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <metadata name="endAfterCheckEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="endAfterCheckEdit.EditValue" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="endAfterCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 330</value>
+  </data>
+  <data name="endAfterCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>End after</value>
+  </data>
+  <data name="endAfterCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 19</value>
+  </data>
+  <data name="endAfterCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;endAfterCheckEdit.Name" xml:space="preserve">
+    <value>endAfterCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;endAfterCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;endAfterCheckEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;endAfterCheckEdit.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <metadata name="endDateCheckEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="endDateCheckEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 359</value>
+  </data>
+  <data name="endDateCheckEdit.Properties.Caption" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="endDateCheckEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 19</value>
+  </data>
+  <data name="endDateCheckEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;endDateCheckEdit.Name" xml:space="preserve">
+    <value>endDateCheckEdit</value>
+  </data>
+  <data name="&gt;&gt;endDateCheckEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.CheckEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;endDateCheckEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;endDateCheckEdit.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <metadata name="endDateDateEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="endDateDateEdit.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="endDateDateEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 359</value>
+  </data>
+  <data name="endDateDateEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="endDateDateEdit.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="endDateDateEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 20</value>
+  </data>
+  <data name="endDateDateEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;endDateDateEdit.Name" xml:space="preserve">
+    <value>endDateDateEdit</value>
+  </data>
+  <data name="&gt;&gt;endDateDateEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;endDateDateEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;endDateDateEdit.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <metadata name="startDateDateEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="startDateDateEdit.EditValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="startDateDateEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 233</value>
+  </data>
+  <data name="startDateDateEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="startDateDateEdit.Properties.CalendarTimeProperties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="startDateDateEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 20</value>
+  </data>
+  <data name="startDateDateEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;startDateDateEdit.Name" xml:space="preserve">
+    <value>startDateDateEdit</value>
+  </data>
+  <data name="&gt;&gt;startDateDateEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.DateEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;startDateDateEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;startDateDateEdit.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <metadata name="intervalLabelControl.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="intervalLabelControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 126</value>
+  </data>
+  <data name="intervalLabelControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="intervalLabelControl.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="intervalLabelControl.Text" xml:space="preserve">
+    <value>Interval: </value>
+  </data>
+  <data name="&gt;&gt;intervalLabelControl.Name" xml:space="preserve">
+    <value>intervalLabelControl</value>
+  </data>
+  <data name="&gt;&gt;intervalLabelControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;intervalLabelControl.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;intervalLabelControl.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <metadata name="hoursSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="hoursSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="hoursSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 126</value>
+  </data>
+  <data name="hoursSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Glyph</value>
+  </data>
+  <data name="hoursSpinEdit.Properties.Mask.EditMask" xml:space="preserve">
+    <value>f0</value>
+  </data>
+  <data name="hoursSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="hoursSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;hoursSpinEdit.Name" xml:space="preserve">
+    <value>hoursSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;hoursSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;hoursSpinEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;hoursSpinEdit.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <metadata name="timeOfAskingEditTime.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="timeOfAskingEditTime.EditValue" type="System.DateTime, mscorlib">
+    <value>2016-06-23</value>
+  </data>
+  <data name="timeOfAskingEditTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 233</value>
+  </data>
+  <data name="timeOfAskingEditTime.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Glyph</value>
+  </data>
+  <data name="timeOfAskingEditTime.Properties.Mask.EditMask" xml:space="preserve">
+    <value>t</value>
+  </data>
+  <data name="timeOfAskingEditTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 20</value>
+  </data>
+  <data name="timeOfAskingEditTime.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;timeOfAskingEditTime.Name" xml:space="preserve">
+    <value>timeOfAskingEditTime</value>
+  </data>
+  <data name="&gt;&gt;timeOfAskingEditTime.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.TimeEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;timeOfAskingEditTime.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;timeOfAskingEditTime.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <metadata name="questionAmountSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="questionAmountSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="questionAmountSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 330</value>
+  </data>
+  <data name="questionAmountSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Glyph</value>
+  </data>
+  <data name="questionAmountSpinEdit.Properties.Mask.EditMask" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="questionAmountSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="questionAmountSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.Name" xml:space="preserve">
+    <value>questionAmountSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;questionAmountSpinEdit.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <metadata name="saveButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 399</value>
+  </data>
+  <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 22</value>
+  </data>
+  <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="saveButton.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
+    <value>saveButton</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <metadata name="cancelButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>197, 399</value>
+  </data>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 22</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <metadata name="minuteSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="minuteSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="minuteSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>178, 126</value>
+  </data>
+  <data name="minuteSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="minuteSpinEdit.Properties.Mask.EditMask" xml:space="preserve">
+    <value>f0</value>
+  </data>
+  <data name="minuteSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 20</value>
+  </data>
+  <data name="minuteSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;minuteSpinEdit.Name" xml:space="preserve">
+    <value>minuteSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;minuteSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;minuteSpinEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;minuteSpinEdit.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <metadata name="secondSpinEdit.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="secondSpinEdit.EditValue" type="System.Decimal, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="secondSpinEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>281, 126</value>
+  </data>
+  <data name="secondSpinEdit.Properties.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v15.2">
+    <value>Combo</value>
+  </data>
+  <data name="secondSpinEdit.Properties.Mask.EditMask" xml:space="preserve">
+    <value>f0</value>
+  </data>
+  <data name="secondSpinEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="secondSpinEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;secondSpinEdit.Name" xml:space="preserve">
+    <value>secondSpinEdit</value>
+  </data>
+  <data name="&gt;&gt;secondSpinEdit.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SpinEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;secondSpinEdit.Parent" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;secondSpinEdit.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="MainLayoutControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="MainLayoutControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="endDateLayoutControlItem.Text" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="questionAmountSpinEditLayoutControlItem.Text" xml:space="preserve">
+    <value>question at a day</value>
+  </data>
+  <data name="recurrenceLayoutControlGroup.Text" xml:space="preserve">
+    <value>Range of recurrence</value>
+  </data>
+  <data name="hoursEditLayoutControlItem.Text" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="minuteLayoutControlItem.Text" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="secondLayoutControlItem.Text" xml:space="preserve">
+    <value>sec</value>
+  </data>
+  <data name="intervalIayoutControlGroup.Text" xml:space="preserve">
+    <value>Interval between question </value>
+  </data>
+  <data name="startTimeLayoutControlItem.Text" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="startDateLayoutControlItem.Text" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="startLayoutControlGroup.Text" xml:space="preserve">
+    <value>Date and time settings</value>
+  </data>
+  <data name="languageLayoutControlItem.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="languageLayoutControlGroup.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="MainLayoutControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>392, 461</value>
+  </data>
+  <data name="MainLayoutControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;MainLayoutControl.Name" xml:space="preserve">
+    <value>MainLayoutControl</value>
+  </data>
+  <data name="&gt;&gt;MainLayoutControl.Type" xml:space="preserve">
+    <value>DevExpress.XtraLayout.LayoutControl, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;MainLayoutControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainLayoutControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="mvvmTesteeSettingsContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="quizNotifyIcon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>223, 17</value>
   </metadata>
@@ -1247,17 +1256,5 @@
   </data>
   <metadata name="popupMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>354, 17</value>
-  </metadata>
-  <data name="settingsBarButtonItem.Caption" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="aboutBarButtonItem.Caption" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="exitBarButtonItem.Caption" xml:space="preserve">
-    <value>Exit</value>
-  </data>
-  <metadata name="barManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>480, 17</value>
   </metadata>
 </root>

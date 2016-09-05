@@ -100,6 +100,7 @@
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.settingsGroupEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -163,6 +164,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsGroupEmptySpaceItem)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -319,6 +321,7 @@
             this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
             this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.repositoryItemGridLookUpEdit1View.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.repositoryItemGridLookUpEdit1View_CustomRowFilter);
             // 
             // gridColumn1
             // 
@@ -472,7 +475,8 @@
             this.settingLayoutControlGroup,
             this.saveButtonLayoutControlItem,
             this.cancelButtonLayoutControlItem,
-            this.emptySpaceItem2});
+            this.emptySpaceItem2,
+            this.settingsGroupEmptySpaceItem});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "Root";
             this.layoutControlGroup3.Size = new System.Drawing.Size(775, 461);
@@ -839,9 +843,9 @@
             // saveButtonLayoutControlItem
             // 
             this.saveButtonLayoutControlItem.Control = this.saveButton;
-            this.saveButtonLayoutControlItem.Location = new System.Drawing.Point(455, 400);
+            this.saveButtonLayoutControlItem.Location = new System.Drawing.Point(203, 400);
             this.saveButtonLayoutControlItem.Name = "saveButtonLayoutControlItem";
-            this.saveButtonLayoutControlItem.Size = new System.Drawing.Size(150, 41);
+            this.saveButtonLayoutControlItem.Size = new System.Drawing.Size(124, 41);
             this.saveButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.saveButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.saveButtonLayoutControlItem.TextVisible = false;
@@ -849,9 +853,9 @@
             // cancelButtonLayoutControlItem
             // 
             this.cancelButtonLayoutControlItem.Control = this.cancelButton;
-            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(605, 400);
+            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(327, 400);
             this.cancelButtonLayoutControlItem.Name = "cancelButtonLayoutControlItem";
-            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(150, 41);
+            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(113, 41);
             this.cancelButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 5, 0);
             this.cancelButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.cancelButtonLayoutControlItem.TextVisible = false;
@@ -861,12 +865,20 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 400);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(455, 41);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(203, 41);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // mvvmTesteeContext
             // 
             this.mvvmTesteeContext.ContainerControl = this;
+            // 
+            // settingsGroupEmptySpaceItem
+            // 
+            this.settingsGroupEmptySpaceItem.AllowHotTrack = false;
+            this.settingsGroupEmptySpaceItem.Location = new System.Drawing.Point(440, 400);
+            this.settingsGroupEmptySpaceItem.Name = "settingsGroupEmptySpaceItem";
+            this.settingsGroupEmptySpaceItem.Size = new System.Drawing.Size(315, 41);
+            this.settingsGroupEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
             // AddEditTesteeForm
             // 
@@ -874,6 +886,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Name = "AddEditTesteeForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEditTesteeForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -937,6 +950,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsGroupEmptySpaceItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1013,5 +1027,6 @@
         private DevExpress.XtraLayout.LayoutControlItem cancelButtonLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem settingsGroupEmptySpaceItem;
     }
 }

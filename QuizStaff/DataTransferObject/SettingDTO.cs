@@ -64,7 +64,8 @@ namespace DataTransferObject
             newSetting.Minutes = setting.Minutes;
             newSetting.Seconds = setting.Seconds;
             newSetting.StartDate = setting.TimeOfStart;
-            newSetting.EndDate = setting.TimeOfStart;
+            newSetting.EndDate = (setting.EndDate!=DateTime.MinValue) ? setting.EndDate : DateTime.MaxValue;
+
             newSetting.Recurrence = setting.Recurrence;
 
             newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;

@@ -37,7 +37,6 @@
             this.endDateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.startDateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.intervalLabelControl = new DevExpress.XtraEditors.LabelControl();
-            this.languageComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.hoursSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.timeOfAskingEditTime = new DevExpress.XtraEditors.TimeEdit();
             this.questionAmountSpinEdit = new DevExpress.XtraEditors.SpinEdit();
@@ -66,7 +65,6 @@
             this.layoutControlSaveButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlCancelButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.languageLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.languageLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmTesteeSettingsContext = new DevExpress.Utils.MVVM.MVVMContext();
             this.quizNotifyIcon = new System.Windows.Forms.NotifyIcon();
             this.popupMenu = new DevExpress.XtraBars.PopupMenu();
@@ -78,6 +76,8 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.languageComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.languageLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainLayoutControl)).BeginInit();
             this.MainLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.withoutEndDateCheckEdit.Properties)).BeginInit();
@@ -87,7 +87,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.endDateDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDateEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.languageComboBoxEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoursSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionAmountSpinEdit.Properties)).BeginInit();
@@ -114,14 +113,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSaveButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCancelButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageLayoutControlGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.languageLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeSettingsContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageComboBoxEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageLayoutControlItem)).BeginInit();
             this.SuspendLayout();
             // 
             // MainLayoutControl
             // 
+            this.MainLayoutControl.Controls.Add(this.languageComboBoxEdit);
             this.MainLayoutControl.Controls.Add(this.startParametersLabelControl);
             this.MainLayoutControl.Controls.Add(this.withoutEndDateCheckEdit);
             this.MainLayoutControl.Controls.Add(this.endAfterCheckEdit);
@@ -129,7 +130,6 @@
             this.MainLayoutControl.Controls.Add(this.endDateDateEdit);
             this.MainLayoutControl.Controls.Add(this.startDateDateEdit);
             this.MainLayoutControl.Controls.Add(this.intervalLabelControl);
-            this.MainLayoutControl.Controls.Add(this.languageComboBoxEdit);
             this.MainLayoutControl.Controls.Add(this.hoursSpinEdit);
             this.MainLayoutControl.Controls.Add(this.timeOfAskingEditTime);
             this.MainLayoutControl.Controls.Add(this.questionAmountSpinEdit);
@@ -202,16 +202,6 @@
             resources.ApplyResources(this.intervalLabelControl, "intervalLabelControl");
             this.intervalLabelControl.Name = "intervalLabelControl";
             this.intervalLabelControl.StyleController = this.MainLayoutControl;
-            // 
-            // languageComboBoxEdit
-            // 
-            resources.ApplyResources(this.languageComboBoxEdit, "languageComboBoxEdit");
-            this.languageComboBoxEdit.Name = "languageComboBoxEdit";
-            this.languageComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("languageComboBoxEdit.Properties.Buttons"))))});
-            this.languageComboBoxEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.languageComboBoxEdit.StyleController = this.MainLayoutControl;
-            this.languageComboBoxEdit.SelectedIndexChanged += new System.EventHandler(this.languageComboBoxEdit_SelectedIndexChanged);
             // 
             // hoursSpinEdit
             // 
@@ -320,7 +310,7 @@
             this.emptySpaceItem2,
             this.emptySpaceItem1,
             this.withoutEndLayoutControlItem});
-            this.recurrenceLayoutControlGroup.Location = new System.Drawing.Point(0, 271);
+            this.recurrenceLayoutControlGroup.Location = new System.Drawing.Point(0, 261);
             this.recurrenceLayoutControlGroup.Name = "recurrenceLayoutControlGroup";
             this.recurrenceLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.recurrenceLayoutControlGroup.Size = new System.Drawing.Size(372, 121);
@@ -405,7 +395,7 @@
             this.minuteLayoutControlItem,
             this.secondLayoutControlItem,
             this.intervalLayoutControlItem});
-            this.intervalIayoutControlGroup.Location = new System.Drawing.Point(0, 90);
+            this.intervalIayoutControlGroup.Location = new System.Drawing.Point(0, 80);
             this.intervalIayoutControlGroup.Name = "intervalIayoutControlGroup";
             this.intervalIayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.intervalIayoutControlGroup.Size = new System.Drawing.Size(372, 74);
@@ -468,7 +458,7 @@
             this.startTimeLayoutControlItem,
             this.startDateLayoutControlItem,
             this.startParametersLabelLayoutControlItem});
-            this.startLayoutControlGroup.Location = new System.Drawing.Point(0, 164);
+            this.startLayoutControlGroup.Location = new System.Drawing.Point(0, 154);
             this.startLayoutControlGroup.Name = "startLayoutControlGroup";
             this.startLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.startLayoutControlGroup.Size = new System.Drawing.Size(372, 107);
@@ -509,9 +499,9 @@
             // layoutControlSaveButton
             // 
             this.layoutControlSaveButton.Control = this.saveButton;
-            this.layoutControlSaveButton.Location = new System.Drawing.Point(0, 392);
+            this.layoutControlSaveButton.Location = new System.Drawing.Point(0, 382);
             this.layoutControlSaveButton.Name = "layoutControlSaveButton";
-            this.layoutControlSaveButton.Size = new System.Drawing.Size(185, 49);
+            this.layoutControlSaveButton.Size = new System.Drawing.Size(185, 59);
             this.layoutControlSaveButton.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
             this.layoutControlSaveButton.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlSaveButton.TextVisible = false;
@@ -519,9 +509,9 @@
             // layoutControlCancelButton
             // 
             this.layoutControlCancelButton.Control = this.cancelButton;
-            this.layoutControlCancelButton.Location = new System.Drawing.Point(185, 392);
+            this.layoutControlCancelButton.Location = new System.Drawing.Point(185, 382);
             this.layoutControlCancelButton.Name = "layoutControlCancelButton";
-            this.layoutControlCancelButton.Size = new System.Drawing.Size(187, 49);
+            this.layoutControlCancelButton.Size = new System.Drawing.Size(187, 59);
             this.layoutControlCancelButton.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
             this.layoutControlCancelButton.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlCancelButton.TextVisible = false;
@@ -533,20 +523,9 @@
             this.languageLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
             this.languageLayoutControlGroup.Name = "languageLayoutControlGroup";
             this.languageLayoutControlGroup.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.languageLayoutControlGroup.Size = new System.Drawing.Size(372, 90);
+            this.languageLayoutControlGroup.Size = new System.Drawing.Size(372, 80);
             this.languageLayoutControlGroup.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 5, 5);
             resources.ApplyResources(this.languageLayoutControlGroup, "languageLayoutControlGroup");
-            // 
-            // languageLayoutControlItem
-            // 
-            this.languageLayoutControlItem.Control = this.languageComboBoxEdit;
-            this.languageLayoutControlItem.Location = new System.Drawing.Point(0, 0);
-            this.languageLayoutControlItem.Name = "languageLayoutControlItem";
-            this.languageLayoutControlItem.Size = new System.Drawing.Size(356, 50);
-            this.languageLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 5);
-            resources.ApplyResources(this.languageLayoutControlItem, "languageLayoutControlItem");
-            this.languageLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
-            this.languageLayoutControlItem.TextSize = new System.Drawing.Size(84, 13);
             // 
             // mvvmTesteeSettingsContext
             // 
@@ -621,6 +600,26 @@
             this.barDockControlRight.CausesValidation = false;
             resources.ApplyResources(this.barDockControlRight, "barDockControlRight");
             // 
+            // languageComboBoxEdit
+            // 
+            resources.ApplyResources(this.languageComboBoxEdit, "languageComboBoxEdit");
+            this.languageComboBoxEdit.MenuManager = this.barManager;
+            this.languageComboBoxEdit.Name = "languageComboBoxEdit";
+            this.languageComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("comboBoxEdit1.Properties.Buttons"))))});
+            this.languageComboBoxEdit.StyleController = this.MainLayoutControl;
+            this.languageComboBoxEdit.SelectedIndexChanged += new System.EventHandler(this.languageComboBoxEdit_SelectedIndexChanged);
+            // 
+            // languageLayoutControlItem
+            // 
+            this.languageLayoutControlItem.Control = this.languageComboBoxEdit;
+            this.languageLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.languageLayoutControlItem.Name = "languageLayoutControlItem";
+            this.languageLayoutControlItem.Size = new System.Drawing.Size(356, 40);
+            resources.ApplyResources(this.languageLayoutControlItem, "languageLayoutControlItem");
+            this.languageLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.languageLayoutControlItem.TextSize = new System.Drawing.Size(84, 13);
+            // 
             // TesteeSettingsForm
             // 
             resources.ApplyResources(this, "$this");
@@ -644,7 +643,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.endDateDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startDateDateEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.languageComboBoxEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hoursSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfAskingEditTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionAmountSpinEdit.Properties)).EndInit();
@@ -671,10 +669,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSaveButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlCancelButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languageLayoutControlGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.languageLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeSettingsContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageComboBoxEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageLayoutControlItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -693,8 +692,6 @@
         private DevExpress.Utils.MVVM.MVVMContext mvvmTesteeSettingsContext;
         private DevExpress.XtraEditors.SpinEdit hoursSpinEdit;
         private DevExpress.XtraLayout.LayoutControlItem hoursEditLayoutControlItem;
-        private DevExpress.XtraEditors.ComboBoxEdit languageComboBoxEdit;
-        private DevExpress.XtraLayout.LayoutControlItem languageLayoutControlItem;
         private DevExpress.XtraEditors.LabelControl intervalLabelControl;
         private DevExpress.XtraEditors.SpinEdit minuteSpinEdit;
         private DevExpress.XtraEditors.SpinEdit secondSpinEdit;
@@ -731,5 +728,7 @@
         private DevExpress.XtraEditors.LabelControl startParametersLabelControl;
         private DevExpress.XtraLayout.LayoutControlItem startParametersLabelLayoutControlItem;
         private DevExpress.XtraBars.BarButtonItem aboutBarButtonItem;
+        private DevExpress.XtraEditors.ComboBoxEdit languageComboBoxEdit;
+        private DevExpress.XtraLayout.LayoutControlItem languageLayoutControlItem;
     }
 }

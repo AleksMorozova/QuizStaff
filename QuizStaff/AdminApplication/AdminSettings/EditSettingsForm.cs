@@ -142,7 +142,7 @@ namespace AdminApplication.AdminSettings
         private void endDateDateEdit_EditValueChanged(object sender, EventArgs e)
         {
             DateEdit date = sender as DateEdit;
-            model.EndDate = date.DateTime;
+            model.EndDate = (DateTime)date.EditValue;
         }
 
         private void questionAmountSpinEdit_EditValueChanged(object sender, EventArgs e)
