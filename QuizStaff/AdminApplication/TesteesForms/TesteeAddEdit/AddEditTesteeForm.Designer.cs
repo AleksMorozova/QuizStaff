@@ -99,8 +99,8 @@
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             this.settingsGroupEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -163,8 +163,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsGroupEmptySpaceItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -293,6 +293,7 @@
             this.gridViewTrainings.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewTrainings.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridViewTrainings.OptionsView.ShowGroupPanel = false;
+            this.gridViewTrainings.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridViewTrainings_RowCellStyle);
             this.gridViewTrainings.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridViewTrainings_InitNewRow);
             // 
             // titleGridColumn
@@ -868,10 +869,6 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(203, 41);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // mvvmTesteeContext
-            // 
-            this.mvvmTesteeContext.ContainerControl = this;
-            // 
             // settingsGroupEmptySpaceItem
             // 
             this.settingsGroupEmptySpaceItem.AllowHotTrack = false;
@@ -879,6 +876,10 @@
             this.settingsGroupEmptySpaceItem.Name = "settingsGroupEmptySpaceItem";
             this.settingsGroupEmptySpaceItem.Size = new System.Drawing.Size(315, 41);
             this.settingsGroupEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // mvvmTesteeContext
+            // 
+            this.mvvmTesteeContext.ContainerControl = this;
             // 
             // AddEditTesteeForm
             // 
@@ -949,8 +950,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsGroupEmptySpaceItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).EndInit();
             this.ResumeLayout(false);
 
         }

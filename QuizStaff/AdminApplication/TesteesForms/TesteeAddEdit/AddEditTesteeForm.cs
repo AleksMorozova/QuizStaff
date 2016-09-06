@@ -358,5 +358,15 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         {
             Program.ApplicationMainForm.Width = DefaultWidth;
         }
+
+        private void gridViewTrainings_RowCellStyle(object sender, RowCellStyleEventArgs e)
+        {
+            GridView v = sender as GridView;
+            var data = v.GetRow(e.RowHandle) as TesteeTraining;
+            if (data != null)
+            {
+                e.Appearance.ForeColor = ((!data.IsActive || !data.Training.IsActive)) ? Color.Gray : Color.Black;
+            }
+        }
     }
 }

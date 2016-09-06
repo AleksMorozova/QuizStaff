@@ -1207,17 +1207,17 @@
   <data name="&gt;&gt;emptySpaceItem2.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;mvvmTesteeContext.Name" xml:space="preserve">
-    <value>mvvmTesteeContext</value>
-  </data>
-  <data name="&gt;&gt;mvvmTesteeContext.Type" xml:space="preserve">
-    <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;settingsGroupEmptySpaceItem.Name" xml:space="preserve">
     <value>settingsGroupEmptySpaceItem</value>
   </data>
   <data name="&gt;&gt;settingsGroupEmptySpaceItem.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;mvvmTesteeContext.Name" xml:space="preserve">
+    <value>mvvmTesteeContext</value>
+  </data>
+  <data name="&gt;&gt;mvvmTesteeContext.Type" xml:space="preserve">
+    <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AddEditTesteeForm</value>

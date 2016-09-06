@@ -103,7 +103,7 @@ namespace Server
             BindingList<Question> allQuestions = new BindingList<Question>();
             foreach(var t in currentTestee.Trainings)
             {
-                if (t.IsSelect)
+                if (t.IsSelect && t.Training.IsActive)
                 {
                     foreach (var q in t.Training.Questions)
                     {
