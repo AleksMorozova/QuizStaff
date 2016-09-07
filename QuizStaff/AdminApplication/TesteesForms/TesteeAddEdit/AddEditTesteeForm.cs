@@ -45,7 +45,6 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         public AddEditTesteeForm(Testee testee)
         {
             InitializeComponent();
-            this.gridViewTrainings.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             
             mvvmTesteeContext.ViewModelType = typeof(TesteeViewModel);
             model = mvvmTesteeContext.GetViewModel<TesteeViewModel>();
@@ -363,9 +362,23 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         {
             GridView v = sender as GridView;
             var data = v.GetRow(e.RowHandle) as TesteeTraining;
-            if (data != null)
+            if (data != null  && data.Training != null)
             {
                 e.Appearance.ForeColor = ((!data.IsActive || !data.Training.IsActive)) ? Color.Gray : Color.Black;
+            }
+        }
+
+        private void gridViewTrainings_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView gv = sender as GridView;
+
+            string result = (string)gv.GetRowCellValue(e.RowHandle, titleGridColumn);
+
+            var trainings = Testee.Trainings.Select(_ => _.Training.TrainingTitle);
+            if (!String.IsNullOrEmpty(result) && trainings.Contains(result))
+            {
+                gridViewTrainings.SetColumnError(titleGridColumn, "Duplicate training!");
+                e.Valid = false;
             }
         }
     }

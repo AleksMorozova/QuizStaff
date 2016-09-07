@@ -387,19 +387,34 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         {
             if (this.Testee != null)
             {
-                if (this.Testee.Id == Guid.Empty)
+
+                if (Validation())
                 {
-                    var savedTestee = ServicesHolder.ServiceClient.SaveTestee(Conversion.ConvertTesteeToDTO(this.Testee));
-                    this.Testee = Conversion.ConvertTesteeFromDTO(savedTestee);
+                    if (this.Testee.Id == Guid.Empty)
+                    {
+                        var savedTestee = ServicesHolder.ServiceClient.SaveTestee(Conversion.ConvertTesteeToDTO(this.Testee));
+                        this.Testee = Conversion.ConvertTesteeFromDTO(savedTestee);
+                    }
+                    else
+                    {
+                        var updateTestee = ServicesHolder.ServiceClient.UpdateTestee(Conversion.ConvertTesteeToDTO(this.Testee));
+                        this.Testee = Conversion.ConvertTesteeFromDTO(updateTestee);
+                    }
                 }
-                else
+                else 
                 {
-                    var updateTestee = ServicesHolder.ServiceClient.UpdateTestee(Conversion.ConvertTesteeToDTO(this.Testee));
-                    this.Testee = Conversion.ConvertTesteeFromDTO(updateTestee);
+                    XtraMessageBox.Show("Validation error!");
                 }
             }
-        }    
-          
+        }
+
+        private bool Validation() 
+        {
+            var trainings = Testee.Trainings.Select(_ => _.Training.TrainingTitle);
+
+            return (trainings.Count() == trainings.Distinct().Count());
+        }
+
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         protected virtual void RaisePropertyChanged(string propertyName)
         {
