@@ -35,12 +35,9 @@
             this.mainMenu = new DevExpress.XtraBars.Bar();
             this.testeesBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.trainingsBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.settingsBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.testBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.loginBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.questionBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.adminSettingsBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.roleBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.aboutBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.russianBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.englishBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
@@ -49,6 +46,10 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.settingsBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.testBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.loginBarButton = new DevExpress.XtraBars.BarButtonItem();
+            this.questionBarButton = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuManager)).BeginInit();
             this.SuspendLayout();
@@ -78,9 +79,10 @@
             this.russianBarButtonItem,
             this.englishBarButtonItem,
             this.adminSettingsBarButtonItem,
-            this.roleBarButton});
+            this.roleBarButton,
+            this.aboutBarButtonItem});
             this.mainMenuManager.MainMenu = this.mainMenu;
-            this.mainMenuManager.MaxItemId = 11;
+            this.mainMenuManager.MaxItemId = 12;
             this.mainMenuManager.StatusBar = this.statusBar;
             // 
             // mainMenu
@@ -94,6 +96,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.trainingsBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.adminSettingsBarButtonItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.roleBarButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.aboutBarButtonItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.languageBarSubItem, true)});
             this.mainMenu.OptionsBar.MultiLine = true;
             this.mainMenu.OptionsBar.UseWholeRow = true;
@@ -113,34 +116,6 @@
             this.trainingsBarButton.Name = "trainingsBarButton";
             this.trainingsBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.trainingsBarButton_ItemClick);
             // 
-            // settingsBarButton
-            // 
-            resources.ApplyResources(this.settingsBarButton, "settingsBarButton");
-            this.settingsBarButton.Id = 2;
-            this.settingsBarButton.Name = "settingsBarButton";
-            this.settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // testBarButton
-            // 
-            resources.ApplyResources(this.testBarButton, "testBarButton");
-            this.testBarButton.Id = 3;
-            this.testBarButton.Name = "testBarButton";
-            this.testBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // loginBarButton
-            // 
-            resources.ApplyResources(this.loginBarButton, "loginBarButton");
-            this.loginBarButton.Id = 4;
-            this.loginBarButton.Name = "loginBarButton";
-            this.loginBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // questionBarButton
-            // 
-            resources.ApplyResources(this.questionBarButton, "questionBarButton");
-            this.questionBarButton.Id = 5;
-            this.questionBarButton.Name = "questionBarButton";
-            this.questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
             // adminSettingsBarButtonItem
             // 
             resources.ApplyResources(this.adminSettingsBarButtonItem, "adminSettingsBarButtonItem");
@@ -154,6 +129,13 @@
             this.roleBarButton.Id = 10;
             this.roleBarButton.Name = "roleBarButton";
             this.roleBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.roleBarButton_ItemClick);
+            // 
+            // aboutBarButtonItem
+            // 
+            resources.ApplyResources(this.aboutBarButtonItem, "aboutBarButtonItem");
+            this.aboutBarButtonItem.Id = 11;
+            this.aboutBarButtonItem.Name = "aboutBarButtonItem";
+            this.aboutBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.aboutBarButtonItem_ItemClick);
             // 
             // languageBarSubItem
             // 
@@ -210,6 +192,34 @@
             this.barDockControlRight.CausesValidation = false;
             resources.ApplyResources(this.barDockControlRight, "barDockControlRight");
             // 
+            // settingsBarButton
+            // 
+            resources.ApplyResources(this.settingsBarButton, "settingsBarButton");
+            this.settingsBarButton.Id = 2;
+            this.settingsBarButton.Name = "settingsBarButton";
+            this.settingsBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // testBarButton
+            // 
+            resources.ApplyResources(this.testBarButton, "testBarButton");
+            this.testBarButton.Id = 3;
+            this.testBarButton.Name = "testBarButton";
+            this.testBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // loginBarButton
+            // 
+            resources.ApplyResources(this.loginBarButton, "loginBarButton");
+            this.loginBarButton.Id = 4;
+            this.loginBarButton.Name = "loginBarButton";
+            this.loginBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // questionBarButton
+            // 
+            resources.ApplyResources(this.questionBarButton, "questionBarButton");
+            this.questionBarButton.Id = 5;
+            this.questionBarButton.Name = "questionBarButton";
+            this.questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -250,6 +260,7 @@
         private DevExpress.XtraBars.BarButtonItem englishBarButtonItem;
         private DevExpress.XtraBars.BarButtonItem adminSettingsBarButtonItem;
         private DevExpress.XtraBars.BarButtonItem roleBarButton;
+        private DevExpress.XtraBars.BarButtonItem aboutBarButtonItem;
 
 
     }

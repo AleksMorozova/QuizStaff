@@ -16,6 +16,7 @@ using System.Windows;
 using System.Configuration;
 using AdminApplication.AdminSettings;
 using AdminApplication.TesteesForms.TesteesList;
+using System.Reflection;
 
 namespace AdminApplication
 {
@@ -63,6 +64,7 @@ namespace AdminApplication
             resources.ApplyResources(adminSettingsBarButtonItem, "adminSettingsBarButtonItem", newCultureInfo);
             resources.ApplyResources(questionBarButton, "questionBarButton", newCultureInfo);
             resources.ApplyResources(roleBarButton, "roleBarButton", newCultureInfo);
+            resources.ApplyResources(aboutBarButtonItem, "aboutBarButtonItem", newCultureInfo);
         }
        
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
@@ -117,6 +119,12 @@ namespace AdminApplication
             config.AppSettings.Settings.Remove("Lang");
             config.AppSettings.Settings.Add("Lang", Program.СurrentLang);
             config.Save(ConfigurationSaveMode.Modified);
+        }
+
+        private void aboutBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AboutBox about = new AboutBox();
+            about.ShowDialog();
         }
     }
 }

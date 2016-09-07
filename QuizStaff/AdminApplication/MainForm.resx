@@ -248,30 +248,6 @@
   <data name="&gt;&gt;trainingsBarButton.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;settingsBarButton.Name" xml:space="preserve">
-    <value>settingsBarButton</value>
-  </data>
-  <data name="&gt;&gt;settingsBarButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;testBarButton.Name" xml:space="preserve">
-    <value>testBarButton</value>
-  </data>
-  <data name="&gt;&gt;testBarButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;loginBarButton.Name" xml:space="preserve">
-    <value>loginBarButton</value>
-  </data>
-  <data name="&gt;&gt;loginBarButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;questionBarButton.Name" xml:space="preserve">
-    <value>questionBarButton</value>
-  </data>
-  <data name="&gt;&gt;questionBarButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;adminSettingsBarButtonItem.Name" xml:space="preserve">
     <value>adminSettingsBarButtonItem</value>
   </data>
@@ -282,6 +258,12 @@
     <value>roleBarButton</value>
   </data>
   <data name="&gt;&gt;roleBarButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;aboutBarButtonItem.Name" xml:space="preserve">
+    <value>aboutBarButtonItem</value>
+  </data>
+  <data name="&gt;&gt;aboutBarButtonItem.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;languageBarSubItem.Name" xml:space="preserve">
@@ -308,6 +290,30 @@
   <data name="&gt;&gt;statusBar.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Bar, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;settingsBarButton.Name" xml:space="preserve">
+    <value>settingsBarButton</value>
+  </data>
+  <data name="&gt;&gt;settingsBarButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;testBarButton.Name" xml:space="preserve">
+    <value>testBarButton</value>
+  </data>
+  <data name="&gt;&gt;testBarButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;loginBarButton.Name" xml:space="preserve">
+    <value>loginBarButton</value>
+  </data>
+  <data name="&gt;&gt;loginBarButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;questionBarButton.Name" xml:space="preserve">
+    <value>questionBarButton</value>
+  </data>
+  <data name="&gt;&gt;questionBarButton.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
   </data>
@@ -328,6 +334,9 @@
   </data>
   <data name="roleBarButton.Caption" xml:space="preserve">
     <value>Role</value>
+  </data>
+  <data name="aboutBarButtonItem.Caption" xml:space="preserve">
+    <value>About</value>
   </data>
   <data name="languageBarSubItem.Caption" xml:space="preserve">
     <value>Language</value>
