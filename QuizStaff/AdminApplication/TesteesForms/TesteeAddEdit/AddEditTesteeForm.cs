@@ -200,7 +200,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
             #region Trnslate radio group
             string withoutEnding = !String.IsNullOrEmpty(resources.GetString("withoutEndDateCheckEdit.Text", newCultureInfo))
-                ? resources.GetString("withoutEndDateCheckEdit.Text", newCultureInfo) : "Without end condition";
+                ? resources.GetString("withoutEndDateCheckEdit.Text", newCultureInfo) : "Without end date";
             withoutEndDateCheckEdit.Text = withoutEnding;        
             string endAfter = !String.IsNullOrEmpty(resources.GetString("endAfterCheckEdit.Text", newCultureInfo))
                 ? resources.GetString("endAfterCheckEdit.Text", newCultureInfo) : "End after";

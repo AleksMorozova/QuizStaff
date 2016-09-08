@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.questionLabel = new DevExpress.XtraEditors.LabelControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.OKButton = new DevExpress.XtraEditors.SimpleButton();
@@ -38,7 +39,7 @@
             this.OKButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext();
+            this.mvvmQuestionContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.answersCheckedList)).BeginInit();
@@ -183,7 +184,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 311);
             this.Controls.Add(this.layoutControl1);
-            this.MinimumSize = new System.Drawing.Size(320, 350);
+            this.MinimumSize = new System.Drawing.Size(320, 250);
             this.Name = "TesteeQuestionForm";
             this.ShowInTaskbar = false;
             this.Text = "TesteeQuestionForm";
