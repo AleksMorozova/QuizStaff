@@ -12,22 +12,23 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TesteeApplication.TesteeSettings;
 
 namespace TesteeApplication
 {
     static class Program
     {
-        private static MainForm applicationMainForm;
+        public static bool FirstShow = true;
+        public static int LeftPosition = 0;
+        public static int TopPosition = 0;
+
+        private static TesteeSettingsForm applicationMainForm;
         public static string currentLang = "ru-RU";
         public static Testee currentTestee = new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now } };
-        public static System.Windows.Forms.Timer Timer = new System.Windows.Forms.Timer();
         public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
 
-        public static DateTime AskedTime;
-        public static DateTime UserTime = DateTime.Now;
-        public static int QuestionAmount = 0;
 
-        public static MainForm ApplicationMainForm { get { return applicationMainForm; } }
+        public static TesteeSettingsForm ApplicationMainForm { get { return applicationMainForm; } }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -57,14 +58,13 @@ namespace TesteeApplication
                 }
             }
 
-            SetUpStartTime();
-
             currentLang = ConfigurationManager.AppSettings["Lang"];
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentLang);
 
             Application.EnableVisualStyles();
-            applicationMainForm = new MainForm();
+            applicationMainForm = new TesteeSettingsForm();
             Application.Run(applicationMainForm);
+            applicationMainForm.Hide();
         }
         
         private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient;
@@ -92,21 +92,6 @@ namespace TesteeApplication
         {
             var loadedUser = ServiceClient.FindByLogin(login);
             currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);
-        }
-
-        public static void SetUpStartTime()
-        {
-            AskedTime = (DateTime.Now.Hour >= Program.currentTestee.UserSetting.TimeOfStart.Hour
-                && DateTime.Now.Minute >= Program.currentTestee.UserSetting.TimeOfStart.Minute)
-                ? DateTime.Now
-                : Program.currentTestee.UserSetting.TimeOfStart;
-
-            UserTime = Program.currentTestee.UserSetting.TimeOfStart;
-        }
-
-        public static void SetUpStartTime(int minites)
-        {
-            AskedTime = DateTime.Now.AddMinutes(minites);
         }
     }
 }

@@ -129,17 +129,11 @@
   <data name="firstNameLayoutControlItem.Text" xml:space="preserve">
     <value>Имя</value>
   </data>
-  <data name="frequencyLayoutControlItem.Text" xml:space="preserve">
-    <value>Частота</value>
-  </data>
   <data name="lastNameLayoutControlItem.Text" xml:space="preserve">
     <value>Фамилия</value>
   </data>
   <data name="loginLayoutControlItem.Text" xml:space="preserve">
     <value>Логин</value>
-  </data>
-  <data name="questionAmountLayoutControlItem.Text" xml:space="preserve">
-    <value>Количество вопросов</value>
   </data>
   <data name="trainingsLayoutControlItem.Text" xml:space="preserve">
     <value>Тренинги</value>
@@ -162,9 +156,6 @@
   <data name="canEditToggleSwitch.Properties.OnText" xml:space="preserve">
     <value>Да</value>
   </data>
-  <data name="timeOfStartTimeEditLayoutControlItem.Text" xml:space="preserve">
-    <value>Время начала</value>
-  </data>
   <data name="canEditToggleSwitchLayoutControlItem.Text" xml:space="preserve">
     <value>Возможность редактирования</value>
   </data>
@@ -180,9 +171,6 @@
   <data name="generalInfLayoutControlGroup.Text" xml:space="preserve">
     <value>Общая информация</value>
   </data>
-  <data name="settingLayoutControlGroup.Text" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
   <data name="addTrainingButton.Text" xml:space="preserve">
     <value>Добавить</value>
   </data>
@@ -191,5 +179,53 @@
   </data>
   <data name="rolesComboBoxLayoutControlItem.Text" xml:space="preserve">
     <value>Роли</value>
+  </data>
+  <data name="editSettingButton.Text" xml:space="preserve">
+    <value>Редактировать настройки</value>
+  </data>
+  <data name="endAfterCheckEdit.Text" xml:space="preserve">
+    <value>Завершить после:</value>
+  </data>
+  <data name="endDateCheckEdit.Text" xml:space="preserve">
+    <value>Дата окончания</value>
+  </data>
+  <data name="generalSettingsLayoutControlGroup.Text" xml:space="preserve">
+    <value>Общие настройки</value>
+  </data>
+  <data name="hoursLayoutControlItem.Text" xml:space="preserve">
+    <value>часы</value>
+  </data>
+  <data name="intervalIayoutControlGroup.Text" xml:space="preserve">
+    <value>Интервал между вопросами</value>
+  </data>
+  <data name="intervalLabelControl.Text" xml:space="preserve">
+    <value>Интервал:</value>
+  </data>
+  <data name="minuteLayoutControlItem.Text" xml:space="preserve">
+    <value>мин</value>
+  </data>
+  <data name="questionAmountSpinEditLayoutControlItem.Text" xml:space="preserve">
+    <value>вопросов в день</value>
+  </data>
+  <data name="recurrenceLayoutControlGroup.Text" xml:space="preserve">
+    <value>Диапазон повторения</value>
+  </data>
+  <data name="secondLayoutControlItem.Text" xml:space="preserve">
+    <value>сек</value>
+  </data>
+  <data name="startDateLayoutControlItem.Text" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="startLayoutControlGroup.Text" xml:space="preserve">
+    <value>Дата и время начала</value>
+  </data>
+  <data name="startParametersLabelControl.Text" xml:space="preserve">
+    <value>Первый вопрос приходит в:</value>
+  </data>
+  <data name="startTimeLayoutControlItem.Text" xml:space="preserve">
+    <value>Время</value>
+  </data>
+  <data name="withoutEndDateCheckEdit.Text" xml:space="preserve">
+    <value>Нет конечного условия</value>
   </data>
 </root>

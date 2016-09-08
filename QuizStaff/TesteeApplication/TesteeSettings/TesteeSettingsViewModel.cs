@@ -11,9 +11,15 @@ namespace TesteeApplication.TesteeSettings
 {
     public class TesteeSettingsViewModel : INotifyPropertyChanged 
     {
-        private Setting LoadSetting { get; set; }
+        public TesteeSettingsViewModel()
+        {
+            UserSetting = Program.currentTestee.UserSetting;
+            LoadSetting = Conversion.CopySetting(UserSetting);
+        }
 
+        private Setting LoadSetting { get; set; }
         private Setting userSetting;
+       
         public Setting UserSetting
         {
             get
@@ -26,8 +32,12 @@ namespace TesteeApplication.TesteeSettings
                 {
                     userSetting = value;
                     RaisePropertyChanged("AmountOfQuestionsPerDay");
-                    RaisePropertyChanged("FrequencyOfAsking");
+                    RaisePropertyChanged("Minutes");
+                    RaisePropertyChanged("Hours");
+                    RaisePropertyChanged("Seconds");
                     RaisePropertyChanged("TimeOfStart");
+                    RaisePropertyChanged("EndDate");
+                    RaisePropertyChanged("Recurrence");
                 }
             }
         }
@@ -50,18 +60,50 @@ namespace TesteeApplication.TesteeSettings
             }
         }
 
-        public int FrequencyOfAsking
+        public int Hours
         {
             get
             {
-                return UserSetting.FrequencyOfAsking;
+                return UserSetting.Hours;
             }
             set
             {
-                if (value != UserSetting.FrequencyOfAsking)
+                if (value != UserSetting.Hours)
                 {
-                    UserSetting.FrequencyOfAsking = value;
-                    RaisePropertyChanged("FrequencyOfAsking");
+                    UserSetting.Hours = value;
+                    RaisePropertyChanged("Hours");
+                }
+            }
+        }
+
+        public int Minutes
+        {
+            get
+            {
+                return UserSetting.Minutes;
+            }
+            set
+            {
+                if (value != UserSetting.Minutes)
+                {
+                    UserSetting.Minutes = value;
+                    RaisePropertyChanged("Minutes");
+                }
+            }
+        }
+
+        public int Seconds
+        {
+            get
+            {
+                return UserSetting.Seconds;
+            }
+            set
+            {
+                if (value != UserSetting.Seconds)
+                {
+                    UserSetting.Seconds = value;
+                    RaisePropertyChanged("Seconds");
                 }
             }
         }
@@ -82,13 +124,38 @@ namespace TesteeApplication.TesteeSettings
             }
         }
 
-        #endregion
-
-        public TesteeSettingsViewModel()
+        public DateTime EndDate
         {
-            UserSetting = Program.currentTestee.UserSetting;
-            LoadSetting = Conversion.CopySetting(UserSetting);
+            get
+            {
+                return UserSetting.EndDate;
+            }
+            set
+            {
+                if (value != UserSetting.EndDate)
+                {
+                    UserSetting.EndDate = value;
+                    RaisePropertyChanged("EndDate");
+                }
+            }
         }
+
+        public RecurrenceType Recurrence
+        {
+            get
+            {
+                return UserSetting.Recurrence;
+            }
+            set
+            {
+                if (value != UserSetting.Recurrence)
+                {
+                    UserSetting.Recurrence = value;
+                    RaisePropertyChanged("Recurrence");
+                }
+            }
+        }
+        #endregion
 
         public void Save()
         {

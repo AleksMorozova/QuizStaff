@@ -120,14 +120,11 @@
   <data name="cancelButton.Text" xml:space="preserve">
     <value>Отменить</value>
   </data>
-  <data name="frequencySpinEditLayoutControlItem.Text" xml:space="preserve">
-    <value>Частота</value>
-  </data>
   <data name="languageLayoutControlItem.Text" xml:space="preserve">
     <value>Язык</value>
   </data>
   <data name="questionAmountSpinEditLayoutControlItem.Text" xml:space="preserve">
-    <value>Количество вопросов </value>
+    <value>вопросов в день</value>
   </data>
   <data name="saveButton.Text" xml:space="preserve">
     <value>Сохранить</value>
@@ -135,10 +132,49 @@
   <data name="saveButton.Text1" xml:space="preserve">
     <value>Сохранить</value>
   </data>
-  <data name="timeOfAskingEditTimeLayoutControlItem.Text" xml:space="preserve">
-    <value>Время начала</value>
+  <data name="startTimeLayoutControlItem.Text" xml:space="preserve">
+    <value>Время</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Настройки </value>
+  </data>
+  <data name="endAfterCheckEdit.Text" xml:space="preserve">
+    <value>Завершить после: </value>
+  </data>
+  <data name="endDateCheckEdit.Text" xml:space="preserve">
+    <value>Дата окончания</value>
+  </data>
+  <data name="hoursEditLayoutControlItem.Text" xml:space="preserve">
+    <value>часы</value>
+  </data>
+  <data name="intervalIayoutControlGroup.Text" xml:space="preserve">
+    <value>Интервал между вопросами</value>
+  </data>
+  <data name="intervalLabelControl.Text" xml:space="preserve">
+    <value>Интервал:</value>
+  </data>
+  <data name="languageLayoutControlGroup.Text" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="minuteLayoutControlItem.Text" xml:space="preserve">
+    <value>мин</value>
+  </data>
+  <data name="recurrenceLayoutControlGroup.Text" xml:space="preserve">
+    <value>Диапазон повторения</value>
+  </data>
+  <data name="secondLayoutControlItem.Text" xml:space="preserve">
+    <value>сек</value>
+  </data>
+  <data name="startLayoutControlGroup.Text" xml:space="preserve">
+    <value>Дата и время начала</value>
+  </data>
+  <data name="withoutEndDateCheckEdit.Text" xml:space="preserve">
+    <value>Нет конечного условия</value>
+  </data>
+  <data name="startParametersLabelControl.Text" xml:space="preserve">
+    <value>Первый вопрос приходит в:</value>
+  </data>
+  <data name="startDateLayoutControlItem.Text" xml:space="preserve">
+    <value>Дата</value>
   </data>
 </root>

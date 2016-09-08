@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.tabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
-            this.mainMenuManager = new DevExpress.XtraBars.BarManager();
+            this.tabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.mainMenuManager = new DevExpress.XtraBars.BarManager(this.components);
             this.mainMenu = new DevExpress.XtraBars.Bar();
             this.testeesBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.trainingsBarButton = new DevExpress.XtraBars.BarButtonItem();

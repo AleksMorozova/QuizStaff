@@ -32,16 +32,29 @@ namespace AdminApplication.AdminSettings
             selectedTestee = Testees;
             model.SetUpSettings(Testees);
             BindToViewModel();
+            SetUpRangeOfRecurrence(model.Recurrence);
+        }
+
+        private void SetUpRangeOfRecurrence(RecurrenceType type)
+        {
+            withoutEndDateCheckEdit.Checked = (type == RecurrenceType.WithoutEnding);
+            endAfterCheckEdit.Checked = (type == RecurrenceType.WithExactRepeated);
+            endDateCheckEdit.Checked = (type == RecurrenceType.WithSpecifiedEndDate);
         }
 
         private void BindToViewModel()
         {
             var outer = new BindingSource { DataSource = model.Setting};
-            questionAmountTextEdit.DataBindings.Add("EditValue", outer, "AmountOfQuestionsPerDay");
-            frequencySpinEdit.DataBindings.Add("EditValue", outer, "FrequencyOfAsking");
-            timeOfAskingEditTime.DataBindings.Add("EditValue", outer, "TimeOfStart");
-            showAnswerToggleSwitch.DataBindings.Add("EditValue", outer, "ShowCorrectAnswer");
+
             canEditToggleSwitch.DataBindings.Add("EditValue", outer, "CanUserEdit");
+            showAnswerToggleSwitch.DataBindings.Add("EditValue", outer, "ShowCorrectAnswer");
+            hoursSpinEdit.DataBindings.Add("EditValue", outer, "Hours");
+            minutesSpinEdit.DataBindings.Add("EditValue", outer, "Minutes");
+            secondsSpinEdit.DataBindings.Add("EditValue", outer, "Seconds");
+            startDateEdit.DataBindings.Add("EditValue", outer, "TimeOfStart");
+            startTimeEdit.DataBindings.Add("EditValue", outer, "TimeOfStart");
+            endDateDateEdit.DataBindings.Add("EditValue", outer, "EndDate");
+            questionAmountSpinEdit.DataBindings.Add("EditValue", outer, "AmountOfQuestionsPerDay");
         }
 
         private void BindCommands()
@@ -53,15 +66,64 @@ namespace AdminApplication.AdminSettings
         {
             var resources = new ComponentResourceManager(typeof(EditSettingsForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
-            resources.ApplyResources(questionAmountLayoutControlItem, "questionAmountLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(frequencyLayoutControlItem, "frequencyLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(timeOfAskingLayoutControlItem, "timeOfAskingLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(showAnswerToggleSwitchLayoutControlItem, "showAnswerToggleSwitchLayoutControlItem", newCultureInfo);
+         
+            resources.ApplyResources(generalSettingsLayoutControlGroup, "generalSettingsLayoutControlGroup", newCultureInfo);           
+            resources.ApplyResources(showAnswerToggleSwitchLayoutControlItem, "showAnswerToggleSwitchLayoutControlItem", newCultureInfo);  
             resources.ApplyResources(canEditToggleSwitchLayoutControlItem, "canEditToggleSwitchLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(intervalIayoutControlGroup, "intervalIayoutControlGroup", newCultureInfo);
+            resources.ApplyResources(intervalLabelControl, "intervalLabelControl", newCultureInfo);
+            resources.ApplyResources(hoursLayoutControlItem, "hoursLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(minuteLayoutControlItem, "minuteLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(secondLayoutControlItem, "secondLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(startLayoutControlGroup, "startLayoutControlGroup", newCultureInfo);
+            resources.ApplyResources(startParametersLabelControl, "startParametersLabelControl", newCultureInfo);
+            resources.ApplyResources(startDateLayoutControlItem, "startDateLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(startTimeLayoutControlItem, "timeOfAskingEditTimeLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(recurrenceLayoutControlGroup, "recurrenceLayoutControlGroup", newCultureInfo);
+            resources.ApplyResources(withoutEndDateCheckEdit, "withoutEndDateCheckEdit", newCultureInfo);
+            resources.ApplyResources(endAfterCheckEdit, "endAfterCheckEdit", newCultureInfo);
+            resources.ApplyResources(endDateCheckEdit, "endDateCheckEdit", newCultureInfo);
+            resources.ApplyResources(questionAmountSpinEditLayoutControlItem, "questionAmountSpinEditLayoutControlItem", newCultureInfo);
             resources.ApplyResources(applyButton, "applyButton", newCultureInfo);
-            resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);
+            resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);            
+
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Settings";
         }
+       
+        #region Recurrence type changing
+        private void withoutEndDateCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckEdit edit = sender as CheckEdit;
+            if (edit.Checked)
+            {
+                endAfterCheckEdit.Checked = false;
+                endDateCheckEdit.Checked = false;
+                model.Recurrence = RecurrenceType.WithoutEnding;
+            }
+        }
+ 
+        private void endAfterCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckEdit edit = sender as CheckEdit;
+            if (edit.Checked)
+            {
+                withoutEndDateCheckEdit.Checked = false;
+                endDateCheckEdit.Checked = false;
+                model.Recurrence = RecurrenceType.WithExactRepeated;
+            }
+        }
+
+        private void endDateCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckEdit edit = sender as CheckEdit;
+            if (edit.Checked)
+            {
+                endAfterCheckEdit.Checked = false;
+                withoutEndDateCheckEdit.Checked = false;
+                model.Recurrence = RecurrenceType.WithSpecifiedEndDate;
+            }
+        } 
+        #endregion
     }
 }

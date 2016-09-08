@@ -16,8 +16,6 @@ namespace TesteeApplication
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
-        System.Windows.Forms.Timer timer = Program.Timer;
-
         public MainForm()
         {
             InitializeComponent();
@@ -43,27 +41,7 @@ namespace TesteeApplication
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            timer.Interval = 100;
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
-        }
 
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            if (Program.UserTime != Program.currentTestee.UserSetting.TimeOfStart)
-            {
-                Program.SetUpStartTime();
-            }
-
-            if (DateTime.Now.TimeOfDay.Hours == Program.AskedTime.Hour 
-                && DateTime.Now.TimeOfDay.Minutes == Program.AskedTime.Minute 
-                && Program.QuestionAmount <= Program.currentTestee.UserSetting.AmountOfQuestionsPerDay)
-            {
-                Program.AskedTime = DateTime.Now;
-                TesteeQuestionForm questionForm = new TesteeQuestionForm(Program.currentTestee);
-                timer.Stop();
-                questionForm.Show();
-            }
         }
     }
 }

@@ -13,12 +13,15 @@ using DataTransferObject;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraEditors.Controls;
 using System.Globalization;
+using DevExpress.Utils.Text;
 
 namespace TesteeApplication.TesteeQuestion
 {
     public partial class TesteeQuestionForm : DevExpress.XtraEditors.XtraForm
     {
         private TesteeQuestionViewModel model;
+
+
 
         public TesteeQuestionForm(Testee testee)
         {
@@ -32,7 +35,10 @@ namespace TesteeApplication.TesteeQuestion
             model.LoadQuestionForTestee(Program.currentTestee);
 
             if (model.question != null)
+            {     
                 SetUpCombobox();
+                SetUpCheckedListType();
+            }
         }
 
         private void SetWindowsPosition()
@@ -44,32 +50,30 @@ namespace TesteeApplication.TesteeQuestion
                     rightmost = screen;
             }
 
-            this.Left = rightmost.WorkingArea.Right - this.Width;
-            this.Top = rightmost.WorkingArea.Bottom - this.Height;
+            this.Left = (Program.FirstShow) ? rightmost.WorkingArea.Right - this.Width : Program.LeftPosition;
+            this.Top = (Program.FirstShow) ? rightmost.WorkingArea.Bottom - this.Height : Program.TopPosition;
+            Program.FirstShow = false;
         }
 
         public void SetUpCombobox()
         {
-            if (!model.IsMultiSelect())
-            {
-                answersCheckedList.CheckStyle = CheckStyles.Radio;
-                answersCheckedList.SelectionMode = SelectionMode.One;
-            }
-
+            //fill comboBox and question label
             questionLabel.Text = model.question.QuestionText;
 
             foreach (var a in model.question.Answers)
             {
                 answersCheckedList.Items.Add(a.AnswerText);
             }
-
-            answersCheckedList.ItemHeight = CalcHeight(answersCheckedList);
         }
 
-        public int CalcHeight(CheckedListBoxControl listBox)
+        public void SetUpCheckedListType()
         {
-            CheckedListBoxViewInfo info = listBox.GetViewInfo() as CheckedListBoxViewInfo;
-            return listBox.ItemCount * info.ItemHeight;
+            //determination of CheckedList type depends on amount of right question 
+            if (!model.IsMultiSelect())
+            {
+                answersCheckedList.CheckStyle = CheckStyles.Radio;
+                answersCheckedList.SelectionMode = SelectionMode.One;
+            }
         }
 
         private void BindCommands() 
@@ -102,6 +106,9 @@ namespace TesteeApplication.TesteeQuestion
 
         private void OKButton_Click(object sender, EventArgs e)
         {
+            Program.LeftPosition = this.Left;
+            Program.TopPosition = this.Top;
+
             List<Answer> list = new List<Answer>();
 
             foreach (CheckedListBoxItem item in answersCheckedList.Items)
@@ -132,12 +139,6 @@ namespace TesteeApplication.TesteeQuestion
             if (DialogResult.OK == XtraMessageBox.Show(message + result, header, MessageBoxButtons.OK))
             {
                 this.Close();
-                Program.Timer.Start();
-                Program.QuestionAmount = (Program.AskedTime.Date == DateTime.Now.Date) 
-                    ?  Program.QuestionAmount +1 
-                    : 0;
-           
-                Program.SetUpStartTime(Program.currentTestee.UserSetting.FrequencyOfAsking);
             }
         }
 
@@ -159,6 +160,16 @@ namespace TesteeApplication.TesteeQuestion
                     }
                 }
             }
+        }
+
+        //Dynamically determine the distance between CheckedList items
+        private void answersCheckedList_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            CheckedListBoxControl control = (CheckedListBoxControl)sender;
+            string text = control.GetItemText(e.Index);
+            Size textSize = TextUtils.GetStringSize(e.Graphics, text, control.Appearance.Font,
+                StringFormat.GenericDefault, control.ClientRectangle.Width);
+            e.ItemHeight = textSize.Height + 10;
         }
     }
 }
