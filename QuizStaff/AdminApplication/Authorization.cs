@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.DirectoryServices.AccountManagement;
+using System.ComponentModel;
+using DataTransferObject;
 
 namespace AdminApplication
 {
@@ -15,27 +17,28 @@ namespace AdminApplication
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Authorization));
 
-        public static Testee AuthorizedTeste { get; set; }
+        private static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
 
-        public static string AuthorizedTesteeName { get; set; }
-
-        static string login;
-        static string password;
-        static string domain;
-
-        public static bool LogonUser()
+        /// <summary>
+        /// Domain authorization
+        /// </summary>
+        /// <param name="login">Authorized users login</param>
+        /// <param name="password">Authorized users password</param>
+        /// <param name="domain">Authorized users domain</param>
+        /// <returns>Authorization Result</returns>
+        public static bool LogonUser(string login, string password, string domain)
         {
             try
             {
                 using (PrincipalContext principalContext = new PrincipalContext(ContextType.Domain, domain))
-                {          
+                {
                     //validate the credentials
                     return principalContext.ValidateCredentials(login, password, ContextOptions.Negotiate);
                 }
             }
             catch (PrincipalServerDownException ex)
             {
-                log.Error("Error at LogonUser(). Problem with ValidateCredentials. Error Message " + ex.Message);
+                log.Error("Error at LogonUser. Problem with ValidateCredentials(). Error Message " + ex.Message);
                 return false;
             }
         }
@@ -45,40 +48,30 @@ namespace AdminApplication
         /// </summary>
         /// <param name="failMessage">message for user, when login has been failed</param>
         /// <returns>status of logging in attempt</returns>
-        public static LoginResult Login(ref string failMessage)
+        public static LoginResult Login()
         {
-            try 
+            try
             {
                 UserLoginForm dlg = new UserLoginForm();
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    login = dlg.Login;
-                    password = dlg.Password;
-                    domain = dlg.Domain;
+                    bool logonResult = LogonUser(dlg.Login, dlg.Password, dlg.Domain);
 
-                    bool logonResult = (login == "admin")? (password == "admin"): LogonUser();
-
-                    if (logonResult)
+                    if (LogonUser(dlg.Login, dlg.Password, dlg.Domain))
                     {
-                        AuthorizedTesteeName = login;
-                        Program.GetTestee(AuthorizedTesteeName);
-                        Program.GetUserPermissions(AuthorizedTesteeName);
-
-                        Testee loadTestee = Program.currentTestee;
+                        Program.СurrentTestee = GetTestee(dlg.Login);
+                        Testee loadTestee = Program.СurrentTestee;
+                        GetUserPermissions(dlg.Login);
 
                         if (loadTestee.Id != Guid.Empty)
                         {
-                            if (Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee)
-                                || Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining)
-                                || Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp)
-                                || Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator))
+                            if (CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator)
+                                || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp)
+                                || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee)
+                                || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining))
                             {
                                 return LoginResult.LoggedIn;
                             }
-                            else
-                            {
-                                return LoginResult.NoPermissions;
-                            }                
                         }
                         else
                         {
@@ -100,11 +93,27 @@ namespace AdminApplication
                 return LoginResult.Failed;
             }
 
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                log.Error("Problew with connection to server. Error message "+ex.Message);
+                log.Error("Error message " + ex.Message);
                 return LoginResult.Failed;
             }
+        }
+
+        private static void GetUserPermissions(string login)
+        {
+            var userRolePermission = Program.СurrentTestee.Roles.Select(_ => _.Role.Permissions);
+            foreach (var rolePermission in userRolePermission)
+                foreach (var permission in rolePermission.Select(_ => _.Permission))
+                    CurrentUserPermissions.Add(permission);
+
+            Program.CurrentUserPermissions = CurrentUserPermissions;
+        }
+
+        private static Testee GetTestee(string login)
+        {
+            var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
+            return Conversion.ConvertTesteeFromDTO(loadedUser);
         }
     }
 }

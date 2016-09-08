@@ -99,7 +99,9 @@
             this.saveButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.cancelButtonLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.settingsGroupEmptySpaceItem = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mvvmTesteeContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -162,7 +164,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsGroupEmptySpaceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -253,14 +257,12 @@
             resources.ApplyResources(this.addTrainingButton, "addTrainingButton");
             this.addTrainingButton.Name = "addTrainingButton";
             this.addTrainingButton.StyleController = this.layoutControl1;
-            this.addTrainingButton.Click += new System.EventHandler(this.addTrainingButton_Click);
             // 
             // deleteTrainingButton
             // 
             resources.ApplyResources(this.deleteTrainingButton, "deleteTrainingButton");
             this.deleteTrainingButton.Name = "deleteTrainingButton";
             this.deleteTrainingButton.StyleController = this.layoutControl1;
-            this.deleteTrainingButton.Click += new System.EventHandler(this.deleteTrainingButton_Click);
             // 
             // canEditToggleSwitch
             // 
@@ -291,9 +293,9 @@
             this.gridViewTrainings.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.Inplace;
             this.gridViewTrainings.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
             this.gridViewTrainings.OptionsDetail.EnableMasterViewMode = false;
-            this.gridViewTrainings.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridViewTrainings.OptionsView.ShowGroupPanel = false;
-            this.gridViewTrainings.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridViewTrainings_InitNewRow);
+            this.gridViewTrainings.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.gridViewTrainings_RowCellStyle);
+            this.gridViewTrainings.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridViewTrainings_ValidateRow);
             // 
             // titleGridColumn
             // 
@@ -321,6 +323,7 @@
             this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
             this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.repositoryItemGridLookUpEdit1View.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.repositoryItemGridLookUpEdit1View_CustomRowFilter);
             // 
             // gridColumn1
             // 
@@ -390,6 +393,7 @@
             this.endDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("endDateDateEdit.Properties.CalendarTimeProperties.Buttons"))))});
             this.endDateDateEdit.StyleController = this.layoutControl1;
+            this.endDateDateEdit.EditValueChanged += new System.EventHandler(this.endDateDateEdit_EditValueChanged);
             // 
             // endDateCheckEdit
             // 
@@ -428,6 +432,7 @@
             0,
             0});
             this.questionAmountSpinEdit.StyleController = this.layoutControl1;
+            this.questionAmountSpinEdit.EditValueChanged += new System.EventHandler(this.questionAmountSpinEdit_EditValueChanged);
             // 
             // withoutEndDateCheckEdit
             // 
@@ -472,7 +477,8 @@
             this.settingLayoutControlGroup,
             this.saveButtonLayoutControlItem,
             this.cancelButtonLayoutControlItem,
-            this.emptySpaceItem2});
+            this.emptySpaceItem2,
+            this.settingsGroupEmptySpaceItem});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "Root";
             this.layoutControlGroup3.Size = new System.Drawing.Size(775, 461);
@@ -839,9 +845,9 @@
             // saveButtonLayoutControlItem
             // 
             this.saveButtonLayoutControlItem.Control = this.saveButton;
-            this.saveButtonLayoutControlItem.Location = new System.Drawing.Point(455, 400);
+            this.saveButtonLayoutControlItem.Location = new System.Drawing.Point(203, 400);
             this.saveButtonLayoutControlItem.Name = "saveButtonLayoutControlItem";
-            this.saveButtonLayoutControlItem.Size = new System.Drawing.Size(150, 41);
+            this.saveButtonLayoutControlItem.Size = new System.Drawing.Size(124, 41);
             this.saveButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.saveButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.saveButtonLayoutControlItem.TextVisible = false;
@@ -849,9 +855,9 @@
             // cancelButtonLayoutControlItem
             // 
             this.cancelButtonLayoutControlItem.Control = this.cancelButton;
-            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(605, 400);
+            this.cancelButtonLayoutControlItem.Location = new System.Drawing.Point(327, 400);
             this.cancelButtonLayoutControlItem.Name = "cancelButtonLayoutControlItem";
-            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(150, 41);
+            this.cancelButtonLayoutControlItem.Size = new System.Drawing.Size(113, 41);
             this.cancelButtonLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 5, 0);
             this.cancelButtonLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.cancelButtonLayoutControlItem.TextVisible = false;
@@ -861,8 +867,16 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 400);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(455, 41);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(203, 41);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // settingsGroupEmptySpaceItem
+            // 
+            this.settingsGroupEmptySpaceItem.AllowHotTrack = false;
+            this.settingsGroupEmptySpaceItem.Location = new System.Drawing.Point(440, 400);
+            this.settingsGroupEmptySpaceItem.Name = "settingsGroupEmptySpaceItem";
+            this.settingsGroupEmptySpaceItem.Size = new System.Drawing.Size(315, 41);
+            this.settingsGroupEmptySpaceItem.TextSize = new System.Drawing.Size(0, 0);
             // 
             // mvvmTesteeContext
             // 
@@ -874,6 +888,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Name = "AddEditTesteeForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEditTesteeForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.settingDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -936,7 +951,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.saveButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cancelButtonLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsGroupEmptySpaceItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmTesteeContext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1013,5 +1030,7 @@
         private DevExpress.XtraLayout.LayoutControlItem cancelButtonLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem settingsGroupEmptySpaceItem;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
     }
 }

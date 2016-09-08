@@ -76,10 +76,10 @@
             // 
             this.loginButton.Appearance.Font = ((System.Drawing.Font)(resources.GetObject("loginButton.Appearance.Font")));
             this.loginButton.Appearance.Options.UseFont = true;
+            this.loginButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             resources.ApplyResources(this.loginButton, "loginButton");
             this.loginButton.Name = "loginButton";
             this.loginButton.StyleController = this.layoutControl1;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // passwordTextEdit
             // 
@@ -188,7 +188,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UserLoginForm";
-            this.Load += new System.EventHandler(this.UserLoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.passwordTextEdit.Properties)).EndInit();

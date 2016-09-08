@@ -13,13 +13,14 @@ namespace TesteeApplication.TesteeSettings
     {
         public TesteeSettingsViewModel()
         {
-            UserSetting = Program.currentTestee.UserSetting;
+            UserSetting = Program.СurrentTestee.UserSetting;
             LoadSetting = Conversion.CopySetting(UserSetting);
         }
 
+        #region Setting
         private Setting LoadSetting { get; set; }
-        private Setting userSetting;
        
+        private Setting userSetting;      
         public Setting UserSetting
         {
             get
@@ -41,9 +42,7 @@ namespace TesteeApplication.TesteeSettings
                 }
             }
         }
-
-        #region Setting
-
+       
         public int AmountOfQuestionsPerDay
         {
             get
@@ -159,7 +158,7 @@ namespace TesteeApplication.TesteeSettings
 
         public void Save()
         {
-            ServicesHolder.ServiceClient.UpdateTestee(Program.currentTestee);
+            ServicesHolder.ServiceClient.UpdateTestee(Program.СurrentTestee);
         }
 
         public void Cancel()

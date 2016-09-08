@@ -92,7 +92,6 @@
             resources.ApplyResources(this.deleteQuestionButton, "deleteQuestionButton");
             this.deleteQuestionButton.Name = "deleteQuestionButton";
             this.deleteQuestionButton.StyleController = this.layoutControl1;
-            this.deleteQuestionButton.Click += new System.EventHandler(this.deleteQuestionButton_Click);
             // 
             // cancelButton
             // 

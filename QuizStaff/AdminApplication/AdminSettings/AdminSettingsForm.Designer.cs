@@ -94,14 +94,12 @@
             resources.ApplyResources(this.editTrainingsButton, "editTrainingsButton");
             this.editTrainingsButton.Name = "editTrainingsButton";
             this.editTrainingsButton.StyleController = this.dateImpactLabelLayoutControl;
-            this.editTrainingsButton.Click += new System.EventHandler(this.editSettingsSimpleButton_Click);
             // 
             // editSettingsButton
             // 
             resources.ApplyResources(this.editSettingsButton, "editSettingsButton");
             this.editSettingsButton.Name = "editSettingsButton";
             this.editSettingsButton.StyleController = this.dateImpactLabelLayoutControl;
-            this.editSettingsButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // testeeListGridControl
             // 

@@ -30,8 +30,18 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
             mvvmQuestionContext.ViewModelType = typeof(QuestionViewModel);
             model = mvvmQuestionContext.GetViewModel<QuestionViewModel>();   
             mvvmQuestionContext.SetViewModel(typeof(QuestionViewModel), model);
+            BindCommand();
+            model.QuestionsListChanged += new QuestionChangedEventHandler(AnswersListChanged);
             model.Question = question;
             BindToViewModel();     
+        }
+
+        private void BindCommand()
+        {
+            mvvmQuestionContext.BindCommand<QuestionViewModel, Answer>(addAnswerButton, (viewModel, answer)
+                => viewModel.AddAnswer(answer), x => new Answer() {IsActive = true, IsCorrect = true});
+            mvvmQuestionContext.BindCommand<QuestionViewModel, Answer>(deleteAnswerButton, (x, currentTraining)
+                => x.DeleteAnswer(currentTraining), x => GetCurrentAnswer());
         }
 
         private void BindToViewModel()
@@ -52,14 +62,6 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
             }
         }
 
-        private void answersGridView_InitNewRow(object sender, InitNewRowEventArgs e)
-        {
-            GridView v = sender as GridView;
-            Answer answer = v.GetRow(e.RowHandle) as Answer;
-            answer.IsCorrect = false;
-            answer.IsActive = true;
-        }
-        
         public void Localized(string language)
         {
             var resources = new ComponentResourceManager(typeof(AddEditQuestionForm));
@@ -84,24 +86,17 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
             return editedAnswer;
         }
 
-        private void deleteAnswerButton_Click(object sender, EventArgs e)
+        private void AnswersListChanged(object sender, EventArgs e)
         {
-            var deletedAnswer = GetCurrentAnswer();
-            if (deletedAnswer != null)
-            {
-                model.DeleteAnswer(deletedAnswer);
-                this.answersGridControl.DataSource = model.Question.Answers.Select(_ => _).Where(t => t.IsActive);
-            }
+            answersGridControl.Refresh();
         }
-
-        private void addAnswerButton_Click(object sender, EventArgs e)
+     
+        private void answersGridView_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            Answer answer = new Answer();
+            GridView v = sender as GridView;
+            Answer answer = v.GetRow(e.RowHandle) as Answer;
+            answer.IsCorrect = false;
             answer.IsActive = true;
-            answer.IsCorrect = true;
-            model.Question.Answers.Add(answer);
-
-            this.answersGridControl.DataSource = model.Question.Answers.Select(_ => _).Where(t => t.IsActive);
         }
     }
 }

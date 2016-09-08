@@ -103,7 +103,7 @@ namespace Server
             BindingList<Question> allQuestions = new BindingList<Question>();
             foreach(var t in currentTestee.Trainings)
             {
-                if (t.IsSelect)
+                if (t.IsSelect && t.Training.IsActive)
                 {
                     foreach (var q in t.Training.Questions)
                     {
@@ -150,6 +150,7 @@ namespace Server
             Setting sets = new Setting() { AmountOfQuestionsPerDay = 1,
                                                 Minutes = 1,
                                                 StartDate = DateTime.Now,
+                                                EndDate = DateTime.MaxValue,
                                                     TimeOfStart = new DateTime(2016, 5, 8, 10, 10, 10, 10) };
             return sets;
         }
@@ -200,7 +201,7 @@ namespace Server
                 result = repo.ReadAll().Where(_ => _.Login == login).FirstOrDefault();
             else
                 result = repo.ReadAll().Where(_ => _.Login == login && _.IsActive).FirstOrDefault();
-            return (result != null) ? result : new TesteeDTO() { IsActive = true};
+            return (result != null) ? result : new TesteeDTO() { IsActive = true, UserSetting = new Setting() { TimeOfStart = DateTime.Now, Recurrence = RecurrenceType.WithoutEnding, Minutes = 5}};
         }
 
         public void SaveAnswer(QuestionDTO question) 
@@ -267,8 +268,9 @@ namespace Server
                 newSetting.Hours = setting.Hours;
                 newSetting.Minutes = setting.Minutes;
                 newSetting.Seconds = setting.Seconds;
-                newSetting.StartDate = setting.StartDate;
+                newSetting.StartDate = setting.TimeOfStart;
                 newSetting.EndDate = setting.EndDate;
+                setting.EndDate = (setting.EndDate != DateTime.MinValue) ? setting.EndDate : DateTime.MaxValue;
                 newSetting.Recurrence = setting.Recurrence;
                 newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
                 newSetting.TimeOfStart = setting.TimeOfStart;
@@ -299,7 +301,7 @@ namespace Server
             repo.Update(Conversion.ConvertTesteeTrainingFromDTO(testeeTraining));
         }
 
-        public void UpdateTesteeTraining(TesteeTrainingDTO[] testeeTrainings)
+        public void UpdateTesteeTrainings(TesteeTrainingDTO[] testeeTrainings)
         {
             EFTesteeTrainingRepository repo = new EFTesteeTrainingRepository();
             foreach(var testeeTraining in testeeTrainings)
@@ -309,13 +311,19 @@ namespace Server
             }
         }
 
+        public void UpdateTesteeTraining(TesteeTrainingDTO testeeTraining)
+        {
+            EFTesteeTrainingRepository repo = new EFTesteeTrainingRepository();
+            TesteeTraining updateTesteeTraining = Conversion.ConvertTesteeTrainingFromDTO(testeeTraining);
+            repo.Update(updateTesteeTraining);
+        }
+
         public TrainingDTO FindByTitle(string title)
         {
             EFRepository<Training> repo = new EFRepository<DomainModel.Training>();
             var result = repo.ReadAll().Where(_ => _.TrainingTitle == title ).FirstOrDefault();
             return (result != null) ? result : new TrainingDTO() { IsActive = true };
         }
-
 
         public List<RoleDTO> GetAllRoles()
         {
@@ -330,7 +338,6 @@ namespace Server
             var permissions = new List<Permission>(repo.ReadAll());
             return permissions.Select(permission => (PermissionDTO)permission).ToList();
         }
-
 
         public void UpdateRoles(RoleDTO role)
         {            
@@ -363,12 +370,18 @@ namespace Server
             }
         }
 
-
         public void AddTesteeRole(TesteeDTO testee, RoleDTO role)
         {
             EFTesteeRepository repo = new EFTesteeRepository();
             testee.Roles.Add(new TesteeRolesDTO() { Role = role, IsActive = false });
             repo.Update(Conversion.ConvertTesteeFromDTO(testee));
+        }
+
+        public void UpdateAnswer(AnswerDTO answer) 
+        {
+            EFRepository<Answer> repo = new EFRepository<Answer>();
+            Answer newAnswer = Conversion.ConvertAnswerFromDTO(answer);
+            repo.Update(newAnswer);
         }
     }
 }

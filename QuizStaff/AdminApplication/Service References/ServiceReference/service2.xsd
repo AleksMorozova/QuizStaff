@@ -285,10 +285,22 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateTesteeTraining">
+  <xs:element name="UpdateTesteeTrainings">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testeeTraining" nillable="true" type="q31:ArrayOfTesteeTrainingDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTesteeTrainingsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTesteeTraining">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testeeTraining" nillable="true" type="q32:TesteeTrainingDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -307,7 +319,7 @@
   <xs:element name="FindByTitleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="FindByTitleResult" nillable="true" type="q32:TrainingDTO" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="FindByTitleResult" nillable="true" type="q33:TrainingDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -319,7 +331,7 @@
   <xs:element name="GetAllRolesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetAllRolesResult" nillable="true" type="q33:ArrayOfRoleDTO" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetAllRolesResult" nillable="true" type="q34:ArrayOfRoleDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -331,14 +343,14 @@
   <xs:element name="GetAllPermissionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetAllPermissionsResult" nillable="true" type="q34:ArrayOfPermissionDTO" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetAllPermissionsResult" nillable="true" type="q35:ArrayOfPermissionDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateRoles">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="role" nillable="true" type="q35:RoleDTO" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="role" nillable="true" type="q36:RoleDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -350,7 +362,7 @@
   <xs:element name="UpdatePermissions">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="permission" nillable="true" type="q36:PermissionDTO" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="permission" nillable="true" type="q37:PermissionDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -362,12 +374,24 @@
   <xs:element name="AddTesteeRole">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testee" nillable="true" type="q37:TesteeDTO" />
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="role" nillable="true" type="q38:RoleDTO" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="testee" nillable="true" type="q38:TesteeDTO" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="role" nillable="true" type="q39:RoleDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddTesteeRoleResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAnswer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="answer" nillable="true" type="q40:AnswerDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAnswerResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

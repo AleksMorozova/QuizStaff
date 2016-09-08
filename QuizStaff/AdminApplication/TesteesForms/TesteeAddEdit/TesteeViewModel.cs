@@ -11,8 +11,12 @@ using System.Threading.Tasks;
 
 namespace AdminApplication.TesteesForm.TesteeAddEdit
 {
+    public delegate void TesteeChangedEventHandler(object sender, EventArgs e);
+
     public class TesteeViewModel : INotifyPropertyChanged 
-    {
+    {    
+        public BindingList<Role> AllRoles { get; set; }       
+        public BindingList<Training> AllTrainings { get; set; }
         private Testee LoadedTeste{ get; set; }
 
         #region Testee
@@ -87,8 +91,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 if (value != Testee.Email)
                 {
                     Testee.Email = value;
-                   RaisePropertyChanged("Email");
-                   // OnPropertyChanged("Email");
+                    RaisePropertyChanged("Email");
                 }
             }
         }
@@ -329,21 +332,13 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         
         public void SetUpViewModel(Testee testee)
         {
+            GetAllTrainings();
+            GetAllRoles();
             this.Testee = testee;
             LoadedTeste = Conversion.CopyTestee(testee);
         }
 
-        public void AddTraining(Testee testee)
-        {
-            TrainingAddEditForm trainingForm = new TrainingAddEditForm();
-            FormManager.Instance.OpenChildForm(trainingForm, "Add training");
-            FormManager.LocalizedFormList.Add(trainingForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
-        }
-
-        public BindingList<Training> AllTrainings { get; set; }
-
-        public void GetAllTrainings()
+        private void GetAllTrainings()
         {
             AllTrainings = new BindingList<Training>();
             var trainingsList = ServicesHolder.ServiceClient.GetAllTrainings();
@@ -353,15 +348,33 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             }
         }
 
-        public BindingList<Role> AllRoles { get; set; }
-
-        public void GetAllRoles()
+        private void GetAllRoles()
         {
             AllRoles = new BindingList<Role>();
             var rolesList = ServicesHolder.ServiceClient.GetAllRoles();
             foreach (var role in rolesList)
             {
                 AllRoles.Add(Conversion.ConvertRoleFromDTO(role));
+            }
+        }
+
+        public void DeleteTraining(TesteeTraining deletedTraining)
+        {
+            if (deletedTraining != null)
+            {
+                deletedTraining.IsActive = false;
+                Testee.Trainings.Remove(deletedTraining);
+                ServicesHolder.ServiceClient.UpdateTesteeTraining(Conversion.ConvertTesteeTrainingToDTO(deletedTraining));
+                OnTesteeListChanged(EventArgs.Empty);
+            }
+        }
+
+        public void AddTraining(TesteeTraining addedTraining)
+        {
+            if (addedTraining != null)
+            {
+                addedTraining.IsActive = true;
+                Testee.Trainings.Add(addedTraining);
             }
         }
 
@@ -374,21 +387,35 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         {
             if (this.Testee != null)
             {
-                if (this.Testee.Id == Guid.Empty)
+
+                if (Validation())
                 {
-                    var savedTestee = ServicesHolder.ServiceClient.SaveTestee(Conversion.ConvertTesteeToDTO(this.Testee));
-                    this.Testee = Conversion.ConvertTesteeFromDTO(savedTestee);
+                    if (this.Testee.Id == Guid.Empty)
+                    {
+                        var savedTestee = ServicesHolder.ServiceClient.SaveTestee(Conversion.ConvertTesteeToDTO(this.Testee));
+                        this.Testee = Conversion.ConvertTesteeFromDTO(savedTestee);
+                    }
+                    else
+                    {
+                        var updateTestee = ServicesHolder.ServiceClient.UpdateTestee(Conversion.ConvertTesteeToDTO(this.Testee));
+                        this.Testee = Conversion.ConvertTesteeFromDTO(updateTestee);
+                    }
                 }
-                else
+                else 
                 {
-                    var updateTestee = ServicesHolder.ServiceClient.UpdateTestee(Conversion.ConvertTesteeToDTO(this.Testee));
-                    this.Testee = Conversion.ConvertTesteeFromDTO(updateTestee);
+                    XtraMessageBox.Show("Validation error!");
                 }
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        private bool Validation() 
+        {
+            var trainings = Testee.Trainings.Select(_ => _.Training.TrainingTitle);
 
+            return (trainings.Count() == trainings.Distinct().Count());
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
         protected virtual void RaisePropertyChanged(string propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
@@ -398,11 +425,12 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
             }
         }
-
-        public void DeleteTraining(TesteeTraining deletedTraining)
+              
+        public event TesteeChangedEventHandler TesteeListChanged;
+        protected virtual void OnTesteeListChanged(EventArgs e)
         {
-            if (deletedTraining!=null)
-                deletedTraining.IsActive = false;
+            if (TesteeListChanged != null)
+                TesteeListChanged(this, e);
         }
     }
 }

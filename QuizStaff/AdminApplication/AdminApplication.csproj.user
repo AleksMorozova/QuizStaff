@@ -5,7 +5,7 @@
     <PublishUrlHistory>publish\</PublishUrlHistory>
     <InstallUrlHistory />
     <SupportUrlHistory />
-    <UpdateUrlHistory />
+    <UpdateUrlHistory>\\DWS01.edu.dp.ua\QuizApplication_Install\Admin\|\\DWS01\QuizApplication_Install\Admin\|\\DWS01\QuizApplication_test\</UpdateUrlHistory>
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>

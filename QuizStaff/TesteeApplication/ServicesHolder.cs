@@ -8,29 +8,27 @@ namespace TesteeApplication
 {
     public class ServicesHolder
     {
-
         private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient;
         private static ServicesHolder serviceHolderObject;
+        
         public static AdminApplication.ServiceReference.ApplicationServerClient ServiceClient
         {
             get
             {
-                if (serviceClient == null)
-                    serviceClient = new AdminApplication.ServiceReference.ApplicationServerClient();
-                return serviceClient;
+                return (serviceClient != null) ? serviceClient : new AdminApplication.ServiceReference.ApplicationServerClient();
             }
         }
+
         private ServicesHolder()
         {
             serviceClient = new AdminApplication.ServiceReference.ApplicationServerClient();
         }
+
         public static ServicesHolder ServiceHolderObject
         {
             get
             {
-                if (serviceHolderObject == null)
-                    serviceHolderObject = new ServicesHolder();
-                return serviceHolderObject;
+                return (serviceHolderObject != null) ? serviceHolderObject : new ServicesHolder();
             }
         }
     }

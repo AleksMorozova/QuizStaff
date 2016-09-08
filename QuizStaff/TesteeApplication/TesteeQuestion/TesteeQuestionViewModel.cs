@@ -12,12 +12,14 @@ namespace TesteeApplication.TesteeQuestion
     {
         public Question question;
 
-        public void LoadQuestionForTestee(Testee currentTestee) 
+        public bool LoadQuestionForTestee(Testee currentTestee) 
         {
             var loadQuestion = ServicesHolder.ServiceClient.GetRandomQuestionForTestee(currentTestee.Id);
            
             if (loadQuestion!=null)
                 question = Conversion.ConvertQuestionFromDTO_ForClient(loadQuestion);
+
+            return loadQuestion != null;
         }
 
         public bool IsMultiSelect()
@@ -31,7 +33,7 @@ namespace TesteeApplication.TesteeQuestion
             history.AnsweringDate = DateTime.Now;
             history.Question = question;
             history.IsAnswerCorrect = FindWasAnswerCorrect(answers);
-            history.Testee = Program.currentTestee;
+            history.Testee = Program.СurrentTestee;
             history.Answers = new System.ComponentModel.BindingList<TesteeAnswerDTO>();
             foreach (var a in answers)
             {
@@ -51,7 +53,7 @@ namespace TesteeApplication.TesteeQuestion
             return CompareLists(correctAnswer, trueAnswers); 
         }
 
-        public static bool CompareLists(List<Answer> list1, List<Answer> list2)
+        private static bool CompareLists(List<Answer> list1, List<Answer> list2)
         {
 
             if (list1.Count == list2.Count)

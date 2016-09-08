@@ -18,28 +18,30 @@ namespace TesteeApplication
 {
     static class Program
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
+
+        //Remember question form position
         public static bool FirstShow = true;
         public static int LeftPosition = 0;
         public static int TopPosition = 0;
+        public static int Width = 0;
+        public static int Height = 0;
 
-        private static TesteeSettingsForm applicationMainForm;
-        public static string currentLang = "ru-RU";
-        public static Testee currentTestee = new Testee() { IsActive = true, IsSelected = false, UserSetting = new Setting() { TimeOfStart = DateTime.Now } };
-        public static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
+        public static string СurrentLang { get; set; }
+        public static Testee СurrentTestee { get; set; }
 
-
-        public static TesteeSettingsForm ApplicationMainForm { get { return applicationMainForm; } }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            string failMessage = String.Empty;
+            log4net.Config.XmlConfigurator.Configure();
+
             LoginResult loginResult = LoginResult.None;
             while (loginResult != LoginResult.LoggedIn)
             {
-                loginResult = Authorization.Login(ref failMessage);
+                loginResult = Authorization.Login();
                 switch (loginResult)
                 {
                     case LoginResult.Failed:
@@ -52,46 +54,19 @@ namespace TesteeApplication
                         XtraMessageBox.Show("Authentication error. You have no permissions to access the database. Please, contact to IT administrator");
                         break;
                     case LoginResult.LoggedIn:
-                        GetTestee(Authorization.AuthorizedTesteeName);
-                        GetUserPermissions(Authorization.AuthorizedTesteeName);
+                        log.Info("User " + СurrentTestee.Login + " was successfully login");
+                        break;
+                    default:
+                        log.Error("Authentication error. You have no permissions to access the database. Please, contact to IT administrator");
                         break;
                 }
             }
 
-            currentLang = ConfigurationManager.AppSettings["Lang"];
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentLang);
-
+            СurrentLang = ConfigurationManager.AppSettings["Lang"];
+            
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(СurrentLang);
             Application.EnableVisualStyles();
-            applicationMainForm = new TesteeSettingsForm();
-            Application.Run(applicationMainForm);
-            applicationMainForm.Hide();
-        }
-        
-        private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient;
-        
-        public static AdminApplication.ServiceReference.ApplicationServerClient ServiceClient
-        {
-            get
-            {
-                if (serviceClient == null)
-                    serviceClient = new AdminApplication.ServiceReference.ApplicationServerClient();
-                return serviceClient;
-            }
-        }
-       
-        public static void GetUserPermissions(string login)
-        {
-            var userPermission = Program.currentTestee.Roles.Select(_ => _.Role.Permissions);
-            foreach (var p in userPermission)
-                foreach (var p1 in p.Select(_ => _.Permission))
-                    CurrentUserPermissions.Add(p1);
-
-        }
-
-        public static void GetTestee(string login)
-        {
-            var loadedUser = ServiceClient.FindByLogin(login);
-            currentTestee = Conversion.ConvertTesteeFromDTO(loadedUser);
+            Application.Run(new TesteeSettingsForm());
         }
     }
 }

@@ -11,6 +11,7 @@ using DevExpress.Mvvm.DataAnnotations;
 
 namespace AdminApplication.AdminSettings
 {
+    public delegate void TesteeChangedEventHandler(object sender, EventArgs e);
     public class AdminSettingsViewModel
     {
         private BindingList<Testee> testees;
@@ -46,26 +47,34 @@ namespace AdminApplication.AdminSettings
         {
             EditSettingsForm editSettings = new EditSettingsForm(selectedTestee);
             FormManager.LocalizedFormList.Add(editSettings);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
             editSettings.ShowDialog();
+            OnTesteeListChanged(EventArgs.Empty);
         }
 
         public void EditTesteeTrainigs(BindingList<Testee> selectedTestee)
         {
             EditTesteesTrainingsForm editTrainigs = new EditTesteesTrainingsForm(selectedTestee);
             FormManager.LocalizedFormList.Add(editTrainigs);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
-            editTrainigs.ShowDialog();
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
+            editTrainigs.ShowDialog(); 
+            OnTesteeListChanged(EventArgs.Empty);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected virtual void RaisePropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        public event TesteeChangedEventHandler TesteeListChanged;
+        protected virtual void OnTesteeListChanged(EventArgs e)
+        {
+            if (TesteeListChanged != null)
+                TesteeListChanged(this, e);
         }
     }
 }

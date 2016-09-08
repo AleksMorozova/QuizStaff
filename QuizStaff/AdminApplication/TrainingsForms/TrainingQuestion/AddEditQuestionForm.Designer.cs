@@ -90,14 +90,12 @@
             resources.ApplyResources(this.addAnswerButton, "addAnswerButton");
             this.addAnswerButton.Name = "addAnswerButton";
             this.addAnswerButton.StyleController = this.layoutControl1;
-            this.addAnswerButton.Click += new System.EventHandler(this.addAnswerButton_Click);
             // 
             // deleteAnswerButton
             // 
             resources.ApplyResources(this.deleteAnswerButton, "deleteAnswerButton");
             this.deleteAnswerButton.Name = "deleteAnswerButton";
             this.deleteAnswerButton.StyleController = this.layoutControl1;
-            this.deleteAnswerButton.Click += new System.EventHandler(this.deleteAnswerButton_Click);
             // 
             // cancelButton
             // 

@@ -12,6 +12,7 @@ namespace AdminApplication.AdminSettings
     public class EditeRoleViewModel
     {
         private TesteeDTO[] Testees;
+        
         public void SetUpViewModel() 
         {
             this.Roles = LoadRoles();
@@ -89,7 +90,6 @@ namespace AdminApplication.AdminSettings
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected virtual void RaisePropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
@@ -100,20 +100,19 @@ namespace AdminApplication.AdminSettings
 
         public void Save() 
         {
-            foreach (var r in Roles)
+            foreach (var role in Roles)
             {
-                if (r.Id == Guid.Empty)
+                if (role.Id == Guid.Empty)
                 {
                     foreach (var testee in Testees.ToList())
                     {
-                        ServicesHolder.ServiceClient.AddTesteeRole(testee, Conversion.ConvertRoleToDTO(r));
+                        ServicesHolder.ServiceClient.AddTesteeRole(testee, Conversion.ConvertRoleToDTO(role));
                     }
                 }
                 else 
                 {
-                    ServicesHolder.ServiceClient.UpdateRoles(Conversion.ConvertRoleToDTO(r));
-                }
-                
+                    ServicesHolder.ServiceClient.UpdateRoles(Conversion.ConvertRoleToDTO(role));
+                }  
             }
         }
     }

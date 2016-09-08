@@ -30,6 +30,7 @@ namespace AdminApplication.AdminSettings
               }
             } 
         }
+      
         private BindingList<TesteeTraining> allTrainingsOfSelectedTestees;
 
         private BindingList<TesteeTraining> trainigs;
@@ -49,6 +50,7 @@ namespace AdminApplication.AdminSettings
                 }
             }
         }
+    
         public void SetUpTrainigs(BindingList<Testee> currentTestees)
         {
             testees = currentTestees;
@@ -105,33 +107,10 @@ namespace AdminApplication.AdminSettings
                     }
                 }
             }
-            ServicesHolder.ServiceClient.UpdateTesteeTraining(resultList.ToArray());
-
-            //List<TesteeDTO> resultList = new List<TesteeDTO>();
-            //foreach (var training in Trainigs)
-            //{
-            //    foreach (var testee in Testees)
-            //    {
-            //        BindingList<TesteeTraining> currentTesteeTrainings = testee.Trainings;
-            //        BindingList<TesteeTraining> resultTraningList = new BindingList<TesteeTraining>();
-            //        foreach (var currentTesteeTraining in currentTesteeTrainings)
-            //        {
-            //            TesteeTraining tmpTesteeTraining = currentTesteeTraining;
-            //            if (currentTesteeTraining.Training.TrainingTitle == training.Training.TrainingTitle)
-            //            {
-            //                tmpTesteeTraining.IsSelect = training.IsSelect;
-            //            }
-            //            resultTraningList.Add(tmpTesteeTraining);
-            //        }
-            //        testee.Trainings = resultTraningList;
-            //        resultList.Add(Conversion.ConvertTesteeToDTO(testee));
-            //    }
-            //}
-            //ServicesHolder.ServiceClient.UpdateSomeTestees(resultList.ToArray());
+            ServicesHolder.ServiceClient.UpdateTesteeTrainings(resultList.ToArray());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected virtual void RaisePropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

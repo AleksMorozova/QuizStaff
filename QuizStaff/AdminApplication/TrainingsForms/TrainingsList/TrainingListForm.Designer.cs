@@ -121,7 +121,6 @@
             resources.ApplyResources(this.deleteTrainingButton, "deleteTrainingButton");
             this.deleteTrainingButton.Name = "deleteTrainingButton";
             this.deleteTrainingButton.StyleController = this.layoutControl1;
-            this.deleteTrainingButton.Click += new System.EventHandler(this.deleteTrainingButton_Click);
             // 
             // trainingsGridControl
             // 

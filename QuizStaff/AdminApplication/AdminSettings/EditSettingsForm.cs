@@ -22,7 +22,7 @@ namespace AdminApplication.AdminSettings
         public EditSettingsForm(BindingList<Testee> Testees)
         {
             InitializeComponent(); 
-            Localized(Program.currentLang);
+            Localized(Program.СurrentLang);
 
             mvvmSettingsContext.ViewModelType = typeof(EditSettingsViewModel);
             BindCommands();
@@ -33,6 +33,22 @@ namespace AdminApplication.AdminSettings
             model.SetUpSettings(Testees);
             BindToViewModel();
             SetUpRangeOfRecurrence(model.Recurrence);
+            BindEndParameters();
+        }
+
+        private void BindEndParameters()
+        {
+            questionAmountSpinEdit.EditValue = null;
+            endDateDateEdit.EditValue = null;
+
+            if (model.Recurrence == RecurrenceType.WithSpecifiedEndDate)
+            {
+                endDateDateEdit.EditValue = model.EndDate;
+            }
+            else if (model.Recurrence == RecurrenceType.WithExactRepeated)
+            {
+                questionAmountSpinEdit.EditValue = model.AmountOfQuestionsPerDay;
+            }
         }
 
         private void SetUpRangeOfRecurrence(RecurrenceType type)
@@ -53,8 +69,6 @@ namespace AdminApplication.AdminSettings
             secondsSpinEdit.DataBindings.Add("EditValue", outer, "Seconds");
             startDateEdit.DataBindings.Add("EditValue", outer, "TimeOfStart");
             startTimeEdit.DataBindings.Add("EditValue", outer, "TimeOfStart");
-            endDateDateEdit.DataBindings.Add("EditValue", outer, "EndDate");
-            questionAmountSpinEdit.DataBindings.Add("EditValue", outer, "AmountOfQuestionsPerDay");
         }
 
         private void BindCommands()
@@ -123,7 +137,20 @@ namespace AdminApplication.AdminSettings
                 withoutEndDateCheckEdit.Checked = false;
                 model.Recurrence = RecurrenceType.WithSpecifiedEndDate;
             }
-        } 
+        }
+
+        private void endDateDateEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            DateEdit date = sender as DateEdit;
+            model.EndDate = (DateTime)date.EditValue;
+        }
+
+        private void questionAmountSpinEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            SpinEdit date = sender as SpinEdit;
+            if ((int)date.Value != 0)
+                model.AmountOfQuestionsPerDay = (int)date.Value;
+        }
         #endregion
     }
 }

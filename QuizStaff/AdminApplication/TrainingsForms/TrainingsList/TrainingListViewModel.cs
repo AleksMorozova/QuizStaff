@@ -13,6 +13,8 @@ using System.Windows.Forms;
 
 namespace AdminApplication.TrainingsListForm
 {
+    public delegate void TrainingChangedEventHandler(object sender, EventArgs e);
+
     public class TrainingListViewModel
     {
         public BindingList<Training> Trainings { get; set; }
@@ -36,7 +38,7 @@ namespace AdminApplication.TrainingsListForm
             TrainingAddEditForm trainingForm = new TrainingAddEditForm();
             FormManager.Instance.OpenChildForm(trainingForm, "Add training");
             FormManager.LocalizedFormList.Add(trainingForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
             this.Trainings.Add(trainingForm.Training);
         }
 
@@ -45,10 +47,10 @@ namespace AdminApplication.TrainingsListForm
             TrainingAddEditForm trainingForm = new TrainingAddEditForm(editedTraining);
             FormManager.Instance.OpenChildForm(trainingForm, "Edit training: " + editedTraining.TrainingTitle);
             FormManager.LocalizedFormList.Add(trainingForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
-        public void DeleteTraining(TrainingDTO deletedTraining)
+        public void DeleteTraining(Training deletedTraining)
         {
             if (deletedTraining != null)
             {
@@ -63,6 +65,8 @@ namespace AdminApplication.TrainingsListForm
                     savedTraining.IsActive = false;
                     ServicesHolder.ServiceClient.UpdateTraining(savedTraining);
                 }
+                this.Trainings.Remove(deletedTraining);
+                OnTrainingListChanged(EventArgs.Empty);
             }
         }
 
@@ -82,6 +86,13 @@ namespace AdminApplication.TrainingsListForm
         {
             // TODO: implement loading of trainings from external source
             XtraMessageBox.Show("Load trainings");
+        }
+           
+        public event TrainingChangedEventHandler TrainingListChanged;
+        protected virtual void OnTrainingListChanged(EventArgs e)
+        {
+            if (TrainingListChanged != null)
+                TrainingListChanged(this, e);
         }
     }
 }

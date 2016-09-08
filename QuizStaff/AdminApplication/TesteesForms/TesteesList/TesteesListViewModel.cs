@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 namespace AdminApplication.TesteesForms.TesteesList
 {
+    public delegate void TesteeChangedEventHandler(object sender, EventArgs e);
+
     public class TesteesListViewModel
     {
         public BindingList<Testee> Testees { get; set; }
@@ -33,7 +35,7 @@ namespace AdminApplication.TesteesForms.TesteesList
             AddEditTesteeForm testeeForm = new AddEditTesteeForm();
             FormManager.Instance.OpenChildForm(testeeForm, "Add testee");
             FormManager.LocalizedFormList.Add(testeeForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
             Testees.Add(testeeForm.Testee);
         }
 
@@ -42,7 +44,7 @@ namespace AdminApplication.TesteesForms.TesteesList
             AddEditTesteeForm testeeForm = new AddEditTesteeForm(editedTestee);
             FormManager.Instance.OpenChildForm(testeeForm, "Edit testee: " + editedTestee.Login);
             FormManager.LocalizedFormList.Add(testeeForm);
-            FormManager.Instance.LocalizedForms(Program.currentLang);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
         public void DeleteTestee(Testee deletedTestee)
@@ -60,8 +62,9 @@ namespace AdminApplication.TesteesForms.TesteesList
                     savedTestee.IsActive = false;
                     ServicesHolder.ServiceClient.UpdateTestee(savedTestee);
                 }
+                this.Testees.Remove(deletedTestee);
+                OnTesteeListChanged(EventArgs.Empty);
             }
-
         }
 
         public void Save()
@@ -80,6 +83,13 @@ namespace AdminApplication.TesteesForms.TesteesList
         {
             // TODO: implement loading of testees from external source
             XtraMessageBox.Show("Load trainings");
+        }    
+    
+        public event TesteeChangedEventHandler TesteeListChanged;
+        protected virtual void OnTesteeListChanged(EventArgs e)
+        {
+            if (TesteeListChanged != null)
+                TesteeListChanged(this, e);
         }
     }
 }

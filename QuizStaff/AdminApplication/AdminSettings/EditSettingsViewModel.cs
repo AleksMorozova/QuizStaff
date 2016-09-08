@@ -234,7 +234,7 @@ namespace AdminApplication.AdminSettings
                     testee.UserSetting.Seconds = this.Setting.Seconds;
                     testee.UserSetting.TimeOfStart = this.Setting.TimeOfStart;   
                     testee.UserSetting.AmountOfQuestionsPerDay = this.Setting.AmountOfQuestionsPerDay;
-                    testee.UserSetting.EndDate = this.Setting.EndDate;
+                    testee.UserSetting.EndDate = (this.Setting.EndDate != DateTime.MinValue) ? this.Setting.EndDate : DateTime.MaxValue;
                     testee.UserSetting.Recurrence = this.Setting.Recurrence;
 
                     savedSettings.Add(testee.UserSetting);
@@ -245,7 +245,6 @@ namespace AdminApplication.AdminSettings
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected virtual void RaisePropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

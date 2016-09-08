@@ -169,7 +169,7 @@
     <value>Дата и время начала</value>
   </data>
   <data name="withoutEndDateCheckEdit.Text" xml:space="preserve">
-    <value>Нет конечного условия</value>
+    <value>Без даты окончания</value>
   </data>
   <data name="startParametersLabelControl.Text" xml:space="preserve">
     <value>Первый вопрос приходит в:</value>
