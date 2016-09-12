@@ -62,6 +62,7 @@
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\QuizDBContext.cs" />
     <Compile Include="IApplicationServer.cs" />
+    <Compile Include="LoginTrainingQuestion.cs" />
     <Compile Include="Migrations\201608250839289_InitialCreate.cs" />
     <Compile Include="Migrations\201608250839289_InitialCreate.Designer.cs">
       <DependentUpon>201608250839289_InitialCreate.cs</DependentUpon>

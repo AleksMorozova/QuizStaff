@@ -10,6 +10,7 @@ using DataTransferObject;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using ApplicationServer;
 
 namespace Server
 {
@@ -163,7 +164,7 @@ namespace Server
             return trainings.Select(training => (TrainingDTO)training).ToList();
         }
 
-        public List<TrainingDTO>GetAllActiveTrainings()
+        public List<TrainingDTO> GetAllActiveTrainings()
         {
             EFRepository<Training> repo = new EFRepository<Training>();
 
@@ -382,6 +383,76 @@ namespace Server
             EFRepository<Answer> repo = new EFRepository<Answer>();
             Answer newAnswer = Conversion.ConvertAnswerFromDTO(answer);
             repo.Update(newAnswer);
+        }
+        public List<TesteeTraining> FindTesteesTrainings()
+        {
+            EFRepository<TesteeTraining> repo = new EFRepository<TesteeTraining>();
+            return repo.ReadAll().ToList();
+        }
+       
+        public void WriteTrainings(List<string> trainingTitles) 
+        {
+            EFRepository<Training> repo = new EFRepository<Training>();
+            var allTrainingsTitle = new List<Training>(repo.ReadAll()).Select(_=>_.TrainingTitle);
+            var allTrainings = new List<Training>(repo.ReadAll());
+
+
+            //Add new training
+            foreach (var t in trainingTitles)
+            {
+                if (!allTrainingsTitle.Contains(t))
+                {
+                    Training training = new Training();
+                    training.TrainingTitle = t;
+                    training.IsActive = true;
+                    repo.Create(training);
+                }
+            }
+
+            //Update existing training 
+            var exsistingTraining = allTrainings.Where(_ => trainingTitles.Contains(_.TrainingTitle));
+            foreach (var t in exsistingTraining)
+            {
+                t.IsActive = true;
+                repo.Update(t);
+            }
+    
+            var deletedTrainings = allTrainings.Except(exsistingTraining);
+            foreach (var t in deletedTrainings)
+            {
+                t.IsActive = false;
+                repo.Update(t);
+            }
+        }
+
+        public void WriteTesteeTrainings(List<LoginTrainingQuestion> loadInf)
+        {
+            EFTesteeTrainingRepository repo = new EFTesteeTrainingRepository();   
+            var allTesteeTrainings = FindTesteesTrainings();
+            var excistingTraining = allTesteeTrainings.Where(_ => loadInf.Select(_=>_.training).Contains(_.Training.TrainingTitle));
+
+            foreach (var data in loadInf)
+            {
+                var testee = Conversion.ConvertTesteeFromDTO(FindByLogin(data.login));
+                var training = Conversion.ConvertTrainingFromDTO(FindByTitle(data.training));
+                var testeeTraining = allTesteeTrainings.Where(_ => _.Testee == testee && _.Training == training).FirstOrDefault();
+                //exsisting  testee trainings
+                if (testeeTraining != null)
+                {
+                    testeeTraining.IsActive = true;
+                    testeeTraining.IsSelect = true;
+                    repo.Update(testeeTraining);
+                }
+                    //new testee trainings
+                else 
+                {
+                    TesteeTraining t = new TesteeTraining();
+                    t.IsActive = true;
+                    t.IsSelect = true;
+                    t.Training = training;
+                    t.Testee = testee;
+                }
+            }
         }
     }
 }
