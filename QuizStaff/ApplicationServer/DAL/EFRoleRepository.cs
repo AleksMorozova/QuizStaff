@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity.Migrations;
 
 namespace ApplicationServer.DAL
 {
@@ -23,7 +22,7 @@ namespace ApplicationServer.DAL
                     dbContext.Entry(permission.Permission).State = System.Data.Entity.EntityState.Unchanged;
                 }
             }
-               
+
 
             dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             dbContext.SaveChanges();

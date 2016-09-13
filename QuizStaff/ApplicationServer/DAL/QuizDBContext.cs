@@ -1,19 +1,19 @@
-﻿using System;
+﻿using DomainModel;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
-using DomainModel;
 
 namespace ApplicationServer.DAL
 {
-    public class QuizDBContext : DbContext
+    public class QuizDBContext: DbContext
     {
         public QuizDBContext()
             : base()
         {
-            
+
         }
 
         public DbSet<Testee> Testees { get; set; }
