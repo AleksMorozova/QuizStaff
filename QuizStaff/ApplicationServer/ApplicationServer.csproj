@@ -60,9 +60,13 @@
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\QuizDBContext.cs" />
     <Compile Include="IApplicationServer.cs" />
-    <Compile Include="Migrations\201609130754128_InitializeDb.cs" />
-    <Compile Include="Migrations\201609130754128_InitializeDb.Designer.cs">
-      <DependentUpon>201609130754128_InitializeDb.cs</DependentUpon>
+    <Compile Include="Migrations\201609130831195_InitializeDb.cs" />
+    <Compile Include="Migrations\201609130831195_InitializeDb.Designer.cs">
+      <DependentUpon>201609130831195_InitializeDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609130835344_RemoveDuplicateInformation.cs" />
+    <Compile Include="Migrations\201609130835344_RemoveDuplicateInformation.Designer.cs">
+      <DependentUpon>201609130835344_RemoveDuplicateInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -83,8 +87,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609130754128_InitializeDb.resx">
-      <DependentUpon>201609130754128_InitializeDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609130831195_InitializeDb.resx">
+      <DependentUpon>201609130831195_InitializeDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609130835344_RemoveDuplicateInformation.resx">
+      <DependentUpon>201609130835344_RemoveDuplicateInformation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
