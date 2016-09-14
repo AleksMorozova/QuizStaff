@@ -389,41 +389,84 @@ namespace Server
             EFRepository<TesteeTraining> repo = new EFRepository<TesteeTraining>();
             return repo.ReadAll().ToList();
         }
-       
-        public void WriteTrainings(List<string> trainingTitles) 
+
+        private List<string> TrainingTitles;
+
+        private Training UpdateTraining(Training training, bool isActive)
+        {
+            training.IsActive = isActive;
+            return training;
+        }
+
+        public void UpdateTrainings(List<Training> allTrainings)
         {
             EFRepository<Training> repo = new EFRepository<Training>();
-            var allTrainingsTitle = new List<Training>(repo.ReadAll()).Select(_=>_.TrainingTitle);
-            var allTrainings = new List<Training>(repo.ReadAll());
-
-
-            //Add new training
-            foreach (var t in trainingTitles)
+            foreach (var training in allTrainings)
             {
-                if (!allTrainingsTitle.Contains(t))
+                if (training.Id == Guid.Empty)
                 {
-                    Training training = new Training();
-                    training.TrainingTitle = t;
-                    training.IsActive = true;
                     repo.Create(training);
                 }
-            }
-
-            //Update existing training 
-            var exsistingTraining = allTrainings.Where(_ => trainingTitles.Contains(_.TrainingTitle));
-            foreach (var t in exsistingTraining)
-            {
-                t.IsActive = true;
-                repo.Update(t);
-            }
-    
-            var deletedTrainings = allTrainings.Except(exsistingTraining);
-            foreach (var t in deletedTrainings)
-            {
-                t.IsActive = false;
-                repo.Update(t);
+                else 
+                {
+                    repo.Update(training);
+                }
             }
         }
+
+        public void WriteTrainings(List<string> trainingTitles)
+        { 
+            List<Training> trainings = new List<Training>();
+            EFRepository<Training> repo = new EFRepository<Training>();
+            var allTrainings = new List<Training>(repo.ReadAll());
+
+            trainings.AddRange((from title in trainingTitles
+                                    select new { title }).AsEnumerable().Select(x =>
+                                    {
+                                        return (allTrainings.Select(_ => _.TrainingTitle).Contains(x.title))
+                                            ? UpdateTraining (allTrainings.Where(_ => _.TrainingTitle == x.title).First(), true)
+                                            : new Training() { TrainingTitle = x.title, IsActive = true };
+                                    }));
+
+            trainings.AddRange(allTrainings.Except(trainings).Select(x => UpdateTraining(x, false)));
+
+            UpdateTrainings(trainings);
+        }
+
+        //public void WriteTrainings(List<string> trainingTitles) 
+        //{
+        //    TrainingTitles = trainingTitles;
+        //    EFRepository<Training> repo = new EFRepository<Training>();
+        //    var allTrainingsTitle = new List<Training>(repo.ReadAll()).Select(_=>_.TrainingTitle);
+        //    var allTrainings = new List<Training>(repo.ReadAll());
+
+        //    //Add new training
+        //    foreach (var t in trainingTitles)
+        //    {
+        //        if (!allTrainingsTitle.Contains(t))
+        //        {
+        //            Training training = new Training();
+        //            training.TrainingTitle = t;
+        //            training.IsActive = true;
+        //            repo.Create(training);
+        //        }
+        //    }
+
+        //    //Update existing training 
+        //    var exsistingTraining = allTrainings.Where(_ => trainingTitles.Contains(_.TrainingTitle));
+        //    foreach (var t in exsistingTraining)
+        //    {
+        //        t.IsActive = true;
+        //        repo.Update(t);
+        //    }
+    
+        //    var deletedTrainings = allTrainings.Except(exsistingTraining);
+        //    foreach (var t in deletedTrainings)
+        //    {
+        //        t.IsActive = false;
+        //        repo.Update(t);
+        //    }
+        //}
 
         public void WriteTesteeTrainings(List<LoginTrainingQuestion> loadInf)
         {
