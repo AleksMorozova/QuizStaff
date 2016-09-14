@@ -21,14 +21,14 @@ namespace ApplicationServer.DAL
                         dbContext.Entry(answer).State = System.Data.Entity.EntityState.Added;
                     }
                 }
-                
-                else 
+
+                else
                 {
                     foreach (var answer in question.Answers)
                     {
-                         dbContext.Entry(answer).State = answer.Id == Guid.Empty 
-                             ? System.Data.Entity.EntityState.Added
-                             : System.Data.Entity.EntityState.Modified;
+                        dbContext.Entry(answer).State = answer.Id == Guid.Empty
+                            ? System.Data.Entity.EntityState.Added
+                            : System.Data.Entity.EntityState.Modified;
                     }
 
                     dbContext.Entry(question).State = System.Data.Entity.EntityState.Modified;

@@ -87,7 +87,6 @@ namespace DataTransferObject
             newTestee.FirstName = testee.FirstName;
             newTestee.LastName = testee.LastName;
             newTestee.Login = testee.Login;
-            newTestee.Password = testee.Password;
             newTestee.IsActive = testee.IsActive;
             newTestee.Email = testee.Email;
 
@@ -152,7 +151,6 @@ namespace DataTransferObject
             newTestee.FirstName = testee.FirstName;
             newTestee.LastName = testee.LastName;
             newTestee.Login = testee.Login;
-            newTestee.Password = testee.Password;
             newTestee.IsActive = testee.IsActive;
             newTestee.Email = testee.Email;
 
@@ -171,7 +169,6 @@ namespace DataTransferObject
             newTestee.UserSetting.Hours = testee.UserSetting.Hours;
             newTestee.UserSetting.Minutes = testee.UserSetting.Minutes;
             newTestee.UserSetting.Seconds = testee.UserSetting.Seconds;
-            newTestee.UserSetting.StartDate = testee.UserSetting.TimeOfStart;
             newTestee.UserSetting.EndDate = (testee.UserSetting.EndDate != DateTime.MinValue) ? testee.UserSetting.EndDate : DateTime.MaxValue;
             newTestee.UserSetting.Recurrence = testee.UserSetting.Recurrence;
             newTestee.UserSetting.AmountOfQuestionsPerDay = testee.UserSetting.AmountOfQuestionsPerDay;
@@ -353,7 +350,6 @@ namespace DataTransferObject
             newTestee.FirstName = testee.FirstName;
             newTestee.LastName = testee.LastName;
             newTestee.Login = testee.Login;
-            newTestee.Password = testee.Password;
             newTestee.IsActive = testee.IsActive;
             newTestee.Email = testee.Email;
 
@@ -372,7 +368,6 @@ namespace DataTransferObject
             newTestee.UserSetting.Hours = testee.UserSetting.Hours;
             newTestee.UserSetting.Minutes = testee.UserSetting.Minutes;
             newTestee.UserSetting.Seconds = testee.UserSetting.Seconds;
-            newTestee.UserSetting.StartDate = testee.UserSetting.TimeOfStart;
             newTestee.UserSetting.EndDate = (testee.UserSetting.EndDate !=DateTime.MinValue) ? testee.UserSetting.EndDate : DateTime.MaxValue;
             newTestee.UserSetting.Recurrence = testee.UserSetting.Recurrence;
             newTestee.UserSetting.AmountOfQuestionsPerDay = testee.UserSetting.AmountOfQuestionsPerDay;
@@ -433,7 +428,6 @@ namespace DataTransferObject
             newSetting.Hours = setting.Hours;
             newSetting.Minutes = setting.Minutes;
             newSetting.Seconds = setting.Seconds;
-            newSetting.StartDate = setting.TimeOfStart;
             newSetting.EndDate = setting.EndDate;
             newSetting.Recurrence = setting.Recurrence;
             newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
