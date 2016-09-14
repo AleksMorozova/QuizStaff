@@ -9,7 +9,7 @@ namespace AdminApplication
     public class ServicesHolder
     {
         private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient;
-        private static ServicesHolder serviceHolderObject;
+        private static ServicesHolder serviceHolderObject = new ServicesHolder();
         public static AdminApplication.ServiceReference.ApplicationServerClient ServiceClient
         {
             get
@@ -27,7 +27,7 @@ namespace AdminApplication
         {
             get
             {
-                return (serviceHolderObject != null) ? serviceHolderObject : new ServicesHolder();
+                return serviceHolderObject;
             }
         }
     }

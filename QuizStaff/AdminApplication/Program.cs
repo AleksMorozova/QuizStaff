@@ -1,5 +1,4 @@
-﻿using ApplicationServer.DAL;
-using AdminApplication.LoginForm;
+﻿using AdminApplication.LoginForm;
 using DataTransferObject;
 using DevExpress.XtraEditors;
 using DomainModel;

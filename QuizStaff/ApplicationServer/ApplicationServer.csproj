@@ -4,20 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E15DB54F-3233-4F07-BE16-5BE474CFAA59}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{6FD215D0-E9F8-4AA5-88D3-46EF628F3F97}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ApplicationServer</RootNamespace>
-    <AssemblyName>ApplicationServer</AssemblyName>
-    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <RootNamespace>QuizServer</RootNamespace>
+    <AssemblyName>QuizServer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
-    <XsdCodeGenEnabled>True</XsdCodeGenEnabled>
+    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -27,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,48 +38,42 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationServer.cs" />
     <Compile Include="DAL\EFHistoryRepository.cs" />
     <Compile Include="DAL\EFPermissionRepository.cs" />
     <Compile Include="DAL\EFRepository.cs" />
-    <Compile Include="DAL\EFRoleRepository .cs" />
+    <Compile Include="DAL\EFRoleRepository.cs" />
     <Compile Include="DAL\EFTesteeRepository.cs" />
     <Compile Include="DAL\EFTesteeTrainingRepository.cs" />
     <Compile Include="DAL\EFTrainingRepository.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\QuizDBContext.cs" />
     <Compile Include="IApplicationServer.cs" />
-    <Compile Include="LoginTrainingQuestion.cs" />
-    <Compile Include="Migrations\201608250839289_InitialCreate.cs" />
-    <Compile Include="Migrations\201608250839289_InitialCreate.Designer.cs">
-      <DependentUpon>201608250839289_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201609130831195_InitializeDb.cs" />
+    <Compile Include="Migrations\201609130831195_InitializeDb.Designer.cs">
+      <DependentUpon>201609130831195_InitializeDb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608250956472_UpdateParametersOfAskingQuestion.cs" />
-    <Compile Include="Migrations\201608250956472_UpdateParametersOfAskingQuestion.Designer.cs">
-      <DependentUpon>201608250956472_UpdateParametersOfAskingQuestion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201608251426003_AddRecurrenceType.cs" />
-    <Compile Include="Migrations\201608251426003_AddRecurrenceType.Designer.cs">
-      <DependentUpon>201608251426003_AddRecurrenceType.cs</DependentUpon>
+    <Compile Include="Migrations\201609130835344_RemoveDuplicateInformation.cs" />
+    <Compile Include="Migrations\201609130835344_RemoveDuplicateInformation.Designer.cs">
+      <DependentUpon>201609130835344_RemoveDuplicateInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ApplicationServer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -96,38 +87,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
-      <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>
-      <Name>DomainModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608250839289_InitialCreate.resx">
-      <DependentUpon>201608250839289_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609130831195_InitializeDb.resx">
+      <DependentUpon>201609130831195_InitializeDb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608250956472_UpdateParametersOfAskingQuestion.resx">
-      <DependentUpon>201608250956472_UpdateParametersOfAskingQuestion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608251426003_AddRecurrenceType.resx">
-      <DependentUpon>201608251426003_AddRecurrenceType.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609130835344_RemoveDuplicateInformation.resx">
+      <DependentUpon>201609130835344_RemoveDuplicateInformation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <VSToolsPath Condition="'$(VSToolsPath)' == '' and '$(VisualStudioVersion)' != '' and '$(VisualStudioVersion)' != '11.0'">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio</VSToolsPath>
-    <WcfServiceModelTargetPath>$(VSToolsPath)\WCF</WcfServiceModelTargetPath>
-  </PropertyGroup>
-  <Import Project="$(WcfServiceModelTargetPath)\Microsoft.VisualStudio.ServiceModel.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
-        <WcfProjectProperties>
-          <AutoStart>True</AutoStart>
-        </WcfProjectProperties>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

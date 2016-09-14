@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3ea00056-1fa3-4797-b329-0ba1159e7fda" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4fb4f2ae-ac2d-4fc2-bd88-9030af4aadb5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://dws01:8733/ApplicationServer" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="f32fe3a1-0329-4a01-a987-8a86ec037bf2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/mex" />
-    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="b2c0b833-20f5-4bcc-ae89-05873c573810" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/mex" />
-    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="e28a4f89-520a-475c-a56c-88d66f935224" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/mex" />
-    <MetadataFile FileName="DataTransferObject1.xsd" MetadataType="Schema" ID="5d4cad57-ce6b-46e8-8e9c-153e25a9ce8c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/mex" />
-    <MetadataFile FileName="DomainModel.xsd" MetadataType="Schema" ID="99acb8a1-9fed-4896-8ba9-1f27e6f13349" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Server/ApplicationServer/mex" />
+    <MetadataFile FileName="ApplicationServer.xsd" MetadataType="Schema" ID="10b8205d-827b-4bf6-a365-8d250c72c0e2" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer?xsd=xsd2" />
+    <MetadataFile FileName="ApplicationServer.disco" MetadataType="Disco" ID="83d1f745-269c-4966-9972-4ecbed8f2c39" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer?disco" />
+    <MetadataFile FileName="ApplicationServer1.xsd" MetadataType="Schema" ID="9c0b6a36-d89f-4fb4-9355-a674fd7c193b" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer?xsd=xsd0" />
+    <MetadataFile FileName="ApplicationServer2.xsd" MetadataType="Schema" ID="a34b62fb-a46c-4374-b89c-bbd081b05930" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer?xsd=xsd1" />
+    <MetadataFile FileName="ApplicationServer.wsdl" MetadataType="Wsdl" ID="9717ac4d-8a46-455b-9393-013b2b243814" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer?wsdl" />
+    <MetadataFile FileName="ApplicationServer3.xsd" MetadataType="Schema" ID="6f9819c9-eb19-48ea-ad03-ddc2bb60da83" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

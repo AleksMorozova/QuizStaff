@@ -248,22 +248,6 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             }
         }
 
-        public DateTime StartDate
-        {
-            get
-            {
-                return Setting.StartDate;
-            }
-            set
-            {
-                if (value != Setting.StartDate)
-                {
-                    Setting.StartDate = value;
-                    RaisePropertyChanged("StartDate");
-                }
-            }
-        }
-
         public DateTime EndDate
         {
             get
