@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminApplication", "AdminAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteeApplication", "TesteeApplication\TesteeApplication.csproj", "{7D54CF3E-D5B9-4746-A4B6-985D10B3EC52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginApplication", "LoginApplication\LoginApplication.csproj", "{652826AF-0FBC-4DA6-B0CB-68B6F43E834B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationServer", "ApplicationServer\ApplicationServer.csproj", "{6FD215D0-E9F8-4AA5-88D3-46EF628F3F97}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadDataFromLMS", "LoadDataFromLMS\LoadDataFromLMS.csproj", "{4FB1630A-E1E0-4950-B965-0B91FA489475}"
@@ -39,10 +37,6 @@ Global
 		{7D54CF3E-D5B9-4746-A4B6-985D10B3EC52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D54CF3E-D5B9-4746-A4B6-985D10B3EC52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D54CF3E-D5B9-4746-A4B6-985D10B3EC52}.Release|Any CPU.Build.0 = Release|Any CPU
-		{652826AF-0FBC-4DA6-B0CB-68B6F43E834B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{652826AF-0FBC-4DA6-B0CB-68B6F43E834B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{652826AF-0FBC-4DA6-B0CB-68B6F43E834B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{652826AF-0FBC-4DA6-B0CB-68B6F43E834B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6FD215D0-E9F8-4AA5-88D3-46EF628F3F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6FD215D0-E9F8-4AA5-88D3-46EF628F3F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FD215D0-E9F8-4AA5-88D3-46EF628F3F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
