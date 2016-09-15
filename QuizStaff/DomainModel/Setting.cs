@@ -14,7 +14,6 @@ namespace DomainModel
         public int Hours { get; set; }  
         public int Minutes { get; set; }
         public int Seconds { get; set; }
-        public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public RecurrenceType Recurrence { get; set; }
 

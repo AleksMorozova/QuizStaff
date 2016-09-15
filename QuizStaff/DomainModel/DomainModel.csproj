@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityStatus.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="History.cs" />

@@ -1,4 +1,4 @@
-namespace ApplicationServer.Migrations
+namespace QuizServer.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -10,7 +10,6 @@ namespace ApplicationServer.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ApplicationServer.DAL.QuizDBContext";
         }
 
         protected override void Seed(ApplicationServer.DAL.QuizDBContext context)

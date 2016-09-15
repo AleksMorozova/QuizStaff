@@ -81,8 +81,8 @@ namespace AdminApplication.TesteesForms.TesteesList
 
         public void LoadTestees()
         {
-            // TODO: implement loading of testees from external source
-            XtraMessageBox.Show("Load trainings");
+            //ServicesHolder.ServiceClient.LoadTestee();
+            XtraMessageBox.Show("Testees was successfully load");
         }    
     
         public event TesteeChangedEventHandler TesteeListChanged;

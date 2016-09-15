@@ -84,8 +84,8 @@ namespace AdminApplication.TrainingsListForm
 
         public void LoadTrainings()
         {
-            // TODO: implement loading of trainings from external source
-            XtraMessageBox.Show("Load trainings");
+            ServicesHolder.ServiceClient.LoadTrainings();
+            XtraMessageBox.Show("Trainings was successfully load");
         }
            
         public event TrainingChangedEventHandler TrainingListChanged;

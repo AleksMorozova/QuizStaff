@@ -1,36 +1,25 @@
-﻿using System;
+﻿using DataTransferObject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using DomainModel;
-using DataTransferObject;
+using System.Threading.Tasks;
 
-namespace Server
+namespace ApplicationServer
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
     public interface IApplicationServer
     {
         [OperationContract]
-        List<TesteeDTO> GetAllTestees(); 
-        
+        List<TesteeDTO> GetAllTestees();
+
         [OperationContract]
         void SaveAllTestees(ICollection<TesteeDTO> testees);
 
         [OperationContract]
         TesteeDTO GetTesteeByID(Guid id);
 
-        [OperationContract]
-        Boolean SetUsersSettings(SettingDTO sets, Guid id);
-
-        //[OperationContract]
-        //List<QuestionDTO> GetTrainingQuestions(TrainingDTO training);
-
-        [OperationContract]
-        SettingDTO GetUsersSettings(Guid id);
-        
         [OperationContract]
         void SaveTesteeAnswer(HistoryDTO history);
 
@@ -45,7 +34,7 @@ namespace Server
 
         [OperationContract]
         void SaveAllTrainings(ICollection<TrainingDTO> trainings);
-         
+
         [OperationContract]
         TesteeDTO FindByLogin(string login);
 
@@ -54,7 +43,7 @@ namespace Server
 
         [OperationContract]
         TrainingDTO UpdateTraining(TrainingDTO training);
-        
+
         [OperationContract]
         TrainingDTO SaveTraining(TrainingDTO training);
 
@@ -66,9 +55,6 @@ namespace Server
 
         [OperationContract]
         TesteeDTO UpdateTestee(TesteeDTO testee);
-
-        [OperationContract]
-        void UpdateSomeTestees(TesteeDTO[] testeeArray);
 
         [OperationContract]
         TesteeDTO SaveTestee(TesteeDTO testee);
@@ -90,7 +76,7 @@ namespace Server
 
         [OperationContract]
         TrainingDTO FindByTitle(string title);
-               
+
         [OperationContract]
         List<RoleDTO> GetAllRoles();
 
@@ -105,8 +91,11 @@ namespace Server
 
         [OperationContract]
         void AddTesteeRole(TesteeDTO testee, RoleDTO role);
-       
+
         [OperationContract]
         void UpdateAnswer(AnswerDTO answer);
+
+        [OperationContract]
+        void LoadTrainings();
     }
 }

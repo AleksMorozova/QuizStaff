@@ -1,19 +1,17 @@
 ﻿using ApplicationServer.DAL;
+using DataTransferObject;
 using DomainModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using DataTransferObject;
-using System.Collections;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ApplicationServer;
+using LoadDataFromLMS;
 
-namespace Server
+namespace ApplicationServer
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class ApplicationServer : IApplicationServer
     {
         QuizDBContext context;
@@ -35,10 +33,9 @@ namespace Server
                     FirstName = testee.FirstName,
                     LastName = testee.LastName,
                     Login = testee.Login,
-                    Password = testee.Password,
                     IsActive = testee.IsActive,
                     Email = testee.Email,
-                    
+
                     Attribute1 = testee.Attribute1,
                     Attribute2 = testee.Attribute2,
                     Attribute3 = testee.Attribute3,
@@ -101,7 +98,7 @@ namespace Server
             var currentTestee = repo.Read(id);
 
             BindingList<Question> allQuestions = new BindingList<Question>();
-            foreach(var t in currentTestee.Trainings)
+            foreach (var t in currentTestee.Trainings)
             {
                 if (t.IsSelect && t.Training.IsActive)
                 {
@@ -120,7 +117,7 @@ namespace Server
                 int index = rnd.Next(0, allQuestions.Count() - 1);
                 question = allQuestions.ElementAt(index);
             }
-            else 
+            else
             {
                 question = allQuestions.FirstOrDefault();
             }
@@ -131,31 +128,6 @@ namespace Server
             return (QuestionDTO)question;
         }
 
-        #region Client's settings  
-        public Boolean SetUsersSettings(SettingDTO sets, Guid id)
-        {
-            // Save to database
-            try
-            {
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public SettingDTO GetUsersSettings(Guid id)
-        {
-            Setting sets = new Setting() { AmountOfQuestionsPerDay = 1,
-                                                Minutes = 1,
-                                                StartDate = DateTime.Now,
-                                                EndDate = DateTime.MaxValue,
-                                                    TimeOfStart = new DateTime(2016, 5, 8, 10, 10, 10, 10) };
-            return sets;
-        }
-        #endregion
-
         public List<TrainingDTO> GetAllTrainings()
         {
             EFRepository<Training> repo = new EFRepository<Training>();
@@ -163,7 +135,7 @@ namespace Server
             return trainings.Select(training => (TrainingDTO)training).ToList();
         }
 
-        public List<TrainingDTO>GetAllActiveTrainings()
+        public List<TrainingDTO> GetAllActiveTrainings()
         {
             EFRepository<Training> repo = new EFRepository<Training>();
 
@@ -191,20 +163,20 @@ namespace Server
         public void SaveAllTrainings(ICollection<TrainingDTO> trainings)
         {
             // TODO: save to database
-        }       
+        }
 
         public TesteeDTO FindByLogin(string login)
         {
-            EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
+            EFRepository<Testee> repo = new EFRepository<Testee>();
             Testee result;
             if (login == "admin")
                 result = repo.ReadAll().Where(_ => _.Login == login).FirstOrDefault();
             else
                 result = repo.ReadAll().Where(_ => _.Login == login && _.IsActive).FirstOrDefault();
-            return (result != null) ? result : new TesteeDTO() { IsActive = true, UserSetting = new Setting() { TimeOfStart = DateTime.Now, Recurrence = RecurrenceType.WithoutEnding, Minutes = 5}};
+            return (result != null) ? result : new TesteeDTO() { IsActive = true, UserSetting = new Setting() { TimeOfStart = DateTime.Now, Recurrence = RecurrenceType.WithoutEnding, Minutes = 5 } };
         }
 
-        public void SaveAnswer(QuestionDTO question) 
+        public void SaveAnswer(QuestionDTO question)
         {
             EFRepository<Question> repo = new EFRepository<Question>();
             //repo.Create((Question)question);
@@ -240,15 +212,6 @@ namespace Server
             repo.Update(updatedTestee);
             return (TesteeDTO)updatedTestee;
         }
-        public void UpdateSomeTestees(TesteeDTO[] testeeArray)
-        {
-            EFTesteeRepository repo = new EFTesteeRepository();
-            foreach (var testee in testeeArray)
-            {
-                Testee updatedTestee = Conversion.ConvertTesteeFromDTO(testee);
-                repo.Update(updatedTestee);
-            }
-        }
 
         public TesteeDTO SaveTestee(TesteeDTO testee)
         {
@@ -261,24 +224,22 @@ namespace Server
         public void UpdateSettings(SettingDTO[] settings)
         {
             EFRepository<Setting> repo = new EFRepository<DomainModel.Setting>();
-            foreach(var setting in settings.ToList())
+            foreach (var setting in settings.ToList())
             {
                 Setting newSetting = new Setting();
                 newSetting.Id = setting.Id;
                 newSetting.Hours = setting.Hours;
                 newSetting.Minutes = setting.Minutes;
                 newSetting.Seconds = setting.Seconds;
-                newSetting.StartDate = setting.TimeOfStart;
-                newSetting.EndDate = setting.EndDate;
                 setting.EndDate = (setting.EndDate != DateTime.MinValue) ? setting.EndDate : DateTime.MaxValue;
                 newSetting.Recurrence = setting.Recurrence;
                 newSetting.AmountOfQuestionsPerDay = setting.AmountOfQuestionsPerDay;
                 newSetting.TimeOfStart = setting.TimeOfStart;
                 newSetting.CanUserEdit = setting.CanUserEdit;
                 newSetting.ShowCorrectAnswer = setting.ShowCorrectAnswer;
-                
+
                 repo.Update(newSetting);
-            }      
+            }
         }
 
         public void UpdateQuestion(QuestionDTO question)
@@ -295,7 +256,7 @@ namespace Server
             repo.Update(newAnswer);
         }
 
-        public void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining) 
+        public void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining)
         {
             EFRepository<TesteeTraining> repo = new EFRepository<TesteeTraining>();
             repo.Update(Conversion.ConvertTesteeTrainingFromDTO(testeeTraining));
@@ -304,7 +265,7 @@ namespace Server
         public void UpdateTesteeTrainings(TesteeTrainingDTO[] testeeTrainings)
         {
             EFTesteeTrainingRepository repo = new EFTesteeTrainingRepository();
-            foreach(var testeeTraining in testeeTrainings)
+            foreach (var testeeTraining in testeeTrainings)
             {
                 TesteeTraining updateTesteeTraining = Conversion.ConvertTesteeTrainingFromDTO(testeeTraining);
                 repo.Update(updateTesteeTraining);
@@ -321,7 +282,7 @@ namespace Server
         public TrainingDTO FindByTitle(string title)
         {
             EFRepository<Training> repo = new EFRepository<DomainModel.Training>();
-            var result = repo.ReadAll().Where(_ => _.TrainingTitle == title ).FirstOrDefault();
+            var result = repo.ReadAll().Where(_ => _.TrainingTitle == title).FirstOrDefault();
             return (result != null) ? result : new TrainingDTO() { IsActive = true };
         }
 
@@ -340,16 +301,16 @@ namespace Server
         }
 
         public void UpdateRoles(RoleDTO role)
-        {            
+        {
             EFRoleRepository repo = new EFRoleRepository();
             if (role.Id == Guid.Empty)
-                {
-                    repo.Create(Conversion.ConvertRoleFromDTO(role));
-                }
-                else 
-                { 
-                    repo.Update(Conversion.ConvertRoleFromDTO(role));
-                }
+            {
+                repo.Create(Conversion.ConvertRoleFromDTO(role));
+            }
+            else
+            {
+                repo.Update(Conversion.ConvertRoleFromDTO(role));
+            }
         }
 
         public void UpdatePermissions(PermissionDTO permission)
@@ -377,11 +338,179 @@ namespace Server
             repo.Update(Conversion.ConvertTesteeFromDTO(testee));
         }
 
-        public void UpdateAnswer(AnswerDTO answer) 
+        public void UpdateAnswer(AnswerDTO answer)
         {
             EFRepository<Answer> repo = new EFRepository<Answer>();
             Answer newAnswer = Conversion.ConvertAnswerFromDTO(answer);
             repo.Update(newAnswer);
         }
+        public List<TesteeTraining> FindTesteesTrainings()
+        {
+            EFRepository<TesteeTraining> repo = new EFRepository<TesteeTraining>();
+            return repo.ReadAll().ToList();
+        }
+
+        #region Write loaded information
+
+
+        private Training UpdateTraining(Training training, bool isActive)
+        {
+            training.IsActive = isActive;
+            return training;
+        }
+
+        private Testee UpdateTestee(Testee testee, bool isActive)
+        {
+            testee.IsActive = isActive;
+            return testee;
+        }
+
+        private TesteeTraining UpdateTesteeTraining(TesteeTraining testeeTraining, bool isActive)
+        {
+            testeeTraining.IsActive = isActive;
+            testeeTraining.IsSelect = true;
+            return testeeTraining;
+        }
+
+        public void UpdateTrainings(List<Training> allTrainings, EFTrainingRepository repo)
+        {
+            foreach (var training in allTrainings)
+            {
+                if (training.Id == Guid.Empty)
+                {
+                    repo.Create(training);
+                }
+                else
+                {
+                    repo.Update(training);
+                }
+            }
+        }
+
+        public void UpdateTestees(List<Testee> allTestee, EFTesteeRepository repo)
+        {
+            foreach (var testee in allTestee)
+            {
+                if (testee.Id == Guid.Empty)
+                {
+                    repo.Create(testee);
+                }
+                else
+                {
+                    repo.Update(testee);
+                }
+            }
+        }
+
+        public void UpdateTesteesTrainings(List<TesteeTraining> allTesteeTrainings, QuizDBContext dbContext)
+        {
+            foreach (var testeeTrainings in allTesteeTrainings)
+            {
+                if (testeeTrainings.Id == Guid.Empty)
+                {
+                    dbContext.Set<TesteeTraining>().Add(testeeTrainings);
+                }
+                else
+                {
+                    dbContext.Entry(testeeTrainings).State = System.Data.Entity.EntityState.Modified;
+                }
+                dbContext.SaveChanges();
+            }
+        }
+
+        public void WriteTrainings(List<string> trainingTitles)
+        {
+            trainingTitles = trainingTitles.Distinct().ToList();
+            List<Training> trainings = new List<Training>();
+            EFTrainingRepository repo = new EFTrainingRepository();
+            var allTrainings = new List<Training>(repo.ReadAll());
+
+            trainings.AddRange((from title in trainingTitles
+                                select new { title }).AsEnumerable().Select(x =>
+                                {
+                                    return (allTrainings.Select(_ => _.TrainingTitle).Contains(x.title))
+                                        ? UpdateTraining(allTrainings.Where(_ => _.TrainingTitle == x.title).First(), true)
+                                        : new Training() { TrainingTitle = x.title, IsActive = true };
+                                }));
+
+            trainings.AddRange(allTrainings.Except(trainings).Select(x => UpdateTraining(x, false)));
+
+            UpdateTrainings(trainings, repo);
+        }
+
+        public void WriteTestee(List<TesteeData> testees)
+        {
+            List<Testee> savedTestee = new List<Testee>();
+            EFTesteeRepository repo = new EFTesteeRepository();
+
+            var testeeLogin = testees.Select(_ => _.login).ToList();
+            var allTestees = new List<Testee>(repo.ReadAll());
+
+            savedTestee.AddRange((from testee in testees
+                                  select new { testee }).AsEnumerable().Select(x =>
+                                  {
+                                      return (allTestees.Select(_ => _.Login).Contains(x.testee.login))
+                                          ? UpdateTestee(allTestees.Where(_ => _.Login == x.testee.login).First(), true)
+                                          : new Testee()
+                                          {
+                                              Login = x.testee.login,
+                                              FirstName = x.testee.firstName,
+                                              LastName = x.testee.lastName,
+                                              Attribute1 = x.testee.department,
+                                              Attribute2 = x.testee.possition,
+                                              Attribute3 = x.testee.managerLogin,
+                                              IsActive = true,
+                                              UserSetting = new Setting() { Minutes = 5, AmountOfQuestionsPerDay = 10, TimeOfStart = DateTime.Now, EndDate = DateTime.Now, Recurrence = RecurrenceType.WithExactRepeated },
+                                              Trainings = new BindingList<TesteeTraining>(),
+                                              Roles = new BindingList<TesteeRoles>()
+                                          };
+                                  }));
+
+            savedTestee.AddRange(allTestees.Except(savedTestee).Select(x => UpdateTestee(x, false)));
+
+            UpdateTestees(savedTestee, repo);
+        }
+
+        public void WriteTesteeTrainings(List<TesteeTrainingLink> testeeTraining)
+        {
+            QuizDBContext dbContext = new QuizDBContext();
+
+            var allTestees = dbContext.Set<Testee>().ToList();
+            var allTrainings = dbContext.Set<Training>().ToList();
+            testeeTraining = testeeTraining.Distinct().ToList();
+
+            List<TesteeTraining> updatedTesteeTrainings = new List<TesteeTraining>();
+            var existingTesteTrainings = new List<TesteeTraining>(dbContext.Set<TesteeTraining>());
+
+            updatedTesteeTrainings.AddRange((from link in testeeTraining
+                                             select new { link }).AsEnumerable().Select(x =>
+                                             {
+                                                 var testee = allTestees.Where(_ => _.Login == x.link.login && _.IsActive).FirstOrDefault();
+                                                 var trainings = allTrainings.Where(_ => _.TrainingTitle == x.link.training && _.IsActive).FirstOrDefault();
+                                                 var testeeTrainingFromDB = existingTesteTrainings.FirstOrDefault(_ => _.Training == trainings && _.Testee == testee);
+                                                 return (existingTesteTrainings.Contains(testeeTrainingFromDB))
+                                                     ? UpdateTesteeTraining(testeeTrainingFromDB, true)
+                                                     : new TesteeTraining() { Testee = testee, Training = trainings, IsActive = true, IsSelect = true };
+                                             }));
+
+            updatedTesteeTrainings.AddRange(existingTesteTrainings.Except(updatedTesteeTrainings).Select(x => UpdateTesteeTraining(x, false)));
+
+            UpdateTesteesTrainings(updatedTesteeTrainings, dbContext);
+        }
+
+        public void LoadTrainings()
+        {
+            Loader.LoadDataFromFile(@"C:\Users\omor\Desktop\ISD_Report_20160914.xlsx");
+
+            List<string> trainingTitles = Loader.TesteesList.Select(_ => _.training).ToList();
+            List<TesteeData> testees = Loader.TesteesTrainingsList;
+
+            WriteTrainings(trainingTitles.Distinct().ToList());
+            WriteTestee(testees.Distinct().ToList());
+
+            WriteTesteeTrainings(Loader.TesteesList);
+        }
+
+        #endregion
     }
 }
