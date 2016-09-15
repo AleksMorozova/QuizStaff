@@ -94,5 +94,8 @@ namespace ApplicationServer
 
         [OperationContract]
         void UpdateAnswer(AnswerDTO answer);
+
+        [OperationContract]
+        void LoadTrainings();
     }
 }

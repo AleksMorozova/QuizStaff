@@ -182,6 +182,12 @@ namespace AdminApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateAnswer", ReplyAction="http://tempuri.org/IApplicationServer/UpdateAnswerResponse")]
         System.Threading.Tasks.Task UpdateAnswerAsync(DataTransferObject.AnswerDTO answer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoadTrainings", ReplyAction="http://tempuri.org/IApplicationServer/LoadTrainingsResponse")]
+        void LoadTrainings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoadTrainings", ReplyAction="http://tempuri.org/IApplicationServer/LoadTrainingsResponse")]
+        System.Threading.Tasks.Task LoadTrainingsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -433,6 +439,14 @@ namespace AdminApplication.ServiceReference {
         
         public System.Threading.Tasks.Task UpdateAnswerAsync(DataTransferObject.AnswerDTO answer) {
             return base.Channel.UpdateAnswerAsync(answer);
+        }
+        
+        public void LoadTrainings() {
+            base.Channel.LoadTrainings();
+        }
+        
+        public System.Threading.Tasks.Task LoadTrainingsAsync() {
+            return base.Channel.LoadTrainingsAsync();
         }
     }
 }
