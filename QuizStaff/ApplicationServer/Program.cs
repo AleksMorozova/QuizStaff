@@ -10,25 +10,20 @@ namespace ApplicationServer
 {
     class Program
     {
+        internal static ServiceHost applicationServiceHost = null;
         static void Main(string[] args)
         {
-            Uri baseAddress = new Uri("http://dws01:8733/ApplicationServer");
-
-            using (ServiceHost host = new ServiceHost(typeof(ApplicationServer), baseAddress))
+            if (applicationServiceHost != null)
             {
-                ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
-                smb.HttpGetEnabled = true;
-                smb.MetadataExporter.PolicyVersion = PolicyVersion.Policy15;
-                host.Description.Behaviors.Add(smb);
-
-                host.Open();
-                
-                Console.WriteLine("The service is ready at {0}", baseAddress);
-                Console.WriteLine("Press <Enter> to stop the service.");
-                Console.ReadLine();
-
-                host.Close();
+                applicationServiceHost.Close();
             }
+            applicationServiceHost = new ServiceHost(typeof(ApplicationServer));
+            applicationServiceHost.Open();
+
+            Console.WriteLine("Press <Enter> to stop the service.");
+            Console.ReadLine();
+
+            applicationServiceHost.Close();
         }
     }
 }
