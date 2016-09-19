@@ -374,7 +374,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
             string result = (string)gv.GetRowCellValue(e.RowHandle, titleGridColumn);
 
-            var trainings = Testee.Trainings.Select(_ => _.Training.TrainingTitle);
+            var trainings = Testee.Trainings.Select(_ => _.Training.TrainingTitle).ToList();
+            trainings.Remove(result);
             if (!String.IsNullOrEmpty(result) && trainings.Contains(result))
             {
                 gridViewTrainings.SetColumnError(titleGridColumn, "Duplicate training!");
