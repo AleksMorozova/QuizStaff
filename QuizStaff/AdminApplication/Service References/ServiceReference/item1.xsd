@@ -365,4 +365,19 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllTesteesForReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="from" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="to" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllTesteesForReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetAllTesteesForReportResult" nillable="true" type="q36:ArrayOfTesteeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

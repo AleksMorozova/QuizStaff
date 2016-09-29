@@ -188,6 +188,12 @@ namespace AdminApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoadTrainings", ReplyAction="http://tempuri.org/IApplicationServer/LoadTrainingsResponse")]
         System.Threading.Tasks.Task LoadTrainingsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTesteesForReport", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesForReportResponse")]
+        DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTesteesForReport", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesForReportResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesForReportAsync(System.DateTime from, System.DateTime to);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -447,6 +453,14 @@ namespace AdminApplication.ServiceReference {
         
         public System.Threading.Tasks.Task LoadTrainingsAsync() {
             return base.Channel.LoadTrainingsAsync();
+        }
+        
+        public DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetAllTesteesForReport(from, to);
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesForReportAsync(System.DateTime from, System.DateTime to) {
+            return base.Channel.GetAllTesteesForReportAsync(from, to);
         }
     }
 }
