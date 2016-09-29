@@ -126,5 +126,13 @@ namespace AdminApplication
             AboutBox about = new AboutBox();
             about.ShowDialog();
         }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Reports.ReportsForm reportsForm = new Reports.ReportsForm();
+            FormManager.Instance.OpenChildForm(reportsForm, "Report");
+            //FormManager.LocalizedFormList.Add(reportsForm);
+            //FormManager.Instance.LocalizedForms(Program.СurrentLang);
+        }
     }
 }
