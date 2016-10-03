@@ -9,7 +9,7 @@ namespace ApplicationServer.DAL
 {
     public class EFRepository<T> : IRepository<T> where T : Entity, new()
     {
-        protected QuizDBContext dbContext = new QuizDBContext();
+        protected QuizDBContext dbContext = ApplicationServer.dbContext;
 
         public virtual void Create(T entity)
         {

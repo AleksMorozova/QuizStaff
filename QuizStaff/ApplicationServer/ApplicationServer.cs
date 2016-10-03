@@ -14,12 +14,12 @@ namespace ApplicationServer
 {
     public class ApplicationServer : IApplicationServer
     {
-        QuizDBContext context;
+        public static QuizDBContext dbContext;
 
         public ApplicationServer()
         {
-            context = new QuizDBContext();
-            context.Database.Initialize(true);
+            dbContext = new QuizDBContext();
+            dbContext.Database.Initialize(true);
         }
 
         public List<TesteeDTO> GetAllTestees()
@@ -386,28 +386,102 @@ namespace ApplicationServer
 
         #region Write loaded information
 
-
-        private Training UpdateTraining(Training training, bool isActive)
+        public void WriteTrainings(List<string> trainingTitles)
         {
+            Loader.LoadQuestionFromFile(@"C:\Users\omor\Desktop\Questions");
+            var loadedQuestions = Loader.LoadedQuestions;
+            EFRepository<Question> questionRepo = new EFRepository<Question>();
+
+            trainingTitles = trainingTitles.Distinct().ToList();
+            List<Training> trainings = new List<Training>();
+            EFTrainingRepository repo = new EFTrainingRepository();
+            var allTrainings = new List<Training>(repo.ReadAll());
+
+            trainings.AddRange((from title in trainingTitles
+                                select new { title }).AsEnumerable().Select(x =>
+                                {
+                                    return (allTrainings.Select(_ => _.TrainingTitle).Contains(x.title))
+                                        ? UpdateTraining(allTrainings.Where(_ => _.TrainingTitle == x.title).First(), true, loadedQuestions.Where(_ => _.Training == x.title).ToList())
+                                        : new Training() { TrainingTitle = x.title, IsActive = true, Questions = AddQuestions(loadedQuestions.Where(_ => _.Training == x.title).ToList()) };
+                                }));
+
+            trainings.AddRange(allTrainings.Except(trainings).Select(x => UpdateTraining(x, false, loadedQuestions.Where(_ => _.Training == x.TrainingTitle).ToList())));
+
+            UpdateTrainings(trainings);
+        }
+
+        private BindingList<Question> AddQuestions(List<LoadedQuestion> list)
+        {
+            BindingList<Question> questions = new BindingList<Question>();
+
+            foreach (var q in list)
+            {
+                Question question = new Question();
+                question.QuestionText = q.Question;
+                question.Answers = new BindingList<Answer>();
+                foreach (var a in q.Answers)
+                {
+                    Answer answer = new Answer();
+                    answer.AnswerText = a.Answer;
+                    answer.IsCorrect = (a.IsCorrect == "correct");
+                    answer.IsActive = true;
+                }
+                question.IsActive = true;
+            }
+            return questions;
+        }
+
+        private Training UpdateTraining(Training training, bool isActive, List<LoadedQuestion> questions)
+        {
+            var allQuestion = questions.Select(_ => _.Question);
+            BindingList<Question> newQuestion = new BindingList<Question>();
+            List<Question> activeQuestion = new List<Question>();
+            List<Question> updatedQuestion = new List<Question>();
+
+            foreach (var q in questions)
+            {
+                if (training.Questions.Select(_ => _.QuestionText).Contains(q.Question))
+                {
+                    //check answer
+                    activeQuestion.Add(training.Questions.FirstOrDefault(_ => _.QuestionText == q.Question));
+                }
+                else
+                {
+                    //create new question
+                    var loadedQuestion = questions.Where(_ => _.Question == q.Question).FirstOrDefault();
+                    if (loadedQuestion != null)
+                    {
+                        Question question = new Question();
+                        question.QuestionText = loadedQuestion.Question;
+                        question.IsActive = true;
+                        question.Answers = new BindingList<Answer>();
+                        newQuestion.Add(question);
+                    }
+                }
+            }
+
+            var unActiveTraining = training.Questions.Except(activeQuestion).ToList();
+
+            foreach (var q in newQuestion)
+            {
+                training.Questions.Add(q);
+            }
+
+            activeQuestion.ForEach(q => UpdateQuestion(q, true));
+            unActiveTraining.ForEach(q => UpdateQuestion(q, false));
+
+            updatedQuestion.AddRange(activeQuestion);
+            updatedQuestion.AddRange(unActiveTraining);
+
+            UpdateQuestions(updatedQuestion);
+
             training.IsActive = isActive;
             return training;
         }
 
-        private Testee UpdateTestee(Testee testee, bool isActive)
+        public void UpdateTrainings(List<Training> allTrainings)
         {
-            testee.IsActive = isActive;
-            return testee;
-        }
-
-        private TesteeTraining UpdateTesteeTraining(TesteeTraining testeeTraining, bool isActive)
-        {
-            testeeTraining.IsActive = isActive;
-            testeeTraining.IsSelect = true;
-            return testeeTraining;
-        }
-
-        public void UpdateTrainings(List<Training> allTrainings, EFTrainingRepository repo)
-        {
+            EFTrainingRepository repo = new EFTrainingRepository();
             foreach (var training in allTrainings)
             {
                 if (training.Id == Guid.Empty)
@@ -421,64 +495,34 @@ namespace ApplicationServer
             }
         }
 
-        public void UpdateTestees(List<Testee> allTestee, EFTesteeRepository repo)
+        public void UpdateQuestions(List<Question> questions)
         {
-            foreach (var testee in allTestee)
+            EFRepository<Question> repo = new EFRepository<Question>();
+            foreach (var question in questions)
             {
-                if (testee.Id == Guid.Empty)
+                if (question.Id != Guid.Empty)
                 {
-                    repo.Create(testee);
-                }
-                else
-                {
-                    repo.Update(testee);
+                    repo.Update(question);
                 }
             }
         }
 
-        public void UpdateTesteesTrainings(List<TesteeTraining> allTesteeTrainings, QuizDBContext dbContext)
+        public Question UpdateQuestion(Question question, bool isActive)
         {
-            foreach (var testeeTrainings in allTesteeTrainings)
-            {
-                if (testeeTrainings.Id == Guid.Empty)
-                {
-                    dbContext.Set<TesteeTraining>().Add(testeeTrainings);
-                }
-                else
-                {
-                    dbContext.Entry(testeeTrainings).State = System.Data.Entity.EntityState.Modified;
-                }
-                dbContext.SaveChanges();
-            }
-        }
-
-        public void WriteTrainings(List<string> trainingTitles)
-        {
-            trainingTitles = trainingTitles.Distinct().ToList();
-            List<Training> trainings = new List<Training>();
-            EFTrainingRepository repo = new EFTrainingRepository();
-            var allTrainings = new List<Training>(repo.ReadAll());
-
-            trainings.AddRange((from title in trainingTitles
-                                select new { title }).AsEnumerable().Select(x =>
-                                {
-                                    return (allTrainings.Select(_ => _.TrainingTitle).Contains(x.title))
-                                        ? UpdateTraining(allTrainings.Where(_ => _.TrainingTitle == x.title).First(), true)
-                                        : new Training() { TrainingTitle = x.title, IsActive = true };
-                                }));
-
-            trainings.AddRange(allTrainings.Except(trainings).Select(x => UpdateTraining(x, false)));
-
-            UpdateTrainings(trainings, repo);
+            question.IsActive = isActive;
+            return question;
         }
 
         public void WriteTestee(List<TesteeData> testees)
         {
+            EFRoleRepository roleRepo = new EFRoleRepository();
+
+            Role role = roleRepo.ReadAll().Where(_ => _.Name == "Testee").FirstOrDefault();
             List<Testee> savedTestee = new List<Testee>();
             EFTesteeRepository repo = new EFTesteeRepository();
 
             var testeeLogin = testees.Select(_ => _.login).ToList();
-            var allTestees = new List<Testee>(repo.ReadAll());
+            var allTestees = dbContext.Set<Testee>().ToList();
 
             savedTestee.AddRange((from testee in testees
                                   select new { testee }).AsEnumerable().Select(x =>
@@ -496,13 +540,62 @@ namespace ApplicationServer
                                               IsActive = true,
                                               UserSetting = new Setting() { Minutes = 5, AmountOfQuestionsPerDay = 10, TimeOfStart = DateTime.Now, EndDate = DateTime.Now, Recurrence = RecurrenceType.WithExactRepeated },
                                               Trainings = new BindingList<TesteeTraining>(),
-                                              Roles = new BindingList<TesteeRoles>()
+                                              Roles = new BindingList<TesteeRoles>() { new TesteeRoles() { Role = role } }
                                           };
                                   }));
 
             savedTestee.AddRange(allTestees.Except(savedTestee).Select(x => UpdateTestee(x, false)));
 
             UpdateTestees(savedTestee, repo);
+        }
+
+        public void UpdateTestees(List<Testee> allTestee, EFTesteeRepository repo)
+        {
+            foreach (var testee in allTestee)
+            {
+                if (testee.Login != "val_edu" || testee.Login != "tkas_edu" || testee.Login != "atok_edu" || testee.Login != "omor")
+                {
+                    if (testee.Id == Guid.Empty)
+                    {
+                        repo.Create(testee);
+                    }
+                    else
+                    {
+                        repo.Update(testee);
+                    }
+
+                }
+            }
+        }
+
+        private Testee UpdateTestee(Testee testee, bool isActive)
+        {
+            testee.IsActive = isActive;
+            return testee;
+        }
+
+        private TesteeTraining UpdateTesteeTraining(TesteeTraining testeeTraining, bool isActive)
+        {
+            testeeTraining.IsActive = isActive;
+            testeeTraining.IsSelect = true;
+            return testeeTraining;
+        }
+
+        public void UpdateTesteesTrainings(List<TesteeTraining> allTesteeTrainings)
+        {
+            EFTesteeTrainingRepository repo = new EFTesteeTrainingRepository();
+            foreach (var testeeTrainings in allTesteeTrainings)
+            {
+                if (testeeTrainings.Id == Guid.Empty)
+                {
+                    repo.Create(testeeTrainings);
+                }
+                else
+                {
+                    repo.Update(testeeTrainings);
+
+                }
+            }
         }
 
         public void WriteTesteeTrainings(List<TesteeTrainingLink> testeeTraining)
@@ -529,7 +622,7 @@ namespace ApplicationServer
 
             updatedTesteeTrainings.AddRange(existingTesteTrainings.Except(updatedTesteeTrainings).Select(x => UpdateTesteeTraining(x, false)));
 
-            UpdateTesteesTrainings(updatedTesteeTrainings, dbContext);
+            UpdateTesteesTrainings(updatedTesteeTrainings);
         }
 
         public void LoadTrainings()

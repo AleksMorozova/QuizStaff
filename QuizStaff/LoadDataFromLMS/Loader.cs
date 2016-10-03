@@ -56,7 +56,6 @@ namespace LoadDataFromLMS
 
         public static void LoadQuestionFromFile(string path)
         {
-            //заполнить список тренингов TrainingsList
             string[] fileEntries = Directory.GetFiles(path);
             foreach (string fileName in fileEntries)
             {
@@ -67,7 +66,6 @@ namespace LoadDataFromLMS
         public static void ProcessFile(string path)
         {
             var trainingTitle = Path.GetFileNameWithoutExtension(path);
-            var currentTraining = TrainingsList.Where(_ => _.TrainingTitle == trainingTitle);
 
             SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Open(path, false);
             workbookPart = spreadsheetDocument.WorkbookPart;
@@ -77,17 +75,20 @@ namespace LoadDataFromLMS
             var rows = sheet.Descendants<Row>();
 
             LoadedQuestion currentDataElement = new LoadedQuestion();
-            foreach (Row row in rows.Skip(2))
+            foreach (Row row in rows)
             {
+                var cellCount = row.Count();
                 var rowCells = row.Elements<Cell>();
-                var question =  ConvertToString(rowCells.ElementAt(0));
-                var test = ConvertToString(rowCells.ElementAt(1));
-                if (test == null)
+                var question = ConvertToString(rowCells.ElementAt(0));
+
+                if (cellCount == 1)
                 {
-                    LoadedQuestions.Add(currentDataElement);
+                    if (currentDataElement.Question != null)
+                        LoadedQuestions.Add(currentDataElement);
                     currentDataElement = new LoadedQuestion();
                     currentDataElement.Answers = new List<LoadedAnswer>();
                     currentDataElement.Question = question;
+                    currentDataElement.Training = trainingTitle;
                 }
                 else
                 {
@@ -97,6 +98,8 @@ namespace LoadDataFromLMS
                     currentDataElement.Answers.Add(answer);
                 }
             }
+
+            LoadedQuestions.Add(currentDataElement);
         }
 
         public static SharedStringItem GetSharedStringItemById(WorkbookPart workbookPart, int id)

@@ -175,6 +175,13 @@
     <Compile Include="Reports\GeneralReport.Designer.cs">
       <DependentUpon>GeneralReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\GeneralReportClass.cs" />
+    <Compile Include="Reports\GeneralXtraReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GeneralXtraReport.Designer.cs">
+      <DependentUpon>GeneralXtraReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\GeneralReport.resx">
       <DependentUpon>GeneralReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GeneralXtraReport.resx">
+      <DependentUpon>GeneralXtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportsForm.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>
