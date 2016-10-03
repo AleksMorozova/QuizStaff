@@ -418,14 +418,7 @@ namespace ApplicationServer
             {
                 Question question = new Question();
                 question.QuestionText = q.Question;
-                question.Answers = new BindingList<Answer>();
-                foreach (var a in q.Answers)
-                {
-                    Answer answer = new Answer();
-                    answer.AnswerText = a.Answer;
-                    answer.IsCorrect = (a.IsCorrect == "correct");
-                    answer.IsActive = true;
-                }
+                question.Answers = AddAnswers(q.Answers);
                 question.IsActive = true;
             }
             return questions;
@@ -454,7 +447,7 @@ namespace ApplicationServer
                         Question question = new Question();
                         question.QuestionText = loadedQuestion.Question;
                         question.IsActive = true;
-                        question.Answers = new BindingList<Answer>();
+                        question.Answers = AddAnswers(loadedQuestion.Answers);
                         newQuestion.Add(question);
                     }
                 }
@@ -477,6 +470,19 @@ namespace ApplicationServer
 
             training.IsActive = isActive;
             return training;
+        }
+
+        public BindingList<Answer> AddAnswers(List<LoadedAnswer> loadedAnswers)
+        {
+            var returnList = new BindingList<Answer>();
+            foreach (var a in loadedAnswers)
+            {
+                var answer = new Answer();
+                answer.AnswerText = a.Answer;
+                answer.IsCorrect = (a.IsCorrect == "correct");
+            }
+
+            return returnList;
         }
 
         public void UpdateTrainings(List<Training> allTrainings)
