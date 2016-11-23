@@ -388,7 +388,7 @@ namespace ApplicationServer
 
         public void WriteTrainings(List<string> trainingTitles)
         {
-            Loader.LoadQuestionFromFile(@"C:\Users\omor\Desktop\Questions");
+            Loader.LoadQuestionFromFile(@"D:\QuizTrainings\Questions");
             var loadedQuestions = Loader.LoadedQuestions;
             EFRepository<Question> questionRepo = new EFRepository<Question>();
 
@@ -402,7 +402,7 @@ namespace ApplicationServer
                                 {
                                     return (allTrainings.Select(_ => _.TrainingTitle).Contains(x.title))
                                         ? UpdateTraining(allTrainings.Where(_ => _.TrainingTitle == x.title).First(), true, loadedQuestions.Where(_ => _.Training == x.title).ToList())
-                                        : new Training() { TrainingTitle = x.title, IsActive = true, Questions = AddQuestions(loadedQuestions.Where(_ => _.Training == x.title).ToList()) };
+                                        : new Training() { TrainingTitle = x.title, IsActive = true, Questions= AddQuestions(loadedQuestions.Where(_=>_.Training == x.title).ToList())};
                                 }));
 
             trainings.AddRange(allTrainings.Except(trainings).Select(x => UpdateTraining(x, false, loadedQuestions.Where(_ => _.Training == x.TrainingTitle).ToList())));
@@ -418,7 +418,14 @@ namespace ApplicationServer
             {
                 Question question = new Question();
                 question.QuestionText = q.Question;
-                question.Answers = AddAnswers(q.Answers);
+                question.Answers = new BindingList<Answer>();
+                foreach (var a in q.Answers)
+                {
+                    Answer answer = new Answer();
+                    answer.AnswerText = a.Answer;
+                    answer.IsCorrect = (a.IsCorrect == "correct");
+                    answer.IsActive = true;
+                }
                 question.IsActive = true;
             }
             return questions;
@@ -426,20 +433,20 @@ namespace ApplicationServer
 
         private Training UpdateTraining(Training training, bool isActive, List<LoadedQuestion> questions)
         {
-            var allQuestion = questions.Select(_ => _.Question);
+            var allQuestion = questions.Select(_=>_.Question);
             BindingList<Question> newQuestion = new BindingList<Question>();
             List<Question> activeQuestion = new List<Question>();
             List<Question> updatedQuestion = new List<Question>();
 
             foreach (var q in questions)
             {
-                if (training.Questions.Select(_ => _.QuestionText).Contains(q.Question))
+                if (training.Questions.Select(_=>_.QuestionText).Contains(q.Question))
                 {
                     //check answer
-                    activeQuestion.Add(training.Questions.FirstOrDefault(_ => _.QuestionText == q.Question));
+                    activeQuestion.Add(training.Questions.FirstOrDefault(_=>_.QuestionText == q.Question));
                 }
                 else
-                {
+                {                    
                     //create new question
                     var loadedQuestion = questions.Where(_ => _.Question == q.Question).FirstOrDefault();
                     if (loadedQuestion != null)
@@ -447,7 +454,7 @@ namespace ApplicationServer
                         Question question = new Question();
                         question.QuestionText = loadedQuestion.Question;
                         question.IsActive = true;
-                        question.Answers = AddAnswers(loadedQuestion.Answers);
+                        question.Answers = new BindingList<Answer>();
                         newQuestion.Add(question);
                     }
                 }
@@ -460,8 +467,8 @@ namespace ApplicationServer
                 training.Questions.Add(q);
             }
 
-            activeQuestion.ForEach(question => UpdateQuestion(question, true));
-            unActiveTraining.ForEach(question => UpdateQuestion(question, false));
+            activeQuestion.ForEach(q => UpdateQuestion(q, true));
+            unActiveTraining.ForEach(q => UpdateQuestion(q, false));
 
             updatedQuestion.AddRange(activeQuestion);
             updatedQuestion.AddRange(unActiveTraining);
@@ -470,19 +477,6 @@ namespace ApplicationServer
 
             training.IsActive = isActive;
             return training;
-        }
-
-        public BindingList<Answer> AddAnswers(List<LoadedAnswer> loadedAnswers)
-        {
-            var returnList = new BindingList<Answer>();
-            foreach (var a in loadedAnswers)
-            {
-                var answer = new Answer();
-                answer.AnswerText = a.Answer;
-                answer.IsCorrect = (a.IsCorrect == "correct");
-            }
-
-            return returnList;
         }
 
         public void UpdateTrainings(List<Training> allTrainings)
@@ -518,7 +512,7 @@ namespace ApplicationServer
             question.IsActive = isActive;
             return question;
         }
-
+      
         public void WriteTestee(List<TesteeData> testees)
         {
             EFRoleRepository roleRepo = new EFRoleRepository();
@@ -599,7 +593,7 @@ namespace ApplicationServer
                 else
                 {
                     repo.Update(testeeTrainings);
-
+                   
                 }
             }
         }
@@ -633,7 +627,7 @@ namespace ApplicationServer
 
         public void LoadTrainings()
         {
-            Loader.LoadDataFromFile(@"C:\Users\omor\Desktop\ISD_Report_20160914.xlsx");
+            Loader.LoadDataFromFile(@"D:\QuizTrainings\ISD_Report.xlsx");
 
             List<string> trainingTitles = Loader.TesteesList.Select(_ => _.training).ToList();
             List<TesteeData> testees = Loader.TesteesTrainingsList;
