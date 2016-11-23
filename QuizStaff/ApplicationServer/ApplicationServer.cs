@@ -460,8 +460,8 @@ namespace ApplicationServer
                 training.Questions.Add(q);
             }
 
-            activeQuestion.ForEach(q => UpdateQuestion(q, true));
-            unActiveTraining.ForEach(q => UpdateQuestion(q, false));
+            activeQuestion.ForEach(question => UpdateQuestion(question, true));
+            unActiveTraining.ForEach(question => UpdateQuestion(question, false));
 
             updatedQuestion.AddRange(activeQuestion);
             updatedQuestion.AddRange(unActiveTraining);
