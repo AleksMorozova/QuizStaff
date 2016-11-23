@@ -163,6 +163,7 @@
             this.testeeGridView.GridControl = this.gridTestees;
             this.testeeGridView.Name = "testeeGridView";
             this.testeeGridView.OptionsDetail.EnableMasterViewMode = false;
+            this.testeeGridView.OptionsView.ShowAutoFilterRow = true;
             this.testeeGridView.OptionsView.ShowGroupPanel = false;
             this.testeeGridView.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Never;
             this.testeeGridView.DoubleClick += new System.EventHandler(this.testeeGridView_DoubleClick);

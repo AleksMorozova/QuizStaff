@@ -137,6 +137,17 @@ namespace DataTransferObject
                  } 
              }
 
+            if (testee.Histories != null)
+            {
+                if (testee.Histories.Count() > 0)
+                {
+                    foreach (var t in testee.Histories)
+                    {
+                        newTestee.Histories.Add(ConvertHistoryToDTO(t));
+                    }
+                }
+            }
+
             return newTestee;
         }
 
@@ -206,7 +217,17 @@ namespace DataTransferObject
                     }
                 }
             }
-
+            newTestee.Histories = new BindingList<History>();
+            if (testee.Histories != null)
+            {
+                if (testee.Histories.Count() > 0)
+                {
+                    foreach (var t in testee.Histories)
+                    {
+                        newTestee.Histories.Add(ConvertHistoryFromDTO(t));
+                    }
+                }
+            }
             return newTestee;
         }
 
@@ -269,6 +290,7 @@ namespace DataTransferObject
             newHistory.Id = currentHistory.Id;
             newHistory.AnsweringDate = currentHistory.AnsweringDate;
             newHistory.IsAnswerCorrect = currentHistory.IsAnswerCorrect;
+            newHistory.Question = Conversion.ConvertQuestionFromDTO(currentHistory.Question);
             return newHistory;
         }
 
@@ -278,6 +300,7 @@ namespace DataTransferObject
             newHistory.Id = currentHistory.Id;
             newHistory.AnsweringDate = currentHistory.AnsweringDate;
             newHistory.IsAnswerCorrect = currentHistory.IsAnswerCorrect;
+            newHistory.Question = Conversion.ConvertQuestionToDTO(currentHistory.Question);
             return newHistory;
         }
 
