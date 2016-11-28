@@ -82,6 +82,7 @@ namespace AdminApplication.TesteesForms.TesteesList
         public void LoadTestees()
         {
             //ServicesHolder.ServiceClient.LoadTestee();
+            ServicesHolder.ServiceClient.LoadTesteeFromEPE();
             XtraMessageBox.Show("Testees was successfully load");
         }    
     

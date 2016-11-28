@@ -99,6 +99,9 @@ namespace ApplicationServer
         void LoadTrainings();
 
         [OperationContract]
+        void LoadTesteeFromEPE();
+
+        [OperationContract]
         List<TesteeDTO> GetAllTesteesForReport(DateTime from, DateTime to);
     }
 }

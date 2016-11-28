@@ -32,5 +32,8 @@ namespace DomainModel
         public string Attribute8 { get; set; }
         public string Attribute9 { get; set; }
         public string Attribute10 { get; set; }
+        public string Attribute11 { get; set; }
+        public string Attribute12 { get; set; }
+        public string Attribute13 { get; set; }
     }
 }

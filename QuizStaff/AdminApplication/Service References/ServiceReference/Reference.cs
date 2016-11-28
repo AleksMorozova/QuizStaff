@@ -189,6 +189,12 @@ namespace AdminApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoadTrainings", ReplyAction="http://tempuri.org/IApplicationServer/LoadTrainingsResponse")]
         System.Threading.Tasks.Task LoadTrainingsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoadTesteeFromEPE", ReplyAction="http://tempuri.org/IApplicationServer/LoadTesteeFromEPEResponse")]
+        void LoadTesteeFromEPE();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoadTesteeFromEPE", ReplyAction="http://tempuri.org/IApplicationServer/LoadTesteeFromEPEResponse")]
+        System.Threading.Tasks.Task LoadTesteeFromEPEAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTesteesForReport", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesForReportResponse")]
         DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to);
         
@@ -453,6 +459,14 @@ namespace AdminApplication.ServiceReference {
         
         public System.Threading.Tasks.Task LoadTrainingsAsync() {
             return base.Channel.LoadTrainingsAsync();
+        }
+        
+        public void LoadTesteeFromEPE() {
+            base.Channel.LoadTesteeFromEPE();
+        }
+        
+        public System.Threading.Tasks.Task LoadTesteeFromEPEAsync() {
+            return base.Channel.LoadTesteeFromEPEAsync();
         }
         
         public DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to) {
