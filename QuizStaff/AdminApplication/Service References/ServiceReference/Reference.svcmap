@@ -22,12 +22,12 @@
     <MetadataSource Address="http://dws01:8733/ApplicationServer/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="851145a4-a485-42f2-9166-05987a41a8bc" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer/?xsd=xsd2" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="5245bb04-d5e9-4cbb-8e96-fe3e8be41d89" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer/?disco" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="8e344056-355a-4290-9886-e7d2d929223e" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer/?xsd=xsd0" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="1abfd8e3-4def-40fd-95ab-401d4d8abdc5" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer/?xsd=xsd1" />
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="c360f5d8-fc05-4d07-9e1a-6a91c225c2b7" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer/?xsd=xsd3" />
-    <MetadataFile FileName="ApplicationServer1.wsdl" MetadataType="Wsdl" ID="e33bb8fa-6b1d-4fbd-9dbe-3caae9653442" SourceId="1" SourceUrl="http://dws01:8733/ApplicationServer/?wsdl" />
+    <MetadataFile FileName="ApplicationServer.wsdl" MetadataType="Wsdl" ID="063d68a5-f307-48bb-b5a3-150feb283709" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?wsdl" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="5bdca485-4d38-40c6-9c93-52230eed5e19" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd1" />
+    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="ce9535b0-ddbb-4c50-8c5f-9e3229857aec" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?disco" />
+    <MetadataFile FileName="item41.xsd" MetadataType="Schema" ID="4465d769-dd79-4ccc-a68f-e19aced7d747" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd2" />
+    <MetadataFile FileName="item42.xsd" MetadataType="Schema" ID="762a2277-593a-4b7c-8797-22e1a5e87fc7" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd3" />
+    <MetadataFile FileName="item43.xsd" MetadataType="Schema" ID="0bdc4731-fcac-4e70-8a36-6944a665dbb0" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="3q1viITFYu6hJjDytKzL7Xvh0Lk=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="prCkLQDUfd2HiFZTEj9IVuXao20=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IApplicationServer">
       <properties>
@@ -127,10 +127,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IApplicationServer" contract="ServiceReference.IApplicationServer" bindingType="wsHttpBinding" address="http://dws01:8733/ApplicationServer/" bindingConfiguration="WSHttpBinding_IApplicationServer">
+    <endpoint name="WSHttpBinding_IApplicationServer" contract="ServiceReference.IApplicationServer" bindingType="wsHttpBinding" address="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/" bindingConfiguration="WSHttpBinding_IApplicationServer">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://dws01:8733/ApplicationServer/</serializedValue>
+          <serializedValue>http://dws01.edu.isd.dp.ua:8733/ApplicationServer/</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
