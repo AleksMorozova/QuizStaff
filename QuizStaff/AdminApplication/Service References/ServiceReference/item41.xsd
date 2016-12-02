@@ -12,6 +12,9 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Attribute1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Attribute10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute11" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute12" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute13" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Attribute2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Attribute3" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Attribute4" nillable="true" type="xs:string" />

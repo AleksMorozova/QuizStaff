@@ -196,10 +196,10 @@ namespace AdminApplication.ServiceReference {
         System.Threading.Tasks.Task LoadTesteeFromEPEAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTesteesForReport", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesForReportResponse")]
-        DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to);
+        DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTesteesForReport", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesForReportResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesForReportAsync(System.DateTime from, System.DateTime to);
+        System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesForReportAsync(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -469,12 +469,12 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.LoadTesteeFromEPEAsync();
         }
         
-        public DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetAllTesteesForReport(from, to);
+        public DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position) {
+            return base.Channel.GetAllTesteesForReport(from, to, Company, OfficeLoc, Sector, Division, Department, Position);
         }
         
-        public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesForReportAsync(System.DateTime from, System.DateTime to) {
-            return base.Channel.GetAllTesteesForReportAsync(from, to);
+        public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesForReportAsync(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position) {
+            return base.Channel.GetAllTesteesForReportAsync(from, to, Company, OfficeLoc, Sector, Division, Department, Position);
         }
     }
 }

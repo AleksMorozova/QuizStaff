@@ -96,9 +96,13 @@ namespace DataTransferObject
             newTestee.Attribute4 = testee.Attribute4;
             newTestee.Attribute5 = testee.Attribute5;
             newTestee.Attribute6 = testee.Attribute6;
+            newTestee.Attribute7 = testee.Attribute7;
             newTestee.Attribute8 = testee.Attribute8;
             newTestee.Attribute9 = testee.Attribute9;
             newTestee.Attribute10 = testee.Attribute10;
+            newTestee.Attribute11 = testee.Attribute11;
+            newTestee.Attribute12 = testee.Attribute12;
+            newTestee.Attribute13 = testee.Attribute13;
 
             //Copy settings
             newTestee.UserSetting.Id = testee.UserSetting.Id;
@@ -171,9 +175,13 @@ namespace DataTransferObject
             newTestee.Attribute4 = testee.Attribute4;
             newTestee.Attribute5 = testee.Attribute5;
             newTestee.Attribute6 = testee.Attribute6;
+            newTestee.Attribute7 = testee.Attribute7;
             newTestee.Attribute8 = testee.Attribute8;
             newTestee.Attribute9 = testee.Attribute9;
             newTestee.Attribute10 = testee.Attribute10;
+            newTestee.Attribute11 = testee.Attribute11;
+            newTestee.Attribute12 = testee.Attribute12;
+            newTestee.Attribute13 = testee.Attribute13;
 
             //Copy settings
             newTestee.UserSetting.Id = testee.UserSetting.Id;
@@ -382,9 +390,13 @@ namespace DataTransferObject
             newTestee.Attribute4 = testee.Attribute4;
             newTestee.Attribute5 = testee.Attribute5;
             newTestee.Attribute6 = testee.Attribute6;
+            newTestee.Attribute7 = testee.Attribute7;
             newTestee.Attribute8 = testee.Attribute8;
             newTestee.Attribute9 = testee.Attribute9;
             newTestee.Attribute10 = testee.Attribute10;
+            newTestee.Attribute11 = testee.Attribute11;
+            newTestee.Attribute12 = testee.Attribute12;
+            newTestee.Attribute13 = testee.Attribute13;
 
             //Copy settings
             newTestee.UserSetting.Id = testee.UserSetting.Id;

@@ -380,6 +380,12 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="from" type="xs:dateTime" />
         <xs:element minOccurs="0" name="to" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OfficeLoc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Sector" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Division" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

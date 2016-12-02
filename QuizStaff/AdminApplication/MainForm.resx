@@ -266,6 +266,12 @@
   <data name="&gt;&gt;aboutBarButtonItem.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="&gt;&gt;barButtonItem1.Name" xml:space="preserve">
+    <value>barButtonItem1</value>
+  </data>
+  <data name="&gt;&gt;barButtonItem1.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="&gt;&gt;languageBarSubItem.Name" xml:space="preserve">
     <value>languageBarSubItem</value>
   </data>
@@ -314,10 +320,10 @@
   <data name="&gt;&gt;questionBarButton.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;barButtonItem1.Name" xml:space="preserve">
-    <value>barButtonItem1</value>
+  <data name="&gt;&gt;barButtonItem2.Name" xml:space="preserve">
+    <value>barButtonItem2</value>
   </data>
-  <data name="&gt;&gt;barButtonItem1.Type" xml:space="preserve">
+  <data name="&gt;&gt;barButtonItem2.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.BarButtonItem, DevExpress.XtraBars.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
@@ -355,6 +361,9 @@
   </data>
   <data name="englishBarButtonItem.Caption" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="barButtonItem2.Caption" xml:space="preserve">
+    <value>Application settings</value>
   </data>
   <data name="mainMenu.Text" xml:space="preserve">
     <value>Main menu</value>

@@ -17,6 +17,7 @@ using System.Configuration;
 using AdminApplication.AdminSettings;
 using AdminApplication.TesteesForms.TesteesList;
 using System.Reflection;
+using AdminApplication.Settings;
 
 namespace AdminApplication
 {
@@ -132,6 +133,14 @@ namespace AdminApplication
             Reports.ReportsForm reportsForm = new Reports.ReportsForm();
             FormManager.Instance.OpenChildForm(reportsForm, "Report");
             //FormManager.LocalizedFormList.Add(reportsForm);
+            //FormManager.Instance.LocalizedForms(Program.СurrentLang);
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SettingsForm testeesform = new SettingsForm();
+            FormManager.Instance.OpenChildForm(testeesform, "Application settings");
+            //FormManager.LocalizedFormList.Add(testeesform);
             //FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
     }
