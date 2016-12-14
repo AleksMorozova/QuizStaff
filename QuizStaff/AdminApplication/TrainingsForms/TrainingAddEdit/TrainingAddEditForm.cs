@@ -48,7 +48,6 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
                 => viewModel.AddQuestion(training), x => currentTraining);
             mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(deleteQuestionButton, (x, currentTraining)
                 => x.DeleteQuestion(currentTraining), x => GetCurrentQuestion());
-            mvvmTrainingContext.BindCommand<TrainingViewModel>(loadQuestionButton, viewModel => viewModel.LoadQuestions());
         }
 
         private void BindToViewModel()
@@ -88,7 +87,6 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
             resources.ApplyResources(layoutControlItem1, "layoutControlItem1", newCultureInfo);
             resources.ApplyResources(addQuestionButton, "addQuestionButton", newCultureInfo);
             resources.ApplyResources(editQuestionButton, "editQuestionButton", newCultureInfo);
-            resources.ApplyResources(loadQuestionButton, "loadQuestionButton", newCultureInfo);
             resources.ApplyResources(QuestionText, "QuestionText", newCultureInfo);
             resources.ApplyResources(saveButton, "saveButton", newCultureInfo);
             resources.ApplyResources(cancelButton, "cancelButton", newCultureInfo);

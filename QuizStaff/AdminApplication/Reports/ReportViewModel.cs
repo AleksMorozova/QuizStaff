@@ -32,6 +32,7 @@ namespace AdminApplication.Reports
         public DevExpress.XtraReports.UI.XtraReport Report { get; set; }
         public BindingList<TesteeDTO> Testees { get; set; }
         public BindingList<GeneralReportClass> AllTestees { get; set; }
+
         public ReportViewModel()
         {
             Testees = new BindingList<TesteeDTO>();
@@ -47,26 +48,24 @@ namespace AdminApplication.Reports
             DepartmentList = new List<string>();
             PositionList = new List<string>();
 
-            var data = ServicesHolder.ServiceClient.GetAllTestees();
+            Testees = new BindingList<TesteeDTO>(ServicesHolder.ServiceClient.GetAllTestees().ToList());
 
-            var t = data.Select(_ => _.Attribute1);
-            CompanyList.AddRange(data.Select(_=>_.Attribute1).Where(s => !String.IsNullOrEmpty(s)).Distinct());
-            OfficeLocList.AddRange(data.Select(_ => _.Attribute2).Where(s=>!String.IsNullOrEmpty(s)).Distinct());
-            SectorList.AddRange(data.Select(_ => _.Attribute3).Where(s => !String.IsNullOrEmpty(s)).Distinct());
-            DivisionList.AddRange(data.Select(_ => _.Attribute4).Where(s => !String.IsNullOrEmpty(s)).Distinct());
-            DepartmentList.AddRange(data.Select(_ => _.Attribute5).Where(s => !String.IsNullOrEmpty(s)).Distinct());
-            PositionList.AddRange(data.Select(_ => _.Attribute8).Where(s => !String.IsNullOrEmpty(s)).Distinct());
+            CompanyList.AddRange(Testees.Select(_=>_.Attribute1).Where(s => !String.IsNullOrEmpty(s)).Distinct());
+            OfficeLocList.AddRange(Testees.Select(_ => _.Attribute2).Where(s=>!String.IsNullOrEmpty(s)).Distinct());
+            SectorList.AddRange(Testees.Select(_ => _.Attribute3).Where(s => !String.IsNullOrEmpty(s)).Distinct());
+            DivisionList.AddRange(Testees.Select(_ => _.Attribute4).Where(s => !String.IsNullOrEmpty(s)).Distinct());
+            DepartmentList.AddRange(Testees.Select(_ => _.Attribute5).Where(s => !String.IsNullOrEmpty(s)).Distinct());
+            PositionList.AddRange(Testees.Select(_ => _.Attribute8).Where(s => !String.IsNullOrEmpty(s)).Distinct());
         }
 
         public void GenerateReport(ReportType type)
         {
             if (type == ReportType.Genaral)
             {
-                var data = ServicesHolder.ServiceClient.GetAllTesteesForReport(FromDate, ToDate, 
-                    Company,  OfficeLoc,  Sector,  Division, Department, Position).ToList();
+                var data = Sort();
 
                 Report = new GeneralXtraReport();
-                foreach (var inf in data)
+                foreach (var inf in Testees)
                 {
                     GeneralReportClass testee = new GeneralReportClass();
                     testee.Login = inf.Login;
@@ -96,7 +95,7 @@ namespace AdminApplication.Reports
             }
             else if (type == ReportType.ByLogin && !String.IsNullOrEmpty(TesteeLogin))
             {
-                var inf = ServicesHolder.ServiceClient.FindByLogin("omor");
+                var inf = Testees.Where(_=>_.Login == TesteeLogin).First();
                 Report = new TesteeReport();
                 TesteeDTO testee = new TesteeDTO();
                 testee.Login = inf.Login;
@@ -115,12 +114,59 @@ namespace AdminApplication.Reports
                 testee.Attribute11 = Convert.ToDateTime(inf.Attribute11).ToShortDateString();
                 testee.Attribute12 = inf.Attribute12;
                 testee.Attribute13 = inf.Attribute13;
-                List<HistoryDTO> sortedList = inf.Histories.OrderBy(x => x.Question.Training).ToList();
+                List<HistoryDTO> sortedList = inf.Histories.OrderBy(x => x.Question.Training.TrainingTitle).ToList();
                 testee.Histories = new BindingList<HistoryDTO>(sortedList);
                 BindingList<TesteeDTO> data = new BindingList<TesteeDTO>();
                 data.Add(testee);
+                
                 Report.DataSource = data;
             }
+        }
+
+        private List<TesteeDTO> Sort()
+        {
+            List<TesteeDTO> newTestee = new List<TesteeDTO>(Testees);
+            
+            #region Sort
+            //Login
+            if (!string.IsNullOrEmpty(TesteeLogin))
+            {
+                newTestee = newTestee.Where(_ => _.Login == TesteeLogin).ToList();
+            }
+            //Company
+            if (!string.IsNullOrEmpty(Company))
+            {
+                newTestee = newTestee.Where(_ => _.Attribute1 == Company).ToList();
+            }
+            //OfficeLoc
+            if (!string.IsNullOrEmpty(OfficeLoc))
+            {
+                newTestee = newTestee.Where(_ => _.Attribute2 == OfficeLoc).ToList();
+            }
+            //Sectore
+            if (!string.IsNullOrEmpty(Sector))
+            {
+                newTestee = newTestee.Where(_ => _.Attribute3 == Sector).ToList();
+            }
+            //Division
+            if (!string.IsNullOrEmpty(Division))
+            {
+                newTestee = newTestee.Where(_ => _.Attribute4 == Division).ToList();
+            }
+            //Department
+            if (!string.IsNullOrEmpty(Department))
+            {
+                newTestee = newTestee.Where(_ => _.Attribute5 == Department).ToList();
+            }
+
+            //Position
+            if (!string.IsNullOrEmpty(Position))
+            {
+                newTestee = newTestee.Where(_ => _.Attribute8 == Position).ToList();
+            }
+            #endregion
+
+            return newTestee;
         }
     }
 }

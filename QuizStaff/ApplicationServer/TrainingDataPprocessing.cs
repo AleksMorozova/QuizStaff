@@ -38,7 +38,47 @@ namespace QuizServer
             WriteTraininToDB(trainings, repo);
         }
 
+        public static void SynchronizeAdditionalTrainings(List<string> trainingTitles, List<LoadedQuestion> questions)
+        {
+            var loadedQuestions = questions;
+            EFRepository<Question> questionRepo = new EFRepository<Question>();
+
+            trainingTitles = trainingTitles.Distinct().ToList();
+            List<Training> trainings = new List<Training>();
+            EFTrainingRepository repo = new EFTrainingRepository();
+            var allTrainings = new List<Training>(repo.ReadAll());
+
+            trainings.AddRange((from title in trainingTitles
+                                select new { title }).AsEnumerable().Select(x =>
+                                {
+                                    return (allTrainings.Select(_ => _.TrainingTitle).Contains(x.title))
+                                        ? UpdatedExistingTraining(allTrainings.Where(_ => _.TrainingTitle == x.title).First(),
+                                        loadedQuestions.Where(_ => _.Training == x.title).ToList())
+                                        : CreateNewAdditionalTraining(x.title,
+                                        loadedQuestions.Where(_ => _.Training == x.title).ToList());
+                                }));
+
+            //TODO: update delete
+            trainings.AddRange(allTrainings.Except(trainings).Where(_=>_.IsAdditional).Select(x => DeleteExistingTraining(x)));
+
+            WriteTraininToDB(trainings, repo);
+        }
+
         #region Training
+
+        public static Training CreateNewAdditionalTraining(string title, List<LoadedQuestion> questions)
+        {
+            Training newTraining = new Training();
+
+            newTraining.TrainingTitle = title;
+            newTraining.IsActive = true;
+            newTraining.Questions = AddQuestions(questions);
+            newTraining.IsAdditional = true;
+            //TODO: check
+            //existingTraining.TesteeTrainings = new BindingList<TesteeTrainings>();
+
+            return newTraining;
+        }
 
         public static Training CreateNewTraining(string title, List<LoadedQuestion> questions)
         {
@@ -47,6 +87,7 @@ namespace QuizServer
             newTraining.TrainingTitle = title;
             newTraining.IsActive = true;
             newTraining.Questions = AddQuestions(questions);
+            newTraining.IsAdditional = false;
 
             //TODO: check
             //existingTraining.TesteeTrainings = new BindingList<TesteeTrainings>();
@@ -67,8 +108,11 @@ namespace QuizServer
 
         public static Training DeleteExistingTraining(Training existingTraining)
         {
-            existingTraining.IsActive = false;
-            DeleteQuestions(existingTraining.Questions);
+            if (!existingTraining.IsAdditional)
+            {
+                existingTraining.IsActive = false;
+                DeleteQuestions(existingTraining.Questions);
+            }
 
             return existingTraining;
         }

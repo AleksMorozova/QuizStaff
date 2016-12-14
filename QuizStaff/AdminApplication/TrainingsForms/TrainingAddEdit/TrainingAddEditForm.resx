@@ -119,10 +119,10 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="deleteQuestionButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>573, 57</value>
+    <value>643, 57</value>
   </data>
   <data name="deleteQuestionButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>116, 22</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="deleteQuestionButton.TabIndex" type="System.Int32, mscorlib">
@@ -135,7 +135,7 @@
     <value>deleteQuestionButton</value>
   </data>
   <data name="&gt;&gt;deleteQuestionButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;deleteQuestionButton.Parent" xml:space="preserve">
     <value>layoutControl1</value>
@@ -159,7 +159,7 @@
     <value>cancelButton</value>
   </data>
   <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
     <value>layoutControl1</value>
@@ -183,7 +183,7 @@
     <value>saveButton</value>
   </data>
   <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
     <value>layoutControl1</value>
@@ -191,35 +191,11 @@
   <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="loadQuestionButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>673, 57</value>
-  </data>
-  <data name="loadQuestionButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 22</value>
-  </data>
-  <data name="loadQuestionButton.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="loadQuestionButton.Text" xml:space="preserve">
-    <value>Load question</value>
-  </data>
-  <data name="&gt;&gt;loadQuestionButton.Name" xml:space="preserve">
-    <value>loadQuestionButton</value>
-  </data>
-  <data name="&gt;&gt;loadQuestionButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;loadQuestionButton.Parent" xml:space="preserve">
-    <value>layoutControl1</value>
-  </data>
-  <data name="&gt;&gt;loadQuestionButton.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="editQuestionButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>473, 57</value>
+    <value>513, 57</value>
   </data>
   <data name="editQuestionButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>116, 22</value>
   </data>
   <data name="editQuestionButton.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -231,19 +207,19 @@
     <value>editQuestionButton</value>
   </data>
   <data name="&gt;&gt;editQuestionButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;editQuestionButton.Parent" xml:space="preserve">
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;editQuestionButton.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="addQuestionButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>373, 57</value>
+    <value>383, 57</value>
   </data>
   <data name="addQuestionButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
+    <value>116, 22</value>
   </data>
   <data name="addQuestionButton.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -255,13 +231,13 @@
     <value>addQuestionButton</value>
   </data>
   <data name="&gt;&gt;addQuestionButton.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;addQuestionButton.Parent" xml:space="preserve">
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;addQuestionButton.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="gridQuestions.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -289,13 +265,13 @@
     <value>gridQuestions</value>
   </data>
   <data name="&gt;&gt;gridQuestions.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;gridQuestions.Parent" xml:space="preserve">
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;gridQuestions.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="textTrainingName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -316,13 +292,13 @@
     <value>textTrainingName</value>
   </data>
   <data name="&gt;&gt;textTrainingName.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;textTrainingName.Parent" xml:space="preserve">
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;textTrainingName.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -346,7 +322,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;layoutControl1.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControl, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControl, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;layoutControl1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -376,90 +352,84 @@
     <value>questionsGridView</value>
   </data>
   <data name="&gt;&gt;questionsGridView.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraGrid.Views.Grid.GridView, DevExpress.XtraGrid.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;QuestionText.Name" xml:space="preserve">
     <value>QuestionText</value>
   </data>
   <data name="&gt;&gt;QuestionText.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;layoutControlGroup1.Name" xml:space="preserve">
     <value>layoutControlGroup1</value>
   </data>
   <data name="&gt;&gt;layoutControlGroup1.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlGroup, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;emptySpaceItem2.Name" xml:space="preserve">
     <value>emptySpaceItem2</value>
   </data>
   <data name="&gt;&gt;emptySpaceItem2.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;layoutControlItem1.Name" xml:space="preserve">
     <value>layoutControlItem1</value>
   </data>
   <data name="&gt;&gt;layoutControlItem1.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;emptySpaceItem3.Name" xml:space="preserve">
     <value>emptySpaceItem3</value>
   </data>
   <data name="&gt;&gt;emptySpaceItem3.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;questionsControlItem.Name" xml:space="preserve">
     <value>questionsControlItem</value>
   </data>
   <data name="&gt;&gt;questionsControlItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;addQuestionButtonLayoutControl.Name" xml:space="preserve">
     <value>addQuestionButtonLayoutControl</value>
   </data>
   <data name="&gt;&gt;addQuestionButtonLayoutControl.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;editQuestionButtonLayoutControl.Name" xml:space="preserve">
     <value>editQuestionButtonLayoutControl</value>
   </data>
   <data name="&gt;&gt;editQuestionButtonLayoutControl.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;loadQuestionButtonLayoutControl.Name" xml:space="preserve">
-    <value>loadQuestionButtonLayoutControl</value>
-  </data>
-  <data name="&gt;&gt;loadQuestionButtonLayoutControl.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;saveButtonLayoutControl.Name" xml:space="preserve">
     <value>saveButtonLayoutControl</value>
   </data>
   <data name="&gt;&gt;saveButtonLayoutControl.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;cancelButtonLayoutControl.Name" xml:space="preserve">
     <value>cancelButtonLayoutControl</value>
   </data>
   <data name="&gt;&gt;cancelButtonLayoutControl.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;ldeleteQuestionButtonLayoutControlItem.Name" xml:space="preserve">
     <value>ldeleteQuestionButtonLayoutControlItem</value>
   </data>
   <data name="&gt;&gt;ldeleteQuestionButtonLayoutControlItem.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;mvvmTrainingContext.Name" xml:space="preserve">
     <value>mvvmTrainingContext</value>
   </data>
   <data name="&gt;&gt;mvvmTrainingContext.Type" xml:space="preserve">
-    <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.Utils.MVVM.MVVMContext, DevExpress.Utils.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>TrainingAddEditForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
 </root>

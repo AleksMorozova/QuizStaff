@@ -46,8 +46,6 @@ namespace AdminApplication
         /// <summary>
         /// Try to log in
         /// </summary>
-        /// <param name="failMessage">message for user, when login has been failed</param>
-        /// <returns>status of logging in attempt</returns>
         public static LoginResult Login()
         {
             try
@@ -55,28 +53,14 @@ namespace AdminApplication
                 UserLoginForm dlg = new UserLoginForm();
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    bool logonResult = LogonUser(dlg.Login, dlg.Password, dlg.Domain);
-
                     if (LogonUser(dlg.Login, dlg.Password, dlg.Domain))
                     {
                         Program.СurrentTestee = GetTestee(dlg.Login);
-                        Testee loadTestee = Program.СurrentTestee;
                         GetUserPermissions(dlg.Login);
 
-                        if (loadTestee.Id != Guid.Empty)
-                        {
-                            if (CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator)
-                                || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp)
-                                || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee)
-                                || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining))
-                            {
-                                return LoginResult.LoggedIn;
-                            }
-                        }
-                        else
-                        {
-                            return LoginResult.NotExist;
-                        }
+                        return (Program.СurrentTestee.Id != Guid.Empty) ?
+                            CheckPermission() ? LoginResult.LoggedIn : LoginResult.Failed
+                            : LoginResult.NotExist;
                     }
 
                     else
@@ -96,8 +80,20 @@ namespace AdminApplication
             catch (Exception ex)
             {
                 log.Error("Error message " + ex.Message);
+                //TODO: return error that somtings was wrong with server
                 return LoginResult.Failed;
             }
+        }
+
+        private static bool CheckPermission()
+        {
+            bool permission = (CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator)
+                || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp)
+                || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee)
+                || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining));
+
+            //TODO: return permissions
+            return true;
         }
 
         private static void GetUserPermissions(string login)

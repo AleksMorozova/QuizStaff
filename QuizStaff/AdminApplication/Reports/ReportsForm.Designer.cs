@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.loginTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.toDateEdit = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.endDateLabelControl = new DevExpress.XtraEditors.LabelControl();
+            this.startDateLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.fromDateEdit = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.dateRangeLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.positionComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
             this.divisionComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
             this.sectorComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -46,26 +46,26 @@
             this.reportTypeRadioGroup = new DevExpress.XtraEditors.RadioGroup();
             this.depertmentComboBox = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.previewLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.additionalParametersLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.companyLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.officeLocationLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.sectorLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.departmentLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.loginLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.divisionLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.positionLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.reportParameterLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.reportTypeRadioGroupLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.mvvmContextForReports = new DevExpress.Utils.MVVM.MVVMContext(this.components);
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toDateEdit.Properties.CalendarTimeProperties)).BeginInit();
@@ -80,30 +80,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeRadioGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depertmentComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.previewLayoutGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.additionalParametersLayoutGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.officeLocationLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sectorLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divisionLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportParameterLayoutGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeRadioGroupLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContextForReports)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.textEdit1);
+            this.layoutControl1.Controls.Add(this.loginTextEdit);
             this.layoutControl1.Controls.Add(this.panelControl1);
-            this.layoutControl1.Controls.Add(this.labelControl1);
+            this.layoutControl1.Controls.Add(this.dateRangeLabelControl);
             this.layoutControl1.Controls.Add(this.positionComboBox);
             this.layoutControl1.Controls.Add(this.divisionComboBox);
             this.layoutControl1.Controls.Add(this.sectorComboBox);
@@ -120,19 +120,19 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // textEdit1
+            // loginTextEdit
             // 
-            this.textEdit1.Location = new System.Drawing.Point(24, 192);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(276, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 31;
+            this.loginTextEdit.Location = new System.Drawing.Point(24, 192);
+            this.loginTextEdit.Name = "loginTextEdit";
+            this.loginTextEdit.Size = new System.Drawing.Size(276, 20);
+            this.loginTextEdit.StyleController = this.layoutControl1;
+            this.loginTextEdit.TabIndex = 31;
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.toDateEdit);
-            this.panelControl1.Controls.Add(this.labelControl3);
-            this.panelControl1.Controls.Add(this.labelControl2);
+            this.panelControl1.Controls.Add(this.endDateLabelControl);
+            this.panelControl1.Controls.Add(this.startDateLabelControl);
             this.panelControl1.Controls.Add(this.fromDateEdit);
             this.panelControl1.Location = new System.Drawing.Point(139, 63);
             this.panelControl1.Name = "panelControl1";
@@ -152,21 +152,21 @@
             this.toDateEdit.Size = new System.Drawing.Size(105, 20);
             this.toDateEdit.TabIndex = 3;
             // 
-            // labelControl3
+            // endDateLabelControl
             // 
-            this.labelControl3.Location = new System.Drawing.Point(128, 8);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(43, 13);
-            this.labelControl3.TabIndex = 2;
-            this.labelControl3.Text = "End date";
+            this.endDateLabelControl.Location = new System.Drawing.Point(128, 8);
+            this.endDateLabelControl.Name = "endDateLabelControl";
+            this.endDateLabelControl.Size = new System.Drawing.Size(43, 13);
+            this.endDateLabelControl.TabIndex = 2;
+            this.endDateLabelControl.Text = "End date";
             // 
-            // labelControl2
+            // startDateLabelControl
             // 
-            this.labelControl2.Location = new System.Drawing.Point(5, 8);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(49, 13);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Start date";
+            this.startDateLabelControl.Location = new System.Drawing.Point(5, 8);
+            this.startDateLabelControl.Name = "startDateLabelControl";
+            this.startDateLabelControl.Size = new System.Drawing.Size(49, 13);
+            this.startDateLabelControl.TabIndex = 1;
+            this.startDateLabelControl.Text = "Start date";
             // 
             // fromDateEdit
             // 
@@ -180,15 +180,15 @@
             this.fromDateEdit.Size = new System.Drawing.Size(105, 20);
             this.fromDateEdit.TabIndex = 0;
             // 
-            // labelControl1
+            // dateRangeLabelControl
             // 
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(139, 42);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(259, 13);
-            this.labelControl1.StyleController = this.layoutControl1;
-            this.labelControl1.TabIndex = 29;
-            this.labelControl1.Text = "Date range";
+            this.dateRangeLabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.dateRangeLabelControl.Location = new System.Drawing.Point(139, 42);
+            this.dateRangeLabelControl.Name = "dateRangeLabelControl";
+            this.dateRangeLabelControl.Size = new System.Drawing.Size(259, 13);
+            this.dateRangeLabelControl.StyleController = this.layoutControl1;
+            this.dateRangeLabelControl.TabIndex = 29;
+            this.dateRangeLabelControl.Text = "Date range";
             // 
             // positionComboBox
             // 
@@ -279,108 +279,128 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.previewLayoutGroup,
-            this.layoutControlGroup6});
+            this.additionalParametersLayoutGroup,
+            this.reportParameterLayoutGroup});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(847, 611);
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // previewLayoutGroup
+            // additionalParametersLayoutGroup
             // 
-            this.previewLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2,
-            this.layoutControlItem4,
-            this.layoutControlItem5,
-            this.layoutControlItem7,
-            this.layoutControlItem8,
-            this.layoutControlItem6,
-            this.layoutControlItem10,
+            this.additionalParametersLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.companyLayoutControlItem,
+            this.officeLocationLayoutControlItem,
+            this.sectorLayoutControlItem,
+            this.departmentLayoutControlItem,
+            this.loginLayoutControlItem,
+            this.divisionLayoutControlItem,
+            this.positionLayoutControlItem,
             this.emptySpaceItem3});
-            this.previewLayoutGroup.Location = new System.Drawing.Point(0, 134);
-            this.previewLayoutGroup.Name = "previewLayoutGroup";
-            this.previewLayoutGroup.Size = new System.Drawing.Size(827, 457);
-            this.previewLayoutGroup.Text = "Additional parameters";
+            this.additionalParametersLayoutGroup.Location = new System.Drawing.Point(0, 134);
+            this.additionalParametersLayoutGroup.Name = "additionalParametersLayoutGroup";
+            this.additionalParametersLayoutGroup.Size = new System.Drawing.Size(827, 457);
+            this.additionalParametersLayoutGroup.Text = "Additional parameters";
             // 
-            // layoutControlItem2
+            // companyLayoutControlItem
             // 
-            this.layoutControlItem2.Control = this.companyComboBoxEdit;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 40);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(285, 45);
-            this.layoutControlItem2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 5);
-            this.layoutControlItem2.Text = "Company";
-            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(69, 13);
+            this.companyLayoutControlItem.Control = this.companyComboBoxEdit;
+            this.companyLayoutControlItem.Location = new System.Drawing.Point(0, 40);
+            this.companyLayoutControlItem.Name = "companyLayoutControlItem";
+            this.companyLayoutControlItem.Size = new System.Drawing.Size(285, 45);
+            this.companyLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 5);
+            this.companyLayoutControlItem.Text = "Company";
+            this.companyLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.companyLayoutControlItem.TextSize = new System.Drawing.Size(69, 13);
             // 
-            // layoutControlItem4
+            // officeLocationLayoutControlItem
             // 
-            this.layoutControlItem4.Control = this.officeLocComboBox;
-            this.layoutControlItem4.Location = new System.Drawing.Point(285, 40);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(267, 45);
-            this.layoutControlItem4.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 5);
-            this.layoutControlItem4.Text = "Office location";
-            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(69, 13);
+            this.officeLocationLayoutControlItem.Control = this.officeLocComboBox;
+            this.officeLocationLayoutControlItem.Location = new System.Drawing.Point(285, 40);
+            this.officeLocationLayoutControlItem.Name = "officeLocationLayoutControlItem";
+            this.officeLocationLayoutControlItem.Size = new System.Drawing.Size(267, 45);
+            this.officeLocationLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 5);
+            this.officeLocationLayoutControlItem.Text = "Office location";
+            this.officeLocationLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.officeLocationLayoutControlItem.TextSize = new System.Drawing.Size(69, 13);
             // 
-            // layoutControlItem5
+            // sectorLayoutControlItem
             // 
-            this.layoutControlItem5.Control = this.sectorComboBox;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 85);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(285, 330);
-            this.layoutControlItem5.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 0);
-            this.layoutControlItem5.Text = "Sector";
-            this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(69, 13);
+            this.sectorLayoutControlItem.Control = this.sectorComboBox;
+            this.sectorLayoutControlItem.Location = new System.Drawing.Point(0, 85);
+            this.sectorLayoutControlItem.Name = "sectorLayoutControlItem";
+            this.sectorLayoutControlItem.Size = new System.Drawing.Size(285, 330);
+            this.sectorLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 0);
+            this.sectorLayoutControlItem.Text = "Sector";
+            this.sectorLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.sectorLayoutControlItem.TextSize = new System.Drawing.Size(69, 13);
             // 
-            // layoutControlItem10
+            // departmentLayoutControlItem
             // 
-            this.layoutControlItem10.Control = this.positionComboBox;
-            this.layoutControlItem10.Location = new System.Drawing.Point(552, 85);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(251, 330);
-            this.layoutControlItem10.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
-            this.layoutControlItem10.Text = "Position";
-            this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(69, 13);
+            this.departmentLayoutControlItem.Control = this.depertmentComboBox;
+            this.departmentLayoutControlItem.CustomizationFormText = "layoutControlItem6";
+            this.departmentLayoutControlItem.Location = new System.Drawing.Point(285, 85);
+            this.departmentLayoutControlItem.Name = "departmentLayoutControlItem";
+            this.departmentLayoutControlItem.Size = new System.Drawing.Size(267, 330);
+            this.departmentLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 5);
+            this.departmentLayoutControlItem.Text = "Department";
+            this.departmentLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.departmentLayoutControlItem.TextSize = new System.Drawing.Size(69, 13);
             // 
-            // layoutControlItem6
+            // loginLayoutControlItem
             // 
-            this.layoutControlItem6.Control = this.divisionComboBox;
-            this.layoutControlItem6.Location = new System.Drawing.Point(552, 40);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(251, 45);
-            this.layoutControlItem6.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
-            this.layoutControlItem6.Text = "Division";
-            this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(69, 13);
+            this.loginLayoutControlItem.Control = this.loginTextEdit;
+            this.loginLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.loginLayoutControlItem.Name = "loginLayoutControlItem";
+            this.loginLayoutControlItem.Size = new System.Drawing.Size(285, 40);
+            this.loginLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 0);
+            this.loginLayoutControlItem.Text = "Login";
+            this.loginLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.loginLayoutControlItem.TextSize = new System.Drawing.Size(69, 13);
             // 
-            // layoutControlItem7
+            // divisionLayoutControlItem
             // 
-            this.layoutControlItem7.Control = this.depertmentComboBox;
-            this.layoutControlItem7.CustomizationFormText = "layoutControlItem6";
-            this.layoutControlItem7.Location = new System.Drawing.Point(285, 85);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(267, 330);
-            this.layoutControlItem7.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 5);
-            this.layoutControlItem7.Text = "Department";
-            this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(69, 13);
+            this.divisionLayoutControlItem.Control = this.divisionComboBox;
+            this.divisionLayoutControlItem.Location = new System.Drawing.Point(552, 40);
+            this.divisionLayoutControlItem.Name = "divisionLayoutControlItem";
+            this.divisionLayoutControlItem.Size = new System.Drawing.Size(251, 45);
+            this.divisionLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
+            this.divisionLayoutControlItem.Text = "Division";
+            this.divisionLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.divisionLayoutControlItem.TextSize = new System.Drawing.Size(69, 13);
             // 
-            // layoutControlGroup6
+            // positionLayoutControlItem
             // 
-            this.layoutControlGroup6.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.positionLayoutControlItem.Control = this.positionComboBox;
+            this.positionLayoutControlItem.Location = new System.Drawing.Point(552, 85);
+            this.positionLayoutControlItem.Name = "positionLayoutControlItem";
+            this.positionLayoutControlItem.Size = new System.Drawing.Size(251, 330);
+            this.positionLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 0, 0, 0);
+            this.positionLayoutControlItem.Text = "Position";
+            this.positionLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.positionLayoutControlItem.TextSize = new System.Drawing.Size(69, 13);
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.Location = new System.Drawing.Point(285, 0);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(518, 40);
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // reportParameterLayoutGroup
+            // 
+            this.reportParameterLayoutGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.reportTypeRadioGroupLayoutControlItem,
             this.layoutControlItem12,
             this.layoutControlItem3,
             this.layoutControlItem1,
             this.emptySpaceItem1,
             this.emptySpaceItem2});
-            this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup6.Name = "layoutControlGroup6";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(827, 134);
+            this.reportParameterLayoutGroup.Location = new System.Drawing.Point(0, 0);
+            this.reportParameterLayoutGroup.Name = "reportParameterLayoutGroup";
+            this.reportParameterLayoutGroup.Size = new System.Drawing.Size(827, 134);
+            this.reportParameterLayoutGroup.Text = "Report parameters";
             // 
             // reportTypeRadioGroupLayoutControlItem
             // 
@@ -398,7 +418,7 @@
             // 
             // layoutControlItem12
             // 
-            this.layoutControlItem12.Control = this.labelControl1;
+            this.layoutControlItem12.Control = this.dateRangeLabelControl;
             this.layoutControlItem12.Location = new System.Drawing.Point(115, 0);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(263, 17);
@@ -441,28 +461,9 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(161, 56);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.textEdit1;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(285, 40);
-            this.layoutControlItem8.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 5, 0, 0);
-            this.layoutControlItem8.Text = "Login";
-            this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(69, 13);
-            // 
             // mvvmContextForReports
             // 
             this.mvvmContextForReports.ContainerControl = this;
-            // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(285, 0);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(518, 40);
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // ReportsForm
             // 
@@ -474,7 +475,7 @@
             this.Text = "ReportsForm";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -490,23 +491,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeRadioGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depertmentComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.previewLayoutGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.additionalParametersLayoutGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.officeLocationLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sectorLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.divisionLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportParameterLayoutGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportTypeRadioGroupLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContextForReports)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -521,31 +522,31 @@
         private DevExpress.XtraEditors.ComboBoxEdit sectorComboBox;
         private DevExpress.XtraEditors.ComboBoxEdit officeLocComboBox;
         private DevExpress.XtraEditors.ComboBoxEdit companyComboBoxEdit;
-        private DevExpress.XtraLayout.LayoutControlGroup previewLayoutGroup;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlGroup additionalParametersLayoutGroup;
+        private DevExpress.XtraLayout.LayoutControlItem companyLayoutControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem officeLocationLayoutControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem sectorLayoutControlItem;
         private DevExpress.XtraEditors.ComboBoxEdit divisionComboBox;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.LayoutControlItem divisionLayoutControlItem;
         private DevExpress.XtraEditors.ComboBoxEdit depertmentComboBox;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.LayoutControlItem departmentLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem reportTypeRadioGroupLayoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup6;
+        private DevExpress.XtraLayout.LayoutControlGroup reportParameterLayoutGroup;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.DateEdit toDateEdit;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl endDateLabelControl;
+        private DevExpress.XtraEditors.LabelControl startDateLabelControl;
         private DevExpress.XtraEditors.DateEdit fromDateEdit;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl dateRangeLabelControl;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraEditors.ComboBoxEdit positionComboBox;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem positionLayoutControlItem;
+        private DevExpress.XtraEditors.TextEdit loginTextEdit;
+        private DevExpress.XtraLayout.LayoutControlItem loginLayoutControlItem;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
     }
 }

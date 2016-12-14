@@ -130,7 +130,7 @@ namespace QuizServer
             existingTestee.IsActive = true;
 
             existingTestee.Attribute5 = newTestee.department;
-            existingTestee.Attribute8 = newTestee.position;
+            existingTestee.Attribute8 = newTestee.possition;
             existingTestee.Attribute10 = newTestee.managerLogin;
 
             return existingTestee;
@@ -146,7 +146,7 @@ namespace QuizServer
             newTestee.IsActive = true;
 
             newTestee.Attribute5 = testee.department;
-            newTestee.Attribute8 = testee.position;
+            newTestee.Attribute8 = testee.possition;
             newTestee.Attribute10 = testee.managerLogin;
 
             newTestee.UserSetting = new Setting() { Minutes = 5, AmountOfQuestionsPerDay = 10, TimeOfStart = DateTime.Now, EndDate = DateTime.Now, Recurrence = RecurrenceType.WithExactRepeated };

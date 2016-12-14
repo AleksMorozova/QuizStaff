@@ -20,7 +20,7 @@ namespace ApplicationServer
         public ApplicationServer()
         {
             dbContext = new QuizDBContext();
-            dbContext.Database.Initialize(true);
+            //dbContext.Database.Initialize(true);
         }
 
         public List<TesteeDTO> GetAllTestees()
@@ -43,9 +43,13 @@ namespace ApplicationServer
                     Attribute4 = testee.Attribute4,
                     Attribute5 = testee.Attribute5,
                     Attribute6 = testee.Attribute6,
+                    Attribute7 = testee.Attribute7,
                     Attribute8 = testee.Attribute8,
                     Attribute9 = testee.Attribute9,
                     Attribute10 = testee.Attribute10,
+                    Attribute11 = testee.Attribute11,
+                    Attribute12 = testee.Attribute12,
+                    Attribute13 = testee.Attribute13,
 
                     UserSetting = testee.UserSetting,
                     Trainings = new BindingList<TesteeTraining>(testee.Trainings.ToList().Where(_ => _.IsActive).ToList()),
@@ -57,11 +61,48 @@ namespace ApplicationServer
             return selectedTestee.Select(testee => (TesteeDTO)testee).ToList();
         }
 
-        public List<TesteeDTO> GetAllTesteesForReport(DateTime from, DateTime to)
+        public List<TesteeDTO> GetAllTesteesForReport(DateTime from, DateTime to, 
+            string Company, string OfficeLoc, string Sector, string Division, string Department,  string Position)
         {
             EFRepository<Testee> repo = new EFRepository<DomainModel.Testee>();
 
-            var selectedTestee = repo.ReadAll().Where(x => x.IsActive).AsQueryable()
+            var q = repo.ReadAll().Where(x => x.IsActive).AsQueryable();
+
+            #region Sort
+            //Company
+            if (!string.IsNullOrEmpty(Company))
+            {
+                q = q.Where(_=>_.Attribute1 == Company);
+            }
+            //OfficeLoc
+            if (!string.IsNullOrEmpty(OfficeLoc))
+            {
+                q = q.Where(_ => _.Attribute2 == OfficeLoc);
+            }
+            //Sectore
+            if (!string.IsNullOrEmpty(Sector))
+            {
+                q = q.Where(_ => _.Attribute3 == Sector);
+            }
+            //Division
+            if (!string.IsNullOrEmpty(Division))
+            {
+                q = q.Where(_ => _.Attribute4 == Division);
+            }
+            //Department
+            if (!string.IsNullOrEmpty(Department))
+            {
+                q = q.Where(_ => _.Attribute5 == Department);
+            }
+           
+            //Position
+            if (!string.IsNullOrEmpty(Position))
+            {
+                q = q.Where(_ => _.Attribute8 == Position);
+            }  
+            #endregion
+
+            var selectedTestee = q
                 .Select(testee => new Testee
                 {
                     Id = testee.Id,
@@ -77,10 +118,13 @@ namespace ApplicationServer
                     Attribute4 = testee.Attribute4,
                     Attribute5 = testee.Attribute5,
                     Attribute6 = testee.Attribute6,
+                    Attribute7 = testee.Attribute7,
                     Attribute8 = testee.Attribute8,
                     Attribute9 = testee.Attribute9,
                     Attribute10 = testee.Attribute10,
-
+                    Attribute11 = testee.Attribute11,
+                    Attribute12 = testee.Attribute12,
+                    Attribute13 = testee.Attribute13,
                     UserSetting = testee.UserSetting,
                     Trainings = new BindingList<TesteeTraining>(testee.Trainings.ToList().Where(_ => _.IsActive).ToList()),
                     Roles = new BindingList<TesteeRoles>(testee.Roles.ToList()),
@@ -173,8 +217,8 @@ namespace ApplicationServer
         public List<TrainingDTO> GetAllActiveTrainings()
         {
             EFRepository<Training> repo = new EFRepository<Training>();
-
-            var selectedTrainings = repo.ReadAll().Where(x => x.IsActive).AsQueryable()
+            var loadTrainings = repo.ReadAll();
+            var selectedTrainings = loadTrainings.Where(x => x.IsActive).AsQueryable()
                 .Select(training => new Training
                 {
                     Id = training.Id,
@@ -406,7 +450,6 @@ namespace ApplicationServer
                 else
                 {
                     repo.Update(testeeTrainings);
-                   
                 }
             }
         }
@@ -460,6 +503,14 @@ namespace ApplicationServer
         {
             var loadedTestees = EPELoader.LoadTesteeFromEPE();
             TesteeDataPprocessing.SynchronizeTestees(loadedTestees);
+        }
+
+        public void LoadAdditionalQuestions()
+        {
+            Loader.LoadQuestionFromFile(@"D:\QuizTrainings\GeneralQuestions");
+            var loadedQuestions = Loader.LoadedQuestions;
+            TrainingDataPprocessing.SynchronizeAdditionalTrainings(loadedQuestions.Select(_=>_.Training).Distinct().ToList(), loadedQuestions);
+            TesteeTrainingProcessing.SynchronizeTesteeTrainings(loadedQuestions.Select(_ => _.Training).Distinct().ToList());
         }
     }
 }

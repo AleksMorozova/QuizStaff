@@ -40,10 +40,10 @@ namespace AdminApplication
         {
             if (!CheckPermission(DomainModel.PermissionType.CreateAdministrator))
             {
-                testeesBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditTestee);
-                trainingsBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditTraining);
-                adminSettingsBarButtonItem.Enabled = CheckPermission(DomainModel.PermissionType.EditSetUp);
-                roleBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditSetUp);
+                //testeesBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditTestee);
+                //trainingsBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditTraining);
+                //adminSettingsBarButtonItem.Enabled = CheckPermission(DomainModel.PermissionType.EditSetUp);
+                //roleBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditSetUp);
             }
         }
 
@@ -59,6 +59,7 @@ namespace AdminApplication
             resources.ApplyResources(testeesBarButton, "testeesBarButton", newCultureInfo);
             resources.ApplyResources(trainingsBarButton, "trainingsBarButton", newCultureInfo);
             resources.ApplyResources(settingsBarButton, "settingsBarButton", newCultureInfo);
+            resources.ApplyResources(reportBarButton, "reportBarButton", newCultureInfo);
             resources.ApplyResources(languageBarSubItem, "languageBarSubItem", newCultureInfo);
             resources.ApplyResources(russianBarButtonItem, "russianBarButtonItem", newCultureInfo);
             resources.ApplyResources(englishBarButtonItem, "englishBarButtonItem", newCultureInfo);
@@ -128,12 +129,12 @@ namespace AdminApplication
             about.ShowDialog();
         }
 
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        private void reportBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             Reports.ReportsForm reportsForm = new Reports.ReportsForm();
             FormManager.Instance.OpenChildForm(reportsForm, "Report");
-            //FormManager.LocalizedFormList.Add(reportsForm);
-            //FormManager.Instance.LocalizedForms(Program.СurrentLang);
+            FormManager.LocalizedFormList.Add(reportsForm);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)

@@ -29,8 +29,6 @@ namespace AdminApplication.TesteesForms.TesteesList
 
         private void BindCommands()
         {
-            mvvmTesteesContext.BindCommand<TesteesListViewModel>(buttonSave, viewModel => viewModel.Save());
-            mvvmTesteesContext.BindCommand<TesteesListViewModel>(buttonCancel, viewModel => viewModel.Cancel());
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(loadTesteesButton , viewModel => viewModel.LoadTestees());
             mvvmTesteesContext.BindCommand<TesteesListViewModel>(addTesteeButton, viewModel => viewModel.AddTestee());
             mvvmTesteesContext.BindCommand<TesteesListViewModel, Testee>(editTesteeButton,
@@ -75,8 +73,6 @@ namespace AdminApplication.TesteesForms.TesteesList
             resources.ApplyResources(columnLastName, "columnLastName", newCultureInfo);
             resources.ApplyResources(columnLogin, "columnLogin", newCultureInfo);
             resources.ApplyResources(columnTrainings, "columnTrainings", newCultureInfo);
-            resources.ApplyResources(buttonCancel, "buttonCancel", newCultureInfo);
-            resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ?resources.GetString("Title", newCultureInfo):"Testees";
         }

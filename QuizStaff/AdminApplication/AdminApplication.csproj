@@ -169,12 +169,6 @@
     <Compile Include="AdminSettings\EditTesteesTrainingsViewModel.cs" />
     <Compile Include="Authorization.cs" />
     <Compile Include="LoginResult.cs" />
-    <Compile Include="Reports\GeneralReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\GeneralReport.Designer.cs">
-      <DependentUpon>GeneralReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reports\GeneralReportClass.cs" />
     <Compile Include="Reports\GeneralXtraReport.cs">
       <SubType>Component</SubType>
@@ -296,13 +290,13 @@
     <EmbeddedResource Include="AdminSettings\EditTesteesTrainingsForm.ru-RU.resx">
       <DependentUpon>EditTesteesTrainingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\GeneralReport.resx">
-      <DependentUpon>GeneralReport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\GeneralXtraReport.resx">
       <DependentUpon>GeneralXtraReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportsForm.resx">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportsForm.ru-RU.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\TesteeReport.resx">

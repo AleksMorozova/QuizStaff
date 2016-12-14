@@ -101,6 +101,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAdditional" type="xs:boolean" />
       <xs:element minOccurs="0" name="Questions" nillable="true" type="tns:ArrayOfQuestionDTO" />
       <xs:element minOccurs="0" name="TesteeTrainings" nillable="true" type="tns:ArrayOfTesteeTrainingDTO" />
       <xs:element minOccurs="0" name="TrainingTitle" nillable="true" type="xs:string" />

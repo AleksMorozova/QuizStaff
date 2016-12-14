@@ -128,16 +128,10 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
                 }
                 else
                 {
-                    var updateTraining = ServicesHolder.ServiceClient.UpdateTraining(Conversion.ConvertTrainingToDTO(this.Training));
+                     var updateTraining = ServicesHolder.ServiceClient.UpdateTraining(Conversion.ConvertTrainingToDTO(this.Training));
                     this.Training = Conversion.ConvertTrainingFromDTO(updateTraining);
                 }
             }
-        }
-        
-        public void LoadQuestions()
-        {
-            // TODO: implement loading of questions from external source
-            XtraMessageBox.Show("Load questions");
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };

@@ -15,6 +15,8 @@ namespace DataTransferObject
 
         public bool IsActive { get; set; }
 
+        public bool IsAdditional { get; set; }
+
         public string TrainingTitle { get; set; }
 
         public BindingList<QuestionDTO> Questions { get; set; }

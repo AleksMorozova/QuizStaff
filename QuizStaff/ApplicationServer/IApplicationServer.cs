@@ -102,6 +102,10 @@ namespace ApplicationServer
         void LoadTesteeFromEPE();
 
         [OperationContract]
-        List<TesteeDTO> GetAllTesteesForReport(DateTime from, DateTime to);
+        void LoadAdditionalQuestions();
+
+        [OperationContract]
+        List<TesteeDTO> GetAllTesteesForReport(DateTime from, DateTime to,
+            string Company, string OfficeLoc, string Sector, string Division, string Department, string Position);
     }
 }

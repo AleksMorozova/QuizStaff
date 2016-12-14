@@ -144,60 +144,6 @@
     <value>4</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="buttonCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>949, 525</value>
-  </data>
-  <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 20</value>
-  </data>
-  <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="buttonCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.Name" xml:space="preserve">
-    <value>buttonCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.Parent" xml:space="preserve">
-    <value>layoutControl1</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="buttonSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>825, 525</value>
-  </data>
-  <data name="buttonSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 20</value>
-  </data>
-  <data name="buttonSave.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="buttonSave.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Name" xml:space="preserve">
-    <value>buttonSave</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.Parent" xml:space="preserve">
-    <value>layoutControl1</value>
-  </data>
-  <data name="&gt;&gt;buttonSave.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="addTesteeButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -223,7 +169,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;addTesteeButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>5</value>
   </data>
   <data name="gridTestees.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -326,7 +272,7 @@
     <value>Combo</value>
   </data>
   <data name="gridTestees.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1057, 480</value>
+    <value>1057, 506</value>
   </data>
   <data name="gridTestees.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -341,7 +287,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;gridTestees.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="loadTesteesButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -368,7 +314,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;loadTesteesButton.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>7</value>
   </data>
   <data name="editTesteeButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -395,7 +341,7 @@
     <value>layoutControl1</value>
   </data>
   <data name="&gt;&gt;editTesteeButton.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>8</value>
   </data>
   <data name="layoutControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -584,24 +530,6 @@
     <value>layoutButtonAdd</value>
   </data>
   <data name="&gt;&gt;layoutButtonAdd.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;layoutButtonCancel.Name" xml:space="preserve">
-    <value>layoutButtonCancel</value>
-  </data>
-  <data name="&gt;&gt;layoutButtonCancel.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;emptySpaceItem1.Name" xml:space="preserve">
-    <value>emptySpaceItem1</value>
-  </data>
-  <data name="&gt;&gt;emptySpaceItem1.Type" xml:space="preserve">
-    <value>DevExpress.XtraLayout.EmptySpaceItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;layoutButtonSave.Name" xml:space="preserve">
-    <value>layoutButtonSave</value>
-  </data>
-  <data name="&gt;&gt;layoutButtonSave.Type" xml:space="preserve">
     <value>DevExpress.XtraLayout.LayoutControlItem, DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;layoutControlItem1.Name" xml:space="preserve">

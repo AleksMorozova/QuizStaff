@@ -70,24 +70,18 @@ namespace AdminApplication.TrainingsListForm
             }
         }
 
-        public void Save()
-        {
-            // TODO: implement save of loaded of trainings
-            XtraMessageBox.Show("Save");
-        }
-
-        public void Cancel()
-        {
-            // TODO: implement cancel of loading of trainings
-            XtraMessageBox.Show("Cancel");
-        }
-
         public void LoadTrainings()
         {
             ServicesHolder.ServiceClient.LoadTrainings();
             XtraMessageBox.Show("Trainings was successfully load");
         }
-           
+
+        public void LoadQuestions()
+        {
+            ServicesHolder.ServiceClient.LoadAdditionalQuestions();
+            XtraMessageBox.Show("Questions was successfully load");
+        }
+
         public event TrainingChangedEventHandler TrainingListChanged;
         protected virtual void OnTrainingListChanged(EventArgs e)
         {

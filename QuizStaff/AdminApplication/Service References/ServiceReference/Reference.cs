@@ -21,18 +21,6 @@ namespace AdminApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTestees", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAllTestees", ReplyAction="http://tempuri.org/IApplicationServer/SaveAllTesteesResponse")]
-        void SaveAllTestees(DataTransferObject.TesteeDTO[] testees);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAllTestees", ReplyAction="http://tempuri.org/IApplicationServer/SaveAllTesteesResponse")]
-        System.Threading.Tasks.Task SaveAllTesteesAsync(DataTransferObject.TesteeDTO[] testees);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTesteeByID", ReplyAction="http://tempuri.org/IApplicationServer/GetTesteeByIDResponse")]
-        DataTransferObject.TesteeDTO GetTesteeByID(System.Guid id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetTesteeByID", ReplyAction="http://tempuri.org/IApplicationServer/GetTesteeByIDResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> GetTesteeByIDAsync(System.Guid id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeAnswerResponse")]
         void SaveTesteeAnswer(DataTransferObject.HistoryDTO history);
         
@@ -56,12 +44,6 @@ namespace AdminApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllTrainingsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/SaveAllTrainingsResponse")]
-        void SaveAllTrainings(DataTransferObject.TrainingDTO[] trainings);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/SaveAllTrainingsResponse")]
-        System.Threading.Tasks.Task SaveAllTrainingsAsync(DataTransferObject.TrainingDTO[] trainings);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByLogin", ReplyAction="http://tempuri.org/IApplicationServer/FindByLoginResponse")]
         DataTransferObject.TesteeDTO FindByLogin(string login);
@@ -165,12 +147,6 @@ namespace AdminApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateRoles", ReplyAction="http://tempuri.org/IApplicationServer/UpdateRolesResponse")]
         System.Threading.Tasks.Task UpdateRolesAsync(DataTransferObject.RoleDTO role);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdatePermissions", ReplyAction="http://tempuri.org/IApplicationServer/UpdatePermissionsResponse")]
-        void UpdatePermissions(DataTransferObject.PermissionDTO permission);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdatePermissions", ReplyAction="http://tempuri.org/IApplicationServer/UpdatePermissionsResponse")]
-        System.Threading.Tasks.Task UpdatePermissionsAsync(DataTransferObject.PermissionDTO permission);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/AddTesteeRole", ReplyAction="http://tempuri.org/IApplicationServer/AddTesteeRoleResponse")]
         void AddTesteeRole(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role);
         
@@ -194,6 +170,12 @@ namespace AdminApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoadTesteeFromEPE", ReplyAction="http://tempuri.org/IApplicationServer/LoadTesteeFromEPEResponse")]
         System.Threading.Tasks.Task LoadTesteeFromEPEAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoadAdditionalQuestions", ReplyAction="http://tempuri.org/IApplicationServer/LoadAdditionalQuestionsResponse")]
+        void LoadAdditionalQuestions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoadAdditionalQuestions", ReplyAction="http://tempuri.org/IApplicationServer/LoadAdditionalQuestionsResponse")]
+        System.Threading.Tasks.Task LoadAdditionalQuestionsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTesteesForReport", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesForReportResponse")]
         DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position);
@@ -237,22 +219,6 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.GetAllTesteesAsync();
         }
         
-        public void SaveAllTestees(DataTransferObject.TesteeDTO[] testees) {
-            base.Channel.SaveAllTestees(testees);
-        }
-        
-        public System.Threading.Tasks.Task SaveAllTesteesAsync(DataTransferObject.TesteeDTO[] testees) {
-            return base.Channel.SaveAllTesteesAsync(testees);
-        }
-        
-        public DataTransferObject.TesteeDTO GetTesteeByID(System.Guid id) {
-            return base.Channel.GetTesteeByID(id);
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> GetTesteeByIDAsync(System.Guid id) {
-            return base.Channel.GetTesteeByIDAsync(id);
-        }
-        
         public void SaveTesteeAnswer(DataTransferObject.HistoryDTO history) {
             base.Channel.SaveTesteeAnswer(history);
         }
@@ -283,14 +249,6 @@ namespace AdminApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllTrainingsAsync() {
             return base.Channel.GetAllTrainingsAsync();
-        }
-        
-        public void SaveAllTrainings(DataTransferObject.TrainingDTO[] trainings) {
-            base.Channel.SaveAllTrainings(trainings);
-        }
-        
-        public System.Threading.Tasks.Task SaveAllTrainingsAsync(DataTransferObject.TrainingDTO[] trainings) {
-            return base.Channel.SaveAllTrainingsAsync(trainings);
         }
         
         public DataTransferObject.TesteeDTO FindByLogin(string login) {
@@ -429,14 +387,6 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.UpdateRolesAsync(role);
         }
         
-        public void UpdatePermissions(DataTransferObject.PermissionDTO permission) {
-            base.Channel.UpdatePermissions(permission);
-        }
-        
-        public System.Threading.Tasks.Task UpdatePermissionsAsync(DataTransferObject.PermissionDTO permission) {
-            return base.Channel.UpdatePermissionsAsync(permission);
-        }
-        
         public void AddTesteeRole(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role) {
             base.Channel.AddTesteeRole(testee, role);
         }
@@ -467,6 +417,14 @@ namespace AdminApplication.ServiceReference {
         
         public System.Threading.Tasks.Task LoadTesteeFromEPEAsync() {
             return base.Channel.LoadTesteeFromEPEAsync();
+        }
+        
+        public void LoadAdditionalQuestions() {
+            base.Channel.LoadAdditionalQuestions();
+        }
+        
+        public System.Threading.Tasks.Task LoadAdditionalQuestionsAsync() {
+            return base.Channel.LoadAdditionalQuestionsAsync();
         }
         
         public DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position) {

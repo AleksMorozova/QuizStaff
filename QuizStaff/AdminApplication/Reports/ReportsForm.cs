@@ -8,10 +8,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Globalization;
 
 namespace AdminApplication.Reports
 {
-    public partial class ReportsForm : DevExpress.XtraEditors.XtraForm
+    public partial class ReportsForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
         ReportViewModel model;
 
@@ -30,7 +31,7 @@ namespace AdminApplication.Reports
 
         private void BindToViewModel()
         {
-            //mvvmContextForReports.SetBinding(loginTextEdit, login => login.EditValue, "TesteeLogin");
+            mvvmContextForReports.SetBinding(loginTextEdit, login => login.EditValue, "TesteeLogin");
             mvvmContextForReports.SetBinding(fromDateEdit, from => from.EditValue, "FromDate");
             mvvmContextForReports.SetBinding(toDateEdit, to => to.EditValue, "ToDate");
             mvvmContextForReports.SetBinding(companyComboBoxEdit, to => to.EditValue, "Company");
@@ -58,13 +59,23 @@ namespace AdminApplication.Reports
             var selected = reportTypeRadioGroup.Properties.Items[reportTypeRadioGroup.SelectedIndex].Value;
             if (selected.ToString() == "General")
             {
-                //loginLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 ReportType = ReportType.Genaral;
+                companyLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                officeLocationLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                divisionLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                sectorLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                departmentLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                positionLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             }
             else if (selected.ToString() == "ByLogin")
             {
-                //loginLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 ReportType = ReportType.ByLogin;
+                companyLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                officeLocationLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                divisionLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                sectorLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                departmentLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                positionLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             }
         }
 
@@ -80,7 +91,6 @@ namespace AdminApplication.Reports
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            model.TesteeLogin = "omor";
             if (ReportType == ReportType.Genaral || (ReportType == ReportType.ByLogin && !String.IsNullOrEmpty(model.TesteeLogin)))
             {
                 model.GenerateReport(ReportType);
@@ -88,6 +98,29 @@ namespace AdminApplication.Reports
                 tool.AutoShowParametersPanel = false;
                 tool.ShowPreview();
             }
+        }
+
+        public void Localized(string language)
+        {
+            var resources = new ComponentResourceManager(typeof(ReportsForm));
+            CultureInfo newCultureInfo = new CultureInfo(language);
+            resources.ApplyResources(dateRangeLabelControl, "dateRangeLabelControl", newCultureInfo);
+            resources.ApplyResources(endDateLabelControl, "endDateLabelControl", newCultureInfo);
+            resources.ApplyResources(startDateLabelControl, "startDateLabelControl", newCultureInfo);
+            resources.ApplyResources(loginLayoutControlItem, "loginLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(companyLayoutControlItem, "companyLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(officeLocationLayoutControlItem, "officeLocationLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(divisionLayoutControlItem, "divisionLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(sectorLayoutControlItem, "sectorLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(departmentLayoutControlItem, "departmentLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(positionLayoutControlItem, "positionLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(reportParameterLayoutGroup, "reportParameterLayoutGroup", newCultureInfo);
+            resources.ApplyResources(additionalParametersLayoutGroup, "additionalParametersLayoutGroup", newCultureInfo);
+            resources.ApplyResources(reportTypeRadioGroupLayoutControlItem, "reportTypeRadioGroupLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(createButton, "createButton", newCultureInfo);
+
+            this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
+                     ? resources.GetString("Title", newCultureInfo) : "Reports";
         }
     }
 }
