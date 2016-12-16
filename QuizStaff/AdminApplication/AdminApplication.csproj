@@ -201,6 +201,7 @@
     <Compile Include="Settings\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\SettingsViewModel.cs" />
     <Compile Include="TrainingsForms\TrainingQuestion\AddEditQuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,6 +377,7 @@
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Client_TemporaryKey.pfx" />
+    <None Include="DataTransferObject.ApplicationSettingsDTO1.datasource" />
     <None Include="DataTransferObject.PermissionDTO.datasource" />
     <None Include="DataTransferObject.QuestionDTO1.datasource" />
     <None Include="DataTransferObject.RoleDTO.datasource" />
@@ -758,6 +760,9 @@
     <None Include="Service References\ServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\ServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference\item4.xsd">
       <SubType>Designer</SubType>
     </None>

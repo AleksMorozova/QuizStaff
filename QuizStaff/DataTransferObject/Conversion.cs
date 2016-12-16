@@ -575,6 +575,47 @@ namespace DataTransferObject
             newRole.Role = ConvertRoleFromDTO(role.Role);
             return newRole;
         }
+
+        public static ApplicationSettingsDTO ConvertApplicationSettingsToDTO(ApplicationSettings settings)
+        {
+            ApplicationSettingsDTO newsettings = new ApplicationSettingsDTO();
+            newsettings.Id = settings.Id;
+            newsettings.AdditionalQuestionsPath = settings.AdditionalQuestionsPath;
+            newsettings.LMSReportFileName = settings.LMSReportFileName;
+            newsettings.LMSReportPath = settings.LMSReportPath;
+            newsettings.TimeOfUpdating = settings.TimeOfUpdating;
+            newsettings.TrainingsQuestionsPath = settings.TrainingsQuestionsPath;
+
+            newsettings.Days = new BindingList<DaysOfUpdateDTO>();
+            if (settings.Days != null)
+                foreach (var day in settings.Days)
+                {
+                    newsettings.Days.Add(new DaysOfUpdateDTO() { Id = day.Id, Day = day.Day, IsSelect = day.IsSelect });
+                }
+
+            return newsettings;
+        }
+
+        public static ApplicationSettings ConvertApplicationSettingsFromDTO(ApplicationSettingsDTO settings)
+        {
+            ApplicationSettings newsettings = new ApplicationSettings();
+            newsettings.Id = settings.Id;
+            newsettings.AdditionalQuestionsPath = settings.AdditionalQuestionsPath;
+            newsettings.LMSReportFileName = settings.LMSReportFileName;
+            newsettings.LMSReportPath = settings.LMSReportPath;
+            newsettings.TimeOfUpdating = settings.TimeOfUpdating;
+            newsettings.TrainingsQuestionsPath = settings.TrainingsQuestionsPath;
+
+            newsettings.Days = new BindingList<DaysOfUpdate>();
+
+            if (settings.Days != null)
+                foreach (var day in settings.Days)
+                {
+                    newsettings.Days.Add(new DaysOfUpdate() { Id = day.Id, Day = day.Day, IsSelect = day.IsSelect });
+                }
+
+            return newsettings;
+        }
     }
 }
 

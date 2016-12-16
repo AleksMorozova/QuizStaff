@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnswerDTO.cs" />
+    <Compile Include="ApplicationSettingsDTO.cs" />
     <Compile Include="Conversion.cs" />
+    <Compile Include="DaysOfUpdateDTO.cs" />
     <Compile Include="HistoryDTO.cs" />
     <Compile Include="PermissionDTO.cs" />
     <Compile Include="QuestionDTO.cs" />

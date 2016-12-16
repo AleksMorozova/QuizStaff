@@ -356,4 +356,56 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ReadApplicationSettings">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadApplicationSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="ReadApplicationSettingsResult" nillable="true" type="q32:ApplicationSettingsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveApplicationSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="settings" nillable="true" type="q33:ApplicationSettingsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveApplicationSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="SaveApplicationSettingsResult" nillable="true" type="q34:ApplicationSettingsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApplicationSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="settings" nillable="true" type="q35:ApplicationSettingsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateApplicationSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="UpdateApplicationSettingsResult" nillable="true" type="q36:ApplicationSettingsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSettings">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DataTransferObject" minOccurs="0" name="GetSettingsResult" nillable="true" type="q37:ApplicationSettingsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

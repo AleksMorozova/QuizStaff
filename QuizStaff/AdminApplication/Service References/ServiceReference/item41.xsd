@@ -2,6 +2,7 @@
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DataTransferObject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataTransferObject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:import schemaLocation="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainModel" />
+  <xs:import schemaLocation="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:complexType name="ArrayOfTesteeDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeDTO" nillable="true" type="tns:TesteeDTO" />
@@ -218,4 +219,31 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfPermissionDTO" nillable="true" type="tns:ArrayOfPermissionDTO" />
+  <xs:complexType name="ApplicationSettingsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalQuestionsPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Days" nillable="true" type="tns:ArrayOfDaysOfUpdateDTO" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="LMSReportFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LMSReportPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeOfUpdating" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TrainingsQuestionsPath" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationSettingsDTO" nillable="true" type="tns:ApplicationSettingsDTO" />
+  <xs:complexType name="ArrayOfDaysOfUpdateDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DaysOfUpdateDTO" nillable="true" type="tns:DaysOfUpdateDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDaysOfUpdateDTO" nillable="true" type="tns:ArrayOfDaysOfUpdateDTO" />
+  <xs:complexType name="DaysOfUpdateDTO">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Day" type="q3:DayOfWeek" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsSelect" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Settings" nillable="true" type="tns:ApplicationSettingsDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DaysOfUpdateDTO" nillable="true" type="tns:DaysOfUpdateDTO" />
 </xs:schema>

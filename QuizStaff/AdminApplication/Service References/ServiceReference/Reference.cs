@@ -182,6 +182,30 @@ namespace AdminApplication.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTesteesForReport", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesForReportResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesForReportAsync(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/ReadApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/ReadApplicationSettingsResponse")]
+        DataTransferObject.ApplicationSettingsDTO ReadApplicationSettings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/ReadApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/ReadApplicationSettingsResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> ReadApplicationSettingsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/SaveApplicationSettingsResponse")]
+        DataTransferObject.ApplicationSettingsDTO SaveApplicationSettings(DataTransferObject.ApplicationSettingsDTO settings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/SaveApplicationSettingsResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> SaveApplicationSettingsAsync(DataTransferObject.ApplicationSettingsDTO settings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateApplicationSettingsResponse")]
+        DataTransferObject.ApplicationSettingsDTO UpdateApplicationSettings(DataTransferObject.ApplicationSettingsDTO settings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateApplicationSettingsResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> UpdateApplicationSettingsAsync(DataTransferObject.ApplicationSettingsDTO settings);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetSettings", ReplyAction="http://tempuri.org/IApplicationServer/GetSettingsResponse")]
+        DataTransferObject.ApplicationSettingsDTO GetSettings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetSettings", ReplyAction="http://tempuri.org/IApplicationServer/GetSettingsResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> GetSettingsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -433,6 +457,38 @@ namespace AdminApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesForReportAsync(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position) {
             return base.Channel.GetAllTesteesForReportAsync(from, to, Company, OfficeLoc, Sector, Division, Department, Position);
+        }
+        
+        public DataTransferObject.ApplicationSettingsDTO ReadApplicationSettings() {
+            return base.Channel.ReadApplicationSettings();
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> ReadApplicationSettingsAsync() {
+            return base.Channel.ReadApplicationSettingsAsync();
+        }
+        
+        public DataTransferObject.ApplicationSettingsDTO SaveApplicationSettings(DataTransferObject.ApplicationSettingsDTO settings) {
+            return base.Channel.SaveApplicationSettings(settings);
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> SaveApplicationSettingsAsync(DataTransferObject.ApplicationSettingsDTO settings) {
+            return base.Channel.SaveApplicationSettingsAsync(settings);
+        }
+        
+        public DataTransferObject.ApplicationSettingsDTO UpdateApplicationSettings(DataTransferObject.ApplicationSettingsDTO settings) {
+            return base.Channel.UpdateApplicationSettings(settings);
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> UpdateApplicationSettingsAsync(DataTransferObject.ApplicationSettingsDTO settings) {
+            return base.Channel.UpdateApplicationSettingsAsync(settings);
+        }
+        
+        public DataTransferObject.ApplicationSettingsDTO GetSettings() {
+            return base.Channel.GetSettings();
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> GetSettingsAsync() {
+            return base.Channel.GetSettingsAsync();
         }
     }
 }
