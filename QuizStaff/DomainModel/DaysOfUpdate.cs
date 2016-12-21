@@ -9,7 +9,7 @@ namespace DomainModel
     public class DaysOfUpdate : Entity
     {
         public DayOfWeek Day { get; set; }
-        public ApplicationSettings Settings { get; set; }
+        public virtual ApplicationSettings Settings { get; set; }
         public bool IsSelect { get; set; }
     }
 }

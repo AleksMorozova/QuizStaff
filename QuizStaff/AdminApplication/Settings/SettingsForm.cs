@@ -46,22 +46,14 @@ namespace AdminApplication.Settings
 
         private void SetUpFrom()
         {
-
-            if (model.Days != null)
-                foreach (var day in model.Days)
-                {
-                    checkedComboBoxEdit1.Properties.Items.Add(day.Day, day.IsSelect);
-                }
-
-            //var loadedData = model.Days.Where(_=>_.isSelect);
-            //var days = loadedData.Select(_ => _.Day);
-            //checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Monday, days.Contains(DayOfWeek.Monday));
-            //checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Tuesday, days.Contains(DayOfWeek.Tuesday));
-            //checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Wednesday, days.Contains(DayOfWeek.Wednesday));
-            //checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Thursday, days.Contains(DayOfWeek.Thursday));
-            //checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Friday, days.Contains(DayOfWeek.Friday));
-            //checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Saturday, days.Contains(DayOfWeek.Saturday));
-            //checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Sunday, days.Contains(DayOfWeek.Sunday));
+            var days = model.Days.Where(_ => _.IsSelect).Select(_ => _.Day);
+            checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Monday, days.Contains(DayOfWeek.Monday));
+            checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Tuesday, days.Contains(DayOfWeek.Tuesday));
+            checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Wednesday, days.Contains(DayOfWeek.Wednesday));
+            checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Thursday, days.Contains(DayOfWeek.Thursday));
+            checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Friday, days.Contains(DayOfWeek.Friday));
+            checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Saturday, days.Contains(DayOfWeek.Saturday));
+            checkedComboBoxEdit1.Properties.Items.Add(DayOfWeek.Sunday, days.Contains(DayOfWeek.Sunday));
         }
 
         private void checkedComboBoxEdit1_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)

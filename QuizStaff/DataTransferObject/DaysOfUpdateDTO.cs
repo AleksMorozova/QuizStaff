@@ -10,7 +10,7 @@ namespace DataTransferObject
     {
         public Guid Id { get; set; }
         public DayOfWeek Day { get; set; }
-        public ApplicationSettingsDTO Settings { get; set; }
+        public virtual ApplicationSettingsDTO Settings { get; set; }
         public bool IsSelect { get; set; }
     }
 }

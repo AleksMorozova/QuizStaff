@@ -9,7 +9,7 @@ namespace DomainModel
 {
     public class ApplicationSettings:Entity
     {
-        public BindingList<DaysOfUpdate> Days { get; set; }
+        public virtual BindingList<DaysOfUpdate> Days { get; set; }
         public DateTime TimeOfUpdating { get; set; }
         public string LMSReportFileName { get; set; }
         public string LMSReportPath { get; set; }

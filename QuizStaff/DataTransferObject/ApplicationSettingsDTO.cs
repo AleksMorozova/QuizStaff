@@ -10,7 +10,7 @@ namespace DataTransferObject
     public class ApplicationSettingsDTO
     {
         public Guid Id { get; set; }
-        public BindingList<DaysOfUpdateDTO> Days { get; set; }
+        public virtual BindingList<DaysOfUpdateDTO> Days { get; set; }
         public DateTime TimeOfUpdating { get; set; }
         public string LMSReportFileName { get; set; }
         public string LMSReportPath { get; set; }
