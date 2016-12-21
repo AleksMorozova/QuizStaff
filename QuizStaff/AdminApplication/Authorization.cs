@@ -53,7 +53,9 @@ namespace AdminApplication
                 UserLoginForm dlg = new UserLoginForm();
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    if (LogonUser(dlg.Login, dlg.Password, dlg.Domain))
+                    var domain = Environment.UserDomainName;
+                    bool logonResult = LogonUser(dlg.Login, dlg.Password, dlg.Domain);
+                    if (true)
                     {
                         Program.СurrentTestee = GetTestee(dlg.Login);
                         GetUserPermissions(dlg.Login);

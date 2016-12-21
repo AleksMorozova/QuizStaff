@@ -17,15 +17,29 @@ namespace DAL.Repositories
 
         public override void Create(History entity)
         {
-            dbContext.Entry(entity.Testee).State = System.Data.Entity.EntityState.Unchanged;
-            dbContext.Entry(entity.Question).State = System.Data.Entity.EntityState.Unchanged;
-            foreach (var a in entity.Answers)
+            var dbTestee = dbContext.Testees
+                            .Single(t => t.Id == entity.Testee.Id);
+            entity.Testee = dbTestee;
+            dbContext.Entry(dbTestee).State = System.Data.Entity.EntityState.Unchanged;
+
+            var dbQuestion = dbContext.Questions
+                          .Single(t => t.Id == entity.Question.Id);
+            entity.Question = dbQuestion;
+            dbContext.Entry(dbQuestion).State = System.Data.Entity.EntityState.Unchanged;
+
+
+            var answers = entity.Answers;
+            entity.Answers = new System.ComponentModel.BindingList<TesteeAnswer>();
+            foreach (var a in answers)
             {
-                dbContext.Entry(a).State = System.Data.Entity.EntityState.Added;
-                dbContext.Entry(a.Answer).State = System.Data.Entity.EntityState.Unchanged;
+                var dbAnswers = dbContext.Answers
+                            .Single(t => t.Id == a.Answer.Id);
+                a.Answer = dbAnswers;
+                dbContext.Entry(dbAnswers).State = System.Data.Entity.EntityState.Unchanged;
+                entity.Answers.Add(a);
             }
 
-            base.Create(entity);
+            dbContext.Histories.Add(entity);
             dbContext.SaveChanges();
         }
     }

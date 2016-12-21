@@ -256,10 +256,14 @@ namespace TesteeApplication.TesteeSettings
             if (CheckDateAndTime())
             {
                 TesteeQuestionForm questionForm = new TesteeQuestionForm(Program.СurrentTestee);
-                timer.Stop();
-                questionForm.ShowDialog();
-                timer.Start();
-                UpdateTime();
+                
+                if (questionForm.IsTesteeHaveQuestion)
+                {
+                    timer.Stop();
+                    questionForm.ShowDialog();
+                    timer.Start();
+                    UpdateTime();
+                }
             }
         }
 

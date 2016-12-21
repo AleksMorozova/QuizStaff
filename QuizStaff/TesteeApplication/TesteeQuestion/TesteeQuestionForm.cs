@@ -19,6 +19,7 @@ namespace TesteeApplication.TesteeQuestion
 {
     public partial class TesteeQuestionForm : DevExpress.XtraEditors.XtraForm
     {
+        public bool IsTesteeHaveQuestion { get; set; }
         private TesteeQuestionViewModel model;
         private string header;
         private string message;
@@ -38,8 +39,11 @@ namespace TesteeApplication.TesteeQuestion
 
         public void SetUpForm()
         {
-            if (model.question != null)
+            IsTesteeHaveQuestion = model.question != null;
+
+            if (IsTesteeHaveQuestion)
             {
+                IsTesteeHaveQuestion = true;
                 //fill comboBox and question label
                 questionLabel.Text = model.question.QuestionText;
                 foreach (var a in model.question.Answers)
@@ -53,10 +57,6 @@ namespace TesteeApplication.TesteeQuestion
                     answersCheckedList.CheckStyle = CheckStyles.Radio;
                     answersCheckedList.SelectionMode = SelectionMode.One;
                 }
-            }
-            else 
-            {
-                this.Close();
             }
         }
 

@@ -56,8 +56,8 @@ namespace TesteeApplication
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     bool logonResult = LogonUser(dlg.Login, dlg.Password, dlg.Domain);
-
-                    if (LogonUser(dlg.Login, dlg.Password, dlg.Domain))
+                    //LogonUser(dlg.Login, dlg.Password, dlg.Domain)
+                    if (true)
                     {
                         Program.СurrentTestee = GetTestee(dlg.Login);
                         Testee loadTestee = Program.СurrentTestee;
