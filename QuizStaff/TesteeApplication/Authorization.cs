@@ -46,8 +46,6 @@ namespace TesteeApplication
         /// <summary>
         /// Try to log in
         /// </summary>
-        /// <param name="failMessage">message for user, when login has been failed</param>
-        /// <returns>status of logging in attempt</returns>
         public static LoginResult Login()
         {
             try
@@ -55,29 +53,16 @@ namespace TesteeApplication
                 UserLoginForm dlg = new UserLoginForm();
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
+                    var domain = Environment.UserDomainName;
                     bool logonResult = LogonUser(dlg.Login, dlg.Password, dlg.Domain);
-                    //LogonUser(dlg.Login, dlg.Password, dlg.Domain)
                     if (true)
                     {
                         Program.СurrentTestee = GetTestee(dlg.Login);
-                        Testee loadTestee = Program.СurrentTestee;
                         GetUserPermissions(dlg.Login);
 
-                        if (loadTestee.Id != Guid.Empty)
-                        {
-                            if (CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.GetQuestion))
-                            {
-                                return LoginResult.LoggedIn;
-                            }
-                            else
-                            {
-                                return LoginResult.NoPermissions;
-                            } 
-                        }
-                        else
-                        {
-                            return LoginResult.NotExist;
-                        }
+                        return (Program.СurrentTestee.Id != Guid.Empty) ?
+                            CheckPermission() ? LoginResult.LoggedIn : LoginResult.Failed
+                            : LoginResult.NotExist;
                     }
 
                     else
@@ -99,6 +84,11 @@ namespace TesteeApplication
                 log.Error("Error message " + ex.Message);
                 return LoginResult.Failed;
             }
+        }
+
+        private static bool CheckPermission()
+        {
+            return (CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.GetQuestion));
         }
 
         private static void GetUserPermissions(string login)

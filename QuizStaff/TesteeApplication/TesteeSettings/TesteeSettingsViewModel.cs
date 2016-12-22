@@ -11,10 +11,11 @@ namespace TesteeApplication.TesteeSettings
 {
     public class TesteeSettingsViewModel : INotifyPropertyChanged 
     {
+        public delegate void SettingsChangedEventHandler(object sender, EventArgs e);
+
         public TesteeSettingsViewModel()
         {
-            UserSetting = Program.СurrentTestee.UserSetting;
-            LoadSetting = Conversion.CopySetting(UserSetting);
+            LoadSetting = Conversion.CopySetting(Program.СurrentTestee.UserSetting);
         }
 
         #region Setting
@@ -47,13 +48,13 @@ namespace TesteeApplication.TesteeSettings
         {
             get
             {
-                return UserSetting.AmountOfQuestionsPerDay;
+                return Program.СurrentTestee.UserSetting.AmountOfQuestionsPerDay;
             }
             set
             {
-                if (value != UserSetting.AmountOfQuestionsPerDay)
+                if (value != Program.СurrentTestee.UserSetting.AmountOfQuestionsPerDay)
                 {
-                    UserSetting.AmountOfQuestionsPerDay = value;
+                    Program.СurrentTestee.UserSetting.AmountOfQuestionsPerDay = value;
                     RaisePropertyChanged("AmountOfQuestionsPerDay");
                 }
             }
@@ -63,13 +64,13 @@ namespace TesteeApplication.TesteeSettings
         {
             get
             {
-                return UserSetting.Hours;
+                return Program.СurrentTestee.UserSetting.Hours;
             }
             set
             {
-                if (value != UserSetting.Hours)
+                if (value != Program.СurrentTestee.UserSetting.Hours)
                 {
-                    UserSetting.Hours = value;
+                    Program.СurrentTestee.UserSetting.Hours = value;
                     RaisePropertyChanged("Hours");
                 }
             }
@@ -79,13 +80,13 @@ namespace TesteeApplication.TesteeSettings
         {
             get
             {
-                return UserSetting.Minutes;
+                return Program.СurrentTestee.UserSetting.Minutes;
             }
             set
             {
-                if (value != UserSetting.Minutes)
+                if (value != Program.СurrentTestee.UserSetting.Minutes)
                 {
-                    UserSetting.Minutes = value;
+                    Program.СurrentTestee.UserSetting.Minutes = value;
                     RaisePropertyChanged("Minutes");
                 }
             }
@@ -95,13 +96,13 @@ namespace TesteeApplication.TesteeSettings
         {
             get
             {
-                return UserSetting.Seconds;
+                return Program.СurrentTestee.UserSetting.Seconds;
             }
             set
             {
-                if (value != UserSetting.Seconds)
+                if (value != Program.СurrentTestee.UserSetting.Seconds)
                 {
-                    UserSetting.Seconds = value;
+                    Program.СurrentTestee.UserSetting.Seconds = value;
                     RaisePropertyChanged("Seconds");
                 }
             }
@@ -111,13 +112,13 @@ namespace TesteeApplication.TesteeSettings
         {
             get
             {
-                return UserSetting.TimeOfStart;
+                return Program.СurrentTestee.UserSetting.TimeOfStart;
             }
             set
             {
-                if (value != UserSetting.TimeOfStart)
+                if (value != Program.СurrentTestee.UserSetting.TimeOfStart)
                 {
-                    UserSetting.TimeOfStart = value;
+                    Program.СurrentTestee.UserSetting.TimeOfStart = value;
                     RaisePropertyChanged("TimeOfStart");
                 }
             }
@@ -127,13 +128,13 @@ namespace TesteeApplication.TesteeSettings
         {
             get
             {
-                return UserSetting.EndDate;
+                return Program.СurrentTestee.UserSetting.EndDate;
             }
             set
             {
-                if (value != UserSetting.EndDate)
+                if (value != Program.СurrentTestee.UserSetting.EndDate)
                 {
-                    UserSetting.EndDate = value;
+                    Program.СurrentTestee.UserSetting.EndDate = value;
                     RaisePropertyChanged("EndDate");
                 }
             }
@@ -143,13 +144,13 @@ namespace TesteeApplication.TesteeSettings
         {
             get
             {
-                return UserSetting.Recurrence;
+                return Program.СurrentTestee.UserSetting.Recurrence;
             }
             set
             {
-                if (value != UserSetting.Recurrence)
+                if (value != Program.СurrentTestee.UserSetting.Recurrence)
                 {
-                    UserSetting.Recurrence = value;
+                    Program.СurrentTestee.UserSetting.Recurrence = value;
                     RaisePropertyChanged("Recurrence");
                 }
             }
@@ -163,8 +164,19 @@ namespace TesteeApplication.TesteeSettings
 
         public void Cancel()
         {
-            UserSetting = Conversion.CopySetting(LoadSetting);
-        }       
+            //if (LoadSetting != null)
+            //{
+            //    Program.СurrentTestee.UserSetting = Conversion.CopySetting(LoadSetting);
+            //    OnSetingsChanged(EventArgs.Empty);
+            //}
+        }
+
+        public event SettingsChangedEventHandler SetingsChanged;
+        protected virtual void OnSetingsChanged(EventArgs e)
+        {
+            if (SetingsChanged != null)
+                SetingsChanged(this, e);
+        }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 

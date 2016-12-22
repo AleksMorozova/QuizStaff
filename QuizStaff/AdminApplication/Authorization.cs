@@ -82,20 +82,16 @@ namespace AdminApplication
             catch (Exception ex)
             {
                 log.Error("Error message " + ex.Message);
-                //TODO: return error that somtings was wrong with server
                 return LoginResult.Failed;
             }
         }
 
         private static bool CheckPermission()
         {
-            bool permission = (CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator)
+            return (CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator)
                 || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp)
                 || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee)
                 || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining));
-
-            //TODO: return permissions
-            return true;
         }
 
         private static void GetUserPermissions(string login)
