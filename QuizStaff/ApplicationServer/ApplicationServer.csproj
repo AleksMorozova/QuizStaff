@@ -67,15 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationServer.cs" />
-    <Compile Include="DAL\EFHistoryRepository.cs" />
-    <Compile Include="DAL\EFPermissionRepository.cs" />
-    <Compile Include="DAL\EFRepository.cs" />
-    <Compile Include="DAL\EFRoleRepository.cs" />
-    <Compile Include="DAL\EFTesteeRepository.cs" />
-    <Compile Include="DAL\EFTesteeTrainingRepository.cs" />
-    <Compile Include="DAL\EFTrainingRepository.cs" />
-    <Compile Include="DAL\IRepository.cs" />
-    <Compile Include="DAL\QuizDBContext.cs" />
     <Compile Include="TesteeDataPprocessing.cs" />
     <Compile Include="EPELoader.cs" />
     <Compile Include="IApplicationServer.cs" />
@@ -99,6 +90,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{8342ec43-975b-4c95-96db-895009e3fd22}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
       <Project>{5a1cd4a2-87f7-48cc-8117-5ebbb44f5c97}</Project>
       <Name>DataTransferObject</Name>
@@ -110,6 +105,10 @@
     <ProjectReference Include="..\LoadDataFromLMS\LoadDataFromLMS.csproj">
       <Project>{4fb1630a-e1e0-4950-b965-0b91fa489475}</Project>
       <Name>LoadDataFromLMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{af0da9ef-28b7-49b7-abe8-2d5bb962e3c7}</Project>
+      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

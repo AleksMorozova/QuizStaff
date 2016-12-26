@@ -1,4 +1,5 @@
-﻿using ApplicationServer.DAL;
+﻿using ApplicationServer;
+using DAL.Repositories;
 using DomainModel;
 using LoadDataFromLMS;
 using System;
@@ -15,11 +16,11 @@ namespace QuizServer
         public static void SynchronizeTrainings(List<string> trainingTitles, List<LoadedQuestion> questions)
         {
             var loadedQuestions = questions;
-            EFRepository<Question> questionRepo = new EFRepository<Question>();
+            EFRepository<Question> questionRepo = new EFRepository<Question>(Program.dbContext);
 
             trainingTitles = trainingTitles.Distinct().ToList();
             List<Training> trainings = new List<Training>();
-            EFTrainingRepository repo = new EFTrainingRepository();
+            EFTrainingRepository repo = new EFTrainingRepository(Program.dbContext);
             var allTrainings = new List<Training>(repo.ReadAll());
 
             trainings.AddRange((from title in trainingTitles
@@ -41,11 +42,11 @@ namespace QuizServer
         public static void SynchronizeAdditionalTrainings(List<string> trainingTitles, List<LoadedQuestion> questions)
         {
             var loadedQuestions = questions;
-            EFRepository<Question> questionRepo = new EFRepository<Question>();
+            EFRepository<Question> questionRepo = new EFRepository<Question>(Program.dbContext);
 
             trainingTitles = trainingTitles.Distinct().ToList();
             List<Training> trainings = new List<Training>();
-            EFTrainingRepository repo = new EFTrainingRepository();
+            EFTrainingRepository repo = new EFTrainingRepository(Program.dbContext);
             var allTrainings = new List<Training>(repo.ReadAll());
 
             trainings.AddRange((from title in trainingTitles

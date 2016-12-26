@@ -24,6 +24,18 @@ namespace DAL.Repositories
             dbContext.Entry(dbTestee).CurrentValues.SetValues(entity);
             dbContext.Entry(dbTestee.UserSetting).CurrentValues.SetValues(entity.UserSetting);
 
+            if (entity.Roles != null)
+                foreach (var role in entity.Roles)
+                {
+                    if (role.Id != Guid.Empty)
+                    {
+                        var dbRole = dbContext.TesteeRoles
+                            .Single(t => t.Id == role.Id);
+                        dbRole.IsActive = role.IsActive;
+                        dbContext.Entry(dbRole).CurrentValues.SetValues(role);
+                    }
+                }
+
             if (entity.Trainings != null)
                 foreach (var training in entity.Trainings)
                 {

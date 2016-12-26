@@ -1,4 +1,5 @@
-﻿using ApplicationServer.DAL;
+﻿using ApplicationServer;
+using DAL.Repositories;
 using DomainModel;
 using LoadDataFromLMS;
 using System;
@@ -14,15 +15,15 @@ namespace QuizServer
     {
         public static void SynchronizeTestees(List<Testee> loadedTestees)
         {
-            EFRoleRepository roleRepo = new EFRoleRepository();
+            EFRoleRepository roleRepo = new EFRoleRepository(Program.dbContext);
             Role role = roleRepo.ReadAll().Where(_ => _.Name == "Testee").FirstOrDefault();
 
             List<Testee> savedTestee = new List<Testee>();
 
-            EFTesteeRepository repo = new EFTesteeRepository();
+            EFTesteeRepository repo = new EFTesteeRepository(Program.dbContext);
 
             var testeeLogin = loadedTestees.Select(_ => _.Login).ToList();
-            var allTestees = ApplicationServer.ApplicationServer.dbContext.Set<Testee>().ToList();
+            var allTestees = repo.ReadAll().ToList();
 
             savedTestee.AddRange((from testee in loadedTestees
                                   select new { testee }).AsEnumerable().Select(x =>
@@ -44,15 +45,14 @@ namespace QuizServer
 
         public static void WriteTesteeFromLMS(List<TesteeData> testees)
         {
-            EFRoleRepository roleRepo = new EFRoleRepository();
+            EFRoleRepository roleRepo = new EFRoleRepository(Program.dbContext);
 
             Role role = roleRepo.ReadAll().Where(_ => _.Name == "Testee").FirstOrDefault();
             List<Testee> savedTestee = new List<Testee>();
-            EFTesteeRepository repo = new EFTesteeRepository();
+            EFTesteeRepository repo = new EFTesteeRepository(Program.dbContext);
 
             var testeeLogin = testees.Select(_ => _.login).ToList();
-            var allTestees = ApplicationServer.ApplicationServer.dbContext.Set<Testee>().ToList();
-
+            var allTestees = repo.ReadAll().ToList();
             savedTestee.AddRange((from testee in testees
                                   select new { testee }).AsEnumerable().Select(x =>
                                   {
@@ -151,7 +151,7 @@ namespace QuizServer
 
             newTestee.UserSetting = new Setting() { Minutes = 5, AmountOfQuestionsPerDay = 10, TimeOfStart = DateTime.Now, EndDate = DateTime.Now, Recurrence = RecurrenceType.WithExactRepeated };
             newTestee.Trainings = new BindingList<TesteeTraining>();
-            newTestee.Roles = new BindingList<TesteeRoles>() { new TesteeRoles() { Role = role } };
+            newTestee.Roles = new BindingList<TesteeRoles>() { new TesteeRoles() { Role = role, IsActive = true } };
 
             return newTestee;
         }

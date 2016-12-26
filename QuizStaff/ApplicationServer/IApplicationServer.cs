@@ -15,12 +15,6 @@ namespace ApplicationServer
         List<TesteeDTO> GetAllTestees();
 
         [OperationContract]
-        void SaveAllTestees(ICollection<TesteeDTO> testees);
-
-        [OperationContract]
-        TesteeDTO GetTesteeByID(Guid id);
-
-        [OperationContract]
         void SaveTesteeAnswer(HistoryDTO history);
 
         [OperationContract]
@@ -31,9 +25,6 @@ namespace ApplicationServer
 
         [OperationContract]
         List<TrainingDTO> GetAllTrainings();
-
-        [OperationContract]
-        void SaveAllTrainings(ICollection<TrainingDTO> trainings);
 
         [OperationContract]
         TesteeDTO FindByLogin(string login);
@@ -87,9 +78,6 @@ namespace ApplicationServer
         void UpdateRoles(RoleDTO role);
 
         [OperationContract]
-        void UpdatePermissions(PermissionDTO permission);
-
-        [OperationContract]
         void AddTesteeRole(TesteeDTO testee, RoleDTO role);
 
         [OperationContract]
@@ -107,5 +95,17 @@ namespace ApplicationServer
         [OperationContract]
         List<TesteeDTO> GetAllTesteesForReport(DateTime from, DateTime to,
             string Company, string OfficeLoc, string Sector, string Division, string Department, string Position);
+
+        [OperationContract]
+        ApplicationSettingsDTO ReadApplicationSettings();
+
+        [OperationContract]
+        ApplicationSettingsDTO SaveApplicationSettings(ApplicationSettingsDTO settings);
+
+        [OperationContract]
+        ApplicationSettingsDTO UpdateApplicationSettings(ApplicationSettingsDTO settings);
+
+        [OperationContract]
+        ApplicationSettingsDTO GetSettings();
     }
 }

@@ -1,7 +1,8 @@
-﻿using ApplicationServer.DAL;
+﻿using DAL;
+using Services.Contracts;
+using Services.Implementation;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Description;
@@ -13,6 +14,8 @@ namespace ApplicationServer
     class Program
     {
         internal static ServiceHost applicationServiceHost = null;
+        public static QuizDBContext dbContext;
+
         static void Main(string[] args)
         {
             if (applicationServiceHost != null)
@@ -21,26 +24,12 @@ namespace ApplicationServer
             }
             applicationServiceHost = new ServiceHost(typeof(ApplicationServer));
             applicationServiceHost.Open();
-            //using (var db = new QuizDBContext())
-            //{
-            //    // Display all Blogs from the database 
-            //    var query = from b in db.Testees
-            //                orderby b.Login
-            //                select b;
-            //}
-           // System.Data.Entity.Database.SetInitializer(new DropCreateDatabaseIfModelChanges<QuizDBContext>());
-            using (var context = new QuizDBContext())
-            {
-                context.Database.Initialize(force: true);
-                //    var query = from b in db.Testees
-                //                orderby b.Login
-                //                select b;
-            }
+
+            dbContext = new QuizDBContext();
 
             Console.WriteLine("Press <Enter> to stop the service.");
             Console.ReadLine();
 
-            
 
             applicationServiceHost.Close();
         }

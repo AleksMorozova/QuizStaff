@@ -1,4 +1,5 @@
-﻿using ApplicationServer.DAL;
+﻿using ApplicationServer;
+using DAL.Repositories;
 using DomainModel;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,9 @@ namespace QuizServer
         public static void SynchronizeTesteeTrainings(List<string> trainingsTitle)
         {
             var processTitles = trainingsTitle;
-            EFTesteeRepository testeeRepo = new EFTesteeRepository();
+            EFTesteeRepository testeeRepo = new EFTesteeRepository(Program.dbContext);
             var allTestees = testeeRepo.ReadAll().ToList();
-            EFTrainingRepository trainingRepo = new EFTrainingRepository();
+            EFTrainingRepository trainingRepo = new EFTrainingRepository(Program.dbContext);
             var allTraining = trainingRepo.ReadAll().ToList();
 
             foreach (var t in allTestees)
@@ -34,7 +35,7 @@ namespace QuizServer
 
         private static void AddNewTesteeTraining(List<string> trainingsTitles, List<Testee> allTestees)
         {
-            EFTrainingRepository trainingRepo = new EFTrainingRepository();
+            EFTrainingRepository trainingRepo = new EFTrainingRepository(Program.dbContext);
             var allTraining = trainingRepo.ReadAll().ToList();
 
             foreach (var title in trainingsTitles)

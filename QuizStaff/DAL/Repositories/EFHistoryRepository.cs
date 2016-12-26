@@ -14,7 +14,6 @@ namespace DAL.Repositories
         {
 
         }
-
         public override void Create(History entity)
         {
             var dbTestee = dbContext.Testees
