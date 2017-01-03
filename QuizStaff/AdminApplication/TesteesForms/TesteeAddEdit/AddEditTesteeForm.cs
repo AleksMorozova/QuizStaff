@@ -132,7 +132,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             for (int i = 0; i < rolesComboBox.Properties.Items.Count; i++)
             {
                 if (superUseRole.Contains(rolesComboBox.Properties.Items[i].Value))
-                    rolesComboBox.Properties.Items[i].Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator);
+                    rolesComboBox.Properties.Items[i].Enabled = Program.СurrentTestee.Login == "admin";
             }
 
             for (int i = 0; i < rolesComboBox.Properties.Items.Count; i++)

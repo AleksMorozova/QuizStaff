@@ -29,9 +29,11 @@ namespace TesteeApplication.TesteeQuestion
         {
             InitializeComponent();
             Localized(Program.СurrentLang);
+
             mvvmQuestionContext.ViewModelType = typeof(TesteeQuestionViewModel);
             model = mvvmQuestionContext.GetViewModel<TesteeQuestionViewModel>();
             mvvmQuestionContext.SetViewModel(typeof(TesteeQuestionViewModel), model);
+
             model.LoadQuestionForTestee(Program.СurrentTestee);
 
             SetUpForm();
@@ -139,7 +141,16 @@ namespace TesteeApplication.TesteeQuestion
                     }
                 }
             }
-        }   
+        }        
+        
+        private void SaveWindosPosition()
+        {           
+            //Remember windows position
+            Program.LeftPosition = this.Left;
+            Program.TopPosition = this.Top;
+            Program.Width = this.Width;
+            Program.Height = this.Height;
+        }
         #endregion
 
         private void TranslateResultWindows(bool answerResult) 
@@ -175,13 +186,10 @@ namespace TesteeApplication.TesteeQuestion
         
         private void OKButton_Click(object sender, EventArgs e)
         {
-            //Remember windows position
-            Program.LeftPosition = this.Left;
-            Program.TopPosition = this.Top;
-            Program.Width = this.Width;
-            Program.Height = this.Height;
+            SaveWindosPosition();
 
             var userAnswer = GetUserAnswer();
+
             model.SaveTesteeAnswer(userAnswer);
 
             TranslateResultWindows(model.FindWasAnswerCorrect(userAnswer));
