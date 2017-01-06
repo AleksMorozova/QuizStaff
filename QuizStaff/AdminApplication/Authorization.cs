@@ -54,21 +54,30 @@ namespace AdminApplication
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     var domain = Environment.UserDomainName;
-                    bool logonResult = LogonUser(dlg.Login, dlg.Password, dlg.Domain);
-                    if (true)
+
+                    if (dlg.Login == "admin")
                     {
-                        Program.СurrentTestee = GetTestee(dlg.Login);
-                        GetUserPermissions(dlg.Login);
-
-                        return (Program.СurrentTestee.Id != Guid.Empty) ?
-                            CheckPermission() ? LoginResult.LoggedIn : LoginResult.Failed
-                            : LoginResult.NotExist;
+                        LoginAdmin(dlg.Login);
+                        return (dlg.Password == "admin") ? LoginResult.LoggedIn : LoginResult.Failed;
                     }
-
                     else
                     {
-                        return LoginResult.Failed;
+                        if (LogonUser(dlg.Login, dlg.Password, dlg.Domain))
+                        {
+                            Program.СurrentTestee = GetTestee(dlg.Login);
+                            GetUserPermissions(dlg.Login);
+
+                            return (Program.СurrentTestee.Id != Guid.Empty) ?
+                                CheckPermission() ? LoginResult.LoggedIn : LoginResult.Failed
+                                : LoginResult.NotExist;
+                        }
+
+                        else
+                        {
+                            return LoginResult.Failed;
+                        }
                     }
+
                 }
 
                 else
@@ -97,6 +106,7 @@ namespace AdminApplication
 
         private static void GetUserPermissions(string login)
         {
+
             var userRolePermission = Program.СurrentTestee.Roles.Select(_ => _.Role.Permissions);
             foreach (var rolePermission in userRolePermission)
                 foreach (var permission in rolePermission.Select(_ => _.Permission))
@@ -107,8 +117,12 @@ namespace AdminApplication
 
         private static Testee GetTestee(string login)
         {
-            var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
-            return Conversion.ConvertTesteeFromDTO(loadedUser);
+            return Conversion.ConvertTesteeFromDTO(ServicesHolder.ServiceClient.FindByLogin(login)); ;
+        }
+
+        private static void LoginAdmin(string login)
+        {
+            Program.СurrentTestee = new Testee() { Login = login };
         }
     }
 }

@@ -26,7 +26,7 @@ namespace ApplicationServer
             applicationServiceHost.Open();
 
             dbContext = new QuizDBContext();
-
+        
             Console.WriteLine("Press <Enter> to stop the service.");
             Console.ReadLine();
 

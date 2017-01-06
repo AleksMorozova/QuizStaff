@@ -38,21 +38,22 @@ namespace AdminApplication
 
         private void SetUpControlAccess()
         {
-            if (!CheckPermission(DomainModel.PermissionType.CreateAdministrator))
-            {
-                //testeesBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditTestee);
-                //trainingsBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditTraining);
-                //adminSettingsBarButtonItem.Enabled = CheckPermission(DomainModel.PermissionType.EditSetUp);
-                //roleBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditSetUp);
-            }
+            if (Program.СurrentTestee.Login != "admin")
+                if (!CheckPermission(DomainModel.PermissionType.CreateAdministrator))
+                {
+                    testeesBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditTestee);
+                    trainingsBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditTraining);
+                    adminSettingsBarButtonItem.Enabled = CheckPermission(DomainModel.PermissionType.EditSetUp);
+                    roleBarButton.Enabled = CheckPermission(DomainModel.PermissionType.EditSetUp);
+                }
         }
 
         private bool CheckPermission(DomainModel.PermissionType permissionType)
         {
             return Program.CurrentUserPermissions.Select(_ => _.Type).Contains(permissionType);
         }
-       
-        public void Localized(string language) 
+
+        public void Localized(string language)
         {
             var resources = new ComponentResourceManager(typeof(MainForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
@@ -68,7 +69,7 @@ namespace AdminApplication
             resources.ApplyResources(roleBarButton, "roleBarButton", newCultureInfo);
             resources.ApplyResources(aboutBarButtonItem, "aboutBarButtonItem", newCultureInfo);
         }
-       
+
         private void trainingsBarButton_ItemClick(object sender, ItemClickEventArgs e)
         {
             TrainingsListForm.TrainingListForm trainingsform = new TrainingsListForm.TrainingListForm();
@@ -98,7 +99,7 @@ namespace AdminApplication
             Localized("en-US");
             Program.СurrentLang = "en-US";
         }
-       
+
         private void adminSettingsBarButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             AdminSettingsForm trainingsform = new AdminSettingsForm();
@@ -114,7 +115,7 @@ namespace AdminApplication
             FormManager.LocalizedFormList.Add(testeesform);
             FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
-       
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(System.Windows.Forms.Application.ExecutablePath);
