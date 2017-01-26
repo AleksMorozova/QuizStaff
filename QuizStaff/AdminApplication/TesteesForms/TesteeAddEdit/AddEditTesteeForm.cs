@@ -137,7 +137,8 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
 
             for (int i = 0; i < rolesComboBox.Properties.Items.Count; i++)
             {
-                if (!Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator))
+                //if (!Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator))
+                if (Program.СurrentTestee.Login == "admin")
                 {
                     if (rolesComboBox.Properties.Items[i].Value.ToString() == "Super administrator".ToString())
                         rolesComboBox.Properties.Items.Remove(rolesComboBox.Properties.Items[i]);

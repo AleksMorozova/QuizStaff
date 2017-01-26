@@ -57,13 +57,13 @@ namespace AdminApplication.TrainingsListForm
                 if (deletedTraining.Id != Guid.Empty)
                 {
                     deletedTraining.IsActive = false;
-                    ServicesHolder.ServiceClient.UpdateTraining(deletedTraining);
+                    ServicesHolder.ServiceClient.SaveTraining(deletedTraining);
                 }
                 else
                 {
                     var savedTraining = ServicesHolder.ServiceClient.FindByTitle(deletedTraining.TrainingTitle);
                     savedTraining.IsActive = false;
-                    ServicesHolder.ServiceClient.UpdateTraining(savedTraining);
+                    ServicesHolder.ServiceClient.SaveTraining(savedTraining);
                 }
                 this.Trainings.Remove(deletedTraining);
                 OnTrainingListChanged(EventArgs.Empty);

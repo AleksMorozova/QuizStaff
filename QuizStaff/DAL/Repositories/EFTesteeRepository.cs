@@ -37,6 +37,7 @@ namespace DAL.Repositories
                 }
 
             if (entity.Trainings != null)
+
                 foreach (var training in entity.Trainings)
                 {
                     if (training.Id != Guid.Empty)
@@ -52,6 +53,7 @@ namespace DAL.Repositories
                             .Single(t => t.Id == training.Training.Id);
                         training.Training = dbTraining;
                         dbContext.Entry(dbTraining).State = System.Data.Entity.EntityState.Unchanged;
+
                         dbTestee.Trainings.Add(training);
                     }
                 }

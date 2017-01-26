@@ -760,6 +760,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceReference1\ApplicationServer1.wsdl" />
+    <None Include="Service References\ServiceReference1\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference1\item5.xsd">
       <SubType>Designer</SubType>
     </None>

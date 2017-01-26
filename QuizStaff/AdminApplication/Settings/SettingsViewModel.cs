@@ -142,25 +142,17 @@ namespace AdminApplication.Settings
 
         public void SetUpViewModel()
         {
-            //var readSettings = ServicesHolder.ServiceClient.GetSettings();
-            //ApplicationSettings = Conversion.ConvertApplicationSettingsFromDTO(readSettings);
-         }
+            var readSettings = ServicesHolder.ServiceClient.GetApplicationSettings();
+            ApplicationSettings = Conversion.ConvertApplicationSettingsFromDTO(readSettings);
+        }
 
         public void Save()
         {
-            //if (ApplicationSettings != null)
-            //{
-            //    if (this.ApplicationSettings.Id == Guid.Empty)
-            //    {
-            //        var savedSettings = ServicesHolder.ServiceClient.SaveApplicationSettings(Conversion.ConvertApplicationSettingsToDTO(this.ApplicationSettings));
-            //        this.ApplicationSettings = Conversion.ConvertApplicationSettingsFromDTO(savedSettings);
-            //    }
-            //    else
-            //    {
-            //        var updateSettings = ServicesHolder.ServiceClient.UpdateApplicationSettings(Conversion.ConvertApplicationSettingsToDTO(this.ApplicationSettings));
-            //        this.ApplicationSettings = Conversion.ConvertApplicationSettingsFromDTO(updateSettings);
-            //    }
-            //}
+            if (ApplicationSettings != null)
+            {
+                var savedSettings = ServicesHolder.ServiceClient.SaveApplicationSettings(Conversion.ConvertApplicationSettingsToDTO(this.ApplicationSettings));
+                this.ApplicationSettings = Conversion.ConvertApplicationSettingsFromDTO(savedSettings);
+            }
         }
     }
 }

@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IApplicationSettingsService.cs" />
+    <Compile Include="Contracts\IQuestionService.cs" />
     <Compile Include="Contracts\ITesteeService.cs" />
     <Compile Include="Contracts\ITrainingService.cs" />
+    <Compile Include="Implementation\ApplicationSettingsService.cs" />
+    <Compile Include="Implementation\QuestionService.cs" />
     <Compile Include="Implementation\TesteeService.cs" />
     <Compile Include="Implementation\TrainingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

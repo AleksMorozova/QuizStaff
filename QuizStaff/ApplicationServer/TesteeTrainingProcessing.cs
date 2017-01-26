@@ -1,5 +1,6 @@
 ﻿using ApplicationServer;
 using DAL.Repositories;
+using DataTransferObject;
 using DomainModel;
 using System;
 using System.Collections.Generic;
@@ -39,12 +40,12 @@ namespace QuizServer
             var allTraining = trainingRepo.ReadAll().ToList();
 
             foreach (var title in trainingsTitles)
-            {
-                var tr = new TesteeTraining();
-                tr.IsActive = true;
-                tr.Training = allTraining.Where(_ => _.TrainingTitle == title).FirstOrDefault();
+            {          
                 foreach (var t in allTestees)
                 {
+                    var tr = new TesteeTraining();
+                    tr.IsActive = true;
+                    tr.Training = allTraining.Where(_ => _.TrainingTitle == title).FirstOrDefault();
                     t.Trainings.Add(tr);
                 }
             }
@@ -52,10 +53,11 @@ namespace QuizServer
 
         private static void UpdateTestee(List<Testee> allTestee, EFTesteeRepository repo)
         {
-            foreach (var testee in allTestee)
-            {
-                repo.Update(testee);
-            }
+            repo.dbContext.SaveChanges();
+            //foreach (var testee in allTestee)
+            //{
+            //    repo.Update(testee);
+            //}
         }
     }
 }

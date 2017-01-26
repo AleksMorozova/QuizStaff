@@ -17,5 +17,7 @@ namespace Services.Contracts
         TrainingDTO UpdateTraining(QuizDBContext dbContext, TrainingDTO training);
 
         TrainingDTO SaveTraining(QuizDBContext dbContext, TrainingDTO training);
+
+        TrainingDTO FindByTitle(QuizDBContext dbContext, string title);
     }
 }

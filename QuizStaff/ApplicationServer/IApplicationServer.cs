@@ -11,8 +11,34 @@ namespace ApplicationServer
     [ServiceContract]
     public interface IApplicationServer
     {
+        #region Testee 
+
         [OperationContract]
         List<TesteeDTO> GetAllTestees();
+
+        [OperationContract]
+        TesteeDTO FindByLogin(string login);
+
+        [OperationContract]
+        TesteeDTO SaveTestee(TesteeDTO testee);
+        #endregion
+
+        #region Training 
+        [OperationContract]
+        List<TrainingDTO> GetAllActiveTrainings();
+
+        [OperationContract]
+        List<TrainingDTO> GetAllTrainings();
+
+        [OperationContract]
+        TrainingDTO SaveTraining(TrainingDTO training);
+
+        [OperationContract]
+        TrainingDTO FindByTitle(string title);
+        #endregion
+
+        [OperationContract]
+        void SaveQuestion(QuestionDTO training);
 
         [OperationContract]
         void SaveTesteeAnswer(HistoryDTO history);
@@ -21,52 +47,13 @@ namespace ApplicationServer
         QuestionDTO GetRandomQuestionForTestee(Guid id);
 
         [OperationContract]
-        List<TrainingDTO> GetAllActiveTrainings();
-
-        [OperationContract]
-        List<TrainingDTO> GetAllTrainings();
-
-        [OperationContract]
-        TesteeDTO FindByLogin(string login);
-
-        [OperationContract]
-        void SaveAnswer(QuestionDTO question);
-
-        [OperationContract]
-        TrainingDTO UpdateTraining(TrainingDTO training);
-
-        [OperationContract]
-        TrainingDTO SaveTraining(TrainingDTO training);
-
-        [OperationContract]
-        void UpdateQuestion(QuestionDTO training);
-
-        [OperationContract]
-        void SaveQuestion(QuestionDTO training);
-
-        [OperationContract]
-        TesteeDTO UpdateTestee(TesteeDTO testee);
-
-        [OperationContract]
-        TesteeDTO SaveTestee(TesteeDTO testee);
-
-        [OperationContract]
         void UpdateSettings(SettingDTO[] setting);
-
-        [OperationContract]
-        void DeleteAnswer(AnswerDTO answer);
-
-        [OperationContract]
-        void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining);
 
         [OperationContract]
         void UpdateTesteeTrainings(TesteeTrainingDTO[] testeeTraining);
 
         [OperationContract]
         void UpdateTesteeTraining(TesteeTrainingDTO testeeTraining);
-
-        [OperationContract]
-        TrainingDTO FindByTitle(string title);
 
         [OperationContract]
         List<RoleDTO> GetAllRoles();
@@ -97,15 +84,9 @@ namespace ApplicationServer
             string Company, string OfficeLoc, string Sector, string Division, string Department, string Position);
 
         [OperationContract]
-        ApplicationSettingsDTO ReadApplicationSettings();
-
-        [OperationContract]
         ApplicationSettingsDTO SaveApplicationSettings(ApplicationSettingsDTO settings);
 
         [OperationContract]
-        ApplicationSettingsDTO UpdateApplicationSettings(ApplicationSettingsDTO settings);
-
-        [OperationContract]
-        ApplicationSettingsDTO GetSettings();
+        ApplicationSettingsDTO GetApplicationSettings();
     }
 }

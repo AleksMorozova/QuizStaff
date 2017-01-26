@@ -54,13 +54,13 @@ namespace AdminApplication.TesteesForms.TesteesList
                 if (deletedTestee.Id != Guid.Empty)
                 {
                     deletedTestee.IsActive = false;
-                    ServicesHolder.ServiceClient.UpdateTestee(deletedTestee);
+                    ServicesHolder.ServiceClient.SaveTestee(deletedTestee);
                 }
                 else
                 {
                     var savedTestee = ServicesHolder.ServiceClient.FindByLogin(deletedTestee.Login);
                     savedTestee.IsActive = false;
-                    ServicesHolder.ServiceClient.UpdateTestee(savedTestee);
+                    ServicesHolder.ServiceClient.SaveTestee(savedTestee);
                 }
                 this.Testees.Remove(deletedTestee);
                 OnTesteeListChanged(EventArgs.Empty);

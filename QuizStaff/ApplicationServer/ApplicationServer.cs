@@ -6,15 +6,16 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ApplicationServer;
 using LoadDataFromLMS;
 using QuizServer;
 using Services.Contracts;
 using Services.Implementation;
 using DAL.Repositories;
+using System.ServiceModel;
 
 namespace ApplicationServer
 {
+    [ServiceBehavior]
     public class ApplicationServer : IApplicationServer
     {
         public ApplicationServer()
@@ -26,26 +27,19 @@ namespace ApplicationServer
 
         public List<TesteeDTO> GetAllTestees()
         {
-            ITesteeService testeeService = new TesteeService();
-            return testeeService.GetAllTestees(Program.dbContext);
+            return RegistrateDependencies.TesteeService.GetAllTestees(Program.dbContext);
         }
 
         public TesteeDTO FindByLogin(string login)
         {
-            ITesteeService testeeService = new TesteeService();
-            return testeeService.FindByLogin(Program.dbContext, login);
-        }
-
-        public TesteeDTO UpdateTestee(TesteeDTO testee)
-        {
-            ITesteeService testeeService = new TesteeService();
-            return testeeService.UpdateTestee(Program.dbContext, testee);
+            return RegistrateDependencies.TesteeService.FindByLogin(Program.dbContext, login);
         }
 
         public TesteeDTO SaveTestee(TesteeDTO testee)
         {
-            ITesteeService testeeService = new TesteeService();
-            return testeeService.SaveTestee(Program.dbContext, testee);
+            return (testee.Id == Guid.Empty) 
+                ? RegistrateDependencies.TesteeService.SaveTestee(Program.dbContext, testee) 
+                : RegistrateDependencies.TesteeService.UpdateTestee(Program.dbContext, testee);
         }
 
         #endregion
@@ -54,53 +48,40 @@ namespace ApplicationServer
 
         public List<TrainingDTO> GetAllTrainings()
         {
-            EFRepository<Training> repo = new EFRepository<Training>(Program.dbContext);
-            var trainings = new List<Training>(repo.ReadAll());
-            return trainings.Select(training => (TrainingDTO)training).ToList();
+            return RegistrateDependencies.TrainingService.GetAllTrainings(Program.dbContext);
         }
 
         public List<TrainingDTO> GetAllActiveTrainings()
         {
-            EFRepository<Training> repo = new EFRepository<Training>(Program.dbContext);
-            var loadTrainings = repo.ReadAll();
-            var selectedTrainings = loadTrainings.Where(x => x.IsActive).AsQueryable()
-                .Select(training => new Training
-                {
-                    Id = training.Id,
-                    TrainingTitle = training.TrainingTitle,
-                    IsActive = training.IsActive,
-                    TesteeTrainings = new BindingList<TesteeTraining>(training.TesteeTrainings.ToList().Where(_ => _.IsActive).ToList()),
-                    Questions = new BindingList<Question>(training.Questions.ToList().Where(_ => _.IsActive)
-                        .Select(question => new Question
-                        {
-                            Id = question.Id,
-                            QuestionText = question.QuestionText,
-                            IsActive = question.IsActive,
-                            Training = question.Training,
-                            Answers = new BindingList<Answer>(question.Answers.ToList().Where(_ => _.IsActive).ToList()),
-                        }).ToList()),
-                }).ToList();
-
-            return selectedTrainings.Select(training => (TrainingDTO)training).ToList();
-        }
-
-        public TrainingDTO UpdateTraining(TrainingDTO training)
-        {
-            EFTrainingRepository repo = new EFTrainingRepository(Program.dbContext);
-            Training updateTrainings = Conversion.ConvertTrainingFromDTO(training);
-            repo.Update(updateTrainings);
-            return (TrainingDTO)updateTrainings;
+            return RegistrateDependencies.TrainingService.GetAllActiveTrainings(Program.dbContext);
         }
 
         public TrainingDTO SaveTraining(TrainingDTO training)
         {
-            EFTrainingRepository repo = new EFTrainingRepository(Program.dbContext);
-            Training savedTrainings = Conversion.ConvertTrainingFromDTO(training);
-            repo.Create(savedTrainings);
-            return (TrainingDTO)savedTrainings;
+            return (training.Id == Guid.Empty)
+                ? RegistrateDependencies.TrainingService.SaveTraining(Program.dbContext, training)
+                : RegistrateDependencies.TrainingService.UpdateTraining(Program.dbContext, training);
         }
 
+        public TrainingDTO FindByTitle(string title)
+        {
+            return RegistrateDependencies.TrainingService.FindByTitle(Program.dbContext, title);
+        }
         #endregion
+
+        #region Question
+
+        public void SaveQuestion(QuestionDTO question)
+        {
+            RegistrateDependencies.QuestionService.UpdateQuestion(Program.dbContext, question);
+        }
+
+        public QuestionDTO GetRandomQuestionForTestee(Guid id)
+        {
+            return RegistrateDependencies.QuestionService.GetRandomQuestionForTestee(Program.dbContext, id);
+        }
+
+        #endregion Question
 
         public List<TesteeDTO> GetAllTesteesForReport(DateTime from, DateTime to, 
             string Company, string OfficeLoc, string Sector, string Division, string Department,  string Position)
@@ -200,55 +181,6 @@ namespace ApplicationServer
             repo.Create(h);
         }
 
-        public QuestionDTO GetRandomQuestionForTestee(Guid id)
-        {
-            EFRepository<Testee> repo = new EFRepository<Testee>(Program.dbContext);
-            var currentTestee = repo.Read(id);
-
-            BindingList<Question> allQuestions = new BindingList<Question>();
-            foreach (var t in currentTestee.Trainings)
-            {
-                if (t.IsSelect && t.Training.IsActive)
-                {
-                    foreach (var q in t.Training.Questions)
-                    {
-                        allQuestions.Add(q);
-                    }
-                }
-            }
-
-            Question question = new Question();
-
-            if (allQuestions.Count() > 1)
-            {
-                Random rnd = new Random();
-                int index = rnd.Next(0, allQuestions.Count() - 1);
-                question = allQuestions.ElementAt(index);
-            }
-            else
-            {
-                question = allQuestions.FirstOrDefault();
-            }
-
-            if (question == null)
-                return null;
-
-            return (QuestionDTO)question;
-        }
-
-        public void SaveAnswer(QuestionDTO question)
-        {
-            EFRepository<Question> repo = new EFRepository<Question>(Program.dbContext);
-            //repo.Create((Question)question);
-        }
-
-        public void SaveQuestion(QuestionDTO question)
-        {
-            EFRepository<Question> repo = new EFRepository<Question>(Program.dbContext);
-            Question newQuestion = Conversion.ConvertQuestionFromDTO(question);
-            repo.Create(newQuestion);
-        }
-
         public void UpdateSettings(SettingDTO[] settings)
         {
             EFSettingRepository repo = new EFSettingRepository(Program.dbContext);
@@ -270,26 +202,6 @@ namespace ApplicationServer
             }
         }
 
-        public void UpdateQuestion(QuestionDTO question)
-        {
-            EFRepository<Question> repo = new EFRepository<Question>(Program.dbContext);
-            Question newQuestion = Conversion.ConvertQuestionFromDTO(question);
-            repo.Update(newQuestion);
-        }
-
-        public void DeleteAnswer(AnswerDTO answer)
-        {
-            EFRepository<Answer> repo = new EFRepository<Answer>(Program.dbContext);
-            Answer newAnswer = Conversion.ConvertAnswerFromDTO(answer);
-            repo.Update(newAnswer);
-        }
-
-        public void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining)
-        {
-            EFRepository<TesteeTraining> repo = new EFRepository<TesteeTraining>(Program.dbContext);
-            repo.Update(Conversion.ConvertTesteeTrainingFromDTO(testeeTraining));
-        }
-
         public void UpdateTesteeTrainings(TesteeTrainingDTO[] testeeTrainings)
         {
             EFTesteeTrainingRepository repo = new EFTesteeTrainingRepository(Program.dbContext);
@@ -305,13 +217,6 @@ namespace ApplicationServer
             EFTesteeTrainingRepository repo = new EFTesteeTrainingRepository(Program.dbContext);
             TesteeTraining updateTesteeTraining = Conversion.ConvertTesteeTrainingFromDTO(testeeTraining);
             repo.Update(updateTesteeTraining);
-        }
-
-        public TrainingDTO FindByTitle(string title)
-        {
-            EFRepository<Training> repo = new EFRepository<Training>(Program.dbContext);
-            var result = repo.ReadAll().Where(_ => _.TrainingTitle == title).FirstOrDefault();
-            return (result != null) ? result : new TrainingDTO() { IsActive = true };
         }
 
         public List<RoleDTO> GetAllRoles()
@@ -354,6 +259,7 @@ namespace ApplicationServer
             Answer newAnswer = Conversion.ConvertAnswerFromDTO(answer);
             repo.Update(newAnswer);
         }
+
         public List<TesteeTraining> FindTesteesTrainings()
         {
             EFRepository<TesteeTraining> repo = new EFRepository<TesteeTraining>(Program.dbContext);
@@ -408,10 +314,8 @@ namespace ApplicationServer
             updatedTesteeTrainings.AddRange(existingTesteTrainings.Except(updatedTesteeTrainings).Select(x => UpdateTesteeTraining(x, false)));
 
             UpdateTesteesTrainings(updatedTesteeTrainings);
-        }
-        
-        #endregion
-
+        }      
+    
         public void LoadTrainings()
         {
             Loader.LoadDataFromFile(@"D:\QuizTrainings\ISD_Report.xlsx");
@@ -441,36 +345,19 @@ namespace ApplicationServer
             TrainingDataPprocessing.SynchronizeAdditionalTrainings(loadedQuestions.Select(_=>_.Training).Distinct().ToList(), loadedQuestions);
             TesteeTrainingProcessing.SynchronizeTesteeTrainings(loadedQuestions.Select(_ => _.Training).Distinct().ToList());
         }
+        
+        #endregion
 
-        public ApplicationSettingsDTO ReadApplicationSettings()
+        public ApplicationSettingsDTO GetApplicationSettings()
         {
-            EFApplicationSettingsRepository repo = new EFApplicationSettingsRepository(Program.dbContext);
-            var setting = repo.ReadAll().FirstOrDefault();
-            return Conversion.ConvertApplicationSettingsToDTO(setting);
+            return RegistrateDependencies.ApplicationSettingsService.GetSettings(Program.dbContext);
         }
 
-        public ApplicationSettingsDTO GetSettings()
+        public ApplicationSettingsDTO SaveApplicationSettings(ApplicationSettingsDTO setting)
         {
-            EFApplicationSettingsRepository repo = new EFApplicationSettingsRepository(Program.dbContext);
-            var setting = repo.ReadAll().FirstOrDefault();
-            return Conversion.ConvertApplicationSettingsToDTO(setting);
-        }
-
-
-        public ApplicationSettingsDTO SaveApplicationSettings(DataTransferObject.ApplicationSettingsDTO setting)
-        {
-            EFApplicationSettingsRepository repo = new EFApplicationSettingsRepository(Program.dbContext);
-            ApplicationSettings savedSettings = Conversion.ConvertApplicationSettingsFromDTO(setting);
-            repo.Create(savedSettings);
-            return Conversion.ConvertApplicationSettingsToDTO(savedSettings);
-        }
-
-        public ApplicationSettingsDTO UpdateApplicationSettings(DataTransferObject.ApplicationSettingsDTO setting)
-        {
-            EFApplicationSettingsRepository repo = new EFApplicationSettingsRepository(Program.dbContext);
-            ApplicationSettings savedSettings = Conversion.ConvertApplicationSettingsFromDTO(setting);
-            repo.Update(savedSettings);
-            return Conversion.ConvertApplicationSettingsToDTO(savedSettings);
+            return (setting.Id == Guid.Empty)
+             ? RegistrateDependencies.ApplicationSettingsService.SaveApplicationSettings(Program.dbContext, setting)
+             : RegistrateDependencies.ApplicationSettingsService.UpdateApplicationSettings(Program.dbContext, setting);       
         }
     }
 }

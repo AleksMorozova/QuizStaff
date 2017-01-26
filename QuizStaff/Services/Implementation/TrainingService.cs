@@ -62,5 +62,11 @@ namespace Services.Implementation
             return (TrainingDTO)savedTrainings;
         }
 
+        public TrainingDTO FindByTitle(QuizDBContext dbContext, string title)
+        {
+            EFRepository<Training> repo = new EFRepository<Training>(dbContext);
+            var result = repo.ReadAll().Where(_ => _.TrainingTitle == title).FirstOrDefault();
+            return (result != null) ? result : new TrainingDTO() { IsActive = true };
+        }
     }
 }

@@ -233,7 +233,7 @@ namespace QuizServer
                 }
                 else
                 {
-                    repo.Update(training);
+                    //repo.Update(training);
                 }
             }
         }

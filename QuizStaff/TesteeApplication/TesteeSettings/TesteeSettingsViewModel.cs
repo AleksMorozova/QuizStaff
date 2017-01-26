@@ -159,7 +159,7 @@ namespace TesteeApplication.TesteeSettings
 
         public void Save()
         {
-            ServicesHolder.ServiceClient.UpdateTestee(Program.СurrentTestee);
+            ServicesHolder.ServiceClient.SaveTestee(Program.СurrentTestee);
         }
 
         public void Cancel()
