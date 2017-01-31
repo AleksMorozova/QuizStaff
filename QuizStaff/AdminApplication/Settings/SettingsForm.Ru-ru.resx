@@ -117,35 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cancelButton.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="additionalQuestionsPathLayoutControlItem.Text" xml:space="preserve">
+    <value>Путь к дополнительным вопросам</value>
   </data>
-  <data name="descriptionGridColumn.Caption" xml:space="preserve">
-    <value>Descriptions</value>
+  <data name="questionFilesPathLayoutControlItem.Text" xml:space="preserve">
+    <value>Путь к вопросам</value>
   </data>
-  <data name="editPermissionButton.Text" xml:space="preserve">
-    <value>Editing permissions</value>
+  <data name="reportFileNameLayoutControlItem.Text" xml:space="preserve">
+    <value>Назване отчета</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="mvvmRoleContext.TrayLocation" type="System.Drawing.Point, System.Drawing">
-    <value>17, 17</value>
+  <data name="reportFilePathLayoutControlItem.Text" xml:space="preserve">
+    <value>Путь к отчету</value>
   </data>
-  <data name="permissionGridColumn.Caption" xml:space="preserve">
-    <value>Permissins</value>
-  </data>
-  <data name="permissionGridControlLayoutControlItem.Text" xml:space="preserve">
-    <value>Permissins</value>
-  </data>
-  <data name="roleGridColumn.Caption" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="roleGridControlLayoutControlItem.Text" xml:space="preserve">
-    <value>Roles</value>
-  </data>
-  <data name="saveButton.Text" xml:space="preserve">
-    <value>Save</value>
+  <data name="timeOfUpdateLayoutControlItem.Text" xml:space="preserve">
+    <value>Время обновления</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Roles</value>
+    <value>Настройки приложения</value>
+  </data>
+  <data name="saveButton.Text" xml:space="preserve">
+    <value>Сохранить</value>
   </data>
 </root>

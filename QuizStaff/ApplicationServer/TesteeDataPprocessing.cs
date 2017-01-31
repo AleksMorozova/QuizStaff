@@ -16,7 +16,7 @@ namespace QuizServer
         public static void SynchronizeTestees(List<Testee> loadedTestees)
         {
             EFRoleRepository roleRepo = new EFRoleRepository(Program.dbContext);
-            Role role = roleRepo.ReadAll().Where(_ => _.Name == "Testee").FirstOrDefault();
+            var roles = roleRepo.ReadAll().ToList();
 
             List<Testee> savedTestee = new List<Testee>();
 
@@ -30,7 +30,7 @@ namespace QuizServer
                                   {
                                       return (allTestees.Select(_ => _.Login).Contains(x.testee.Login))
                                           ? UpdateTestee(UpdatedTesteeFromEPE(allTestees.Where(_ => _.Login == x.testee.Login).First(), x.testee), true)
-                                          : CreateNewTesteeFromEPE(x.testee, role);
+                                          : CreateNewTesteeFromEPE(x.testee, roles);
 
                                   }));
 
@@ -47,7 +47,7 @@ namespace QuizServer
         {
             EFRoleRepository roleRepo = new EFRoleRepository(Program.dbContext);
 
-            Role role = roleRepo.ReadAll().Where(_ => _.Name == "Testee").FirstOrDefault();
+            var roles = roleRepo.ReadAll().ToList();
             List<Testee> savedTestee = new List<Testee>();
             EFTesteeRepository repo = new EFTesteeRepository(Program.dbContext);
 
@@ -58,7 +58,7 @@ namespace QuizServer
                                   {
                                       return (allTestees.Select(_ => _.Login).Contains(x.testee.login))
                                           ? UpdateTestee(UpdatedTesteeFromLMS(allTestees.Where(_ => _.Login == x.testee.login).First(), x.testee), true)
-                                          : CreateNewTesteeFromEPE(x.testee, role);
+                                          : CreateNewTesteeFromEPE(x.testee, roles);
                                   }));
 
             //TODO: check delete of entity
@@ -91,7 +91,7 @@ namespace QuizServer
             return existingTestee;
         }
 
-        private static Testee CreateNewTesteeFromEPE(Testee testee, Role role)
+        private static Testee CreateNewTesteeFromEPE(Testee testee, List<Role> roles)
         {
             Testee newTestee = new Testee();
 
@@ -99,9 +99,15 @@ namespace QuizServer
             newTestee.FirstName = testee.FirstName;
             newTestee.LastName = testee.LastName;
             newTestee.IsActive = true;
-            newTestee.UserSetting = new Setting() { Minutes = 5, AmountOfQuestionsPerDay = 10, TimeOfStart = DateTime.Now, EndDate = DateTime.Now, Recurrence = RecurrenceType.WithExactRepeated };
+            newTestee.UserSetting = new Setting()
+            { Minutes = 5, AmountOfQuestionsPerDay = 10, TimeOfStart = DateTime.Now, EndDate = DateTime.Now, Recurrence = RecurrenceType.WithExactRepeated };
             newTestee.Trainings = new BindingList<TesteeTraining>();
-            newTestee.Roles = new BindingList<TesteeRoles>() { new TesteeRoles() { Role = role } };
+            newTestee.Roles = new BindingList<TesteeRoles>(); 
+
+            foreach (var role in roles)
+            {
+                newTestee.Roles.Add(new TesteeRoles() { Role = role, IsActive = role.Name == "Testee" });
+            }
 
             newTestee.Email = testee.Email;
 
@@ -136,7 +142,7 @@ namespace QuizServer
             return existingTestee;
         }
 
-        private static Testee CreateNewTesteeFromEPE(TesteeData testee, Role role)
+        private static Testee CreateNewTesteeFromEPE(TesteeData testee, List<Role> roles)
         {
             Testee newTestee = new Testee();
 
@@ -151,7 +157,12 @@ namespace QuizServer
 
             newTestee.UserSetting = new Setting() { Minutes = 5, AmountOfQuestionsPerDay = 10, TimeOfStart = DateTime.Now, EndDate = DateTime.Now, Recurrence = RecurrenceType.WithExactRepeated };
             newTestee.Trainings = new BindingList<TesteeTraining>();
-            newTestee.Roles = new BindingList<TesteeRoles>() { new TesteeRoles() { Role = role, IsActive = true } };
+            newTestee.Roles = new BindingList<TesteeRoles>();
+
+            foreach (var role in roles)
+            {
+                newTestee.Roles.Add(new TesteeRoles() { Role = role, IsActive = role.Name == "Testee" });
+            }
 
             return newTestee;
         }

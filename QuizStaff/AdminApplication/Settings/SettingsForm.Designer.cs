@@ -36,17 +36,16 @@
             this.lmsReportFileNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.lmsReporPathTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.checkedComboBoxEdit1 = new DevExpress.XtraEditors.CheckedComboBoxEdit();
-            this.timeOfUpdateTextEdit = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.updateParametersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.timeOfUpdateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.reportFilePathLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.reportFileNameLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.questionFilesPathLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
+            this.additionalQuestionsPathLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.mvvmSettingsContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -55,18 +54,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.lmsReportFileNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lmsReporPathTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeOfUpdateTextEdit.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeOfUpdateTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateParametersLayoutControlGroup)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeOfUpdateLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportFilePathLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportFileNameLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionFilesPathLayoutControlItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.additionalQuestionsPathLayoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmSettingsContext)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +75,6 @@
             this.layoutControl1.Controls.Add(this.lmsReportFileNameTextEdit);
             this.layoutControl1.Controls.Add(this.lmsReporPathTextEdit);
             this.layoutControl1.Controls.Add(this.checkedComboBoxEdit1);
-            this.layoutControl1.Controls.Add(this.timeOfUpdateTextEdit);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -133,137 +129,117 @@
             // 
             // checkedComboBoxEdit1
             // 
-            this.checkedComboBoxEdit1.Location = new System.Drawing.Point(235, 58);
+            this.checkedComboBoxEdit1.Location = new System.Drawing.Point(24, 58);
             this.checkedComboBoxEdit1.Name = "checkedComboBoxEdit1";
             this.checkedComboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.checkedComboBoxEdit1.Size = new System.Drawing.Size(494, 20);
+            this.checkedComboBoxEdit1.Size = new System.Drawing.Size(705, 20);
             this.checkedComboBoxEdit1.StyleController = this.layoutControl1;
             this.checkedComboBoxEdit1.TabIndex = 5;
             this.checkedComboBoxEdit1.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.checkedComboBoxEdit1_Closed);
-            // 
-            // timeOfUpdateTextEdit
-            // 
-            this.timeOfUpdateTextEdit.EditValue = "1";
-            this.timeOfUpdateTextEdit.Location = new System.Drawing.Point(24, 58);
-            this.timeOfUpdateTextEdit.Name = "timeOfUpdateTextEdit";
-            this.timeOfUpdateTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeOfUpdateTextEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeOfUpdateTextEdit.Properties.DisplayFormat.FormatString = "";
-            this.timeOfUpdateTextEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.timeOfUpdateTextEdit.Properties.EditFormat.FormatString = "";
-            this.timeOfUpdateTextEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.timeOfUpdateTextEdit.Properties.Mask.EditMask = "t";
-            this.timeOfUpdateTextEdit.Size = new System.Drawing.Size(207, 20);
-            this.timeOfUpdateTextEdit.StyleController = this.layoutControl1;
-            this.timeOfUpdateTextEdit.TabIndex = 4;
             // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup2,
+            this.updateParametersLayoutControlGroup,
             this.layoutControlGroup3,
-            this.layoutControlItem7});
+            this.layoutControlItem7,
+            this.emptySpaceItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(753, 461);
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // layoutControlGroup2
+            // updateParametersLayoutControlGroup
             // 
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(733, 82);
-            this.layoutControlGroup2.Text = "Automatic updates parameters";
+            this.updateParametersLayoutControlGroup.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.timeOfUpdateLayoutControlItem});
+            this.updateParametersLayoutControlGroup.Location = new System.Drawing.Point(0, 0);
+            this.updateParametersLayoutControlGroup.Name = "updateParametersLayoutControlGroup";
+            this.updateParametersLayoutControlGroup.Size = new System.Drawing.Size(733, 82);
+            this.updateParametersLayoutControlGroup.Text = "Automatic updates parameters";
             // 
-            // layoutControlItem1
+            // timeOfUpdateLayoutControlItem
             // 
-            this.layoutControlItem1.Control = this.timeOfUpdateTextEdit;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(211, 40);
-            this.layoutControlItem1.Text = "Frequency of automatic update";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(151, 13);
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.checkedComboBoxEdit1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(211, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(498, 40);
-            this.layoutControlItem2.Text = "Time of automatic update";
-            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(151, 13);
+            this.timeOfUpdateLayoutControlItem.Control = this.checkedComboBoxEdit1;
+            this.timeOfUpdateLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.timeOfUpdateLayoutControlItem.Name = "timeOfUpdateLayoutControlItem";
+            this.timeOfUpdateLayoutControlItem.Size = new System.Drawing.Size(709, 40);
+            this.timeOfUpdateLayoutControlItem.Text = "Time of automatic update";
+            this.timeOfUpdateLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.timeOfUpdateLayoutControlItem.TextSize = new System.Drawing.Size(133, 13);
             // 
             // layoutControlGroup3
             // 
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5,
-            this.layoutControlItem6});
+            this.reportFilePathLayoutControlItem,
+            this.reportFileNameLayoutControlItem,
+            this.questionFilesPathLayoutControlItem,
+            this.additionalQuestionsPathLayoutControlItem});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 82);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Size = new System.Drawing.Size(733, 167);
             this.layoutControlGroup3.Text = "Report and question parameters";
             // 
-            // layoutControlItem3
+            // reportFilePathLayoutControlItem
             // 
-            this.layoutControlItem3.Control = this.lmsReporPathTextEdit;
-            this.layoutControlItem3.Location = new System.Drawing.Point(191, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(518, 40);
-            this.layoutControlItem3.Text = "Path to LMS report ";
-            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(151, 13);
+            this.reportFilePathLayoutControlItem.Control = this.lmsReporPathTextEdit;
+            this.reportFilePathLayoutControlItem.Location = new System.Drawing.Point(191, 0);
+            this.reportFilePathLayoutControlItem.Name = "reportFilePathLayoutControlItem";
+            this.reportFilePathLayoutControlItem.Size = new System.Drawing.Size(518, 40);
+            this.reportFilePathLayoutControlItem.Text = "Path to LMS report ";
+            this.reportFilePathLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.reportFilePathLayoutControlItem.TextSize = new System.Drawing.Size(133, 13);
             // 
-            // layoutControlItem4
+            // reportFileNameLayoutControlItem
             // 
-            this.layoutControlItem4.Control = this.lmsReportFileNameTextEdit;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(191, 40);
-            this.layoutControlItem4.Text = "LMS report file name";
-            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(151, 13);
+            this.reportFileNameLayoutControlItem.Control = this.lmsReportFileNameTextEdit;
+            this.reportFileNameLayoutControlItem.Location = new System.Drawing.Point(0, 0);
+            this.reportFileNameLayoutControlItem.Name = "reportFileNameLayoutControlItem";
+            this.reportFileNameLayoutControlItem.Size = new System.Drawing.Size(191, 40);
+            this.reportFileNameLayoutControlItem.Text = "LMS report file name";
+            this.reportFileNameLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.reportFileNameLayoutControlItem.TextSize = new System.Drawing.Size(133, 13);
             // 
-            // layoutControlItem5
+            // questionFilesPathLayoutControlItem
             // 
-            this.layoutControlItem5.Control = this.questionPathTextEdit;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 40);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(709, 40);
-            this.layoutControlItem5.Text = "Path to questions";
-            this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(151, 13);
+            this.questionFilesPathLayoutControlItem.Control = this.questionPathTextEdit;
+            this.questionFilesPathLayoutControlItem.Location = new System.Drawing.Point(0, 40);
+            this.questionFilesPathLayoutControlItem.Name = "questionFilesPathLayoutControlItem";
+            this.questionFilesPathLayoutControlItem.Size = new System.Drawing.Size(709, 40);
+            this.questionFilesPathLayoutControlItem.Text = "Path to questions";
+            this.questionFilesPathLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.questionFilesPathLayoutControlItem.TextSize = new System.Drawing.Size(133, 13);
             // 
-            // layoutControlItem6
+            // additionalQuestionsPathLayoutControlItem
             // 
-            this.layoutControlItem6.Control = this.pathToAdditionalQuestionsTextEdit;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 80);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(709, 45);
-            this.layoutControlItem6.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
-            this.layoutControlItem6.Text = "Path to additional questions";
-            this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(151, 13);
+            this.additionalQuestionsPathLayoutControlItem.Control = this.pathToAdditionalQuestionsTextEdit;
+            this.additionalQuestionsPathLayoutControlItem.Location = new System.Drawing.Point(0, 80);
+            this.additionalQuestionsPathLayoutControlItem.Name = "additionalQuestionsPathLayoutControlItem";
+            this.additionalQuestionsPathLayoutControlItem.Size = new System.Drawing.Size(709, 45);
+            this.additionalQuestionsPathLayoutControlItem.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 5, 0);
+            this.additionalQuestionsPathLayoutControlItem.Text = "Path to additional questions";
+            this.additionalQuestionsPathLayoutControlItem.TextLocation = DevExpress.Utils.Locations.Top;
+            this.additionalQuestionsPathLayoutControlItem.TextSize = new System.Drawing.Size(133, 13);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.saveButton;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 249);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(733, 192);
+            this.layoutControlItem7.Size = new System.Drawing.Size(733, 26);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 275);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(733, 166);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // mvvmSettingsContext
             // 
@@ -284,18 +260,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.lmsReportFileNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lmsReporPathTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeOfUpdateTextEdit.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeOfUpdateTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateParametersLayoutControlGroup)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeOfUpdateLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportFilePathLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportFileNameLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionFilesPathLayoutControlItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.additionalQuestionsPathLayoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmSettingsContext)).EndInit();
             this.ResumeLayout(false);
 
@@ -306,21 +280,20 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem timeOfUpdateLayoutControlItem;
         private DevExpress.XtraEditors.TextEdit lmsReporPathTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem reportFilePathLayoutControlItem;
         private DevExpress.XtraEditors.TextEdit questionPathTextEdit;
         private DevExpress.XtraEditors.TextEdit lmsReportFileNameTextEdit;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlGroup updateParametersLayoutControlGroup;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem reportFileNameLayoutControlItem;
+        private DevExpress.XtraLayout.LayoutControlItem questionFilesPathLayoutControlItem;
         private DevExpress.Utils.MVVM.MVVMContext mvvmSettingsContext;
         private DevExpress.XtraEditors.TextEdit pathToAdditionalQuestionsTextEdit;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.LayoutControlItem additionalQuestionsPathLayoutControlItem;
         private DevExpress.XtraEditors.SimpleButton saveButton;
-        private DevExpress.XtraEditors.DateEdit timeOfUpdateTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }

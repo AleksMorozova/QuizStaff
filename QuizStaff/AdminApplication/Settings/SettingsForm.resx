@@ -117,7 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="mvvmSettingsContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="additionalQuestionsPathLayoutControlItem.Text" xml:space="preserve">
+    <value>Path to additional questions</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="mvvmSettingsContext.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
-  </metadata>
+  </data>
+  <data name="questionFilesPathLayoutControlItem.Text" xml:space="preserve">
+    <value>Path to questions</value>
+  </data>
+  <data name="reportFileNameLayoutControlItem.Text" xml:space="preserve">
+    <value>LMS report file name</value>
+  </data>
+  <data name="reportFilePathLayoutControlItem.Text" xml:space="preserve">
+    <value>Path to LMS report</value>
+  </data>
+  <data name="saveButton.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="timeOfUpdateLayoutControlItem.Text" xml:space="preserve">
+    <value>Time of automatic update</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Application settings</value>
+  </data>
 </root>

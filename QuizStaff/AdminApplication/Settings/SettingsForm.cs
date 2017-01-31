@@ -8,10 +8,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Globalization;
 
 namespace AdminApplication.Settings
 {
-    public partial class SettingsForm : DevExpress.XtraEditors.XtraForm
+    public partial class SettingsForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
         private SettingsViewModel model;
 
@@ -41,7 +42,7 @@ namespace AdminApplication.Settings
             mvvmSettingsContext.SetBinding(lmsReporPathTextEdit, questionText => questionText.EditValue, "LMSReportPath");
             mvvmSettingsContext.SetBinding(questionPathTextEdit, questionText => questionText.EditValue, "TrainingsQuestionsPath");
             mvvmSettingsContext.SetBinding(pathToAdditionalQuestionsTextEdit, questionText => questionText.EditValue, "AdditionalQuestionsPath");
-            mvvmSettingsContext.SetBinding(timeOfUpdateTextEdit, questionText => questionText.EditValue, "TimeOfUpdating");
+            //mvvmSettingsContext.SetBinding(timeOfUpdateTextEdit, questionText => questionText.EditValue, "TimeOfUpdating");
         }
 
         private void SetUpFrom()
@@ -71,6 +72,21 @@ namespace AdminApplication.Settings
                     }
                 }
             }
+        }
+
+        public void Localized(string language)
+        {
+            var resources = new ComponentResourceManager(typeof(SettingsForm));
+            CultureInfo newCultureInfo = new CultureInfo(language);
+
+            resources.ApplyResources(reportFileNameLayoutControlItem, "reportFileNameLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(reportFilePathLayoutControlItem, "reportFilePathLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(additionalQuestionsPathLayoutControlItem, "additionalQuestionsPathLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(questionFilesPathLayoutControlItem, "questionFilesPathLayoutControlItem", newCultureInfo);
+            resources.ApplyResources(timeOfUpdateLayoutControlItem, "timeOfUpdateLayoutControlItem", newCultureInfo);
+
+            this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
+                ? resources.GetString("Title", newCultureInfo) : "Application settings";
         }
     }
 }

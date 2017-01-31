@@ -142,8 +142,8 @@ namespace AdminApplication
         {
             SettingsForm testeesform = new SettingsForm();
             FormManager.Instance.OpenChildForm(testeesform, "Application settings");
-            //FormManager.LocalizedFormList.Add(testeesform);
-            //FormManager.Instance.LocalizedForms(Program.СurrentLang);
+            FormManager.LocalizedFormList.Add(testeesform);
+            FormManager.Instance.LocalizedForms(Program.СurrentLang);
         }
     }
 }
