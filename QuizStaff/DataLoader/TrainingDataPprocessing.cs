@@ -1,7 +1,7 @@
-﻿using ApplicationServer;
+﻿using DAL;
 using DAL.Repositories;
 using DomainModel;
-using LoadDataFromLMS;
+using LoaderModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,18 +9,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuizServer
+namespace DataLoader
 {
     public class TrainingDataPprocessing
     {
-        public static void SynchronizeTrainings(List<string> trainingTitles, List<LoadedQuestion> questions)
+        public static void SynchronizeTrainings(QuizDBContext context, List<string> trainingTitles, List<LoadedQuestion> questions)
         {
             var loadedQuestions = questions;
-            EFRepository<Question> questionRepo = new EFRepository<Question>(Program.dbContext);
+            EFRepository<Question> questionRepo = new EFRepository<Question>(context);
 
             trainingTitles = trainingTitles.Distinct().ToList();
             List<Training> trainings = new List<Training>();
-            EFTrainingRepository repo = new EFTrainingRepository(Program.dbContext);
+            EFTrainingRepository repo = new EFTrainingRepository(context);
             var allTrainings = new List<Training>(repo.ReadAll());
 
             trainings.AddRange((from title in trainingTitles
@@ -39,14 +39,14 @@ namespace QuizServer
             WriteTraininToDB(trainings, repo);
         }
 
-        public static void SynchronizeAdditionalTrainings(List<string> trainingTitles, List<LoadedQuestion> questions)
+        public static void SynchronizeAdditionalTrainings(QuizDBContext context, List<string> trainingTitles, List<LoadedQuestion> questions)
         {
             var loadedQuestions = questions;
-            EFRepository<Question> questionRepo = new EFRepository<Question>(Program.dbContext);
+            EFRepository<Question> questionRepo = new EFRepository<Question>(context);
 
             trainingTitles = trainingTitles.Distinct().ToList();
             List<Training> trainings = new List<Training>();
-            EFTrainingRepository repo = new EFTrainingRepository(Program.dbContext);
+            EFTrainingRepository repo = new EFTrainingRepository(context);
             var allTrainings = new List<Training>(repo.ReadAll());
 
             trainings.AddRange((from title in trainingTitles
@@ -67,7 +67,7 @@ namespace QuizServer
 
         #region Training
 
-        public static Training CreateNewAdditionalTraining(string title, List<LoadedQuestion> questions)
+        private static Training CreateNewAdditionalTraining(string title, List<LoadedQuestion> questions)
         {
             Training newTraining = new Training();
 
@@ -81,7 +81,7 @@ namespace QuizServer
             return newTraining;
         }
 
-        public static Training CreateNewTraining(string title, List<LoadedQuestion> questions)
+        private static Training CreateNewTraining(string title, List<LoadedQuestion> questions)
         {
             Training newTraining = new Training();
 
@@ -96,7 +96,7 @@ namespace QuizServer
             return newTraining;
         }
 
-        public static Training UpdatedExistingTraining(Training existingTraining, List<LoadedQuestion> questions)
+        private static Training UpdatedExistingTraining(Training existingTraining, List<LoadedQuestion> questions)
         {
             existingTraining.IsActive = true;
             UpdateQuestions(existingTraining, questions);
@@ -107,7 +107,7 @@ namespace QuizServer
             return existingTraining;
         }
 
-        public static Training DeleteExistingTraining(Training existingTraining)
+        private static Training DeleteExistingTraining(Training existingTraining)
         {
             if (!existingTraining.IsAdditional)
             {

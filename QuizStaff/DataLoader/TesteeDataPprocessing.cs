@@ -1,7 +1,7 @@
-﻿using ApplicationServer;
+﻿using DAL;
 using DAL.Repositories;
 using DomainModel;
-using LoadDataFromLMS;
+using LoaderModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,18 +9,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuizServer
+namespace DataLoader
 {
     public static class TesteeDataPprocessing
     {
-        public static void SynchronizeTestees(List<Testee> loadedTestees)
+        public static void SynchronizeTestees(QuizDBContext context, List<Testee> loadedTestees)
         {
-            EFRoleRepository roleRepo = new EFRoleRepository(Program.dbContext);
-            var roles = roleRepo.ReadAll().ToList();
+            EFRoleRepository roleRepo = new EFRoleRepository(context);
+            Role role = roleRepo.ReadAll().Where(_ => _.Name == "Testee").FirstOrDefault();
 
             List<Testee> savedTestee = new List<Testee>();
 
-            EFTesteeRepository repo = new EFTesteeRepository(Program.dbContext);
+            EFTesteeRepository repo = new EFTesteeRepository(context);
 
             var testeeLogin = loadedTestees.Select(_ => _.Login).ToList();
             var allTestees = repo.ReadAll().ToList();
@@ -30,7 +30,7 @@ namespace QuizServer
                                   {
                                       return (allTestees.Select(_ => _.Login).Contains(x.testee.Login))
                                           ? UpdateTestee(UpdatedTesteeFromEPE(allTestees.Where(_ => _.Login == x.testee.Login).First(), x.testee), true)
-                                          : CreateNewTesteeFromEPE(x.testee, roles);
+                                          : CreateNewTesteeFromEPE(x.testee, role);
 
                                   }));
 
@@ -43,13 +43,13 @@ namespace QuizServer
             WriteTesteeToDB(savedTestee, repo);
         }
 
-        public static void WriteTesteeFromLMS(List<TesteeData> testees)
+        public static void WriteTesteeFromLMS(QuizDBContext context, List<TesteeData> testees)
         {
-            EFRoleRepository roleRepo = new EFRoleRepository(Program.dbContext);
+            EFRoleRepository roleRepo = new EFRoleRepository(context);
 
-            var roles = roleRepo.ReadAll().ToList();
+            Role role = roleRepo.ReadAll().Where(_ => _.Name == "Testee").FirstOrDefault();
             List<Testee> savedTestee = new List<Testee>();
-            EFTesteeRepository repo = new EFTesteeRepository(Program.dbContext);
+            EFTesteeRepository repo = new EFTesteeRepository(context);
 
             var testeeLogin = testees.Select(_ => _.login).ToList();
             var allTestees = repo.ReadAll().ToList();
@@ -58,7 +58,7 @@ namespace QuizServer
                                   {
                                       return (allTestees.Select(_ => _.Login).Contains(x.testee.login))
                                           ? UpdateTestee(UpdatedTesteeFromLMS(allTestees.Where(_ => _.Login == x.testee.login).First(), x.testee), true)
-                                          : CreateNewTesteeFromEPE(x.testee, roles);
+                                          : CreateNewTesteeFromEPE(x.testee, role);
                                   }));
 
             //TODO: check delete of entity
@@ -91,7 +91,7 @@ namespace QuizServer
             return existingTestee;
         }
 
-        private static Testee CreateNewTesteeFromEPE(Testee testee, List<Role> roles)
+        private static Testee CreateNewTesteeFromEPE(Testee testee, Role role)
         {
             Testee newTestee = new Testee();
 
@@ -99,15 +99,9 @@ namespace QuizServer
             newTestee.FirstName = testee.FirstName;
             newTestee.LastName = testee.LastName;
             newTestee.IsActive = true;
-            newTestee.UserSetting = new Setting()
-            { Minutes = 5, AmountOfQuestionsPerDay = 10, TimeOfStart = DateTime.Now, EndDate = DateTime.Now, Recurrence = RecurrenceType.WithExactRepeated };
+            newTestee.UserSetting = new Setting() { Minutes = 5, AmountOfQuestionsPerDay = 10, TimeOfStart = DateTime.Now, EndDate = DateTime.Now, Recurrence = RecurrenceType.WithExactRepeated };
             newTestee.Trainings = new BindingList<TesteeTraining>();
-            newTestee.Roles = new BindingList<TesteeRoles>(); 
-
-            foreach (var role in roles)
-            {
-                newTestee.Roles.Add(new TesteeRoles() { Role = role, IsActive = role.Name == "Testee" });
-            }
+            newTestee.Roles = new BindingList<TesteeRoles>() { new TesteeRoles() { Role = role } };
 
             newTestee.Email = testee.Email;
 
@@ -142,7 +136,7 @@ namespace QuizServer
             return existingTestee;
         }
 
-        private static Testee CreateNewTesteeFromEPE(TesteeData testee, List<Role> roles)
+        private static Testee CreateNewTesteeFromEPE(TesteeData testee, Role role)
         {
             Testee newTestee = new Testee();
 
@@ -157,12 +151,7 @@ namespace QuizServer
 
             newTestee.UserSetting = new Setting() { Minutes = 5, AmountOfQuestionsPerDay = 10, TimeOfStart = DateTime.Now, EndDate = DateTime.Now, Recurrence = RecurrenceType.WithExactRepeated };
             newTestee.Trainings = new BindingList<TesteeTraining>();
-            newTestee.Roles = new BindingList<TesteeRoles>();
-
-            foreach (var role in roles)
-            {
-                newTestee.Roles.Add(new TesteeRoles() { Role = role, IsActive = role.Name == "Testee" });
-            }
+            newTestee.Roles = new BindingList<TesteeRoles>() { new TesteeRoles() { Role = role, IsActive = true } };
 
             return newTestee;
         }

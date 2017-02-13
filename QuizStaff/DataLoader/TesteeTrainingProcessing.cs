@@ -1,6 +1,5 @@
-﻿using ApplicationServer;
+﻿using DAL;
 using DAL.Repositories;
-using DataTransferObject;
 using DomainModel;
 using System;
 using System.Collections.Generic;
@@ -8,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuizServer
+namespace DataLoader
 {
     public static class TesteeTrainingProcessing
     {
-        public static void SynchronizeTesteeTrainings(List<string> trainingsTitle)
+        public static void SynchronizeTesteeTrainings(QuizDBContext context, List<string> trainingsTitle)
         {
             var processTitles = trainingsTitle;
-            EFTesteeRepository testeeRepo = new EFTesteeRepository(Program.dbContext);
+            EFTesteeRepository testeeRepo = new EFTesteeRepository(context);
             var allTestees = testeeRepo.ReadAll().ToList();
-            EFTrainingRepository trainingRepo = new EFTrainingRepository(Program.dbContext);
+            EFTrainingRepository trainingRepo = new EFTrainingRepository(context);
             var allTraining = trainingRepo.ReadAll().ToList();
 
             foreach (var t in allTestees)
@@ -29,18 +28,18 @@ namespace QuizServer
                 }
             }
 
-            AddNewTesteeTraining(processTitles, allTestees);
+            AddNewTesteeTraining(context, processTitles, allTestees);
 
             UpdateTestee(allTestees, testeeRepo);
         }
 
-        private static void AddNewTesteeTraining(List<string> trainingsTitles, List<Testee> allTestees)
+        private static void AddNewTesteeTraining(QuizDBContext context, List<string> trainingsTitles, List<Testee> allTestees)
         {
-            EFTrainingRepository trainingRepo = new EFTrainingRepository(Program.dbContext);
+            EFTrainingRepository trainingRepo = new EFTrainingRepository(context);
             var allTraining = trainingRepo.ReadAll().ToList();
 
             foreach (var title in trainingsTitles)
-            {          
+            {
                 foreach (var t in allTestees)
                 {
                     var tr = new TesteeTraining();
@@ -53,7 +52,9 @@ namespace QuizServer
 
         private static void UpdateTestee(List<Testee> allTestee, EFTesteeRepository repo)
         {
-            repo.dbContext.SaveChanges();
+            repo.Save();
+
+            // repo.dbContext.SaveChanges();
             //foreach (var testee in allTestee)
             //{
             //    repo.Update(testee);
@@ -61,4 +62,3 @@ namespace QuizServer
         }
     }
 }
-

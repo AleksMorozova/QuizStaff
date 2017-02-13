@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoadDataFromLMS
+namespace LoaderModel
 {
     public struct TesteeTrainingLink : IEquatable<TesteeTrainingLink>
     {

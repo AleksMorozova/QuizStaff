@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{AF0DA9EF-28B7-49B7-ABE8-2D5BB962E3C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoader", "DataLoader\DataLoader.csproj", "{1FF6C7D3-2F7F-4DF5-9F5A-4A6B58285096}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoaderModel", "LoaderModel\LoaderModel.csproj", "{F6C53DA5-25FE-4B9C-B234-A4AD0882A95B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{AF0DA9EF-28B7-49B7-ABE8-2D5BB962E3C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF0DA9EF-28B7-49B7-ABE8-2D5BB962E3C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF0DA9EF-28B7-49B7-ABE8-2D5BB962E3C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FF6C7D3-2F7F-4DF5-9F5A-4A6B58285096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF6C7D3-2F7F-4DF5-9F5A-4A6B58285096}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF6C7D3-2F7F-4DF5-9F5A-4A6B58285096}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF6C7D3-2F7F-4DF5-9F5A-4A6B58285096}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C53DA5-25FE-4B9C-B234-A4AD0882A95B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C53DA5-25FE-4B9C-B234-A4AD0882A95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C53DA5-25FE-4B9C-B234-A4AD0882A95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C53DA5-25FE-4B9C-B234-A4AD0882A95B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -50,6 +50,46 @@ namespace QuizServer
             }
         }
 
+        public static IRoleService RoleService
+        {
+            get
+            {
+                return container.Resolve<IRoleService>();
+            }
+        }
+
+        public static ILoaderService LoaderService
+        {
+            get
+            {
+                return container.Resolve<ILoaderService>();
+            }
+        }
+
+        public static ITesteeSettingsService TesteeSettingsService
+        {
+            get
+            {
+                return container.Resolve<ITesteeSettingsService>();
+            }
+        }
+
+        public static IHistoryService HistoryService
+        {
+            get
+            {
+                return container.Resolve<IHistoryService>();
+            }
+        }
+
+        public static ITesteeTrainingService TesteeTrainingService
+        {
+            get
+            {
+                return container.Resolve<ITesteeTrainingService>();
+            }
+        }
+
         static void Registrate()
         {
             var builder = new ContainerBuilder();
@@ -57,6 +97,11 @@ namespace QuizServer
             builder.RegisterType<TrainingService>().As<ITrainingService>();
             builder.RegisterType<TesteeService>().As<ITesteeService>();
             builder.RegisterType<QuestionService>().As<IQuestionService>();
+            builder.RegisterType<RoleService>().As<IRoleService>();
+            builder.RegisterType<LoaderService>().As<ILoaderService>();
+            builder.RegisterType<TesteeSettingsService>().As<ITesteeSettingsService>();
+            builder.RegisterType<HistoryService>().As<IHistoryService>();
+            builder.RegisterType<TesteeTrainingService>().As<ITesteeTrainingService>();
             builder.RegisterType<ApplicationSettingsService>().As<IApplicationSettingsService>();
 
             container = builder.Build();

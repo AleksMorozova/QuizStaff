@@ -60,5 +60,10 @@ namespace DAL.Repositories
 
             dbContext.SaveChanges();
         }
+
+        public void Save()
+        {
+            dbContext.SaveChanges();
+        }
     }
 }

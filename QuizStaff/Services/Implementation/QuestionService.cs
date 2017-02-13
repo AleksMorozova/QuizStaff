@@ -56,5 +56,12 @@ namespace Services.Implementation
 
             return (QuestionDTO)question;
         }
+
+        public void UpdateAnswer(QuizDBContext dbContext, AnswerDTO answer)
+        {
+            EFRepository<Answer> repo = new EFRepository<Answer>(dbContext);
+            Answer newAnswer = Conversion.ConvertAnswerFromDTO(answer);
+            repo.Update(newAnswer);
+        }
     }
 }

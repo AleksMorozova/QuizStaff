@@ -1,6 +1,7 @@
 ﻿using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DomainModel;
+using LoaderModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -75,31 +76,49 @@ namespace LoadDataFromLMS
             var rows = sheet.Descendants<Row>();
 
             LoadedQuestion currentDataElement = new LoadedQuestion();
+            bool allQuestion = false;
             foreach (Row row in rows)
             {
                 var cellCount = row.Count();
                 var rowCells = row.Elements<Cell>();
-                var question = ConvertToString(rowCells.ElementAt(0));
 
-                if (cellCount == 1)
+                if (cellCount != 0)
                 {
-                    if (currentDataElement.Question != null)
-                        LoadedQuestions.Add(currentDataElement);
-                    currentDataElement = new LoadedQuestion();
-                    currentDataElement.Answers = new List<LoadedAnswer>();
-                    currentDataElement.Question = question;
-                    currentDataElement.Training = trainingTitle;
+                    if (ConvertToString(rowCells.ElementAt(1)) == "Title")
+                        trainingTitle = ConvertToString(rowCells.ElementAt(0));
+
+                    if (ConvertToString(rowCells.ElementAt(1)) != "Title")
+                    {
+                        if (ConvertToString(rowCells.ElementAt(1)) == "Question")
+                        {
+                            if (currentDataElement.Question != null)
+                                LoadedQuestions.Add(currentDataElement);
+
+                            currentDataElement = new LoadedQuestion();
+                            currentDataElement.Answers = new List<LoadedAnswer>();
+                            currentDataElement.Question = ConvertToString(rowCells.ElementAt(0));
+                            currentDataElement.Training = trainingTitle;
+                        }
+
+                        else
+                        {
+                            var answer = new LoadedAnswer();
+                            answer.Answer = ConvertToString(rowCells.ElementAt(0));
+                            answer.IsCorrect = ConvertToString(rowCells.ElementAt(1));
+                            currentDataElement.Answers.Add(answer);
+                        }
+                    }
                 }
                 else
                 {
-                    var answer = new LoadedAnswer();
-                    answer.Answer = ConvertToString(rowCells.ElementAt(0));
-                    answer.IsCorrect = ConvertToString(rowCells.ElementAt(1));
-                    currentDataElement.Answers.Add(answer);
+                    if (!allQuestion)
+                    {
+                        LoadedQuestions.Add(currentDataElement);
+                        allQuestion = true;
+                    }
+                        
                 }
             }
-
-            LoadedQuestions.Add(currentDataElement);
         }
 
         public static SharedStringItem GetSharedStringItemById(WorkbookPart workbookPart, int id)
@@ -135,9 +154,11 @@ namespace LoadDataFromLMS
             }
             else
             {
-                cellValue = cell.CellValue.Text;
+                if (cell.CellValue != null)
+                    cellValue = cell.CellValue.Text;
+                else
+                    cellValue = null;
             }
-
             return cellValue;
         }
     }

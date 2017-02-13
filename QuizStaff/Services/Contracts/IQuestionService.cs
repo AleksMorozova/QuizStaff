@@ -13,5 +13,7 @@ namespace Services.Contracts
         void UpdateQuestion(QuizDBContext dbContext, QuestionDTO question);
 
         QuestionDTO GetRandomQuestionForTestee(QuizDBContext dbContext, Guid id);
+
+        void UpdateAnswer(QuizDBContext dbContext, AnswerDTO answer);
     }
 }

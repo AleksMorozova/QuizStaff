@@ -72,7 +72,6 @@
   <ItemGroup>
     <Compile Include="ApplicationServer.cs" />
     <Compile Include="RegistrateDependencies.cs" />
-    <Compile Include="TesteeDataPprocessing.cs" />
     <Compile Include="EPELoader.cs" />
     <Compile Include="IApplicationServer.cs" />
     <Compile Include="Program.cs" />
@@ -82,8 +81,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="TesteeTrainingProcessing.cs" />
-    <Compile Include="TrainingDataPprocessing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
