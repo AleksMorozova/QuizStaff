@@ -28,11 +28,6 @@ namespace AdminApplication.TrainingsListForm
             BindToViewModel();
         }
 
-        private void TrainingListChanged(object sender, EventArgs e)
-        {
-            trainingsGridControl.Refresh();
-        }
-
         private void BindCommands()
         {
             mvvmTrainingsContext.BindCommand<TrainingListViewModel>(loadTrainingButton, viewModel => viewModel.LoadTrainings());
@@ -74,6 +69,11 @@ namespace AdminApplication.TrainingsListForm
             resources.ApplyResources(titleGridColumn, "titleGridColumn", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                      ? resources.GetString("Title", newCultureInfo) : "Trainings";
+        }
+
+        private void TrainingListChanged(object sender, EventArgs e)
+        {
+            trainingsGridControl.Refresh();
         }
     }
 }

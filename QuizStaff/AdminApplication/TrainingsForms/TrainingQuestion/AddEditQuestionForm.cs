@@ -50,6 +50,13 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
             mvvmQuestionContext.SetBinding(answersGridControl, answers => answers.DataSource, "Answers");
         }
 
+        private Answer GetCurrentAnswer()
+        {
+            int rowHandler = answersGridView.FocusedRowHandle;
+            var editedAnswer = (Answer)answersGridView.GetRow(rowHandler);
+            return editedAnswer;
+        }
+
         public Question Question 
         { 
             get
@@ -77,13 +84,6 @@ namespace AdminApplication.TrainingsForms.TrainingQuestion
 
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                 ? resources.GetString("Title", newCultureInfo) : "Question";
-        }
-
-        private Answer GetCurrentAnswer()
-        {
-            int rowHandler = answersGridView.FocusedRowHandle;
-            var editedAnswer = (Answer)answersGridView.GetRow(rowHandler);
-            return editedAnswer;
         }
 
         private void AnswersListChanged(object sender, EventArgs e)

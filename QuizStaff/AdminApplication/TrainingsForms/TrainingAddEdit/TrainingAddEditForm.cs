@@ -26,17 +26,14 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
         {
             InitializeComponent();
 
-            mvvmTrainingContext.ViewModelType = typeof(TrainingViewModel);
-            BindCommand();
+            mvvmTrainingContext.ViewModelType = typeof(TrainingViewModel);         
             model = mvvmTrainingContext.GetViewModel<TrainingViewModel>();   
             model.SetUpViewModel(training);
             mvvmTrainingContext.SetViewModel(typeof(TrainingViewModel), model);
+            BindCommand();
             model.QuestionsListChanged += new TrainingChangedEventHandler(QuestionsListChanged);
             BindToViewModel(); 
-            currentTraining = model.Training;  
         }
-
-        private Training currentTraining;
 
         private void BindCommand()
         {
@@ -45,7 +42,7 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
             mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(editQuestionButton, (viewModel, question)
                 => viewModel.EditQuestion(question), x => GetCurrentQuestion());
             mvvmTrainingContext.BindCommand<TrainingViewModel, Training>(addQuestionButton, (viewModel, training)
-                => viewModel.AddQuestion(training), x => currentTraining);
+                => viewModel.AddQuestion(training), x => model.Training);
             mvvmTrainingContext.BindCommand<TrainingViewModel, Question>(deleteQuestionButton, (x, currentTraining)
                 => x.DeleteQuestion(currentTraining), x => GetCurrentQuestion());
         }
@@ -56,16 +53,16 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
             mvvmTrainingContext.SetBinding(gridQuestions, answers => answers.DataSource, "Questions");
         }
 
+        private void gridQuestions_DoubleClick(object sender, EventArgs e)
+        {
+            model.EditQuestion(GetCurrentQuestion());
+        }
+
         private Question GetCurrentQuestion()
         {
             int rowHandler = questionsGridView.FocusedRowHandle;
             var editedQuestion = (Question)questionsGridView.GetRow(rowHandler);
             return editedQuestion;
-        }
-
-        private void gridQuestions_DoubleClick(object sender, EventArgs e)
-        {
-            model.EditQuestion(GetCurrentQuestion());
         }
 
         public Training Training
