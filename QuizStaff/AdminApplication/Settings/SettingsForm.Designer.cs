@@ -35,7 +35,7 @@
             this.questionPathTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.lmsReportFileNameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.lmsReporPathTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.checkedComboBoxEdit1 = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.dayOfUpdateCheckedComboBox = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.updateParametersLayoutControlGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             this.timeOfUpdateLayoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
@@ -53,7 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.questionPathTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lmsReportFileNameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lmsReporPathTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dayOfUpdateCheckedComboBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.updateParametersLayoutControlGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfUpdateLayoutControlItem)).BeginInit();
@@ -74,7 +74,7 @@
             this.layoutControl1.Controls.Add(this.questionPathTextEdit);
             this.layoutControl1.Controls.Add(this.lmsReportFileNameTextEdit);
             this.layoutControl1.Controls.Add(this.lmsReporPathTextEdit);
-            this.layoutControl1.Controls.Add(this.checkedComboBoxEdit1);
+            this.layoutControl1.Controls.Add(this.dayOfUpdateCheckedComboBox);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -127,16 +127,16 @@
             this.lmsReporPathTextEdit.StyleController = this.layoutControl1;
             this.lmsReporPathTextEdit.TabIndex = 6;
             // 
-            // checkedComboBoxEdit1
+            // dayOfUpdateCheckedComboBox
             // 
-            this.checkedComboBoxEdit1.Location = new System.Drawing.Point(24, 58);
-            this.checkedComboBoxEdit1.Name = "checkedComboBoxEdit1";
-            this.checkedComboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dayOfUpdateCheckedComboBox.Location = new System.Drawing.Point(24, 58);
+            this.dayOfUpdateCheckedComboBox.Name = "dayOfUpdateCheckedComboBox";
+            this.dayOfUpdateCheckedComboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.checkedComboBoxEdit1.Size = new System.Drawing.Size(705, 20);
-            this.checkedComboBoxEdit1.StyleController = this.layoutControl1;
-            this.checkedComboBoxEdit1.TabIndex = 5;
-            this.checkedComboBoxEdit1.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.checkedComboBoxEdit1_Closed);
+            this.dayOfUpdateCheckedComboBox.Size = new System.Drawing.Size(705, 20);
+            this.dayOfUpdateCheckedComboBox.StyleController = this.layoutControl1;
+            this.dayOfUpdateCheckedComboBox.TabIndex = 5;
+            this.dayOfUpdateCheckedComboBox.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.dayOfUpdateCheckedComboBox_Closed);
             // 
             // layoutControlGroup1
             // 
@@ -163,7 +163,7 @@
             // 
             // timeOfUpdateLayoutControlItem
             // 
-            this.timeOfUpdateLayoutControlItem.Control = this.checkedComboBoxEdit1;
+            this.timeOfUpdateLayoutControlItem.Control = this.dayOfUpdateCheckedComboBox;
             this.timeOfUpdateLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.timeOfUpdateLayoutControlItem.Name = "timeOfUpdateLayoutControlItem";
             this.timeOfUpdateLayoutControlItem.Size = new System.Drawing.Size(709, 40);
@@ -259,7 +259,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.questionPathTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lmsReportFileNameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lmsReporPathTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dayOfUpdateCheckedComboBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.updateParametersLayoutControlGroup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeOfUpdateLayoutControlItem)).EndInit();
@@ -279,7 +279,7 @@
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
-        private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit1;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit dayOfUpdateCheckedComboBox;
         private DevExpress.XtraLayout.LayoutControlItem timeOfUpdateLayoutControlItem;
         private DevExpress.XtraEditors.TextEdit lmsReporPathTextEdit;
         private DevExpress.XtraLayout.LayoutControlItem reportFilePathLayoutControlItem;
