@@ -17,7 +17,6 @@ namespace AdminApplication.AdminSettings
     public partial class EditSettingsForm : DevExpress.XtraEditors.XtraForm, ILocalized
     {
         private EditSettingsViewModel model;
-        private BindingList<Testee> selectedTestee;
 
         public EditSettingsForm(BindingList<Testee> Testees)
         {
@@ -29,7 +28,6 @@ namespace AdminApplication.AdminSettings
             model = mvvmSettingsContext.GetViewModel<EditSettingsViewModel>();
             model.SetUpSettings(Testees);
             mvvmSettingsContext.SetViewModel(typeof(EditSettingsViewModel), model);
-            selectedTestee = Testees;
             model.SetUpSettings(Testees);
             BindToViewModel();
             SetUpRangeOfRecurrence(model.Recurrence);
