@@ -53,9 +53,7 @@ namespace TesteeApplication
                 UserLoginForm dlg = new UserLoginForm();
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    var domain = Environment.UserDomainName;
-                    bool logonResult = LogonUser(dlg.Login, dlg.Password, dlg.Domain);
-                    if (true)
+                    if (LogonUser(dlg.Login, dlg.Password, dlg.Domain))
                     {
                         Program.СurrentTestee = GetTestee(dlg.Login);
                         GetUserPermissions(dlg.Login);
