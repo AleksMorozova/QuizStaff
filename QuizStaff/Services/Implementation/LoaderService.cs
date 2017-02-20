@@ -25,7 +25,6 @@ namespace Services.Implementation
 
         public void LoadTrainings(QuizDBContext context)
         {
-            // load data
             Loader.LoadDataFromFile(@"D:\QuizTrainings\ISD_Report.xlsx");
             Loader.LoadQuestionFromFile(@"D:\QuizTrainings\Questions");
 
@@ -33,8 +32,6 @@ namespace Services.Implementation
             List<TesteeData> testees = Loader.TesteesTrainingsList;
 
             var loadedQuestions = Loader.LoadedQuestions;
-
-            // Proccess data
 
             TrainingDataPprocessing.SynchronizeTrainings(context, trainingTitles.Distinct().ToList(), loadedQuestions);
             TesteeDataPprocessing.WriteTesteeFromLMS(context, testees.Distinct().ToList());
