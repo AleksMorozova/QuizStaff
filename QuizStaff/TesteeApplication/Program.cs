@@ -58,6 +58,7 @@ namespace TesteeApplication
                         log.Info("User " + СurrentTestee.Login + " was successfully login");
                         break;
                     default:
+                        XtraMessageBox.Show("Authentication error. Please, contact to IT administrator");
                         log.Error("Authentication error. You have no permissions to access the database. Please, contact to IT administrator");
                         break;
                 }

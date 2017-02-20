@@ -17,25 +17,25 @@ namespace Services.Implementation
         public void SaveTesteeAnswer(QuizDBContext context,  HistoryDTO history)
         {
             EFHistoryRepository repo = new EFHistoryRepository(context);
-            History h = new History();
-            h.Answers = new BindingList<TesteeAnswer>();
+            History savedHistory = new History();
+            savedHistory.Answers = new BindingList<TesteeAnswer>();
             foreach (var a in history.Answers)
             {
-                TesteeAnswer ans = new TesteeAnswer();
+                TesteeAnswer answer = new TesteeAnswer();
 
-                ans.Answer = new Answer();
-                ans.Answer.AnswerText = a.Answer.AnswerText;
-                ans.Answer.Id = a.Answer.Id;
-                ans.Answer.IsActive = a.Answer.IsActive;
-                ans.Answer.IsCorrect = a.Answer.IsCorrect;
+                answer.Answer = new Answer();
+                answer.Answer.AnswerText = a.Answer.AnswerText;
+                answer.Answer.Id = a.Answer.Id;
+                answer.Answer.IsActive = a.Answer.IsActive;
+                answer.Answer.IsCorrect = a.Answer.IsCorrect;
 
-                h.Answers.Add(ans);
+                savedHistory.Answers.Add(answer);
             }
-            h.AnsweringDate = history.AnsweringDate;
-            h.Question = Conversion.ConvertQuestionFromDTO(history.Question);
-            h.Testee = Conversion.ConvertTesteeFromDTO(history.Testee);
-            h.IsAnswerCorrect = history.IsAnswerCorrect;
-            repo.Create(h);
+            savedHistory.AnsweringDate = history.AnsweringDate;
+            savedHistory.Question = Conversion.ConvertQuestionFromDTO(history.Question);
+            savedHistory.Testee = Conversion.ConvertTesteeFromDTO(history.Testee);
+            savedHistory.IsAnswerCorrect = history.IsAnswerCorrect;
+            repo.Create(savedHistory);
         }
     }
 }

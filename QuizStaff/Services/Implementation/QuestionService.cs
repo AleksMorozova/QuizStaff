@@ -27,13 +27,13 @@ namespace Services.Implementation
             var currentTestee = repo.Read(id);
 
             BindingList<Question> allQuestions = new BindingList<Question>();
-            foreach (var t in currentTestee.Trainings)
+            foreach (var training in currentTestee.Trainings)
             {
-                if (t.IsSelect && t.Training.IsActive)
+                if (training.IsSelect && training.Training.IsActive)
                 {
-                    foreach (var q in t.Training.Questions)
+                    foreach (var trainingQuestion in training.Training.Questions)
                     {
-                        allQuestions.Add(q);
+                        allQuestions.Add(trainingQuestion);
                     }
                 }
             }
