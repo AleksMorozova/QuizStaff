@@ -1,4 +1,4 @@
-﻿namespace AdminApplication.LoginForm
+﻿namespace LoginApplication
 {
     partial class UserLoginForm
     {

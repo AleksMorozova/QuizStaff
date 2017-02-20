@@ -1,23 +1,22 @@
-﻿using AdminApplication.LoginForm;
+﻿using DataTransferObject;
 using DomainModel;
-using log4net;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.DirectoryServices.AccountManagement;
-using System.ComponentModel;
-using DataTransferObject;
 
-namespace AdminApplication
+namespace LoginApplication
 {
     public class Authorization
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(Authorization));
 
-        private static BindingList<Permission> CurrentUserPermissions = new BindingList<Permission>();
+        public static BindingList<Permission> CurrentUserPermissions { get; set; }
+        public static Testee СurrentTestee { get; set; }
 
         /// <summary>
         /// Domain authorization
@@ -46,10 +45,58 @@ namespace AdminApplication
         /// <summary>
         /// Try to log in
         /// </summary>
-        public static LoginResult Login()
+        public static LoginResult LoginForTesteeApplication()
         {
             try
             {
+                CurrentUserPermissions = new BindingList<Permission>();
+                UserLoginForm dlg = new UserLoginForm();
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    if (true)//LogonUser(dlg.Login, dlg.Password, dlg.Domain)
+                    {
+                        СurrentTestee = GetTestee(dlg.Login);
+                        GetUserPermissions(dlg.Login);
+
+                        return (СurrentTestee.Id != Guid.Empty) ?
+                            CheckTesteePermission() ? LoginResult.LoggedIn : LoginResult.Failed
+                            : LoginResult.NotExist;
+                    }
+
+                    else
+                    {
+                        return LoginResult.Failed;
+                    }
+                }
+
+                else
+                {
+                    System.Environment.Exit(0);
+                }
+
+                return LoginResult.Failed;
+            }
+
+            catch (Exception ex)
+            {
+                //log.Error("Error message " + ex.Message);
+                return LoginResult.Failed;
+            }
+        }
+
+        private static bool CheckTesteePermission()
+        {
+            return (CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.GetQuestion));
+        }
+
+        /// <summary>
+        /// Try to log in
+        /// </summary>
+        public static LoginResult LoginForAdminApplication()
+        {
+            try
+            {
+                CurrentUserPermissions = new BindingList<Permission>();
                 UserLoginForm dlg = new UserLoginForm();
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
@@ -64,11 +111,11 @@ namespace AdminApplication
                     {
                         if (LogonUser(dlg.Login, dlg.Password, dlg.Domain))
                         {
-                            Program.СurrentTestee = GetTestee(dlg.Login);
+                            СurrentTestee = GetTestee(dlg.Login);
                             GetUserPermissions(dlg.Login);
 
-                            return (Program.СurrentTestee.Id != Guid.Empty) ?
-                                CheckPermission() ? LoginResult.LoggedIn : LoginResult.Failed
+                            return (СurrentTestee.Id != Guid.Empty) ?
+                                CheckAdminPermission() ? LoginResult.LoggedIn : LoginResult.Failed
                                 : LoginResult.NotExist;
                         }
 
@@ -95,34 +142,32 @@ namespace AdminApplication
             }
         }
 
-        private static bool CheckPermission()
+        private static bool CheckAdminPermission()
         {
             return (CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator)
                 || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditSetUp)
                 || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTestee)
                 || CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.EditTraining)
-                || Program.СurrentTestee.Login == "admin");
+                || СurrentTestee.Login == "admin");
         }
 
         private static void GetUserPermissions(string login)
         {
-
-            var userRolePermission = Program.СurrentTestee.Roles.Select(_ => _.Role.Permissions);
+            var userRolePermission = СurrentTestee.Roles.Select(_ => _.Role.Permissions);
             foreach (var rolePermission in userRolePermission)
                 foreach (var permission in rolePermission.Select(_ => _.Permission))
                     CurrentUserPermissions.Add(permission);
-
-            Program.CurrentUserPermissions = CurrentUserPermissions;
         }
 
         private static Testee GetTestee(string login)
         {
-            return Conversion.ConvertTesteeFromDTO(ServicesHolder.ServiceClient.FindByLogin(login)); ;
+            var loadedUser = ServicesHolder.ServiceClient.FindByLogin(login);
+            return Conversion.ConvertTesteeFromDTO(loadedUser);
         }
 
         private static void LoginAdmin(string login)
         {
-            Program.СurrentTestee = new Testee() { Login = login };
+            СurrentTestee = new Testee() { Login = login };
         }
     }
 }

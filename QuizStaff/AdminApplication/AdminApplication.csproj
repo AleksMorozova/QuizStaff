@@ -167,8 +167,6 @@
       <DependentUpon>EditTesteesTrainingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminSettings\EditTesteesTrainingsViewModel.cs" />
-    <Compile Include="Authorization.cs" />
-    <Compile Include="LoginResult.cs" />
     <Compile Include="Reports\GeneralReportClass.cs" />
     <Compile Include="Reports\GeneralXtraReport.cs">
       <SubType>Component</SubType>
@@ -238,12 +236,6 @@
     </Compile>
     <Compile Include="AdminSettings\EditSettingsForm.Designer.cs">
       <DependentUpon>EditSettingsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoginForm\UserLoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm\UserLoginForm.Designer.cs">
-      <DependentUpon>UserLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormManager.cs" />
     <Compile Include="ILocalized.cs" />
@@ -334,12 +326,6 @@
     <EmbeddedResource Include="AdminSettings\EditSettingsForm.resx">
       <DependentUpon>EditSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm\UserLoginForm.resx">
-      <DependentUpon>UserLoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm\UserLoginForm.ru-RU.resx">
-      <DependentUpon>UserLoginForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,6 +406,10 @@
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">
       <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>
       <Name>DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoginApplication\LoginApplication.csproj">
+      <Project>{067c0131-c569-4ef4-ab93-3494df83535b}</Project>
+      <Name>LoginApplication</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
-﻿using AdminApplication;
-using DataTransferObject;
+﻿using DataTransferObject;
 using DevExpress.XtraEditors;
 using DomainModel;
+using LoginApplication;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +41,7 @@ namespace TesteeApplication
             LoginResult loginResult = LoginResult.None;
             while (loginResult != LoginResult.LoggedIn)
             {
-                loginResult = Authorization.Login();
+                loginResult = Authorization.LoginForTesteeApplication();
                 switch (loginResult)
                 {
                     case LoginResult.Failed:
@@ -53,7 +53,8 @@ namespace TesteeApplication
                     case LoginResult.NoPermissions:
                         XtraMessageBox.Show("Authentication error. You have no permissions to access the database. Please, contact to IT administrator");
                         break;
-                    case LoginResult.LoggedIn:
+                    case LoginResult.LoggedIn: 
+                        Program.СurrentTestee = Authorization.СurrentTestee;
                         log.Info("User " + СurrentTestee.Login + " was successfully login");
                         break;
                     default:

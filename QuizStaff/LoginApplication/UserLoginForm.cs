@@ -11,7 +11,7 @@ using DevExpress.XtraEditors;
 using DataTransferObject;
 using System.Globalization;
 
-namespace AdminApplication.LoginForm
+namespace LoginApplication
 {
     public partial class UserLoginForm : DevExpress.XtraEditors.XtraForm
     {

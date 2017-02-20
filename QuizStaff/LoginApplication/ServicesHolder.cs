@@ -4,24 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TesteeApplication
+namespace LoginApplication
 {
     public class ServicesHolder
     {
-        private static ServiceReference1.ApplicationServerClient serviceClient;
+        private static LoginApplication.ServiceReference1.ApplicationServerClient serviceClient;
         private static ServicesHolder serviceHolderObject;
-        
-        public static ServiceReference1.ApplicationServerClient ServiceClient
+
+        public static LoginApplication.ServiceReference1.ApplicationServerClient ServiceClient
         {
             get
             {
-                return (serviceClient != null) ? serviceClient : new ServiceReference1.ApplicationServerClient();
+                return (serviceClient != null) ? serviceClient : new LoginApplication.ServiceReference1.ApplicationServerClient();
             }
         }
 
         private ServicesHolder()
         {
-            serviceClient = new ServiceReference1.ApplicationServerClient();
+            serviceClient = new LoginApplication.ServiceReference1.ApplicationServerClient();
         }
 
         public static ServicesHolder ServiceHolderObject
