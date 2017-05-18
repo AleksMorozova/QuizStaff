@@ -178,5 +178,7 @@ namespace ApplicationServer
         }
 
         #endregion
+
+        public static void UpdateInformation() { }
     }
 }
