@@ -27,7 +27,7 @@ namespace DAL.Repositories
                 {
                     if (permission.Id != Guid.Empty)
                     {
-                        var dbPermission = dbContext.RolePermissions
+                        var dbPermission = dbContext.Permissions
                             .Single(t => t.Id == permission.Id);
 
                         dbContext.Entry(dbPermission).CurrentValues.SetValues(permission);
@@ -35,8 +35,7 @@ namespace DAL.Repositories
                     else
                     {
                         var dbPermissin = dbContext.Permissions
-                            .Single(t => t.Id == permission.Permission.Id);
-                        permission.Permission = dbPermissin;
+                            .Single(t => t.Id == permission.Id);
                         dbContext.Entry(dbPermissin).State = System.Data.Entity.EntityState.Unchanged;
                         dbRole.Permissions.Add(permission);
                     }

@@ -33,27 +33,32 @@ namespace DAL
 
             #region add roles
             Role mainAdministratorRole = new Role() { Name = "Main Admin", Description = "" };
+            mainAdministratorRole.Permissions.Add(createAdministrator);
             context.Roles.Add(mainAdministratorRole);
 
             Role administratorRole = new Role() { Name = "Admin", Description =""};
+            administratorRole.Permissions.Add(editTestee);
+            administratorRole.Permissions.Add(editTraining);
+            administratorRole.Permissions.Add(editSetting);
             context.Roles.Add(administratorRole);
 
             Role testeeRole = new Role() { Name = "Testee", Description = "" };
+            testeeRole.Permissions.Add(getQuestion);
             context.Roles.Add(testeeRole);
 
             context.SaveChanges();
             #endregion
 
-            RolePermission p1 = new RolePermission() { Role = administratorRole, Permission = editSetting };
-            context.RolePermissions.Add(p1);
-            RolePermission p2 = new RolePermission() { Role = administratorRole, Permission = editTestee };
-            context.RolePermissions.Add(p2);
-            RolePermission p3 = new RolePermission() { Role = administratorRole, Permission = editTraining };
-            context.RolePermissions.Add(p3);
-            RolePermission p4 = new RolePermission() { Role = testeeRole, Permission = getQuestion };
-            context.RolePermissions.Add(p4);
-            RolePermission p5 = new RolePermission() { Role = mainAdministratorRole, Permission = createAdministrator };
-            context.RolePermissions.Add(p5);
+            //RolePermission p1 = new RolePermission() { Role = administratorRole, Permission = editSetting };
+            //context.RolePermissions.Add(p1);
+            //RolePermission p2 = new RolePermission() { Role = administratorRole, Permission = editTestee };
+            //context.RolePermissions.Add(p2);
+            //RolePermission p3 = new RolePermission() { Role = administratorRole, Permission = editTraining };
+            //context.RolePermissions.Add(p3);
+            //RolePermission p4 = new RolePermission() { Role = testeeRole, Permission = getQuestion };
+            //context.RolePermissions.Add(p4);
+            //RolePermission p5 = new RolePermission() { Role = mainAdministratorRole, Permission = createAdministrator };
+            //context.RolePermissions.Add(p5);
 
             context.SaveChanges();
             base.Seed(context);
