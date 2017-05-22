@@ -11,6 +11,7 @@ using Services.Contracts;
 using Services.Implementation;
 using DAL.Repositories;
 using System.ServiceModel;
+using LoadDataFromEPE;
 
 namespace ApplicationServer
 {

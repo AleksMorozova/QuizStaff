@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoaderModel", "LoaderModel\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginApplication", "LoginApplication\LoginApplication.csproj", "{067C0131-C569-4EF4-AB93-3494DF83535B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadDataFromEPE", "LoadDataFromEPE\LoadDataFromEPE.csproj", "{E3015169-9CA9-436E-80F6-91998312881D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{067C0131-C569-4EF4-AB93-3494DF83535B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{067C0131-C569-4EF4-AB93-3494DF83535B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{067C0131-C569-4EF4-AB93-3494DF83535B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3015169-9CA9-436E-80F6-91998312881D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3015169-9CA9-436E-80F6-91998312881D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3015169-9CA9-436E-80F6-91998312881D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3015169-9CA9-436E-80F6-91998312881D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

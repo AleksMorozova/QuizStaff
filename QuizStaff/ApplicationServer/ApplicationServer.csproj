@@ -72,7 +72,6 @@
   <ItemGroup>
     <Compile Include="ApplicationServer.cs" />
     <Compile Include="RegistrateDependencies.cs" />
-    <Compile Include="EPELoader.cs" />
     <Compile Include="IApplicationServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,6 +102,10 @@
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">
       <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>
       <Name>DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoadDataFromEPE\LoadDataFromEPE.csproj">
+      <Project>{e3015169-9ca9-436e-80f6-91998312881d}</Project>
+      <Name>LoadDataFromEPE</Name>
     </ProjectReference>
     <ProjectReference Include="..\LoadDataFromLMS\LoadDataFromLMS.csproj">
       <Project>{4fb1630a-e1e0-4950-b965-0b91fa489475}</Project>
