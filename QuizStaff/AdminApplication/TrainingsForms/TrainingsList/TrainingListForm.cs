@@ -28,22 +28,16 @@ namespace AdminApplication.TrainingsListForm
             BindToViewModel();
         }
 
-        private void TrainingListChanged(object sender, EventArgs e)
-        {
-            trainingsGridControl.Refresh();
-        }
-
         private void BindCommands()
         {
-            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonSave, viewModel => viewModel.Save());
-            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonCancel, viewModel => viewModel.Cancel());
-            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonLoadTraining, viewModel => viewModel.LoadTrainings());
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(loadTrainingButton, viewModel => viewModel.LoadTrainings());
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(loadQuestionsButton, viewModel => viewModel.LoadQuestions());
 
             mvvmTrainingsContext.BindCommand<TrainingListViewModel, Training>(deleteTrainingButton,
               (x, currentTraining) => x.DeleteTraining(currentTraining), x => GetCurrentTraining());
-            mvvmTrainingsContext.BindCommand<TrainingListViewModel, Training>(buttonEditTraining,
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel, Training>(editTrainingButton,
                 (x, currentTraining) => x.EditTraining(currentTraining), x => GetCurrentTraining());
-            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(buttonAddTraining, viewModel => viewModel.AddTraining());
+            mvvmTrainingsContext.BindCommand<TrainingListViewModel>(addTrainingButton, viewModel => viewModel.AddTraining());
         }
 
         private void BindToViewModel()
@@ -67,16 +61,19 @@ namespace AdminApplication.TrainingsListForm
         {
             var resources = new ComponentResourceManager(typeof(TrainingListForm));
             CultureInfo newCultureInfo = new CultureInfo(language);
-            resources.ApplyResources(buttonAddTraining, "buttonAddTraining", newCultureInfo);
+            resources.ApplyResources(addTrainingButton, "buttonAddTraining", newCultureInfo);
             resources.ApplyResources(trainingsLayoutControlItem, "trainingsLayoutControlItem", newCultureInfo);
-            resources.ApplyResources(buttonEditTraining, "buttonEditTraining", newCultureInfo);
-            resources.ApplyResources(buttonLoadTraining, "buttonLoadTraining", newCultureInfo);            
+            resources.ApplyResources(editTrainingButton, "buttonEditTraining", newCultureInfo);
+            resources.ApplyResources(loadTrainingButton, "buttonLoadTraining", newCultureInfo);            
             resources.ApplyResources(deleteTrainingButton, "deleteTrainingButton", newCultureInfo);
             resources.ApplyResources(titleGridColumn, "titleGridColumn", newCultureInfo);
-            resources.ApplyResources(buttonCancel, "buttonCancel", newCultureInfo);
-            resources.ApplyResources(buttonSave, "buttonSave", newCultureInfo);
             this.Text = !String.IsNullOrEmpty(resources.GetString("Title", newCultureInfo))
                      ? resources.GetString("Title", newCultureInfo) : "Trainings";
+        }
+
+        private void TrainingListChanged(object sender, EventArgs e)
+        {
+            trainingsGridControl.Refresh();
         }
     }
 }

@@ -371,19 +371,10 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         {
             if (this.Testee != null)
             {
-
                 if (Validation())
                 {
-                    if (this.Testee.Id == Guid.Empty)
-                    {
-                        var savedTestee = ServicesHolder.ServiceClient.SaveTestee(Conversion.ConvertTesteeToDTO(this.Testee));
-                        this.Testee = Conversion.ConvertTesteeFromDTO(savedTestee);
-                    }
-                    else
-                    {
-                        var updateTestee = ServicesHolder.ServiceClient.UpdateTestee(Conversion.ConvertTesteeToDTO(this.Testee));
-                        this.Testee = Conversion.ConvertTesteeFromDTO(updateTestee);
-                    }
+                    var savedTestee = ServicesHolder.ServiceClient.SaveTestee(Conversion.ConvertTesteeToDTO(this.Testee));
+                    this.Testee = Conversion.ConvertTesteeFromDTO(savedTestee);
                 }
                 else 
                 {

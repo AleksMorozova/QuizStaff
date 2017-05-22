@@ -57,29 +57,17 @@ namespace AdminApplication.TrainingsListForm
                 if (deletedTraining.Id != Guid.Empty)
                 {
                     deletedTraining.IsActive = false;
-                    ServicesHolder.ServiceClient.UpdateTraining(deletedTraining);
+                    ServicesHolder.ServiceClient.SaveTraining(deletedTraining);
                 }
                 else
                 {
                     var savedTraining = ServicesHolder.ServiceClient.FindByTitle(deletedTraining.TrainingTitle);
                     savedTraining.IsActive = false;
-                    ServicesHolder.ServiceClient.UpdateTraining(savedTraining);
+                    ServicesHolder.ServiceClient.SaveTraining(savedTraining);
                 }
                 this.Trainings.Remove(deletedTraining);
                 OnTrainingListChanged(EventArgs.Empty);
             }
-        }
-
-        public void Save()
-        {
-            // TODO: implement save of loaded of trainings
-            XtraMessageBox.Show("Save");
-        }
-
-        public void Cancel()
-        {
-            // TODO: implement cancel of loading of trainings
-            XtraMessageBox.Show("Cancel");
         }
 
         public void LoadTrainings()
@@ -87,7 +75,13 @@ namespace AdminApplication.TrainingsListForm
             ServicesHolder.ServiceClient.LoadTrainings();
             XtraMessageBox.Show("Trainings was successfully load");
         }
-           
+
+        public void LoadQuestions()
+        {
+            ServicesHolder.ServiceClient.LoadAdditionalQuestions();
+            XtraMessageBox.Show("Questions was successfully load");
+        }
+
         public event TrainingChangedEventHandler TrainingListChanged;
         protected virtual void OnTrainingListChanged(EventArgs e)
         {

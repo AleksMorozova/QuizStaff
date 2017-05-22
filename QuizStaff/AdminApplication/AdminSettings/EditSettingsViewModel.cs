@@ -164,59 +164,40 @@ namespace AdminApplication.AdminSettings
             SelectedTestees = currentTestees;
             Setting = new Setting();
 
-            var allAmount = currentTestees.GroupBy(_ => _.UserSetting.AmountOfQuestionsPerDay);
-            if (allAmount.Count() == 1)
-            {
-                Setting.AmountOfQuestionsPerDay = allAmount.First().First().UserSetting.AmountOfQuestionsPerDay;
-            }
+            Setting.AmountOfQuestionsPerDay =
+                (currentTestees.GroupBy(_ => _.UserSetting.AmountOfQuestionsPerDay).Count()==1)
+                ? currentTestees.First().UserSetting.AmountOfQuestionsPerDay
+                : 0;
 
-            var allHours = currentTestees.GroupBy(_ => _.UserSetting.Hours);
-            if (allHours.Count() == 1)
-            {
-                Setting.Hours = allHours.First().First().UserSetting.Hours;
-            }
+            Setting.Hours =
+                (currentTestees.GroupBy(_ => _.UserSetting.Hours).Count() == 1)
+                ? currentTestees.First().UserSetting.Hours
+                : 0;
 
-            var allMinutes = currentTestees.GroupBy(_ => _.UserSetting.Minutes);
-            if (allMinutes.Count() == 1)
-            {
-                Setting.Minutes = allMinutes.First().First().UserSetting.Minutes;
-            }
+            Setting.Minutes =
+                (currentTestees.GroupBy(_ => _.UserSetting.Minutes).Count() == 1)
+                ? currentTestees.First().UserSetting.Minutes
+                : 0;
 
-            var allSeconds = currentTestees.GroupBy(_ => _.UserSetting.Seconds);
-            if (allSeconds.Count() == 1)
-            {
-                Setting.Seconds = allSeconds.First().First().UserSetting.Seconds;
-            }
+            Setting.Seconds =
+                (currentTestees.GroupBy(_ => _.UserSetting.Seconds).Count() == 1)
+                ? currentTestees.First().UserSetting.Seconds
+                : 0;
 
-            var allTimeOfStart = currentTestees.GroupBy(_ => _.UserSetting.TimeOfStart);
-            if (allTimeOfStart.Count() == 1)
-            {
-                Setting.TimeOfStart = allTimeOfStart.First().First().UserSetting.TimeOfStart;
-            }
-            else 
-            {
-                Setting.TimeOfStart = System.DateTime.Now;
-            }
+            Setting.TimeOfStart =
+                (currentTestees.GroupBy(_ => _.UserSetting.TimeOfStart).Count() == 1)
+                ? currentTestees.First().UserSetting.TimeOfStart
+                : System.DateTime.Now;
 
-            var allEndDate = currentTestees.GroupBy(_ => _.UserSetting.EndDate);
-            if (allEndDate.Count() == 1)
-            {
-                Setting.EndDate = allEndDate.First().First().UserSetting.EndDate;
-            }
-            else
-            {
-                Setting.EndDate = System.DateTime.Today.AddHours(11);
-            }
+            Setting.EndDate =
+                (currentTestees.GroupBy(_ => _.UserSetting.EndDate).Count() == 1)
+                ? currentTestees.First().UserSetting.EndDate
+                : System.DateTime.Today.AddHours(11);
 
-            var allRecurrence = currentTestees.GroupBy(_ => _.UserSetting.Recurrence);
-            if (allRecurrence.Count() == 1)
-            {
-                Setting.Recurrence = allEndDate.First().First().UserSetting.Recurrence;
-            }
-            else
-            {
-                Setting.Recurrence = RecurrenceType.WithExactRepeated;
-            }
+            Setting.Recurrence =
+                (currentTestees.GroupBy(_ => _.UserSetting.Recurrence).Count() == 1)
+                ? currentTestees.First().UserSetting.Recurrence
+                : RecurrenceType.WithExactRepeated;
         }
         
         public void Save()

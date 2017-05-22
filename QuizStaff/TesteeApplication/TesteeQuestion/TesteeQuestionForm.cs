@@ -19,6 +19,7 @@ namespace TesteeApplication.TesteeQuestion
 {
     public partial class TesteeQuestionForm : DevExpress.XtraEditors.XtraForm
     {
+        public bool IsTesteeHaveQuestion { get; set; }
         private TesteeQuestionViewModel model;
         private string header;
         private string message;
@@ -28,9 +29,11 @@ namespace TesteeApplication.TesteeQuestion
         {
             InitializeComponent();
             Localized(Program.СurrentLang);
+
             mvvmQuestionContext.ViewModelType = typeof(TesteeQuestionViewModel);
             model = mvvmQuestionContext.GetViewModel<TesteeQuestionViewModel>();
             mvvmQuestionContext.SetViewModel(typeof(TesteeQuestionViewModel), model);
+
             model.LoadQuestionForTestee(Program.СurrentTestee);
 
             SetUpForm();
@@ -38,8 +41,11 @@ namespace TesteeApplication.TesteeQuestion
 
         public void SetUpForm()
         {
-            if (model.question != null)
+            IsTesteeHaveQuestion = model.question != null;
+
+            if (IsTesteeHaveQuestion)
             {
+                IsTesteeHaveQuestion = true;
                 //fill comboBox and question label
                 questionLabel.Text = model.question.QuestionText;
                 foreach (var a in model.question.Answers)
@@ -53,10 +59,6 @@ namespace TesteeApplication.TesteeQuestion
                     answersCheckedList.CheckStyle = CheckStyles.Radio;
                     answersCheckedList.SelectionMode = SelectionMode.One;
                 }
-            }
-            else 
-            {
-                this.Close();
             }
         }
 
@@ -139,7 +141,16 @@ namespace TesteeApplication.TesteeQuestion
                     }
                 }
             }
-        }   
+        }        
+        
+        private void SaveWindosPosition()
+        {           
+            //Remember windows position
+            Program.LeftPosition = this.Left;
+            Program.TopPosition = this.Top;
+            Program.Width = this.Width;
+            Program.Height = this.Height;
+        }
         #endregion
 
         private void TranslateResultWindows(bool answerResult) 
@@ -175,13 +186,10 @@ namespace TesteeApplication.TesteeQuestion
         
         private void OKButton_Click(object sender, EventArgs e)
         {
-            //Remember windows position
-            Program.LeftPosition = this.Left;
-            Program.TopPosition = this.Top;
-            Program.Width = this.Width;
-            Program.Height = this.Height;
+            SaveWindosPosition();
 
             var userAnswer = GetUserAnswer();
+
             model.SaveTesteeAnswer(userAnswer);
 
             TranslateResultWindows(model.FindWasAnswerCorrect(userAnswer));

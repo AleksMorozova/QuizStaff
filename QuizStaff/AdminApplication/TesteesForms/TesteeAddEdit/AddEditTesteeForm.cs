@@ -66,12 +66,7 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             isExtended = false;
             settingsGroupEmptySpaceItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
         }
-       
-        private void TesteeListChanged(object sender, EventArgs e)
-        {
-            gridTrainings.Refresh();
-        }
-
+      
         private void BindCommand()
         {
             mvvmTesteeContext.BindCommand<TesteeViewModel>(saveButton, viewModel => viewModel.Save());
@@ -102,8 +97,9 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             secondsSpinEdit.DataBindings.Add("EditValue", settingsBindingSource, "Seconds");
             startDateEdit.DataBindings.Add("EditValue", settingsBindingSource, "TimeOfStart");
             startTimeEdit.DataBindings.Add("EditValue", settingsBindingSource, "TimeOfStart");           
-        }               
+        }
 
+        #region Role
         private void SetUpRolesComboBox()
         {
             if (model.Roles != null && model.Roles.Count()>0)
@@ -132,12 +128,13 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             for (int i = 0; i < rolesComboBox.Properties.Items.Count; i++)
             {
                 if (superUseRole.Contains(rolesComboBox.Properties.Items[i].Value))
-                    rolesComboBox.Properties.Items[i].Enabled = Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator);
+                    rolesComboBox.Properties.Items[i].Enabled = Program.СurrentTestee.Login == "admin";
             }
 
             for (int i = 0; i < rolesComboBox.Properties.Items.Count; i++)
             {
-                if (!Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator))
+                //if (!Program.CurrentUserPermissions.Select(_ => _.Type).Contains(DomainModel.PermissionType.CreateAdministrator))
+                if (Program.СurrentTestee.Login == "admin")
                 {
                     if (rolesComboBox.Properties.Items[i].Value.ToString() == "Super administrator".ToString())
                         rolesComboBox.Properties.Items.Remove(rolesComboBox.Properties.Items[i]);
@@ -145,6 +142,24 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             }
         }
         
+        private void rolesComboBox_Closed(object sender, ClosedEventArgs e)
+        {
+            if (model.Roles != null)
+            {
+                foreach (var role in model.Roles)
+                {
+                    var countItems = rolesComboBox.Properties.Items.Where(_ => _.Value == role.Role.Name);
+                    bool exists = countItems.Count() > 0;
+                    if (exists)
+                    {
+                        var t = rolesComboBox.Properties.Items.Where(_ => _.Value == role.Role.Name).First().CheckState;
+                        role.IsActive = (t == CheckState.Checked);
+                    }
+                }
+            } 
+        }
+        #endregion
+
         private void BindEndParameters()
         {
             questionAmountSpinEdit.EditValue = null;
@@ -158,13 +173,6 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             {
                 questionAmountSpinEdit.EditValue = model.AmountOfQuestionsPerDay;
             }
-        }
-        
-        private void SetUpRangeOfRecurrence(RecurrenceType type)
-        {
-            withoutEndDateCheckEdit.Checked = (type == RecurrenceType.WithoutEnding);
-            endAfterCheckEdit.Checked = (type == RecurrenceType.WithExactRepeated);
-            endDateCheckEdit.Checked = (type == RecurrenceType.WithSpecifiedEndDate);
         }
 
         public void Localized(string language)
@@ -222,46 +230,6 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             return editedTesteeTraining;
         }
 
-        private void rolesComboBox_Closed(object sender, ClosedEventArgs e)
-        {
-            if (model.Roles != null)
-            {
-                foreach (var role in model.Roles)
-                {
-                    var countItems = rolesComboBox.Properties.Items.Where(_ => _.Value == role.Role.Name);
-                    bool exists = countItems.Count() > 0;
-                    if (exists)
-                    {
-                        var t = rolesComboBox.Properties.Items.Where(_ => _.Value == role.Role.Name).First().CheckState;
-                        role.IsActive = (t == CheckState.Checked);
-                    }
-                }
-            } 
-        }
-
-        private void editSettingButton_Click(object sender, EventArgs e)
-        {
-            if (settingLayoutControlGroup.Expanded)
-            {
-                Program.ApplicationMainForm.Width -= SettingGroupWidth; 
-            }
-            else
-            {
-                Program.ApplicationMainForm.Width += SettingGroupWidth; 
-            }
-
-            settingLayoutControlGroup.Visibility = (!isExtended)
-                ? DevExpress.XtraLayout.Utils.LayoutVisibility.Always
-                :DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-
-            settingsGroupEmptySpaceItem.Visibility = (!isExtended)
-                ? DevExpress.XtraLayout.Utils.LayoutVisibility.Always
-                : DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-
-            settingLayoutControlGroup.Expanded = !isExtended;
-            isExtended = settingLayoutControlGroup.Expanded;
-        }
-
         #region Work with newly added training
         private void gridViewTrainings_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
@@ -284,6 +252,14 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         #endregion
 
         #region Recurrence type changing
+        
+        private void SetUpRangeOfRecurrence(RecurrenceType type)
+        {
+            withoutEndDateCheckEdit.Checked = (type == RecurrenceType.WithoutEnding);
+            endAfterCheckEdit.Checked = (type == RecurrenceType.WithExactRepeated);
+            endDateCheckEdit.Checked = (type == RecurrenceType.WithSpecifiedEndDate);
+        }
+
         private void withoutEndDateCheckEdit_CheckedChanged(object sender, EventArgs e)
         {
             CheckEdit edit = sender as CheckEdit;
@@ -332,13 +308,37 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
             if((int)date.Value != 0)
                 model.AmountOfQuestionsPerDay = (int)date.Value;
         }
+   
         #endregion
 
+        #region Form size
+
+        private void editSettingButton_Click(object sender, EventArgs e)
+        {
+            if (settingLayoutControlGroup.Expanded)
+            {
+                Program.ApplicationMainForm.Width -= SettingGroupWidth; 
+            }
+            else
+            {
+                Program.ApplicationMainForm.Width += SettingGroupWidth; 
+            }
+
+            settingLayoutControlGroup.Visibility = (!isExtended)
+                ? DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+                :DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+
+            settingsGroupEmptySpaceItem.Visibility = (!isExtended)
+                ? DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+                : DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+
+            settingLayoutControlGroup.Expanded = !isExtended;
+            isExtended = settingLayoutControlGroup.Expanded;
+        }
+      
         /// <summary>
         /// Display only active training at training popup list
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void repositoryItemGridLookUpEdit1View_CustomRowFilter(object sender, DevExpress.XtraGrid.Views.Base.RowFilterEventArgs e)
         {
             GridView view = sender as GridView;
@@ -357,6 +357,10 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
         {
             Program.ApplicationMainForm.Width = DefaultWidth;
         }
+
+        #endregion
+
+        #region Validation of testee trainings
 
         private void gridViewTrainings_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
@@ -381,6 +385,13 @@ namespace AdminApplication.TesteesForm.TesteeAddEdit
                 gridViewTrainings.SetColumnError(titleGridColumn, "Duplicate training!");
                 e.Valid = false;
             }
+        }
+
+        #endregion
+
+        private void TesteeListChanged(object sender, EventArgs e)
+        {
+            gridTrainings.Refresh();
         }
     }
 }

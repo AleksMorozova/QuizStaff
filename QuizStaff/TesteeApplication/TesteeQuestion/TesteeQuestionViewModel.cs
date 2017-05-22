@@ -35,10 +35,12 @@ namespace TesteeApplication.TesteeQuestion
             history.IsAnswerCorrect = FindWasAnswerCorrect(answers);
             history.Testee = Program.СurrentTestee;
             history.Answers = new System.ComponentModel.BindingList<TesteeAnswerDTO>();
+
             foreach (var a in answers)
             {
                 history.Answers.Add(new TesteeAnswerDTO() { Answer = Conversion.ConvertAnswerToDTO(a)});
             }
+
             ServicesHolder.ServiceClient.SaveTesteeAnswer(history);
         }
 

@@ -134,82 +134,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_SaveAllTestees_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_SaveAllTestees_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_GetTesteeByID_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_GetTesteeByID_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_SaveTesteeAnswer_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -344,44 +268,6 @@
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_GetAllTrainings_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_SaveAllTrainings_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_SaveAllTrainings_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1046,44 +932,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_UpdatePermissions_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_UpdatePermissions_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_AddTesteeRole_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -1236,6 +1084,44 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_LoadAdditionalQuestions_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_LoadAdditionalQuestions_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_GetAllTesteesForReport_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -1274,12 +1160,165 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_ReadApplicationSettings_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_ReadApplicationSettings_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_SaveApplicationSettings_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_SaveApplicationSettings_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_UpdateApplicationSettings_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_UpdateApplicationSettings_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_GetSettings_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_GetSettings_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataTransferObject" />
       <xsd:import schemaLocation="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainModel" />
+      <xsd:import schemaLocation="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IApplicationServer_GetAllTestees_InputMessage">
@@ -1287,18 +1326,6 @@
   </wsdl:message>
   <wsdl:message name="IApplicationServer_GetAllTestees_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTesteesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_SaveAllTestees_InputMessage">
-    <wsdl:part name="parameters" element="tns:SaveAllTestees" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_SaveAllTestees_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SaveAllTesteesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetTesteeByID_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetTesteeByID" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_GetTesteeByID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetTesteeByIDResponse" />
   </wsdl:message>
   <wsdl:message name="IApplicationServer_SaveTesteeAnswer_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveTesteeAnswer" />
@@ -1323,12 +1350,6 @@
   </wsdl:message>
   <wsdl:message name="IApplicationServer_GetAllTrainings_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTrainingsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_SaveAllTrainings_InputMessage">
-    <wsdl:part name="parameters" element="tns:SaveAllTrainings" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_SaveAllTrainings_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SaveAllTrainingsResponse" />
   </wsdl:message>
   <wsdl:message name="IApplicationServer_FindByLogin_InputMessage">
     <wsdl:part name="parameters" element="tns:FindByLogin" />
@@ -1432,12 +1453,6 @@
   <wsdl:message name="IApplicationServer_UpdateRoles_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateRolesResponse" />
   </wsdl:message>
-  <wsdl:message name="IApplicationServer_UpdatePermissions_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdatePermissions" />
-  </wsdl:message>
-  <wsdl:message name="IApplicationServer_UpdatePermissions_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdatePermissionsResponse" />
-  </wsdl:message>
   <wsdl:message name="IApplicationServer_AddTesteeRole_InputMessage">
     <wsdl:part name="parameters" element="tns:AddTesteeRole" />
   </wsdl:message>
@@ -1462,24 +1477,46 @@
   <wsdl:message name="IApplicationServer_LoadTesteeFromEPE_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoadTesteeFromEPEResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_LoadAdditionalQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAdditionalQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_LoadAdditionalQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAdditionalQuestionsResponse" />
+  </wsdl:message>
   <wsdl:message name="IApplicationServer_GetAllTesteesForReport_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTesteesForReport" />
   </wsdl:message>
   <wsdl:message name="IApplicationServer_GetAllTesteesForReport_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTesteesForReportResponse" />
   </wsdl:message>
+  <wsdl:message name="IApplicationServer_ReadApplicationSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationSettings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_ReadApplicationSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadApplicationSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveApplicationSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveApplicationSettings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveApplicationSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveApplicationSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateApplicationSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationSettings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateApplicationSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettingsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IApplicationServer">
     <wsdl:operation name="GetAllTestees">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTestees" message="tns:IApplicationServer_GetAllTestees_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTesteesResponse" message="tns:IApplicationServer_GetAllTestees_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SaveAllTestees">
-      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveAllTestees" message="tns:IApplicationServer_SaveAllTestees_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveAllTesteesResponse" message="tns:IApplicationServer_SaveAllTestees_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTesteeByID">
-      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetTesteeByID" message="tns:IApplicationServer_GetTesteeByID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetTesteeByIDResponse" message="tns:IApplicationServer_GetTesteeByID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SaveTesteeAnswer">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer" message="tns:IApplicationServer_SaveTesteeAnswer_InputMessage" />
@@ -1496,10 +1533,6 @@
     <wsdl:operation name="GetAllTrainings">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTrainings" message="tns:IApplicationServer_GetAllTrainings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse" message="tns:IApplicationServer_GetAllTrainings_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SaveAllTrainings">
-      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveAllTrainings" message="tns:IApplicationServer_SaveAllTrainings_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveAllTrainingsResponse" message="tns:IApplicationServer_SaveAllTrainings_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="FindByLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/FindByLogin" message="tns:IApplicationServer_FindByLogin_InputMessage" />
@@ -1569,10 +1602,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateRoles" message="tns:IApplicationServer_UpdateRoles_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateRolesResponse" message="tns:IApplicationServer_UpdateRoles_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdatePermissions">
-      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdatePermissions" message="tns:IApplicationServer_UpdatePermissions_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdatePermissionsResponse" message="tns:IApplicationServer_UpdatePermissions_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="AddTesteeRole">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/AddTesteeRole" message="tns:IApplicationServer_AddTesteeRole_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/AddTesteeRoleResponse" message="tns:IApplicationServer_AddTesteeRole_OutputMessage" />
@@ -1589,9 +1618,29 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/LoadTesteeFromEPE" message="tns:IApplicationServer_LoadTesteeFromEPE_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/LoadTesteeFromEPEResponse" message="tns:IApplicationServer_LoadTesteeFromEPE_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="LoadAdditionalQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/LoadAdditionalQuestions" message="tns:IApplicationServer_LoadAdditionalQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/LoadAdditionalQuestionsResponse" message="tns:IApplicationServer_LoadAdditionalQuestions_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllTesteesForReport">
       <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTesteesForReport" message="tns:IApplicationServer_GetAllTesteesForReport_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTesteesForReportResponse" message="tns:IApplicationServer_GetAllTesteesForReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/ReadApplicationSettings" message="tns:IApplicationServer_ReadApplicationSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/ReadApplicationSettingsResponse" message="tns:IApplicationServer_ReadApplicationSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveApplicationSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveApplicationSettings" message="tns:IApplicationServer_SaveApplicationSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveApplicationSettingsResponse" message="tns:IApplicationServer_SaveApplicationSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplicationSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateApplicationSettings" message="tns:IApplicationServer_UpdateApplicationSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateApplicationSettingsResponse" message="tns:IApplicationServer_UpdateApplicationSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetSettings" message="tns:IApplicationServer_GetSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetSettingsResponse" message="tns:IApplicationServer_GetSettings_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IApplicationServer" type="tns:IApplicationServer">
@@ -1605,28 +1654,6 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_GetAllTestees_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SaveAllTestees">
-      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/SaveAllTestees" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_SaveAllTestees_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_SaveAllTestees_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTesteeByID">
-      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/GetTesteeByID" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_GetTesteeByID_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_GetTesteeByID_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -1671,17 +1698,6 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_GetAllTrainings_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SaveAllTrainings">
-      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/SaveAllTrainings" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_SaveAllTrainings_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_SaveAllTrainings_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -1872,17 +1888,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdatePermissions">
-      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/UpdatePermissions" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_UpdatePermissions_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_UpdatePermissions_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="AddTesteeRole">
       <soap12:operation soapAction="http://tempuri.org/IApplicationServer/AddTesteeRole" style="document" />
       <wsdl:input>
@@ -1927,6 +1932,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="LoadAdditionalQuestions">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/LoadAdditionalQuestions" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_LoadAdditionalQuestions_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_LoadAdditionalQuestions_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllTesteesForReport">
       <soap12:operation soapAction="http://tempuri.org/IApplicationServer/GetAllTesteesForReport" style="document" />
       <wsdl:input>
@@ -1935,6 +1951,50 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_GetAllTesteesForReport_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadApplicationSettings">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/ReadApplicationSettings" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_ReadApplicationSettings_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_ReadApplicationSettings_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveApplicationSettings">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/SaveApplicationSettings" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_SaveApplicationSettings_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_SaveApplicationSettings_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplicationSettings">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/UpdateApplicationSettings" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_UpdateApplicationSettings_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_UpdateApplicationSettings_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSettings">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/GetSettings" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_GetSettings_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_GetSettings_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

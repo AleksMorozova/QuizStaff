@@ -11,71 +11,58 @@ namespace ApplicationServer
     [ServiceContract]
     public interface IApplicationServer
     {
+        #region Testee 
+
         [OperationContract]
         List<TesteeDTO> GetAllTestees();
-
-        [OperationContract]
-        void SaveAllTestees(ICollection<TesteeDTO> testees);
-
-        [OperationContract]
-        TesteeDTO GetTesteeByID(Guid id);
-
-        [OperationContract]
-        void SaveTesteeAnswer(HistoryDTO history);
-
-        [OperationContract]
-        QuestionDTO GetRandomQuestionForTestee(Guid id);
-
-        [OperationContract]
-        List<TrainingDTO> GetAllActiveTrainings();
-
-        [OperationContract]
-        List<TrainingDTO> GetAllTrainings();
-
-        [OperationContract]
-        void SaveAllTrainings(ICollection<TrainingDTO> trainings);
 
         [OperationContract]
         TesteeDTO FindByLogin(string login);
 
         [OperationContract]
-        void SaveAnswer(QuestionDTO question);
+        TesteeDTO SaveTestee(TesteeDTO testee);
+        #endregion
+
+        #region Training
 
         [OperationContract]
-        TrainingDTO UpdateTraining(TrainingDTO training);
+        List<TrainingDTO> GetAllTrainings();
+
+        [OperationContract]
+        List<TrainingDTO> GetAllActiveTrainings();
 
         [OperationContract]
         TrainingDTO SaveTraining(TrainingDTO training);
 
         [OperationContract]
-        void UpdateQuestion(QuestionDTO training);
-
-        [OperationContract]
-        void SaveQuestion(QuestionDTO training);
-
-        [OperationContract]
-        TesteeDTO UpdateTestee(TesteeDTO testee);
-
-        [OperationContract]
-        TesteeDTO SaveTestee(TesteeDTO testee);
-
-        [OperationContract]
-        void UpdateSettings(SettingDTO[] setting);
-
-        [OperationContract]
-        void DeleteAnswer(AnswerDTO answer);
-
-        [OperationContract]
-        void DeleteTesteeTraining(TesteeTrainingDTO testeeTraining);
-
-        [OperationContract]
-        void UpdateTesteeTrainings(TesteeTrainingDTO[] testeeTraining);
-
-        [OperationContract]
-        void UpdateTesteeTraining(TesteeTrainingDTO testeeTraining);
-
-        [OperationContract]
         TrainingDTO FindByTitle(string title);
+
+        #endregion
+
+        #region Question
+
+        [OperationContract]
+        void SaveQuestion(QuestionDTO question);
+
+        [OperationContract]
+        QuestionDTO GetRandomQuestionForTestee(Guid id);
+
+        [OperationContract]
+        void UpdateAnswer(AnswerDTO answer);
+
+        #endregion Question
+
+        #region ApplicationSettings
+
+        [OperationContract]
+        ApplicationSettingsDTO GetApplicationSettings();
+
+        [OperationContract]
+        ApplicationSettingsDTO SaveApplicationSettings(ApplicationSettingsDTO setting);
+
+        #endregion
+
+        #region Role
 
         [OperationContract]
         List<RoleDTO> GetAllRoles();
@@ -84,16 +71,11 @@ namespace ApplicationServer
         List<PermissionDTO> GetAllPermissions();
 
         [OperationContract]
-        void UpdateRoles(RoleDTO role);
+        void SaveRole(RoleDTO role);
 
-        [OperationContract]
-        void UpdatePermissions(PermissionDTO permission);
+        #endregion
 
-        [OperationContract]
-        void AddTesteeRole(TesteeDTO testee, RoleDTO role);
-
-        [OperationContract]
-        void UpdateAnswer(AnswerDTO answer);
+        #region Write loaded information
 
         [OperationContract]
         void LoadTrainings();
@@ -102,6 +84,32 @@ namespace ApplicationServer
         void LoadTesteeFromEPE();
 
         [OperationContract]
-        List<TesteeDTO> GetAllTesteesForReport(DateTime from, DateTime to);
+        void LoadAdditionalQuestions();
+
+        #endregion
+
+        #region TesteeSettings
+
+        [OperationContract]
+        void UpdateSettings(SettingDTO[] settings);
+
+        [OperationContract]
+        void UpdateTesteeTrainings(TesteeTrainingDTO[] testeeTrainings);
+
+        #endregion
+
+        #region TesteeAnswer
+
+        [OperationContract]
+        void SaveTesteeAnswer(HistoryDTO history);
+
+        #endregion
+
+        #region Testee Training
+
+        [OperationContract]
+        void UpdateTesteeTraining(TesteeTrainingDTO testeeTraining);
+
+        #endregion
     }
 }

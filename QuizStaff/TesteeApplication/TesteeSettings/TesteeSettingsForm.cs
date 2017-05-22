@@ -6,23 +6,30 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using TesteeApplication.TesteeQuestion;
 using System.Configuration;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TesteeApplication.TesteeSettings
 {
-    public partial class TesteeSettingsForm : DevExpress.XtraEditors.XtraForm//, ILocalized
+    public partial class TesteeSettingsForm : DevExpress.XtraEditors.XtraForm
     {
         private TesteeSettingsViewModel model;
 
         //Timer fields
-        private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+        private Timer timer = new Timer();
         private int QuestionAmount = 0;
-        private DateTime QuestionTime = Program.СurrentTestee.UserSetting.TimeOfStart;
+        private DateTime QuestionTime;
 
         public TesteeSettingsForm()
         {
             InitializeComponent();
             Localized(Program.СurrentLang);
 
+            //set up timer
+            QuestionTime = Program.СurrentTestee.UserSetting.TimeOfStart;
+            QuestionAmount = Program.СurrentTestee.Histories.Count(_ => _.AnsweringDate.Date == DateTime.Now.Date);
+
+            //set up view model
             mvvmTesteeSettingsContext.ViewModelType = typeof(TesteeSettingsViewModel);
             model = mvvmTesteeSettingsContext.GetViewModel<TesteeSettingsViewModel>();
             mvvmTesteeSettingsContext.SetViewModel(typeof(TesteeSettingsViewModel), model);
@@ -32,10 +39,16 @@ namespace TesteeApplication.TesteeSettings
                  
             SetUpLanguageComboBox();
             BindEndParameters();
-            SetControlAccess(model.UserSetting.CanUserEdit);
-            SetUpRangeOfRecurrence(model.UserSetting.Recurrence);
+            SetControlAccess(Program.СurrentTestee.UserSetting.CanUserEdit);
+            SetUpRangeOfRecurrence(Program.СurrentTestee.UserSetting.Recurrence);
 
             StartTimer();
+
+            model.SetingsChanged += new TesteeSettingsViewModel.SettingsChangedEventHandler(SettingsChanged);
+        }
+
+        private void SettingsChanged(object sender, EventArgs e)
+        {
         }
 
         private void BindCommands()
@@ -47,7 +60,7 @@ namespace TesteeApplication.TesteeSettings
         private void BindToViewModel()
         {
             //TODO: Rewrite binding to mvvmTesteeSettingsContext bindings
-            var inner = new BindingSource { DataSource = model.UserSetting };
+            var inner = new BindingSource { DataSource = Program.СurrentTestee.UserSetting };
             hoursSpinEdit.DataBindings.Add("EditValue", inner, "Hours");
             minuteSpinEdit.DataBindings.Add("EditValue", inner, "Minutes");
             secondSpinEdit.DataBindings.Add("EditValue", inner, "Seconds");
@@ -226,7 +239,7 @@ namespace TesteeApplication.TesteeSettings
         private void timer_Tick(object sender, EventArgs e)
         {
             if (Program.СurrentTestee.UserSetting.Recurrence == RecurrenceType.WithExactRepeated 
-                && QuestionAmount <= Program.СurrentTestee.UserSetting.AmountOfQuestionsPerDay)
+                && QuestionAmount < Program.СurrentTestee.UserSetting.AmountOfQuestionsPerDay)
             {
                 AskQuestion();
             }
@@ -256,19 +269,23 @@ namespace TesteeApplication.TesteeSettings
             if (CheckDateAndTime())
             {
                 TesteeQuestionForm questionForm = new TesteeQuestionForm(Program.СurrentTestee);
-                timer.Stop();
-                questionForm.ShowDialog();
-                timer.Start();
-                UpdateTime();
+                
+                if (questionForm.IsTesteeHaveQuestion)
+                {
+                    timer.Stop();
+                    questionForm.ShowDialog();
+                    timer.Start();
+                    UpdateTime();
+                }
             }
         }
 
         private void UpdateTime()
         {
             QuestionTime = DateTime.Now;
-            QuestionTime = QuestionTime.AddHours(0);
-            QuestionTime = QuestionTime.AddMinutes(2);
-            QuestionTime = QuestionTime.AddSeconds(0);
+            QuestionTime = QuestionTime.AddHours(Program.СurrentTestee.UserSetting.Hours);
+            QuestionTime = QuestionTime.AddMinutes(Program.СurrentTestee.UserSetting.Minutes);
+            QuestionTime = QuestionTime.AddSeconds(Program.СurrentTestee.UserSetting.Seconds);
 
             QuestionAmount = (QuestionTime.Date == DateTime.Now.Date)
                 ? QuestionAmount + 1

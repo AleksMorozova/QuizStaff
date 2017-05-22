@@ -104,14 +104,12 @@ namespace AdminApplication.AdminSettings
             {
                 if (role.Id == Guid.Empty)
                 {
-                    foreach (var testee in Testees.ToList())
-                    {
-                        ServicesHolder.ServiceClient.AddTesteeRole(testee, Conversion.ConvertRoleToDTO(role));
-                    }
+                    ServicesHolder.ServiceClient.SaveRole(Conversion.ConvertRoleToDTO(role));
+                   
                 }
                 else 
                 {
-                    ServicesHolder.ServiceClient.UpdateRoles(Conversion.ConvertRoleToDTO(role));
+                    ServicesHolder.ServiceClient.SaveRole(Conversion.ConvertRoleToDTO(role));
                 }  
             }
         }

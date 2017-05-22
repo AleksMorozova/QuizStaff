@@ -123,6 +123,7 @@
             this.permissionGridColumn.Caption = "Title";
             this.permissionGridColumn.FieldName = "Title";
             this.permissionGridColumn.Name = "permissionGridColumn";
+            this.permissionGridColumn.OptionsColumn.AllowEdit = false;
             this.permissionGridColumn.Visible = true;
             this.permissionGridColumn.VisibleIndex = 1;
             // 

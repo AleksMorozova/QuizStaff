@@ -104,7 +104,7 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
                 {
                     deletedQuestion.IsActive = false;
 
-                    ServicesHolder.ServiceClient.UpdateQuestion(deletedQuestion);
+                    ServicesHolder.ServiceClient.SaveQuestion(deletedQuestion);
                 }
 
                 this.Training.Questions.Remove(deletedQuestion);
@@ -121,23 +121,9 @@ namespace AdminApplication.TrainingsForms.TrainingAddEdit
         {
             if (this.Training != null)
             {
-                if (this.Training.Id == Guid.Empty)
-                {
-                    var savedTraining = ServicesHolder.ServiceClient.SaveTraining(Conversion.ConvertTrainingToDTO(this.Training));
-                    this.Training = Conversion.ConvertTrainingFromDTO(savedTraining);
-                }
-                else
-                {
-                    var updateTraining = ServicesHolder.ServiceClient.UpdateTraining(Conversion.ConvertTrainingToDTO(this.Training));
-                    this.Training = Conversion.ConvertTrainingFromDTO(updateTraining);
-                }
+                var savedTraining = ServicesHolder.ServiceClient.SaveTraining(Conversion.ConvertTrainingToDTO(this.Training));
+                this.Training = Conversion.ConvertTrainingFromDTO(savedTraining);
             }
-        }
-        
-        public void LoadQuestions()
-        {
-            // TODO: implement loading of questions from external source
-            XtraMessageBox.Show("Load questions");
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };

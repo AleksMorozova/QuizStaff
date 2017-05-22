@@ -16,6 +16,7 @@ namespace DataTransferObject
             newTraining.Id = currentTraining.Id;
             newTraining.TrainingTitle = currentTraining.TrainingTitle;
             newTraining.IsActive = currentTraining.IsActive;
+            newTraining.IsAdditional = currentTraining.IsAdditional;
 
             newTraining.Questions = new BindingList<Question>();
             foreach (var question in currentTraining.Questions)
@@ -46,6 +47,7 @@ namespace DataTransferObject
             newTraining.Id = currentTraining.Id;
             newTraining.TrainingTitle = currentTraining.TrainingTitle;
             newTraining.IsActive = currentTraining.IsActive;
+            newTraining.IsAdditional = currentTraining.IsAdditional;
 
             newTraining.Questions = new BindingList<QuestionDTO>();
             if (currentTraining.Questions != null)
@@ -96,9 +98,13 @@ namespace DataTransferObject
             newTestee.Attribute4 = testee.Attribute4;
             newTestee.Attribute5 = testee.Attribute5;
             newTestee.Attribute6 = testee.Attribute6;
+            newTestee.Attribute7 = testee.Attribute7;
             newTestee.Attribute8 = testee.Attribute8;
             newTestee.Attribute9 = testee.Attribute9;
             newTestee.Attribute10 = testee.Attribute10;
+            newTestee.Attribute11 = testee.Attribute11;
+            newTestee.Attribute12 = testee.Attribute12;
+            newTestee.Attribute13 = testee.Attribute13;
 
             //Copy settings
             newTestee.UserSetting.Id = testee.UserSetting.Id;
@@ -115,6 +121,9 @@ namespace DataTransferObject
             newTestee.UserSetting.ShowCorrectAnswer = testee.UserSetting.ShowCorrectAnswer;
 
             newTestee.Roles = new BindingList<TesteeRolesDTO>();
+
+            newTestee.Trainings = new BindingList<TesteeTrainingDTO>();
+            newTestee.Histories = new BindingList<HistoryDTO>();
 
             if (testee.Roles!=null && testee.Roles.Count() > 0)
             {
@@ -171,9 +180,13 @@ namespace DataTransferObject
             newTestee.Attribute4 = testee.Attribute4;
             newTestee.Attribute5 = testee.Attribute5;
             newTestee.Attribute6 = testee.Attribute6;
+            newTestee.Attribute7 = testee.Attribute7;
             newTestee.Attribute8 = testee.Attribute8;
             newTestee.Attribute9 = testee.Attribute9;
             newTestee.Attribute10 = testee.Attribute10;
+            newTestee.Attribute11 = testee.Attribute11;
+            newTestee.Attribute12 = testee.Attribute12;
+            newTestee.Attribute13 = testee.Attribute13;
 
             //Copy settings
             newTestee.UserSetting.Id = testee.UserSetting.Id;
@@ -195,8 +208,9 @@ namespace DataTransferObject
                     if (role.Role != null)
                         newTestee.Roles.Add(ConvertTesteeRoleFromDTO(role));
                 }
-            } 
+            }
 
+            newTestee.Trainings = new BindingList<TesteeTraining>();
             //Copy trainings
             if (testee.Trainings != null)
             {
@@ -348,6 +362,7 @@ namespace DataTransferObject
             newQuestion.Id = currentQuestion.Id;
             newQuestion.QuestionText = currentQuestion.QuestionText;
             newQuestion.IsActive = currentQuestion.IsActive;
+            //newQuestion.Training = Conversion.ConvertTrainingFromDTO(currentQuestion.Training);
 
             return newQuestion;
         }
@@ -358,10 +373,11 @@ namespace DataTransferObject
             newQuestion.Id = currentQuestion.Id;
             newQuestion.QuestionText = currentQuestion.QuestionText;
             newQuestion.IsActive = currentQuestion.IsActive;
+            //newQuestion.Training = Conversion.ConvertTrainingToDTO(currentQuestion.Training);
 
             return newQuestion;
         }
-      
+
         public static Testee CopyTestee(Testee testee)
         {
             Testee newTestee = new Testee();
@@ -382,9 +398,13 @@ namespace DataTransferObject
             newTestee.Attribute4 = testee.Attribute4;
             newTestee.Attribute5 = testee.Attribute5;
             newTestee.Attribute6 = testee.Attribute6;
+            newTestee.Attribute7 = testee.Attribute7;
             newTestee.Attribute8 = testee.Attribute8;
             newTestee.Attribute9 = testee.Attribute9;
             newTestee.Attribute10 = testee.Attribute10;
+            newTestee.Attribute11 = testee.Attribute11;
+            newTestee.Attribute12 = testee.Attribute12;
+            newTestee.Attribute13 = testee.Attribute13;
 
             //Copy settings
             newTestee.UserSetting.Id = testee.UserSetting.Id;
@@ -419,6 +439,7 @@ namespace DataTransferObject
             newTraining.Id = currentTraining.Id;
             newTraining.TrainingTitle = currentTraining.TrainingTitle;
             newTraining.IsActive = currentTraining.IsActive;
+            newTraining.IsAdditional = currentTraining.IsAdditional;
 
             newTraining.Questions = new BindingList<Question>();
             foreach (var question in currentTraining.Questions)
@@ -466,6 +487,7 @@ namespace DataTransferObject
             Role newRole = new Role();
             newRole.Id = role.Id;
             newRole.Name = role.Name;
+            newRole.Description = role.Description;
             newRole.Permissions = new BindingList<RolePermission>();
 
             foreach (var p in role.Permissions)
@@ -489,6 +511,7 @@ namespace DataTransferObject
             RoleDTO newRole = new RoleDTO();
             newRole.Id = role.Id;
             newRole.Name = role.Name;
+            newRole.Description = role.Description;
             newRole.Permissions = new BindingList<RolePermissionDTO>();
 
             foreach (var p in role.Permissions)
@@ -551,6 +574,47 @@ namespace DataTransferObject
             newRole.Id = role.Id;
             newRole.Role = ConvertRoleFromDTO(role.Role);
             return newRole;
+        }
+
+        public static ApplicationSettingsDTO ConvertApplicationSettingsToDTO(ApplicationSettings settings)
+        {
+            ApplicationSettingsDTO newsettings = new ApplicationSettingsDTO();
+            newsettings.Id = settings.Id;
+            newsettings.AdditionalQuestionsPath = settings.AdditionalQuestionsPath;
+            newsettings.LMSReportFileName = settings.LMSReportFileName;
+            newsettings.LMSReportPath = settings.LMSReportPath;
+            newsettings.TimeOfUpdating = settings.TimeOfUpdating;
+            newsettings.TrainingsQuestionsPath = settings.TrainingsQuestionsPath;
+
+            newsettings.Days = new BindingList<DaysOfUpdateDTO>();
+            if (settings.Days != null)
+                foreach (var day in settings.Days)
+                {
+                    newsettings.Days.Add(new DaysOfUpdateDTO() { Id = day.Id, Day = day.Day, IsSelect = day.IsSelect });
+                }
+
+            return newsettings;
+        }
+
+        public static ApplicationSettings ConvertApplicationSettingsFromDTO(ApplicationSettingsDTO settings)
+        {
+            ApplicationSettings newsettings = new ApplicationSettings();
+            newsettings.Id = settings.Id;
+            newsettings.AdditionalQuestionsPath = settings.AdditionalQuestionsPath;
+            newsettings.LMSReportFileName = settings.LMSReportFileName;
+            newsettings.LMSReportPath = settings.LMSReportPath;
+            newsettings.TimeOfUpdating = settings.TimeOfUpdating;
+            newsettings.TrainingsQuestionsPath = settings.TrainingsQuestionsPath;
+
+            newsettings.Days = new BindingList<DaysOfUpdate>();
+
+            if (settings.Days != null)
+                foreach (var day in settings.Days)
+                {
+                    newsettings.Days.Add(new DaysOfUpdate() { Id = day.Id, Day = day.Day, IsSelect = day.IsSelect });
+                }
+
+            return newsettings;
         }
     }
 }

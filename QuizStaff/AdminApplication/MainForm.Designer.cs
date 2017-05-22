@@ -38,9 +38,11 @@
             this.adminSettingsBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.roleBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.aboutBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.reportBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.languageBarSubItem = new DevExpress.XtraBars.BarSubItem();
             this.russianBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.englishBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.statusBar = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -50,7 +52,6 @@
             this.testBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.loginBarButton = new DevExpress.XtraBars.BarButtonItem();
             this.questionBarButton = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMenuManager)).BeginInit();
             this.SuspendLayout();
@@ -82,9 +83,10 @@
             this.adminSettingsBarButtonItem,
             this.roleBarButton,
             this.aboutBarButtonItem,
-            this.barButtonItem1});
+            this.reportBarButton,
+            this.barButtonItem2});
             this.mainMenuManager.MainMenu = this.mainMenu;
-            this.mainMenuManager.MaxItemId = 13;
+            this.mainMenuManager.MaxItemId = 14;
             this.mainMenuManager.StatusBar = this.statusBar;
             // 
             // mainMenu
@@ -99,8 +101,9 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.adminSettingsBarButtonItem),
             new DevExpress.XtraBars.LinkPersistInfo(this.roleBarButton),
             new DevExpress.XtraBars.LinkPersistInfo(this.aboutBarButtonItem),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.languageBarSubItem, true)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.reportBarButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.languageBarSubItem, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2)});
             this.mainMenu.OptionsBar.MultiLine = true;
             this.mainMenu.OptionsBar.UseWholeRow = true;
             resources.ApplyResources(this.mainMenu, "mainMenu");
@@ -140,6 +143,13 @@
             this.aboutBarButtonItem.Name = "aboutBarButtonItem";
             this.aboutBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.aboutBarButtonItem_ItemClick);
             // 
+            // reportBarButton
+            // 
+            resources.ApplyResources(this.reportBarButton, "reportBarButton");
+            this.reportBarButton.Id = 12;
+            this.reportBarButton.Name = "reportBarButton";
+            this.reportBarButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.reportBarButton_ItemClick);
+            // 
             // languageBarSubItem
             // 
             resources.ApplyResources(this.languageBarSubItem, "languageBarSubItem");
@@ -162,6 +172,13 @@
             this.englishBarButtonItem.Id = 8;
             this.englishBarButtonItem.Name = "englishBarButtonItem";
             this.englishBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.englishBarButtonItem_ItemClick);
+            // 
+            // barButtonItem2
+            // 
+            resources.ApplyResources(this.barButtonItem2, "barButtonItem2");
+            this.barButtonItem2.Id = 13;
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // statusBar
             // 
@@ -223,13 +240,6 @@
             this.questionBarButton.Name = "questionBarButton";
             this.questionBarButton.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
-            // barButtonItem1
-            // 
-            resources.ApplyResources(this.barButtonItem1, "barButtonItem1");
-            this.barButtonItem1.Id = 12;
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
-            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -271,6 +281,7 @@
         private DevExpress.XtraBars.BarButtonItem adminSettingsBarButtonItem;
         private DevExpress.XtraBars.BarButtonItem roleBarButton;
         private DevExpress.XtraBars.BarButtonItem aboutBarButtonItem;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem reportBarButton;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
     }
 }

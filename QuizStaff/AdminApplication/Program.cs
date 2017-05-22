@@ -1,5 +1,4 @@
-﻿using AdminApplication.LoginForm;
-using DataTransferObject;
+﻿using DataTransferObject;
 using DevExpress.XtraEditors;
 using DomainModel;
 using System;
@@ -12,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using log4net;
 using System.ComponentModel;
+using LoginApplication;
 
 namespace AdminApplication
 {
@@ -36,7 +36,7 @@ namespace AdminApplication
             LoginResult loginResult = LoginResult.None;
             while (loginResult != LoginResult.LoggedIn)
             {
-                loginResult = Authorization.Login();
+                loginResult = Authorization.LoginForAdminApplication();
                 switch (loginResult)
                 {
                     case LoginResult.Failed:
@@ -49,9 +49,12 @@ namespace AdminApplication
                         XtraMessageBox.Show("Authentication error. You have no permissions to access the database. Please, contact to IT administrator");
                         break;
                     case LoginResult.LoggedIn:
+                        СurrentTestee = Authorization.СurrentTestee;
+                        CurrentUserPermissions = Authorization.CurrentUserPermissions;
                         log.Info("User " + СurrentTestee.Login + " was successfully login");
                         break;
                     default:
+                        XtraMessageBox.Show("Authentication error. Please, contact to IT administrator");
                         log.Error("Authentication error. You have no permissions to access the database. Please, contact to IT administrator");
                         break;
                 }
