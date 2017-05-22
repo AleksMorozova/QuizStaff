@@ -47,7 +47,6 @@
     <Compile Include="PermissionDTO.cs" />
     <Compile Include="QuestionDTO.cs" />
     <Compile Include="RoleDTO.cs" />
-    <Compile Include="RolePermissionDTO.cs" />
     <Compile Include="SettingDTO.cs" />
     <Compile Include="TesteeAnswerDTO.cs" />
     <Compile Include="TesteeDTO.cs" />

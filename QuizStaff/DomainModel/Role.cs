@@ -11,7 +11,7 @@ namespace DomainModel
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public virtual BindingList<RolePermission> Permissions { get; set; }
+        public virtual BindingList<Permission> Permissions { get; set; }
         public virtual BindingList<Testee> Testees { get; set; }
     }
 }

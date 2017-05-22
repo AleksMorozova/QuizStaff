@@ -28,7 +28,7 @@ namespace DataTransferObject
             }
         }
 
-        public virtual BindingList<RolePermissionDTO> Roles { get; set; }
+        public virtual BindingList<RoleDTO> Roles { get; set; }
 
         public virtual PermissionType Type { get; set; }
 

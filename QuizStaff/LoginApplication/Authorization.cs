@@ -155,7 +155,7 @@ namespace LoginApplication
         {
             var userRolePermission = СurrentTestee.Roles.Select(_ => _.Role.Permissions);
             foreach (var rolePermission in userRolePermission)
-                foreach (var permission in rolePermission.Select(_ => _.Permission))
+                foreach (var permission in rolePermission)
                     CurrentUserPermissions.Add(permission);
         }
 

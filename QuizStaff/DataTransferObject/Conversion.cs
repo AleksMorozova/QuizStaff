@@ -488,17 +488,15 @@ namespace DataTransferObject
             newRole.Id = role.Id;
             newRole.Name = role.Name;
             newRole.Description = role.Description;
-            newRole.Permissions = new BindingList<RolePermission>();
+            newRole.Permissions = new BindingList<Permission>();
 
             foreach (var p in role.Permissions)
             {
-                RolePermission permission = new RolePermission();
+                Permission permission = new Permission();
                 permission.Id = p.Id;
-
-                permission.Permission = new Permission();
-                permission.Permission.Id = p.Permission.Id;
-                permission.Permission.Title = p.Permission.Title;
-                permission.Permission.Type = p.Permission.Type;
+                
+                permission.Title = p.Title;
+                permission.Type = p.Type;
 
                 newRole.Permissions.Add(permission);
             }
@@ -512,17 +510,14 @@ namespace DataTransferObject
             newRole.Id = role.Id;
             newRole.Name = role.Name;
             newRole.Description = role.Description;
-            newRole.Permissions = new BindingList<RolePermissionDTO>();
+            newRole.Permissions = new BindingList<PermissionDTO>();
 
             foreach (var p in role.Permissions)
             {
-                RolePermissionDTO permission = new RolePermissionDTO();
+                PermissionDTO permission = new PermissionDTO();
                 permission.Id = p.Id;
-
-                permission.Permission = new Permission();
-                permission.Permission.Id = p.Permission.Id;
-                permission.Permission.Title = p.Permission.Title;
-                permission.Permission.Type = p.Permission.Type;
+                permission.Title = p.Title;
+                permission.Type = p.Type;
 
                 newRole.Permissions.Add(permission);
             }
@@ -530,33 +525,33 @@ namespace DataTransferObject
             return newRole;
         }
 
-        public static RolePermission ConvertRolePermissonFromDTO(RolePermissionDTO rolePermission)
-        {
-            RolePermission newRolePermission = new RolePermission();
-            newRolePermission.Id = rolePermission.Id;
-            newRolePermission.Role = Conversion.ConvertRoleFromDTO(rolePermission.Role);
+        //public static RolePermission ConvertRolePermissonFromDTO(RolePermissionDTO rolePermission)
+        //{
+        //    RolePermission newRolePermission = new RolePermission();
+        //    newRolePermission.Id = rolePermission.Id;
+        //    newRolePermission.Role = Conversion.ConvertRoleFromDTO(rolePermission.Role);
 
-            newRolePermission.Permission = new Permission();
-            newRolePermission.Permission.Id = rolePermission.Permission.Id;
-            newRolePermission.Permission.Title = rolePermission.Permission.Title;
-            newRolePermission.Permission.Type = rolePermission.Permission.Type;
+        //    newRolePermission.Permission = new Permission();
+        //    newRolePermission.Permission.Id = rolePermission.Permission.Id;
+        //    newRolePermission.Permission.Title = rolePermission.Permission.Title;
+        //    newRolePermission.Permission.Type = rolePermission.Permission.Type;
 
-            return newRolePermission;
-        }
+        //    return newRolePermission;
+        //}
 
-        public static RolePermissionDTO ConvertRolePermissonToDTO(RolePermission rolePermission)
-        {
-            RolePermissionDTO newRolePermission = new RolePermissionDTO();
-            newRolePermission.Id = rolePermission.Id;
-            newRolePermission.Role = Conversion.ConvertRoleToDTO(rolePermission.Role);
+        //public static RolePermissionDTO ConvertRolePermissonToDTO(RolePermission rolePermission)
+        //{
+        //    RolePermissionDTO newRolePermission = new RolePermissionDTO();
+        //    newRolePermission.Id = rolePermission.Id;
+        //    newRolePermission.Role = Conversion.ConvertRoleToDTO(rolePermission.Role);
 
-            newRolePermission.Permission = new PermissionDTO();
-            newRolePermission.Permission.Id = rolePermission.Permission.Id;
-            newRolePermission.Permission.Title = rolePermission.Permission.Title;
-            newRolePermission.Permission.Type = rolePermission.Permission.Type;
+        //    newRolePermission.Permission = new PermissionDTO();
+        //    newRolePermission.Permission.Id = rolePermission.Permission.Id;
+        //    newRolePermission.Permission.Title = rolePermission.Permission.Title;
+        //    newRolePermission.Permission.Type = rolePermission.Permission.Type;
 
-            return newRolePermission;
-        }
+        //    return newRolePermission;
+        //}
 
         public static TesteeRolesDTO ConvertTesteeRoleToDTO(TesteeRoles role)
         {
