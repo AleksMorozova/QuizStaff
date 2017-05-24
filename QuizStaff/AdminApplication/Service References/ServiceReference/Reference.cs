@@ -21,71 +21,11 @@ namespace AdminApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTestees", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeAnswerResponse")]
-        void SaveTesteeAnswer(DataTransferObject.HistoryDTO history);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeAnswerResponse")]
-        System.Threading.Tasks.Task SaveTesteeAnswerAsync(DataTransferObject.HistoryDTO history);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse")]
-        DataTransferObject.QuestionDTO GetRandomQuestionForTestee(System.Guid id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetRandomQuestionForTesteeAsync(System.Guid id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllActiveTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllActiveTrainingsResponse")]
-        DataTransferObject.TrainingDTO[] GetAllActiveTrainings();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllActiveTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllActiveTrainingsResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllActiveTrainingsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse")]
-        DataTransferObject.TrainingDTO[] GetAllTrainings();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllTrainingsAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByLogin", ReplyAction="http://tempuri.org/IApplicationServer/FindByLoginResponse")]
         DataTransferObject.TesteeDTO FindByLogin(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByLogin", ReplyAction="http://tempuri.org/IApplicationServer/FindByLoginResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> FindByLoginAsync(string login);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveAnswerResponse")]
-        void SaveAnswer(DataTransferObject.QuestionDTO question);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveAnswerResponse")]
-        System.Threading.Tasks.Task SaveAnswerAsync(DataTransferObject.QuestionDTO question);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTrainingResponse")]
-        DataTransferObject.TrainingDTO UpdateTraining(DataTransferObject.TrainingDTO training);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTrainingResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> UpdateTrainingAsync(DataTransferObject.TrainingDTO training);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTraining", ReplyAction="http://tempuri.org/IApplicationServer/SaveTrainingResponse")]
-        DataTransferObject.TrainingDTO SaveTraining(DataTransferObject.TrainingDTO training);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTraining", ReplyAction="http://tempuri.org/IApplicationServer/SaveTrainingResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> SaveTrainingAsync(DataTransferObject.TrainingDTO training);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateQuestion", ReplyAction="http://tempuri.org/IApplicationServer/UpdateQuestionResponse")]
-        void UpdateQuestion(DataTransferObject.QuestionDTO training);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateQuestion", ReplyAction="http://tempuri.org/IApplicationServer/UpdateQuestionResponse")]
-        System.Threading.Tasks.Task UpdateQuestionAsync(DataTransferObject.QuestionDTO training);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveQuestion", ReplyAction="http://tempuri.org/IApplicationServer/SaveQuestionResponse")]
-        void SaveQuestion(DataTransferObject.QuestionDTO training);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveQuestion", ReplyAction="http://tempuri.org/IApplicationServer/SaveQuestionResponse")]
-        System.Threading.Tasks.Task SaveQuestionAsync(DataTransferObject.QuestionDTO training);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTestee", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeResponse")]
-        DataTransferObject.TesteeDTO UpdateTestee(DataTransferObject.TesteeDTO testee);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTestee", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> UpdateTesteeAsync(DataTransferObject.TesteeDTO testee);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTestee", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeResponse")]
         DataTransferObject.TesteeDTO SaveTestee(DataTransferObject.TesteeDTO testee);
@@ -93,41 +33,59 @@ namespace AdminApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTestee", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> SaveTesteeAsync(DataTransferObject.TesteeDTO testee);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSettingsResponse")]
-        void UpdateSettings(DataTransferObject.SettingDTO[] setting);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse")]
+        DataTransferObject.TrainingDTO[] GetAllTrainings();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSettingsResponse")]
-        System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO[] setting);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllTrainingsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteAnswer", ReplyAction="http://tempuri.org/IApplicationServer/DeleteAnswerResponse")]
-        void DeleteAnswer(DataTransferObject.AnswerDTO answer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllActiveTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllActiveTrainingsResponse")]
+        DataTransferObject.TrainingDTO[] GetAllActiveTrainings();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteAnswer", ReplyAction="http://tempuri.org/IApplicationServer/DeleteAnswerResponse")]
-        System.Threading.Tasks.Task DeleteAnswerAsync(DataTransferObject.AnswerDTO answer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllActiveTrainings", ReplyAction="http://tempuri.org/IApplicationServer/GetAllActiveTrainingsResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllActiveTrainingsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/DeleteTesteeTrainingResponse")]
-        void DeleteTesteeTraining(DataTransferObject.TesteeTrainingDTO testeeTraining);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTraining", ReplyAction="http://tempuri.org/IApplicationServer/SaveTrainingResponse")]
+        DataTransferObject.TrainingDTO SaveTraining(DataTransferObject.TrainingDTO training);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/DeleteTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/DeleteTesteeTrainingResponse")]
-        System.Threading.Tasks.Task DeleteTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTrainings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingsResponse")]
-        void UpdateTesteeTrainings(DataTransferObject.TesteeTrainingDTO[] testeeTraining);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTrainings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingsResponse")]
-        System.Threading.Tasks.Task UpdateTesteeTrainingsAsync(DataTransferObject.TesteeTrainingDTO[] testeeTraining);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingResponse")]
-        void UpdateTesteeTraining(DataTransferObject.TesteeTrainingDTO testeeTraining);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingResponse")]
-        System.Threading.Tasks.Task UpdateTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTraining", ReplyAction="http://tempuri.org/IApplicationServer/SaveTrainingResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> SaveTrainingAsync(DataTransferObject.TrainingDTO training);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByTitle", ReplyAction="http://tempuri.org/IApplicationServer/FindByTitleResponse")]
         DataTransferObject.TrainingDTO FindByTitle(string title);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/FindByTitle", ReplyAction="http://tempuri.org/IApplicationServer/FindByTitleResponse")]
         System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> FindByTitleAsync(string title);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveQuestion", ReplyAction="http://tempuri.org/IApplicationServer/SaveQuestionResponse")]
+        void SaveQuestion(DataTransferObject.QuestionDTO question);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveQuestion", ReplyAction="http://tempuri.org/IApplicationServer/SaveQuestionResponse")]
+        System.Threading.Tasks.Task SaveQuestionAsync(DataTransferObject.QuestionDTO question);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse")]
+        DataTransferObject.QuestionDTO GetRandomQuestionForTestee(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee", ReplyAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetRandomQuestionForTesteeAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateAnswer", ReplyAction="http://tempuri.org/IApplicationServer/UpdateAnswerResponse")]
+        void UpdateAnswer(DataTransferObject.AnswerDTO answer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateAnswer", ReplyAction="http://tempuri.org/IApplicationServer/UpdateAnswerResponse")]
+        System.Threading.Tasks.Task UpdateAnswerAsync(DataTransferObject.AnswerDTO answer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/GetApplicationSettingsResponse")]
+        DataTransferObject.ApplicationSettingsDTO GetApplicationSettings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/GetApplicationSettingsResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> GetApplicationSettingsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/SaveApplicationSettingsResponse")]
+        DataTransferObject.ApplicationSettingsDTO SaveApplicationSettings(DataTransferObject.ApplicationSettingsDTO setting);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/SaveApplicationSettingsResponse")]
+        System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> SaveApplicationSettingsAsync(DataTransferObject.ApplicationSettingsDTO setting);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllRoles", ReplyAction="http://tempuri.org/IApplicationServer/GetAllRolesResponse")]
         DataTransferObject.RoleDTO[] GetAllRoles();
@@ -141,23 +99,11 @@ namespace AdminApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllPermissions", ReplyAction="http://tempuri.org/IApplicationServer/GetAllPermissionsResponse")]
         System.Threading.Tasks.Task<DataTransferObject.PermissionDTO[]> GetAllPermissionsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateRoles", ReplyAction="http://tempuri.org/IApplicationServer/UpdateRolesResponse")]
-        void UpdateRoles(DataTransferObject.RoleDTO role);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveRole", ReplyAction="http://tempuri.org/IApplicationServer/SaveRoleResponse")]
+        void SaveRole(DataTransferObject.RoleDTO role);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateRoles", ReplyAction="http://tempuri.org/IApplicationServer/UpdateRolesResponse")]
-        System.Threading.Tasks.Task UpdateRolesAsync(DataTransferObject.RoleDTO role);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/AddTesteeRole", ReplyAction="http://tempuri.org/IApplicationServer/AddTesteeRoleResponse")]
-        void AddTesteeRole(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/AddTesteeRole", ReplyAction="http://tempuri.org/IApplicationServer/AddTesteeRoleResponse")]
-        System.Threading.Tasks.Task AddTesteeRoleAsync(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateAnswer", ReplyAction="http://tempuri.org/IApplicationServer/UpdateAnswerResponse")]
-        void UpdateAnswer(DataTransferObject.AnswerDTO answer);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateAnswer", ReplyAction="http://tempuri.org/IApplicationServer/UpdateAnswerResponse")]
-        System.Threading.Tasks.Task UpdateAnswerAsync(DataTransferObject.AnswerDTO answer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveRole", ReplyAction="http://tempuri.org/IApplicationServer/SaveRoleResponse")]
+        System.Threading.Tasks.Task SaveRoleAsync(DataTransferObject.RoleDTO role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoadTrainings", ReplyAction="http://tempuri.org/IApplicationServer/LoadTrainingsResponse")]
         void LoadTrainings();
@@ -177,35 +123,29 @@ namespace AdminApplication.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/LoadAdditionalQuestions", ReplyAction="http://tempuri.org/IApplicationServer/LoadAdditionalQuestionsResponse")]
         System.Threading.Tasks.Task LoadAdditionalQuestionsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTesteesForReport", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesForReportResponse")]
-        DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSettingsResponse")]
+        void UpdateSettings(DataTransferObject.SettingDTO[] settings);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTesteesForReport", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesForReportResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesForReportAsync(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateSettingsResponse")]
+        System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO[] settings);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/ReadApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/ReadApplicationSettingsResponse")]
-        DataTransferObject.ApplicationSettingsDTO ReadApplicationSettings();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTrainings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingsResponse")]
+        void UpdateTesteeTrainings(DataTransferObject.TesteeTrainingDTO[] testeeTrainings);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/ReadApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/ReadApplicationSettingsResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> ReadApplicationSettingsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTrainings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingsResponse")]
+        System.Threading.Tasks.Task UpdateTesteeTrainingsAsync(DataTransferObject.TesteeTrainingDTO[] testeeTrainings);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/SaveApplicationSettingsResponse")]
-        DataTransferObject.ApplicationSettingsDTO SaveApplicationSettings(DataTransferObject.ApplicationSettingsDTO settings);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeAnswerResponse")]
+        void SaveTesteeAnswer(DataTransferObject.HistoryDTO history);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/SaveApplicationSettingsResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> SaveApplicationSettingsAsync(DataTransferObject.ApplicationSettingsDTO settings);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer", ReplyAction="http://tempuri.org/IApplicationServer/SaveTesteeAnswerResponse")]
+        System.Threading.Tasks.Task SaveTesteeAnswerAsync(DataTransferObject.HistoryDTO history);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateApplicationSettingsResponse")]
-        DataTransferObject.ApplicationSettingsDTO UpdateApplicationSettings(DataTransferObject.ApplicationSettingsDTO settings);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingResponse")]
+        void UpdateTesteeTraining(DataTransferObject.TesteeTrainingDTO testeeTraining);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateApplicationSettings", ReplyAction="http://tempuri.org/IApplicationServer/UpdateApplicationSettingsResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> UpdateApplicationSettingsAsync(DataTransferObject.ApplicationSettingsDTO settings);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetSettings", ReplyAction="http://tempuri.org/IApplicationServer/GetSettingsResponse")]
-        DataTransferObject.ApplicationSettingsDTO GetSettings();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetSettings", ReplyAction="http://tempuri.org/IApplicationServer/GetSettingsResponse")]
-        System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> GetSettingsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/UpdateTesteeTraining", ReplyAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingResponse")]
+        System.Threading.Tasks.Task UpdateTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -243,92 +183,12 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.GetAllTesteesAsync();
         }
         
-        public void SaveTesteeAnswer(DataTransferObject.HistoryDTO history) {
-            base.Channel.SaveTesteeAnswer(history);
-        }
-        
-        public System.Threading.Tasks.Task SaveTesteeAnswerAsync(DataTransferObject.HistoryDTO history) {
-            return base.Channel.SaveTesteeAnswerAsync(history);
-        }
-        
-        public DataTransferObject.QuestionDTO GetRandomQuestionForTestee(System.Guid id) {
-            return base.Channel.GetRandomQuestionForTestee(id);
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetRandomQuestionForTesteeAsync(System.Guid id) {
-            return base.Channel.GetRandomQuestionForTesteeAsync(id);
-        }
-        
-        public DataTransferObject.TrainingDTO[] GetAllActiveTrainings() {
-            return base.Channel.GetAllActiveTrainings();
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllActiveTrainingsAsync() {
-            return base.Channel.GetAllActiveTrainingsAsync();
-        }
-        
-        public DataTransferObject.TrainingDTO[] GetAllTrainings() {
-            return base.Channel.GetAllTrainings();
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllTrainingsAsync() {
-            return base.Channel.GetAllTrainingsAsync();
-        }
-        
         public DataTransferObject.TesteeDTO FindByLogin(string login) {
             return base.Channel.FindByLogin(login);
         }
         
         public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> FindByLoginAsync(string login) {
             return base.Channel.FindByLoginAsync(login);
-        }
-        
-        public void SaveAnswer(DataTransferObject.QuestionDTO question) {
-            base.Channel.SaveAnswer(question);
-        }
-        
-        public System.Threading.Tasks.Task SaveAnswerAsync(DataTransferObject.QuestionDTO question) {
-            return base.Channel.SaveAnswerAsync(question);
-        }
-        
-        public DataTransferObject.TrainingDTO UpdateTraining(DataTransferObject.TrainingDTO training) {
-            return base.Channel.UpdateTraining(training);
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> UpdateTrainingAsync(DataTransferObject.TrainingDTO training) {
-            return base.Channel.UpdateTrainingAsync(training);
-        }
-        
-        public DataTransferObject.TrainingDTO SaveTraining(DataTransferObject.TrainingDTO training) {
-            return base.Channel.SaveTraining(training);
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> SaveTrainingAsync(DataTransferObject.TrainingDTO training) {
-            return base.Channel.SaveTrainingAsync(training);
-        }
-        
-        public void UpdateQuestion(DataTransferObject.QuestionDTO training) {
-            base.Channel.UpdateQuestion(training);
-        }
-        
-        public System.Threading.Tasks.Task UpdateQuestionAsync(DataTransferObject.QuestionDTO training) {
-            return base.Channel.UpdateQuestionAsync(training);
-        }
-        
-        public void SaveQuestion(DataTransferObject.QuestionDTO training) {
-            base.Channel.SaveQuestion(training);
-        }
-        
-        public System.Threading.Tasks.Task SaveQuestionAsync(DataTransferObject.QuestionDTO training) {
-            return base.Channel.SaveQuestionAsync(training);
-        }
-        
-        public DataTransferObject.TesteeDTO UpdateTestee(DataTransferObject.TesteeDTO testee) {
-            return base.Channel.UpdateTestee(testee);
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO> UpdateTesteeAsync(DataTransferObject.TesteeDTO testee) {
-            return base.Channel.UpdateTesteeAsync(testee);
         }
         
         public DataTransferObject.TesteeDTO SaveTestee(DataTransferObject.TesteeDTO testee) {
@@ -339,44 +199,28 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.SaveTesteeAsync(testee);
         }
         
-        public void UpdateSettings(DataTransferObject.SettingDTO[] setting) {
-            base.Channel.UpdateSettings(setting);
+        public DataTransferObject.TrainingDTO[] GetAllTrainings() {
+            return base.Channel.GetAllTrainings();
         }
         
-        public System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO[] setting) {
-            return base.Channel.UpdateSettingsAsync(setting);
+        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllTrainingsAsync() {
+            return base.Channel.GetAllTrainingsAsync();
         }
         
-        public void DeleteAnswer(DataTransferObject.AnswerDTO answer) {
-            base.Channel.DeleteAnswer(answer);
+        public DataTransferObject.TrainingDTO[] GetAllActiveTrainings() {
+            return base.Channel.GetAllActiveTrainings();
         }
         
-        public System.Threading.Tasks.Task DeleteAnswerAsync(DataTransferObject.AnswerDTO answer) {
-            return base.Channel.DeleteAnswerAsync(answer);
+        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO[]> GetAllActiveTrainingsAsync() {
+            return base.Channel.GetAllActiveTrainingsAsync();
         }
         
-        public void DeleteTesteeTraining(DataTransferObject.TesteeTrainingDTO testeeTraining) {
-            base.Channel.DeleteTesteeTraining(testeeTraining);
+        public DataTransferObject.TrainingDTO SaveTraining(DataTransferObject.TrainingDTO training) {
+            return base.Channel.SaveTraining(training);
         }
         
-        public System.Threading.Tasks.Task DeleteTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining) {
-            return base.Channel.DeleteTesteeTrainingAsync(testeeTraining);
-        }
-        
-        public void UpdateTesteeTrainings(DataTransferObject.TesteeTrainingDTO[] testeeTraining) {
-            base.Channel.UpdateTesteeTrainings(testeeTraining);
-        }
-        
-        public System.Threading.Tasks.Task UpdateTesteeTrainingsAsync(DataTransferObject.TesteeTrainingDTO[] testeeTraining) {
-            return base.Channel.UpdateTesteeTrainingsAsync(testeeTraining);
-        }
-        
-        public void UpdateTesteeTraining(DataTransferObject.TesteeTrainingDTO testeeTraining) {
-            base.Channel.UpdateTesteeTraining(testeeTraining);
-        }
-        
-        public System.Threading.Tasks.Task UpdateTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining) {
-            return base.Channel.UpdateTesteeTrainingAsync(testeeTraining);
+        public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> SaveTrainingAsync(DataTransferObject.TrainingDTO training) {
+            return base.Channel.SaveTrainingAsync(training);
         }
         
         public DataTransferObject.TrainingDTO FindByTitle(string title) {
@@ -385,6 +229,46 @@ namespace AdminApplication.ServiceReference {
         
         public System.Threading.Tasks.Task<DataTransferObject.TrainingDTO> FindByTitleAsync(string title) {
             return base.Channel.FindByTitleAsync(title);
+        }
+        
+        public void SaveQuestion(DataTransferObject.QuestionDTO question) {
+            base.Channel.SaveQuestion(question);
+        }
+        
+        public System.Threading.Tasks.Task SaveQuestionAsync(DataTransferObject.QuestionDTO question) {
+            return base.Channel.SaveQuestionAsync(question);
+        }
+        
+        public DataTransferObject.QuestionDTO GetRandomQuestionForTestee(System.Guid id) {
+            return base.Channel.GetRandomQuestionForTestee(id);
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.QuestionDTO> GetRandomQuestionForTesteeAsync(System.Guid id) {
+            return base.Channel.GetRandomQuestionForTesteeAsync(id);
+        }
+        
+        public void UpdateAnswer(DataTransferObject.AnswerDTO answer) {
+            base.Channel.UpdateAnswer(answer);
+        }
+        
+        public System.Threading.Tasks.Task UpdateAnswerAsync(DataTransferObject.AnswerDTO answer) {
+            return base.Channel.UpdateAnswerAsync(answer);
+        }
+        
+        public DataTransferObject.ApplicationSettingsDTO GetApplicationSettings() {
+            return base.Channel.GetApplicationSettings();
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> GetApplicationSettingsAsync() {
+            return base.Channel.GetApplicationSettingsAsync();
+        }
+        
+        public DataTransferObject.ApplicationSettingsDTO SaveApplicationSettings(DataTransferObject.ApplicationSettingsDTO setting) {
+            return base.Channel.SaveApplicationSettings(setting);
+        }
+        
+        public System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> SaveApplicationSettingsAsync(DataTransferObject.ApplicationSettingsDTO setting) {
+            return base.Channel.SaveApplicationSettingsAsync(setting);
         }
         
         public DataTransferObject.RoleDTO[] GetAllRoles() {
@@ -403,28 +287,12 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.GetAllPermissionsAsync();
         }
         
-        public void UpdateRoles(DataTransferObject.RoleDTO role) {
-            base.Channel.UpdateRoles(role);
+        public void SaveRole(DataTransferObject.RoleDTO role) {
+            base.Channel.SaveRole(role);
         }
         
-        public System.Threading.Tasks.Task UpdateRolesAsync(DataTransferObject.RoleDTO role) {
-            return base.Channel.UpdateRolesAsync(role);
-        }
-        
-        public void AddTesteeRole(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role) {
-            base.Channel.AddTesteeRole(testee, role);
-        }
-        
-        public System.Threading.Tasks.Task AddTesteeRoleAsync(DataTransferObject.TesteeDTO testee, DataTransferObject.RoleDTO role) {
-            return base.Channel.AddTesteeRoleAsync(testee, role);
-        }
-        
-        public void UpdateAnswer(DataTransferObject.AnswerDTO answer) {
-            base.Channel.UpdateAnswer(answer);
-        }
-        
-        public System.Threading.Tasks.Task UpdateAnswerAsync(DataTransferObject.AnswerDTO answer) {
-            return base.Channel.UpdateAnswerAsync(answer);
+        public System.Threading.Tasks.Task SaveRoleAsync(DataTransferObject.RoleDTO role) {
+            return base.Channel.SaveRoleAsync(role);
         }
         
         public void LoadTrainings() {
@@ -451,44 +319,36 @@ namespace AdminApplication.ServiceReference {
             return base.Channel.LoadAdditionalQuestionsAsync();
         }
         
-        public DataTransferObject.TesteeDTO[] GetAllTesteesForReport(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position) {
-            return base.Channel.GetAllTesteesForReport(from, to, Company, OfficeLoc, Sector, Division, Department, Position);
+        public void UpdateSettings(DataTransferObject.SettingDTO[] settings) {
+            base.Channel.UpdateSettings(settings);
         }
         
-        public System.Threading.Tasks.Task<DataTransferObject.TesteeDTO[]> GetAllTesteesForReportAsync(System.DateTime from, System.DateTime to, string Company, string OfficeLoc, string Sector, string Division, string Department, string Position) {
-            return base.Channel.GetAllTesteesForReportAsync(from, to, Company, OfficeLoc, Sector, Division, Department, Position);
+        public System.Threading.Tasks.Task UpdateSettingsAsync(DataTransferObject.SettingDTO[] settings) {
+            return base.Channel.UpdateSettingsAsync(settings);
         }
         
-        public DataTransferObject.ApplicationSettingsDTO ReadApplicationSettings() {
-            return base.Channel.ReadApplicationSettings();
+        public void UpdateTesteeTrainings(DataTransferObject.TesteeTrainingDTO[] testeeTrainings) {
+            base.Channel.UpdateTesteeTrainings(testeeTrainings);
         }
         
-        public System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> ReadApplicationSettingsAsync() {
-            return base.Channel.ReadApplicationSettingsAsync();
+        public System.Threading.Tasks.Task UpdateTesteeTrainingsAsync(DataTransferObject.TesteeTrainingDTO[] testeeTrainings) {
+            return base.Channel.UpdateTesteeTrainingsAsync(testeeTrainings);
         }
         
-        public DataTransferObject.ApplicationSettingsDTO SaveApplicationSettings(DataTransferObject.ApplicationSettingsDTO settings) {
-            return base.Channel.SaveApplicationSettings(settings);
+        public void SaveTesteeAnswer(DataTransferObject.HistoryDTO history) {
+            base.Channel.SaveTesteeAnswer(history);
         }
         
-        public System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> SaveApplicationSettingsAsync(DataTransferObject.ApplicationSettingsDTO settings) {
-            return base.Channel.SaveApplicationSettingsAsync(settings);
+        public System.Threading.Tasks.Task SaveTesteeAnswerAsync(DataTransferObject.HistoryDTO history) {
+            return base.Channel.SaveTesteeAnswerAsync(history);
         }
         
-        public DataTransferObject.ApplicationSettingsDTO UpdateApplicationSettings(DataTransferObject.ApplicationSettingsDTO settings) {
-            return base.Channel.UpdateApplicationSettings(settings);
+        public void UpdateTesteeTraining(DataTransferObject.TesteeTrainingDTO testeeTraining) {
+            base.Channel.UpdateTesteeTraining(testeeTraining);
         }
         
-        public System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> UpdateApplicationSettingsAsync(DataTransferObject.ApplicationSettingsDTO settings) {
-            return base.Channel.UpdateApplicationSettingsAsync(settings);
-        }
-        
-        public DataTransferObject.ApplicationSettingsDTO GetSettings() {
-            return base.Channel.GetSettings();
-        }
-        
-        public System.Threading.Tasks.Task<DataTransferObject.ApplicationSettingsDTO> GetSettingsAsync() {
-            return base.Channel.GetSettingsAsync();
+        public System.Threading.Tasks.Task UpdateTesteeTrainingAsync(DataTransferObject.TesteeTrainingDTO testeeTraining) {
+            return base.Channel.UpdateTesteeTrainingAsync(testeeTraining);
         }
     }
 }

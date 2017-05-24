@@ -15,7 +15,7 @@ namespace ApplicationServer
     {
         internal static ServiceHost applicationServiceHost = null;
         public static QuizDBContext dbContext;
-
+        static string connection = @"Data Source = ihrbot.isd.dp.ua, 5000; Initial Catalog = DAL.QuizDBContext; Integrated Security = True; MultipleActiveResultSets=True";
         static void Main(string[] args)
         {
             if (applicationServiceHost != null)
@@ -25,13 +25,19 @@ namespace ApplicationServer
             applicationServiceHost = new ServiceHost(typeof(ApplicationServer));
             applicationServiceHost.Open();
 
-            dbContext = new QuizDBContext();
-        
+            dbContext = new QuizDBContext(connection);
+
             Console.WriteLine("Press <Enter> to stop the service.");
             Console.ReadLine();
 
 
             applicationServiceHost.Close();
         }
+
+        public static void WriteInf(string message)
+        {
+            Console.WriteLine(message);
+        }
+
     }
 }

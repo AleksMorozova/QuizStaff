@@ -8,20 +8,20 @@ namespace LoginApplication
 {
     public class ServicesHolder
     {
-        private static LoginApplication.ServiceReference1.ApplicationServerClient serviceClient;
+        private static LoginApplication.ServiceReference.ApplicationServerClient serviceClient;
         private static ServicesHolder serviceHolderObject;
 
-        public static LoginApplication.ServiceReference1.ApplicationServerClient ServiceClient
+        public static LoginApplication.ServiceReference.ApplicationServerClient ServiceClient
         {
             get
             {
-                return (serviceClient != null) ? serviceClient : new LoginApplication.ServiceReference1.ApplicationServerClient();
+                return (serviceClient != null) ? serviceClient : new LoginApplication.ServiceReference.ApplicationServerClient();
             }
         }
 
         private ServicesHolder()
         {
-            serviceClient = new LoginApplication.ServiceReference1.ApplicationServerClient();
+            serviceClient = new LoginApplication.ServiceReference.ApplicationServerClient();
         }
 
         public static ServicesHolder ServiceHolderObject

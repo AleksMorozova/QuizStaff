@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DataTransferObject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataTransferObject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainModel" />
-  <xs:import schemaLocation="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainModel" />
+  <xs:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
   <xs:complexType name="ArrayOfTesteeDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeDTO" nillable="true" type="tns:TesteeDTO" />
@@ -201,24 +201,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfTrainingDTO" nillable="true" type="tns:ArrayOfTrainingDTO" />
-  <xs:complexType name="ArrayOfSettingDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="SettingDTO" nillable="true" type="tns:SettingDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfSettingDTO" nillable="true" type="tns:ArrayOfSettingDTO" />
-  <xs:complexType name="ArrayOfRoleDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoleDTO" nillable="true" type="tns:RoleDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfRoleDTO" nillable="true" type="tns:ArrayOfRoleDTO" />
-  <xs:complexType name="ArrayOfPermissionDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="PermissionDTO" nillable="true" type="tns:PermissionDTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPermissionDTO" nillable="true" type="tns:ArrayOfPermissionDTO" />
   <xs:complexType name="ApplicationSettingsDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="AdditionalQuestionsPath" nillable="true" type="xs:string" />
@@ -246,4 +228,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DaysOfUpdateDTO" nillable="true" type="tns:DaysOfUpdateDTO" />
+  <xs:complexType name="ArrayOfRoleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoleDTO" nillable="true" type="tns:RoleDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoleDTO" nillable="true" type="tns:ArrayOfRoleDTO" />
+  <xs:complexType name="ArrayOfPermissionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PermissionDTO" nillable="true" type="tns:PermissionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPermissionDTO" nillable="true" type="tns:ArrayOfPermissionDTO" />
+  <xs:complexType name="ArrayOfSettingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SettingDTO" nillable="true" type="tns:SettingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSettingDTO" nillable="true" type="tns:ArrayOfSettingDTO" />
 </xs:schema>

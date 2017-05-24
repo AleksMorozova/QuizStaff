@@ -3,17 +3,36 @@
   <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_policy">
     <wsp:ExactlyOne>
       <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
         <wsaw:UsingAddressing />
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8733/ApplicationServer/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8733/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8733/ApplicationServer/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataTransferObject" />
-      <xsd:import schemaLocation="http://localhost:8733/ApplicationServer/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainModel" />
-      <xsd:import schemaLocation="http://localhost:8733/ApplicationServer/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataTransferObject" />
+      <xsd:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainModel" />
+      <xsd:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IApplicationServer_GetAllTestees_InputMessage">
@@ -442,11 +461,11 @@
   </wsdl:binding>
   <wsdl:service name="ApplicationServer">
     <wsdl:port name="WSHttpBinding_IApplicationServer" binding="tns:WSHttpBinding_IApplicationServer">
-      <soap12:address location="http://localhost:8733/ApplicationServer/" />
+      <soap12:address location="https://ihrbot.isd.dp.ua:9736/ApplicationServer/" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:8733/ApplicationServer/</wsa10:Address>
+        <wsa10:Address>https://ihrbot.isd.dp.ua:9736/ApplicationServer/</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Dns>dws01</Dns>
+          <Dns>ihrbot</Dns>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

@@ -10,9 +10,10 @@ namespace DAL
 {
     public class QuizDBContext : DbContext
     {
-        public QuizDBContext()
-            : base()
+        public QuizDBContext(string connection)
+            : base(connection)
         {
+
             Database.CreateIfNotExists();
         }
 

@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminApplication.ServiceReference2 {
+namespace LoginApplication.ServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.IApplicationServer")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IApplicationServer")]
     public interface IApplicationServer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplicationServer/GetAllTestees", ReplyAction="http://tempuri.org/IApplicationServer/GetAllTesteesResponse")]
@@ -149,12 +149,12 @@ namespace AdminApplication.ServiceReference2 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IApplicationServerChannel : AdminApplication.ServiceReference2.IApplicationServer, System.ServiceModel.IClientChannel {
+    public interface IApplicationServerChannel : LoginApplication.ServiceReference.IApplicationServer, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ApplicationServerClient : System.ServiceModel.ClientBase<AdminApplication.ServiceReference2.IApplicationServer>, AdminApplication.ServiceReference2.IApplicationServer {
+    public partial class ApplicationServerClient : System.ServiceModel.ClientBase<LoginApplication.ServiceReference.IApplicationServer>, LoginApplication.ServiceReference.IApplicationServer {
         
         public ApplicationServerClient() {
         }

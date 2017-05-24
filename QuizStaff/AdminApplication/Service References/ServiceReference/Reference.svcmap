@@ -19,16 +19,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://dws01:8733/ApplicationServer/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://ihrbot.isd.dp.ua:9736/ApplicationServer/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ApplicationServer.wsdl" MetadataType="Wsdl" ID="063d68a5-f307-48bb-b5a3-150feb283709" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?wsdl" />
-    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="5bdca485-4d38-40c6-9c93-52230eed5e19" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd1" />
-    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="ce9535b0-ddbb-4c50-8c5f-9e3229857aec" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?disco" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="ec87db2a-3903-4bd9-ac59-faa1df4cd6be" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd4" />
-    <MetadataFile FileName="item41.xsd" MetadataType="Schema" ID="4465d769-dd79-4ccc-a68f-e19aced7d747" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd2" />
-    <MetadataFile FileName="item42.xsd" MetadataType="Schema" ID="762a2277-593a-4b7c-8797-22e1a5e87fc7" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd3" />
-    <MetadataFile FileName="item43.xsd" MetadataType="Schema" ID="0bdc4731-fcac-4e70-8a36-6944a665dbb0" SourceId="1" SourceUrl="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/?xsd=xsd0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="e92246ac-0f2a-47ed-ba7c-fd86635eecbf" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd2" />
+    <MetadataFile FileName="item11.xsd" MetadataType="Schema" ID="5ac72884-685b-495e-9d91-292e7151f876" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd3" />
+    <MetadataFile FileName="item12.xsd" MetadataType="Schema" ID="d7e7c243-86ba-4c9c-a3a5-71cd256beb2a" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd0" />
+    <MetadataFile FileName="item13.xsd" MetadataType="Schema" ID="8584a11e-3f2f-4469-92d7-22aba3c36b06" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd1" />
+    <MetadataFile FileName="item14.xsd" MetadataType="Schema" ID="5bac4226-0905-42f0-b307-7e5af5b84369" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd4" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="8216dbb5-362a-4a84-ae5a-9783ac6c7250" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?disco" />
+    <MetadataFile FileName="ApplicationServer1.wsdl" MetadataType="Wsdl" ID="8537fbf2-a792-4b46-9ff9-892060afb27f" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

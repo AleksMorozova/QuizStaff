@@ -65,55 +65,72 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
-    <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\DevExpress 15.2\Components\Bin\Framework\DevExpress.Data.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.Charts.v15.2.Core">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.Charts.v15.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.DataAccess.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Mvvm.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\DevExpress 15.2\Components\Bin\Framework\DevExpress.Mvvm.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.Data.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.Data.v15.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Office.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.PivotGrid.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\DevExpress 15.2\Components\Bin\Framework\DevExpress.Printing.v15.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.DataAccess.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.DataAccess.v15.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.RichEdit.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\DevExpress 15.2\Components\Bin\Framework\DevExpress.Sparkline.v15.2.Core.dll</HintPath>
+    <Reference Include="DevExpress.Mvvm.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.Mvvm.v15.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\DevExpress 15.2\Components\Bin\Framework\DevExpress.Utils.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.Office.v15.2.Core">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.Office.v15.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Utils.v15.2.UI, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\DevExpress 15.2\Components\Bin\Framework\DevExpress.XtraBars.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.PivotGrid.v15.2.Core">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.PivotGrid.v15.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\DevExpress 15.2\Components\Bin\Framework\DevExpress.XtraEditors.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.Printing.v15.2.Core">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.Printing.v15.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\DevExpress 15.2\Components\Bin\Framework\DevExpress.XtraGrid.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.RichEdit.v15.2.Core">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.RichEdit.v15.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\DevExpress 15.2\Components\Bin\Framework\DevExpress.XtraLayout.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.Sparkline.v15.2.Core">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v15.2.Extensions, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.Utils.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v15.2.UI">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.Utils.v15.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.Xpo.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.XtraBars.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.XtraCharts.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.XtraEditors.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v15.2.Core">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.XtraGauges.v15.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.XtraGrid.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.XtraLayout.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.XtraPrinting.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.XtraReports.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v15.2.Extensions">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.XtraReports.v15.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v15.2">
+      <HintPath>..\..\..\Repo_Quiz\Quiz_reliase\QuizStaff\AdminApplication\bin\Debug\DevExpress.XtraTreeList.v15.2.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -187,16 +204,6 @@
     </Compile>
     <Compile Include="Reports\TesteeReport.Designer.cs">
       <DependentUpon>TesteeReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ServiceReference2\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -394,8 +401,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
-    <WCFMetadataStorage Include="Service References\ServiceReference2\" />
     <WCFMetadataStorage Include="Service References\ServiceReference\" />
   </ItemGroup>
   <ItemGroup>
@@ -434,36 +439,6 @@
     <Folder Include="obj\" />
   </ItemGroup>
   <ItemGroup>
-    <PublishFile Include="DevExpress.Data.v15.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Mvvm.v15.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Office.v15.2.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
     <PublishFile Include="DevExpress.Pdf.v15.2.Core">
       <Visible>False</Visible>
       <Group>
@@ -484,107 +459,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="DevExpress.Printing.v15.2.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.RichEdit.v15.2.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Sparkline.v15.2.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Utils.v15.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
     <PublishFile Include="DevExpress.Xpf.Core.v15.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraBars.v15.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraEditors.v15.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraGrid.v15.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraLayout.v15.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraPrinting.v15.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraTreeList.v15.2">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -746,58 +621,26 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\ApplicationServer1.wsdl" />
-    <None Include="Service References\ServiceReference1\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\item5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\item51.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\item52.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\item53.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference2\ApplicationServer.wsdl" />
-    <None Include="Service References\ServiceReference2\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference2\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference2\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference2\item3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference2\item4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference\ApplicationServer.wsdl" />
+    <None Include="Service References\ServiceReference\ApplicationServer1.wsdl" />
     <None Include="Service References\ServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference\item.xsd">
+    <None Include="Service References\ServiceReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\item4.xsd">
+    <None Include="Service References\ServiceReference\item11.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\item41.xsd">
+    <None Include="Service References\ServiceReference\item12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\item42.xsd">
+    <None Include="Service References\ServiceReference\item13.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\item43.xsd">
+    <None Include="Service References\ServiceReference\item14.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference\Reference.svcmap">
@@ -806,37 +649,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference2\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference2\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference2\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference2\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <None Include="Service References\ServiceReference\item.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

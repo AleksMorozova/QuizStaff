@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModel", "DomainModel\DomainModel.csproj", "{D6B6BEEB-6DA6-463D-A7E4-97A1309E1113}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTransferObject", "DataTransferObject\DataTransferObject.csproj", "{5A1CD4A2-87F7-48CC-8117-5EBBB44F5C97}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminApplication", "AdminApplication\AdminApplication.csproj", "{1B3C3548-8599-46BC-AB53-EC16F2529955}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteeApplication", "TesteeApplication\TesteeApplication.csproj", "{7D54CF3E-D5B9-4746-A4B6-985D10B3EC52}"
 EndProject
@@ -25,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoaderModel", "LoaderModel\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginApplication", "LoginApplication\LoginApplication.csproj", "{067C0131-C569-4EF4-AB93-3494DF83535B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminApplication", "AdminApplication\AdminApplication.csproj", "{1B3C3548-8599-46BC-AB53-EC16F2529955}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,10 +39,6 @@ Global
 		{5A1CD4A2-87F7-48CC-8117-5EBBB44F5C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A1CD4A2-87F7-48CC-8117-5EBBB44F5C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A1CD4A2-87F7-48CC-8117-5EBBB44F5C97}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B3C3548-8599-46BC-AB53-EC16F2529955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B3C3548-8599-46BC-AB53-EC16F2529955}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B3C3548-8599-46BC-AB53-EC16F2529955}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B3C3548-8599-46BC-AB53-EC16F2529955}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7D54CF3E-D5B9-4746-A4B6-985D10B3EC52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7D54CF3E-D5B9-4746-A4B6-985D10B3EC52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D54CF3E-D5B9-4746-A4B6-985D10B3EC52}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,6 +71,10 @@ Global
 		{067C0131-C569-4EF4-AB93-3494DF83535B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{067C0131-C569-4EF4-AB93-3494DF83535B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{067C0131-C569-4EF4-AB93-3494DF83535B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B3C3548-8599-46BC-AB53-EC16F2529955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B3C3548-8599-46BC-AB53-EC16F2529955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B3C3548-8599-46BC-AB53-EC16F2529955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B3C3548-8599-46BC-AB53-EC16F2529955}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

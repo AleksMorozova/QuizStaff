@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="prCkLQDUfd2HiFZTEj9IVuXao20=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="2RF3WaIUfOmavTnGHLfVIVyBbzY=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IApplicationServer">
       <properties>
@@ -81,14 +81,14 @@
         <property path="/security" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.WSHttpSecurityElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.WSHttpSecurityElement</serializedValue>
         </property>
-        <property path="/security/mode" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.SecurityMode, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>Message</serializedValue>
+        <property path="/security/mode" isComplexType="false" isExplicitlyDefined="true" clrType="System.ServiceModel.SecurityMode, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>Transport</serializedValue>
         </property>
         <property path="/security/transport" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.WSHttpTransportSecurityElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.WSHttpTransportSecurityElement</serializedValue>
         </property>
-        <property path="/security/transport/clientCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.HttpClientCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>Windows</serializedValue>
+        <property path="/security/transport/clientCredentialType" isComplexType="false" isExplicitlyDefined="true" clrType="System.ServiceModel.HttpClientCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>None</serializedValue>
         </property>
         <property path="/security/transport/proxyCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.HttpProxyCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>None</serializedValue>
@@ -127,10 +127,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IApplicationServer" contract="ServiceReference.IApplicationServer" bindingType="wsHttpBinding" address="http://dws01.edu.isd.dp.ua:8733/ApplicationServer/" bindingConfiguration="WSHttpBinding_IApplicationServer">
+    <endpoint name="WSHttpBinding_IApplicationServer" contract="ServiceReference.IApplicationServer" bindingType="wsHttpBinding" address="https://ihrbot.isd.dp.ua:9736/ApplicationServer/" bindingConfiguration="WSHttpBinding_IApplicationServer">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://dws01.edu.isd.dp.ua:8733/ApplicationServer/</serializedValue>
+          <serializedValue>https://ihrbot.isd.dp.ua:9736/ApplicationServer/</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -169,7 +169,7 @@
           <serializedValue>System.ServiceModel.Configuration.DnsElement</serializedValue>
         </property>
         <property path="/identity/dns/value" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>dws01</serializedValue>
+          <serializedValue>ihrbot</serializedValue>
         </property>
         <property path="/identity/rsa" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.RsaElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.RsaElement</serializedValue>
