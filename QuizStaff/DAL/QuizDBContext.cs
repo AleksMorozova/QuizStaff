@@ -13,8 +13,7 @@ namespace DAL
         public QuizDBContext(string connection)
             : base(connection)
         {
-
-            Database.CreateIfNotExists();
+            Database.SetInitializer<QuizDBContext>(new QuizDBInitializer());
         }
 
         public DbSet<Testee> Testees { get; set; }

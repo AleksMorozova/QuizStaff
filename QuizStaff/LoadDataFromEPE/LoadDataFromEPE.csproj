@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8342EC43-975B-4C95-96DB-895009E3FD22}</ProjectGuid>
+    <ProjectGuid>{E3015169-9CA9-436E-80F6-91998312881D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DAL</RootNamespace>
-    <AssemblyName>DAL</AssemblyName>
+    <RootNamespace>LoadDataFromEPE</RootNamespace>
+    <AssemblyName>LoadDataFromEPE</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,16 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,43 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201705221206240_InitialCreate.cs" />
-    <Compile Include="Migrations\201705221206240_InitialCreate.Designer.cs">
-      <DependentUpon>201705221206240_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="QuizDBInitializer.cs" />
-    <Compile Include="QuizDBContext.cs" />
+    <Compile Include="EPELoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\EFApplicationSettingsRepository.cs" />
-    <Compile Include="Repositories\EFHistoryRepository.cs" />
-    <Compile Include="Repositories\EFPermissionRepository.cs" />
-    <Compile Include="Repositories\EFRepository.cs" />
-    <Compile Include="Repositories\EFRoleRepository.cs" />
-    <Compile Include="Repositories\EFSettingRepository.cs" />
-    <Compile Include="Repositories\EFTesteeRepository.cs" />
-    <Compile Include="Repositories\EFTesteeTrainingRepository.cs" />
-    <Compile Include="Repositories\EFTrainingRepository.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
-      <Project>{5a1cd4a2-87f7-48cc-8117-5ebbb44f5c97}</Project>
-      <Name>DataTransferObject</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">
       <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>
       <Name>DomainModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705221206240_InitialCreate.resx">
-      <DependentUpon>201705221206240_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
