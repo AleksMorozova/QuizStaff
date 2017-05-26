@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fdf46cea-4be4-4275-ba34-37259698275f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://ihrbot.isd.dp.ua:9736/ApplicationServer/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="e34a1299-60e7-47e5-802b-ae8f554d828a" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="f7493dd8-13ac-4dee-a69a-debdb7f3f77d" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd3" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="ca2b5343-4e36-424d-8587-9af8ed226a1f" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd0" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="c6f300fb-4389-4fba-b16b-66dada6edf13" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd1" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="ca996824-6020-4864-b4a8-befeb83ac2e2" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd4" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="83b1400d-1dd7-4224-8def-87ee31d42038" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?disco" />
+    <MetadataFile FileName="ApplicationServer.wsdl" MetadataType="Wsdl" ID="5e55893a-d4a8-4f11-b208-69aca7a98c8f" SourceId="1" SourceUrl="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

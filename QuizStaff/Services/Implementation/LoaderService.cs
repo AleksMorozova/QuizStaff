@@ -17,7 +17,7 @@ namespace Services.Implementation
     {
         public void LoadAdditionalQuestions(QuizDBContext context)
         {
-            Loader.LoadQuestionFromFile(@"D:\QuizTrainings\GeneralQuestions");
+            Loader.LoadQuestionFromFile(@"C:\QuizTrainings\GeneralQuestions");
             var loadedQuestions = Loader.LoadedQuestions;
             TrainingDataPprocessing.SynchronizeAdditionalTrainings(context,loadedQuestions.Select(_ => _.Training).Distinct().ToList(), loadedQuestions);
             TesteeTrainingProcessing.SynchronizeTesteeTrainings(context, loadedQuestions.Select(_ => _.Training).Distinct().ToList());
@@ -25,7 +25,7 @@ namespace Services.Implementation
 
         public void LoadTrainings(QuizDBContext context)
         {
-            Loader.LoadDataFromFile(@"D:\QuizTrainings\ISD_Report.xlsx");
+            Loader.LoadDataFromFile(@"C:\QuizTrainings\ISD_Report.xlsx");
             Loader.LoadQuestionFromFile(@"D:\QuizTrainings\Questions");
 
             List<string> trainingTitles = Loader.TesteesList.Select(_ => _.training).ToList();

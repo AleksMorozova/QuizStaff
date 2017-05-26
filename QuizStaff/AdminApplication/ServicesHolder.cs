@@ -8,27 +8,14 @@ namespace AdminApplication
 {
     public class ServicesHolder
     {
-        private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient;
-        private static ServicesHolder serviceHolderObject = new ServicesHolder();
+        private static AdminApplication.ServiceReference.ApplicationServerClient serviceClient
+            = new AdminApplication.ServiceReference.ApplicationServerClient();
+
         public static AdminApplication.ServiceReference.ApplicationServerClient ServiceClient
         {
-            get
-            {
-                return (serviceClient != null) ? serviceClient : new AdminApplication.ServiceReference.ApplicationServerClient();
-            }
-        }
-
-        private ServicesHolder()
-        {
-            serviceClient = new AdminApplication.ServiceReference.ApplicationServerClient();
-        }
-
-        public static ServicesHolder ServiceHolderObject
-        {
-            get
-            {
-                return serviceHolderObject;
-            }
+            get =>(serviceClient != null) 
+                ? serviceClient 
+                : new AdminApplication.ServiceReference.ApplicationServerClient();
         }
     }
 }

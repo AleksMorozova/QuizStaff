@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
-  <contractRef ref="http://localhost:8733/ApplicationServer/?wsdl" docRef="http://localhost:8733/ApplicationServer/" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <contractRef ref="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?wsdl" docRef="https://ihrbot.isd.dp.ua:9736/ApplicationServer/" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
 </discovery>

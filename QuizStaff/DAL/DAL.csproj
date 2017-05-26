@@ -50,10 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201705221206240_InitialCreate.cs" />
-    <Compile Include="Migrations\201705221206240_InitialCreate.Designer.cs">
-      <DependentUpon>201705221206240_InitialCreate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="QuizDBInitializer.cs" />
     <Compile Include="QuizDBContext.cs" />
@@ -82,11 +78,6 @@
       <Project>{d6b6beeb-6da6-463d-a7e4-97a1309e1113}</Project>
       <Name>DomainModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705221206240_InitialCreate.resx">
-      <DependentUpon>201705221206240_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

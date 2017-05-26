@@ -11,11 +11,9 @@ namespace LoadDataFromEPE
     {
         public static List<Testee> LoadTesteeFromEPE()
         {
-            //List<Testee> loadedTesteess = new List<Testee>();
-            //TODO: Add epe service reference 
+            List<Testee> loadedTesteess = new List<Testee>();
             var service = new EPEServiceReference.IsdDataWebServiceSoapClient();
             var testees = service.GetIsdEmployeeOfficeData();
-
 
             for (int i = 0; i < testees.Tables[0].Rows.Count; i++)
             {
