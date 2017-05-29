@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ApplicationServer" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IApplicationServer_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataTransferObject" />
+      <xsd:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainModel" />
+      <xsd:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IApplicationServer_GetAllTestees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTestees" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllTestees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTesteesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_FindByLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByLogin" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_FindByLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveTestee_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTestee" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveTestee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTesteeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllTrainings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTrainings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllTrainings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTrainingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllActiveTrainings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllActiveTrainings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllActiveTrainings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllActiveTrainingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveTraining_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTraining" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveTraining_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTrainingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_FindByTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByTitle" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_FindByTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveQuestion" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetRandomQuestionForTestee_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRandomQuestionForTestee" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetRandomQuestionForTestee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRandomQuestionForTesteeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetApplicationSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationSettings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetApplicationSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveApplicationSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveApplicationSettings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveApplicationSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveApplicationSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRoles" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllPermissions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPermissions" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_GetAllPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRole" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_LoadTrainings_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadTrainings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_LoadTrainings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadTrainingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_LoadTesteeFromEPE_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadTesteeFromEPE" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_LoadTesteeFromEPE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadTesteeFromEPEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_LoadAdditionalQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAdditionalQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_LoadAdditionalQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAdditionalQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSettings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateTesteeTrainings_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTesteeTrainings" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateTesteeTrainings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTesteeTrainingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveTesteeAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTesteeAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_SaveTesteeAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTesteeAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateTesteeTraining_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTesteeTraining" />
+  </wsdl:message>
+  <wsdl:message name="IApplicationServer_UpdateTesteeTraining_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTesteeTrainingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IApplicationServer">
+    <wsdl:operation name="GetAllTestees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTestees" message="tns:IApplicationServer_GetAllTestees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTesteesResponse" message="tns:IApplicationServer_GetAllTestees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/FindByLogin" message="tns:IApplicationServer_FindByLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/FindByLoginResponse" message="tns:IApplicationServer_FindByLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTestee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveTestee" message="tns:IApplicationServer_SaveTestee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveTesteeResponse" message="tns:IApplicationServer_SaveTestee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrainings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTrainings" message="tns:IApplicationServer_GetAllTrainings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllTrainingsResponse" message="tns:IApplicationServer_GetAllTrainings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActiveTrainings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllActiveTrainings" message="tns:IApplicationServer_GetAllActiveTrainings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllActiveTrainingsResponse" message="tns:IApplicationServer_GetAllActiveTrainings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTraining">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveTraining" message="tns:IApplicationServer_SaveTraining_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveTrainingResponse" message="tns:IApplicationServer_SaveTraining_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/FindByTitle" message="tns:IApplicationServer_FindByTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/FindByTitleResponse" message="tns:IApplicationServer_FindByTitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveQuestion" message="tns:IApplicationServer_SaveQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveQuestionResponse" message="tns:IApplicationServer_SaveQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomQuestionForTestee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee" message="tns:IApplicationServer_GetRandomQuestionForTestee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetRandomQuestionForTesteeResponse" message="tns:IApplicationServer_GetRandomQuestionForTestee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateAnswer" message="tns:IApplicationServer_UpdateAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateAnswerResponse" message="tns:IApplicationServer_UpdateAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetApplicationSettings" message="tns:IApplicationServer_GetApplicationSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetApplicationSettingsResponse" message="tns:IApplicationServer_GetApplicationSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveApplicationSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveApplicationSettings" message="tns:IApplicationServer_SaveApplicationSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveApplicationSettingsResponse" message="tns:IApplicationServer_SaveApplicationSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllRoles" message="tns:IApplicationServer_GetAllRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllRolesResponse" message="tns:IApplicationServer_GetAllRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPermissions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/GetAllPermissions" message="tns:IApplicationServer_GetAllPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/GetAllPermissionsResponse" message="tns:IApplicationServer_GetAllPermissions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveRole" message="tns:IApplicationServer_SaveRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveRoleResponse" message="tns:IApplicationServer_SaveRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadTrainings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/LoadTrainings" message="tns:IApplicationServer_LoadTrainings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/LoadTrainingsResponse" message="tns:IApplicationServer_LoadTrainings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadTesteeFromEPE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/LoadTesteeFromEPE" message="tns:IApplicationServer_LoadTesteeFromEPE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/LoadTesteeFromEPEResponse" message="tns:IApplicationServer_LoadTesteeFromEPE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAdditionalQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/LoadAdditionalQuestions" message="tns:IApplicationServer_LoadAdditionalQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/LoadAdditionalQuestionsResponse" message="tns:IApplicationServer_LoadAdditionalQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateSettings" message="tns:IApplicationServer_UpdateSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateSettingsResponse" message="tns:IApplicationServer_UpdateSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTesteeTrainings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateTesteeTrainings" message="tns:IApplicationServer_UpdateTesteeTrainings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingsResponse" message="tns:IApplicationServer_UpdateTesteeTrainings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTesteeAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswer" message="tns:IApplicationServer_SaveTesteeAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/SaveTesteeAnswerResponse" message="tns:IApplicationServer_SaveTesteeAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTesteeTraining">
+      <wsdl:input wsaw:Action="http://tempuri.org/IApplicationServer/UpdateTesteeTraining" message="tns:IApplicationServer_UpdateTesteeTraining_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IApplicationServer/UpdateTesteeTrainingResponse" message="tns:IApplicationServer_UpdateTesteeTraining_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IApplicationServer" type="tns:IApplicationServer">
+    <wsp:PolicyReference URI="#WSHttpBinding_IApplicationServer_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllTestees">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/GetAllTestees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByLogin">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/FindByLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTestee">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/SaveTestee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTrainings">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/GetAllTrainings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActiveTrainings">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/GetAllActiveTrainings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTraining">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/SaveTraining" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByTitle">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/FindByTitle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveQuestion">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/SaveQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomQuestionForTestee">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/GetRandomQuestionForTestee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAnswer">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/UpdateAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationSettings">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/GetApplicationSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveApplicationSettings">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/SaveApplicationSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/GetAllRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPermissions">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/GetAllPermissions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRole">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/SaveRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadTrainings">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/LoadTrainings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadTesteeFromEPE">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/LoadTesteeFromEPE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAdditionalQuestions">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/LoadAdditionalQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSettings">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/UpdateSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTesteeTrainings">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/UpdateTesteeTrainings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTesteeAnswer">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/SaveTesteeAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTesteeTraining">
+      <soap12:operation soapAction="http://tempuri.org/IApplicationServer/UpdateTesteeTraining" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ApplicationServer">
+    <wsdl:port name="WSHttpBinding_IApplicationServer" binding="tns:WSHttpBinding_IApplicationServer">
+      <soap12:address location="https://ihrbot.isd.dp.ua:9736/ApplicationServer/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://ihrbot.isd.dp.ua:9736/ApplicationServer/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>ihrbot</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

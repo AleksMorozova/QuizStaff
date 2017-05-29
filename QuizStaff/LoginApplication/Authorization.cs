@@ -53,7 +53,7 @@ namespace LoginApplication
                 UserLoginForm dlg = new UserLoginForm();
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    if (true)//LogonUser(dlg.Login, dlg.Password, dlg.Domain)
+                    if (LogonUser(dlg.Login, dlg.Password, dlg.Domain))//LogonUser(dlg.Login, dlg.Password, dlg.Domain)
                     {
                         СurrentTestee = GetTestee(dlg.Login);
                         GetUserPermissions(dlg.Login);
@@ -79,7 +79,7 @@ namespace LoginApplication
 
             catch (Exception ex)
             {
-                //log.Error("Error message " + ex.Message);
+                log.Error("Error message " + ex.Message);
                 return LoginResult.Failed;
             }
         }

@@ -117,13 +117,20 @@ namespace ApplicationServer
 
         public void SaveRole(RoleDTO role)
         {
-            if (role.Id == Guid.Empty)
+            try
             {
-                RegistrateDependencies.RoleService.SaveRole(Program.dbContext, role);
+                if (role.Id == Guid.Empty)
+                {
+                    RegistrateDependencies.RoleService.SaveRole(Program.dbContext, role);
+                }
+                else
+                {
+                    RegistrateDependencies.RoleService.UpdateRole(Program.dbContext, role);
+                }
             }
-            else
+            catch (Exception e)
             {
-                RegistrateDependencies.RoleService.UpdateRole(Program.dbContext, role);
+                Console.WriteLine(e.Message);
             }
         }
         #endregion

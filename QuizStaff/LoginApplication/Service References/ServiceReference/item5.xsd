@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DataTransferObject" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DataTransferObject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DomainModel" />
+  <xs:import schemaLocation="https://ihrbot.isd.dp.ua:9736/ApplicationServer/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:complexType name="ArrayOfTesteeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeDTO" nillable="true" type="tns:TesteeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTesteeDTO" nillable="true" type="tns:ArrayOfTesteeDTO" />
+  <xs:complexType name="TesteeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attribute1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute11" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute12" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute13" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Attribute9" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Histories" nillable="true" type="tns:ArrayOfHistoryDTO" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Roles" nillable="true" type="tns:ArrayOfTesteeRolesDTO" />
+      <xs:element minOccurs="0" name="Trainings" nillable="true" type="tns:ArrayOfTesteeTrainingDTO" />
+      <xs:element minOccurs="0" name="UserSetting" nillable="true" type="tns:SettingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TesteeDTO" nillable="true" type="tns:TesteeDTO" />
+  <xs:complexType name="ArrayOfHistoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryDTO" nillable="true" type="tns:HistoryDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistoryDTO" nillable="true" type="tns:ArrayOfHistoryDTO" />
+  <xs:complexType name="HistoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnsweringDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Answers" nillable="true" type="tns:ArrayOfTesteeAnswerDTO" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsAnswerCorrect" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Question" nillable="true" type="tns:QuestionDTO" />
+      <xs:element minOccurs="0" name="QuestionId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Testee" nillable="true" type="tns:TesteeDTO" />
+      <xs:element minOccurs="0" name="TesteeId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HistoryDTO" nillable="true" type="tns:HistoryDTO" />
+  <xs:complexType name="ArrayOfTesteeAnswerDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeAnswerDTO" nillable="true" type="tns:TesteeAnswerDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTesteeAnswerDTO" nillable="true" type="tns:ArrayOfTesteeAnswerDTO" />
+  <xs:complexType name="TesteeAnswerDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Answer" nillable="true" type="tns:AnswerDTO" />
+      <xs:element minOccurs="0" name="AnswerID" type="ser:guid" />
+      <xs:element minOccurs="0" name="History" nillable="true" type="tns:HistoryDTO" />
+      <xs:element minOccurs="0" name="HistoryID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TesteeAnswerDTO" nillable="true" type="tns:TesteeAnswerDTO" />
+  <xs:complexType name="AnswerDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnswerText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsCorrect" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnswerDTO" nillable="true" type="tns:AnswerDTO" />
+  <xs:complexType name="QuestionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Answers" nillable="true" type="tns:ArrayOfAnswerDTO" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="QuestionText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Training" nillable="true" type="tns:TrainingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionDTO" nillable="true" type="tns:QuestionDTO" />
+  <xs:complexType name="ArrayOfAnswerDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnswerDTO" nillable="true" type="tns:AnswerDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnswerDTO" nillable="true" type="tns:ArrayOfAnswerDTO" />
+  <xs:complexType name="TrainingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAdditional" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Questions" nillable="true" type="tns:ArrayOfQuestionDTO" />
+      <xs:element minOccurs="0" name="TesteeTrainings" nillable="true" type="tns:ArrayOfTesteeTrainingDTO" />
+      <xs:element minOccurs="0" name="TrainingTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrainingDTO" nillable="true" type="tns:TrainingDTO" />
+  <xs:complexType name="ArrayOfQuestionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionDTO" nillable="true" type="tns:QuestionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionDTO" nillable="true" type="tns:ArrayOfQuestionDTO" />
+  <xs:complexType name="ArrayOfTesteeTrainingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeTrainingDTO" nillable="true" type="tns:TesteeTrainingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTesteeTrainingDTO" nillable="true" type="tns:ArrayOfTesteeTrainingDTO" />
+  <xs:complexType name="TesteeTrainingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSelect" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Testee" nillable="true" type="tns:TesteeDTO" />
+      <xs:element minOccurs="0" name="Training" nillable="true" type="tns:TrainingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TesteeTrainingDTO" nillable="true" type="tns:TesteeTrainingDTO" />
+  <xs:complexType name="ArrayOfTesteeRolesDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TesteeRolesDTO" nillable="true" type="tns:TesteeRolesDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTesteeRolesDTO" nillable="true" type="tns:ArrayOfTesteeRolesDTO" />
+  <xs:complexType name="TesteeRolesDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="tns:RoleDTO" />
+      <xs:element minOccurs="0" name="Testee" nillable="true" type="tns:TesteeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TesteeRolesDTO" nillable="true" type="tns:TesteeRolesDTO" />
+  <xs:complexType name="RoleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Permissions" nillable="true" type="tns:ArrayOfRolePermissionDTO" />
+      <xs:element minOccurs="0" name="Testees" nillable="true" type="tns:ArrayOfTesteeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RoleDTO" nillable="true" type="tns:RoleDTO" />
+  <xs:complexType name="ArrayOfRolePermissionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RolePermissionDTO" nillable="true" type="tns:RolePermissionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRolePermissionDTO" nillable="true" type="tns:ArrayOfRolePermissionDTO" />
+  <xs:complexType name="RolePermissionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Permission" nillable="true" type="tns:PermissionDTO" />
+      <xs:element minOccurs="0" name="Role" nillable="true" type="tns:RoleDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RolePermissionDTO" nillable="true" type="tns:RolePermissionDTO" />
+  <xs:complexType name="PermissionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Roles" nillable="true" type="tns:ArrayOfRolePermissionDTO" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DomainModel" minOccurs="0" name="Type" type="q1:PermissionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PermissionDTO" nillable="true" type="tns:PermissionDTO" />
+  <xs:complexType name="SettingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AmountOfQuestionsPerDay" type="xs:int" />
+      <xs:element minOccurs="0" name="CanUserEdit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Hours" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Minutes" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DomainModel" minOccurs="0" name="Recurrence" type="q2:RecurrenceType" />
+      <xs:element minOccurs="0" name="Seconds" type="xs:int" />
+      <xs:element minOccurs="0" name="ShowCorrectAnswer" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeOfStart" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SettingDTO" nillable="true" type="tns:SettingDTO" />
+  <xs:complexType name="ArrayOfTrainingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrainingDTO" nillable="true" type="tns:TrainingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTrainingDTO" nillable="true" type="tns:ArrayOfTrainingDTO" />
+  <xs:complexType name="ApplicationSettingsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalQuestionsPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Days" nillable="true" type="tns:ArrayOfDaysOfUpdateDTO" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="LMSReportFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LMSReportPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeOfUpdating" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TrainingsQuestionsPath" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationSettingsDTO" nillable="true" type="tns:ApplicationSettingsDTO" />
+  <xs:complexType name="ArrayOfDaysOfUpdateDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DaysOfUpdateDTO" nillable="true" type="tns:DaysOfUpdateDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDaysOfUpdateDTO" nillable="true" type="tns:ArrayOfDaysOfUpdateDTO" />
+  <xs:complexType name="DaysOfUpdateDTO">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="Day" type="q3:DayOfWeek" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsSelect" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Settings" nillable="true" type="tns:ApplicationSettingsDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DaysOfUpdateDTO" nillable="true" type="tns:DaysOfUpdateDTO" />
+  <xs:complexType name="ArrayOfRoleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoleDTO" nillable="true" type="tns:RoleDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoleDTO" nillable="true" type="tns:ArrayOfRoleDTO" />
+  <xs:complexType name="ArrayOfPermissionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PermissionDTO" nillable="true" type="tns:PermissionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPermissionDTO" nillable="true" type="tns:ArrayOfPermissionDTO" />
+  <xs:complexType name="ArrayOfSettingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SettingDTO" nillable="true" type="tns:SettingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSettingDTO" nillable="true" type="tns:ArrayOfSettingDTO" />
+</xs:schema>

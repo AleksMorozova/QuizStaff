@@ -17,7 +17,7 @@ namespace ApplicationServer
         private static Timer timer = new Timer();
         internal static ServiceHost applicationServiceHost = null;
         public static QuizDBContext dbContext;
-
+        static string connection = @"Data Source = ihrbot.isd.dp.ua, 5000; Initial Catalog = DAL.QuizDBContext; Integrated Security = True; MultipleActiveResultSets=True";
         static void Main(string[] args)
         {
             if (applicationServiceHost != null)
@@ -27,8 +27,8 @@ namespace ApplicationServer
             applicationServiceHost = new ServiceHost(typeof(ApplicationServer));
             applicationServiceHost.Open();
 
-            dbContext = new QuizDBContext();
-        
+            dbContext = new QuizDBContext(connection);
+
             Console.WriteLine("Press <Enter> to stop the service.");
             Console.ReadLine();
             StartTimer();
@@ -47,5 +47,11 @@ namespace ApplicationServer
             if (DateTime.Now.DayOfWeek == DayOfWeek.Thursday && (DateTime.Now.Hour == 20 || DateTime.Now.Hour == 8))
                 ApplicationServer.UpdateInformation();
         }
+
+        public static void WriteInf(string message)
+        {
+            Console.WriteLine(message);
+        }
+
     }
 }
