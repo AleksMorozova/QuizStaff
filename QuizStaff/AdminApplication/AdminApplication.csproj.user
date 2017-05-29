@@ -2,7 +2,7 @@
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
-    <PublishUrlHistory>publish\</PublishUrlHistory>
+    <PublishUrlHistory>D:\Quiz installation\Admin\|publish\</PublishUrlHistory>
     <InstallUrlHistory />
     <SupportUrlHistory />
     <UpdateUrlHistory>\\DWS01.edu.dp.ua\QuizApplication_Install\Admin\|\\DWS01\QuizApplication_Install\Admin\|\\DWS01\QuizApplication_test\</UpdateUrlHistory>
