@@ -10,26 +10,13 @@ namespace DataTransferObject
 {
     public class PermissionDTO
     {
-        public Guid Id { get; set; }
-
-        private string title;
-        public string Title
+        public PermissionDTO()
         {
-            get
-            {
-                return title;
-            }
-            set
-            {
-                if (value != title)
-                {
-                    title = value;
-                }
-            }
+            Roles = new BindingList<RolePermissionDTO>();
         }
-
+        public Guid Id { get; set; }
+        public string Title { get; set; }
         public virtual BindingList<RolePermissionDTO> Roles { get; set; }
-
         public virtual PermissionType Type { get; set; }
 
         public static implicit operator PermissionDTO(Permission permission)

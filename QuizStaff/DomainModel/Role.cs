@@ -9,6 +9,11 @@ namespace DomainModel
 {
     public class Role : Entity
     {
+        public Role()
+        {
+            Permissions = new BindingList<RolePermission>();
+            Testees = new BindingList<Testee>();
+        }
         public string Name { get; set; }
         public string Description { get; set; }
         public virtual BindingList<RolePermission> Permissions { get; set; }

@@ -10,6 +10,10 @@ namespace DomainModel
 {
     public class History: Entity
     {
+        public History()
+        {
+            Answers = new BindingList<TesteeAnswer>();
+        }
         public virtual Testee Testee { get; set; }
         public virtual Question Question { get; set; }
         public virtual DateTime AnsweringDate { get; set; }

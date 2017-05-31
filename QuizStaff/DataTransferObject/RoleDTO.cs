@@ -8,58 +8,17 @@ using System.Threading.Tasks;
 
 namespace DataTransferObject
 {
-    public class RoleDTO 
+    public class RoleDTO
     {
+        public RoleDTO()
+        {
+            Permissions = new BindingList<RolePermissionDTO>();
+            Testees = new BindingList<TesteeDTO>();
+        }
         public Guid Id { get; set; }
-
-        private string name;
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if (value != name)
-                {
-                    name = value;
-                }
-            }
-        }
-
-        private string description;
-        public string Description
-        {
-            get
-            {
-                return description;
-            }
-            set
-            {
-                if (value != description)
-                {
-                    description = value;
-                }
-            }
-        }
-
-        private BindingList<RolePermissionDTO> permissions;
-        public virtual BindingList<RolePermissionDTO> Permissions
-        {
-            get
-            {
-                return permissions;
-            }
-            set
-            {
-                if (value != permissions)
-                {
-                    permissions = value;
-                }
-            }
-        }
-
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public virtual BindingList<RolePermissionDTO> Permissions { get; set; }
         public virtual BindingList<TesteeDTO> Testees { get; set; }
 
         public static implicit operator RoleDTO(Role role)

@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>D:\Quiz installation\Admin\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>\\DWS01.edu.dp.ua\QuizApplication_Install\Admin\</UpdateUrl>
+    <UpdateUrl>\\ihrbot.isd.dp.ua\QuizApplication_Install\Admin\</UpdateUrl>
     <ProductName>Quiz</ProductName>
     <PublisherName>AleksMorozova</PublisherName>
     <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
@@ -52,10 +52,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>B21FC61E3898F98B152CC6895D5A91014D45ECDA</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A6754CD80C9297926F292CF04850F17EC7AA7DBD</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Client_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -370,6 +371,7 @@
     <EmbeddedResource Include="TrainingsForms\TrainingsList\TrainingListForm.ru-RU.resx">
       <DependentUpon>TrainingListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="AdminApplication_TemporaryKey.pfx" />
     <None Include="Client_TemporaryKey.pfx" />
     <None Include="DataTransferObject.ApplicationSettingsDTO1.datasource" />
     <None Include="DataTransferObject.PermissionDTO.datasource" />

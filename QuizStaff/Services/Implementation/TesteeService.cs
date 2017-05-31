@@ -17,40 +17,48 @@ namespace Services.Implementation
         public List<TesteeDTO> GetAllTestees(QuizDBContext dbContext)
         {
             EFRepository<Testee> repo = new EFRepository<Testee>(dbContext);
+            IEnumerable<Testee> selectedTestee = null;
+            try
+            {
+                var loadedTestee = repo.ReadAll();
+                selectedTestee = loadedTestee.Where(x => x.IsActive).AsQueryable()
+                    .Select(testee => new Testee
+                    {
+                        Id = testee.Id,
+                        FirstName = testee.FirstName,
+                        LastName = testee.LastName,
+                        Login = testee.Login,
+                        IsActive = testee.IsActive,
+                        Email = testee.Email,
 
-            var loadedTestee = repo.ReadAll();
-            var selectedTestee = loadedTestee.Where(x => x.IsActive).AsQueryable()
-                .Select(testee => new Testee
-                {
-                    Id = testee.Id,
-                    FirstName = testee.FirstName,
-                    LastName = testee.LastName,
-                    Login = testee.Login,
-                    IsActive = testee.IsActive,
-                    Email = testee.Email,
+                        Attribute1 = testee.Attribute1,
+                        Attribute2 = testee.Attribute2,
+                        Attribute3 = testee.Attribute3,
+                        Attribute4 = testee.Attribute4,
+                        Attribute5 = testee.Attribute5,
+                        Attribute6 = testee.Attribute6,
+                        Attribute7 = testee.Attribute7,
+                        Attribute8 = testee.Attribute8,
+                        Attribute9 = testee.Attribute9,
+                        Attribute10 = testee.Attribute10,
+                        Attribute11 = testee.Attribute11,
+                        Attribute12 = testee.Attribute12,
+                        Attribute13 = testee.Attribute13,
 
-                    Attribute1 = testee.Attribute1,
-                    Attribute2 = testee.Attribute2,
-                    Attribute3 = testee.Attribute3,
-                    Attribute4 = testee.Attribute4,
-                    Attribute5 = testee.Attribute5,
-                    Attribute6 = testee.Attribute6,
-                    Attribute7 = testee.Attribute7,
-                    Attribute8 = testee.Attribute8,
-                    Attribute9 = testee.Attribute9,
-                    Attribute10 = testee.Attribute10,
-                    Attribute11 = testee.Attribute11,
-                    Attribute12 = testee.Attribute12,
-                    Attribute13 = testee.Attribute13,
+                        UserSetting = testee.UserSetting,
+                        Trainings = new BindingList<TesteeTraining>(testee.Trainings.ToList().Where(_ => _.IsActive).ToList()),
+                        Roles = new BindingList<TesteeRoles>(testee.Roles.ToList()),
+                        Histories = new BindingList<History>(testee.Histories.ToList())
 
-                    UserSetting = testee.UserSetting,
-                    Trainings = new BindingList<TesteeTraining>(testee.Trainings.ToList().Where(_ => _.IsActive).ToList()),
-                    Roles = new BindingList<TesteeRoles>(testee.Roles.ToList()),
-                    Histories = new BindingList<History>(testee.Histories.ToList())
+                    }).ToList();
 
-                }).ToList();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
-            return selectedTestee.Select(testee => (TesteeDTO)testee).ToList();
+                return selectedTestee.Select(testee => (TesteeDTO)testee).ToList();
         }
 
         public TesteeDTO FindByLogin(QuizDBContext dbContext, string login)
