@@ -10,6 +10,11 @@ namespace DomainModel
 {
     public class Training : Entity
     {
+        public Training()
+        {
+            Questions = new BindingList<Question>();
+            TesteeTrainings = new BindingList<TesteeTraining>();
+        }
         public string TrainingTitle { get; set; }
         public bool IsActive { get; set; }
         public bool IsAdditional { get; set; }

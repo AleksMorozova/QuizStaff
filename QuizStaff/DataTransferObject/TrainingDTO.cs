@@ -11,6 +11,11 @@ namespace DataTransferObject
 {
     public class TrainingDTO
     {
+        public TrainingDTO()
+        {
+            Questions = new BindingList<QuestionDTO>();
+            TesteeTrainings = new BindingList<TesteeTrainingDTO>();
+        }
         public Guid Id { get; set; }
 
         public bool IsActive { get; set; }

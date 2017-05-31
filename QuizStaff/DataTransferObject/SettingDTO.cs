@@ -12,42 +12,10 @@ namespace DataTransferObject
     {
         public Guid Id { get; set; }
 
-        private int amountOfQuestionsPerDay;
-        public int AmountOfQuestionsPerDay
-        {
-            get
-            {
-                return amountOfQuestionsPerDay;
-            }
-            set
-            {
-                if (value != amountOfQuestionsPerDay)
-                {
-                    amountOfQuestionsPerDay = value;
-                }
-            }
-        }
-
-        private DateTime timeOfStart;
-        public DateTime TimeOfStart
-        {
-            get
-            {
-                return timeOfStart;
-            }
-            set
-            {
-                if (value != timeOfStart)
-                {
-                    timeOfStart = value;
-                }
-            }
-        }
-
+        public int AmountOfQuestionsPerDay { get; set; }
+        public DateTime TimeOfStart { get; set; }
         public bool CanUserEdit { get; set; }
-
         public bool ShowCorrectAnswer { get; set; }
-
         public int Hours { get; set; }
         public int Minutes { get; set; }
         public int Seconds { get; set; }

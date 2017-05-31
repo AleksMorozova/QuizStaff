@@ -10,6 +10,10 @@ namespace DataTransferObject
 {
     public class HistoryDTO
     {
+        public HistoryDTO()
+        {
+            Answers = new BindingList<TesteeAnswerDTO>();
+        }
         public Guid Id { get; set; }
         public Guid TesteeId { get; set; }
         public Guid QuestionId { get; set; }

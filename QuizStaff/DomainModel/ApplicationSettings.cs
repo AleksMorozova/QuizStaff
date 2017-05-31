@@ -9,6 +9,10 @@ namespace DomainModel
 {
     public class ApplicationSettings:Entity
     {
+        public ApplicationSettings()
+        {
+            Days = new BindingList<DaysOfUpdate>();
+        }
         public virtual BindingList<DaysOfUpdate> Days { get; set; }
         public DateTime TimeOfUpdating { get; set; }
         public string LMSReportFileName { get; set; }

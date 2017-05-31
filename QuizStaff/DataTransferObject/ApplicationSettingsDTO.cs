@@ -9,6 +9,10 @@ namespace DataTransferObject
 {
     public class ApplicationSettingsDTO
     {
+        public ApplicationSettingsDTO()
+        {
+            Days = new BindingList<DaysOfUpdateDTO>();
+        }
         public Guid Id { get; set; }
         public virtual BindingList<DaysOfUpdateDTO> Days { get; set; }
         public DateTime TimeOfUpdating { get; set; }

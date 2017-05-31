@@ -10,6 +10,13 @@ namespace DomainModel
 {
     public class Testee : Entity
     {
+        public Testee()
+        {
+            Histories = new BindingList<History>();
+            Trainings = new BindingList<TesteeTraining>();
+            Roles = new BindingList<TesteeRoles>();
+        }
+
         public string FirstName  { get; set; }
         public string LastName {get; set; }
         public string Email { get; set; }

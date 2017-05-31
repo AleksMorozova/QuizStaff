@@ -26,7 +26,7 @@ namespace Services.Implementation
         public void LoadTrainings(QuizDBContext context)
         {
             Loader.LoadDataFromFile(@"C:\QuizTrainings\ISD_Report.xlsx");
-            Loader.LoadQuestionFromFile(@"D:\QuizTrainings\Questions");
+            Loader.LoadQuestionFromFile(@"C:\QuizTrainings\Questions");
 
             List<string> trainingTitles = Loader.TesteesList.Select(_ => _.training).ToList();
             List<TesteeData> testees = Loader.TesteesTrainingsList;

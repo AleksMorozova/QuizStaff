@@ -101,7 +101,7 @@ namespace DataLoader
             newTestee.IsActive = true;
             newTestee.UserSetting = new Setting() { Minutes = 5, AmountOfQuestionsPerDay = 10, TimeOfStart = DateTime.Now, EndDate = DateTime.Now, Recurrence = RecurrenceType.WithExactRepeated };
             newTestee.Trainings = new BindingList<TesteeTraining>();
-            newTestee.Roles = new BindingList<TesteeRoles>() { new TesteeRoles() { Role = role } };
+            newTestee.Roles = new BindingList<TesteeRoles>() { new TesteeRoles() { Role = role, IsActive = true} };
 
             newTestee.Email = testee.Email;
 
